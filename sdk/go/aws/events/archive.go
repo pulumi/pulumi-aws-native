@@ -11,20 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+// Resource Type definition for AWS::Events::Archive
 type Archive struct {
 	pulumi.CustomResourceState
 
-	ArchiveName pulumi.StringOutput `pulumi:"archiveName"`
-	Arn         pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-	EventPattern pulumi.AnyOutput `pulumi:"eventPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-	RetentionDays pulumi.IntPtrOutput `pulumi:"retentionDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
+	ArchiveName   pulumi.StringOutput    `pulumi:"archiveName"`
+	Arn           pulumi.StringOutput    `pulumi:"arn"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	EventPattern  pulumi.AnyOutput       `pulumi:"eventPattern"`
+	RetentionDays pulumi.IntPtrOutput    `pulumi:"retentionDays"`
+	SourceArn     pulumi.StringOutput    `pulumi:"sourceArn"`
 }
 
 // NewArchive registers a new resource with the given unique name, arguments, and options.
@@ -69,30 +65,18 @@ func (ArchiveState) ElementType() reflect.Type {
 }
 
 type archiveArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
-	ArchiveName *string `pulumi:"archiveName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-	EventPattern interface{} `pulumi:"eventPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-	RetentionDays *int `pulumi:"retentionDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-	SourceArn string `pulumi:"sourceArn"`
+	Description   *string     `pulumi:"description"`
+	EventPattern  interface{} `pulumi:"eventPattern"`
+	RetentionDays *int        `pulumi:"retentionDays"`
+	SourceArn     string      `pulumi:"sourceArn"`
 }
 
 // The set of arguments for constructing a Archive resource.
 type ArchiveArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
-	ArchiveName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-	EventPattern pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
+	Description   pulumi.StringPtrInput
+	EventPattern  pulumi.Input
 	RetentionDays pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-	SourceArn pulumi.StringInput
+	SourceArn     pulumi.StringInput
 }
 
 func (ArchiveArgs) ElementType() reflect.Type {

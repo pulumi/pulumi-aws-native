@@ -7,28 +7,30 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html
+// Resource Type definition for AWS::IVS::Channel
 type Channel struct {
 	pulumi.CustomResourceState
 
+	// Channel ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
-	Authorized     pulumi.BoolPtrOutput `pulumi:"authorized"`
-	IngestEndpoint pulumi.StringOutput  `pulumi:"ingestEndpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
+	// Whether the channel is authorized.
+	Authorized pulumi.BoolPtrOutput `pulumi:"authorized"`
+	// Channel ingest endpoint, part of the definition of an ingest server, used when you set up streaming software.
+	IngestEndpoint pulumi.StringOutput `pulumi:"ingestEndpoint"`
+	// Channel latency mode.
 	LatencyMode pulumi.StringPtrOutput `pulumi:"latencyMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
-	Name        pulumi.StringPtrOutput `pulumi:"name"`
-	PlaybackUrl pulumi.StringOutput    `pulumi:"playbackUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+	// Channel
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Channel Playback URL.
+	PlaybackUrl pulumi.StringOutput `pulumi:"playbackUrl"`
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrOutput `pulumi:"recordingConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags ChannelTagArrayOutput `pulumi:"tags"`
+	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -71,33 +73,33 @@ func (ChannelState) ElementType() reflect.Type {
 }
 
 type channelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
+	// Whether the channel is authorized.
 	Authorized *bool `pulumi:"authorized"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
+	// Channel latency mode.
 	LatencyMode *string `pulumi:"latencyMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+	// Channel
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
 	RecordingConfigurationArn *string `pulumi:"recordingConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags []ChannelTag `pulumi:"tags"`
+	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Channel resource.
 type ChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-authorized
+	// Whether the channel is authorized.
 	Authorized pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-latencymode
+	// Channel latency mode.
 	LatencyMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-name
+	// Channel
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-recordingconfigurationarn
+	// Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: “” (recording is disabled).
 	RecordingConfigurationArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html#cfn-ivs-channel-type
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags ChannelTagArrayInput
+	// Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
 	Type pulumi.StringPtrInput
 }
 

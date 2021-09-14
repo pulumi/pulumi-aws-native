@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
+// The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpoint struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
+	// The ID of the PackagingConfiguration being applied to the Asset.
 	PackagingConfigurationId string `pulumi:"packagingConfigurationId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
+	// The URL of the parent manifest for the repackaged Asset.
 	Url string `pulumi:"url"`
 }
 
@@ -29,11 +29,11 @@ type AssetEgressEndpointInput interface {
 	ToAssetEgressEndpointOutputWithContext(context.Context) AssetEgressEndpointOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
+// The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpointArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
+	// The ID of the PackagingConfiguration being applied to the Asset.
 	PackagingConfigurationId pulumi.StringInput `pulumi:"packagingConfigurationId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
+	// The URL of the parent manifest for the repackaged Asset.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -74,7 +74,7 @@ func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html
+// The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpointOutput struct{ *pulumi.OutputState }
 
 func (AssetEgressEndpointOutput) ElementType() reflect.Type {
@@ -89,12 +89,12 @@ func (o AssetEgressEndpointOutput) ToAssetEgressEndpointOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-packagingconfigurationid
+// The ID of the PackagingConfiguration being applied to the Asset.
 func (o AssetEgressEndpointOutput) PackagingConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetEgressEndpoint) string { return v.PackagingConfigurationId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html#cfn-mediapackage-asset-egressendpoint-url
+// The URL of the parent manifest for the repackaged Asset.
 func (o AssetEgressEndpointOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetEgressEndpoint) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -119,9 +119,375 @@ func (o AssetEgressEndpointArrayOutput) Index(i pulumi.IntInput) AssetEgressEndp
 	}).(AssetEgressEndpointOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
+type AssetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AssetTagInput is an input type that accepts AssetTagArgs and AssetTagOutput values.
+// You can construct a concrete instance of `AssetTagInput` via:
+//
+//          AssetTagArgs{...}
+type AssetTagInput interface {
+	pulumi.Input
+
+	ToAssetTagOutput() AssetTagOutput
+	ToAssetTagOutputWithContext(context.Context) AssetTagOutput
+}
+
+type AssetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AssetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTag)(nil)).Elem()
+}
+
+func (i AssetTagArgs) ToAssetTagOutput() AssetTagOutput {
+	return i.ToAssetTagOutputWithContext(context.Background())
+}
+
+func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTagOutput)
+}
+
+// AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
+// You can construct a concrete instance of `AssetTagArrayInput` via:
+//
+//          AssetTagArray{ AssetTagArgs{...} }
+type AssetTagArrayInput interface {
+	pulumi.Input
+
+	ToAssetTagArrayOutput() AssetTagArrayOutput
+	ToAssetTagArrayOutputWithContext(context.Context) AssetTagArrayOutput
+}
+
+type AssetTagArray []AssetTagInput
+
+func (AssetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
+}
+
+func (i AssetTagArray) ToAssetTagArrayOutput() AssetTagArrayOutput {
+	return i.ToAssetTagArrayOutputWithContext(context.Background())
+}
+
+func (i AssetTagArray) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTagArrayOutput)
+}
+
+type AssetTagOutput struct{ *pulumi.OutputState }
+
+func (AssetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTag)(nil)).Elem()
+}
+
+func (o AssetTagOutput) ToAssetTagOutput() AssetTagOutput {
+	return o
+}
+
+func (o AssetTagOutput) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
+	return o
+}
+
+func (o AssetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AssetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AssetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
+}
+
+func (o AssetTagArrayOutput) ToAssetTagArrayOutput() AssetTagArrayOutput {
+	return o
+}
+
+func (o AssetTagArrayOutput) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
+	return o
+}
+
+func (o AssetTagArrayOutput) Index(i pulumi.IntInput) AssetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetTag {
+		return vs[0].([]AssetTag)[vs[1].(int)]
+	}).(AssetTagOutput)
+}
+
+// An HTTP Live Streaming (HLS) ingest resource configuration.
+type ChannelHlsIngest struct {
+	// A list of endpoints to which the source stream should be sent.
+	IngestEndpoints []ChannelIngestEndpoint `pulumi:"ingestEndpoints"`
+}
+
+// ChannelHlsIngestInput is an input type that accepts ChannelHlsIngestArgs and ChannelHlsIngestOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestInput` via:
+//
+//          ChannelHlsIngestArgs{...}
+type ChannelHlsIngestInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestOutput() ChannelHlsIngestOutput
+	ToChannelHlsIngestOutputWithContext(context.Context) ChannelHlsIngestOutput
+}
+
+// An HTTP Live Streaming (HLS) ingest resource configuration.
+type ChannelHlsIngestArgs struct {
+	// A list of endpoints to which the source stream should be sent.
+	IngestEndpoints ChannelIngestEndpointArrayInput `pulumi:"ingestEndpoints"`
+}
+
+func (ChannelHlsIngestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
+	return i.ToChannelHlsIngestOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput).ToChannelHlsIngestPtrOutputWithContext(ctx)
+}
+
+// ChannelHlsIngestPtrInput is an input type that accepts ChannelHlsIngestArgs, ChannelHlsIngestPtr and ChannelHlsIngestPtrOutput values.
+// You can construct a concrete instance of `ChannelHlsIngestPtrInput` via:
+//
+//          ChannelHlsIngestArgs{...}
+//
+//  or:
+//
+//          nil
+type ChannelHlsIngestPtrInput interface {
+	pulumi.Input
+
+	ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput
+	ToChannelHlsIngestPtrOutputWithContext(context.Context) ChannelHlsIngestPtrOutput
+}
+
+type channelHlsIngestPtrType ChannelHlsIngestArgs
+
+func ChannelHlsIngestPtr(v *ChannelHlsIngestArgs) ChannelHlsIngestPtrInput {
+	return (*channelHlsIngestPtrType)(v)
+}
+
+func (*channelHlsIngestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+}
+
+func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestPtrOutput)
+}
+
+// An HTTP Live Streaming (HLS) ingest resource configuration.
+type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
+
+func (ChannelHlsIngestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelHlsIngest)(nil)).Elem()
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutput() ChannelHlsIngestOutput {
+	return o
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestOutputWithContext(ctx context.Context) ChannelHlsIngestOutput {
+	return o
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return o.ToChannelHlsIngestPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelHlsIngest) *ChannelHlsIngest {
+		return &v
+	}).(ChannelHlsIngestPtrOutput)
+}
+
+// A list of endpoints to which the source stream should be sent.
+func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
+	return o.ApplyT(func(v ChannelHlsIngest) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
+}
+
+type ChannelHlsIngestPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelHlsIngestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelHlsIngest)(nil)).Elem()
+}
+
+func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
+	return o
+}
+
+func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
+	return o
+}
+
+func (o ChannelHlsIngestPtrOutput) Elem() ChannelHlsIngestOutput {
+	return o.ApplyT(func(v *ChannelHlsIngest) ChannelHlsIngest {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelHlsIngest
+		return ret
+	}).(ChannelHlsIngestOutput)
+}
+
+// A list of endpoints to which the source stream should be sent.
+func (o ChannelHlsIngestPtrOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
+	return o.ApplyT(func(v *ChannelHlsIngest) []ChannelIngestEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.IngestEndpoints
+	}).(ChannelIngestEndpointArrayOutput)
+}
+
+// An endpoint for ingesting source content for a Channel.
+type ChannelIngestEndpoint struct {
+	// The system generated unique identifier for the IngestEndpoint
+	Id *string `pulumi:"id"`
+	// The system generated password for ingest authentication.
+	Password *string `pulumi:"password"`
+	// The ingest URL to which the source stream should be sent.
+	Url *string `pulumi:"url"`
+	// The system generated username for ingest authentication.
+	Username *string `pulumi:"username"`
+}
+
+// ChannelIngestEndpointInput is an input type that accepts ChannelIngestEndpointArgs and ChannelIngestEndpointOutput values.
+// You can construct a concrete instance of `ChannelIngestEndpointInput` via:
+//
+//          ChannelIngestEndpointArgs{...}
+type ChannelIngestEndpointInput interface {
+	pulumi.Input
+
+	ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput
+	ToChannelIngestEndpointOutputWithContext(context.Context) ChannelIngestEndpointOutput
+}
+
+// An endpoint for ingesting source content for a Channel.
+type ChannelIngestEndpointArgs struct {
+	// The system generated unique identifier for the IngestEndpoint
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The system generated password for ingest authentication.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The ingest URL to which the source stream should be sent.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+	// The system generated username for ingest authentication.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ChannelIngestEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
+	return i.ToChannelIngestEndpointOutputWithContext(context.Background())
+}
+
+func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointOutput)
+}
+
+// ChannelIngestEndpointArrayInput is an input type that accepts ChannelIngestEndpointArray and ChannelIngestEndpointArrayOutput values.
+// You can construct a concrete instance of `ChannelIngestEndpointArrayInput` via:
+//
+//          ChannelIngestEndpointArray{ ChannelIngestEndpointArgs{...} }
+type ChannelIngestEndpointArrayInput interface {
+	pulumi.Input
+
+	ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput
+	ToChannelIngestEndpointArrayOutputWithContext(context.Context) ChannelIngestEndpointArrayOutput
+}
+
+type ChannelIngestEndpointArray []ChannelIngestEndpointInput
+
+func (ChannelIngestEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
+	return i.ToChannelIngestEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointArrayOutput)
+}
+
+// An endpoint for ingesting source content for a Channel.
+type ChannelIngestEndpointOutput struct{ *pulumi.OutputState }
+
+func (ChannelIngestEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutput() ChannelIngestEndpointOutput {
+	return o
+}
+
+func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
+	return o
+}
+
+// The system generated unique identifier for the IngestEndpoint
+func (o ChannelIngestEndpointOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The system generated password for ingest authentication.
+func (o ChannelIngestEndpointOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The ingest URL to which the source stream should be sent.
+func (o ChannelIngestEndpointOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+// The system generated username for ingest authentication.
+func (o ChannelIngestEndpointOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type ChannelIngestEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelIngestEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelIngestEndpoint)(nil)).Elem()
+}
+
+func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutput() ChannelIngestEndpointArrayOutput {
+	return o
+}
+
+func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
+	return o
+}
+
+func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngestEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelIngestEndpoint {
+		return vs[0].([]ChannelIngestEndpoint)[vs[1].(int)]
+	}).(ChannelIngestEndpointOutput)
+}
+
 type ChannelLogConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+	// Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
 	LogGroupName *string `pulumi:"logGroupName"`
 }
 
@@ -136,9 +502,8 @@ type ChannelLogConfigurationInput interface {
 	ToChannelLogConfigurationOutputWithContext(context.Context) ChannelLogConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
 type ChannelLogConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+	// Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
 }
 
@@ -195,7 +560,6 @@ func (i *channelLogConfigurationPtrType) ToChannelLogConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html
 type ChannelLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelLogConfigurationOutput) ElementType() reflect.Type {
@@ -220,7 +584,7 @@ func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationPtrOutputWithCon
 	}).(ChannelLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+// Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
 func (o ChannelLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
@@ -249,7 +613,7 @@ func (o ChannelLogConfigurationPtrOutput) Elem() ChannelLogConfigurationOutput {
 	}).(ChannelLogConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-logconfiguration.html#cfn-mediapackage-channel-logconfiguration-loggroupname
+// Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
 func (o ChannelLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelLogConfiguration) *string {
 		if v == nil {
@@ -259,11 +623,111 @@ func (o ChannelLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
+type ChannelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ChannelTagInput is an input type that accepts ChannelTagArgs and ChannelTagOutput values.
+// You can construct a concrete instance of `ChannelTagInput` via:
+//
+//          ChannelTagArgs{...}
+type ChannelTagInput interface {
+	pulumi.Input
+
+	ToChannelTagOutput() ChannelTagOutput
+	ToChannelTagOutputWithContext(context.Context) ChannelTagOutput
+}
+
+type ChannelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ChannelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArgs) ToChannelTagOutput() ChannelTagOutput {
+	return i.ToChannelTagOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
+}
+
+// ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
+// You can construct a concrete instance of `ChannelTagArrayInput` via:
+//
+//          ChannelTagArray{ ChannelTagArgs{...} }
+type ChannelTagArrayInput interface {
+	pulumi.Input
+
+	ToChannelTagArrayOutput() ChannelTagArrayOutput
+	ToChannelTagArrayOutputWithContext(context.Context) ChannelTagArrayOutput
+}
+
+type ChannelTagArray []ChannelTagInput
+
+func (ChannelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return i.ToChannelTagArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
+}
+
+type ChannelTagOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
+	return o
+}
+
+func (o ChannelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ChannelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ChannelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelTag)(nil)).Elem()
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
+	return o
+}
+
+func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelTag {
+		return vs[0].([]ChannelTag)[vs[1].(int)]
+	}).(ChannelTagOutput)
+}
+
+// CDN Authorization credentials
 type OriginEndpointAuthorization struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
+	// The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 	CdnIdentifierSecret string `pulumi:"cdnIdentifierSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
@@ -278,11 +742,11 @@ type OriginEndpointAuthorizationInput interface {
 	ToOriginEndpointAuthorizationOutputWithContext(context.Context) OriginEndpointAuthorizationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
+// CDN Authorization credentials
 type OriginEndpointAuthorizationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
+	// The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 	CdnIdentifierSecret pulumi.StringInput `pulumi:"cdnIdentifierSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
@@ -339,7 +803,7 @@ func (i *originEndpointAuthorizationPtrType) ToOriginEndpointAuthorizationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html
+// CDN Authorization credentials
 type OriginEndpointAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointAuthorizationOutput) ElementType() reflect.Type {
@@ -364,12 +828,12 @@ func (o OriginEndpointAuthorizationOutput) ToOriginEndpointAuthorizationPtrOutpu
 	}).(OriginEndpointAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
+// The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 func (o OriginEndpointAuthorizationOutput) CdnIdentifierSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointAuthorization) string { return v.CdnIdentifierSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 func (o OriginEndpointAuthorizationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointAuthorization) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -398,7 +862,7 @@ func (o OriginEndpointAuthorizationPtrOutput) Elem() OriginEndpointAuthorization
 	}).(OriginEndpointAuthorizationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-cdnidentifiersecret
+// The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 func (o OriginEndpointAuthorizationPtrOutput) CdnIdentifierSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointAuthorization) *string {
 		if v == nil {
@@ -408,7 +872,7 @@ func (o OriginEndpointAuthorizationPtrOutput) CdnIdentifierSecret() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-authorization.html#cfn-mediapackage-originendpoint-authorization-secretsrolearn
+// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 func (o OriginEndpointAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointAuthorization) *string {
 		if v == nil {
@@ -418,14 +882,13 @@ func (o OriginEndpointAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
+// A Common Media Application Format (CMAF) encryption configuration.
 type OriginEndpointCmafEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
-	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
-	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	// Time (in seconds) between each encryption key rotation.
+	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
+	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // OriginEndpointCmafEncryptionInput is an input type that accepts OriginEndpointCmafEncryptionArgs and OriginEndpointCmafEncryptionOutput values.
@@ -439,14 +902,13 @@ type OriginEndpointCmafEncryptionInput interface {
 	ToOriginEndpointCmafEncryptionOutputWithContext(context.Context) OriginEndpointCmafEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
+// A Common Media Application Format (CMAF) encryption configuration.
 type OriginEndpointCmafEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+	// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
-	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
-	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	// Time (in seconds) between each encryption key rotation.
+	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
+	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (OriginEndpointCmafEncryptionArgs) ElementType() reflect.Type {
@@ -502,7 +964,7 @@ func (i *originEndpointCmafEncryptionPtrType) ToOriginEndpointCmafEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html
+// A Common Media Application Format (CMAF) encryption configuration.
 type OriginEndpointCmafEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointCmafEncryptionOutput) ElementType() reflect.Type {
@@ -527,17 +989,16 @@ func (o OriginEndpointCmafEncryptionOutput) ToOriginEndpointCmafEncryptionPtrOut
 	}).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 func (o OriginEndpointCmafEncryptionOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
+// Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointCmafEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
 func (o OriginEndpointCmafEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -566,7 +1027,7 @@ func (o OriginEndpointCmafEncryptionPtrOutput) Elem() OriginEndpointCmafEncrypti
 	}).(OriginEndpointCmafEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-constantinitializationvector
+// An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
 func (o OriginEndpointCmafEncryptionPtrOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *string {
 		if v == nil {
@@ -576,7 +1037,7 @@ func (o OriginEndpointCmafEncryptionPtrOutput) ConstantInitializationVector() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-keyrotationintervalseconds
+// Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointCmafEncryptionPtrOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *int {
 		if v == nil {
@@ -586,7 +1047,6 @@ func (o OriginEndpointCmafEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafencryption.html#cfn-mediapackage-originendpoint-cmafencryption-spekekeyprovider
 func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -596,17 +1056,15 @@ func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
+// A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
 	Encryption *OriginEndpointCmafEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+	// A list of HLS manifest configurations
 	HlsManifests []OriginEndpointHlsManifest `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
-	SegmentPrefix *string `pulumi:"segmentPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
+	// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
+	SegmentPrefix   *string                        `pulumi:"segmentPrefix"`
 	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -621,17 +1079,15 @@ type OriginEndpointCmafPackageInput interface {
 	ToOriginEndpointCmafPackageOutputWithContext(context.Context) OriginEndpointCmafPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
+// A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
 	Encryption OriginEndpointCmafEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+	// A list of HLS manifest configurations
 	HlsManifests OriginEndpointHlsManifestArrayInput `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
-	SegmentPrefix pulumi.StringPtrInput `pulumi:"segmentPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
+	// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
+	SegmentPrefix   pulumi.StringPtrInput                 `pulumi:"segmentPrefix"`
 	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -688,7 +1144,7 @@ func (i *originEndpointCmafPackagePtrType) ToOriginEndpointCmafPackagePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html
+// A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackageOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointCmafPackageOutput) ElementType() reflect.Type {
@@ -713,27 +1169,25 @@ func (o OriginEndpointCmafPackageOutput) ToOriginEndpointCmafPackagePtrOutputWit
 	}).(OriginEndpointCmafPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
 func (o OriginEndpointCmafPackageOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *OriginEndpointCmafEncryption { return v.Encryption }).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+// A list of HLS manifest configurations
 func (o OriginEndpointCmafPackageOutput) HlsManifests() OriginEndpointHlsManifestArrayOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) []OriginEndpointHlsManifest { return v.HlsManifests }).(OriginEndpointHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 func (o OriginEndpointCmafPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
+// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
 func (o OriginEndpointCmafPackageOutput) SegmentPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *string { return v.SegmentPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
 func (o OriginEndpointCmafPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -762,7 +1216,6 @@ func (o OriginEndpointCmafPackagePtrOutput) Elem() OriginEndpointCmafPackageOutp
 	}).(OriginEndpointCmafPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-encryption
 func (o OriginEndpointCmafPackagePtrOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *OriginEndpointCmafEncryption {
 		if v == nil {
@@ -772,7 +1225,7 @@ func (o OriginEndpointCmafPackagePtrOutput) Encryption() OriginEndpointCmafEncry
 	}).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-hlsmanifests
+// A list of HLS manifest configurations
 func (o OriginEndpointCmafPackagePtrOutput) HlsManifests() OriginEndpointHlsManifestArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) []OriginEndpointHlsManifest {
 		if v == nil {
@@ -782,7 +1235,7 @@ func (o OriginEndpointCmafPackagePtrOutput) HlsManifests() OriginEndpointHlsMani
 	}).(OriginEndpointHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentdurationseconds
+// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 func (o OriginEndpointCmafPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *int {
 		if v == nil {
@@ -792,7 +1245,7 @@ func (o OriginEndpointCmafPackagePtrOutput) SegmentDurationSeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-segmentprefix
+// An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
 func (o OriginEndpointCmafPackagePtrOutput) SegmentPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *string {
 		if v == nil {
@@ -802,7 +1255,6 @@ func (o OriginEndpointCmafPackagePtrOutput) SegmentPrefix() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-cmafpackage.html#cfn-mediapackage-originendpoint-cmafpackage-streamselection
 func (o OriginEndpointCmafPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -812,12 +1264,11 @@ func (o OriginEndpointCmafPackagePtrOutput) StreamSelection() OriginEndpointStre
 	}).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
-	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
-	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
+	// Time (in seconds) between each encryption key rotation.
+	KeyRotationIntervalSeconds *int                           `pulumi:"keyRotationIntervalSeconds"`
+	SpekeKeyProvider           OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
 // OriginEndpointDashEncryptionInput is an input type that accepts OriginEndpointDashEncryptionArgs and OriginEndpointDashEncryptionOutput values.
@@ -831,12 +1282,11 @@ type OriginEndpointDashEncryptionInput interface {
 	ToOriginEndpointDashEncryptionOutputWithContext(context.Context) OriginEndpointDashEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
-	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
-	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
+	// Time (in seconds) between each encryption key rotation.
+	KeyRotationIntervalSeconds pulumi.IntPtrInput                  `pulumi:"keyRotationIntervalSeconds"`
+	SpekeKeyProvider           OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
 func (OriginEndpointDashEncryptionArgs) ElementType() reflect.Type {
@@ -892,7 +1342,7 @@ func (i *originEndpointDashEncryptionPtrType) ToOriginEndpointDashEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashEncryptionOutput) ElementType() reflect.Type {
@@ -917,12 +1367,11 @@ func (o OriginEndpointDashEncryptionOutput) ToOriginEndpointDashEncryptionPtrOut
 	}).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+// Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointDashEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
 func (o OriginEndpointDashEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointDashEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -951,7 +1400,7 @@ func (o OriginEndpointDashEncryptionPtrOutput) Elem() OriginEndpointDashEncrypti
 	}).(OriginEndpointDashEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+// Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointDashEncryptionPtrOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashEncryption) *int {
 		if v == nil {
@@ -961,7 +1410,6 @@ func (o OriginEndpointDashEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
 func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -971,37 +1419,34 @@ func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
-	AdTriggers []string `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions *string `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
-	Encryption *OriginEndpointDashEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                []string                      `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *string                       `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                *OriginEndpointDashEncryption `pulumi:"encryption"`
+	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout *string `pulumi:"manifestLayout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
+	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
+	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
+	// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 	MinUpdatePeriodSeconds *int `pulumi:"minUpdatePeriodSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
+	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
 	PeriodTriggers []string `pulumi:"periodTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
+	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 	Profile *string `pulumi:"profile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
+	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
-	SegmentTemplateFormat *string `pulumi:"segmentTemplateFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
-	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+	SegmentTemplateFormat *string                        `pulumi:"segmentTemplateFormat"`
+	StreamSelection       *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds *int `pulumi:"suggestedPresentationDelaySeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 	UtcTiming *string `pulumi:"utcTiming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 	UtcTimingUri *string `pulumi:"utcTimingUri"`
 }
 
@@ -1016,37 +1461,34 @@ type OriginEndpointDashPackageInput interface {
 	ToOriginEndpointDashPackageOutputWithContext(context.Context) OriginEndpointDashPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
-	AdTriggers pulumi.StringArrayInput `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
-	Encryption OriginEndpointDashEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                pulumi.StringArrayInput              `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions pulumi.StringPtrInput                `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                OriginEndpointDashEncryptionPtrInput `pulumi:"encryption"`
+	// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout pulumi.StringPtrInput `pulumi:"manifestLayout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
+	// Time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
+	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
+	// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 	MinUpdatePeriodSeconds pulumi.IntPtrInput `pulumi:"minUpdatePeriodSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
+	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
 	PeriodTriggers pulumi.StringArrayInput `pulumi:"periodTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
+	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
+	// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
-	SegmentTemplateFormat pulumi.StringPtrInput `pulumi:"segmentTemplateFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
-	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
+	SegmentTemplateFormat pulumi.StringPtrInput                 `pulumi:"segmentTemplateFormat"`
+	StreamSelection       OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	// Duration (in seconds) to delay live content before presentation.
 	SuggestedPresentationDelaySeconds pulumi.IntPtrInput `pulumi:"suggestedPresentationDelaySeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+	// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 	UtcTiming pulumi.StringPtrInput `pulumi:"utcTiming"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+	// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 	UtcTimingUri pulumi.StringPtrInput `pulumi:"utcTimingUri"`
 }
 
@@ -1103,7 +1545,7 @@ func (i *originEndpointDashPackagePtrType) ToOriginEndpointDashPackagePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackageOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDashPackageOutput) ElementType() reflect.Type {
@@ -1128,77 +1570,74 @@ func (o OriginEndpointDashPackageOutput) ToOriginEndpointDashPackagePtrOutputWit
 	}).(OriginEndpointDashPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
+// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
 func (o OriginEndpointDashPackageOutput) AdTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
 func (o OriginEndpointDashPackageOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
 func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashEncryption { return v.Encryption }).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
+// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 func (o OriginEndpointDashPackageOutput) ManifestLayout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.ManifestLayout }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
+// Time window (in seconds) contained in each manifest.
 func (o OriginEndpointDashPackageOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.ManifestWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
+// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 func (o OriginEndpointDashPackageOutput) MinBufferTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.MinBufferTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
+// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 func (o OriginEndpointDashPackageOutput) MinUpdatePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.MinUpdatePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
+// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
 func (o OriginEndpointDashPackageOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) []string { return v.PeriodTriggers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
+// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 func (o OriginEndpointDashPackageOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
+// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 func (o OriginEndpointDashPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
+// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 func (o OriginEndpointDashPackageOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.SegmentTemplateFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
 func (o OriginEndpointDashPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+// Duration (in seconds) to delay live content before presentation.
 func (o OriginEndpointDashPackageOutput) SuggestedPresentationDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *int { return v.SuggestedPresentationDelaySeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 func (o OriginEndpointDashPackageOutput) UtcTiming() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTiming }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 func (o OriginEndpointDashPackageOutput) UtcTimingUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *string { return v.UtcTimingUri }).(pulumi.StringPtrOutput)
 }
@@ -1227,7 +1666,7 @@ func (o OriginEndpointDashPackagePtrOutput) Elem() OriginEndpointDashPackageOutp
 	}).(OriginEndpointDashPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adtriggers
+// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
 func (o OriginEndpointDashPackagePtrOutput) AdTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) []string {
 		if v == nil {
@@ -1237,7 +1676,6 @@ func (o OriginEndpointDashPackagePtrOutput) AdTriggers() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-adsondeliveryrestrictions
 func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1247,7 +1685,6 @@ func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-encryption
 func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashEncryption {
 		if v == nil {
@@ -1257,7 +1694,7 @@ func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncry
 	}).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestlayout
+// Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 func (o OriginEndpointDashPackagePtrOutput) ManifestLayout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1267,7 +1704,7 @@ func (o OriginEndpointDashPackagePtrOutput) ManifestLayout() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-manifestwindowseconds
+// Time window (in seconds) contained in each manifest.
 func (o OriginEndpointDashPackagePtrOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *int {
 		if v == nil {
@@ -1277,7 +1714,7 @@ func (o OriginEndpointDashPackagePtrOutput) ManifestWindowSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minbuffertimeseconds
+// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 func (o OriginEndpointDashPackagePtrOutput) MinBufferTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *int {
 		if v == nil {
@@ -1287,7 +1724,7 @@ func (o OriginEndpointDashPackagePtrOutput) MinBufferTimeSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-minupdateperiodseconds
+// Minimum duration (in seconds) between potential changes to the Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD).
 func (o OriginEndpointDashPackagePtrOutput) MinUpdatePeriodSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *int {
 		if v == nil {
@@ -1297,7 +1734,7 @@ func (o OriginEndpointDashPackagePtrOutput) MinUpdatePeriodSeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-periodtriggers
+// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Channel source contains SCTE-35 ad markers.
 func (o OriginEndpointDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) []string {
 		if v == nil {
@@ -1307,7 +1744,7 @@ func (o OriginEndpointDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-profile
+// The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 func (o OriginEndpointDashPackagePtrOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1317,7 +1754,7 @@ func (o OriginEndpointDashPackagePtrOutput) Profile() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmentdurationseconds
+// Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
 func (o OriginEndpointDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *int {
 		if v == nil {
@@ -1327,7 +1764,7 @@ func (o OriginEndpointDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-segmenttemplateformat
+// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 func (o OriginEndpointDashPackagePtrOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1337,7 +1774,6 @@ func (o OriginEndpointDashPackagePtrOutput) SegmentTemplateFormat() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-streamselection
 func (o OriginEndpointDashPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -1347,7 +1783,7 @@ func (o OriginEndpointDashPackagePtrOutput) StreamSelection() OriginEndpointStre
 	}).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-suggestedpresentationdelayseconds
+// Duration (in seconds) to delay live content before presentation.
 func (o OriginEndpointDashPackagePtrOutput) SuggestedPresentationDelaySeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *int {
 		if v == nil {
@@ -1357,7 +1793,7 @@ func (o OriginEndpointDashPackagePtrOutput) SuggestedPresentationDelaySeconds() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiming
+// Determines the type of UTCTiming included in the Media Presentation Description (MPD)
 func (o OriginEndpointDashPackagePtrOutput) UtcTiming() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1367,7 +1803,7 @@ func (o OriginEndpointDashPackagePtrOutput) UtcTiming() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashpackage.html#cfn-mediapackage-originendpoint-dashpackage-utctiminguri
+// Specifies the value attribute of the UTCTiming field when utcTiming is set to HTTP-ISO or HTTP-HEAD
 func (o OriginEndpointDashPackagePtrOutput) UtcTimingUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *string {
 		if v == nil {
@@ -1377,17 +1813,16 @@ func (o OriginEndpointDashPackagePtrOutput) UtcTimingUri() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type OriginEndpointHlsEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
+	// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
+	// The encryption method to use.
 	EncryptionMethod *string `pulumi:"encryptionMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
+	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
-	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
+	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+	RepeatExtXKey    *bool                          `pulumi:"repeatExtXKey"`
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -1402,17 +1837,16 @@ type OriginEndpointHlsEncryptionInput interface {
 	ToOriginEndpointHlsEncryptionOutputWithContext(context.Context) OriginEndpointHlsEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type OriginEndpointHlsEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
+	// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
+	// The encryption method to use.
 	EncryptionMethod pulumi.StringPtrInput `pulumi:"encryptionMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
+	// Interval (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
-	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
+	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+	RepeatExtXKey    pulumi.BoolPtrInput                 `pulumi:"repeatExtXKey"`
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -1469,7 +1903,7 @@ func (i *originEndpointHlsEncryptionPtrType) ToOriginEndpointHlsEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type OriginEndpointHlsEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsEncryptionOutput) ElementType() reflect.Type {
@@ -1494,27 +1928,26 @@ func (o OriginEndpointHlsEncryptionOutput) ToOriginEndpointHlsEncryptionPtrOutpu
 	}).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
+// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 func (o OriginEndpointHlsEncryptionOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
+// The encryption method to use.
 func (o OriginEndpointHlsEncryptionOutput) EncryptionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *string { return v.EncryptionMethod }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
+// Interval (in seconds) between each encryption key rotation.
 func (o OriginEndpointHlsEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
+// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 func (o OriginEndpointHlsEncryptionOutput) RepeatExtXKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
 func (o OriginEndpointHlsEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -1543,7 +1976,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) Elem() OriginEndpointHlsEncryption
 	}).(OriginEndpointHlsEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-constantinitializationvector
+// A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
 func (o OriginEndpointHlsEncryptionPtrOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *string {
 		if v == nil {
@@ -1553,7 +1986,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) ConstantInitializationVector() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-encryptionmethod
+// The encryption method to use.
 func (o OriginEndpointHlsEncryptionPtrOutput) EncryptionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *string {
 		if v == nil {
@@ -1563,7 +1996,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) EncryptionMethod() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-keyrotationintervalseconds
+// Interval (in seconds) between each encryption key rotation.
 func (o OriginEndpointHlsEncryptionPtrOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *int {
 		if v == nil {
@@ -1573,7 +2006,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) KeyRotationIntervalSeconds() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-repeatextxkey
+// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 func (o OriginEndpointHlsEncryptionPtrOutput) RepeatExtXKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *bool {
 		if v == nil {
@@ -1583,7 +2016,6 @@ func (o OriginEndpointHlsEncryptionPtrOutput) RepeatExtXKey() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsencryption.html#cfn-mediapackage-originendpoint-hlsencryption-spekekeyprovider
 func (o OriginEndpointHlsEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -1593,27 +2025,26 @@ func (o OriginEndpointHlsEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointS
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
+// A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers *string `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
-	AdTriggers []string `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions *string `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                []string `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *string  `pulumi:"adsOnDeliveryRestrictions"`
+	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
+	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
+	// An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
 	ManifestName *string `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
+	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 	PlaylistType *string `pulumi:"playlistType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *int `pulumi:"playlistWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
+	// The URL of the packaged OriginEndpoint for consumption.
 	Url *string `pulumi:"url"`
 }
 
@@ -1628,27 +2059,26 @@ type OriginEndpointHlsManifestInput interface {
 	ToOriginEndpointHlsManifestOutputWithContext(context.Context) OriginEndpointHlsManifestOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
+// A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
-	AdTriggers pulumi.StringArrayInput `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                pulumi.StringArrayInput `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions pulumi.StringPtrInput   `pulumi:"adsOnDeliveryRestrictions"`
+	// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 	Id pulumi.StringInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
+	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
+	// An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
 	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
+	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 	PlaylistType pulumi.StringPtrInput `pulumi:"playlistType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds pulumi.IntPtrInput `pulumi:"playlistWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
+	// The URL of the packaged OriginEndpoint for consumption.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -1689,7 +2119,7 @@ func (i OriginEndpointHlsManifestArray) ToOriginEndpointHlsManifestArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html
+// A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifestOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsManifestOutput) ElementType() reflect.Type {
@@ -1704,52 +2134,51 @@ func (o OriginEndpointHlsManifestOutput) ToOriginEndpointHlsManifestOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-admarkers
+// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 func (o OriginEndpointHlsManifestOutput) AdMarkers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adtriggers
+// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
 func (o OriginEndpointHlsManifestOutput) AdTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-adsondeliveryrestrictions
 func (o OriginEndpointHlsManifestOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-id
+// The ID of the manifest. The ID must be unique within the OriginEndpoint and it cannot be changed after it is created.
 func (o OriginEndpointHlsManifestOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-includeiframeonlystream
+// When enabled, an I-Frame only stream will be included in the output.
 func (o OriginEndpointHlsManifestOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-manifestname
+// An optional short string appended to the end of the OriginEndpoint URL. If not specified, defaults to the manifestName for the OriginEndpoint.
 func (o OriginEndpointHlsManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlisttype
+// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 func (o OriginEndpointHlsManifestOutput) PlaylistType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.PlaylistType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-playlistwindowseconds
+// Time window (in seconds) contained in each parent manifest.
 func (o OriginEndpointHlsManifestOutput) PlaylistWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *int { return v.PlaylistWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-programdatetimeintervalseconds
+// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 func (o OriginEndpointHlsManifestOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlsmanifest.html#cfn-mediapackage-originendpoint-hlsmanifest-url
+// The URL of the packaged OriginEndpoint for consumption.
 func (o OriginEndpointHlsManifestOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifest) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -1774,29 +2203,26 @@ func (o OriginEndpointHlsManifestArrayOutput) Index(i pulumi.IntInput) OriginEnd
 	}).(OriginEndpointHlsManifestOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers *string `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
-	AdTriggers []string `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions *string `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
-	Encryption *OriginEndpointHlsEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                []string                     `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions *string                      `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                *OriginEndpointHlsEncryption `pulumi:"encryption"`
+	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
+	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 	PlaylistType *string `pulumi:"playlistType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds *int `pulumi:"playlistWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
-	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+	// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds *int                           `pulumi:"segmentDurationSeconds"`
+	StreamSelection        *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup *bool `pulumi:"useAudioRenditionGroup"`
 }
 
@@ -1811,29 +2237,26 @@ type OriginEndpointHlsPackageInput interface {
 	ToOriginEndpointHlsPackageOutputWithContext(context.Context) OriginEndpointHlsPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
-	AdTriggers pulumi.StringArrayInput `pulumi:"adTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
-	AdsOnDeliveryRestrictions pulumi.StringPtrInput `pulumi:"adsOnDeliveryRestrictions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
-	Encryption OriginEndpointHlsEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
+	// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
+	AdTriggers                pulumi.StringArrayInput             `pulumi:"adTriggers"`
+	AdsOnDeliveryRestrictions pulumi.StringPtrInput               `pulumi:"adsOnDeliveryRestrictions"`
+	Encryption                OriginEndpointHlsEncryptionPtrInput `pulumi:"encryption"`
+	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
+	// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 	PlaylistType pulumi.StringPtrInput `pulumi:"playlistType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
+	// Time window (in seconds) contained in each parent manifest.
 	PlaylistWindowSeconds pulumi.IntPtrInput `pulumi:"playlistWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
-	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+	// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
+	SegmentDurationSeconds pulumi.IntPtrInput                    `pulumi:"segmentDurationSeconds"`
+	StreamSelection        OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup pulumi.BoolPtrInput `pulumi:"useAudioRenditionGroup"`
 }
 
@@ -1890,7 +2313,7 @@ func (i *originEndpointHlsPackagePtrType) ToOriginEndpointHlsPackagePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackageOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointHlsPackageOutput) ElementType() reflect.Type {
@@ -1915,57 +2338,54 @@ func (o OriginEndpointHlsPackageOutput) ToOriginEndpointHlsPackagePtrOutputWithC
 	}).(OriginEndpointHlsPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
+// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 func (o OriginEndpointHlsPackageOutput) AdMarkers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
+// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
 func (o OriginEndpointHlsPackageOutput) AdTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) []string { return v.AdTriggers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
 func (o OriginEndpointHlsPackageOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.AdsOnDeliveryRestrictions }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
 func (o OriginEndpointHlsPackageOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsEncryption { return v.Encryption }).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
+// When enabled, an I-Frame only stream will be included in the output.
 func (o OriginEndpointHlsPackageOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
+// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 func (o OriginEndpointHlsPackageOutput) PlaylistType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *string { return v.PlaylistType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
+// Time window (in seconds) contained in each parent manifest.
 func (o OriginEndpointHlsPackageOutput) PlaylistWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *int { return v.PlaylistWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
+// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 func (o OriginEndpointHlsPackageOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
+// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
 func (o OriginEndpointHlsPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
 func (o OriginEndpointHlsPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+// When enabled, audio streams will be placed in rendition groups in the output.
 func (o OriginEndpointHlsPackageOutput) UseAudioRenditionGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *bool { return v.UseAudioRenditionGroup }).(pulumi.BoolPtrOutput)
 }
@@ -1994,7 +2414,7 @@ func (o OriginEndpointHlsPackagePtrOutput) Elem() OriginEndpointHlsPackageOutput
 	}).(OriginEndpointHlsPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-admarkers
+// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
 func (o OriginEndpointHlsPackagePtrOutput) AdMarkers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
 		if v == nil {
@@ -2004,7 +2424,7 @@ func (o OriginEndpointHlsPackagePtrOutput) AdMarkers() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adtriggers
+// A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
 func (o OriginEndpointHlsPackagePtrOutput) AdTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) []string {
 		if v == nil {
@@ -2014,7 +2434,6 @@ func (o OriginEndpointHlsPackagePtrOutput) AdTriggers() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-adsondeliveryrestrictions
 func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
 		if v == nil {
@@ -2024,7 +2443,6 @@ func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-encryption
 func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointHlsEncryption {
 		if v == nil {
@@ -2034,7 +2452,7 @@ func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncrypt
 	}).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-includeiframeonlystream
+// When enabled, an I-Frame only stream will be included in the output.
 func (o OriginEndpointHlsPackagePtrOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *bool {
 		if v == nil {
@@ -2044,7 +2462,7 @@ func (o OriginEndpointHlsPackagePtrOutput) IncludeIframeOnlyStream() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlisttype
+// The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
 func (o OriginEndpointHlsPackagePtrOutput) PlaylistType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *string {
 		if v == nil {
@@ -2054,7 +2472,7 @@ func (o OriginEndpointHlsPackagePtrOutput) PlaylistType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-playlistwindowseconds
+// Time window (in seconds) contained in each parent manifest.
 func (o OriginEndpointHlsPackagePtrOutput) PlaylistWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *int {
 		if v == nil {
@@ -2064,7 +2482,7 @@ func (o OriginEndpointHlsPackagePtrOutput) PlaylistWindowSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-programdatetimeintervalseconds
+// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 func (o OriginEndpointHlsPackagePtrOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *int {
 		if v == nil {
@@ -2074,7 +2492,7 @@ func (o OriginEndpointHlsPackagePtrOutput) ProgramDateTimeIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-segmentdurationseconds
+// Duration (in seconds) of each fragment. Actual fragments will be rounded to the nearest multiple of the source fragment duration.
 func (o OriginEndpointHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *int {
 		if v == nil {
@@ -2084,7 +2502,6 @@ func (o OriginEndpointHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-streamselection
 func (o OriginEndpointHlsPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -2094,7 +2511,7 @@ func (o OriginEndpointHlsPackagePtrOutput) StreamSelection() OriginEndpointStrea
 	}).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-hlspackage.html#cfn-mediapackage-originendpoint-hlspackage-useaudiorenditiongroup
+// When enabled, audio streams will be placed in rendition groups in the output.
 func (o OriginEndpointHlsPackagePtrOutput) UseAudioRenditionGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *bool {
 		if v == nil {
@@ -2104,9 +2521,8 @@ func (o OriginEndpointHlsPackagePtrOutput) UseAudioRenditionGroup() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
+// A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -2121,9 +2537,8 @@ type OriginEndpointMssEncryptionInput interface {
 	ToOriginEndpointMssEncryptionOutputWithContext(context.Context) OriginEndpointMssEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
+// A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -2180,7 +2595,7 @@ func (i *originEndpointMssEncryptionPtrType) ToOriginEndpointMssEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
+// A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryptionOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointMssEncryptionOutput) ElementType() reflect.Type {
@@ -2205,7 +2620,6 @@ func (o OriginEndpointMssEncryptionOutput) ToOriginEndpointMssEncryptionPtrOutpu
 	}).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
 func (o OriginEndpointMssEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointMssEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -2234,7 +2648,6 @@ func (o OriginEndpointMssEncryptionPtrOutput) Elem() OriginEndpointMssEncryption
 	}).(OriginEndpointMssEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
 func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -2244,16 +2657,14 @@ func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointS
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+// A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
 	Encryption *OriginEndpointMssEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-	StreamSelection *OriginEndpointStreamSelection `pulumi:"streamSelection"`
+	// The duration (in seconds) of each segment.
+	SegmentDurationSeconds *int                           `pulumi:"segmentDurationSeconds"`
+	StreamSelection        *OriginEndpointStreamSelection `pulumi:"streamSelection"`
 }
 
 // OriginEndpointMssPackageInput is an input type that accepts OriginEndpointMssPackageArgs and OriginEndpointMssPackageOutput values.
@@ -2267,16 +2678,14 @@ type OriginEndpointMssPackageInput interface {
 	ToOriginEndpointMssPackageOutputWithContext(context.Context) OriginEndpointMssPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+// A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
 	Encryption OriginEndpointMssEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-	StreamSelection OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
+	// The duration (in seconds) of each segment.
+	SegmentDurationSeconds pulumi.IntPtrInput                    `pulumi:"segmentDurationSeconds"`
+	StreamSelection        OriginEndpointStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
 func (OriginEndpointMssPackageArgs) ElementType() reflect.Type {
@@ -2332,7 +2741,7 @@ func (i *originEndpointMssPackagePtrType) ToOriginEndpointMssPackagePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+// A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackageOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointMssPackageOutput) ElementType() reflect.Type {
@@ -2357,22 +2766,20 @@ func (o OriginEndpointMssPackageOutput) ToOriginEndpointMssPackagePtrOutputWithC
 	}).(OriginEndpointMssPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
 func (o OriginEndpointMssPackageOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *OriginEndpointMssEncryption { return v.Encryption }).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+// The time window (in seconds) contained in each manifest.
 func (o OriginEndpointMssPackageOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *int { return v.ManifestWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+// The duration (in seconds) of each segment.
 func (o OriginEndpointMssPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
 func (o OriginEndpointMssPackageOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *OriginEndpointStreamSelection { return v.StreamSelection }).(OriginEndpointStreamSelectionPtrOutput)
 }
@@ -2401,7 +2808,6 @@ func (o OriginEndpointMssPackagePtrOutput) Elem() OriginEndpointMssPackageOutput
 	}).(OriginEndpointMssPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
 func (o OriginEndpointMssPackagePtrOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *OriginEndpointMssEncryption {
 		if v == nil {
@@ -2411,7 +2817,7 @@ func (o OriginEndpointMssPackagePtrOutput) Encryption() OriginEndpointMssEncrypt
 	}).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+// The time window (in seconds) contained in each manifest.
 func (o OriginEndpointMssPackagePtrOutput) ManifestWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *int {
 		if v == nil {
@@ -2421,7 +2827,7 @@ func (o OriginEndpointMssPackagePtrOutput) ManifestWindowSeconds() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+// The duration (in seconds) of each segment.
 func (o OriginEndpointMssPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *int {
 		if v == nil {
@@ -2431,7 +2837,6 @@ func (o OriginEndpointMssPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
 func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStreamSelectionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *OriginEndpointStreamSelection {
 		if v == nil {
@@ -2441,17 +2846,17 @@ func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStrea
 	}).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProvider struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
+	// The resource ID to include in key requests.
 	ResourceId string `pulumi:"resourceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
+	// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
+	// The system IDs to include in key requests.
 	SystemIds []string `pulumi:"systemIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
+	// The URL of the external key provider service.
 	Url string `pulumi:"url"`
 }
 
@@ -2466,17 +2871,17 @@ type OriginEndpointSpekeKeyProviderInput interface {
 	ToOriginEndpointSpekeKeyProviderOutputWithContext(context.Context) OriginEndpointSpekeKeyProviderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
+	// The resource ID to include in key requests.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
+	// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
+	// The system IDs to include in key requests.
 	SystemIds pulumi.StringArrayInput `pulumi:"systemIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
+	// The URL of the external key provider service.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -2533,7 +2938,7 @@ func (i *originEndpointSpekeKeyProviderPtrType) ToOriginEndpointSpekeKeyProvider
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointSpekeKeyProviderOutput) ElementType() reflect.Type {
@@ -2558,27 +2963,27 @@ func (o OriginEndpointSpekeKeyProviderOutput) ToOriginEndpointSpekeKeyProviderPt
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
+// The resource ID to include in key requests.
 func (o OriginEndpointSpekeKeyProviderOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) string { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
+// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
 func (o OriginEndpointSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
+// The system IDs to include in key requests.
 func (o OriginEndpointSpekeKeyProviderOutput) SystemIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) []string { return v.SystemIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
+// The URL of the external key provider service.
 func (o OriginEndpointSpekeKeyProviderOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2607,7 +3012,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) Elem() OriginEndpointSpekeKeyPr
 	}).(OriginEndpointSpekeKeyProviderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-certificatearn
+// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
 		if v == nil {
@@ -2617,7 +3022,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-resourceid
+// The resource ID to include in key requests.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
 		if v == nil {
@@ -2627,7 +3032,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) ResourceId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-rolearn
+// An Amazon Resource Name (ARN) of an IAM role that AWS Elemental MediaPackage will assume when accessing the key provider service.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
 		if v == nil {
@@ -2637,7 +3042,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-systemids
+// The system IDs to include in key requests.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) SystemIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) []string {
 		if v == nil {
@@ -2647,7 +3052,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) SystemIds() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html#cfn-mediapackage-originendpoint-spekekeyprovider-url
+// The URL of the external key provider service.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *string {
 		if v == nil {
@@ -2657,13 +3062,13 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
+// A StreamSelection configuration.
 type OriginEndpointStreamSelection struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+	// The maximum video bitrate (bps) to include in output.
 	MaxVideoBitsPerSecond *int `pulumi:"maxVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond *int `pulumi:"minVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+	// A directive that determines the order of streams in the output.
 	StreamOrder *string `pulumi:"streamOrder"`
 }
 
@@ -2678,13 +3083,13 @@ type OriginEndpointStreamSelectionInput interface {
 	ToOriginEndpointStreamSelectionOutputWithContext(context.Context) OriginEndpointStreamSelectionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
+// A StreamSelection configuration.
 type OriginEndpointStreamSelectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+	// The maximum video bitrate (bps) to include in output.
 	MaxVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"maxVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"minVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+	// A directive that determines the order of streams in the output.
 	StreamOrder pulumi.StringPtrInput `pulumi:"streamOrder"`
 }
 
@@ -2741,7 +3146,7 @@ func (i *originEndpointStreamSelectionPtrType) ToOriginEndpointStreamSelectionPt
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html
+// A StreamSelection configuration.
 type OriginEndpointStreamSelectionOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointStreamSelectionOutput) ElementType() reflect.Type {
@@ -2766,17 +3171,17 @@ func (o OriginEndpointStreamSelectionOutput) ToOriginEndpointStreamSelectionPtrO
 	}).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+// The maximum video bitrate (bps) to include in output.
 func (o OriginEndpointStreamSelectionOutput) MaxVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointStreamSelection) *int { return v.MaxVideoBitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+// The minimum video bitrate (bps) to include in output.
 func (o OriginEndpointStreamSelectionOutput) MinVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointStreamSelection) *int { return v.MinVideoBitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+// A directive that determines the order of streams in the output.
 func (o OriginEndpointStreamSelectionOutput) StreamOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointStreamSelection) *string { return v.StreamOrder }).(pulumi.StringPtrOutput)
 }
@@ -2805,7 +3210,7 @@ func (o OriginEndpointStreamSelectionPtrOutput) Elem() OriginEndpointStreamSelec
 	}).(OriginEndpointStreamSelectionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-maxvideobitspersecond
+// The maximum video bitrate (bps) to include in output.
 func (o OriginEndpointStreamSelectionPtrOutput) MaxVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointStreamSelection) *int {
 		if v == nil {
@@ -2815,7 +3220,7 @@ func (o OriginEndpointStreamSelectionPtrOutput) MaxVideoBitsPerSecond() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-minvideobitspersecond
+// The minimum video bitrate (bps) to include in output.
 func (o OriginEndpointStreamSelectionPtrOutput) MinVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointStreamSelection) *int {
 		if v == nil {
@@ -2825,7 +3230,7 @@ func (o OriginEndpointStreamSelectionPtrOutput) MinVideoBitsPerSecond() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-streamselection.html#cfn-mediapackage-originendpoint-streamselection-streamorder
+// A directive that determines the order of streams in the output.
 func (o OriginEndpointStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointStreamSelection) *string {
 		if v == nil {
@@ -2835,9 +3240,108 @@ func (o OriginEndpointStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
+type OriginEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// OriginEndpointTagInput is an input type that accepts OriginEndpointTagArgs and OriginEndpointTagOutput values.
+// You can construct a concrete instance of `OriginEndpointTagInput` via:
+//
+//          OriginEndpointTagArgs{...}
+type OriginEndpointTagInput interface {
+	pulumi.Input
+
+	ToOriginEndpointTagOutput() OriginEndpointTagOutput
+	ToOriginEndpointTagOutputWithContext(context.Context) OriginEndpointTagOutput
+}
+
+type OriginEndpointTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OriginEndpointTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointTag)(nil)).Elem()
+}
+
+func (i OriginEndpointTagArgs) ToOriginEndpointTagOutput() OriginEndpointTagOutput {
+	return i.ToOriginEndpointTagOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointTagArgs) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagOutput)
+}
+
+// OriginEndpointTagArrayInput is an input type that accepts OriginEndpointTagArray and OriginEndpointTagArrayOutput values.
+// You can construct a concrete instance of `OriginEndpointTagArrayInput` via:
+//
+//          OriginEndpointTagArray{ OriginEndpointTagArgs{...} }
+type OriginEndpointTagArrayInput interface {
+	pulumi.Input
+
+	ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput
+	ToOriginEndpointTagArrayOutputWithContext(context.Context) OriginEndpointTagArrayOutput
+}
+
+type OriginEndpointTagArray []OriginEndpointTagInput
+
+func (OriginEndpointTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointTag)(nil)).Elem()
+}
+
+func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput {
+	return i.ToOriginEndpointTagArrayOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagArrayOutput)
+}
+
+type OriginEndpointTagOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointTag)(nil)).Elem()
+}
+
+func (o OriginEndpointTagOutput) ToOriginEndpointTagOutput() OriginEndpointTagOutput {
+	return o
+}
+
+func (o OriginEndpointTagOutput) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
+	return o
+}
+
+func (o OriginEndpointTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OriginEndpointTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OriginEndpointTagArrayOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OriginEndpointTag)(nil)).Elem()
+}
+
+func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutput() OriginEndpointTagArrayOutput {
+	return o
+}
+
+func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
+	return o
+}
+
+func (o OriginEndpointTagArrayOutput) Index(i pulumi.IntInput) OriginEndpointTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointTag {
+		return vs[0].([]OriginEndpointTag)[vs[1].(int)]
+	}).(OriginEndpointTagOutput)
+}
+
+// A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -2852,9 +3356,8 @@ type PackagingConfigurationCmafEncryptionInput interface {
 	ToPackagingConfigurationCmafEncryptionOutputWithContext(context.Context) PackagingConfigurationCmafEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
+// A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -2911,7 +3414,7 @@ func (i *packagingConfigurationCmafEncryptionPtrType) ToPackagingConfigurationCm
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
+// A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationCmafEncryptionOutput) ElementType() reflect.Type {
@@ -2936,7 +3439,6 @@ func (o PackagingConfigurationCmafEncryptionOutput) ToPackagingConfigurationCmaf
 	}).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
 func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -2967,7 +3469,6 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationCmafEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
 func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -2977,16 +3478,14 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() Packag
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
+// A CMAF packaging configuration.
 type PackagingConfigurationCmafPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
 	Encryption *PackagingConfigurationCmafEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+	// A list of HLS manifest configurations.
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
+	SegmentDurationSeconds                *int  `pulumi:"segmentDurationSeconds"`
 }
 
 // PackagingConfigurationCmafPackageInput is an input type that accepts PackagingConfigurationCmafPackageArgs and PackagingConfigurationCmafPackageOutput values.
@@ -3000,16 +3499,14 @@ type PackagingConfigurationCmafPackageInput interface {
 	ToPackagingConfigurationCmafPackageOutputWithContext(context.Context) PackagingConfigurationCmafPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
+// A CMAF packaging configuration.
 type PackagingConfigurationCmafPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
 	Encryption PackagingConfigurationCmafEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+	// A list of HLS manifest configurations.
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
+	SegmentDurationSeconds                pulumi.IntPtrInput  `pulumi:"segmentDurationSeconds"`
 }
 
 func (PackagingConfigurationCmafPackageArgs) ElementType() reflect.Type {
@@ -3065,7 +3562,7 @@ func (i *packagingConfigurationCmafPackagePtrType) ToPackagingConfigurationCmafP
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html
+// A CMAF packaging configuration.
 type PackagingConfigurationCmafPackageOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationCmafPackageOutput) ElementType() reflect.Type {
@@ -3090,22 +3587,20 @@ func (o PackagingConfigurationCmafPackageOutput) ToPackagingConfigurationCmafPac
 	}).(PackagingConfigurationCmafPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
 func (o PackagingConfigurationCmafPackageOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption { return v.Encryption }).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+// A list of HLS manifest configurations.
 func (o PackagingConfigurationCmafPackageOutput) HlsManifests() PackagingConfigurationHlsManifestArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) []PackagingConfigurationHlsManifest { return v.HlsManifests }).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 func (o PackagingConfigurationCmafPackageOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 func (o PackagingConfigurationCmafPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -3134,7 +3629,6 @@ func (o PackagingConfigurationCmafPackagePtrOutput) Elem() PackagingConfiguratio
 	}).(PackagingConfigurationCmafPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-encryption
 func (o PackagingConfigurationCmafPackagePtrOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption {
 		if v == nil {
@@ -3144,7 +3638,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) Encryption() PackagingConfig
 	}).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-hlsmanifests
+// A list of HLS manifest configurations.
 func (o PackagingConfigurationCmafPackagePtrOutput) HlsManifests() PackagingConfigurationHlsManifestArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) []PackagingConfigurationHlsManifest {
 		if v == nil {
@@ -3154,7 +3648,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) HlsManifests() PackagingConf
 	}).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-includeencoderconfigurationinsegments
+// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 func (o PackagingConfigurationCmafPackagePtrOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *bool {
 		if v == nil {
@@ -3164,7 +3658,6 @@ func (o PackagingConfigurationCmafPackagePtrOutput) IncludeEncoderConfigurationI
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafpackage.html#cfn-mediapackage-packagingconfiguration-cmafpackage-segmentdurationseconds
 func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *int {
 		if v == nil {
@@ -3174,9 +3667,8 @@ func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3191,9 +3683,8 @@ type PackagingConfigurationDashEncryptionInput interface {
 	ToPackagingConfigurationDashEncryptionOutputWithContext(context.Context) PackagingConfigurationDashEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3250,7 +3741,7 @@ func (i *packagingConfigurationDashEncryptionPtrType) ToPackagingConfigurationDa
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationDashEncryptionOutput) ElementType() reflect.Type {
@@ -3275,7 +3766,6 @@ func (o PackagingConfigurationDashEncryptionOutput) ToPackagingConfigurationDash
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
 func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3306,7 +3796,6 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationDashEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
 func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -3316,17 +3805,15 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() Packag
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
+// A DASH manifest configuration.
 type PackagingConfigurationDashManifest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
+	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout *string `pulumi:"manifestLayout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
-	ManifestName *string `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
+	ManifestName   *string `pulumi:"manifestName"`
+	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds *int `pulumi:"minBufferTimeSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
-	Profile *string `pulumi:"profile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
+	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+	Profile         *string                                `pulumi:"profile"`
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -3341,17 +3828,15 @@ type PackagingConfigurationDashManifestInput interface {
 	ToPackagingConfigurationDashManifestOutputWithContext(context.Context) PackagingConfigurationDashManifestOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
+// A DASH manifest configuration.
 type PackagingConfigurationDashManifestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
+	// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 	ManifestLayout pulumi.StringPtrInput `pulumi:"manifestLayout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
-	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
+	ManifestName   pulumi.StringPtrInput `pulumi:"manifestName"`
+	// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 	MinBufferTimeSeconds pulumi.IntPtrInput `pulumi:"minBufferTimeSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
+	// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
+	Profile         pulumi.StringPtrInput                         `pulumi:"profile"`
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -3392,7 +3877,7 @@ func (i PackagingConfigurationDashManifestArray) ToPackagingConfigurationDashMan
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html
+// A DASH manifest configuration.
 type PackagingConfigurationDashManifestOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationDashManifestOutput) ElementType() reflect.Type {
@@ -3407,27 +3892,25 @@ func (o PackagingConfigurationDashManifestOutput) ToPackagingConfigurationDashMa
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestlayout
+// Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
 func (o PackagingConfigurationDashManifestOutput) ManifestLayout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.ManifestLayout }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-manifestname
 func (o PackagingConfigurationDashManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-minbuffertimeseconds
+// Minimum duration (in seconds) that a player will buffer media before starting the presentation.
 func (o PackagingConfigurationDashManifestOutput) MinBufferTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *int { return v.MinBufferTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-profile
+// The Dynamic Adaptive Streaming over HTTP (DASH) profile type. When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
 func (o PackagingConfigurationDashManifestOutput) Profile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashmanifest.html#cfn-mediapackage-packagingconfiguration-dashmanifest-streamselection
 func (o PackagingConfigurationDashManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -3454,19 +3937,17 @@ func (o PackagingConfigurationDashManifestArrayOutput) Index(i pulumi.IntInput) 
 	}).(PackagingConfigurationDashManifestOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type PackagingConfigurationDashPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
-	DashManifests []PackagingConfigurationDashManifest `pulumi:"dashManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
-	Encryption *PackagingConfigurationDashEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+	// A list of DASH manifest configurations.
+	DashManifests []PackagingConfigurationDashManifest  `pulumi:"dashManifests"`
+	Encryption    *PackagingConfigurationDashEncryption `pulumi:"encryption"`
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
-	PeriodTriggers []string `pulumi:"periodTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+	PeriodTriggers         []string `pulumi:"periodTriggers"`
+	SegmentDurationSeconds *int     `pulumi:"segmentDurationSeconds"`
+	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat *string `pulumi:"segmentTemplateFormat"`
 }
 
@@ -3481,19 +3962,17 @@ type PackagingConfigurationDashPackageInput interface {
 	ToPackagingConfigurationDashPackageOutputWithContext(context.Context) PackagingConfigurationDashPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type PackagingConfigurationDashPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+	// A list of DASH manifest configurations.
 	DashManifests PackagingConfigurationDashManifestArrayInput `pulumi:"dashManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
-	Encryption PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+	Encryption    PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
+	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
-	PeriodTriggers pulumi.StringArrayInput `pulumi:"periodTriggers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+	// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
+	PeriodTriggers         pulumi.StringArrayInput `pulumi:"periodTriggers"`
+	SegmentDurationSeconds pulumi.IntPtrInput      `pulumi:"segmentDurationSeconds"`
+	// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 	SegmentTemplateFormat pulumi.StringPtrInput `pulumi:"segmentTemplateFormat"`
 }
 
@@ -3550,7 +4029,7 @@ func (i *packagingConfigurationDashPackagePtrType) ToPackagingConfigurationDashP
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html
+// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type PackagingConfigurationDashPackageOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationDashPackageOutput) ElementType() reflect.Type {
@@ -3575,32 +4054,30 @@ func (o PackagingConfigurationDashPackageOutput) ToPackagingConfigurationDashPac
 	}).(PackagingConfigurationDashPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+// A list of DASH manifest configurations.
 func (o PackagingConfigurationDashPackageOutput) DashManifests() PackagingConfigurationDashManifestArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []PackagingConfigurationDashManifest { return v.DashManifests }).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
 func (o PackagingConfigurationDashPackageOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption { return v.Encryption }).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 func (o PackagingConfigurationDashPackageOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *bool { return v.IncludeEncoderConfigurationInSegments }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
+// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
 func (o PackagingConfigurationDashPackageOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []string { return v.PeriodTriggers }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
 func (o PackagingConfigurationDashPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 func (o PackagingConfigurationDashPackageOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *string { return v.SegmentTemplateFormat }).(pulumi.StringPtrOutput)
 }
@@ -3629,7 +4106,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) Elem() PackagingConfiguratio
 	}).(PackagingConfigurationDashPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-dashmanifests
+// A list of DASH manifest configurations.
 func (o PackagingConfigurationDashPackagePtrOutput) DashManifests() PackagingConfigurationDashManifestArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) []PackagingConfigurationDashManifest {
 		if v == nil {
@@ -3639,7 +4116,6 @@ func (o PackagingConfigurationDashPackagePtrOutput) DashManifests() PackagingCon
 	}).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-encryption
 func (o PackagingConfigurationDashPackagePtrOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption {
 		if v == nil {
@@ -3649,7 +4125,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) Encryption() PackagingConfig
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-includeencoderconfigurationinsegments
+// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 func (o PackagingConfigurationDashPackagePtrOutput) IncludeEncoderConfigurationInSegments() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *bool {
 		if v == nil {
@@ -3659,7 +4135,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) IncludeEncoderConfigurationI
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-periodtriggers
+// A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
 func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) []string {
 		if v == nil {
@@ -3669,7 +4145,6 @@ func (o PackagingConfigurationDashPackagePtrOutput) PeriodTriggers() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmentdurationseconds
 func (o PackagingConfigurationDashPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *int {
 		if v == nil {
@@ -3679,7 +4154,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) SegmentDurationSeconds() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashpackage.html#cfn-mediapackage-packagingconfiguration-dashpackage-segmenttemplateformat
+// Determines the type of SegmentTemplate included in the Media Presentation Description (MPD). When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs. When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
 func (o PackagingConfigurationDashPackagePtrOutput) SegmentTemplateFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *string {
 		if v == nil {
@@ -3689,13 +4164,12 @@ func (o PackagingConfigurationDashPackagePtrOutput) SegmentTemplateFormat() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type PackagingConfigurationHlsEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+	// An HTTP Live Streaming (HLS) encryption configuration.
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
-	EncryptionMethod *string `pulumi:"encryptionMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
+	// The encryption method to use.
+	EncryptionMethod *string                                `pulumi:"encryptionMethod"`
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3710,13 +4184,12 @@ type PackagingConfigurationHlsEncryptionInput interface {
 	ToPackagingConfigurationHlsEncryptionOutputWithContext(context.Context) PackagingConfigurationHlsEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type PackagingConfigurationHlsEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+	// An HTTP Live Streaming (HLS) encryption configuration.
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
-	EncryptionMethod pulumi.StringPtrInput `pulumi:"encryptionMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
+	// The encryption method to use.
+	EncryptionMethod pulumi.StringPtrInput                       `pulumi:"encryptionMethod"`
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3773,7 +4246,7 @@ func (i *packagingConfigurationHlsEncryptionPtrType) ToPackagingConfigurationHls
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
+// An HTTP Live Streaming (HLS) encryption configuration.
 type PackagingConfigurationHlsEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationHlsEncryptionOutput) ElementType() reflect.Type {
@@ -3798,17 +4271,16 @@ func (o PackagingConfigurationHlsEncryptionOutput) ToPackagingConfigurationHlsEn
 	}).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+// An HTTP Live Streaming (HLS) encryption configuration.
 func (o PackagingConfigurationHlsEncryptionOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) *string { return v.ConstantInitializationVector }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+// The encryption method to use.
 func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) *string { return v.EncryptionMethod }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
 func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3839,7 +4311,7 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) Elem() PackagingConfigurat
 	}).(PackagingConfigurationHlsEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+// An HTTP Live Streaming (HLS) encryption configuration.
 func (o PackagingConfigurationHlsEncryptionPtrOutput) ConstantInitializationVector() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *string {
 		if v == nil {
@@ -3849,7 +4321,7 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) ConstantInitializationVect
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+// The encryption method to use.
 func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *string {
 		if v == nil {
@@ -3859,7 +4331,6 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
 func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -3869,19 +4340,17 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() Packagi
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
+// An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
 	AdMarkers *string `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
-	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
-	ManifestName *string `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream *bool   `pulumi:"includeIframeOnlyStream"`
+	ManifestName            *string `pulumi:"manifestName"`
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
-	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
+	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+	RepeatExtXKey   *bool                                  `pulumi:"repeatExtXKey"`
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -3896,19 +4365,17 @@ type PackagingConfigurationHlsManifestInput interface {
 	ToPackagingConfigurationHlsManifestOutputWithContext(context.Context) PackagingConfigurationHlsManifestOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
+// An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
+	// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
 	AdMarkers pulumi.StringPtrInput `pulumi:"adMarkers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
-	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
-	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
+	// When enabled, an I-Frame only stream will be included in the output.
+	IncludeIframeOnlyStream pulumi.BoolPtrInput   `pulumi:"includeIframeOnlyStream"`
+	ManifestName            pulumi.StringPtrInput `pulumi:"manifestName"`
+	// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
-	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
+	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
+	RepeatExtXKey   pulumi.BoolPtrInput                           `pulumi:"repeatExtXKey"`
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -3949,7 +4416,7 @@ func (i PackagingConfigurationHlsManifestArray) ToPackagingConfigurationHlsManif
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html
+// An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifestOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationHlsManifestOutput) ElementType() reflect.Type {
@@ -3964,32 +4431,30 @@ func (o PackagingConfigurationHlsManifestOutput) ToPackagingConfigurationHlsMani
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-admarkers
+// This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
 func (o PackagingConfigurationHlsManifestOutput) AdMarkers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *string { return v.AdMarkers }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-includeiframeonlystream
+// When enabled, an I-Frame only stream will be included in the output.
 func (o PackagingConfigurationHlsManifestOutput) IncludeIframeOnlyStream() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *bool { return v.IncludeIframeOnlyStream }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-manifestname
 func (o PackagingConfigurationHlsManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-programdatetimeintervalseconds
+// The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
 func (o PackagingConfigurationHlsManifestOutput) ProgramDateTimeIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *int { return v.ProgramDateTimeIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-repeatextxkey
+// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 func (o PackagingConfigurationHlsManifestOutput) RepeatExtXKey() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsmanifest.html#cfn-mediapackage-packagingconfiguration-hlsmanifest-streamselection
 func (o PackagingConfigurationHlsManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -4016,15 +4481,13 @@ func (o PackagingConfigurationHlsManifestArrayOutput) Index(i pulumi.IntInput) P
 	}).(PackagingConfigurationHlsManifestOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
 	Encryption *PackagingConfigurationHlsEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
-	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+	// A list of HLS manifest configurations.
+	HlsManifests           []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
+	SegmentDurationSeconds *int                                `pulumi:"segmentDurationSeconds"`
+	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup *bool `pulumi:"useAudioRenditionGroup"`
 }
 
@@ -4039,15 +4502,13 @@ type PackagingConfigurationHlsPackageInput interface {
 	ToPackagingConfigurationHlsPackageOutputWithContext(context.Context) PackagingConfigurationHlsPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
 	Encryption PackagingConfigurationHlsEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
-	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+	// A list of HLS manifest configurations.
+	HlsManifests           PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
+	SegmentDurationSeconds pulumi.IntPtrInput                          `pulumi:"segmentDurationSeconds"`
+	// When enabled, audio streams will be placed in rendition groups in the output.
 	UseAudioRenditionGroup pulumi.BoolPtrInput `pulumi:"useAudioRenditionGroup"`
 }
 
@@ -4104,7 +4565,7 @@ func (i *packagingConfigurationHlsPackagePtrType) ToPackagingConfigurationHlsPac
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html
+// An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackageOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationHlsPackageOutput) ElementType() reflect.Type {
@@ -4129,22 +4590,20 @@ func (o PackagingConfigurationHlsPackageOutput) ToPackagingConfigurationHlsPacka
 	}).(PackagingConfigurationHlsPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
 func (o PackagingConfigurationHlsPackageOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption { return v.Encryption }).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+// A list of HLS manifest configurations.
 func (o PackagingConfigurationHlsPackageOutput) HlsManifests() PackagingConfigurationHlsManifestArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) []PackagingConfigurationHlsManifest { return v.HlsManifests }).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
 func (o PackagingConfigurationHlsPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+// When enabled, audio streams will be placed in rendition groups in the output.
 func (o PackagingConfigurationHlsPackageOutput) UseAudioRenditionGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *bool { return v.UseAudioRenditionGroup }).(pulumi.BoolPtrOutput)
 }
@@ -4173,7 +4632,6 @@ func (o PackagingConfigurationHlsPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationHlsPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-encryption
 func (o PackagingConfigurationHlsPackagePtrOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption {
 		if v == nil {
@@ -4183,7 +4641,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) Encryption() PackagingConfigu
 	}).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-hlsmanifests
+// A list of HLS manifest configurations.
 func (o PackagingConfigurationHlsPackagePtrOutput) HlsManifests() PackagingConfigurationHlsManifestArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) []PackagingConfigurationHlsManifest {
 		if v == nil {
@@ -4193,7 +4651,6 @@ func (o PackagingConfigurationHlsPackagePtrOutput) HlsManifests() PackagingConfi
 	}).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-segmentdurationseconds
 func (o PackagingConfigurationHlsPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *int {
 		if v == nil {
@@ -4203,7 +4660,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) SegmentDurationSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlspackage.html#cfn-mediapackage-packagingconfiguration-hlspackage-useaudiorenditiongroup
+// When enabled, audio streams will be placed in rendition groups in the output.
 func (o PackagingConfigurationHlsPackagePtrOutput) UseAudioRenditionGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *bool {
 		if v == nil {
@@ -4213,9 +4670,8 @@ func (o PackagingConfigurationHlsPackagePtrOutput) UseAudioRenditionGroup() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
+// A CMAF encryption configuration.
 type PackagingConfigurationMssEncryption struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -4230,9 +4686,8 @@ type PackagingConfigurationMssEncryptionInput interface {
 	ToPackagingConfigurationMssEncryptionOutputWithContext(context.Context) PackagingConfigurationMssEncryptionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
+// A CMAF encryption configuration.
 type PackagingConfigurationMssEncryptionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -4289,7 +4744,7 @@ func (i *packagingConfigurationMssEncryptionPtrType) ToPackagingConfigurationMss
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html
+// A CMAF encryption configuration.
 type PackagingConfigurationMssEncryptionOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationMssEncryptionOutput) ElementType() reflect.Type {
@@ -4314,7 +4769,6 @@ func (o PackagingConfigurationMssEncryptionOutput) ToPackagingConfigurationMssEn
 	}).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
 func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4345,7 +4799,6 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) Elem() PackagingConfigurat
 	}).(PackagingConfigurationMssEncryptionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssencryption.html#cfn-mediapackage-packagingconfiguration-mssencryption-spekekeyprovider
 func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -4355,11 +4808,9 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() Packagi
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
+// A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifest struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
-	ManifestName *string `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
+	ManifestName    *string                                `pulumi:"manifestName"`
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -4374,11 +4825,9 @@ type PackagingConfigurationMssManifestInput interface {
 	ToPackagingConfigurationMssManifestOutputWithContext(context.Context) PackagingConfigurationMssManifestOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
+// A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifestArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
-	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
+	ManifestName    pulumi.StringPtrInput                         `pulumi:"manifestName"`
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -4419,7 +4868,7 @@ func (i PackagingConfigurationMssManifestArray) ToPackagingConfigurationMssManif
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html
+// A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifestOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationMssManifestOutput) ElementType() reflect.Type {
@@ -4434,12 +4883,10 @@ func (o PackagingConfigurationMssManifestOutput) ToPackagingConfigurationMssMani
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-manifestname
 func (o PackagingConfigurationMssManifestOutput) ManifestName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-mssmanifest.html#cfn-mediapackage-packagingconfiguration-mssmanifest-streamselection
 func (o PackagingConfigurationMssManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -4466,14 +4913,12 @@ func (o PackagingConfigurationMssManifestArrayOutput) Index(i pulumi.IntInput) P
 	}).(PackagingConfigurationMssManifestOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
+// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
 	Encryption *PackagingConfigurationMssEncryption `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
-	MssManifests []PackagingConfigurationMssManifest `pulumi:"mssManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
-	SegmentDurationSeconds *int `pulumi:"segmentDurationSeconds"`
+	// A list of MSS manifest configurations.
+	MssManifests           []PackagingConfigurationMssManifest `pulumi:"mssManifests"`
+	SegmentDurationSeconds *int                                `pulumi:"segmentDurationSeconds"`
 }
 
 // PackagingConfigurationMssPackageInput is an input type that accepts PackagingConfigurationMssPackageArgs and PackagingConfigurationMssPackageOutput values.
@@ -4487,14 +4932,12 @@ type PackagingConfigurationMssPackageInput interface {
 	ToPackagingConfigurationMssPackageOutputWithContext(context.Context) PackagingConfigurationMssPackageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
+// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
 	Encryption PackagingConfigurationMssEncryptionPtrInput `pulumi:"encryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
-	MssManifests PackagingConfigurationMssManifestArrayInput `pulumi:"mssManifests"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
-	SegmentDurationSeconds pulumi.IntPtrInput `pulumi:"segmentDurationSeconds"`
+	// A list of MSS manifest configurations.
+	MssManifests           PackagingConfigurationMssManifestArrayInput `pulumi:"mssManifests"`
+	SegmentDurationSeconds pulumi.IntPtrInput                          `pulumi:"segmentDurationSeconds"`
 }
 
 func (PackagingConfigurationMssPackageArgs) ElementType() reflect.Type {
@@ -4550,7 +4993,7 @@ func (i *packagingConfigurationMssPackagePtrType) ToPackagingConfigurationMssPac
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
+// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackageOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationMssPackageOutput) ElementType() reflect.Type {
@@ -4575,17 +5018,15 @@ func (o PackagingConfigurationMssPackageOutput) ToPackagingConfigurationMssPacka
 	}).(PackagingConfigurationMssPackagePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
 func (o PackagingConfigurationMssPackageOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption { return v.Encryption }).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+// A list of MSS manifest configurations.
 func (o PackagingConfigurationMssPackageOutput) MssManifests() PackagingConfigurationMssManifestArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) []PackagingConfigurationMssManifest { return v.MssManifests }).(PackagingConfigurationMssManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
 func (o PackagingConfigurationMssPackageOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) *int { return v.SegmentDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4614,7 +5055,6 @@ func (o PackagingConfigurationMssPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationMssPackageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
 func (o PackagingConfigurationMssPackagePtrOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption {
 		if v == nil {
@@ -4624,7 +5064,7 @@ func (o PackagingConfigurationMssPackagePtrOutput) Encryption() PackagingConfigu
 	}).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+// A list of MSS manifest configurations.
 func (o PackagingConfigurationMssPackagePtrOutput) MssManifests() PackagingConfigurationMssManifestArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) []PackagingConfigurationMssManifest {
 		if v == nil {
@@ -4634,7 +5074,6 @@ func (o PackagingConfigurationMssPackagePtrOutput) MssManifests() PackagingConfi
 	}).(PackagingConfigurationMssManifestArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
 func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) *int {
 		if v == nil {
@@ -4644,13 +5083,12 @@ func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProvider struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+	// The system IDs to include in key requests.
 	SystemIds []string `pulumi:"systemIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+	// The URL of the external key provider service.
 	Url string `pulumi:"url"`
 }
 
@@ -4665,13 +5103,12 @@ type PackagingConfigurationSpekeKeyProviderInput interface {
 	ToPackagingConfigurationSpekeKeyProviderOutputWithContext(context.Context) PackagingConfigurationSpekeKeyProviderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+	// The system IDs to include in key requests.
 	SystemIds pulumi.StringArrayInput `pulumi:"systemIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+	// The URL of the external key provider service.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -4728,7 +5165,7 @@ func (i *packagingConfigurationSpekeKeyProviderPtrType) ToPackagingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html
+// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationSpekeKeyProviderOutput) ElementType() reflect.Type {
@@ -4753,17 +5190,16 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
 func (o PackagingConfigurationSpekeKeyProviderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+// The system IDs to include in key requests.
 func (o PackagingConfigurationSpekeKeyProviderOutput) SystemIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) []string { return v.SystemIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+// The URL of the external key provider service.
 func (o PackagingConfigurationSpekeKeyProviderOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -4792,7 +5228,6 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigu
 	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-rolearn
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *string {
 		if v == nil {
@@ -4802,7 +5237,7 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) RoleArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-systemids
+// The system IDs to include in key requests.
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) SystemIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) []string {
 		if v == nil {
@@ -4812,7 +5247,7 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) SystemIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-spekekeyprovider.html#cfn-mediapackage-packagingconfiguration-spekekeyprovider-url
+// The URL of the external key provider service.
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *string {
 		if v == nil {
@@ -4822,13 +5257,13 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
+// A StreamSelection configuration.
 type PackagingConfigurationStreamSelection struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+	// The maximum video bitrate (bps) to include in output.
 	MaxVideoBitsPerSecond *int `pulumi:"maxVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond *int `pulumi:"minVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+	// A directive that determines the order of streams in the output.
 	StreamOrder *string `pulumi:"streamOrder"`
 }
 
@@ -4843,13 +5278,13 @@ type PackagingConfigurationStreamSelectionInput interface {
 	ToPackagingConfigurationStreamSelectionOutputWithContext(context.Context) PackagingConfigurationStreamSelectionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
+// A StreamSelection configuration.
 type PackagingConfigurationStreamSelectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+	// The maximum video bitrate (bps) to include in output.
 	MaxVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"maxVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+	// The minimum video bitrate (bps) to include in output.
 	MinVideoBitsPerSecond pulumi.IntPtrInput `pulumi:"minVideoBitsPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+	// A directive that determines the order of streams in the output.
 	StreamOrder pulumi.StringPtrInput `pulumi:"streamOrder"`
 }
 
@@ -4906,7 +5341,7 @@ func (i *packagingConfigurationStreamSelectionPtrType) ToPackagingConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
+// A StreamSelection configuration.
 type PackagingConfigurationStreamSelectionOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationStreamSelectionOutput) ElementType() reflect.Type {
@@ -4931,17 +5366,17 @@ func (o PackagingConfigurationStreamSelectionOutput) ToPackagingConfigurationStr
 	}).(PackagingConfigurationStreamSelectionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+// The maximum video bitrate (bps) to include in output.
 func (o PackagingConfigurationStreamSelectionOutput) MaxVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationStreamSelection) *int { return v.MaxVideoBitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+// The minimum video bitrate (bps) to include in output.
 func (o PackagingConfigurationStreamSelectionOutput) MinVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationStreamSelection) *int { return v.MinVideoBitsPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+// A directive that determines the order of streams in the output.
 func (o PackagingConfigurationStreamSelectionOutput) StreamOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationStreamSelection) *string { return v.StreamOrder }).(pulumi.StringPtrOutput)
 }
@@ -4970,7 +5405,7 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) Elem() PackagingConfigur
 	}).(PackagingConfigurationStreamSelectionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+// The maximum video bitrate (bps) to include in output.
 func (o PackagingConfigurationStreamSelectionPtrOutput) MaxVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationStreamSelection) *int {
 		if v == nil {
@@ -4980,7 +5415,7 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) MaxVideoBitsPerSecond() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+// The minimum video bitrate (bps) to include in output.
 func (o PackagingConfigurationStreamSelectionPtrOutput) MinVideoBitsPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationStreamSelection) *int {
 		if v == nil {
@@ -4990,7 +5425,7 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) MinVideoBitsPerSecond() 
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+// A directive that determines the order of streams in the output.
 func (o PackagingConfigurationStreamSelectionPtrOutput) StreamOrder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationStreamSelection) *string {
 		if v == nil {
@@ -5000,11 +5435,110 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) StreamOrder() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
+type PackagingConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PackagingConfigurationTagInput is an input type that accepts PackagingConfigurationTagArgs and PackagingConfigurationTagOutput values.
+// You can construct a concrete instance of `PackagingConfigurationTagInput` via:
+//
+//          PackagingConfigurationTagArgs{...}
+type PackagingConfigurationTagInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationTagOutput() PackagingConfigurationTagOutput
+	ToPackagingConfigurationTagOutputWithContext(context.Context) PackagingConfigurationTagOutput
+}
+
+type PackagingConfigurationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PackagingConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationTag)(nil)).Elem()
+}
+
+func (i PackagingConfigurationTagArgs) ToPackagingConfigurationTagOutput() PackagingConfigurationTagOutput {
+	return i.ToPackagingConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationTagArgs) ToPackagingConfigurationTagOutputWithContext(ctx context.Context) PackagingConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationTagOutput)
+}
+
+// PackagingConfigurationTagArrayInput is an input type that accepts PackagingConfigurationTagArray and PackagingConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `PackagingConfigurationTagArrayInput` via:
+//
+//          PackagingConfigurationTagArray{ PackagingConfigurationTagArgs{...} }
+type PackagingConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToPackagingConfigurationTagArrayOutput() PackagingConfigurationTagArrayOutput
+	ToPackagingConfigurationTagArrayOutputWithContext(context.Context) PackagingConfigurationTagArrayOutput
+}
+
+type PackagingConfigurationTagArray []PackagingConfigurationTagInput
+
+func (PackagingConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingConfigurationTag)(nil)).Elem()
+}
+
+func (i PackagingConfigurationTagArray) ToPackagingConfigurationTagArrayOutput() PackagingConfigurationTagArrayOutput {
+	return i.ToPackagingConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i PackagingConfigurationTagArray) ToPackagingConfigurationTagArrayOutputWithContext(ctx context.Context) PackagingConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationTagArrayOutput)
+}
+
+type PackagingConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingConfigurationTag)(nil)).Elem()
+}
+
+func (o PackagingConfigurationTagOutput) ToPackagingConfigurationTagOutput() PackagingConfigurationTagOutput {
+	return o
+}
+
+func (o PackagingConfigurationTagOutput) ToPackagingConfigurationTagOutputWithContext(ctx context.Context) PackagingConfigurationTagOutput {
+	return o
+}
+
+func (o PackagingConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PackagingConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PackagingConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PackagingConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingConfigurationTag)(nil)).Elem()
+}
+
+func (o PackagingConfigurationTagArrayOutput) ToPackagingConfigurationTagArrayOutput() PackagingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o PackagingConfigurationTagArrayOutput) ToPackagingConfigurationTagArrayOutputWithContext(ctx context.Context) PackagingConfigurationTagArrayOutput {
+	return o
+}
+
+func (o PackagingConfigurationTagArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PackagingConfigurationTag {
+		return vs[0].([]PackagingConfigurationTag)[vs[1].(int)]
+	}).(PackagingConfigurationTagOutput)
+}
+
 type PackagingGroupAuthorization struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
+	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 	CdnIdentifierSecret string `pulumi:"cdnIdentifierSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 	SecretsRoleArn string `pulumi:"secretsRoleArn"`
 }
 
@@ -5019,11 +5553,10 @@ type PackagingGroupAuthorizationInput interface {
 	ToPackagingGroupAuthorizationOutputWithContext(context.Context) PackagingGroupAuthorizationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
 type PackagingGroupAuthorizationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
+	// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 	CdnIdentifierSecret pulumi.StringInput `pulumi:"cdnIdentifierSecret"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+	// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 	SecretsRoleArn pulumi.StringInput `pulumi:"secretsRoleArn"`
 }
 
@@ -5080,7 +5613,6 @@ func (i *packagingGroupAuthorizationPtrType) ToPackagingGroupAuthorizationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html
 type PackagingGroupAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupAuthorizationOutput) ElementType() reflect.Type {
@@ -5105,12 +5637,12 @@ func (o PackagingGroupAuthorizationOutput) ToPackagingGroupAuthorizationPtrOutpu
 	}).(PackagingGroupAuthorizationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
+// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 func (o PackagingGroupAuthorizationOutput) CdnIdentifierSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingGroupAuthorization) string { return v.CdnIdentifierSecret }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 func (o PackagingGroupAuthorizationOutput) SecretsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingGroupAuthorization) string { return v.SecretsRoleArn }).(pulumi.StringOutput)
 }
@@ -5139,7 +5671,7 @@ func (o PackagingGroupAuthorizationPtrOutput) Elem() PackagingGroupAuthorization
 	}).(PackagingGroupAuthorizationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-cdnidentifiersecret
+// The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 func (o PackagingGroupAuthorizationPtrOutput) CdnIdentifierSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingGroupAuthorization) *string {
 		if v == nil {
@@ -5149,7 +5681,7 @@ func (o PackagingGroupAuthorizationPtrOutput) CdnIdentifierSecret() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-authorization.html#cfn-mediapackage-packaginggroup-authorization-secretsrolearn
+// The Amazon Resource Name (ARN) for the IAM role that allows MediaPackage to communicate with AWS Secrets Manager.
 func (o PackagingGroupAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingGroupAuthorization) *string {
 		if v == nil {
@@ -5159,9 +5691,8 @@ func (o PackagingGroupAuthorizationPtrOutput) SecretsRoleArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
 type PackagingGroupLogConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+	// Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
 	LogGroupName *string `pulumi:"logGroupName"`
 }
 
@@ -5176,9 +5707,8 @@ type PackagingGroupLogConfigurationInput interface {
 	ToPackagingGroupLogConfigurationOutputWithContext(context.Context) PackagingGroupLogConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
 type PackagingGroupLogConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+	// Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
 }
 
@@ -5235,7 +5765,6 @@ func (i *packagingGroupLogConfigurationPtrType) ToPackagingGroupLogConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html
 type PackagingGroupLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupLogConfigurationOutput) ElementType() reflect.Type {
@@ -5260,7 +5789,7 @@ func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationPt
 	}).(PackagingGroupLogConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+// Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
 func (o PackagingGroupLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingGroupLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
@@ -5289,7 +5818,7 @@ func (o PackagingGroupLogConfigurationPtrOutput) Elem() PackagingGroupLogConfigu
 	}).(PackagingGroupLogConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html#cfn-mediapackage-packaginggroup-logconfiguration-loggroupname
+// Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
 func (o PackagingGroupLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PackagingGroupLogConfiguration) *string {
 		if v == nil {
@@ -5299,11 +5828,119 @@ func (o PackagingGroupLogConfigurationPtrOutput) LogGroupName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+type PackagingGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PackagingGroupTagInput is an input type that accepts PackagingGroupTagArgs and PackagingGroupTagOutput values.
+// You can construct a concrete instance of `PackagingGroupTagInput` via:
+//
+//          PackagingGroupTagArgs{...}
+type PackagingGroupTagInput interface {
+	pulumi.Input
+
+	ToPackagingGroupTagOutput() PackagingGroupTagOutput
+	ToPackagingGroupTagOutputWithContext(context.Context) PackagingGroupTagOutput
+}
+
+type PackagingGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PackagingGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingGroupTag)(nil)).Elem()
+}
+
+func (i PackagingGroupTagArgs) ToPackagingGroupTagOutput() PackagingGroupTagOutput {
+	return i.ToPackagingGroupTagOutputWithContext(context.Background())
+}
+
+func (i PackagingGroupTagArgs) ToPackagingGroupTagOutputWithContext(ctx context.Context) PackagingGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupTagOutput)
+}
+
+// PackagingGroupTagArrayInput is an input type that accepts PackagingGroupTagArray and PackagingGroupTagArrayOutput values.
+// You can construct a concrete instance of `PackagingGroupTagArrayInput` via:
+//
+//          PackagingGroupTagArray{ PackagingGroupTagArgs{...} }
+type PackagingGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToPackagingGroupTagArrayOutput() PackagingGroupTagArrayOutput
+	ToPackagingGroupTagArrayOutputWithContext(context.Context) PackagingGroupTagArrayOutput
+}
+
+type PackagingGroupTagArray []PackagingGroupTagInput
+
+func (PackagingGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingGroupTag)(nil)).Elem()
+}
+
+func (i PackagingGroupTagArray) ToPackagingGroupTagArrayOutput() PackagingGroupTagArrayOutput {
+	return i.ToPackagingGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i PackagingGroupTagArray) ToPackagingGroupTagArrayOutputWithContext(ctx context.Context) PackagingGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupTagArrayOutput)
+}
+
+type PackagingGroupTagOutput struct{ *pulumi.OutputState }
+
+func (PackagingGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PackagingGroupTag)(nil)).Elem()
+}
+
+func (o PackagingGroupTagOutput) ToPackagingGroupTagOutput() PackagingGroupTagOutput {
+	return o
+}
+
+func (o PackagingGroupTagOutput) ToPackagingGroupTagOutputWithContext(ctx context.Context) PackagingGroupTagOutput {
+	return o
+}
+
+func (o PackagingGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagingGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PackagingGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PackagingGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PackagingGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PackagingGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PackagingGroupTag)(nil)).Elem()
+}
+
+func (o PackagingGroupTagArrayOutput) ToPackagingGroupTagArrayOutput() PackagingGroupTagArrayOutput {
+	return o
+}
+
+func (o PackagingGroupTagArrayOutput) ToPackagingGroupTagArrayOutputWithContext(ctx context.Context) PackagingGroupTagArrayOutput {
+	return o
+}
+
+func (o PackagingGroupTagArrayOutput) Index(i pulumi.IntInput) PackagingGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PackagingGroupTag {
+		return vs[0].([]PackagingGroupTag)[vs[1].(int)]
+	}).(PackagingGroupTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AssetEgressEndpointOutput{})
 	pulumi.RegisterOutputType(AssetEgressEndpointArrayOutput{})
+	pulumi.RegisterOutputType(AssetTagOutput{})
+	pulumi.RegisterOutputType(AssetTagArrayOutput{})
+	pulumi.RegisterOutputType(ChannelHlsIngestOutput{})
+	pulumi.RegisterOutputType(ChannelHlsIngestPtrOutput{})
+	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
+	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ChannelLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelTagOutput{})
+	pulumi.RegisterOutputType(ChannelTagArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAuthorizationOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointCmafEncryptionOutput{})
@@ -5328,6 +5965,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointSpekeKeyProviderPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointStreamSelectionOutput{})
 	pulumi.RegisterOutputType(OriginEndpointStreamSelectionPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointTagOutput{})
+	pulumi.RegisterOutputType(OriginEndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationCmafEncryptionOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationCmafEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationCmafPackageOutput{})
@@ -5354,8 +5993,12 @@ func init() {
 	pulumi.RegisterOutputType(PackagingConfigurationSpekeKeyProviderPtrOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationStreamSelectionOutput{})
 	pulumi.RegisterOutputType(PackagingConfigurationStreamSelectionPtrOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationTagOutput{})
+	pulumi.RegisterOutputType(PackagingConfigurationTagArrayOutput{})
 	pulumi.RegisterOutputType(PackagingGroupAuthorizationOutput{})
 	pulumi.RegisterOutputType(PackagingGroupAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(PackagingGroupLogConfigurationOutput{})
 	pulumi.RegisterOutputType(PackagingGroupLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PackagingGroupTagOutput{})
+	pulumi.RegisterOutputType(PackagingGroupTagArrayOutput{})
 }

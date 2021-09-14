@@ -8,26 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
+// Resource Type definition for AWS::SageMaker::Project
 type Project struct {
 	pulumi.CustomResourceState
 
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	ProjectArn   pulumi.StringOutput `pulumi:"projectArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
+	// The time at which the project was created.
+	CreationTime       pulumi.StringOutput    `pulumi:"creationTime"`
+	ProjectArn         pulumi.StringOutput    `pulumi:"projectArn"`
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
 	ProjectId          pulumi.StringOutput    `pulumi:"projectId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-	ProjectName   pulumi.StringOutput `pulumi:"projectName"`
+	ProjectName        pulumi.StringOutput    `pulumi:"projectName"`
+	// The status of a project.
 	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+	// Provisioned ServiceCatalog  Details
+	ServiceCatalogProvisionedProductDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisionedProductDetails"`
+	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails pulumi.AnyOutput `pulumi:"serviceCatalogProvisioningDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags ProjectTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -75,26 +76,22 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
 	ProjectDescription *string `pulumi:"projectDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-	ProjectName string `pulumi:"projectName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+	ProjectName        string  `pulumi:"projectName"`
+	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails interface{} `pulumi:"serviceCatalogProvisioningDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []ProjectTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
 	ProjectDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-	ProjectName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+	ProjectName        pulumi.StringInput
+	// Input ServiceCatalog Provisioning Details
 	ServiceCatalogProvisioningDetails pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags ProjectTagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

@@ -8,23 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html
+// Resource schema for AWS::IoTSiteWise::Gateway
 type Gateway struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries GatewayGatewayCapabilitySummaryArrayOutput `pulumi:"gatewayCapabilitySummaries"`
-	GatewayId                  pulumi.StringOutput                        `pulumi:"gatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+	// The ID of the gateway device.
+	GatewayId pulumi.StringOutput `pulumi:"gatewayId"`
+	// A unique, friendly name for the gateway.
 	GatewayName pulumi.StringOutput `pulumi:"gatewayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayGatewayPlatformOutput `pulumi:"gatewayPlatform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the gateway.
+	Tags GatewayTagArrayOutput `pulumi:"tags"`
 }
 
 // NewGateway registers a new resource with the given unique name, arguments, and options.
@@ -72,26 +72,26 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries []GatewayGatewayCapabilitySummary `pulumi:"gatewayCapabilitySummaries"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+	// A unique, friendly name for the gateway.
 	GatewayName string `pulumi:"gatewayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayGatewayPlatform `pulumi:"gatewayPlatform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the gateway.
+	Tags []GatewayTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewaycapabilitysummaries
+	// A list of gateway capability summaries that each contain a namespace and status.
 	GatewayCapabilitySummaries GatewayGatewayCapabilitySummaryArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayname
+	// A unique, friendly name for the gateway.
 	GatewayName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-gatewayplatform
+	// The gateway's platform. You can only specify one platform in a gateway.
 	GatewayPlatform GatewayGatewayPlatformInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-gateway.html#cfn-iotsitewise-gateway-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the gateway.
+	Tags GatewayTagArrayInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {

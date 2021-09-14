@@ -8,24 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html
+// The AWS::NetworkManager::Site type describes a site.
 type Site struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+	// The description of the site.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+	// The location of the site.
 	Location SiteLocationPtrOutput `pulumi:"location"`
-	SiteArn  pulumi.StringOutput   `pulumi:"siteArn"`
-	SiteId   pulumi.StringOutput   `pulumi:"siteId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the site.
+	SiteArn pulumi.StringOutput `pulumi:"siteArn"`
+	// The ID of the site.
+	SiteId pulumi.StringOutput `pulumi:"siteId"`
+	// The tags for the site.
+	Tags SiteTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSite registers a new resource with the given unique name, arguments, and options.
@@ -70,26 +71,26 @@ func (SiteState) ElementType() reflect.Type {
 }
 
 type siteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+	// The description of the site.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+	// The location of the site.
 	Location *SiteLocation `pulumi:"location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags for the site.
+	Tags []SiteTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Site resource.
 type SiteArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-description
+	// The description of the site.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-globalnetworkid
+	// The ID of the global network.
 	GlobalNetworkId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-location
+	// The location of the site.
 	Location SiteLocationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-site.html#cfn-networkmanager-site-tags
-	Tags aws.TagArrayInput
+	// The tags for the site.
+	Tags SiteTagArrayInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {

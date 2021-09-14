@@ -11,12 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+// Resource schema for AWS::CertificateManager::Account.
 type Account struct {
 	pulumi.CustomResourceState
 
-	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
+	AccountId                 pulumi.StringOutput                    `pulumi:"accountId"`
 	ExpiryEventsConfiguration AccountExpiryEventsConfigurationOutput `pulumi:"expiryEventsConfiguration"`
 }
 
@@ -62,13 +61,11 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
 	ExpiryEventsConfiguration AccountExpiryEventsConfiguration `pulumi:"expiryEventsConfiguration"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
 	ExpiryEventsConfiguration AccountExpiryEventsConfigurationInput
 }
 

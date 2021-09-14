@@ -8,23 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html
+// An label for fraud detector.
 type Label struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// The label ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp when the label was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-description
-	Description     pulumi.StringPtrOutput `pulumi:"description"`
-	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-name
+	// The label description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The timestamp when the label was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The name of the label.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Tags associated with this label.
+	Tags LabelTagArrayOutput `pulumi:"tags"`
 }
 
 // NewLabel registers a new resource with the given unique name, arguments, and options.
@@ -69,22 +71,22 @@ func (LabelState) ElementType() reflect.Type {
 }
 
 type labelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-description
+	// The label description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-name
+	// The name of the label.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags associated with this label.
+	Tags []LabelTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Label resource.
 type LabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-description
+	// The label description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-name
+	// The name of the label.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-label.html#cfn-frauddetector-label-tags
-	Tags aws.TagArrayInput
+	// Tags associated with this label.
+	Tags LabelTagArrayInput
 }
 
 func (LabelArgs) ElementType() reflect.Type {

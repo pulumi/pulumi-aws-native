@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html
 type ServerEngineAttribute struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type ServerEngineAttributeInput interface {
 	ToServerEngineAttributeOutputWithContext(context.Context) ServerEngineAttributeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html
 type ServerEngineAttributeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -74,7 +68,6 @@ func (i ServerEngineAttributeArray) ToServerEngineAttributeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEngineAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html
 type ServerEngineAttributeOutput struct{ *pulumi.OutputState }
 
 func (ServerEngineAttributeOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o ServerEngineAttributeOutput) ToServerEngineAttributeOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-name
 func (o ServerEngineAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEngineAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworkscm-server-engineattribute.html#cfn-opsworkscm-server-engineattribute-value
 func (o ServerEngineAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEngineAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -119,7 +110,109 @@ func (o ServerEngineAttributeArrayOutput) Index(i pulumi.IntInput) ServerEngineA
 	}).(ServerEngineAttributeOutput)
 }
 
+type ServerTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ServerTagInput is an input type that accepts ServerTagArgs and ServerTagOutput values.
+// You can construct a concrete instance of `ServerTagInput` via:
+//
+//          ServerTagArgs{...}
+type ServerTagInput interface {
+	pulumi.Input
+
+	ToServerTagOutput() ServerTagOutput
+	ToServerTagOutputWithContext(context.Context) ServerTagOutput
+}
+
+type ServerTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTag)(nil)).Elem()
+}
+
+func (i ServerTagArgs) ToServerTagOutput() ServerTagOutput {
+	return i.ToServerTagOutputWithContext(context.Background())
+}
+
+func (i ServerTagArgs) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerTagOutput)
+}
+
+// ServerTagArrayInput is an input type that accepts ServerTagArray and ServerTagArrayOutput values.
+// You can construct a concrete instance of `ServerTagArrayInput` via:
+//
+//          ServerTagArray{ ServerTagArgs{...} }
+type ServerTagArrayInput interface {
+	pulumi.Input
+
+	ToServerTagArrayOutput() ServerTagArrayOutput
+	ToServerTagArrayOutputWithContext(context.Context) ServerTagArrayOutput
+}
+
+type ServerTagArray []ServerTagInput
+
+func (ServerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerTag)(nil)).Elem()
+}
+
+func (i ServerTagArray) ToServerTagArrayOutput() ServerTagArrayOutput {
+	return i.ToServerTagArrayOutputWithContext(context.Background())
+}
+
+func (i ServerTagArray) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerTagArrayOutput)
+}
+
+type ServerTagOutput struct{ *pulumi.OutputState }
+
+func (ServerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTag)(nil)).Elem()
+}
+
+func (o ServerTagOutput) ToServerTagOutput() ServerTagOutput {
+	return o
+}
+
+func (o ServerTagOutput) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
+	return o
+}
+
+func (o ServerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ServerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ServerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerTag)(nil)).Elem()
+}
+
+func (o ServerTagArrayOutput) ToServerTagArrayOutput() ServerTagArrayOutput {
+	return o
+}
+
+func (o ServerTagArrayOutput) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
+	return o
+}
+
+func (o ServerTagArrayOutput) Index(i pulumi.IntInput) ServerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerTag {
+		return vs[0].([]ServerTag)[vs[1].(int)]
+	}).(ServerTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServerEngineAttributeOutput{})
 	pulumi.RegisterOutputType(ServerEngineAttributeArrayOutput{})
+	pulumi.RegisterOutputType(ServerTagOutput{})
+	pulumi.RegisterOutputType(ServerTagArrayOutput{})
 }

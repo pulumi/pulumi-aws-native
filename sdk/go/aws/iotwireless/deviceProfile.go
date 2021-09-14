@@ -7,22 +7,21 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
+// Device Profile's resource schema demonstrating some basic constructs and validation rules.
 type DeviceProfile struct {
 	pulumi.CustomResourceState
 
+	// Service profile Arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	Id  pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
 	LoRaWAN DeviceProfileLoRaWANDeviceProfilePtrOutput `pulumi:"loRaWAN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the device profile.
+	Tags DeviceProfileTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDeviceProfile registers a new resource with the given unique name, arguments, and options.
@@ -64,22 +63,22 @@ func (DeviceProfileState) ElementType() reflect.Type {
 }
 
 type deviceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
 	LoRaWAN *DeviceProfileLoRaWANDeviceProfile `pulumi:"loRaWAN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+	// Name of service profile
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the device profile.
+	Tags []DeviceProfileTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeviceProfile resource.
 type DeviceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+	// LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
 	LoRaWAN DeviceProfileLoRaWANDeviceProfilePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+	// Name of service profile
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the device profile.
+	Tags DeviceProfileTagArrayInput
 }
 
 func (DeviceProfileArgs) ElementType() reflect.Type {

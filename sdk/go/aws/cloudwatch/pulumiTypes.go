@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+// This structure defines the metrics that will be streamed.
 type MetricStreamMetricStreamFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+	// Only metrics with Namespace matching this value will be streamed.
 	Namespace string `pulumi:"namespace"`
 }
 
@@ -27,9 +27,9 @@ type MetricStreamMetricStreamFilterInput interface {
 	ToMetricStreamMetricStreamFilterOutputWithContext(context.Context) MetricStreamMetricStreamFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+// This structure defines the metrics that will be streamed.
 type MetricStreamMetricStreamFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+	// Only metrics with Namespace matching this value will be streamed.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
 }
 
@@ -70,7 +70,7 @@ func (i MetricStreamMetricStreamFilterArray) ToMetricStreamMetricStreamFilterArr
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamMetricStreamFilterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html
+// This structure defines the metrics that will be streamed.
 type MetricStreamMetricStreamFilterOutput struct{ *pulumi.OutputState }
 
 func (MetricStreamMetricStreamFilterOutput) ElementType() reflect.Type {
@@ -85,7 +85,7 @@ func (o MetricStreamMetricStreamFilterOutput) ToMetricStreamMetricStreamFilterOu
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-metricstream-metricstreamfilter.html#cfn-cloudwatch-metricstream-metricstreamfilter-namespace
+// Only metrics with Namespace matching this value will be streamed.
 func (o MetricStreamMetricStreamFilterOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v MetricStreamMetricStreamFilter) string { return v.Namespace }).(pulumi.StringOutput)
 }
@@ -110,7 +110,118 @@ func (o MetricStreamMetricStreamFilterArrayOutput) Index(i pulumi.IntInput) Metr
 	}).(MetricStreamMetricStreamFilterOutput)
 }
 
+// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
+type MetricStreamTag struct {
+	// A unique identifier for the tag.
+	Key string `pulumi:"key"`
+	// An optional string, which you can use to describe or define the tag.
+	Value *string `pulumi:"value"`
+}
+
+// MetricStreamTagInput is an input type that accepts MetricStreamTagArgs and MetricStreamTagOutput values.
+// You can construct a concrete instance of `MetricStreamTagInput` via:
+//
+//          MetricStreamTagArgs{...}
+type MetricStreamTagInput interface {
+	pulumi.Input
+
+	ToMetricStreamTagOutput() MetricStreamTagOutput
+	ToMetricStreamTagOutputWithContext(context.Context) MetricStreamTagOutput
+}
+
+// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
+type MetricStreamTagArgs struct {
+	// A unique identifier for the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// An optional string, which you can use to describe or define the tag.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MetricStreamTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamTag)(nil)).Elem()
+}
+
+func (i MetricStreamTagArgs) ToMetricStreamTagOutput() MetricStreamTagOutput {
+	return i.ToMetricStreamTagOutputWithContext(context.Background())
+}
+
+func (i MetricStreamTagArgs) ToMetricStreamTagOutputWithContext(ctx context.Context) MetricStreamTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagOutput)
+}
+
+// MetricStreamTagArrayInput is an input type that accepts MetricStreamTagArray and MetricStreamTagArrayOutput values.
+// You can construct a concrete instance of `MetricStreamTagArrayInput` via:
+//
+//          MetricStreamTagArray{ MetricStreamTagArgs{...} }
+type MetricStreamTagArrayInput interface {
+	pulumi.Input
+
+	ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput
+	ToMetricStreamTagArrayOutputWithContext(context.Context) MetricStreamTagArrayOutput
+}
+
+type MetricStreamTagArray []MetricStreamTagInput
+
+func (MetricStreamTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamTag)(nil)).Elem()
+}
+
+func (i MetricStreamTagArray) ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput {
+	return i.ToMetricStreamTagArrayOutputWithContext(context.Background())
+}
+
+func (i MetricStreamTagArray) ToMetricStreamTagArrayOutputWithContext(ctx context.Context) MetricStreamTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagArrayOutput)
+}
+
+// Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
+type MetricStreamTagOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricStreamTag)(nil)).Elem()
+}
+
+func (o MetricStreamTagOutput) ToMetricStreamTagOutput() MetricStreamTagOutput {
+	return o
+}
+
+func (o MetricStreamTagOutput) ToMetricStreamTagOutputWithContext(ctx context.Context) MetricStreamTagOutput {
+	return o
+}
+
+// A unique identifier for the tag.
+func (o MetricStreamTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricStreamTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// An optional string, which you can use to describe or define the tag.
+func (o MetricStreamTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricStreamTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MetricStreamTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricStreamTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricStreamTag)(nil)).Elem()
+}
+
+func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutput() MetricStreamTagArrayOutput {
+	return o
+}
+
+func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutputWithContext(ctx context.Context) MetricStreamTagArrayOutput {
+	return o
+}
+
+func (o MetricStreamTagArrayOutput) Index(i pulumi.IntInput) MetricStreamTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricStreamTag {
+		return vs[0].([]MetricStreamTag)[vs[1].(int)]
+	}).(MetricStreamTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterOutput{})
 	pulumi.RegisterOutputType(MetricStreamMetricStreamFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricStreamTagOutput{})
+	pulumi.RegisterOutputType(MetricStreamTagArrayOutput{})
 }

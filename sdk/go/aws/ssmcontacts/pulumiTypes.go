@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+// Information about the contact channel that SSM Incident Manager uses to engage the contact.
 type ContactChannelTargetInfo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+	// The Amazon Resource Name (ARN) of the contact channel.
 	ChannelId string `pulumi:"channelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+	// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
 	RetryIntervalInMinutes int `pulumi:"retryIntervalInMinutes"`
 }
 
@@ -29,11 +29,11 @@ type ContactChannelTargetInfoInput interface {
 	ToContactChannelTargetInfoOutputWithContext(context.Context) ContactChannelTargetInfoOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+// Information about the contact channel that SSM Incident Manager uses to engage the contact.
 type ContactChannelTargetInfoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+	// The Amazon Resource Name (ARN) of the contact channel.
 	ChannelId pulumi.StringInput `pulumi:"channelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+	// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
 	RetryIntervalInMinutes pulumi.IntInput `pulumi:"retryIntervalInMinutes"`
 }
 
@@ -90,7 +90,7 @@ func (i *contactChannelTargetInfoPtrType) ToContactChannelTargetInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ContactChannelTargetInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+// Information about the contact channel that SSM Incident Manager uses to engage the contact.
 type ContactChannelTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (ContactChannelTargetInfoOutput) ElementType() reflect.Type {
@@ -115,12 +115,12 @@ func (o ContactChannelTargetInfoOutput) ToContactChannelTargetInfoPtrOutputWithC
 	}).(ContactChannelTargetInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+// The Amazon Resource Name (ARN) of the contact channel.
 func (o ContactChannelTargetInfoOutput) ChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactChannelTargetInfo) string { return v.ChannelId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
 func (o ContactChannelTargetInfoOutput) RetryIntervalInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ContactChannelTargetInfo) int { return v.RetryIntervalInMinutes }).(pulumi.IntOutput)
 }
@@ -149,7 +149,7 @@ func (o ContactChannelTargetInfoPtrOutput) Elem() ContactChannelTargetInfoOutput
 	}).(ContactChannelTargetInfoOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+// The Amazon Resource Name (ARN) of the contact channel.
 func (o ContactChannelTargetInfoPtrOutput) ChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactChannelTargetInfo) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o ContactChannelTargetInfoPtrOutput) ChannelId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
 func (o ContactChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContactChannelTargetInfo) *int {
 		if v == nil {
@@ -169,11 +169,11 @@ func (o ContactChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
+// The contact that SSM Incident Manager is engaging during an incident.
 type ContactContactTargetInfo struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+	// The Amazon Resource Name (ARN) of the contact.
 	ContactId string `pulumi:"contactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 	IsEssential bool `pulumi:"isEssential"`
 }
 
@@ -188,11 +188,11 @@ type ContactContactTargetInfoInput interface {
 	ToContactContactTargetInfoOutputWithContext(context.Context) ContactContactTargetInfoOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
+// The contact that SSM Incident Manager is engaging during an incident.
 type ContactContactTargetInfoArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+	// The Amazon Resource Name (ARN) of the contact.
 	ContactId pulumi.StringInput `pulumi:"contactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 	IsEssential pulumi.BoolInput `pulumi:"isEssential"`
 }
 
@@ -249,7 +249,7 @@ func (i *contactContactTargetInfoPtrType) ToContactContactTargetInfoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ContactContactTargetInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html
+// The contact that SSM Incident Manager is engaging during an incident.
 type ContactContactTargetInfoOutput struct{ *pulumi.OutputState }
 
 func (ContactContactTargetInfoOutput) ElementType() reflect.Type {
@@ -274,12 +274,12 @@ func (o ContactContactTargetInfoOutput) ToContactContactTargetInfoPtrOutputWithC
 	}).(ContactContactTargetInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+// The Amazon Resource Name (ARN) of the contact.
 func (o ContactContactTargetInfoOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 func (o ContactContactTargetInfoOutput) IsEssential() pulumi.BoolOutput {
 	return o.ApplyT(func(v ContactContactTargetInfo) bool { return v.IsEssential }).(pulumi.BoolOutput)
 }
@@ -308,7 +308,7 @@ func (o ContactContactTargetInfoPtrOutput) Elem() ContactContactTargetInfoOutput
 	}).(ContactContactTargetInfoOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-contactid
+// The Amazon Resource Name (ARN) of the contact.
 func (o ContactContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContactContactTargetInfo) *string {
 		if v == nil {
@@ -318,7 +318,7 @@ func (o ContactContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-contacttargetinfo.html#cfn-ssmcontacts-contact-contacttargetinfo-isessential
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 func (o ContactContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContactContactTargetInfo) *bool {
 		if v == nil {
@@ -328,11 +328,11 @@ func (o ContactContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+	// The time to wait until beginning the next stage.
 	DurationInMinutes int `pulumi:"durationInMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 	Targets []ContactTargets `pulumi:"targets"`
 }
 
@@ -347,11 +347,11 @@ type ContactStageInput interface {
 	ToContactStageOutputWithContext(context.Context) ContactStageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+	// The time to wait until beginning the next stage.
 	DurationInMinutes pulumi.IntInput `pulumi:"durationInMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+	// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 	Targets ContactTargetsArrayInput `pulumi:"targets"`
 }
 
@@ -392,7 +392,7 @@ func (i ContactStageArray) ToContactStageArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactStageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
 type ContactStageOutput struct{ *pulumi.OutputState }
 
 func (ContactStageOutput) ElementType() reflect.Type {
@@ -407,12 +407,12 @@ func (o ContactStageOutput) ToContactStageOutputWithContext(ctx context.Context)
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+// The time to wait until beginning the next stage.
 func (o ContactStageOutput) DurationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v ContactStage) int { return v.DurationInMinutes }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 func (o ContactStageOutput) Targets() ContactTargetsArrayOutput {
 	return o.ApplyT(func(v ContactStage) []ContactTargets { return v.Targets }).(ContactTargetsArrayOutput)
 }
@@ -437,11 +437,9 @@ func (o ContactStageArrayOutput) Index(i pulumi.IntInput) ContactStageOutput {
 	}).(ContactStageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargets struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
 	ChannelTargetInfo *ContactChannelTargetInfo `pulumi:"channelTargetInfo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
 	ContactTargetInfo *ContactContactTargetInfo `pulumi:"contactTargetInfo"`
 }
 
@@ -456,11 +454,9 @@ type ContactTargetsInput interface {
 	ToContactTargetsOutputWithContext(context.Context) ContactTargetsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
 	ChannelTargetInfo ContactChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
 	ContactTargetInfo ContactContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
 }
 
@@ -501,7 +497,7 @@ func (i ContactTargetsArray) ToContactTargetsArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContactTargetsArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+// The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsOutput struct{ *pulumi.OutputState }
 
 func (ContactTargetsOutput) ElementType() reflect.Type {
@@ -516,12 +512,10 @@ func (o ContactTargetsOutput) ToContactTargetsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
 func (o ContactTargetsOutput) ChannelTargetInfo() ContactChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v ContactTargets) *ContactChannelTargetInfo { return v.ChannelTargetInfo }).(ContactChannelTargetInfoPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
 func (o ContactTargetsOutput) ContactTargetInfo() ContactContactTargetInfoPtrOutput {
 	return o.ApplyT(func(v ContactTargets) *ContactContactTargetInfo { return v.ContactTargetInfo }).(ContactContactTargetInfoPtrOutput)
 }

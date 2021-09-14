@@ -10,9 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
 type AccessPointVpcConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+	// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -27,9 +26,8 @@ type AccessPointVpcConfigurationInput interface {
 	ToAccessPointVpcConfigurationOutputWithContext(context.Context) AccessPointVpcConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
 type AccessPointVpcConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+	// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -86,7 +84,6 @@ func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +108,7 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +137,7 @@ func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfiguration
 	}).(AccessPointVpcConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
 func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPointVpcConfiguration) *string {
 		if v == nil {
@@ -150,9 +147,9 @@ func (o AccessPointVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
 type BucketAbortIncompleteMultipartUpload struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+	// Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
 	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
 }
 
@@ -167,9 +164,9 @@ type BucketAbortIncompleteMultipartUploadInput interface {
 	ToBucketAbortIncompleteMultipartUploadOutputWithContext(context.Context) BucketAbortIncompleteMultipartUploadOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
 type BucketAbortIncompleteMultipartUploadArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+	// Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
 	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
 }
 
@@ -226,7 +223,7 @@ func (i *bucketAbortIncompleteMultipartUploadPtrType) ToBucketAbortIncompleteMul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
 type BucketAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
 func (BucketAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
@@ -251,7 +248,7 @@ func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMulti
 	}).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+// Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
 func (o BucketAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketAbortIncompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
 }
@@ -280,7 +277,7 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) Elem() BucketAbortIncompl
 	}).(BucketAbortIncompleteMultipartUploadOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-abortincompletemultipartupload.html#cfn-s3outposts-bucket-abortincompletemultipartupload-daysafterinitiation
+// Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
 func (o BucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BucketAbortIncompleteMultipartUpload) *int {
 		if v == nil {
@@ -290,9 +287,8 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
 type BucketLifecycleConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+	// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 	Rules []BucketRule `pulumi:"rules"`
 }
 
@@ -307,9 +303,8 @@ type BucketLifecycleConfigurationInput interface {
 	ToBucketLifecycleConfigurationOutputWithContext(context.Context) BucketLifecycleConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
 type BucketLifecycleConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+	// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 	Rules BucketRuleArrayInput `pulumi:"rules"`
 }
 
@@ -366,7 +361,6 @@ func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html
 type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
@@ -391,7 +385,7 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOut
 	}).(BucketLifecycleConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleConfiguration) []BucketRule { return v.Rules }).(BucketRuleArrayOutput)
 }
@@ -420,7 +414,7 @@ func (o BucketLifecycleConfigurationPtrOutput) Elem() BucketLifecycleConfigurati
 	}).(BucketLifecycleConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-lifecycleconfiguration.html#cfn-s3outposts-bucket-lifecycleconfiguration-rules
+// A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) []BucketRule {
 		if v == nil {
@@ -430,19 +424,18 @@ func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
 	}).(BucketRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
 type BucketRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+	// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
 	AbortIncompleteMultipartUpload *BucketAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+	// Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+	// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
 	ExpirationInDays *int `pulumi:"expirationInDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+	// The container for the filter of the lifecycle rule.
 	Filter interface{} `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
-	Id *string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
+	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
+	Id     *string `pulumi:"id"`
 	Status *string `pulumi:"status"`
 }
 
@@ -457,19 +450,18 @@ type BucketRuleInput interface {
 	ToBucketRuleOutputWithContext(context.Context) BucketRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
 type BucketRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+	// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
 	AbortIncompleteMultipartUpload BucketAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+	// Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
 	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+	// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
 	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+	// The container for the filter of the lifecycle rule.
 	Filter pulumi.Input `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
+	// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
+	Id     pulumi.StringPtrInput `pulumi:"id"`
 	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
@@ -510,7 +502,7 @@ func (i BucketRuleArray) ToBucketRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html
+// Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
 type BucketRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketRuleOutput) ElementType() reflect.Type {
@@ -525,32 +517,31 @@ func (o BucketRuleOutput) ToBucketRuleOutputWithContext(ctx context.Context) Buc
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-abortincompletemultipartupload
+// Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
 func (o BucketRuleOutput) AbortIncompleteMultipartUpload() BucketAbortIncompleteMultipartUploadPtrOutput {
 	return o.ApplyT(func(v BucketRule) *BucketAbortIncompleteMultipartUpload { return v.AbortIncompleteMultipartUpload }).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationdate
+// Indicates when objects are deleted from Amazon S3Outposts. The date value must be in ISO 8601 format. The time is always midnight UTC.
 func (o BucketRuleOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-expirationindays
+// Indicates the number of days after creation when objects are deleted from Amazon S3Outposts.
 func (o BucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketRule) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-filter
+// The container for the filter of the lifecycle rule.
 func (o BucketRuleOutput) Filter() pulumi.AnyOutput {
 	return o.ApplyT(func(v BucketRule) interface{} { return v.Filter }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-id
+// Unique identifier for the lifecycle rule. The value can't be longer than 255 characters.
 func (o BucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html#cfn-s3outposts-bucket-rule-status
 func (o BucketRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRule) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -575,9 +566,108 @@ func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
 	}).(BucketRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+type BucketTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// BucketTagInput is an input type that accepts BucketTagArgs and BucketTagOutput values.
+// You can construct a concrete instance of `BucketTagInput` via:
+//
+//          BucketTagArgs{...}
+type BucketTagInput interface {
+	pulumi.Input
+
+	ToBucketTagOutput() BucketTagOutput
+	ToBucketTagOutputWithContext(context.Context) BucketTagOutput
+}
+
+type BucketTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (BucketTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTag)(nil)).Elem()
+}
+
+func (i BucketTagArgs) ToBucketTagOutput() BucketTagOutput {
+	return i.ToBucketTagOutputWithContext(context.Background())
+}
+
+func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
+}
+
+// BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
+// You can construct a concrete instance of `BucketTagArrayInput` via:
+//
+//          BucketTagArray{ BucketTagArgs{...} }
+type BucketTagArrayInput interface {
+	pulumi.Input
+
+	ToBucketTagArrayOutput() BucketTagArrayOutput
+	ToBucketTagArrayOutputWithContext(context.Context) BucketTagArrayOutput
+}
+
+type BucketTagArray []BucketTagInput
+
+func (BucketTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
+}
+
+func (i BucketTagArray) ToBucketTagArrayOutput() BucketTagArrayOutput {
+	return i.ToBucketTagArrayOutputWithContext(context.Background())
+}
+
+func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
+}
+
+type BucketTagOutput struct{ *pulumi.OutputState }
+
+func (BucketTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTag)(nil)).Elem()
+}
+
+func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
+	return o
+}
+
+func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
+	return o
+}
+
+func (o BucketTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o BucketTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type BucketTagArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketTag)(nil)).Elem()
+}
+
+func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
+	return o
+}
+
+func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
+	return o
+}
+
+func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTag {
+		return vs[0].([]BucketTag)[vs[1].(int)]
+	}).(BucketTagOutput)
+}
+
+// The container for the network interface.
 type EndpointNetworkInterface struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
 
@@ -592,9 +682,8 @@ type EndpointNetworkInterfaceInput interface {
 	ToEndpointNetworkInterfaceOutputWithContext(context.Context) EndpointNetworkInterfaceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+// The container for the network interface.
 type EndpointNetworkInterfaceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
 
@@ -635,7 +724,7 @@ func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+// The container for the network interface.
 type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (EndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -650,7 +739,6 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
 func (o EndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -684,6 +772,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketRuleOutput{})
 	pulumi.RegisterOutputType(BucketRuleArrayOutput{})
+	pulumi.RegisterOutputType(BucketTagOutput{})
+	pulumi.RegisterOutputType(BucketTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 }

@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+// This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 type SchemaVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
 	Schema SchemaVersionSchemaOutput `pulumi:"schema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
-	VersionId        pulumi.StringOutput `pulumi:"versionId"`
+	// Represents the version ID associated with the schema version.
+	VersionId pulumi.StringOutput `pulumi:"versionId"`
 }
 
 // NewSchemaVersion registers a new resource with the given unique name, arguments, and options.
@@ -67,17 +67,15 @@ func (SchemaVersionState) ElementType() reflect.Type {
 }
 
 type schemaVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
 	Schema SchemaVersionSchema `pulumi:"schema"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	// Complete definition of the schema in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
 }
 
 // The set of arguments for constructing a SchemaVersion resource.
 type SchemaVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
 	Schema SchemaVersionSchemaInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringInput
 }
 

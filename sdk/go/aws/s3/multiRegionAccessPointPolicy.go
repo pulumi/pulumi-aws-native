@@ -11,14 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+// The policy to be attached to a Multi Region Access Point
 type MultiRegionAccessPointPolicy struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+	// The name of the Multi Region Access Point to apply policy
 	MrapName pulumi.StringOutput `pulumi:"mrapName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+	// Policy document to apply to a Multi Region Access Point
 	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// The Policy Status associated with this Multi Region Access Point
+	PolicyStatus pulumi.AnyOutput `pulumi:"policyStatus"`
 }
 
 // NewMultiRegionAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -66,17 +68,17 @@ func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
 }
 
 type multiRegionAccessPointPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+	// The name of the Multi Region Access Point to apply policy
 	MrapName string `pulumi:"mrapName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+	// Policy document to apply to a Multi Region Access Point
 	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
 type MultiRegionAccessPointPolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+	// The name of the Multi Region Access Point to apply policy
 	MrapName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+	// Policy document to apply to a Multi Region Access Point
 	Policy pulumi.Input
 }
 

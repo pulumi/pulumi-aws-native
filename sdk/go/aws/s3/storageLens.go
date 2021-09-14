@@ -8,19 +8,16 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+// The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
 type StorageLens struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-	StorageLensConfiguration               StorageLensStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
-	StorageLensConfigurationStorageLensArn pulumi.StringOutput                       `pulumi:"storageLensConfigurationStorageLensArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	StorageLensConfiguration StorageLensStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
+	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+	Tags StorageLensTagArrayOutput `pulumi:"tags"`
 }
 
 // NewStorageLens registers a new resource with the given unique name, arguments, and options.
@@ -65,18 +62,16 @@ func (StorageLensState) ElementType() reflect.Type {
 }
 
 type storageLensArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
 	StorageLensConfiguration StorageLensStorageLensConfiguration `pulumi:"storageLensConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+	Tags []StorageLensTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StorageLens resource.
 type StorageLensArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
 	StorageLensConfiguration StorageLensStorageLensConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
-	Tags aws.TagArrayInput
+	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+	Tags StorageLensTagArrayInput
 }
 
 func (StorageLensArgs) ElementType() reflect.Type {

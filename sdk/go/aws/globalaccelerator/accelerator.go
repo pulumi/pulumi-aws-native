@@ -8,26 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html
+// Resource Type definition for AWS::GlobalAccelerator::Accelerator
 type Accelerator struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
-	DnsName        pulumi.StringOutput `pulumi:"dnsName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+	// The Domain Name System (DNS) name that Global Accelerator creates that points to your accelerator's static IP addresses.
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+	// IP Address type.
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses pulumi.StringArrayOutput `pulumi:"ipAddresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Name of accelerator.
+	Name pulumi.StringOutput       `pulumi:"name"`
+	Tags AcceleratorTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAccelerator registers a new resource with the given unique name, arguments, and options.
@@ -72,30 +72,28 @@ func (AcceleratorState) ElementType() reflect.Type {
 }
 
 type acceleratorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+	// IP Address type.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses []string `pulumi:"ipAddresses"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Name of accelerator.
+	Name string           `pulumi:"name"`
+	Tags []AcceleratorTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Accelerator resource.
 type AcceleratorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-enabled
+	// Indicates whether an accelerator is enabled. The value is true or false.
 	Enabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresstype
+	// IP Address type.
 	IpAddressType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-ipaddresses
+	// The IP addresses from BYOIP Prefix pool.
 	IpAddresses pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-name
+	// Name of accelerator.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-accelerator.html#cfn-globalaccelerator-accelerator-tags
-	Tags aws.TagArrayInput
+	Tags AcceleratorTagArrayInput
 }
 
 func (AcceleratorArgs) ElementType() reflect.Type {

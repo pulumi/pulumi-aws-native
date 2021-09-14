@@ -7,27 +7,26 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+// Resource Type definition for AWS::EC2::DHCPOptions
 type DHCPOptions struct {
 	pulumi.CustomResourceState
 
 	DhcpOptionsId pulumi.StringOutput `pulumi:"dhcpOptionsId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+	// This value is used to complete unqualified DNS hostnames.
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers pulumi.StringArrayOutput `pulumi:"domainNameServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+	// The NetBIOS node type (1, 2, 4, or 8).
 	NetbiosNodeType pulumi.IntPtrOutput `pulumi:"netbiosNodeType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers pulumi.StringArrayOutput `pulumi:"ntpServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Any tags assigned to the DHCP options set.
+	Tags DHCPOptionsTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDHCPOptions registers a new resource with the given unique name, arguments, and options.
@@ -69,34 +68,34 @@ func (DHCPOptionsState) ElementType() reflect.Type {
 }
 
 type dhcpoptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+	// This value is used to complete unqualified DNS hostnames.
 	DomainName *string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers []string `pulumi:"domainNameServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+	// The NetBIOS node type (1, 2, 4, or 8).
 	NetbiosNodeType *int `pulumi:"netbiosNodeType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers []string `pulumi:"ntpServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Any tags assigned to the DHCP options set.
+	Tags []DHCPOptionsTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DHCPOptions resource.
 type DHCPOptionsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+	// This value is used to complete unqualified DNS hostnames.
 	DomainName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+	// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
 	DomainNameServers pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+	// The IPv4 addresses of up to four NetBIOS name servers.
 	NetbiosNameServers pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+	// The NetBIOS node type (1, 2, 4, or 8).
 	NetbiosNodeType pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+	// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
 	NtpServers pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
-	Tags aws.TagArrayInput
+	// Any tags assigned to the DHCP options set.
+	Tags DHCPOptionsTagArrayInput
 }
 
 func (DHCPOptionsArgs) ElementType() reflect.Type {

@@ -8,28 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
+// Resource type definition for AWS::NetworkFirewall::RuleGroup
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-	Capacity pulumi.IntOutput `pulumi:"capacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-	RuleGroup    RuleGroupRuleGroupPtrOutput `pulumi:"ruleGroup"`
-	RuleGroupArn pulumi.StringOutput         `pulumi:"ruleGroupArn"`
-	RuleGroupId  pulumi.StringOutput         `pulumi:"ruleGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-	RuleGroupName pulumi.StringOutput `pulumi:"ruleGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Capacity      pulumi.IntOutput            `pulumi:"capacity"`
+	Description   pulumi.StringPtrOutput      `pulumi:"description"`
+	RuleGroup     RuleGroupRuleGroupPtrOutput `pulumi:"ruleGroup"`
+	RuleGroupArn  pulumi.StringOutput         `pulumi:"ruleGroupArn"`
+	RuleGroupId   pulumi.StringOutput         `pulumi:"ruleGroupId"`
+	RuleGroupName pulumi.StringOutput         `pulumi:"ruleGroupName"`
+	Tags          RuleGroupTagArrayOutput     `pulumi:"tags"`
+	Type          pulumi.StringOutput         `pulumi:"type"`
 }
 
 // NewRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -80,34 +73,22 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-	Capacity int `pulumi:"capacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-	RuleGroup *RuleGroupRuleGroup `pulumi:"ruleGroup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-	RuleGroupName string `pulumi:"ruleGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-	Type string `pulumi:"type"`
+	Capacity      int                 `pulumi:"capacity"`
+	Description   *string             `pulumi:"description"`
+	RuleGroup     *RuleGroupRuleGroup `pulumi:"ruleGroup"`
+	RuleGroupName string              `pulumi:"ruleGroupName"`
+	Tags          []RuleGroupTag      `pulumi:"tags"`
+	Type          string              `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-	Capacity pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-	RuleGroup RuleGroupRuleGroupPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
+	Capacity      pulumi.IntInput
+	Description   pulumi.StringPtrInput
+	RuleGroup     RuleGroupRuleGroupPtrInput
 	RuleGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-	Type pulumi.StringInput
+	Tags          RuleGroupTagArrayInput
+	Type          pulumi.StringInput
 }
 
 func (RuleGroupArgs) ElementType() reflect.Type {

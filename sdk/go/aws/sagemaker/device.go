@@ -8,20 +8,19 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+// Resource schema for AWS::SageMaker::Device
 type Device struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-	Device pulumi.AnyOutput `pulumi:"device"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	// The Edge Device you want to register against a device fleet
+	Device DeviceDevicePtrOutput `pulumi:"device"`
+	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Associate tags with the resource
+	Tags DeviceTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
@@ -66,22 +65,22 @@ func (DeviceState) ElementType() reflect.Type {
 }
 
 type deviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-	Device interface{} `pulumi:"device"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	// The Edge Device you want to register against a device fleet
+	Device *DeviceDevice `pulumi:"device"`
+	// The name of the edge device fleet
 	DeviceFleetName string `pulumi:"deviceFleetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Associate tags with the resource
+	Tags []DeviceTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Device resource.
 type DeviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
-	Device pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+	// The Edge Device you want to register against a device fleet
+	Device DeviceDevicePtrInput
+	// The name of the edge device fleet
 	DeviceFleetName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
-	Tags aws.TagArrayInput
+	// Associate tags with the resource
+	Tags DeviceTagArrayInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {

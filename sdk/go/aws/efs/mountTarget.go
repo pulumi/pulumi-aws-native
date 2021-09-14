@@ -11,17 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
+// Resource Type definition for AWS::EFS::MountTarget
 type MountTarget struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	IpAddress    pulumi.StringOutput `pulumi:"ipAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
+	FileSystemId   pulumi.StringOutput      `pulumi:"fileSystemId"`
+	IpAddress      pulumi.StringPtrOutput   `pulumi:"ipAddress"`
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
+	SubnetId       pulumi.StringOutput      `pulumi:"subnetId"`
 }
 
 // NewMountTarget registers a new resource with the given unique name, arguments, and options.
@@ -72,26 +69,18 @@ func (MountTargetState) ElementType() reflect.Type {
 }
 
 type mountTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-	FileSystemId string `pulumi:"fileSystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-	IpAddress *string `pulumi:"ipAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
+	FileSystemId   string   `pulumi:"fileSystemId"`
+	IpAddress      *string  `pulumi:"ipAddress"`
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-	SubnetId string `pulumi:"subnetId"`
+	SubnetId       string   `pulumi:"subnetId"`
 }
 
 // The set of arguments for constructing a MountTarget resource.
 type MountTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
-	FileSystemId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
-	IpAddress pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
+	FileSystemId   pulumi.StringInput
+	IpAddress      pulumi.StringPtrInput
 	SecurityGroups pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
-	SubnetId pulumi.StringInput
+	SubnetId       pulumi.StringInput
 }
 
 func (MountTargetArgs) ElementType() reflect.Type {

@@ -8,35 +8,36 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+// An ObjectType resource of Amazon Connect Customer Profiles
 type ObjectType struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation pulumi.BoolPtrOutput `pulumi:"allowProfileCreation"`
-	CreatedAt            pulumi.StringOutput  `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+	// The time of this integration got created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Description of the profile object type.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+	// The default encryption key
 	EncryptionKey pulumi.StringPtrOutput `pulumi:"encryptionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+	// The default number of days until the data within the domain expires.
 	ExpirationDays pulumi.IntPtrOutput `pulumi:"expirationDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+	// A list of the name and ObjectType field.
 	Fields ObjectTypeFieldMapArrayOutput `pulumi:"fields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
-	Keys          ObjectTypeKeyMapArrayOutput `pulumi:"keys"`
-	LastUpdatedAt pulumi.StringOutput         `pulumi:"lastUpdatedAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+	// A list of unique keys that can be used to map data to the profile.
+	Keys ObjectTypeKeyMapArrayOutput `pulumi:"keys"`
+	// The time of this integration got last updated at.
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The name of the profile object type.
 	ObjectTypeName pulumi.StringPtrOutput `pulumi:"objectTypeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+	// The tags (keys and values) associated with the integration.
+	Tags ObjectTypeTagArrayOutput `pulumi:"tags"`
+	// A unique identifier for the object template.
 	TemplateId pulumi.StringPtrOutput `pulumi:"templateId"`
 }
 
@@ -82,49 +83,49 @@ func (ObjectTypeState) ElementType() reflect.Type {
 }
 
 type objectTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation *bool `pulumi:"allowProfileCreation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+	// Description of the profile object type.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+	// The unique name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+	// The default encryption key
 	EncryptionKey *string `pulumi:"encryptionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+	// The default number of days until the data within the domain expires.
 	ExpirationDays *int `pulumi:"expirationDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+	// A list of the name and ObjectType field.
 	Fields []ObjectTypeFieldMap `pulumi:"fields"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+	// A list of unique keys that can be used to map data to the profile.
 	Keys []ObjectTypeKeyMap `pulumi:"keys"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+	// The name of the profile object type.
 	ObjectTypeName *string `pulumi:"objectTypeName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+	// The tags (keys and values) associated with the integration.
+	Tags []ObjectTypeTag `pulumi:"tags"`
+	// A unique identifier for the object template.
 	TemplateId *string `pulumi:"templateId"`
 }
 
 // The set of arguments for constructing a ObjectType resource.
 type ObjectTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+	// Indicates whether a profile should be created when data is received.
 	AllowProfileCreation pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+	// Description of the profile object type.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+	// The unique name of the domain.
 	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+	// The default encryption key
 	EncryptionKey pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+	// The default number of days until the data within the domain expires.
 	ExpirationDays pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+	// A list of the name and ObjectType field.
 	Fields ObjectTypeFieldMapArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+	// A list of unique keys that can be used to map data to the profile.
 	Keys ObjectTypeKeyMapArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+	// The name of the profile object type.
 	ObjectTypeName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+	// The tags (keys and values) associated with the integration.
+	Tags ObjectTypeTagArrayInput
+	// A unique identifier for the object template.
 	TemplateId pulumi.StringPtrInput
 }
 

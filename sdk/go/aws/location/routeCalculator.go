@@ -11,22 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
+// Definition of AWS::Location::RouteCalculator Resource Type
 type RouteCalculator struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput `pulumi:"arn"`
-	CalculatorArn pulumi.StringOutput `pulumi:"calculatorArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-	CalculatorName pulumi.StringOutput `pulumi:"calculatorName"`
-	CreateTime     pulumi.StringOutput `pulumi:"createTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-	DataSource pulumi.StringOutput `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-	PricingPlan pulumi.StringOutput `pulumi:"pricingPlan"`
-	UpdateTime  pulumi.StringOutput `pulumi:"updateTime"`
+	Arn            pulumi.StringOutput    `pulumi:"arn"`
+	CalculatorArn  pulumi.StringOutput    `pulumi:"calculatorArn"`
+	CalculatorName pulumi.StringOutput    `pulumi:"calculatorName"`
+	CreateTime     pulumi.StringOutput    `pulumi:"createTime"`
+	DataSource     pulumi.StringOutput    `pulumi:"dataSource"`
+	Description    pulumi.StringPtrOutput `pulumi:"description"`
+	PricingPlan    pulumi.StringOutput    `pulumi:"pricingPlan"`
+	UpdateTime     pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
 // NewRouteCalculator registers a new resource with the given unique name, arguments, and options.
@@ -77,26 +73,18 @@ func (RouteCalculatorState) ElementType() reflect.Type {
 }
 
 type routeCalculatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-	CalculatorName string `pulumi:"calculatorName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-	DataSource string `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-	PricingPlan string `pulumi:"pricingPlan"`
+	CalculatorName string  `pulumi:"calculatorName"`
+	DataSource     string  `pulumi:"dataSource"`
+	Description    *string `pulumi:"description"`
+	PricingPlan    string  `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a RouteCalculator resource.
 type RouteCalculatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
 	CalculatorName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-	DataSource pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-	PricingPlan pulumi.StringInput
+	DataSource     pulumi.StringInput
+	Description    pulumi.StringPtrInput
+	PricingPlan    pulumi.StringInput
 }
 
 func (RouteCalculatorArgs) ElementType() reflect.Type {

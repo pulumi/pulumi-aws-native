@@ -11,23 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html
+// Definition of AWS::Location::Map Resource Type
 type Map struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
+	Arn           pulumi.StringOutput       `pulumi:"arn"`
 	Configuration MapMapConfigurationOutput `pulumi:"configuration"`
 	CreateTime    pulumi.StringOutput       `pulumi:"createTime"`
 	DataSource    pulumi.StringOutput       `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	MapArn      pulumi.StringOutput    `pulumi:"mapArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-	MapName pulumi.StringOutput `pulumi:"mapName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-	PricingPlan pulumi.StringOutput `pulumi:"pricingPlan"`
-	UpdateTime  pulumi.StringOutput `pulumi:"updateTime"`
+	Description   pulumi.StringPtrOutput    `pulumi:"description"`
+	MapArn        pulumi.StringOutput       `pulumi:"mapArn"`
+	MapName       pulumi.StringOutput       `pulumi:"mapName"`
+	PricingPlan   pulumi.StringOutput       `pulumi:"pricingPlan"`
+	UpdateTime    pulumi.StringOutput       `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -78,26 +74,18 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
 	Configuration MapMapConfiguration `pulumi:"configuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-	MapName string `pulumi:"mapName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-	PricingPlan string `pulumi:"pricingPlan"`
+	Description   *string             `pulumi:"description"`
+	MapName       string              `pulumi:"mapName"`
+	PricingPlan   string              `pulumi:"pricingPlan"`
 }
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-configuration
 	Configuration MapMapConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-mapname
-	MapName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-map.html#cfn-location-map-pricingplan
-	PricingPlan pulumi.StringInput
+	Description   pulumi.StringPtrInput
+	MapName       pulumi.StringInput
+	PricingPlan   pulumi.StringInput
 }
 
 func (MapArgs) ElementType() reflect.Type {

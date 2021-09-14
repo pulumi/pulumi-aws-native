@@ -10,12 +10,110 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
+type DataCatalogTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DataCatalogTagInput is an input type that accepts DataCatalogTagArgs and DataCatalogTagOutput values.
+// You can construct a concrete instance of `DataCatalogTagInput` via:
+//
+//          DataCatalogTagArgs{...}
+type DataCatalogTagInput interface {
+	pulumi.Input
+
+	ToDataCatalogTagOutput() DataCatalogTagOutput
+	ToDataCatalogTagOutputWithContext(context.Context) DataCatalogTagOutput
+}
+
+type DataCatalogTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DataCatalogTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogTag)(nil)).Elem()
+}
+
+func (i DataCatalogTagArgs) ToDataCatalogTagOutput() DataCatalogTagOutput {
+	return i.ToDataCatalogTagOutputWithContext(context.Background())
+}
+
+func (i DataCatalogTagArgs) ToDataCatalogTagOutputWithContext(ctx context.Context) DataCatalogTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagOutput)
+}
+
+// DataCatalogTagArrayInput is an input type that accepts DataCatalogTagArray and DataCatalogTagArrayOutput values.
+// You can construct a concrete instance of `DataCatalogTagArrayInput` via:
+//
+//          DataCatalogTagArray{ DataCatalogTagArgs{...} }
+type DataCatalogTagArrayInput interface {
+	pulumi.Input
+
+	ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput
+	ToDataCatalogTagArrayOutputWithContext(context.Context) DataCatalogTagArrayOutput
+}
+
+type DataCatalogTagArray []DataCatalogTagInput
+
+func (DataCatalogTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCatalogTag)(nil)).Elem()
+}
+
+func (i DataCatalogTagArray) ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput {
+	return i.ToDataCatalogTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataCatalogTagArray) ToDataCatalogTagArrayOutputWithContext(ctx context.Context) DataCatalogTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogTagArrayOutput)
+}
+
+type DataCatalogTagOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataCatalogTag)(nil)).Elem()
+}
+
+func (o DataCatalogTagOutput) ToDataCatalogTagOutput() DataCatalogTagOutput {
+	return o
+}
+
+func (o DataCatalogTagOutput) ToDataCatalogTagOutputWithContext(ctx context.Context) DataCatalogTagOutput {
+	return o
+}
+
+func (o DataCatalogTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCatalogTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DataCatalogTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataCatalogTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DataCatalogTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataCatalogTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataCatalogTag)(nil)).Elem()
+}
+
+func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutput() DataCatalogTagArrayOutput {
+	return o
+}
+
+func (o DataCatalogTagArrayOutput) ToDataCatalogTagArrayOutputWithContext(ctx context.Context) DataCatalogTagArrayOutput {
+	return o
+}
+
+func (o DataCatalogTagArrayOutput) Index(i pulumi.IntInput) DataCatalogTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataCatalogTag {
+		return vs[0].([]DataCatalogTag)[vs[1].(int)]
+	}).(DataCatalogTagOutput)
+}
+
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
-	EncryptionOption string `pulumi:"encryptionOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
-	KmsKey *string `pulumi:"kmsKey"`
+	EncryptionOption string  `pulumi:"encryptionOption"`
+	KmsKey           *string `pulumi:"kmsKey"`
 }
 
 // WorkGroupEncryptionConfigurationInput is an input type that accepts WorkGroupEncryptionConfigurationArgs and WorkGroupEncryptionConfigurationOutput values.
@@ -29,12 +127,10 @@ type WorkGroupEncryptionConfigurationInput interface {
 	ToWorkGroupEncryptionConfigurationOutputWithContext(context.Context) WorkGroupEncryptionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
-	EncryptionOption pulumi.StringInput `pulumi:"encryptionOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionOption pulumi.StringInput    `pulumi:"encryptionOption"`
+	KmsKey           pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (WorkGroupEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -90,7 +186,7 @@ func (i *workGroupEncryptionConfigurationPtrType) ToWorkGroupEncryptionConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html
+// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, SSE-KMS or CSE-KMS) and key information.
 type WorkGroupEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -115,12 +211,10 @@ func (o WorkGroupEncryptionConfigurationOutput) ToWorkGroupEncryptionConfigurati
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
 func (o WorkGroupEncryptionConfigurationOutput) EncryptionOption() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkGroupEncryptionConfiguration) string { return v.EncryptionOption }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
 func (o WorkGroupEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +243,6 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) Elem() WorkGroupEncryptionCon
 	}).(WorkGroupEncryptionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-encryptionoption
 func (o WorkGroupEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupEncryptionConfiguration) *string {
 		if v == nil {
@@ -159,7 +252,6 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) EncryptionOption() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-encryptionconfiguration.html#cfn-athena-workgroup-encryptionconfiguration-kmskey
 func (o WorkGroupEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupEncryptionConfiguration) *string {
 		if v == nil {
@@ -169,12 +261,10 @@ func (o WorkGroupEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+// The Athena engine version for running queries.
 type WorkGroupEngineVersion struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
 	EffectiveEngineVersion *string `pulumi:"effectiveEngineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
-	SelectedEngineVersion *string `pulumi:"selectedEngineVersion"`
+	SelectedEngineVersion  *string `pulumi:"selectedEngineVersion"`
 }
 
 // WorkGroupEngineVersionInput is an input type that accepts WorkGroupEngineVersionArgs and WorkGroupEngineVersionOutput values.
@@ -188,12 +278,10 @@ type WorkGroupEngineVersionInput interface {
 	ToWorkGroupEngineVersionOutputWithContext(context.Context) WorkGroupEngineVersionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+// The Athena engine version for running queries.
 type WorkGroupEngineVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
 	EffectiveEngineVersion pulumi.StringPtrInput `pulumi:"effectiveEngineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
-	SelectedEngineVersion pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
+	SelectedEngineVersion  pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
 }
 
 func (WorkGroupEngineVersionArgs) ElementType() reflect.Type {
@@ -249,7 +337,7 @@ func (i *workGroupEngineVersionPtrType) ToWorkGroupEngineVersionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html
+// The Athena engine version for running queries.
 type WorkGroupEngineVersionOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupEngineVersionOutput) ElementType() reflect.Type {
@@ -274,12 +362,10 @@ func (o WorkGroupEngineVersionOutput) ToWorkGroupEngineVersionPtrOutputWithConte
 	}).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
 func (o WorkGroupEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
 func (o WorkGroupEngineVersionOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupEngineVersion) *string { return v.SelectedEngineVersion }).(pulumi.StringPtrOutput)
 }
@@ -308,7 +394,6 @@ func (o WorkGroupEngineVersionPtrOutput) Elem() WorkGroupEngineVersionOutput {
 	}).(WorkGroupEngineVersionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-effectiveengineversion
 func (o WorkGroupEngineVersionPtrOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupEngineVersion) *string {
 		if v == nil {
@@ -318,7 +403,6 @@ func (o WorkGroupEngineVersionPtrOutput) EffectiveEngineVersion() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html#cfn-athena-workgroup-engineversion-selectedengineversion
 func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupEngineVersion) *string {
 		if v == nil {
@@ -328,12 +412,10 @@ func (o WorkGroupEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
+// The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
 	EncryptionConfiguration *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
-	OutputLocation *string `pulumi:"outputLocation"`
+	OutputLocation          *string                           `pulumi:"outputLocation"`
 }
 
 // WorkGroupResultConfigurationInput is an input type that accepts WorkGroupResultConfigurationArgs and WorkGroupResultConfigurationOutput values.
@@ -347,12 +429,10 @@ type WorkGroupResultConfigurationInput interface {
 	ToWorkGroupResultConfigurationOutputWithContext(context.Context) WorkGroupResultConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
+// The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
 	EncryptionConfiguration WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
-	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
+	OutputLocation          pulumi.StringPtrInput                    `pulumi:"outputLocation"`
 }
 
 func (WorkGroupResultConfigurationArgs) ElementType() reflect.Type {
@@ -408,7 +488,7 @@ func (i *workGroupResultConfigurationPtrType) ToWorkGroupResultConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html
+// The location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
 type WorkGroupResultConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupResultConfigurationOutput) ElementType() reflect.Type {
@@ -433,14 +513,12 @@ func (o WorkGroupResultConfigurationOutput) ToWorkGroupResultConfigurationPtrOut
 	}).(WorkGroupResultConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
 func (o WorkGroupResultConfigurationOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
 func (o WorkGroupResultConfigurationOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfiguration) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
@@ -469,7 +547,6 @@ func (o WorkGroupResultConfigurationPtrOutput) Elem() WorkGroupResultConfigurati
 	}).(WorkGroupResultConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-encryptionconfiguration
 func (o WorkGroupResultConfigurationPtrOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfiguration) *WorkGroupEncryptionConfiguration {
 		if v == nil {
@@ -479,7 +556,6 @@ func (o WorkGroupResultConfigurationPtrOutput) EncryptionConfiguration() WorkGro
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfiguration.html#cfn-athena-workgroup-resultconfiguration-outputlocation
 func (o WorkGroupResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfiguration) *string {
 		if v == nil {
@@ -489,16 +565,12 @@ func (o WorkGroupResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
+// The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdates struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
-	EncryptionConfiguration *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
-	OutputLocation *string `pulumi:"outputLocation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
-	RemoveEncryptionConfiguration *bool `pulumi:"removeEncryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
-	RemoveOutputLocation *bool `pulumi:"removeOutputLocation"`
+	EncryptionConfiguration       *WorkGroupEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	OutputLocation                *string                           `pulumi:"outputLocation"`
+	RemoveEncryptionConfiguration *bool                             `pulumi:"removeEncryptionConfiguration"`
+	RemoveOutputLocation          *bool                             `pulumi:"removeOutputLocation"`
 }
 
 // WorkGroupResultConfigurationUpdatesInput is an input type that accepts WorkGroupResultConfigurationUpdatesArgs and WorkGroupResultConfigurationUpdatesOutput values.
@@ -512,16 +584,12 @@ type WorkGroupResultConfigurationUpdatesInput interface {
 	ToWorkGroupResultConfigurationUpdatesOutputWithContext(context.Context) WorkGroupResultConfigurationUpdatesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
+// The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdatesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
-	EncryptionConfiguration WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
-	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
-	RemoveEncryptionConfiguration pulumi.BoolPtrInput `pulumi:"removeEncryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
-	RemoveOutputLocation pulumi.BoolPtrInput `pulumi:"removeOutputLocation"`
+	EncryptionConfiguration       WorkGroupEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	OutputLocation                pulumi.StringPtrInput                    `pulumi:"outputLocation"`
+	RemoveEncryptionConfiguration pulumi.BoolPtrInput                      `pulumi:"removeEncryptionConfiguration"`
+	RemoveOutputLocation          pulumi.BoolPtrInput                      `pulumi:"removeOutputLocation"`
 }
 
 func (WorkGroupResultConfigurationUpdatesArgs) ElementType() reflect.Type {
@@ -577,7 +645,7 @@ func (i *workGroupResultConfigurationUpdatesPtrType) ToWorkGroupResultConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupResultConfigurationUpdatesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html
+// The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.
 type WorkGroupResultConfigurationUpdatesOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupResultConfigurationUpdatesOutput) ElementType() reflect.Type {
@@ -602,24 +670,20 @@ func (o WorkGroupResultConfigurationUpdatesOutput) ToWorkGroupResultConfiguratio
 	}).(WorkGroupResultConfigurationUpdatesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
 func (o WorkGroupResultConfigurationUpdatesOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *WorkGroupEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
 func (o WorkGroupResultConfigurationUpdatesOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveEncryptionConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
 func (o WorkGroupResultConfigurationUpdatesOutput) RemoveOutputLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupResultConfigurationUpdates) *bool { return v.RemoveOutputLocation }).(pulumi.BoolPtrOutput)
 }
@@ -648,7 +712,6 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) Elem() WorkGroupResultConf
 	}).(WorkGroupResultConfigurationUpdatesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-encryptionconfiguration
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) EncryptionConfiguration() WorkGroupEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *WorkGroupEncryptionConfiguration {
 		if v == nil {
@@ -658,7 +721,6 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) EncryptionConfiguration() 
 	}).(WorkGroupEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-outputlocation
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *string {
 		if v == nil {
@@ -668,7 +730,6 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) OutputLocation() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeencryptionconfiguration
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveEncryptionConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
 		if v == nil {
@@ -678,7 +739,6 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveEncryptionConfigurat
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html#cfn-athena-workgroup-resultconfigurationupdates-removeoutputlocation
 func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveOutputLocation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupResultConfigurationUpdates) *bool {
 		if v == nil {
@@ -688,20 +748,113 @@ func (o WorkGroupResultConfigurationUpdatesPtrOutput) RemoveOutputLocation() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
+type WorkGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// WorkGroupTagInput is an input type that accepts WorkGroupTagArgs and WorkGroupTagOutput values.
+// You can construct a concrete instance of `WorkGroupTagInput` via:
+//
+//          WorkGroupTagArgs{...}
+type WorkGroupTagInput interface {
+	pulumi.Input
+
+	ToWorkGroupTagOutput() WorkGroupTagOutput
+	ToWorkGroupTagOutputWithContext(context.Context) WorkGroupTagOutput
+}
+
+type WorkGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (WorkGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupTag)(nil)).Elem()
+}
+
+func (i WorkGroupTagArgs) ToWorkGroupTagOutput() WorkGroupTagOutput {
+	return i.ToWorkGroupTagOutputWithContext(context.Background())
+}
+
+func (i WorkGroupTagArgs) ToWorkGroupTagOutputWithContext(ctx context.Context) WorkGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagOutput)
+}
+
+// WorkGroupTagArrayInput is an input type that accepts WorkGroupTagArray and WorkGroupTagArrayOutput values.
+// You can construct a concrete instance of `WorkGroupTagArrayInput` via:
+//
+//          WorkGroupTagArray{ WorkGroupTagArgs{...} }
+type WorkGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput
+	ToWorkGroupTagArrayOutputWithContext(context.Context) WorkGroupTagArrayOutput
+}
+
+type WorkGroupTagArray []WorkGroupTagInput
+
+func (WorkGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkGroupTag)(nil)).Elem()
+}
+
+func (i WorkGroupTagArray) ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput {
+	return i.ToWorkGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i WorkGroupTagArray) ToWorkGroupTagArrayOutputWithContext(ctx context.Context) WorkGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupTagArrayOutput)
+}
+
+type WorkGroupTagOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkGroupTag)(nil)).Elem()
+}
+
+func (o WorkGroupTagOutput) ToWorkGroupTagOutput() WorkGroupTagOutput {
+	return o
+}
+
+func (o WorkGroupTagOutput) ToWorkGroupTagOutputWithContext(ctx context.Context) WorkGroupTagOutput {
+	return o
+}
+
+func (o WorkGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o WorkGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type WorkGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkGroupTag)(nil)).Elem()
+}
+
+func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutput() WorkGroupTagArrayOutput {
+	return o
+}
+
+func (o WorkGroupTagArrayOutput) ToWorkGroupTagArrayOutputWithContext(ctx context.Context) WorkGroupTagArrayOutput {
+	return o
+}
+
+func (o WorkGroupTagArrayOutput) Index(i pulumi.IntInput) WorkGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkGroupTag {
+		return vs[0].([]WorkGroupTag)[vs[1].(int)]
+	}).(WorkGroupTagOutput)
+}
+
 type WorkGroupWorkGroupConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
-	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
-	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
-	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
-	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
-	ResultConfiguration *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
+	BytesScannedCutoffPerQuery      *int                          `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration   *bool                         `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                   *WorkGroupEngineVersion       `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled *bool                         `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled            *bool                         `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration             *WorkGroupResultConfiguration `pulumi:"resultConfiguration"`
 }
 
 // WorkGroupWorkGroupConfigurationInput is an input type that accepts WorkGroupWorkGroupConfigurationArgs and WorkGroupWorkGroupConfigurationOutput values.
@@ -715,20 +868,13 @@ type WorkGroupWorkGroupConfigurationInput interface {
 	ToWorkGroupWorkGroupConfigurationOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
 type WorkGroupWorkGroupConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
-	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
-	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
-	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
-	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
-	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
-	ResultConfiguration WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
+	BytesScannedCutoffPerQuery      pulumi.IntPtrInput                   `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration   pulumi.BoolPtrInput                  `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                   WorkGroupEngineVersionPtrInput       `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput                  `pulumi:"publishCloudWatchMetricsEnabled"`
+	RequesterPaysEnabled            pulumi.BoolPtrInput                  `pulumi:"requesterPaysEnabled"`
+	ResultConfiguration             WorkGroupResultConfigurationPtrInput `pulumi:"resultConfiguration"`
 }
 
 func (WorkGroupWorkGroupConfigurationArgs) ElementType() reflect.Type {
@@ -784,7 +930,6 @@ func (i *workGroupWorkGroupConfigurationPtrType) ToWorkGroupWorkGroupConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html
 type WorkGroupWorkGroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupWorkGroupConfigurationOutput) ElementType() reflect.Type {
@@ -809,32 +954,26 @@ func (o WorkGroupWorkGroupConfigurationOutput) ToWorkGroupWorkGroupConfiguration
 	}).(WorkGroupWorkGroupConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
 func (o WorkGroupWorkGroupConfigurationOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
 func (o WorkGroupWorkGroupConfigurationOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
 func (o WorkGroupWorkGroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
 func (o WorkGroupWorkGroupConfigurationOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfiguration) *WorkGroupResultConfiguration { return v.ResultConfiguration }).(WorkGroupResultConfigurationPtrOutput)
 }
@@ -863,7 +1002,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) Elem() WorkGroupWorkGroupConfi
 	}).(WorkGroupWorkGroupConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-bytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *int {
 		if v == nil {
@@ -873,7 +1011,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) BytesScannedCutoffPerQuery() p
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-enforceworkgroupconfiguration
 func (o WorkGroupWorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
 		if v == nil {
@@ -883,7 +1020,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) EnforceWorkGroupConfiguration(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-engineversion
 func (o WorkGroupWorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *WorkGroupEngineVersion {
 		if v == nil {
@@ -893,7 +1029,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) EngineVersion() WorkGroupEngin
 	}).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
 		if v == nil {
@@ -903,7 +1038,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) PublishCloudWatchMetricsEnable
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-requesterpaysenabled
 func (o WorkGroupWorkGroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *bool {
 		if v == nil {
@@ -913,7 +1047,6 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfiguration.html#cfn-athena-workgroup-workgroupconfiguration-resultconfiguration
 func (o WorkGroupWorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGroupResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfiguration) *WorkGroupResultConfiguration {
 		if v == nil {
@@ -923,22 +1056,15 @@ func (o WorkGroupWorkGroupConfigurationPtrOutput) ResultConfiguration() WorkGrou
 	}).(WorkGroupResultConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupWorkGroupConfigurationUpdates struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
-	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
-	EnforceWorkGroupConfiguration *bool `pulumi:"enforceWorkGroupConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
-	EngineVersion *WorkGroupEngineVersion `pulumi:"engineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
-	PublishCloudWatchMetricsEnabled *bool `pulumi:"publishCloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
-	RemoveBytesScannedCutoffPerQuery *bool `pulumi:"removeBytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
-	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
-	ResultConfigurationUpdates *WorkGroupResultConfigurationUpdates `pulumi:"resultConfigurationUpdates"`
+	BytesScannedCutoffPerQuery       *int                                 `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration    *bool                                `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                    *WorkGroupEngineVersion              `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled  *bool                                `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery *bool                                `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RequesterPaysEnabled             *bool                                `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates       *WorkGroupResultConfigurationUpdates `pulumi:"resultConfigurationUpdates"`
 }
 
 // WorkGroupWorkGroupConfigurationUpdatesInput is an input type that accepts WorkGroupWorkGroupConfigurationUpdatesArgs and WorkGroupWorkGroupConfigurationUpdatesOutput values.
@@ -952,22 +1078,15 @@ type WorkGroupWorkGroupConfigurationUpdatesInput interface {
 	ToWorkGroupWorkGroupConfigurationUpdatesOutputWithContext(context.Context) WorkGroupWorkGroupConfigurationUpdatesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupWorkGroupConfigurationUpdatesArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
-	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
-	EnforceWorkGroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkGroupConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
-	EngineVersion WorkGroupEngineVersionPtrInput `pulumi:"engineVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
-	PublishCloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
-	RemoveBytesScannedCutoffPerQuery pulumi.BoolPtrInput `pulumi:"removeBytesScannedCutoffPerQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
-	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
-	ResultConfigurationUpdates WorkGroupResultConfigurationUpdatesPtrInput `pulumi:"resultConfigurationUpdates"`
+	BytesScannedCutoffPerQuery       pulumi.IntPtrInput                          `pulumi:"bytesScannedCutoffPerQuery"`
+	EnforceWorkGroupConfiguration    pulumi.BoolPtrInput                         `pulumi:"enforceWorkGroupConfiguration"`
+	EngineVersion                    WorkGroupEngineVersionPtrInput              `pulumi:"engineVersion"`
+	PublishCloudWatchMetricsEnabled  pulumi.BoolPtrInput                         `pulumi:"publishCloudWatchMetricsEnabled"`
+	RemoveBytesScannedCutoffPerQuery pulumi.BoolPtrInput                         `pulumi:"removeBytesScannedCutoffPerQuery"`
+	RequesterPaysEnabled             pulumi.BoolPtrInput                         `pulumi:"requesterPaysEnabled"`
+	ResultConfigurationUpdates       WorkGroupResultConfigurationUpdatesPtrInput `pulumi:"resultConfigurationUpdates"`
 }
 
 func (WorkGroupWorkGroupConfigurationUpdatesArgs) ElementType() reflect.Type {
@@ -1023,7 +1142,7 @@ func (i *workGroupWorkGroupConfigurationUpdatesPtrType) ToWorkGroupWorkGroupConf
 	return pulumi.ToOutputWithContext(ctx, i).(WorkGroupWorkGroupConfigurationUpdatesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html
+// The configuration information that will be updated for this workgroup, which includes the location in Amazon S3 where query results are stored, the encryption option, if any, used for query results, whether the Amazon CloudWatch Metrics are enabled for the workgroup, whether the workgroup settings override the client-side settings, and the data usage limit for the amount of bytes scanned per query, if it is specified.
 type WorkGroupWorkGroupConfigurationUpdatesOutput struct{ *pulumi.OutputState }
 
 func (WorkGroupWorkGroupConfigurationUpdatesOutput) ElementType() reflect.Type {
@@ -1048,37 +1167,30 @@ func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ToWorkGroupWorkGroupConfig
 	}).(WorkGroupWorkGroupConfigurationUpdatesPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *int { return v.BytesScannedCutoffPerQuery }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.EnforceWorkGroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion { return v.EngineVersion }).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.PublishCloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.RemoveBytesScannedCutoffPerQuery }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
 func (o WorkGroupWorkGroupConfigurationUpdatesOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
 	return o.ApplyT(func(v WorkGroupWorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
 		return v.ResultConfigurationUpdates
@@ -1109,7 +1221,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) Elem() WorkGroupWorkGro
 	}).(WorkGroupWorkGroupConfigurationUpdatesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-bytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQuery() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *int {
 		if v == nil {
@@ -1119,7 +1230,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) BytesScannedCutoffPerQu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-enforceworkgroupconfiguration
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfiguration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
 		if v == nil {
@@ -1129,7 +1239,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EnforceWorkGroupConfigu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-engineversion
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGroupEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *WorkGroupEngineVersion {
 		if v == nil {
@@ -1139,7 +1248,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) EngineVersion() WorkGro
 	}).(WorkGroupEngineVersionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-publishcloudwatchmetricsenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
 		if v == nil {
@@ -1149,7 +1257,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) PublishCloudWatchMetric
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-removebytesscannedcutoffperquery
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RemoveBytesScannedCutoffPerQuery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
 		if v == nil {
@@ -1159,7 +1266,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RemoveBytesScannedCutof
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-requesterpaysenabled
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *bool {
 		if v == nil {
@@ -1169,7 +1275,6 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) RequesterPaysEnabled() 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html#cfn-athena-workgroup-workgroupconfigurationupdates-resultconfigurationupdates
 func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpdates() WorkGroupResultConfigurationUpdatesPtrOutput {
 	return o.ApplyT(func(v *WorkGroupWorkGroupConfigurationUpdates) *WorkGroupResultConfigurationUpdates {
 		if v == nil {
@@ -1180,6 +1285,8 @@ func (o WorkGroupWorkGroupConfigurationUpdatesPtrOutput) ResultConfigurationUpda
 }
 
 func init() {
+	pulumi.RegisterOutputType(DataCatalogTagOutput{})
+	pulumi.RegisterOutputType(DataCatalogTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupEngineVersionOutput{})
@@ -1188,6 +1295,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesOutput{})
 	pulumi.RegisterOutputType(WorkGroupResultConfigurationUpdatesPtrOutput{})
+	pulumi.RegisterOutputType(WorkGroupTagOutput{})
+	pulumi.RegisterOutputType(WorkGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkGroupWorkGroupConfigurationUpdatesOutput{})

@@ -11,18 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html
+// Resource Type definition for AWS::GlobalAccelerator::Listener
 type Listener struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn pulumi.StringOutput `pulumi:"acceleratorArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity pulumi.StringPtrOutput `pulumi:"clientAffinity"`
-	ListenerArn    pulumi.StringOutput    `pulumi:"listenerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-	PortRanges ListenerPortRangeArrayOutput `pulumi:"portRanges"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+	// The Amazon Resource Name (ARN) of the listener.
+	ListenerArn pulumi.StringOutput          `pulumi:"listenerArn"`
+	PortRanges  ListenerPortRangeArrayOutput `pulumi:"portRanges"`
+	// The protocol for the listener.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 }
 
@@ -74,25 +74,23 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn string `pulumi:"acceleratorArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
-	ClientAffinity *string `pulumi:"clientAffinity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-	PortRanges []ListenerPortRange `pulumi:"portRanges"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+	// Client affinity lets you direct all requests from a user to the same endpoint.
+	ClientAffinity *string             `pulumi:"clientAffinity"`
+	PortRanges     []ListenerPortRange `pulumi:"portRanges"`
+	// The protocol for the listener.
 	Protocol string `pulumi:"protocol"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-acceleratorarn
+	// The Amazon Resource Name (ARN) of the accelerator.
 	AcceleratorArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-clientaffinity
+	// Client affinity lets you direct all requests from a user to the same endpoint.
 	ClientAffinity pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-portranges
-	PortRanges ListenerPortRangeArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-listener.html#cfn-globalaccelerator-listener-protocol
+	PortRanges     ListenerPortRangeArrayInput
+	// The protocol for the listener.
 	Protocol pulumi.StringInput
 }
 

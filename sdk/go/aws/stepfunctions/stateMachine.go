@@ -11,32 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
+// Resource schema for StateMachine
 type StateMachine struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
-	Definition StateMachineDefinitionPtrOutput `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-	DefinitionS3Location StateMachineS3LocationPtrOutput `pulumi:"definitionS3Location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-	DefinitionString pulumi.StringPtrOutput `pulumi:"definitionString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions pulumi.StringMapOutput `pulumi:"definitionSubstitutions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-	LoggingConfiguration StateMachineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
-	Name                 pulumi.StringOutput                       `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-	StateMachineName pulumi.StringPtrOutput `pulumi:"stateMachineName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-	StateMachineType pulumi.StringPtrOutput `pulumi:"stateMachineType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-	Tags StateMachineTagsEntryArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-	TracingConfiguration StateMachineTracingConfigurationPtrOutput `pulumi:"tracingConfiguration"`
+	Arn                     pulumi.StringOutput                          `pulumi:"arn"`
+	Definition              StateMachineDefinitionPtrOutput              `pulumi:"definition"`
+	DefinitionS3Location    StateMachineS3LocationPtrOutput              `pulumi:"definitionS3Location"`
+	DefinitionString        pulumi.StringPtrOutput                       `pulumi:"definitionString"`
+	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrOutput `pulumi:"definitionSubstitutions"`
+	LoggingConfiguration    StateMachineLoggingConfigurationPtrOutput    `pulumi:"loggingConfiguration"`
+	Name                    pulumi.StringOutput                          `pulumi:"name"`
+	RoleArn                 pulumi.StringOutput                          `pulumi:"roleArn"`
+	StateMachineName        pulumi.StringPtrOutput                       `pulumi:"stateMachineName"`
+	StateMachineType        pulumi.StringPtrOutput                       `pulumi:"stateMachineType"`
+	Tags                    StateMachineTagsEntryArrayOutput             `pulumi:"tags"`
+	TracingConfiguration    StateMachineTracingConfigurationPtrOutput    `pulumi:"tracingConfiguration"`
 }
 
 // NewStateMachine registers a new resource with the given unique name, arguments, and options.
@@ -81,50 +71,30 @@ func (StateMachineState) ElementType() reflect.Type {
 }
 
 type stateMachineArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
-	Definition *StateMachineDefinition `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-	DefinitionS3Location *StateMachineS3Location `pulumi:"definitionS3Location"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-	DefinitionString *string `pulumi:"definitionString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions map[string]string `pulumi:"definitionSubstitutions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-	StateMachineName *string `pulumi:"stateMachineName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-	StateMachineType *string `pulumi:"stateMachineType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-	Tags []StateMachineTagsEntry `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
+	Definition              *StateMachineDefinition              `pulumi:"definition"`
+	DefinitionS3Location    *StateMachineS3Location              `pulumi:"definitionS3Location"`
+	DefinitionString        *string                              `pulumi:"definitionString"`
+	DefinitionSubstitutions *StateMachineDefinitionSubstitutions `pulumi:"definitionSubstitutions"`
+	LoggingConfiguration    *StateMachineLoggingConfiguration    `pulumi:"loggingConfiguration"`
+	RoleArn                 string                               `pulumi:"roleArn"`
+	StateMachineName        *string                              `pulumi:"stateMachineName"`
+	StateMachineType        *string                              `pulumi:"stateMachineType"`
+	Tags                    []StateMachineTagsEntry              `pulumi:"tags"`
+	TracingConfiguration    *StateMachineTracingConfiguration    `pulumi:"tracingConfiguration"`
 }
 
 // The set of arguments for constructing a StateMachine resource.
 type StateMachineArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definition
-	Definition StateMachineDefinitionPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
-	DefinitionS3Location StateMachineS3LocationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-	DefinitionString pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionsubstitutions
-	DefinitionSubstitutions pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration
-	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-rolearn
-	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
-	StateMachineName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinetype
-	StateMachineType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
-	Tags StateMachineTagsEntryArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-	TracingConfiguration StateMachineTracingConfigurationPtrInput
+	Definition              StateMachineDefinitionPtrInput
+	DefinitionS3Location    StateMachineS3LocationPtrInput
+	DefinitionString        pulumi.StringPtrInput
+	DefinitionSubstitutions StateMachineDefinitionSubstitutionsPtrInput
+	LoggingConfiguration    StateMachineLoggingConfigurationPtrInput
+	RoleArn                 pulumi.StringInput
+	StateMachineName        pulumi.StringPtrInput
+	StateMachineType        pulumi.StringPtrInput
+	Tags                    StateMachineTagsEntryArrayInput
+	TracingConfiguration    StateMachineTracingConfigurationPtrInput
 }
 
 func (StateMachineArgs) ElementType() reflect.Type {

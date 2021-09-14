@@ -11,21 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+// Resource schema for AWS::Route53::HostedZone.
 type HostedZone struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
 	HostedZoneConfig HostedZoneHostedZoneConfigPtrOutput `pulumi:"hostedZoneConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+	// Adds, edits, or deletes tags for a health check or a hosted zone.
+	//
+	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
 	HostedZoneTags HostedZoneHostedZoneTagArrayOutput `pulumi:"hostedZoneTags"`
-	Id             pulumi.StringOutput                `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-	Name        pulumi.StringOutput      `pulumi:"name"`
-	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
+	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+	//
+	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+	Name               pulumi.StringOutput                   `pulumi:"name"`
+	NameServers        pulumi.StringArrayOutput              `pulumi:"nameServers"`
 	QueryLoggingConfig HostedZoneQueryLoggingConfigPtrOutput `pulumi:"queryLoggingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 	VPCs HostedZoneVPCArrayOutput `pulumi:"vPCs"`
 }
 
@@ -71,29 +72,33 @@ func (HostedZoneState) ElementType() reflect.Type {
 }
 
 type hostedZoneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
 	HostedZoneConfig *HostedZoneHostedZoneConfig `pulumi:"hostedZoneConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+	// Adds, edits, or deletes tags for a health check or a hosted zone.
+	//
+	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
 	HostedZoneTags []HostedZoneHostedZoneTag `pulumi:"hostedZoneTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
+	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+	//
+	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+	Name               string                        `pulumi:"name"`
 	QueryLoggingConfig *HostedZoneQueryLoggingConfig `pulumi:"queryLoggingConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 	VPCs []HostedZoneVPC `pulumi:"vPCs"`
 }
 
 // The set of arguments for constructing a HostedZone resource.
 type HostedZoneArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
 	HostedZoneConfig HostedZoneHostedZoneConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+	// Adds, edits, or deletes tags for a health check or a hosted zone.
+	//
+	// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
 	HostedZoneTags HostedZoneHostedZoneTagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
+	// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+	//
+	// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
+	Name               pulumi.StringInput
 	QueryLoggingConfig HostedZoneQueryLoggingConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+	// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
 	VPCs HostedZoneVPCArrayInput
 }
 

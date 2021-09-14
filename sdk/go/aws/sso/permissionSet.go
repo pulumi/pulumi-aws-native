@@ -8,31 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html
+// Resource Type definition for SSO PermissionSet
 type PermissionSet struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
+	// The permission set description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+	// The inline policy to put in permission set.
 	InlinePolicy pulumi.AnyOutput `pulumi:"inlinePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
+	// The sso instance arn that the permission set is owned.
+	InstanceArn     pulumi.StringOutput      `pulumi:"instanceArn"`
 	ManagedPolicies pulumi.StringArrayOutput `pulumi:"managedPolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
-	Name             pulumi.StringOutput `pulumi:"name"`
+	// The name you want to assign to this permission set.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The permission set that the policy will be attached to
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType pulumi.StringPtrOutput `pulumi:"relayStateType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
-	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The length of time that a user can be signed in to an AWS account.
+	SessionDuration pulumi.StringPtrOutput      `pulumi:"sessionDuration"`
+	Tags            PermissionSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPermissionSet registers a new resource with the given unique name, arguments, and options.
@@ -80,42 +78,38 @@ func (PermissionSetState) ElementType() reflect.Type {
 }
 
 type permissionSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
+	// The permission set description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+	// The inline policy to put in permission set.
 	InlinePolicy interface{} `pulumi:"inlinePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-	InstanceArn string `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
+	// The sso instance arn that the permission set is owned.
+	InstanceArn     string   `pulumi:"instanceArn"`
 	ManagedPolicies []string `pulumi:"managedPolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
+	// The name you want to assign to this permission set.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType *string `pulumi:"relayStateType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
-	SessionDuration *string `pulumi:"sessionDuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The length of time that a user can be signed in to an AWS account.
+	SessionDuration *string            `pulumi:"sessionDuration"`
+	Tags            []PermissionSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PermissionSet resource.
 type PermissionSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-description
+	// The permission set description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-inlinepolicy
+	// The inline policy to put in permission set.
 	InlinePolicy pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-instancearn
-	InstanceArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-managedpolicies
+	// The sso instance arn that the permission set is owned.
+	InstanceArn     pulumi.StringInput
 	ManagedPolicies pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-name
+	// The name you want to assign to this permission set.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-relaystatetype
+	// The relay state URL that redirect links to any service in the AWS Management Console.
 	RelayStateType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-sessionduration
+	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html#cfn-sso-permissionset-tags
-	Tags aws.TagArrayInput
+	Tags            PermissionSetTagArrayInput
 }
 
 func (PermissionSetArgs) ElementType() reflect.Type {

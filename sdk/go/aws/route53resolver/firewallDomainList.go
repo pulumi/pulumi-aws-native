@@ -7,31 +7,36 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+// Resource schema for AWS::Route53Resolver::FirewallDomainList.
 type FirewallDomainList struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	CreationTime     pulumi.StringOutput `pulumi:"creationTime"`
+	// Arn
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Rfc3339TimeString
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The id of the creator request.
 	CreatorRequestId pulumi.StringOutput `pulumi:"creatorRequestId"`
-	DomainCount      pulumi.IntOutput    `pulumi:"domainCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
-	DomainFileUrl pulumi.StringPtrOutput `pulumi:"domainFileUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-	Domains          pulumi.StringArrayOutput `pulumi:"domains"`
-	Id               pulumi.StringOutput      `pulumi:"id"`
-	ManagedOwnerName pulumi.StringOutput      `pulumi:"managedOwnerName"`
-	ModificationTime pulumi.StringOutput      `pulumi:"modificationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
-	Name          pulumi.StringPtrOutput `pulumi:"name"`
-	Status        pulumi.StringOutput    `pulumi:"status"`
-	StatusMessage pulumi.StringOutput    `pulumi:"statusMessage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Count
+	DomainCount pulumi.IntOutput `pulumi:"domainCount"`
+	// S3 URL to import domains from.
+	DomainFileUrl pulumi.StringPtrOutput   `pulumi:"domainFileUrl"`
+	Domains       pulumi.StringArrayOutput `pulumi:"domains"`
+	// ServicePrincipal
+	ManagedOwnerName pulumi.StringOutput `pulumi:"managedOwnerName"`
+	// Rfc3339TimeString
+	ModificationTime pulumi.StringOutput `pulumi:"modificationTime"`
+	// FirewallDomainListName
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// FirewallDomainListAssociationStatus
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Tags
+	Tags FirewallDomainListTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallDomainList registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +78,24 @@ func (FirewallDomainListState) ElementType() reflect.Type {
 }
 
 type firewallDomainListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
-	DomainFileUrl *string `pulumi:"domainFileUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-	Domains []string `pulumi:"domains"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+	// S3 URL to import domains from.
+	DomainFileUrl *string  `pulumi:"domainFileUrl"`
+	Domains       []string `pulumi:"domains"`
+	// FirewallDomainListName
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags
+	Tags []FirewallDomainListTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallDomainList resource.
 type FirewallDomainListArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+	// S3 URL to import domains from.
 	DomainFileUrl pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-	Domains pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+	Domains       pulumi.StringArrayInput
+	// FirewallDomainListName
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
-	Tags aws.TagArrayInput
+	// Tags
+	Tags FirewallDomainListTagArrayInput
 }
 
 func (FirewallDomainListArgs) ElementType() reflect.Type {

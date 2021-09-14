@@ -7,41 +7,30 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
+// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 type CloudFormationProvisionedProduct struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-	AcceptLanguage         pulumi.StringPtrOutput `pulumi:"acceptLanguage"`
-	CloudformationStackArn pulumi.StringOutput    `pulumi:"cloudformationStackArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-	PathId pulumi.StringPtrOutput `pulumi:"pathId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-	PathName pulumi.StringPtrOutput `pulumi:"pathName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-	ProductId pulumi.StringPtrOutput `pulumi:"productId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-	ProductName          pulumi.StringPtrOutput `pulumi:"productName"`
-	ProvisionedProductId pulumi.StringOutput    `pulumi:"provisionedProductId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-	ProvisionedProductName pulumi.StringPtrOutput `pulumi:"provisionedProductName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-	ProvisioningArtifactId pulumi.StringPtrOutput `pulumi:"provisioningArtifactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
-	RecordId                pulumi.StringOutput                                              `pulumi:"recordId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	AcceptLanguage         pulumi.StringPtrOutput   `pulumi:"acceptLanguage"`
+	CloudformationStackArn pulumi.StringOutput      `pulumi:"cloudformationStackArn"`
+	NotificationArns       pulumi.StringArrayOutput `pulumi:"notificationArns"`
+	// List of key-value pair outputs.
+	Outputs                  pulumi.AnyOutput                                                 `pulumi:"outputs"`
+	PathId                   pulumi.StringPtrOutput                                           `pulumi:"pathId"`
+	PathName                 pulumi.StringPtrOutput                                           `pulumi:"pathName"`
+	ProductId                pulumi.StringPtrOutput                                           `pulumi:"productId"`
+	ProductName              pulumi.StringPtrOutput                                           `pulumi:"productName"`
+	ProvisionedProductId     pulumi.StringOutput                                              `pulumi:"provisionedProductId"`
+	ProvisionedProductName   pulumi.StringPtrOutput                                           `pulumi:"provisionedProductName"`
+	ProvisioningArtifactId   pulumi.StringPtrOutput                                           `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactName pulumi.StringPtrOutput                                           `pulumi:"provisioningArtifactName"`
+	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
+	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
+	RecordId                 pulumi.StringOutput                                              `pulumi:"recordId"`
+	Tags                     CloudFormationProvisionedProductTagArrayOutput                   `pulumi:"tags"`
 }
 
 // NewCloudFormationProvisionedProduct registers a new resource with the given unique name, arguments, and options.
@@ -83,58 +72,34 @@ func (CloudFormationProvisionedProductState) ElementType() reflect.Type {
 }
 
 type cloudFormationProvisionedProductArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-	AcceptLanguage *string `pulumi:"acceptLanguage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-	NotificationArns []string `pulumi:"notificationArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-	PathId *string `pulumi:"pathId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-	PathName *string `pulumi:"pathName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-	ProductId *string `pulumi:"productId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-	ProductName *string `pulumi:"productName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-	ProvisionedProductName *string `pulumi:"provisionedProductName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
-	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-	ProvisioningParameters []CloudFormationProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-	ProvisioningPreferences *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	AcceptLanguage           *string                                                  `pulumi:"acceptLanguage"`
+	NotificationArns         []string                                                 `pulumi:"notificationArns"`
+	PathId                   *string                                                  `pulumi:"pathId"`
+	PathName                 *string                                                  `pulumi:"pathName"`
+	ProductId                *string                                                  `pulumi:"productId"`
+	ProductName              *string                                                  `pulumi:"productName"`
+	ProvisionedProductName   *string                                                  `pulumi:"provisionedProductName"`
+	ProvisioningArtifactId   *string                                                  `pulumi:"provisioningArtifactId"`
+	ProvisioningArtifactName *string                                                  `pulumi:"provisioningArtifactName"`
+	ProvisioningParameters   []CloudFormationProvisionedProductProvisioningParameter  `pulumi:"provisioningParameters"`
+	ProvisioningPreferences  *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
+	Tags                     []CloudFormationProvisionedProductTag                    `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CloudFormationProvisionedProduct resource.
 type CloudFormationProvisionedProductArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-acceptlanguage
-	AcceptLanguage pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-notificationarns
-	NotificationArns pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
-	PathId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
-	PathName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
-	ProductId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productname
-	ProductName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisionedproductname
-	ProvisionedProductName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactid
-	ProvisioningArtifactId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningartifactname
+	AcceptLanguage           pulumi.StringPtrInput
+	NotificationArns         pulumi.StringArrayInput
+	PathId                   pulumi.StringPtrInput
+	PathName                 pulumi.StringPtrInput
+	ProductId                pulumi.StringPtrInput
+	ProductName              pulumi.StringPtrInput
+	ProvisionedProductName   pulumi.StringPtrInput
+	ProvisioningArtifactId   pulumi.StringPtrInput
 	ProvisioningArtifactName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
-	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
-	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
-	Tags aws.TagArrayInput
+	ProvisioningParameters   CloudFormationProvisionedProductProvisioningParameterArrayInput
+	ProvisioningPreferences  CloudFormationProvisionedProductProvisioningPreferencesPtrInput
+	Tags                     CloudFormationProvisionedProductTagArrayInput
 }
 
 func (CloudFormationProvisionedProductArgs) ElementType() reflect.Type {

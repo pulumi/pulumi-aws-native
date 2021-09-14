@@ -7,17 +7,16 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html
+// Resource schema for AWS::Detective::Graph
 type Graph struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The Detective graph ARN
+	Arn  pulumi.StringOutput `pulumi:"arn"`
+	Tags GraphTagArrayOutput `pulumi:"tags"`
 }
 
 // NewGraph registers a new resource with the given unique name, arguments, and options.
@@ -59,14 +58,12 @@ func (GraphState) ElementType() reflect.Type {
 }
 
 type graphArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []GraphTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-graph.html#cfn-detective-graph-tags
-	Tags aws.TagArrayInput
+	Tags GraphTagArrayInput
 }
 
 func (GraphArgs) ElementType() reflect.Type {

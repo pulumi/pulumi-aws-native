@@ -11,25 +11,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html
+// Resource Type definition for AWS::CodeStarNotifications::NotificationRule
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype
-	DetailType pulumi.StringOutput `pulumi:"detailType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids
-	EventTypeIds pulumi.StringArrayOutput `pulumi:"eventTypeIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
-	Resource pulumi.StringOutput `pulumi:"resource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
-	Tags pulumi.AnyOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
-	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
+	Arn          pulumi.StringOutput               `pulumi:"arn"`
+	DetailType   pulumi.StringOutput               `pulumi:"detailType"`
+	EventTypeIds pulumi.StringArrayOutput          `pulumi:"eventTypeIds"`
+	Name         pulumi.StringOutput               `pulumi:"name"`
+	Resource     pulumi.StringOutput               `pulumi:"resource"`
+	Status       pulumi.StringPtrOutput            `pulumi:"status"`
+	Tags         pulumi.AnyOutput                  `pulumi:"tags"`
+	Targets      NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
 
 // NewNotificationRule registers a new resource with the given unique name, arguments, and options.
@@ -86,38 +79,24 @@ func (NotificationRuleState) ElementType() reflect.Type {
 }
 
 type notificationRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype
-	DetailType string `pulumi:"detailType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids
-	EventTypeIds []string `pulumi:"eventTypeIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
-	Resource string `pulumi:"resource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
-	Tags interface{} `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
-	Targets []NotificationRuleTarget `pulumi:"targets"`
+	DetailType   string                   `pulumi:"detailType"`
+	EventTypeIds []string                 `pulumi:"eventTypeIds"`
+	Name         string                   `pulumi:"name"`
+	Resource     string                   `pulumi:"resource"`
+	Status       *string                  `pulumi:"status"`
+	Tags         interface{}              `pulumi:"tags"`
+	Targets      []NotificationRuleTarget `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a NotificationRule resource.
 type NotificationRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-detailtype
-	DetailType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-eventtypeids
+	DetailType   pulumi.StringInput
 	EventTypeIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
-	Resource pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-status
-	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-tags
-	Tags pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-targets
-	Targets NotificationRuleTargetArrayInput
+	Name         pulumi.StringInput
+	Resource     pulumi.StringInput
+	Status       pulumi.StringPtrInput
+	Tags         pulumi.Input
+	Targets      NotificationRuleTargetArrayInput
 }
 
 func (NotificationRuleArgs) ElementType() reflect.Type {

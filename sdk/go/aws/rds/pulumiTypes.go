@@ -10,17 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
 type DBProxyAuthFormat struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 	AuthScheme *string `pulumi:"authScheme"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	IAMAuth *string `pulumi:"iAMAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+	// The name of the database user to which the proxy connects.
 	UserName *string `pulumi:"userName"`
 }
 
@@ -35,17 +34,16 @@ type DBProxyAuthFormatInput interface {
 	ToDBProxyAuthFormatOutputWithContext(context.Context) DBProxyAuthFormatOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
 type DBProxyAuthFormatArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
+	// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 	AuthScheme pulumi.StringPtrInput `pulumi:"authScheme"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
+	// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 	IAMAuth pulumi.StringPtrInput `pulumi:"iAMAuth"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
+	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+	// The name of the database user to which the proxy connects.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
@@ -86,7 +84,6 @@ func (i DBProxyAuthFormatArray) ToDBProxyAuthFormatArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyAuthFormatArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html
 type DBProxyAuthFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyAuthFormatOutput) ElementType() reflect.Type {
@@ -101,27 +98,27 @@ func (o DBProxyAuthFormatOutput) ToDBProxyAuthFormatOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-authscheme
+// The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 func (o DBProxyAuthFormatOutput) AuthScheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.AuthScheme }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-description
+// A user-specified description about the authentication used by a proxy to log in as a specific database user.
 func (o DBProxyAuthFormatOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-iamauth
+// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 func (o DBProxyAuthFormatOutput) IAMAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.IAMAuth }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-secretarn
+// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o DBProxyAuthFormatOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-authformat.html#cfn-rds-dbproxy-authformat-username
+// The name of the database user to which the proxy connects.
 func (o DBProxyAuthFormatOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyAuthFormat) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
@@ -146,11 +143,8 @@ func (o DBProxyAuthFormatArrayOutput) Index(i pulumi.IntInput) DBProxyAuthFormat
 	}).(DBProxyAuthFormatOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
 type DBProxyEndpointTagFormat struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -165,11 +159,8 @@ type DBProxyEndpointTagFormatInput interface {
 	ToDBProxyEndpointTagFormatOutputWithContext(context.Context) DBProxyEndpointTagFormatOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
 type DBProxyEndpointTagFormatArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -210,7 +201,6 @@ func (i DBProxyEndpointTagFormatArray) ToDBProxyEndpointTagFormatArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyEndpointTagFormatArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html
 type DBProxyEndpointTagFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyEndpointTagFormatOutput) ElementType() reflect.Type {
@@ -225,12 +215,10 @@ func (o DBProxyEndpointTagFormatOutput) ToDBProxyEndpointTagFormatOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-key
 func (o DBProxyEndpointTagFormatOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxyendpoint-tagformat.html#cfn-rds-dbproxyendpoint-tagformat-value
 func (o DBProxyEndpointTagFormatOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyEndpointTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -255,11 +243,8 @@ func (o DBProxyEndpointTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyEnd
 	}).(DBProxyEndpointTagFormatOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
 type DBProxyTagFormat struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -274,11 +259,8 @@ type DBProxyTagFormatInput interface {
 	ToDBProxyTagFormatOutputWithContext(context.Context) DBProxyTagFormatOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
 type DBProxyTagFormatArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -319,7 +301,6 @@ func (i DBProxyTagFormatArray) ToDBProxyTagFormatArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTagFormatArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html
 type DBProxyTagFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTagFormatOutput) ElementType() reflect.Type {
@@ -334,12 +315,10 @@ func (o DBProxyTagFormatOutput) ToDBProxyTagFormatOutputWithContext(ctx context.
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-key
 func (o DBProxyTagFormatOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyTagFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxy-tagformat.html#cfn-rds-dbproxy-tagformat-value
 func (o DBProxyTagFormatOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyTagFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -364,17 +343,16 @@ func (o DBProxyTagFormatArrayOutput) Index(i pulumi.IntInput) DBProxyTagFormatOu
 	}).(DBProxyTagFormatOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormat struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 	ConnectionBorrowTimeout *int `pulumi:"connectionBorrowTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+	// One or more SQL statements for the proxy to run when opening each new database connection.
 	InitQuery *string `pulumi:"initQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+	// The maximum size of the connection pool for each target in a target group.
 	MaxConnectionsPercent *int `pulumi:"maxConnectionsPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+	// Controls how actively the proxy closes idle database connections in the connection pool.
 	MaxIdleConnectionsPercent *int `pulumi:"maxIdleConnectionsPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	SessionPinningFilters []string `pulumi:"sessionPinningFilters"`
 }
 
@@ -389,17 +367,16 @@ type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatInput interface {
 	ToDBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutputWithContext(context.Context) DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+	// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 	ConnectionBorrowTimeout pulumi.IntPtrInput `pulumi:"connectionBorrowTimeout"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+	// One or more SQL statements for the proxy to run when opening each new database connection.
 	InitQuery pulumi.StringPtrInput `pulumi:"initQuery"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+	// The maximum size of the connection pool for each target in a target group.
 	MaxConnectionsPercent pulumi.IntPtrInput `pulumi:"maxConnectionsPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+	// Controls how actively the proxy closes idle database connections in the connection pool.
 	MaxIdleConnectionsPercent pulumi.IntPtrInput `pulumi:"maxIdleConnectionsPercent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	SessionPinningFilters pulumi.StringArrayInput `pulumi:"sessionPinningFilters"`
 }
 
@@ -456,7 +433,6 @@ func (i *dbproxyTargetGroupConnectionPoolConfigurationInfoFormatPtrType) ToDBPro
 	return pulumi.ToOutputWithContext(ctx, i).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html
 type DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput struct{ *pulumi.OutputState }
 
 func (DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ElementType() reflect.Type {
@@ -481,29 +457,29 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ToDBProxy
 	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+// One or more SQL statements for the proxy to run when opening each new database connection.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) InitQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+// The maximum size of the connection pool for each target in a target group.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+// Controls how actively the proxy closes idle database connections in the connection pool.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		return v.MaxIdleConnectionsPercent
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput) SessionPinningFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
 		return v.SessionPinningFilters
@@ -534,7 +510,7 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Elem()
 	}).(DBProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-connectionborrowtimeout
+// The number of seconds for a proxy to wait for a connection to become available in the connection pool.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
@@ -544,7 +520,7 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Connec
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-initquery
+// One or more SQL statements for the proxy to run when opening each new database connection.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) InitQuery() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *string {
 		if v == nil {
@@ -554,7 +530,7 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) InitQu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxconnectionspercent
+// The maximum size of the connection pool for each target in a target group.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
@@ -564,7 +540,7 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxCon
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-maxidleconnectionspercent
+// Controls how actively the proxy closes idle database connections in the connection pool.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxIdleConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) *int {
 		if v == nil {
@@ -574,7 +550,7 @@ func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) MaxIdl
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfoformat-sessionpinningfilters
+// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 func (o DBProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) SessionPinningFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DBProxyTargetGroupConnectionPoolConfigurationInfoFormat) []string {
 		if v == nil {

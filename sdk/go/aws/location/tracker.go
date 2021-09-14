@@ -11,24 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html
+// Definition of AWS::Location::Tracker Resource Type
 type Tracker struct {
 	pulumi.CustomResourceState
 
-	Arn        pulumi.StringOutput `pulumi:"arn"`
-	CreateTime pulumi.StringOutput `pulumi:"createTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-	PricingPlan pulumi.StringOutput `pulumi:"pricingPlan"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
+	Arn                   pulumi.StringOutput    `pulumi:"arn"`
+	CreateTime            pulumi.StringOutput    `pulumi:"createTime"`
+	Description           pulumi.StringPtrOutput `pulumi:"description"`
+	KmsKeyId              pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	PricingPlan           pulumi.StringOutput    `pulumi:"pricingPlan"`
 	PricingPlanDataSource pulumi.StringPtrOutput `pulumi:"pricingPlanDataSource"`
 	TrackerArn            pulumi.StringOutput    `pulumi:"trackerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
-	UpdateTime  pulumi.StringOutput `pulumi:"updateTime"`
+	TrackerName           pulumi.StringOutput    `pulumi:"trackerName"`
+	UpdateTime            pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
 // NewTracker registers a new resource with the given unique name, arguments, and options.
@@ -76,30 +71,20 @@ func (TrackerState) ElementType() reflect.Type {
 }
 
 type trackerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-	PricingPlan string `pulumi:"pricingPlan"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
+	Description           *string `pulumi:"description"`
+	KmsKeyId              *string `pulumi:"kmsKeyId"`
+	PricingPlan           string  `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string `pulumi:"pricingPlanDataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-	TrackerName string `pulumi:"trackerName"`
+	TrackerName           string  `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a Tracker resource.
 type TrackerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-kmskeyid
-	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplan
-	PricingPlan pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-pricingplandatasource
+	Description           pulumi.StringPtrInput
+	KmsKeyId              pulumi.StringPtrInput
+	PricingPlan           pulumi.StringInput
 	PricingPlanDataSource pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-tracker.html#cfn-location-tracker-trackername
-	TrackerName pulumi.StringInput
+	TrackerName           pulumi.StringInput
 }
 
 func (TrackerArgs) ElementType() reflect.Type {

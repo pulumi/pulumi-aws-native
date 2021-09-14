@@ -8,29 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html
+// Creates a fleet provisioning template.
 type ProvisioningTemplate struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
+	Description         pulumi.StringPtrOutput                        `pulumi:"description"`
+	Enabled             pulumi.BoolPtrOutput                          `pulumi:"enabled"`
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrOutput `pulumi:"preProvisioningHook"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
-	ProvisioningRoleArn pulumi.StringOutput `pulumi:"provisioningRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-	Tags        aws.TagArrayOutput  `pulumi:"tags"`
-	TemplateArn pulumi.StringOutput `pulumi:"templateArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-	TemplateBody pulumi.StringOutput `pulumi:"templateBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
+	ProvisioningRoleArn pulumi.StringOutput                           `pulumi:"provisioningRoleArn"`
+	Tags                ProvisioningTemplateTagArrayOutput            `pulumi:"tags"`
+	TemplateArn         pulumi.StringOutput                           `pulumi:"templateArn"`
+	TemplateBody        pulumi.StringOutput                           `pulumi:"templateBody"`
+	TemplateName        pulumi.StringPtrOutput                        `pulumi:"templateName"`
 }
 
 // NewProvisioningTemplate registers a new resource with the given unique name, arguments, and options.
@@ -78,38 +70,24 @@ func (ProvisioningTemplateState) ElementType() reflect.Type {
 }
 
 type provisioningTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
+	Description         *string                               `pulumi:"description"`
+	Enabled             *bool                                 `pulumi:"enabled"`
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
-	ProvisioningRoleArn string `pulumi:"provisioningRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-	TemplateBody string `pulumi:"templateBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-	TemplateName *string `pulumi:"templateName"`
+	ProvisioningRoleArn string                                `pulumi:"provisioningRoleArn"`
+	Tags                []ProvisioningTemplateTag             `pulumi:"tags"`
+	TemplateBody        string                                `pulumi:"templateBody"`
+	TemplateName        *string                               `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a ProvisioningTemplate resource.
 type ProvisioningTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-enabled
-	Enabled pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-preprovisioninghook
+	Description         pulumi.StringPtrInput
+	Enabled             pulumi.BoolPtrInput
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-provisioningrolearn
 	ProvisioningRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody
-	TemplateBody pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatename
-	TemplateName pulumi.StringPtrInput
+	Tags                ProvisioningTemplateTagArrayInput
+	TemplateBody        pulumi.StringInput
+	TemplateName        pulumi.StringPtrInput
 }
 
 func (ProvisioningTemplateArgs) ElementType() reflect.Type {

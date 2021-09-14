@@ -11,31 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html
+// Resource schema for AWS::ImageBuilder::Component
 type Component struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the component.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+	// The change description of the component.
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+	// The data of the component.
 	Data pulumi.StringPtrOutput `pulumi:"data"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+	// The description of the component.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Encrypted   pulumi.BoolOutput      `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+	// The encryption status of the component.
+	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	// The KMS key identifier used to encrypt the component.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	Name     pulumi.StringOutput    `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+	// The name of the component.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayOutput `pulumi:"supportedOsVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	Type pulumi.StringOutput    `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+	// The tags associated with the component.
+	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// The type of the component denotes whether the component is used to build the image or only to test it.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// The uri of the component.
 	Uri pulumi.StringPtrOutput `pulumi:"uri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+	// The version of the component.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -87,49 +91,49 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+	// The change description of the component.
 	ChangeDescription *string `pulumi:"changeDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+	// The data of the component.
 	Data *string `pulumi:"data"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+	// The description of the component.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+	// The KMS key identifier used to encrypt the component.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
+	// The name of the component.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+	// The platform of the component.
 	Platform string `pulumi:"platform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+	// The operating system (OS) version supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+	// The tags associated with the component.
+	Tags interface{} `pulumi:"tags"`
+	// The uri of the component.
 	Uri *string `pulumi:"uri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+	// The version of the component.
 	Version string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-changedescription
+	// The change description of the component.
 	ChangeDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-data
+	// The data of the component.
 	Data pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-description
+	// The description of the component.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-kmskeyid
+	// The KMS key identifier used to encrypt the component.
 	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-name
+	// The name of the component.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
+	// The platform of the component.
 	Platform pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+	// The operating system (OS) version supported by the component.
 	SupportedOsVersions pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-uri
+	// The tags associated with the component.
+	Tags pulumi.Input
+	// The uri of the component.
 	Uri pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-version
+	// The version of the component.
 	Version pulumi.StringInput
 }
 

@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
 type CloudFrontOriginAccessIdentity struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigOutput `pulumi:"cloudFrontOriginAccessIdentityConfig"`
-	Id                                   pulumi.StringOutput                                                      `pulumi:"id"`
 	S3CanonicalUserId                    pulumi.StringOutput                                                      `pulumi:"s3CanonicalUserId"`
 }
 
@@ -63,13 +61,11 @@ func (CloudFrontOriginAccessIdentityState) ElementType() reflect.Type {
 }
 
 type cloudFrontOriginAccessIdentityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
 }
 
 // The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
 type CloudFrontOriginAccessIdentityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
 	CloudFrontOriginAccessIdentityConfig CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigInput
 }
 

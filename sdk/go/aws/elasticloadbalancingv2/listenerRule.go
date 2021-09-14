@@ -11,20 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
+// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
 type ListenerRule struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-	Actions ListenerRuleActionArrayOutput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-	Conditions ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
-	IsDefault  pulumi.BoolOutput                    `pulumi:"isDefault"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-	Priority pulumi.IntOutput    `pulumi:"priority"`
-	RuleArn  pulumi.StringOutput `pulumi:"ruleArn"`
+	Actions     ListenerRuleActionArrayOutput        `pulumi:"actions"`
+	Conditions  ListenerRuleRuleConditionArrayOutput `pulumi:"conditions"`
+	IsDefault   pulumi.BoolOutput                    `pulumi:"isDefault"`
+	ListenerArn pulumi.StringOutput                  `pulumi:"listenerArn"`
+	Priority    pulumi.IntOutput                     `pulumi:"priority"`
+	RuleArn     pulumi.StringOutput                  `pulumi:"ruleArn"`
 }
 
 // NewListenerRule registers a new resource with the given unique name, arguments, and options.
@@ -78,26 +74,18 @@ func (ListenerRuleState) ElementType() reflect.Type {
 }
 
 type listenerRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-	Actions []ListenerRuleAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-	Conditions []ListenerRuleRuleCondition `pulumi:"conditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-	ListenerArn string `pulumi:"listenerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-	Priority int `pulumi:"priority"`
+	Actions     []ListenerRuleAction        `pulumi:"actions"`
+	Conditions  []ListenerRuleRuleCondition `pulumi:"conditions"`
+	ListenerArn string                      `pulumi:"listenerArn"`
+	Priority    int                         `pulumi:"priority"`
 }
 
 // The set of arguments for constructing a ListenerRule resource.
 type ListenerRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-	Actions ListenerRuleActionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-	Conditions ListenerRuleRuleConditionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+	Actions     ListenerRuleActionArrayInput
+	Conditions  ListenerRuleRuleConditionArrayInput
 	ListenerArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-	Priority pulumi.IntInput
+	Priority    pulumi.IntInput
 }
 
 func (ListenerRuleArgs) ElementType() reflect.Type {

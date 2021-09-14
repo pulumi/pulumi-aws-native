@@ -11,15 +11,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html
+// A pseudo-resource that manages which of your ECS task sets is primary.
 type PrimaryTaskSet struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
 	Service pulumi.StringOutput `pulumi:"service"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+	// The ID or full Amazon Resource Name (ARN) of the task set.
 	TaskSetId pulumi.StringOutput `pulumi:"taskSetId"`
 }
 
@@ -71,21 +71,21 @@ func (PrimaryTaskSetState) ElementType() reflect.Type {
 }
 
 type primaryTaskSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
 	Service string `pulumi:"service"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+	// The ID or full Amazon Resource Name (ARN) of the task set.
 	TaskSetId string `pulumi:"taskSetId"`
 }
 
 // The set of arguments for constructing a PrimaryTaskSet resource.
 type PrimaryTaskSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-cluster
+	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-service
+	// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
 	Service pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-primarytaskset.html#cfn-ecs-primarytaskset-tasksetid
+	// The ID or full Amazon Resource Name (ARN) of the task set.
 	TaskSetId pulumi.StringInput
 }
 

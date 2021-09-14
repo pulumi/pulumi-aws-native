@@ -8,25 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+// Resource Type definition for AWS::Kinesis::Stream
 type Stream struct {
 	pulumi.CustomResourceState
 
+	// The Amazon resource name (ARN) of the Kinesis stream
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+	// The name of the Kinesis stream.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrOutput `pulumi:"retentionPeriodHours"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+	// The number of shards that the stream uses.
 	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption StreamStreamEncryptionPtrOutput `pulumi:"streamEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	Tags StreamTagArrayOutput `pulumi:"tags"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -71,30 +71,30 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+	// The name of the Kinesis stream.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours *int `pulumi:"retentionPeriodHours"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+	// The number of shards that the stream uses.
 	ShardCount int `pulumi:"shardCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption *StreamStreamEncryption `pulumi:"streamEncryption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	Tags []StreamTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+	// The name of the Kinesis stream.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+	// The number of hours for the data records that are stored in shards to remain accessible.
 	RetentionPeriodHours pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+	// The number of shards that the stream uses.
 	ShardCount pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+	// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
 	StreamEncryption StreamStreamEncryptionPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
-	Tags aws.TagArrayInput
+	// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
+	Tags StreamTagArrayInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {

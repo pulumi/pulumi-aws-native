@@ -10,13 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
+// Resource Type definition for AWS::ApiGateway::Account
 type Account struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
 	CloudWatchRoleArn pulumi.StringPtrOutput `pulumi:"cloudWatchRoleArn"`
-	Id                pulumi.StringOutput    `pulumi:"id"`
 }
 
 // NewAccount registers a new resource with the given unique name, arguments, and options.
@@ -58,13 +57,13 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
 	CloudWatchRoleArn *string `pulumi:"cloudWatchRoleArn"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+	// The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
 	CloudWatchRoleArn pulumi.StringPtrInput
 }
 

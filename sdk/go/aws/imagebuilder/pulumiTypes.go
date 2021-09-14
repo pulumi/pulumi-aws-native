@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+// Configuration details of the component.
 type ContainerRecipeComponentConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `pulumi:"componentArn"`
 }
 
@@ -27,9 +27,9 @@ type ContainerRecipeComponentConfigurationInput interface {
 	ToContainerRecipeComponentConfigurationOutputWithContext(context.Context) ContainerRecipeComponentConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+// Configuration details of the component.
 type ContainerRecipeComponentConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
 }
 
@@ -70,7 +70,7 @@ func (i ContainerRecipeComponentConfigurationArray) ToContainerRecipeComponentCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+// Configuration details of the component.
 type ContainerRecipeComponentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeComponentConfigurationOutput) ElementType() reflect.Type {
@@ -85,7 +85,7 @@ func (o ContainerRecipeComponentConfigurationOutput) ToContainerRecipeComponentC
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+// The Amazon Resource Name (ARN) of the component.
 func (o ContainerRecipeComponentConfigurationOutput) ComponentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeComponentConfiguration) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
@@ -110,21 +110,21 @@ func (o ContainerRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInpu
 	}).(ContainerRecipeComponentConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ContainerRecipeEbsInstanceBlockDeviceSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+	// Use to configure delete on termination of the associated device.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+	// Use to configure device encryption.
 	Encrypted *bool `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+	// Use to configure device IOPS.
 	Iops *int `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+	// Use to configure the KMS key to use when encrypting the device.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+	// The snapshot that defines the device contents.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+	// Use to override the device's volume type.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -139,21 +139,21 @@ type ContainerRecipeEbsInstanceBlockDeviceSpecificationInput interface {
 	ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+	// Use to configure delete on termination of the associated device.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+	// Use to configure device encryption.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+	// Use to configure device IOPS.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+	// Use to configure the KMS key to use when encrypting the device.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+	// The snapshot that defines the device contents.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+	// Use to override the device's volume type.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -210,7 +210,7 @@ func (i *containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToContainerR
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ElementType() reflect.Type {
@@ -235,37 +235,37 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRec
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+// Use to configure delete on termination of the associated device.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+// Use to configure device encryption.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+// Use to configure device IOPS.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+// Use to configure the KMS key to use when encrypting the device.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+// The snapshot that defines the device contents.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+// Use to override the device's volume size.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+// Use to override the device's volume type.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeEbsInstanceBlockDeviceSpecification) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -294,7 +294,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Elem() Cont
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-deleteontermination
+// Use to configure delete on termination of the associated device.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool {
 		if v == nil {
@@ -304,7 +304,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) DeleteOnTer
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-encrypted
+// Use to configure device encryption.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *bool {
 		if v == nil {
@@ -314,7 +314,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Encrypted()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-iops
+// Use to configure device IOPS.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *int {
 		if v == nil {
@@ -324,7 +324,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Iops() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-kmskeyid
+// Use to configure the KMS key to use when encrypting the device.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -334,7 +334,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) KmsKeyId() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-snapshotid
+// The snapshot that defines the device contents.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -344,7 +344,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumesize
+// Use to override the device's volume size.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *int {
 		if v == nil {
@@ -354,7 +354,7 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize(
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-containerrecipe-ebsinstanceblockdevicespecification-volumetype
+// Use to override the device's volume type.
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -364,15 +364,15 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ContainerRecipeInstanceBlockDeviceMapping struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+	// The device to which these mappings apply.
 	DeviceName *string `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+	// Use to manage Amazon EBS-specific configuration for this mapping.
 	Ebs *ContainerRecipeEbsInstanceBlockDeviceSpecification `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+	// Use to remove a mapping from the parent image.
 	NoDevice *string `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+	// Use to manage instance ephemeral devices.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -387,15 +387,15 @@ type ContainerRecipeInstanceBlockDeviceMappingInput interface {
 	ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(context.Context) ContainerRecipeInstanceBlockDeviceMappingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ContainerRecipeInstanceBlockDeviceMappingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+	// The device to which these mappings apply.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+	// Use to manage Amazon EBS-specific configuration for this mapping.
 	Ebs ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrInput `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+	// Use to remove a mapping from the parent image.
 	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+	// Use to manage instance ephemeral devices.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -436,7 +436,7 @@ func (i ContainerRecipeInstanceBlockDeviceMappingArray) ToContainerRecipeInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ContainerRecipeInstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeInstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -451,24 +451,24 @@ func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToContainerRecipeInstan
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-devicename
+// The device to which these mappings apply.
 func (o ContainerRecipeInstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-ebs
+// Use to manage Amazon EBS-specific configuration for this mapping.
 func (o ContainerRecipeInstanceBlockDeviceMappingOutput) Ebs() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *ContainerRecipeEbsInstanceBlockDeviceSpecification {
 		return v.Ebs
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-nodevice
+// Use to remove a mapping from the parent image.
 func (o ContainerRecipeInstanceBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceblockdevicemapping.html#cfn-imagebuilder-containerrecipe-instanceblockdevicemapping-virtualname
+// Use to manage instance ephemeral devices.
 func (o ContainerRecipeInstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -493,11 +493,11 @@ func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.Int
 	}).(ContainerRecipeInstanceBlockDeviceMappingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+// A group of options that can be used to configure an instance for building and testing container images.
 type ContainerRecipeInstanceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+	// Defines the block devices to attach for building an instance from this Image Builder AMI.
 	BlockDeviceMappings []ContainerRecipeInstanceBlockDeviceMapping `pulumi:"blockDeviceMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 	Image *string `pulumi:"image"`
 }
 
@@ -512,11 +512,11 @@ type ContainerRecipeInstanceConfigurationInput interface {
 	ToContainerRecipeInstanceConfigurationOutputWithContext(context.Context) ContainerRecipeInstanceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+// A group of options that can be used to configure an instance for building and testing container images.
 type ContainerRecipeInstanceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+	// Defines the block devices to attach for building an instance from this Image Builder AMI.
 	BlockDeviceMappings ContainerRecipeInstanceBlockDeviceMappingArrayInput `pulumi:"blockDeviceMappings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+	// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 	Image pulumi.StringPtrInput `pulumi:"image"`
 }
 
@@ -573,7 +573,7 @@ func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html
+// A group of options that can be used to configure an instance for building and testing container images.
 type ContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
@@ -598,14 +598,14 @@ func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceCon
 	}).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+// Defines the block devices to attach for building an instance from this Image Builder AMI.
 func (o ContainerRecipeInstanceConfigurationOutput) BlockDeviceMappings() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceBlockDeviceMapping {
 		return v.BlockDeviceMappings
 	}).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 func (o ContainerRecipeInstanceConfigurationOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeInstanceConfiguration) *string { return v.Image }).(pulumi.StringPtrOutput)
 }
@@ -634,7 +634,7 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeIns
 	}).(ContainerRecipeInstanceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-blockdevicemappings
+// Defines the block devices to attach for building an instance from this Image Builder AMI.
 func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) []ContainerRecipeInstanceBlockDeviceMapping {
 		if v == nil {
@@ -644,7 +644,7 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) BlockDeviceMappings() Con
 	}).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-instanceconfiguration.html#cfn-imagebuilder-containerrecipe-instanceconfiguration-image
+// The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
 func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeInstanceConfiguration) *string {
 		if v == nil {
@@ -654,11 +654,11 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) Image() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+// The container repository where the output container image is stored.
 type ContainerRecipeTargetContainerRepository struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName *string `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+	// Specifies the service in which this image was registered.
 	Service *string `pulumi:"service"`
 }
 
@@ -673,11 +673,11 @@ type ContainerRecipeTargetContainerRepositoryInput interface {
 	ToContainerRecipeTargetContainerRepositoryOutputWithContext(context.Context) ContainerRecipeTargetContainerRepositoryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+// The container repository where the output container image is stored.
 type ContainerRecipeTargetContainerRepositoryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+	// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+	// Specifies the service in which this image was registered.
 	Service pulumi.StringPtrInput `pulumi:"service"`
 }
 
@@ -734,7 +734,7 @@ func (i *containerRecipeTargetContainerRepositoryPtrType) ToContainerRecipeTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+// The container repository where the output container image is stored.
 type ContainerRecipeTargetContainerRepositoryOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeTargetContainerRepositoryOutput) ElementType() reflect.Type {
@@ -759,12 +759,12 @@ func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetC
 	}).(ContainerRecipeTargetContainerRepositoryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o ContainerRecipeTargetContainerRepositoryOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+// Specifies the service in which this image was registered.
 func (o ContainerRecipeTargetContainerRepositoryOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerRecipeTargetContainerRepository) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
@@ -793,7 +793,7 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Elem() ContainerRecip
 	}).(ContainerRecipeTargetContainerRepositoryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o ContainerRecipeTargetContainerRepositoryPtrOutput) RepositoryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *string {
 		if v == nil {
@@ -803,7 +803,7 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) RepositoryName() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+// Specifies the service in which this image was registered.
 func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepository) *string {
 		if v == nil {
@@ -813,17 +813,17 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Service() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+// The distributions of the distribution configuration.
 type DistributionConfigurationDistribution struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+	// The specific AMI settings (for example, launch permissions, AMI tags).
 	AmiDistributionConfiguration interface{} `pulumi:"amiDistributionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 	ContainerDistributionConfiguration interface{} `pulumi:"containerDistributionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+	// A group of launchTemplateConfiguration settings that apply to image distribution.
 	LaunchTemplateConfigurations []DistributionConfigurationLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+	// The License Manager Configuration to associate with the AMI in the specified Region.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+	// region
 	Region string `pulumi:"region"`
 }
 
@@ -838,17 +838,17 @@ type DistributionConfigurationDistributionInput interface {
 	ToDistributionConfigurationDistributionOutputWithContext(context.Context) DistributionConfigurationDistributionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+// The distributions of the distribution configuration.
 type DistributionConfigurationDistributionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+	// The specific AMI settings (for example, launch permissions, AMI tags).
 	AmiDistributionConfiguration pulumi.Input `pulumi:"amiDistributionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+	// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 	ContainerDistributionConfiguration pulumi.Input `pulumi:"containerDistributionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+	// A group of launchTemplateConfiguration settings that apply to image distribution.
 	LaunchTemplateConfigurations DistributionConfigurationLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+	// The License Manager Configuration to associate with the AMI in the specified Region.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+	// region
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -889,7 +889,7 @@ func (i DistributionConfigurationDistributionArray) ToDistributionConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+// The distributions of the distribution configuration.
 type DistributionConfigurationDistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionOutput) ElementType() reflect.Type {
@@ -904,29 +904,29 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+// The specific AMI settings (for example, launch permissions, AMI tags).
 func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) interface{} { return v.AmiDistributionConfiguration }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+// Container distribution settings for encryption, licensing, and sharing in a specific Region.
 func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) interface{} { return v.ContainerDistributionConfiguration }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+// A group of launchTemplateConfiguration settings that apply to image distribution.
 func (o DistributionConfigurationDistributionOutput) LaunchTemplateConfigurations() DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationLaunchTemplateConfiguration {
 		return v.LaunchTemplateConfigurations
 	}).(DistributionConfigurationLaunchTemplateConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+// The License Manager Configuration to associate with the AMI in the specified Region.
 func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+// region
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -951,13 +951,13 @@ func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInpu
 	}).(DistributionConfigurationDistributionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+// launchTemplateConfiguration settings that apply to image distribution.
 type DistributionConfigurationLaunchTemplateConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+	// The account ID that this configuration applies to.
 	AccountId *string `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+	// Identifies the EC2 launch template to use.
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+	// Set the specified EC2 launch template as the default launch template for the specified account.
 	SetDefaultVersion *bool `pulumi:"setDefaultVersion"`
 }
 
@@ -972,13 +972,13 @@ type DistributionConfigurationLaunchTemplateConfigurationInput interface {
 	ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(context.Context) DistributionConfigurationLaunchTemplateConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+// launchTemplateConfiguration settings that apply to image distribution.
 type DistributionConfigurationLaunchTemplateConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+	// The account ID that this configuration applies to.
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+	// Identifies the EC2 launch template to use.
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+	// Set the specified EC2 launch template as the default launch template for the specified account.
 	SetDefaultVersion pulumi.BoolPtrInput `pulumi:"setDefaultVersion"`
 }
 
@@ -1019,7 +1019,7 @@ func (i DistributionConfigurationLaunchTemplateConfigurationArray) ToDistributio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchTemplateConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html
+// launchTemplateConfiguration settings that apply to image distribution.
 type DistributionConfigurationLaunchTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationLaunchTemplateConfigurationOutput) ElementType() reflect.Type {
@@ -1034,17 +1034,17 @@ func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToDistributi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-accountid
+// The account ID that this configuration applies to.
 func (o DistributionConfigurationLaunchTemplateConfigurationOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-launchtemplateid
+// Identifies the EC2 launch template to use.
 func (o DistributionConfigurationLaunchTemplateConfigurationOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html#cfn-imagebuilder-distributionconfiguration-launchtemplateconfiguration-setdefaultversion
+// Set the specified EC2 launch template as the default launch template for the specified account.
 func (o DistributionConfigurationLaunchTemplateConfigurationOutput) SetDefaultVersion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationLaunchTemplateConfiguration) *bool { return v.SetDefaultVersion }).(pulumi.BoolPtrOutput)
 }
@@ -1069,11 +1069,11 @@ func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) Index(i
 	}).(DistributionConfigurationLaunchTemplateConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
+// The image tests configuration used when creating this image.
 type ImageImageTestsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+	// ImageTestsEnabled
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+	// TimeoutMinutes
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
 }
 
@@ -1088,11 +1088,11 @@ type ImageImageTestsConfigurationInput interface {
 	ToImageImageTestsConfigurationOutputWithContext(context.Context) ImageImageTestsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
+// The image tests configuration used when creating this image.
 type ImageImageTestsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+	// ImageTestsEnabled
 	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+	// TimeoutMinutes
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
 }
 
@@ -1149,7 +1149,7 @@ func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html
+// The image tests configuration used when creating this image.
 type ImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImageImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -1174,12 +1174,12 @@ func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOut
 	}).(ImageImageTestsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+// ImageTestsEnabled
 func (o ImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+// TimeoutMinutes
 func (o ImageImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1208,7 +1208,7 @@ func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurati
 	}).(ImageImageTestsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-imagetestsenabled
+// ImageTestsEnabled
 func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageImageTestsConfiguration) *bool {
 		if v == nil {
@@ -1218,7 +1218,7 @@ func (o ImageImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-image-imagetestsconfiguration.html#cfn-imagebuilder-image-imagetestsconfiguration-timeoutminutes
+// TimeoutMinutes
 func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageImageTestsConfiguration) *int {
 		if v == nil {
@@ -1228,11 +1228,11 @@ func (o ImageImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
+// Image tests configuration.
 type ImagePipelineImageTestsConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+	// Defines if tests should be executed when building this image.
 	ImageTestsEnabled *bool `pulumi:"imageTestsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+	// The maximum time in minutes that tests are permitted to run.
 	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
 }
 
@@ -1247,11 +1247,11 @@ type ImagePipelineImageTestsConfigurationInput interface {
 	ToImagePipelineImageTestsConfigurationOutputWithContext(context.Context) ImagePipelineImageTestsConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
+// Image tests configuration.
 type ImagePipelineImageTestsConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+	// Defines if tests should be executed when building this image.
 	ImageTestsEnabled pulumi.BoolPtrInput `pulumi:"imageTestsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+	// The maximum time in minutes that tests are permitted to run.
 	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
 }
 
@@ -1308,7 +1308,7 @@ func (i *imagePipelineImageTestsConfigurationPtrType) ToImagePipelineImageTestsC
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html
+// Image tests configuration.
 type ImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -1333,12 +1333,12 @@ func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsCon
 	}).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+// Defines if tests should be executed when building this image.
 func (o ImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+// The maximum time in minutes that tests are permitted to run.
 func (o ImagePipelineImageTestsConfigurationOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
 }
@@ -1367,7 +1367,7 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImage
 	}).(ImagePipelineImageTestsConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-imagetestsenabled
+// Defines if tests should be executed when building this image.
 func (o ImagePipelineImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *bool {
 		if v == nil {
@@ -1377,7 +1377,7 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) ImageTestsEnabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration-timeoutminutes
+// The maximum time in minutes that tests are permitted to run.
 func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineImageTestsConfiguration) *int {
 		if v == nil {
@@ -1387,11 +1387,11 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
+// The schedule of the image pipeline.
 type ImagePipelineSchedule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition *string `pulumi:"pipelineExecutionStartCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 }
 
@@ -1406,11 +1406,11 @@ type ImagePipelineScheduleInput interface {
 	ToImagePipelineScheduleOutputWithContext(context.Context) ImagePipelineScheduleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
+// The schedule of the image pipeline.
 type ImagePipelineScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+	// The condition configures when the pipeline should trigger a new image build.
 	PipelineExecutionStartCondition pulumi.StringPtrInput `pulumi:"pipelineExecutionStartCondition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+	// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
 }
 
@@ -1467,7 +1467,7 @@ func (i *imagePipelineSchedulePtrType) ToImagePipelineSchedulePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineSchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html
+// The schedule of the image pipeline.
 type ImagePipelineScheduleOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineScheduleOutput) ElementType() reflect.Type {
@@ -1492,12 +1492,12 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 	}).(ImagePipelineSchedulePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+// The condition configures when the pipeline should trigger a new image build.
 func (o ImagePipelineScheduleOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.PipelineExecutionStartCondition }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 func (o ImagePipelineScheduleOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImagePipelineSchedule) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
@@ -1526,7 +1526,7 @@ func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
 	}).(ImagePipelineScheduleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-pipelineexecutionstartcondition
+// The condition configures when the pipeline should trigger a new image build.
 func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -1536,7 +1536,7 @@ func (o ImagePipelineSchedulePtrOutput) PipelineExecutionStartCondition() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-schedule.html#cfn-imagebuilder-imagepipeline-schedule-scheduleexpression
+// The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.
 func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedule) *string {
 		if v == nil {
@@ -1546,11 +1546,11 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+// Specify additional settings and launch scripts for your build instances.
 type ImageRecipeAdditionalInstanceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+	// Contains settings for the SSM agent on your build instance.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+	// Use this property to provide commands or a command script to run when you launch your build instance.
 	UserDataOverride string `pulumi:"userDataOverride"`
 }
 
@@ -1565,11 +1565,11 @@ type ImageRecipeAdditionalInstanceConfigurationInput interface {
 	ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(context.Context) ImageRecipeAdditionalInstanceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+// Specify additional settings and launch scripts for your build instances.
 type ImageRecipeAdditionalInstanceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+	// Contains settings for the SSM agent on your build instance.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput `pulumi:"systemsManagerAgent"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+	// Use this property to provide commands or a command script to run when you launch your build instance.
 	UserDataOverride pulumi.StringInput `pulumi:"userDataOverride"`
 }
 
@@ -1626,7 +1626,7 @@ func (i *imageRecipeAdditionalInstanceConfigurationPtrType) ToImageRecipeAdditio
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+// Specify additional settings and launch scripts for your build instances.
 type ImageRecipeAdditionalInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeAdditionalInstanceConfigurationOutput) ElementType() reflect.Type {
@@ -1651,14 +1651,14 @@ func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditiona
 	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+// Contains settings for the SSM agent on your build instance.
 func (o ImageRecipeAdditionalInstanceConfigurationOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentPtrOutput {
 	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeSystemsManagerAgent {
 		return v.SystemsManagerAgent
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+// Use this property to provide commands or a command script to run when you launch your build instance.
 func (o ImageRecipeAdditionalInstanceConfigurationOutput) UserDataOverride() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeAdditionalInstanceConfiguration) string { return v.UserDataOverride }).(pulumi.StringOutput)
 }
@@ -1687,7 +1687,7 @@ func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) Elem() ImageRecipeA
 	}).(ImageRecipeAdditionalInstanceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+// Contains settings for the SSM agent on your build instance.
 func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeSystemsManagerAgent {
 		if v == nil {
@@ -1697,7 +1697,7 @@ func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) SystemsManagerAgent
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+// Use this property to provide commands or a command script to run when you launch your build instance.
 func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) UserDataOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeAdditionalInstanceConfiguration) *string {
 		if v == nil {
@@ -1707,11 +1707,11 @@ func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) UserDataOverride() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
+// Configuration details of the component.
 type ImageRecipeComponentConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn *string `pulumi:"componentArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+	// A group of parameter settings that are used to configure the component for a specific recipe.
 	Parameters []ImageRecipeComponentParameter `pulumi:"parameters"`
 }
 
@@ -1726,11 +1726,11 @@ type ImageRecipeComponentConfigurationInput interface {
 	ToImageRecipeComponentConfigurationOutputWithContext(context.Context) ImageRecipeComponentConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
+// Configuration details of the component.
 type ImageRecipeComponentConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+	// The Amazon Resource Name (ARN) of the component.
 	ComponentArn pulumi.StringPtrInput `pulumi:"componentArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+	// A group of parameter settings that are used to configure the component for a specific recipe.
 	Parameters ImageRecipeComponentParameterArrayInput `pulumi:"parameters"`
 }
 
@@ -1771,7 +1771,7 @@ func (i ImageRecipeComponentConfigurationArray) ToImageRecipeComponentConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html
+// Configuration details of the component.
 type ImageRecipeComponentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeComponentConfigurationOutput) ElementType() reflect.Type {
@@ -1786,12 +1786,12 @@ func (o ImageRecipeComponentConfigurationOutput) ToImageRecipeComponentConfigura
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-componentarn
+// The Amazon Resource Name (ARN) of the component.
 func (o ImageRecipeComponentConfigurationOutput) ComponentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeComponentConfiguration) *string { return v.ComponentArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html#cfn-imagebuilder-imagerecipe-componentconfiguration-parameters
+// A group of parameter settings that are used to configure the component for a specific recipe.
 func (o ImageRecipeComponentConfigurationOutput) Parameters() ImageRecipeComponentParameterArrayOutput {
 	return o.ApplyT(func(v ImageRecipeComponentConfiguration) []ImageRecipeComponentParameter { return v.Parameters }).(ImageRecipeComponentParameterArrayOutput)
 }
@@ -1816,11 +1816,11 @@ func (o ImageRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInput) I
 	}).(ImageRecipeComponentConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+// Contains a key/value pair that sets the named component parameter.
 type ImageRecipeComponentParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+	// The name of the component parameter to set.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+	// Sets the value for the named component parameter.
 	Value []string `pulumi:"value"`
 }
 
@@ -1835,11 +1835,11 @@ type ImageRecipeComponentParameterInput interface {
 	ToImageRecipeComponentParameterOutputWithContext(context.Context) ImageRecipeComponentParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+// Contains a key/value pair that sets the named component parameter.
 type ImageRecipeComponentParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+	// The name of the component parameter to set.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+	// Sets the value for the named component parameter.
 	Value pulumi.StringArrayInput `pulumi:"value"`
 }
 
@@ -1880,7 +1880,7 @@ func (i ImageRecipeComponentParameterArray) ToImageRecipeComponentParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+// Contains a key/value pair that sets the named component parameter.
 type ImageRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeComponentParameterOutput) ElementType() reflect.Type {
@@ -1895,12 +1895,12 @@ func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+// The name of the component parameter to set.
 func (o ImageRecipeComponentParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageRecipeComponentParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+// Sets the value for the named component parameter.
 func (o ImageRecipeComponentParameterOutput) Value() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageRecipeComponentParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
 }
@@ -1925,21 +1925,21 @@ func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) Image
 	}).(ImageRecipeComponentParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ImageRecipeEbsInstanceBlockDeviceSpecification struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+	// Use to configure delete on termination of the associated device.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+	// Use to configure device encryption.
 	Encrypted *bool `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+	// Use to configure device IOPS.
 	Iops *int `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+	// Use to configure the KMS key to use when encrypting the device.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+	// The snapshot that defines the device contents.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+	// Use to override the device's volume size.
 	VolumeSize *int `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+	// Use to override the device's volume type.
 	VolumeType *string `pulumi:"volumeType"`
 }
 
@@ -1954,21 +1954,21 @@ type ImageRecipeEbsInstanceBlockDeviceSpecificationInput interface {
 	ToImageRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(context.Context) ImageRecipeEbsInstanceBlockDeviceSpecificationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ImageRecipeEbsInstanceBlockDeviceSpecificationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+	// Use to configure delete on termination of the associated device.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+	// Use to configure device encryption.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+	// Use to configure device IOPS.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+	// Use to configure the KMS key to use when encrypting the device.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+	// The snapshot that defines the device contents.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+	// Use to override the device's volume size.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+	// Use to override the device's volume type.
 	VolumeType pulumi.StringPtrInput `pulumi:"volumeType"`
 }
 
@@ -2025,7 +2025,7 @@ func (i *imageRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToImageRecipeEbs
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
+// Amazon EBS-specific block device mapping specifications.
 type ImageRecipeEbsInstanceBlockDeviceSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) ElementType() reflect.Type {
@@ -2050,37 +2050,37 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) ToImageRecipeEbsIn
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+// Use to configure delete on termination of the associated device.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+// Use to configure device encryption.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+// Use to configure device IOPS.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+// Use to configure the KMS key to use when encrypting the device.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+// The snapshot that defines the device contents.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+// Use to override the device's volume size.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+// Use to override the device's volume type.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeEbsInstanceBlockDeviceSpecification) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
 }
@@ -2109,7 +2109,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Elem() ImageRec
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-deleteontermination
+// Use to configure delete on termination of the associated device.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *bool {
 		if v == nil {
@@ -2119,7 +2119,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) DeleteOnTermina
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-encrypted
+// Use to configure device encryption.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *bool {
 		if v == nil {
@@ -2129,7 +2129,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Encrypted() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-iops
+// Use to configure device IOPS.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *int {
 		if v == nil {
@@ -2139,7 +2139,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Iops() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-kmskeyid
+// Use to configure the KMS key to use when encrypting the device.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -2149,7 +2149,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) KmsKeyId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-snapshotid
+// The snapshot that defines the device contents.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -2159,7 +2159,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) SnapshotId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumesize
+// Use to override the device's volume size.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *int {
 		if v == nil {
@@ -2169,7 +2169,7 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeSize() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html#cfn-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification-volumetype
+// Use to override the device's volume type.
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecification) *string {
 		if v == nil {
@@ -2179,15 +2179,15 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) VolumeType() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ImageRecipeInstanceBlockDeviceMapping struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+	// The device to which these mappings apply.
 	DeviceName *string `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+	// Use to manage Amazon EBS-specific configuration for this mapping.
 	Ebs *ImageRecipeEbsInstanceBlockDeviceSpecification `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+	// Use to remove a mapping from the parent image.
 	NoDevice *string `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+	// Use to manage instance ephemeral devices.
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -2202,15 +2202,15 @@ type ImageRecipeInstanceBlockDeviceMappingInput interface {
 	ToImageRecipeInstanceBlockDeviceMappingOutputWithContext(context.Context) ImageRecipeInstanceBlockDeviceMappingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ImageRecipeInstanceBlockDeviceMappingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+	// The device to which these mappings apply.
 	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+	// Use to manage Amazon EBS-specific configuration for this mapping.
 	Ebs ImageRecipeEbsInstanceBlockDeviceSpecificationPtrInput `pulumi:"ebs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+	// Use to remove a mapping from the parent image.
 	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+	// Use to manage instance ephemeral devices.
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -2251,7 +2251,7 @@ func (i ImageRecipeInstanceBlockDeviceMappingArray) ToImageRecipeInstanceBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
+// Defines block device mappings for the instance used to configure your image.
 type ImageRecipeInstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeInstanceBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -2266,24 +2266,24 @@ func (o ImageRecipeInstanceBlockDeviceMappingOutput) ToImageRecipeInstanceBlockD
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+// The device to which these mappings apply.
 func (o ImageRecipeInstanceBlockDeviceMappingOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeInstanceBlockDeviceMapping) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+// Use to manage Amazon EBS-specific configuration for this mapping.
 func (o ImageRecipeInstanceBlockDeviceMappingOutput) Ebs() ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return o.ApplyT(func(v ImageRecipeInstanceBlockDeviceMapping) *ImageRecipeEbsInstanceBlockDeviceSpecification {
 		return v.Ebs
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+// Use to remove a mapping from the parent image.
 func (o ImageRecipeInstanceBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeInstanceBlockDeviceMapping) *string { return v.NoDevice }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+// Use to manage instance ephemeral devices.
 func (o ImageRecipeInstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageRecipeInstanceBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -2308,9 +2308,9 @@ func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInpu
 	}).(ImageRecipeInstanceBlockDeviceMappingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+// Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgent struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+	// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
 	UninstallAfterBuild bool `pulumi:"uninstallAfterBuild"`
 }
 
@@ -2325,9 +2325,9 @@ type ImageRecipeSystemsManagerAgentInput interface {
 	ToImageRecipeSystemsManagerAgentOutputWithContext(context.Context) ImageRecipeSystemsManagerAgentOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+// Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+	// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
 	UninstallAfterBuild pulumi.BoolInput `pulumi:"uninstallAfterBuild"`
 }
 
@@ -2384,7 +2384,7 @@ func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgent
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html
+// Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgentOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeSystemsManagerAgentOutput) ElementType() reflect.Type {
@@ -2409,7 +2409,7 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
 func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
 }
@@ -2438,7 +2438,7 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManage
 	}).(ImageRecipeSystemsManagerAgentOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-systemsmanageragent.html#cfn-imagebuilder-imagerecipe-systemsmanageragent-uninstallafterbuild
+// This property defaults to true. If Image Builder installs the SSM agent on a build instance, it removes the agent before creating a snapshot for the AMI. To ensure that the AMI you create includes the SSM agent, set this property to false.
 func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ImageRecipeSystemsManagerAgent) *bool {
 		if v == nil {
@@ -2448,9 +2448,8 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html
+// The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLogging struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
 	S3Logs *InfrastructureConfigurationS3Logs `pulumi:"s3Logs"`
 }
 
@@ -2465,9 +2464,8 @@ type InfrastructureConfigurationLoggingInput interface {
 	ToInfrastructureConfigurationLoggingOutputWithContext(context.Context) InfrastructureConfigurationLoggingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html
+// The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLoggingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
 	S3Logs InfrastructureConfigurationS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
@@ -2483,7 +2481,48 @@ func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLog
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html
+func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
+	return i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingOutput).ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationLoggingPtrInput is an input type that accepts InfrastructureConfigurationLoggingArgs, InfrastructureConfigurationLoggingPtr and InfrastructureConfigurationLoggingPtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationLoggingPtrInput` via:
+//
+//          InfrastructureConfigurationLoggingArgs{...}
+//
+//  or:
+//
+//          nil
+type InfrastructureConfigurationLoggingPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput
+	ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Context) InfrastructureConfigurationLoggingPtrOutput
+}
+
+type infrastructureConfigurationLoggingPtrType InfrastructureConfigurationLoggingArgs
+
+func InfrastructureConfigurationLoggingPtr(v *InfrastructureConfigurationLoggingArgs) InfrastructureConfigurationLoggingPtrInput {
+	return (*infrastructureConfigurationLoggingPtrType)(v)
+}
+
+func (*infrastructureConfigurationLoggingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationLogging)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationLoggingPtrType) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
+	return i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationLoggingPtrType) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingPtrOutput)
+}
+
+// The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLoggingOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationLoggingOutput) ElementType() reflect.Type {
@@ -2498,16 +2537,58 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-logging.html#cfn-imagebuilder-infrastructureconfiguration-logging-s3logs
+func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
+	return o.ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationLogging) *InfrastructureConfigurationLogging {
+		return &v
+	}).(InfrastructureConfigurationLoggingPtrOutput)
+}
+
 func (o InfrastructureConfigurationLoggingOutput) S3Logs() InfrastructureConfigurationS3LogsPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLogging) *InfrastructureConfigurationS3Logs { return v.S3Logs }).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html
+type InfrastructureConfigurationLoggingPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationLoggingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationLogging)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfigurationLoggingOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationLogging) InfrastructureConfigurationLogging {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationLogging
+		return ret
+	}).(InfrastructureConfigurationLoggingOutput)
+}
+
+func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConfigurationS3LogsPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationLogging) *InfrastructureConfigurationS3Logs {
+		if v == nil {
+			return nil
+		}
+		return v.S3Logs
+	}).(InfrastructureConfigurationS3LogsPtrOutput)
+}
+
+// The S3 path in which to store the logs.
 type InfrastructureConfigurationS3Logs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
+	// S3BucketName
 	S3BucketName *string `pulumi:"s3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
+	// S3KeyPrefix
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
@@ -2522,11 +2603,11 @@ type InfrastructureConfigurationS3LogsInput interface {
 	ToInfrastructureConfigurationS3LogsOutputWithContext(context.Context) InfrastructureConfigurationS3LogsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html
+// The S3 path in which to store the logs.
 type InfrastructureConfigurationS3LogsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
+	// S3BucketName
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
+	// S3KeyPrefix
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -2583,7 +2664,7 @@ func (i *infrastructureConfigurationS3LogsPtrType) ToInfrastructureConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html
+// The S3 path in which to store the logs.
 type InfrastructureConfigurationS3LogsOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationS3LogsOutput) ElementType() reflect.Type {
@@ -2608,12 +2689,12 @@ func (o InfrastructureConfigurationS3LogsOutput) ToInfrastructureConfigurationS3
 	}).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
+// S3BucketName
 func (o InfrastructureConfigurationS3LogsOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationS3Logs) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
+// S3KeyPrefix
 func (o InfrastructureConfigurationS3LogsOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationS3Logs) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
@@ -2642,7 +2723,7 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) Elem() InfrastructureConfigu
 	}).(InfrastructureConfigurationS3LogsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3bucketname
+// S3BucketName
 func (o InfrastructureConfigurationS3LogsPtrOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationS3Logs) *string {
 		if v == nil {
@@ -2652,7 +2733,7 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) S3BucketName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-s3logs.html#cfn-imagebuilder-infrastructureconfiguration-s3logs-s3keyprefix
+// S3KeyPrefix
 func (o InfrastructureConfigurationS3LogsPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationS3Logs) *string {
 		if v == nil {
@@ -2696,6 +2777,7 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsPtrOutput{})
 }

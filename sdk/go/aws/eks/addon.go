@@ -8,27 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html
+// Resource Schema for AWS::EKS::Addon
 type Addon struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
+	// Name of Addon
 	AddonName pulumi.StringOutput `pulumi:"addonName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
+	// Version of Addon
 	AddonVersion pulumi.StringPtrOutput `pulumi:"addonVersion"`
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
+	// Amazon Resource Name (ARN) of the add-on
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Name of Cluster
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
+	// Resolve parameter value conflicts
 	ResolveConflicts pulumi.StringPtrOutput `pulumi:"resolveConflicts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
+	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags AddonTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAddon registers a new resource with the given unique name, arguments, and options.
@@ -76,34 +76,34 @@ func (AddonState) ElementType() reflect.Type {
 }
 
 type addonArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
+	// Name of Addon
 	AddonName string `pulumi:"addonName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
+	// Version of Addon
 	AddonVersion *string `pulumi:"addonVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
+	// Name of Cluster
 	ClusterName string `pulumi:"clusterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
+	// Resolve parameter value conflicts
 	ResolveConflicts *string `pulumi:"resolveConflicts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
+	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []AddonTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonname
+	// Name of Addon
 	AddonName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-addonversion
+	// Version of Addon
 	AddonVersion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-clustername
+	// Name of Cluster
 	ClusterName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-resolveconflicts
+	// Resolve parameter value conflicts
 	ResolveConflicts pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-serviceaccountrolearn
+	// IAM role to bind to the add-on's service account
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html#cfn-eks-addon-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags AddonTagArrayInput
 }
 
 func (AddonArgs) ElementType() reflect.Type {

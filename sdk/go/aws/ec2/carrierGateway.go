@@ -8,20 +8,22 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type CarrierGateway struct {
 	pulumi.CustomResourceState
 
+	// The ID of the carrier gateway.
 	CarrierGatewayId pulumi.StringOutput `pulumi:"carrierGatewayId"`
-	OwnerId          pulumi.StringOutput `pulumi:"ownerId"`
-	State            pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+	// The ID of the owner.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// The state of the carrier gateway.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The tags for the carrier gateway.
+	Tags CarrierGatewayTagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -67,17 +69,17 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+	// The tags for the carrier gateway.
+	Tags []CarrierGatewayTag `pulumi:"tags"`
+	// The ID of the VPC.
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+	// The tags for the carrier gateway.
+	Tags CarrierGatewayTagArrayInput
+	// The ID of the VPC.
 	VpcId pulumi.StringInput
 }
 

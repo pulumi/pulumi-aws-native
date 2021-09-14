@@ -8,25 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
+// Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
 type Connection struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
 	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
-	ConnectionName   pulumi.StringOutput `pulumi:"connectionName"`
+	// The name of the connection. Connection names must be unique in an AWS user account.
+	ConnectionName pulumi.StringOutput `pulumi:"connectionName"`
+	// The current status of the connection.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
-	HostArn        pulumi.StringPtrOutput `pulumi:"hostArn"`
-	OwnerAccountId pulumi.StringOutput    `pulumi:"ownerAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+	// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
+	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
+	// The name of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.
+	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType pulumi.StringPtrOutput `pulumi:"providerType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Specifies the tags applied to a connection.
+	Tags ConnectionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -71,26 +73,26 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
+	// The name of the connection. Connection names must be unique in an AWS user account.
 	ConnectionName string `pulumi:"connectionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+	// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
 	HostArn *string `pulumi:"hostArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType *string `pulumi:"providerType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies the tags applied to a connection.
+	Tags []ConnectionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
+	// The name of the connection. Connection names must be unique in an AWS user account.
 	ConnectionName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+	// The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
 	HostArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+	// The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
 	ProviderType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
-	Tags aws.TagArrayInput
+	// Specifies the tags applied to a connection.
+	Tags ConnectionTagArrayInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

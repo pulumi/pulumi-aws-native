@@ -11,27 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html
+// Resource schema for AWS::NimbleStudio::LaunchProfile
 type LaunchProfile struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-	Ec2SubnetIds    pulumi.StringArrayOutput `pulumi:"ec2SubnetIds"`
-	LaunchProfileId pulumi.StringOutput      `pulumi:"launchProfileId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-	LaunchProfileProtocolVersions pulumi.StringArrayOutput `pulumi:"launchProfileProtocolVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-	StreamConfiguration LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-	StudioComponentIds pulumi.StringArrayOutput `pulumi:"studioComponentIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-	StudioId pulumi.StringOutput `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Description                   pulumi.StringPtrOutput                 `pulumi:"description"`
+	Ec2SubnetIds                  pulumi.StringArrayOutput               `pulumi:"ec2SubnetIds"`
+	LaunchProfileId               pulumi.StringOutput                    `pulumi:"launchProfileId"`
+	LaunchProfileProtocolVersions pulumi.StringArrayOutput               `pulumi:"launchProfileProtocolVersions"`
+	Name                          pulumi.StringOutput                    `pulumi:"name"`
+	StreamConfiguration           LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
+	StudioComponentIds            pulumi.StringArrayOutput               `pulumi:"studioComponentIds"`
+	StudioId                      pulumi.StringOutput                    `pulumi:"studioId"`
+	Tags                          pulumi.AnyOutput                       `pulumi:"tags"`
 }
 
 // NewLaunchProfile registers a new resource with the given unique name, arguments, and options.
@@ -91,42 +83,26 @@ func (LaunchProfileState) ElementType() reflect.Type {
 }
 
 type launchProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-	Ec2SubnetIds []string `pulumi:"ec2SubnetIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
-	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-	StreamConfiguration LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-	StudioComponentIds []string `pulumi:"studioComponentIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-	StudioId string `pulumi:"studioId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
-	Tags map[string]string `pulumi:"tags"`
+	Description                   *string                          `pulumi:"description"`
+	Ec2SubnetIds                  []string                         `pulumi:"ec2SubnetIds"`
+	LaunchProfileProtocolVersions []string                         `pulumi:"launchProfileProtocolVersions"`
+	Name                          string                           `pulumi:"name"`
+	StreamConfiguration           LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
+	StudioComponentIds            []string                         `pulumi:"studioComponentIds"`
+	StudioId                      string                           `pulumi:"studioId"`
+	Tags                          interface{}                      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LaunchProfile resource.
 type LaunchProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-ec2subnetids
-	Ec2SubnetIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-launchprofileprotocolversions
+	Description                   pulumi.StringPtrInput
+	Ec2SubnetIds                  pulumi.StringArrayInput
 	LaunchProfileProtocolVersions pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-streamconfiguration
-	StreamConfiguration LaunchProfileStreamConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studiocomponentids
-	StudioComponentIds pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-studioid
-	StudioId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-launchprofile.html#cfn-nimblestudio-launchprofile-tags
-	Tags pulumi.StringMapInput
+	Name                          pulumi.StringInput
+	StreamConfiguration           LaunchProfileStreamConfigurationInput
+	StudioComponentIds            pulumi.StringArrayInput
+	StudioId                      pulumi.StringInput
+	Tags                          pulumi.Input
 }
 
 func (LaunchProfileArgs) ElementType() reflect.Type {

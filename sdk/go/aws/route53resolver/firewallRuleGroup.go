@@ -7,30 +7,37 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 type FirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	CreationTime     pulumi.StringOutput `pulumi:"creationTime"`
+	// Arn
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Rfc3339TimeString
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The id of the creator request.
 	CreatorRequestId pulumi.StringOutput `pulumi:"creatorRequestId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
-	FirewallRules    FirewallRuleGroupFirewallRuleArrayOutput `pulumi:"firewallRules"`
-	Id               pulumi.StringOutput                      `pulumi:"id"`
-	ModificationTime pulumi.StringOutput                      `pulumi:"modificationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
-	Name          pulumi.StringPtrOutput `pulumi:"name"`
-	OwnerId       pulumi.StringOutput    `pulumi:"ownerId"`
-	RuleCount     pulumi.IntOutput       `pulumi:"ruleCount"`
-	ShareStatus   pulumi.StringOutput    `pulumi:"shareStatus"`
-	Status        pulumi.StringOutput    `pulumi:"status"`
-	StatusMessage pulumi.StringOutput    `pulumi:"statusMessage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// FirewallRules
+	FirewallRules FirewallRuleGroupFirewallRuleArrayOutput `pulumi:"firewallRules"`
+	// Rfc3339TimeString
+	ModificationTime pulumi.StringOutput `pulumi:"modificationTime"`
+	// FirewallRuleGroupName
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// AccountId
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Count
+	RuleCount pulumi.IntOutput `pulumi:"ruleCount"`
+	// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
+	// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// FirewallRuleGroupStatus
+	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
+	// Tags
+	Tags FirewallRuleGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFirewallRuleGroup registers a new resource with the given unique name, arguments, and options.
@@ -72,22 +79,22 @@ func (FirewallRuleGroupState) ElementType() reflect.Type {
 }
 
 type firewallRuleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+	// FirewallRules
 	FirewallRules []FirewallRuleGroupFirewallRule `pulumi:"firewallRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+	// FirewallRuleGroupName
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags
+	Tags []FirewallRuleGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FirewallRuleGroup resource.
 type FirewallRuleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+	// FirewallRules
 	FirewallRules FirewallRuleGroupFirewallRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+	// FirewallRuleGroupName
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
-	Tags aws.TagArrayInput
+	// Tags
+	Tags FirewallRuleGroupTagArrayInput
 }
 
 func (FirewallRuleGroupArgs) ElementType() reflect.Type {

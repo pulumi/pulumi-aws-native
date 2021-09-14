@@ -8,34 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
+// Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 type RuleGroup struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput              `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Collection of Available Labels.
 	AvailableLabels RuleGroupLabelSummaryArrayOutput `pulumi:"availableLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-	Capacity       pulumi.IntOutput                 `pulumi:"capacity"`
-	ConsumedLabels RuleGroupLabelSummaryArrayOutput `pulumi:"consumedLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-	CustomResponseBodies RuleGroupCustomResponseBodyMapOutput `pulumi:"customResponseBodies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	Id             pulumi.StringOutput    `pulumi:"id"`
-	LabelNamespace pulumi.StringOutput    `pulumi:"labelNamespace"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-	Scope pulumi.StringOutput `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+	Capacity        pulumi.IntOutput                 `pulumi:"capacity"`
+	// Collection of Consumed Labels.
+	ConsumedLabels       RuleGroupLabelSummaryArrayOutput       `pulumi:"consumedLabels"`
+	CustomResponseBodies RuleGroupCustomResponseBodiesPtrOutput `pulumi:"customResponseBodies"`
+	Description          pulumi.StringPtrOutput                 `pulumi:"description"`
+	LabelNamespace       pulumi.StringOutput                    `pulumi:"labelNamespace"`
+	Name                 pulumi.StringPtrOutput                 `pulumi:"name"`
+	// Collection of Rules.
+	Rules            RuleGroupRuleArrayOutput        `pulumi:"rules"`
+	Scope            pulumi.StringOutput             `pulumi:"scope"`
+	Tags             RuleGroupTagArrayOutput         `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfigOutput `pulumi:"visibilityConfig"`
 }
 
@@ -87,41 +80,27 @@ func (RuleGroupState) ElementType() reflect.Type {
 }
 
 type ruleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-	Capacity int `pulumi:"capacity"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-	CustomResponseBodies map[string]RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules []RuleGroupRule `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-	Scope string `pulumi:"scope"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+	Capacity             int                            `pulumi:"capacity"`
+	CustomResponseBodies *RuleGroupCustomResponseBodies `pulumi:"customResponseBodies"`
+	Description          *string                        `pulumi:"description"`
+	Name                 *string                        `pulumi:"name"`
+	// Collection of Rules.
+	Rules            []RuleGroupRule           `pulumi:"rules"`
+	Scope            string                    `pulumi:"scope"`
+	Tags             []RuleGroupTag            `pulumi:"tags"`
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
 // The set of arguments for constructing a RuleGroup resource.
 type RuleGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-	Capacity pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-	CustomResponseBodies RuleGroupCustomResponseBodyMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
-	Rules RuleGroupRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-	Scope pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
+	Capacity             pulumi.IntInput
+	CustomResponseBodies RuleGroupCustomResponseBodiesPtrInput
+	Description          pulumi.StringPtrInput
+	Name                 pulumi.StringPtrInput
+	// Collection of Rules.
+	Rules            RuleGroupRuleArrayInput
+	Scope            pulumi.StringInput
+	Tags             RuleGroupTagArrayInput
 	VisibilityConfig RuleGroupVisibilityConfigInput
 }
 

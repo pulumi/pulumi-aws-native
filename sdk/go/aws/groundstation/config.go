@@ -8,23 +8,18 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html
+// AWS Ground Station config resource type for CloudFormation.
 type Config struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
+	Arn        pulumi.StringOutput    `pulumi:"arn"`
 	ConfigData ConfigConfigDataOutput `pulumi:"configData"`
-	Id         pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
-	Type pulumi.StringOutput `pulumi:"type"`
+	Name       pulumi.StringOutput    `pulumi:"name"`
+	Tags       ConfigTagArrayOutput   `pulumi:"tags"`
+	Type       pulumi.StringOutput    `pulumi:"type"`
 }
 
 // NewConfig registers a new resource with the given unique name, arguments, and options.
@@ -72,22 +67,16 @@ func (ConfigState) ElementType() reflect.Type {
 }
 
 type configArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
 	ConfigData ConfigConfigData `pulumi:"configData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name       string           `pulumi:"name"`
+	Tags       []ConfigTag      `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Config resource.
 type ConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-configdata
 	ConfigData ConfigConfigDataInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-config.html#cfn-groundstation-config-tags
-	Tags aws.TagArrayInput
+	Name       pulumi.StringInput
+	Tags       ConfigTagArrayInput
 }
 
 func (ConfigArgs) ElementType() reflect.Type {

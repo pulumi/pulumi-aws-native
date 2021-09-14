@@ -10,17 +10,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+type IPSetTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// IPSetTagInput is an input type that accepts IPSetTagArgs and IPSetTagOutput values.
+// You can construct a concrete instance of `IPSetTagInput` via:
+//
+//          IPSetTagArgs{...}
+type IPSetTagInput interface {
+	pulumi.Input
+
+	ToIPSetTagOutput() IPSetTagOutput
+	ToIPSetTagOutputWithContext(context.Context) IPSetTagOutput
+}
+
+type IPSetTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (IPSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSetTag)(nil)).Elem()
+}
+
+func (i IPSetTagArgs) ToIPSetTagOutput() IPSetTagOutput {
+	return i.ToIPSetTagOutputWithContext(context.Background())
+}
+
+func (i IPSetTagArgs) ToIPSetTagOutputWithContext(ctx context.Context) IPSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetTagOutput)
+}
+
+// IPSetTagArrayInput is an input type that accepts IPSetTagArray and IPSetTagArrayOutput values.
+// You can construct a concrete instance of `IPSetTagArrayInput` via:
+//
+//          IPSetTagArray{ IPSetTagArgs{...} }
+type IPSetTagArrayInput interface {
+	pulumi.Input
+
+	ToIPSetTagArrayOutput() IPSetTagArrayOutput
+	ToIPSetTagArrayOutputWithContext(context.Context) IPSetTagArrayOutput
+}
+
+type IPSetTagArray []IPSetTagInput
+
+func (IPSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSetTag)(nil)).Elem()
+}
+
+func (i IPSetTagArray) ToIPSetTagArrayOutput() IPSetTagArrayOutput {
+	return i.ToIPSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i IPSetTagArray) ToIPSetTagArrayOutputWithContext(ctx context.Context) IPSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IPSetTagArrayOutput)
+}
+
+type IPSetTagOutput struct{ *pulumi.OutputState }
+
+func (IPSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IPSetTag)(nil)).Elem()
+}
+
+func (o IPSetTagOutput) ToIPSetTagOutput() IPSetTagOutput {
+	return o
+}
+
+func (o IPSetTagOutput) ToIPSetTagOutputWithContext(ctx context.Context) IPSetTagOutput {
+	return o
+}
+
+func (o IPSetTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPSetTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o IPSetTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IPSetTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type IPSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (IPSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IPSetTag)(nil)).Elem()
+}
+
+func (o IPSetTagArrayOutput) ToIPSetTagArrayOutput() IPSetTagArrayOutput {
+	return o
+}
+
+func (o IPSetTagArrayOutput) ToIPSetTagArrayOutputWithContext(ctx context.Context) IPSetTagArrayOutput {
+	return o
+}
+
+func (o IPSetTagArrayOutput) Index(i pulumi.IntInput) IPSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IPSetTag {
+		return vs[0].([]IPSetTag)[vs[1].(int)]
+	}).(IPSetTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatch struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	JsonBody interface{} `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
 	QueryString interface{} `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+	// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
 	SingleHeader interface{} `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
 
@@ -35,17 +135,17 @@ type LoggingConfigurationFieldToMatchInput interface {
 	ToLoggingConfigurationFieldToMatchOutputWithContext(context.Context) LoggingConfigurationFieldToMatchOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+// A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatchArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	JsonBody pulumi.Input `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+	// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+	// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
 	QueryString pulumi.Input `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+	// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
 	SingleHeader pulumi.Input `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+	// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
 
@@ -86,7 +186,7 @@ func (i LoggingConfigurationFieldToMatchArray) ToLoggingConfigurationFieldToMatc
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationFieldToMatchArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html
+// A key-value pair to associate with a resource.
 type LoggingConfigurationFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationFieldToMatchOutput) ElementType() reflect.Type {
@@ -101,27 +201,27 @@ func (o LoggingConfigurationFieldToMatchOutput) ToLoggingConfigurationFieldToMat
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-jsonbody
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 func (o LoggingConfigurationFieldToMatchOutput) JsonBody() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.JsonBody }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-method
+// Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
 func (o LoggingConfigurationFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-querystring
+// Inspect the query string. This is the part of a URL that appears after a ? character, if any.
 func (o LoggingConfigurationFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-singleheader
+// Inspect a single header. Provide the name of the header to inspect, for example, User-Agent or Referer. This setting isn't case sensitive.
 func (o LoggingConfigurationFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html#cfn-wafv2-loggingconfiguration-fieldtomatch-uripath
+// Inspect the request URI path. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o LoggingConfigurationFieldToMatchOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v LoggingConfigurationFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
 }
@@ -146,9 +246,107 @@ func (o LoggingConfigurationFieldToMatchArrayOutput) Index(i pulumi.IntInput) Lo
 	}).(LoggingConfigurationFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
+type RegexPatternSetTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// RegexPatternSetTagInput is an input type that accepts RegexPatternSetTagArgs and RegexPatternSetTagOutput values.
+// You can construct a concrete instance of `RegexPatternSetTagInput` via:
+//
+//          RegexPatternSetTagArgs{...}
+type RegexPatternSetTagInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetTagOutput() RegexPatternSetTagOutput
+	ToRegexPatternSetTagOutputWithContext(context.Context) RegexPatternSetTagOutput
+}
+
+type RegexPatternSetTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RegexPatternSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexPatternSetTag)(nil)).Elem()
+}
+
+func (i RegexPatternSetTagArgs) ToRegexPatternSetTagOutput() RegexPatternSetTagOutput {
+	return i.ToRegexPatternSetTagOutputWithContext(context.Background())
+}
+
+func (i RegexPatternSetTagArgs) ToRegexPatternSetTagOutputWithContext(ctx context.Context) RegexPatternSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetTagOutput)
+}
+
+// RegexPatternSetTagArrayInput is an input type that accepts RegexPatternSetTagArray and RegexPatternSetTagArrayOutput values.
+// You can construct a concrete instance of `RegexPatternSetTagArrayInput` via:
+//
+//          RegexPatternSetTagArray{ RegexPatternSetTagArgs{...} }
+type RegexPatternSetTagArrayInput interface {
+	pulumi.Input
+
+	ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput
+	ToRegexPatternSetTagArrayOutputWithContext(context.Context) RegexPatternSetTagArrayOutput
+}
+
+type RegexPatternSetTagArray []RegexPatternSetTagInput
+
+func (RegexPatternSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegexPatternSetTag)(nil)).Elem()
+}
+
+func (i RegexPatternSetTagArray) ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput {
+	return i.ToRegexPatternSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i RegexPatternSetTagArray) ToRegexPatternSetTagArrayOutputWithContext(ctx context.Context) RegexPatternSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegexPatternSetTagArrayOutput)
+}
+
+type RegexPatternSetTagOutput struct{ *pulumi.OutputState }
+
+func (RegexPatternSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegexPatternSetTag)(nil)).Elem()
+}
+
+func (o RegexPatternSetTagOutput) ToRegexPatternSetTagOutput() RegexPatternSetTagOutput {
+	return o
+}
+
+func (o RegexPatternSetTagOutput) ToRegexPatternSetTagOutputWithContext(ctx context.Context) RegexPatternSetTagOutput {
+	return o
+}
+
+func (o RegexPatternSetTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegexPatternSetTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o RegexPatternSetTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegexPatternSetTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RegexPatternSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RegexPatternSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegexPatternSetTag)(nil)).Elem()
+}
+
+func (o RegexPatternSetTagArrayOutput) ToRegexPatternSetTagArrayOutput() RegexPatternSetTagArrayOutput {
+	return o
+}
+
+func (o RegexPatternSetTagArrayOutput) ToRegexPatternSetTagArrayOutputWithContext(ctx context.Context) RegexPatternSetTagArrayOutput {
+	return o
+}
+
+func (o RegexPatternSetTagArrayOutput) Index(i pulumi.IntInput) RegexPatternSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegexPatternSetTag {
+		return vs[0].([]RegexPatternSetTag)[vs[1].(int)]
+	}).(RegexPatternSetTagOutput)
+}
+
 type RuleGroupAndStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
 	Statements []RuleGroupStatement `pulumi:"statements"`
 }
 
@@ -163,9 +361,7 @@ type RuleGroupAndStatementInput interface {
 	ToRuleGroupAndStatementOutputWithContext(context.Context) RuleGroupAndStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
 type RuleGroupAndStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
 	Statements RuleGroupStatementArrayInput `pulumi:"statements"`
 }
 
@@ -222,7 +418,6 @@ func (i *ruleGroupAndStatementPtrType) ToRuleGroupAndStatementPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html
 type RuleGroupAndStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupAndStatementOutput) ElementType() reflect.Type {
@@ -247,7 +442,6 @@ func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementPtrOutputWithContext
 	}).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
 func (o RuleGroupAndStatementOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupAndStatement) []RuleGroupStatement { return v.Statements }).(RuleGroupStatementArrayOutput)
 }
@@ -276,7 +470,6 @@ func (o RuleGroupAndStatementPtrOutput) Elem() RuleGroupAndStatementOutput {
 	}).(RuleGroupAndStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-andstatement.html#cfn-wafv2-rulegroup-andstatement-statements
 func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupAndStatement) []RuleGroupStatement {
 		if v == nil {
@@ -286,18 +479,13 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 	}).(RuleGroupStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
+// Byte Match statement.
 type RuleGroupByteMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-	PositionalConstraint string `pulumi:"positionalConstraint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
-	SearchString *string `pulumi:"searchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
-	SearchStringBase64 *string `pulumi:"searchStringBase64"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
+	FieldToMatch         RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
+	PositionalConstraint string                        `pulumi:"positionalConstraint"`
+	SearchString         *string                       `pulumi:"searchString"`
+	SearchStringBase64   *string                       `pulumi:"searchStringBase64"`
+	TextTransformations  []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
 // RuleGroupByteMatchStatementInput is an input type that accepts RuleGroupByteMatchStatementArgs and RuleGroupByteMatchStatementOutput values.
@@ -311,18 +499,13 @@ type RuleGroupByteMatchStatementInput interface {
 	ToRuleGroupByteMatchStatementOutputWithContext(context.Context) RuleGroupByteMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
+// Byte Match statement.
 type RuleGroupByteMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
-	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
-	SearchString pulumi.StringPtrInput `pulumi:"searchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
-	SearchStringBase64 pulumi.StringPtrInput `pulumi:"searchStringBase64"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
-	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
+	FieldToMatch         RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
+	PositionalConstraint pulumi.StringInput                    `pulumi:"positionalConstraint"`
+	SearchString         pulumi.StringPtrInput                 `pulumi:"searchString"`
+	SearchStringBase64   pulumi.StringPtrInput                 `pulumi:"searchStringBase64"`
+	TextTransformations  RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
 func (RuleGroupByteMatchStatementArgs) ElementType() reflect.Type {
@@ -378,7 +561,7 @@ func (i *ruleGroupByteMatchStatementPtrType) ToRuleGroupByteMatchStatementPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html
+// Byte Match statement.
 type RuleGroupByteMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupByteMatchStatementOutput) ElementType() reflect.Type {
@@ -403,27 +586,22 @@ func (o RuleGroupByteMatchStatementOutput) ToRuleGroupByteMatchStatementPtrOutpu
 	}).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
 func (o RuleGroupByteMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
 func (o RuleGroupByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) string { return v.PositionalConstraint }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
 func (o RuleGroupByteMatchStatementOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) *string { return v.SearchString }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
 func (o RuleGroupByteMatchStatementOutput) SearchStringBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) *string { return v.SearchStringBase64 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
 func (o RuleGroupByteMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -452,7 +630,6 @@ func (o RuleGroupByteMatchStatementPtrOutput) Elem() RuleGroupByteMatchStatement
 	}).(RuleGroupByteMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-fieldtomatch
 func (o RuleGroupByteMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -462,7 +639,6 @@ func (o RuleGroupByteMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMat
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-positionalconstraint
 func (o RuleGroupByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *string {
 		if v == nil {
@@ -472,7 +648,6 @@ func (o RuleGroupByteMatchStatementPtrOutput) PositionalConstraint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstring
 func (o RuleGroupByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *string {
 		if v == nil {
@@ -482,7 +657,6 @@ func (o RuleGroupByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-searchstringbase64
 func (o RuleGroupByteMatchStatementPtrOutput) SearchStringBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *string {
 		if v == nil {
@@ -492,7 +666,6 @@ func (o RuleGroupByteMatchStatementPtrOutput) SearchStringBase64() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-bytematchstatement.html#cfn-wafv2-rulegroup-bytematchstatement-texttransformations
 func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -502,132 +675,142 @@ func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
-type RuleGroupCustomResponseBody struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
-	Content string `pulumi:"content"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
-	ContentType string `pulumi:"contentType"`
+// Custom response key and body map.
+type RuleGroupCustomResponseBodies struct {
 }
 
-// RuleGroupCustomResponseBodyInput is an input type that accepts RuleGroupCustomResponseBodyArgs and RuleGroupCustomResponseBodyOutput values.
-// You can construct a concrete instance of `RuleGroupCustomResponseBodyInput` via:
+// RuleGroupCustomResponseBodiesInput is an input type that accepts RuleGroupCustomResponseBodiesArgs and RuleGroupCustomResponseBodiesOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodiesInput` via:
 //
-//          RuleGroupCustomResponseBodyArgs{...}
-type RuleGroupCustomResponseBodyInput interface {
+//          RuleGroupCustomResponseBodiesArgs{...}
+type RuleGroupCustomResponseBodiesInput interface {
 	pulumi.Input
 
-	ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput
-	ToRuleGroupCustomResponseBodyOutputWithContext(context.Context) RuleGroupCustomResponseBodyOutput
+	ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput
+	ToRuleGroupCustomResponseBodiesOutputWithContext(context.Context) RuleGroupCustomResponseBodiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
-type RuleGroupCustomResponseBodyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
-	Content pulumi.StringInput `pulumi:"content"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
-	ContentType pulumi.StringInput `pulumi:"contentType"`
+// Custom response key and body map.
+type RuleGroupCustomResponseBodiesArgs struct {
 }
 
-func (RuleGroupCustomResponseBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
+func (RuleGroupCustomResponseBodiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBodies)(nil)).Elem()
 }
 
-func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
-	return i.ToRuleGroupCustomResponseBodyOutputWithContext(context.Background())
+func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput {
+	return i.ToRuleGroupCustomResponseBodiesOutputWithContext(context.Background())
 }
 
-func (i RuleGroupCustomResponseBodyArgs) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyOutput)
+func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesOutput)
 }
 
-// RuleGroupCustomResponseBodyMapInput is an input type that accepts RuleGroupCustomResponseBodyMap and RuleGroupCustomResponseBodyMapOutput values.
-// You can construct a concrete instance of `RuleGroupCustomResponseBodyMapInput` via:
+func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
+	return i.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
+}
+
+func (i RuleGroupCustomResponseBodiesArgs) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesOutput).ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx)
+}
+
+// RuleGroupCustomResponseBodiesPtrInput is an input type that accepts RuleGroupCustomResponseBodiesArgs, RuleGroupCustomResponseBodiesPtr and RuleGroupCustomResponseBodiesPtrOutput values.
+// You can construct a concrete instance of `RuleGroupCustomResponseBodiesPtrInput` via:
 //
-//          RuleGroupCustomResponseBodyMap{ "key": RuleGroupCustomResponseBodyArgs{...} }
-type RuleGroupCustomResponseBodyMapInput interface {
+//          RuleGroupCustomResponseBodiesArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleGroupCustomResponseBodiesPtrInput interface {
 	pulumi.Input
 
-	ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput
-	ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Context) RuleGroupCustomResponseBodyMapOutput
+	ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput
+	ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Context) RuleGroupCustomResponseBodiesPtrOutput
 }
 
-type RuleGroupCustomResponseBodyMap map[string]RuleGroupCustomResponseBodyInput
+type ruleGroupCustomResponseBodiesPtrType RuleGroupCustomResponseBodiesArgs
 
-func (RuleGroupCustomResponseBodyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
+func RuleGroupCustomResponseBodiesPtr(v *RuleGroupCustomResponseBodiesArgs) RuleGroupCustomResponseBodiesPtrInput {
+	return (*ruleGroupCustomResponseBodiesPtrType)(v)
 }
 
-func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
-	return i.ToRuleGroupCustomResponseBodyMapOutputWithContext(context.Background())
+func (*ruleGroupCustomResponseBodiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomResponseBodies)(nil)).Elem()
 }
 
-func (i RuleGroupCustomResponseBodyMap) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodyMapOutput)
+func (i *ruleGroupCustomResponseBodiesPtrType) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
+	return i.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html
-type RuleGroupCustomResponseBodyOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupCustomResponseBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupCustomResponseBody)(nil)).Elem()
+func (i *ruleGroupCustomResponseBodiesPtrType) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupCustomResponseBodiesPtrOutput)
 }
 
-func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutput() RuleGroupCustomResponseBodyOutput {
+// Custom response key and body map.
+type RuleGroupCustomResponseBodiesOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupCustomResponseBodiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupCustomResponseBodies)(nil)).Elem()
+}
+
+func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesOutput() RuleGroupCustomResponseBodiesOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodyOutput) ToRuleGroupCustomResponseBodyOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyOutput {
+func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-content
-func (o RuleGroupCustomResponseBodyOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
+func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
+	return o.ToRuleGroupCustomResponseBodiesPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-customresponsebody.html#cfn-wafv2-rulegroup-customresponsebody-contenttype
-func (o RuleGroupCustomResponseBodyOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleGroupCustomResponseBody) string { return v.ContentType }).(pulumi.StringOutput)
+func (o RuleGroupCustomResponseBodiesOutput) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupCustomResponseBodies) *RuleGroupCustomResponseBodies {
+		return &v
+	}).(RuleGroupCustomResponseBodiesPtrOutput)
 }
 
-type RuleGroupCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
+type RuleGroupCustomResponseBodiesPtrOutput struct{ *pulumi.OutputState }
 
-func (RuleGroupCustomResponseBodyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleGroupCustomResponseBody)(nil)).Elem()
+func (RuleGroupCustomResponseBodiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleGroupCustomResponseBodies)(nil)).Elem()
 }
 
-func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutput() RuleGroupCustomResponseBodyMapOutput {
+func (o RuleGroupCustomResponseBodiesPtrOutput) ToRuleGroupCustomResponseBodiesPtrOutput() RuleGroupCustomResponseBodiesPtrOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodyMapOutput) ToRuleGroupCustomResponseBodyMapOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodyMapOutput {
+func (o RuleGroupCustomResponseBodiesPtrOutput) ToRuleGroupCustomResponseBodiesPtrOutputWithContext(ctx context.Context) RuleGroupCustomResponseBodiesPtrOutput {
 	return o
 }
 
-func (o RuleGroupCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) RuleGroupCustomResponseBodyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupCustomResponseBody {
-		return vs[0].(map[string]RuleGroupCustomResponseBody)[vs[1].(string)]
-	}).(RuleGroupCustomResponseBodyOutput)
+func (o RuleGroupCustomResponseBodiesPtrOutput) Elem() RuleGroupCustomResponseBodiesOutput {
+	return o.ApplyT(func(v *RuleGroupCustomResponseBodies) RuleGroupCustomResponseBodies {
+		if v != nil {
+			return *v
+		}
+		var ret RuleGroupCustomResponseBodies
+		return ret
+	}).(RuleGroupCustomResponseBodiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
+// Field of the request to match.
 type RuleGroupFieldToMatch struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+	// All query arguments of a web request.
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-	Body interface{} `pulumi:"body"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+	// The body of a web request. This immediately follows the request headers.
+	Body     interface{}        `pulumi:"body"`
 	JsonBody *RuleGroupJsonBody `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
-	QueryString interface{} `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
+	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+	QueryString  interface{} `pulumi:"queryString"`
 	SingleHeader interface{} `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument interface{} `pulumi:"singleQueryArgument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
 
@@ -642,23 +825,21 @@ type RuleGroupFieldToMatchInput interface {
 	ToRuleGroupFieldToMatchOutputWithContext(context.Context) RuleGroupFieldToMatchOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
+// Field of the request to match.
 type RuleGroupFieldToMatchArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+	// All query arguments of a web request.
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
-	Body pulumi.Input `pulumi:"body"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
+	// The body of a web request. This immediately follows the request headers.
+	Body     pulumi.Input              `pulumi:"body"`
 	JsonBody RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
-	QueryString pulumi.Input `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
+	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+	QueryString  pulumi.Input `pulumi:"queryString"`
 	SingleHeader pulumi.Input `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument pulumi.Input `pulumi:"singleQueryArgument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
 
@@ -715,7 +896,7 @@ func (i *ruleGroupFieldToMatchPtrType) ToRuleGroupFieldToMatchPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html
+// Field of the request to match.
 type RuleGroupFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupFieldToMatchOutput) ElementType() reflect.Type {
@@ -740,42 +921,40 @@ func (o RuleGroupFieldToMatchOutput) ToRuleGroupFieldToMatchPtrOutputWithContext
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+// All query arguments of a web request.
 func (o RuleGroupFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
+// The body of a web request. This immediately follows the request headers.
 func (o RuleGroupFieldToMatchOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
 func (o RuleGroupFieldToMatchOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJsonBody { return v.JsonBody }).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 func (o RuleGroupFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
+// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
 func (o RuleGroupFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
 func (o RuleGroupFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 func (o RuleGroupFieldToMatchOutput) SingleQueryArgument() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.SingleQueryArgument }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o RuleGroupFieldToMatchOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
 }
@@ -804,7 +983,7 @@ func (o RuleGroupFieldToMatchPtrOutput) Elem() RuleGroupFieldToMatchOutput {
 	}).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-allqueryarguments
+// All query arguments of a web request.
 func (o RuleGroupFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -814,7 +993,7 @@ func (o RuleGroupFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-body
+// The body of a web request. This immediately follows the request headers.
 func (o RuleGroupFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -824,7 +1003,6 @@ func (o RuleGroupFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-jsonbody
 func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupJsonBody {
 		if v == nil {
@@ -834,7 +1012,7 @@ func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	}).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-method
+// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 func (o RuleGroupFieldToMatchPtrOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -844,7 +1022,7 @@ func (o RuleGroupFieldToMatchPtrOutput) Method() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-querystring
+// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
 func (o RuleGroupFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -854,7 +1032,6 @@ func (o RuleGroupFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singleheader
 func (o RuleGroupFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -864,7 +1041,7 @@ func (o RuleGroupFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-singlequeryargument
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 func (o RuleGroupFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -874,7 +1051,7 @@ func (o RuleGroupFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-fieldtomatch.html#cfn-wafv2-rulegroup-fieldtomatch-uripath
+// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o RuleGroupFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) interface{} {
 		if v == nil {
@@ -884,12 +1061,9 @@ func (o RuleGroupFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
 type RuleGroupForwardedIPConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
-	HeaderName string `pulumi:"headerName"`
+	HeaderName       string `pulumi:"headerName"`
 }
 
 // RuleGroupForwardedIPConfigurationInput is an input type that accepts RuleGroupForwardedIPConfigurationArgs and RuleGroupForwardedIPConfigurationOutput values.
@@ -903,12 +1077,9 @@ type RuleGroupForwardedIPConfigurationInput interface {
 	ToRuleGroupForwardedIPConfigurationOutputWithContext(context.Context) RuleGroupForwardedIPConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
 type RuleGroupForwardedIPConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	HeaderName       pulumi.StringInput `pulumi:"headerName"`
 }
 
 func (RuleGroupForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -964,7 +1135,6 @@ func (i *ruleGroupForwardedIPConfigurationPtrType) ToRuleGroupForwardedIPConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html
 type RuleGroupForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupForwardedIPConfigurationOutput) ElementType() reflect.Type {
@@ -989,12 +1159,10 @@ func (o RuleGroupForwardedIPConfigurationOutput) ToRuleGroupForwardedIPConfigura
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
 func (o RuleGroupForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
 func (o RuleGroupForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
@@ -1023,7 +1191,6 @@ func (o RuleGroupForwardedIPConfigurationPtrOutput) Elem() RuleGroupForwardedIPC
 	}).(RuleGroupForwardedIPConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-fallbackbehavior
 func (o RuleGroupForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *string {
 		if v == nil {
@@ -1033,7 +1200,6 @@ func (o RuleGroupForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-forwardedipconfiguration.html#cfn-wafv2-rulegroup-forwardedipconfiguration-headername
 func (o RuleGroupForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupForwardedIPConfiguration) *string {
 		if v == nil {
@@ -1043,11 +1209,8 @@ func (o RuleGroupForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
 type RuleGroupGeoMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-	CountryCodes []string `pulumi:"countryCodes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+	CountryCodes      []string                           `pulumi:"countryCodes"`
 	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
 }
 
@@ -1062,11 +1225,8 @@ type RuleGroupGeoMatchStatementInput interface {
 	ToRuleGroupGeoMatchStatementOutputWithContext(context.Context) RuleGroupGeoMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
 type RuleGroupGeoMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
+	CountryCodes      pulumi.StringArrayInput                   `pulumi:"countryCodes"`
 	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
 }
 
@@ -1123,7 +1283,6 @@ func (i *ruleGroupGeoMatchStatementPtrType) ToRuleGroupGeoMatchStatementPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
 type RuleGroupGeoMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupGeoMatchStatementOutput) ElementType() reflect.Type {
@@ -1148,12 +1307,10 @@ func (o RuleGroupGeoMatchStatementOutput) ToRuleGroupGeoMatchStatementPtrOutputW
 	}).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
 func (o RuleGroupGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
 func (o RuleGroupGeoMatchStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
@@ -1182,7 +1339,6 @@ func (o RuleGroupGeoMatchStatementPtrOutput) Elem() RuleGroupGeoMatchStatementOu
 	}).(RuleGroupGeoMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
 func (o RuleGroupGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupGeoMatchStatement) []string {
 		if v == nil {
@@ -1192,7 +1348,6 @@ func (o RuleGroupGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
 func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupGeoMatchStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
@@ -1202,14 +1357,10 @@ func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIPConfig() RuleGroupForwar
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
 type RuleGroupIPSetForwardedIPConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
-	HeaderName string `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
-	Position string `pulumi:"position"`
+	HeaderName       string `pulumi:"headerName"`
+	Position         string `pulumi:"position"`
 }
 
 // RuleGroupIPSetForwardedIPConfigurationInput is an input type that accepts RuleGroupIPSetForwardedIPConfigurationArgs and RuleGroupIPSetForwardedIPConfigurationOutput values.
@@ -1223,14 +1374,10 @@ type RuleGroupIPSetForwardedIPConfigurationInput interface {
 	ToRuleGroupIPSetForwardedIPConfigurationOutputWithContext(context.Context) RuleGroupIPSetForwardedIPConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
 type RuleGroupIPSetForwardedIPConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
-	Position pulumi.StringInput `pulumi:"position"`
+	HeaderName       pulumi.StringInput `pulumi:"headerName"`
+	Position         pulumi.StringInput `pulumi:"position"`
 }
 
 func (RuleGroupIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -1286,7 +1433,6 @@ func (i *ruleGroupIPSetForwardedIPConfigurationPtrType) ToRuleGroupIPSetForwarde
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html
 type RuleGroupIPSetForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupIPSetForwardedIPConfigurationOutput) ElementType() reflect.Type {
@@ -1311,17 +1457,14 @@ func (o RuleGroupIPSetForwardedIPConfigurationOutput) ToRuleGroupIPSetForwardedI
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
 func (o RuleGroupIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
 func (o RuleGroupIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
 func (o RuleGroupIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
 }
@@ -1350,7 +1493,6 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Elem() RuleGroupIPSetFo
 	}).(RuleGroupIPSetForwardedIPConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-fallbackbehavior
 func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -1360,7 +1502,6 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-headername
 func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -1370,7 +1511,6 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetforwardedipconfiguration.html#cfn-wafv2-rulegroup-ipsetforwardedipconfiguration-position
 func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -1380,11 +1520,8 @@ func (o RuleGroupIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
 type RuleGroupIPSetReferenceStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+	Arn                    string                                  `pulumi:"arn"`
 	IPSetForwardedIPConfig *RuleGroupIPSetForwardedIPConfiguration `pulumi:"iPSetForwardedIPConfig"`
 }
 
@@ -1399,11 +1536,8 @@ type RuleGroupIPSetReferenceStatementInput interface {
 	ToRuleGroupIPSetReferenceStatementOutputWithContext(context.Context) RuleGroupIPSetReferenceStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
 type RuleGroupIPSetReferenceStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
+	Arn                    pulumi.StringInput                             `pulumi:"arn"`
 	IPSetForwardedIPConfig RuleGroupIPSetForwardedIPConfigurationPtrInput `pulumi:"iPSetForwardedIPConfig"`
 }
 
@@ -1460,7 +1594,6 @@ func (i *ruleGroupIPSetReferenceStatementPtrType) ToRuleGroupIPSetReferenceState
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html
 type RuleGroupIPSetReferenceStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupIPSetReferenceStatementOutput) ElementType() reflect.Type {
@@ -1485,12 +1618,10 @@ func (o RuleGroupIPSetReferenceStatementOutput) ToRuleGroupIPSetReferenceStateme
 	}).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
 func (o RuleGroupIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
 func (o RuleGroupIPSetReferenceStatementOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
 		return v.IPSetForwardedIPConfig
@@ -1521,7 +1652,6 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) Elem() RuleGroupIPSetReferenc
 	}).(RuleGroupIPSetReferenceStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-arn
 func (o RuleGroupIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetReferenceStatement) *string {
 		if v == nil {
@@ -1531,7 +1661,6 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ipsetreferencestatement.html#cfn-wafv2-rulegroup-ipsetreferencestatement-ipsetforwardedipconfig
 func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() RuleGroupIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIPSetReferenceStatement) *RuleGroupIPSetForwardedIPConfiguration {
 		if v == nil {
@@ -1541,14 +1670,11 @@ func (o RuleGroupIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() Rule
 	}).(RuleGroupIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBody struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
-	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
-	MatchPattern RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
-	MatchScope string `pulumi:"matchScope"`
+	InvalidFallbackBehavior *string                   `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
+	MatchScope              string                    `pulumi:"matchScope"`
 }
 
 // RuleGroupJsonBodyInput is an input type that accepts RuleGroupJsonBodyArgs and RuleGroupJsonBodyOutput values.
@@ -1562,14 +1688,11 @@ type RuleGroupJsonBodyInput interface {
 	ToRuleGroupJsonBodyOutputWithContext(context.Context) RuleGroupJsonBodyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBodyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
-	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
-	MatchPattern RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	InvalidFallbackBehavior pulumi.StringPtrInput          `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope              pulumi.StringInput             `pulumi:"matchScope"`
 }
 
 func (RuleGroupJsonBodyArgs) ElementType() reflect.Type {
@@ -1625,7 +1748,7 @@ func (i *ruleGroupJsonBodyPtrType) ToRuleGroupJsonBodyPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type RuleGroupJsonBodyOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupJsonBodyOutput) ElementType() reflect.Type {
@@ -1650,17 +1773,14 @@ func (o RuleGroupJsonBodyOutput) ToRuleGroupJsonBodyPtrOutputWithContext(ctx con
 	}).(RuleGroupJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
 func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
 func (o RuleGroupJsonBodyOutput) MatchPattern() RuleGroupJsonMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchPattern { return v.MatchPattern }).(RuleGroupJsonMatchPatternOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
 func (o RuleGroupJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -1689,7 +1809,6 @@ func (o RuleGroupJsonBodyPtrOutput) Elem() RuleGroupJsonBodyOutput {
 	}).(RuleGroupJsonBodyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-invalidfallbackbehavior
 func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
 		if v == nil {
@@ -1699,7 +1818,6 @@ func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchpattern
 func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupJsonMatchPattern {
 		if v == nil {
@@ -1709,7 +1827,6 @@ func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrO
 	}).(RuleGroupJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonbody.html#cfn-wafv2-rulegroup-jsonbody-matchscope
 func (o RuleGroupJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupJsonBody) *string {
 		if v == nil {
@@ -1719,12 +1836,11 @@ func (o RuleGroupJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type RuleGroupJsonMatchPattern struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
-	All interface{} `pulumi:"all"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
-	IncludedPaths []string `pulumi:"includedPaths"`
+	// Inspect all parts of the web request's JSON body.
+	All           interface{} `pulumi:"all"`
+	IncludedPaths []string    `pulumi:"includedPaths"`
 }
 
 // RuleGroupJsonMatchPatternInput is an input type that accepts RuleGroupJsonMatchPatternArgs and RuleGroupJsonMatchPatternOutput values.
@@ -1738,11 +1854,10 @@ type RuleGroupJsonMatchPatternInput interface {
 	ToRuleGroupJsonMatchPatternOutputWithContext(context.Context) RuleGroupJsonMatchPatternOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type RuleGroupJsonMatchPatternArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
-	All pulumi.Input `pulumi:"all"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
+	// Inspect all parts of the web request's JSON body.
+	All           pulumi.Input            `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
 }
 
@@ -1799,7 +1914,7 @@ func (i *ruleGroupJsonMatchPatternPtrType) ToRuleGroupJsonMatchPatternPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type RuleGroupJsonMatchPatternOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupJsonMatchPatternOutput) ElementType() reflect.Type {
@@ -1824,12 +1939,11 @@ func (o RuleGroupJsonMatchPatternOutput) ToRuleGroupJsonMatchPatternPtrOutputWit
 	}).(RuleGroupJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+// Inspect all parts of the web request's JSON body.
 func (o RuleGroupJsonMatchPatternOutput) All() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupJsonMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
 func (o RuleGroupJsonMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleGroupJsonMatchPattern) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
 }
@@ -1858,7 +1972,7 @@ func (o RuleGroupJsonMatchPatternPtrOutput) Elem() RuleGroupJsonMatchPatternOutp
 	}).(RuleGroupJsonMatchPatternOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-all
+// Inspect all parts of the web request's JSON body.
 func (o RuleGroupJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupJsonMatchPattern) interface{} {
 		if v == nil {
@@ -1868,7 +1982,6 @@ func (o RuleGroupJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-jsonmatchpattern.html#cfn-wafv2-rulegroup-jsonmatchpattern-includedpaths
 func (o RuleGroupJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleGroupJsonMatchPattern) []string {
 		if v == nil {
@@ -1878,9 +1991,7 @@ func (o RuleGroupJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
 type RuleGroupLabel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
 	Name string `pulumi:"name"`
 }
 
@@ -1895,9 +2006,7 @@ type RuleGroupLabelInput interface {
 	ToRuleGroupLabelOutputWithContext(context.Context) RuleGroupLabelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
 type RuleGroupLabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1938,7 +2047,6 @@ func (i RuleGroupLabelArray) ToRuleGroupLabelArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html
 type RuleGroupLabelOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupLabelOutput) ElementType() reflect.Type {
@@ -1953,7 +2061,6 @@ func (o RuleGroupLabelOutput) ToRuleGroupLabelOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-label.html#cfn-wafv2-rulegroup-label-name
 func (o RuleGroupLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1978,11 +2085,8 @@ func (o RuleGroupLabelArrayOutput) Index(i pulumi.IntInput) RuleGroupLabelOutput
 	}).(RuleGroupLabelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
 type RuleGroupLabelMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+	Key   string `pulumi:"key"`
 	Scope string `pulumi:"scope"`
 }
 
@@ -1997,11 +2101,8 @@ type RuleGroupLabelMatchStatementInput interface {
 	ToRuleGroupLabelMatchStatementOutputWithContext(context.Context) RuleGroupLabelMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
 type RuleGroupLabelMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
+	Key   pulumi.StringInput `pulumi:"key"`
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -2058,7 +2159,6 @@ func (i *ruleGroupLabelMatchStatementPtrType) ToRuleGroupLabelMatchStatementPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html
 type RuleGroupLabelMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupLabelMatchStatementOutput) ElementType() reflect.Type {
@@ -2083,12 +2183,10 @@ func (o RuleGroupLabelMatchStatementOutput) ToRuleGroupLabelMatchStatementPtrOut
 	}).(RuleGroupLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
 func (o RuleGroupLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
 func (o RuleGroupLabelMatchStatementOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -2117,7 +2215,6 @@ func (o RuleGroupLabelMatchStatementPtrOutput) Elem() RuleGroupLabelMatchStateme
 	}).(RuleGroupLabelMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-key
 func (o RuleGroupLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *string {
 		if v == nil {
@@ -2127,7 +2224,6 @@ func (o RuleGroupLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelmatchstatement.html#cfn-wafv2-rulegroup-labelmatchstatement-scope
 func (o RuleGroupLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupLabelMatchStatement) *string {
 		if v == nil {
@@ -2137,9 +2233,7 @@ func (o RuleGroupLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
 type RuleGroupLabelSummary struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
 	Name *string `pulumi:"name"`
 }
 
@@ -2154,9 +2248,7 @@ type RuleGroupLabelSummaryInput interface {
 	ToRuleGroupLabelSummaryOutputWithContext(context.Context) RuleGroupLabelSummaryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
 type RuleGroupLabelSummaryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -2197,7 +2289,6 @@ func (i RuleGroupLabelSummaryArray) ToRuleGroupLabelSummaryArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupLabelSummaryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html
 type RuleGroupLabelSummaryOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupLabelSummaryOutput) ElementType() reflect.Type {
@@ -2212,7 +2303,6 @@ func (o RuleGroupLabelSummaryOutput) ToRuleGroupLabelSummaryOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html#cfn-wafv2-rulegroup-labelsummary-name
 func (o RuleGroupLabelSummaryOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleGroupLabelSummary) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -2237,9 +2327,7 @@ func (o RuleGroupLabelSummaryArrayOutput) Index(i pulumi.IntInput) RuleGroupLabe
 	}).(RuleGroupLabelSummaryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
 type RuleGroupNotStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
 	Statement RuleGroupStatement `pulumi:"statement"`
 }
 
@@ -2254,9 +2342,7 @@ type RuleGroupNotStatementInput interface {
 	ToRuleGroupNotStatementOutputWithContext(context.Context) RuleGroupNotStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
 type RuleGroupNotStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
 	Statement RuleGroupStatementInput `pulumi:"statement"`
 }
 
@@ -2313,7 +2399,6 @@ func (i *ruleGroupNotStatementPtrType) ToRuleGroupNotStatementPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html
 type RuleGroupNotStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupNotStatementOutput) ElementType() reflect.Type {
@@ -2338,7 +2423,6 @@ func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementPtrOutputWithContext
 	}).(RuleGroupNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
 func (o RuleGroupNotStatementOutput) Statement() RuleGroupStatementOutput {
 	return o.ApplyT(func(v RuleGroupNotStatement) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
 }
@@ -2367,7 +2451,6 @@ func (o RuleGroupNotStatementPtrOutput) Elem() RuleGroupNotStatementOutput {
 	}).(RuleGroupNotStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-notstatement.html#cfn-wafv2-rulegroup-notstatement-statement
 func (o RuleGroupNotStatementPtrOutput) Statement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupNotStatement) *RuleGroupStatement {
 		if v == nil {
@@ -2377,9 +2460,7 @@ func (o RuleGroupNotStatementPtrOutput) Statement() RuleGroupStatementPtrOutput 
 	}).(RuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
 type RuleGroupOrStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
 	Statements []RuleGroupStatement `pulumi:"statements"`
 }
 
@@ -2394,9 +2475,7 @@ type RuleGroupOrStatementInput interface {
 	ToRuleGroupOrStatementOutputWithContext(context.Context) RuleGroupOrStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
 type RuleGroupOrStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
 	Statements RuleGroupStatementArrayInput `pulumi:"statements"`
 }
 
@@ -2453,7 +2532,6 @@ func (i *ruleGroupOrStatementPtrType) ToRuleGroupOrStatementPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html
 type RuleGroupOrStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupOrStatementOutput) ElementType() reflect.Type {
@@ -2478,7 +2556,6 @@ func (o RuleGroupOrStatementOutput) ToRuleGroupOrStatementPtrOutputWithContext(c
 	}).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
 func (o RuleGroupOrStatementOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupOrStatement) []RuleGroupStatement { return v.Statements }).(RuleGroupStatementArrayOutput)
 }
@@ -2507,7 +2584,6 @@ func (o RuleGroupOrStatementPtrOutput) Elem() RuleGroupOrStatementOutput {
 	}).(RuleGroupOrStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-orstatement.html#cfn-wafv2-rulegroup-orstatement-statements
 func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupOrStatement) []RuleGroupStatement {
 		if v == nil {
@@ -2517,16 +2593,11 @@ func (o RuleGroupOrStatementPtrOutput) Statements() RuleGroupStatementArrayOutpu
 	}).(RuleGroupStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
 type RuleGroupRateBasedStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
-	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
-	ForwardedIPConfig *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
-	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
-	ScopeDownStatement *RuleGroupStatement `pulumi:"scopeDownStatement"`
+	AggregateKeyType   string                             `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  *RuleGroupForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
+	Limit              int                                `pulumi:"limit"`
+	ScopeDownStatement *RuleGroupStatement                `pulumi:"scopeDownStatement"`
 }
 
 // RuleGroupRateBasedStatementInput is an input type that accepts RuleGroupRateBasedStatementArgs and RuleGroupRateBasedStatementOutput values.
@@ -2540,16 +2611,11 @@ type RuleGroupRateBasedStatementInput interface {
 	ToRuleGroupRateBasedStatementOutputWithContext(context.Context) RuleGroupRateBasedStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
 type RuleGroupRateBasedStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
-	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
-	ForwardedIPConfig RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
-	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
-	ScopeDownStatement RuleGroupStatementPtrInput `pulumi:"scopeDownStatement"`
+	AggregateKeyType   pulumi.StringInput                        `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  RuleGroupForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                           `pulumi:"limit"`
+	ScopeDownStatement RuleGroupStatementPtrInput                `pulumi:"scopeDownStatement"`
 }
 
 func (RuleGroupRateBasedStatementArgs) ElementType() reflect.Type {
@@ -2605,7 +2671,6 @@ func (i *ruleGroupRateBasedStatementPtrType) ToRuleGroupRateBasedStatementPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html
 type RuleGroupRateBasedStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRateBasedStatementOutput) ElementType() reflect.Type {
@@ -2630,22 +2695,18 @@ func (o RuleGroupRateBasedStatementOutput) ToRuleGroupRateBasedStatementPtrOutpu
 	}).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
 func (o RuleGroupRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
 func (o RuleGroupRateBasedStatementOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration { return v.ForwardedIPConfig }).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
 func (o RuleGroupRateBasedStatementOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
 func (o RuleGroupRateBasedStatementOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupStatement { return v.ScopeDownStatement }).(RuleGroupStatementPtrOutput)
 }
@@ -2674,7 +2735,6 @@ func (o RuleGroupRateBasedStatementPtrOutput) Elem() RuleGroupRateBasedStatement
 	}).(RuleGroupRateBasedStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-aggregatekeytype
 func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *string {
 		if v == nil {
@@ -2684,7 +2744,6 @@ func (o RuleGroupRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-forwardedipconfig
 func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupForwardedIPConfiguration {
 		if v == nil {
@@ -2694,7 +2753,6 @@ func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIPConfig() RuleGroupForwa
 	}).(RuleGroupForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-limit
 func (o RuleGroupRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *int {
 		if v == nil {
@@ -2704,7 +2762,6 @@ func (o RuleGroupRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ratebasedstatement.html#cfn-wafv2-rulegroup-ratebasedstatement-scopedownstatement
 func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupStatement {
 		if v == nil {
@@ -2714,13 +2771,9 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 	}).(RuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
 type RuleGroupRegexPatternSetReferenceStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
+	Arn                 string                        `pulumi:"arn"`
+	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -2735,13 +2788,9 @@ type RuleGroupRegexPatternSetReferenceStatementInput interface {
 	ToRuleGroupRegexPatternSetReferenceStatementOutputWithContext(context.Context) RuleGroupRegexPatternSetReferenceStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
 type RuleGroupRegexPatternSetReferenceStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
+	Arn                 pulumi.StringInput                    `pulumi:"arn"`
+	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -2798,7 +2847,6 @@ func (i *ruleGroupRegexPatternSetReferenceStatementPtrType) ToRuleGroupRegexPatt
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html
 type RuleGroupRegexPatternSetReferenceStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRegexPatternSetReferenceStatementOutput) ElementType() reflect.Type {
@@ -2823,17 +2871,14 @@ func (o RuleGroupRegexPatternSetReferenceStatementOutput) ToRuleGroupRegexPatter
 	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
 func (o RuleGroupRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
 func (o RuleGroupRegexPatternSetReferenceStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
 func (o RuleGroupRegexPatternSetReferenceStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) []RuleGroupTextTransformation {
 		return v.TextTransformations
@@ -2864,7 +2909,6 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) Elem() RuleGroupReg
 	}).(RuleGroupRegexPatternSetReferenceStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-arn
 func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -2874,7 +2918,6 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-fieldtomatch
 func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRegexPatternSetReferenceStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -2884,7 +2927,6 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() Rule
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-regexpatternsetreferencestatement.html#cfn-wafv2-rulegroup-regexpatternsetreferencestatement-texttransformations
 func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupRegexPatternSetReferenceStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -2894,19 +2936,14 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) TextTransformations
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+// Rule of RuleGroup that contains condition and action.
 type RuleGroupRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
-	Action *RuleGroupRuleAction `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-	Priority int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
-	RuleLabels []RuleGroupLabel `pulumi:"ruleLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement RuleGroupStatement `pulumi:"statement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
+	Action   *RuleGroupRuleAction `pulumi:"action"`
+	Name     string               `pulumi:"name"`
+	Priority int                  `pulumi:"priority"`
+	// Collection of Rule Labels.
+	RuleLabels       []RuleGroupLabel          `pulumi:"ruleLabels"`
+	Statement        RuleGroupStatement        `pulumi:"statement"`
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -2921,19 +2958,14 @@ type RuleGroupRuleInput interface {
 	ToRuleGroupRuleOutputWithContext(context.Context) RuleGroupRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+// Rule of RuleGroup that contains condition and action.
 type RuleGroupRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
-	Action RuleGroupRuleActionPtrInput `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
-	RuleLabels RuleGroupLabelArrayInput `pulumi:"ruleLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-	Statement RuleGroupStatementInput `pulumi:"statement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
+	Action   RuleGroupRuleActionPtrInput `pulumi:"action"`
+	Name     pulumi.StringInput          `pulumi:"name"`
+	Priority pulumi.IntInput             `pulumi:"priority"`
+	// Collection of Rule Labels.
+	RuleLabels       RuleGroupLabelArrayInput       `pulumi:"ruleLabels"`
+	Statement        RuleGroupStatementInput        `pulumi:"statement"`
 	VisibilityConfig RuleGroupVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -2974,7 +3006,7 @@ func (i RuleGroupRuleArray) ToRuleGroupRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+// Rule of RuleGroup that contains condition and action.
 type RuleGroupRuleOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleOutput) ElementType() reflect.Type {
@@ -2989,32 +3021,27 @@ func (o RuleGroupRuleOutput) ToRuleGroupRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
 func (o RuleGroupRuleOutput) Action() RuleGroupRuleActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupRuleAction { return v.Action }).(RuleGroupRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
 func (o RuleGroupRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
 func (o RuleGroupRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+// Collection of Rule Labels.
 func (o RuleGroupRuleOutput) RuleLabels() RuleGroupLabelArrayOutput {
 	return o.ApplyT(func(v RuleGroupRule) []RuleGroupLabel { return v.RuleLabels }).(RuleGroupLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
 func (o RuleGroupRuleOutput) Statement() RuleGroupStatementOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
 func (o RuleGroupRuleOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupVisibilityConfig { return v.VisibilityConfig }).(RuleGroupVisibilityConfigOutput)
 }
@@ -3039,13 +3066,13 @@ func (o RuleGroupRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOutput {
 	}).(RuleGroupRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+// Action taken when Rule matches its condition.
 type RuleGroupRuleAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+	// Allow traffic towards application.
 	Allow interface{} `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+	// Block traffic towards application.
 	Block interface{} `pulumi:"block"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+	// Count traffic towards application.
 	Count interface{} `pulumi:"count"`
 }
 
@@ -3060,13 +3087,13 @@ type RuleGroupRuleActionInput interface {
 	ToRuleGroupRuleActionOutputWithContext(context.Context) RuleGroupRuleActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+// Action taken when Rule matches its condition.
 type RuleGroupRuleActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+	// Allow traffic towards application.
 	Allow pulumi.Input `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+	// Block traffic towards application.
 	Block pulumi.Input `pulumi:"block"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+	// Count traffic towards application.
 	Count pulumi.Input `pulumi:"count"`
 }
 
@@ -3123,7 +3150,7 @@ func (i *ruleGroupRuleActionPtrType) ToRuleGroupRuleActionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+// Action taken when Rule matches its condition.
 type RuleGroupRuleActionOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupRuleActionOutput) ElementType() reflect.Type {
@@ -3148,17 +3175,17 @@ func (o RuleGroupRuleActionOutput) ToRuleGroupRuleActionPtrOutputWithContext(ctx
 	}).(RuleGroupRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+// Allow traffic towards application.
 func (o RuleGroupRuleActionOutput) Allow() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Allow }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+// Block traffic towards application.
 func (o RuleGroupRuleActionOutput) Block() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Block }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+// Count traffic towards application.
 func (o RuleGroupRuleActionOutput) Count() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) interface{} { return v.Count }).(pulumi.AnyOutput)
 }
@@ -3187,7 +3214,7 @@ func (o RuleGroupRuleActionPtrOutput) Elem() RuleGroupRuleActionOutput {
 	}).(RuleGroupRuleActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+// Allow traffic towards application.
 func (o RuleGroupRuleActionPtrOutput) Allow() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
 		if v == nil {
@@ -3197,7 +3224,7 @@ func (o RuleGroupRuleActionPtrOutput) Allow() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+// Block traffic towards application.
 func (o RuleGroupRuleActionPtrOutput) Block() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
 		if v == nil {
@@ -3207,7 +3234,7 @@ func (o RuleGroupRuleActionPtrOutput) Block() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+// Count traffic towards application.
 func (o RuleGroupRuleActionPtrOutput) Count() pulumi.AnyOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) interface{} {
 		if v == nil {
@@ -3217,15 +3244,11 @@ func (o RuleGroupRuleActionPtrOutput) Count() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
+// Size Constraint statement.
 type RuleGroupSizeConstraintStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-	Size float64 `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
+	ComparisonOperator  string                        `pulumi:"comparisonOperator"`
+	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
+	Size                float64                       `pulumi:"size"`
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -3240,15 +3263,11 @@ type RuleGroupSizeConstraintStatementInput interface {
 	ToRuleGroupSizeConstraintStatementOutputWithContext(context.Context) RuleGroupSizeConstraintStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
+// Size Constraint statement.
 type RuleGroupSizeConstraintStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
-	Size pulumi.Float64Input `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
+	ComparisonOperator  pulumi.StringInput                    `pulumi:"comparisonOperator"`
+	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
+	Size                pulumi.Float64Input                   `pulumi:"size"`
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -3305,7 +3324,7 @@ func (i *ruleGroupSizeConstraintStatementPtrType) ToRuleGroupSizeConstraintState
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html
+// Size Constraint statement.
 type RuleGroupSizeConstraintStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupSizeConstraintStatementOutput) ElementType() reflect.Type {
@@ -3330,22 +3349,18 @@ func (o RuleGroupSizeConstraintStatementOutput) ToRuleGroupSizeConstraintStateme
 	}).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
 func (o RuleGroupSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
 func (o RuleGroupSizeConstraintStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
 func (o RuleGroupSizeConstraintStatementOutput) Size() pulumi.Float64Output {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
 func (o RuleGroupSizeConstraintStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -3374,7 +3389,6 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) Elem() RuleGroupSizeConstrain
 	}).(RuleGroupSizeConstraintStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-comparisonoperator
 func (o RuleGroupSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *string {
 		if v == nil {
@@ -3384,7 +3398,6 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-fieldtomatch
 func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -3394,7 +3407,6 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupField
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-size
 func (o RuleGroupSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *float64 {
 		if v == nil {
@@ -3404,7 +3416,6 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sizeconstraintstatement.html#cfn-wafv2-rulegroup-sizeconstraintstatement-texttransformations
 func (o RuleGroupSizeConstraintStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -3414,11 +3425,9 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) TextTransformations() RuleGro
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
+// Sqli Match Statement.
 type RuleGroupSqliMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
+	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -3433,11 +3442,9 @@ type RuleGroupSqliMatchStatementInput interface {
 	ToRuleGroupSqliMatchStatementOutputWithContext(context.Context) RuleGroupSqliMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
+// Sqli Match Statement.
 type RuleGroupSqliMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
+	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -3494,7 +3501,7 @@ func (i *ruleGroupSqliMatchStatementPtrType) ToRuleGroupSqliMatchStatementPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html
+// Sqli Match Statement.
 type RuleGroupSqliMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupSqliMatchStatementOutput) ElementType() reflect.Type {
@@ -3519,12 +3526,10 @@ func (o RuleGroupSqliMatchStatementOutput) ToRuleGroupSqliMatchStatementPtrOutpu
 	}).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
 func (o RuleGroupSqliMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
 func (o RuleGroupSqliMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -3553,7 +3558,6 @@ func (o RuleGroupSqliMatchStatementPtrOutput) Elem() RuleGroupSqliMatchStatement
 	}).(RuleGroupSqliMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-fieldtomatch
 func (o RuleGroupSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupSqliMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -3563,7 +3567,6 @@ func (o RuleGroupSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMat
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-sqlimatchstatement.html#cfn-wafv2-rulegroup-sqlimatchstatement-texttransformations
 func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupSqliMatchStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -3573,32 +3576,20 @@ func (o RuleGroupSqliMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
-	AndStatement *RuleGroupAndStatement `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
-	ByteMatchStatement *RuleGroupByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
-	GeoMatchStatement *RuleGroupGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
-	IPSetReferenceStatement *RuleGroupIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
-	LabelMatchStatement *RuleGroupLabelMatchStatement `pulumi:"labelMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
-	NotStatement *RuleGroupNotStatement `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
-	OrStatement *RuleGroupOrStatement `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
-	RateBasedStatement *RuleGroupRateBasedStatement `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
+	AndStatement                      *RuleGroupAndStatement                      `pulumi:"andStatement"`
+	ByteMatchStatement                *RuleGroupByteMatchStatement                `pulumi:"byteMatchStatement"`
+	GeoMatchStatement                 *RuleGroupGeoMatchStatement                 `pulumi:"geoMatchStatement"`
+	IPSetReferenceStatement           *RuleGroupIPSetReferenceStatement           `pulumi:"iPSetReferenceStatement"`
+	LabelMatchStatement               *RuleGroupLabelMatchStatement               `pulumi:"labelMatchStatement"`
+	NotStatement                      *RuleGroupNotStatement                      `pulumi:"notStatement"`
+	OrStatement                       *RuleGroupOrStatement                       `pulumi:"orStatement"`
+	RateBasedStatement                *RuleGroupRateBasedStatement                `pulumi:"rateBasedStatement"`
 	RegexPatternSetReferenceStatement *RuleGroupRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
-	SizeConstraintStatement *RuleGroupSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
-	SqliMatchStatement *RuleGroupSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
-	XssMatchStatement *RuleGroupXssMatchStatement `pulumi:"xssMatchStatement"`
+	SizeConstraintStatement           *RuleGroupSizeConstraintStatement           `pulumi:"sizeConstraintStatement"`
+	SqliMatchStatement                *RuleGroupSqliMatchStatement                `pulumi:"sqliMatchStatement"`
+	XssMatchStatement                 *RuleGroupXssMatchStatement                 `pulumi:"xssMatchStatement"`
 }
 
 // RuleGroupStatementInput is an input type that accepts RuleGroupStatementArgs and RuleGroupStatementOutput values.
@@ -3612,32 +3603,20 @@ type RuleGroupStatementInput interface {
 	ToRuleGroupStatementOutputWithContext(context.Context) RuleGroupStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
-	AndStatement RuleGroupAndStatementPtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
-	ByteMatchStatement RuleGroupByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
-	GeoMatchStatement RuleGroupGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
-	IPSetReferenceStatement RuleGroupIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
-	LabelMatchStatement RuleGroupLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
-	NotStatement RuleGroupNotStatementPtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
-	OrStatement RuleGroupOrStatementPtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
-	RateBasedStatement RuleGroupRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
+	AndStatement                      RuleGroupAndStatementPtrInput                      `pulumi:"andStatement"`
+	ByteMatchStatement                RuleGroupByteMatchStatementPtrInput                `pulumi:"byteMatchStatement"`
+	GeoMatchStatement                 RuleGroupGeoMatchStatementPtrInput                 `pulumi:"geoMatchStatement"`
+	IPSetReferenceStatement           RuleGroupIPSetReferenceStatementPtrInput           `pulumi:"iPSetReferenceStatement"`
+	LabelMatchStatement               RuleGroupLabelMatchStatementPtrInput               `pulumi:"labelMatchStatement"`
+	NotStatement                      RuleGroupNotStatementPtrInput                      `pulumi:"notStatement"`
+	OrStatement                       RuleGroupOrStatementPtrInput                       `pulumi:"orStatement"`
+	RateBasedStatement                RuleGroupRateBasedStatementPtrInput                `pulumi:"rateBasedStatement"`
 	RegexPatternSetReferenceStatement RuleGroupRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
-	SizeConstraintStatement RuleGroupSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
-	SqliMatchStatement RuleGroupSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
-	XssMatchStatement RuleGroupXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
+	SizeConstraintStatement           RuleGroupSizeConstraintStatementPtrInput           `pulumi:"sizeConstraintStatement"`
+	SqliMatchStatement                RuleGroupSqliMatchStatementPtrInput                `pulumi:"sqliMatchStatement"`
+	XssMatchStatement                 RuleGroupXssMatchStatementPtrInput                 `pulumi:"xssMatchStatement"`
 }
 
 func (RuleGroupStatementArgs) ElementType() reflect.Type {
@@ -3718,7 +3697,7 @@ func (i RuleGroupStatementArray) ToRuleGroupStatementArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type RuleGroupStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupStatementOutput) ElementType() reflect.Type {
@@ -3743,64 +3722,52 @@ func (o RuleGroupStatementOutput) ToRuleGroupStatementPtrOutputWithContext(ctx c
 	}).(RuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
 func (o RuleGroupStatementOutput) AndStatement() RuleGroupAndStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupAndStatement { return v.AndStatement }).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
 func (o RuleGroupStatementOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupByteMatchStatement { return v.ByteMatchStatement }).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
 func (o RuleGroupStatementOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupGeoMatchStatement { return v.GeoMatchStatement }).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
 func (o RuleGroupStatementOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupIPSetReferenceStatement { return v.IPSetReferenceStatement }).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
 func (o RuleGroupStatementOutput) LabelMatchStatement() RuleGroupLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupLabelMatchStatement { return v.LabelMatchStatement }).(RuleGroupLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
 func (o RuleGroupStatementOutput) NotStatement() RuleGroupNotStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupNotStatement { return v.NotStatement }).(RuleGroupNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
 func (o RuleGroupStatementOutput) OrStatement() RuleGroupOrStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupOrStatement { return v.OrStatement }).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
 func (o RuleGroupStatementOutput) RateBasedStatement() RuleGroupRateBasedStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupRateBasedStatement { return v.RateBasedStatement }).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
 func (o RuleGroupStatementOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
 func (o RuleGroupStatementOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupSizeConstraintStatement { return v.SizeConstraintStatement }).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
 func (o RuleGroupStatementOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupSqliMatchStatement { return v.SqliMatchStatement }).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
 func (o RuleGroupStatementOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupStatement) *RuleGroupXssMatchStatement { return v.XssMatchStatement }).(RuleGroupXssMatchStatementPtrOutput)
 }
@@ -3829,7 +3796,6 @@ func (o RuleGroupStatementPtrOutput) Elem() RuleGroupStatementOutput {
 	}).(RuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-andstatement
 func (o RuleGroupStatementPtrOutput) AndStatement() RuleGroupAndStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupAndStatement {
 		if v == nil {
@@ -3839,7 +3805,6 @@ func (o RuleGroupStatementPtrOutput) AndStatement() RuleGroupAndStatementPtrOutp
 	}).(RuleGroupAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-bytematchstatement
 func (o RuleGroupStatementPtrOutput) ByteMatchStatement() RuleGroupByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupByteMatchStatement {
 		if v == nil {
@@ -3849,7 +3814,6 @@ func (o RuleGroupStatementPtrOutput) ByteMatchStatement() RuleGroupByteMatchStat
 	}).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-geomatchstatement
 func (o RuleGroupStatementPtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupGeoMatchStatement {
 		if v == nil {
@@ -3859,7 +3823,6 @@ func (o RuleGroupStatementPtrOutput) GeoMatchStatement() RuleGroupGeoMatchStatem
 	}).(RuleGroupGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ipsetreferencestatement
 func (o RuleGroupStatementPtrOutput) IPSetReferenceStatement() RuleGroupIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupIPSetReferenceStatement {
 		if v == nil {
@@ -3869,7 +3832,6 @@ func (o RuleGroupStatementPtrOutput) IPSetReferenceStatement() RuleGroupIPSetRef
 	}).(RuleGroupIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-labelmatchstatement
 func (o RuleGroupStatementPtrOutput) LabelMatchStatement() RuleGroupLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupLabelMatchStatement {
 		if v == nil {
@@ -3879,7 +3841,6 @@ func (o RuleGroupStatementPtrOutput) LabelMatchStatement() RuleGroupLabelMatchSt
 	}).(RuleGroupLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-notstatement
 func (o RuleGroupStatementPtrOutput) NotStatement() RuleGroupNotStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupNotStatement {
 		if v == nil {
@@ -3889,7 +3850,6 @@ func (o RuleGroupStatementPtrOutput) NotStatement() RuleGroupNotStatementPtrOutp
 	}).(RuleGroupNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-orstatement
 func (o RuleGroupStatementPtrOutput) OrStatement() RuleGroupOrStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupOrStatement {
 		if v == nil {
@@ -3899,7 +3859,6 @@ func (o RuleGroupStatementPtrOutput) OrStatement() RuleGroupOrStatementPtrOutput
 	}).(RuleGroupOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-ratebasedstatement
 func (o RuleGroupStatementPtrOutput) RateBasedStatement() RuleGroupRateBasedStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupRateBasedStatement {
 		if v == nil {
@@ -3909,7 +3868,6 @@ func (o RuleGroupStatementPtrOutput) RateBasedStatement() RuleGroupRateBasedStat
 	}).(RuleGroupRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-regexpatternsetreferencestatement
 func (o RuleGroupStatementPtrOutput) RegexPatternSetReferenceStatement() RuleGroupRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupRegexPatternSetReferenceStatement {
 		if v == nil {
@@ -3919,7 +3877,6 @@ func (o RuleGroupStatementPtrOutput) RegexPatternSetReferenceStatement() RuleGro
 	}).(RuleGroupRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sizeconstraintstatement
 func (o RuleGroupStatementPtrOutput) SizeConstraintStatement() RuleGroupSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupSizeConstraintStatement {
 		if v == nil {
@@ -3929,7 +3886,6 @@ func (o RuleGroupStatementPtrOutput) SizeConstraintStatement() RuleGroupSizeCons
 	}).(RuleGroupSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-sqlimatchstatement
 func (o RuleGroupStatementPtrOutput) SqliMatchStatement() RuleGroupSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupSqliMatchStatement {
 		if v == nil {
@@ -3939,7 +3895,6 @@ func (o RuleGroupStatementPtrOutput) SqliMatchStatement() RuleGroupSqliMatchStat
 	}).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-statement.html#cfn-wafv2-rulegroup-statement-xssmatchstatement
 func (o RuleGroupStatementPtrOutput) XssMatchStatement() RuleGroupXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupStatement) *RuleGroupXssMatchStatement {
 		if v == nil {
@@ -3969,12 +3924,110 @@ func (o RuleGroupStatementArrayOutput) Index(i pulumi.IntInput) RuleGroupStateme
 	}).(RuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
+type RuleGroupTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// RuleGroupTagInput is an input type that accepts RuleGroupTagArgs and RuleGroupTagOutput values.
+// You can construct a concrete instance of `RuleGroupTagInput` via:
+//
+//          RuleGroupTagArgs{...}
+type RuleGroupTagInput interface {
+	pulumi.Input
+
+	ToRuleGroupTagOutput() RuleGroupTagOutput
+	ToRuleGroupTagOutputWithContext(context.Context) RuleGroupTagOutput
+}
+
+type RuleGroupTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (RuleGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
+}
+
+func (i RuleGroupTagArgs) ToRuleGroupTagOutput() RuleGroupTagOutput {
+	return i.ToRuleGroupTagOutputWithContext(context.Background())
+}
+
+func (i RuleGroupTagArgs) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagOutput)
+}
+
+// RuleGroupTagArrayInput is an input type that accepts RuleGroupTagArray and RuleGroupTagArrayOutput values.
+// You can construct a concrete instance of `RuleGroupTagArrayInput` via:
+//
+//          RuleGroupTagArray{ RuleGroupTagArgs{...} }
+type RuleGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput
+	ToRuleGroupTagArrayOutputWithContext(context.Context) RuleGroupTagArrayOutput
+}
+
+type RuleGroupTagArray []RuleGroupTagInput
+
+func (RuleGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
+}
+
+func (i RuleGroupTagArray) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
+	return i.ToRuleGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i RuleGroupTagArray) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTagArrayOutput)
+}
+
+type RuleGroupTagOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleGroupTag)(nil)).Elem()
+}
+
+func (o RuleGroupTagOutput) ToRuleGroupTagOutput() RuleGroupTagOutput {
+	return o
+}
+
+func (o RuleGroupTagOutput) ToRuleGroupTagOutputWithContext(ctx context.Context) RuleGroupTagOutput {
+	return o
+}
+
+func (o RuleGroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o RuleGroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleGroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type RuleGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleGroupTag)(nil)).Elem()
+}
+
+func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutput() RuleGroupTagArrayOutput {
+	return o
+}
+
+func (o RuleGroupTagArrayOutput) ToRuleGroupTagArrayOutputWithContext(ctx context.Context) RuleGroupTagArrayOutput {
+	return o
+}
+
+func (o RuleGroupTagArrayOutput) Index(i pulumi.IntInput) RuleGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupTag {
+		return vs[0].([]RuleGroupTag)[vs[1].(int)]
+	}).(RuleGroupTagOutput)
+}
+
+// Text Transformation on the Search String before match.
 type RuleGroupTextTransformation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-	Priority int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
-	Type string `pulumi:"type"`
+	Priority int    `pulumi:"priority"`
+	Type     string `pulumi:"type"`
 }
 
 // RuleGroupTextTransformationInput is an input type that accepts RuleGroupTextTransformationArgs and RuleGroupTextTransformationOutput values.
@@ -3988,12 +4041,10 @@ type RuleGroupTextTransformationInput interface {
 	ToRuleGroupTextTransformationOutputWithContext(context.Context) RuleGroupTextTransformationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
+// Text Transformation on the Search String before match.
 type RuleGroupTextTransformationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (RuleGroupTextTransformationArgs) ElementType() reflect.Type {
@@ -4033,7 +4084,7 @@ func (i RuleGroupTextTransformationArray) ToRuleGroupTextTransformationArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html
+// Text Transformation on the Search String before match.
 type RuleGroupTextTransformationOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupTextTransformationOutput) ElementType() reflect.Type {
@@ -4048,12 +4099,10 @@ func (o RuleGroupTextTransformationOutput) ToRuleGroupTextTransformationOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-priority
 func (o RuleGroupTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-texttransformation.html#cfn-wafv2-rulegroup-texttransformation-type
 func (o RuleGroupTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4078,14 +4127,11 @@ func (o RuleGroupTextTransformationArrayOutput) Index(i pulumi.IntInput) RuleGro
 	}).(RuleGroupTextTransformationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
+// Visibility Metric of the RuleGroup.
 type RuleGroupVisibilityConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled bool `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
-	MetricName string `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
+	CloudWatchMetricsEnabled bool   `pulumi:"cloudWatchMetricsEnabled"`
+	MetricName               string `pulumi:"metricName"`
+	SampledRequestsEnabled   bool   `pulumi:"sampledRequestsEnabled"`
 }
 
 // RuleGroupVisibilityConfigInput is an input type that accepts RuleGroupVisibilityConfigArgs and RuleGroupVisibilityConfigOutput values.
@@ -4099,14 +4145,11 @@ type RuleGroupVisibilityConfigInput interface {
 	ToRuleGroupVisibilityConfigOutputWithContext(context.Context) RuleGroupVisibilityConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
+// Visibility Metric of the RuleGroup.
 type RuleGroupVisibilityConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
+	CloudWatchMetricsEnabled pulumi.BoolInput   `pulumi:"cloudWatchMetricsEnabled"`
+	MetricName               pulumi.StringInput `pulumi:"metricName"`
+	SampledRequestsEnabled   pulumi.BoolInput   `pulumi:"sampledRequestsEnabled"`
 }
 
 func (RuleGroupVisibilityConfigArgs) ElementType() reflect.Type {
@@ -4162,7 +4205,7 @@ func (i *ruleGroupVisibilityConfigPtrType) ToRuleGroupVisibilityConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupVisibilityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html
+// Visibility Metric of the RuleGroup.
 type RuleGroupVisibilityConfigOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupVisibilityConfigOutput) ElementType() reflect.Type {
@@ -4187,17 +4230,14 @@ func (o RuleGroupVisibilityConfigOutput) ToRuleGroupVisibilityConfigPtrOutputWit
 	}).(RuleGroupVisibilityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
 func (o RuleGroupVisibilityConfigOutput) CloudWatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
 func (o RuleGroupVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
 func (o RuleGroupVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v RuleGroupVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
@@ -4226,7 +4266,6 @@ func (o RuleGroupVisibilityConfigPtrOutput) Elem() RuleGroupVisibilityConfigOutp
 	}).(RuleGroupVisibilityConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-cloudwatchmetricsenabled
 func (o RuleGroupVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
 		if v == nil {
@@ -4236,7 +4275,6 @@ func (o RuleGroupVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-metricname
 func (o RuleGroupVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *string {
 		if v == nil {
@@ -4246,7 +4284,6 @@ func (o RuleGroupVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-visibilityconfig.html#cfn-wafv2-rulegroup-visibilityconfig-sampledrequestsenabled
 func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RuleGroupVisibilityConfig) *bool {
 		if v == nil {
@@ -4256,11 +4293,9 @@ func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.Bool
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
+// Xss Match Statement.
 type RuleGroupXssMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
+	FieldToMatch        RuleGroupFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -4275,11 +4310,9 @@ type RuleGroupXssMatchStatementInput interface {
 	ToRuleGroupXssMatchStatementOutputWithContext(context.Context) RuleGroupXssMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
+// Xss Match Statement.
 type RuleGroupXssMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
-	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
+	FieldToMatch        RuleGroupFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -4336,7 +4369,7 @@ func (i *ruleGroupXssMatchStatementPtrType) ToRuleGroupXssMatchStatementPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupXssMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html
+// Xss Match Statement.
 type RuleGroupXssMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupXssMatchStatementOutput) ElementType() reflect.Type {
@@ -4361,12 +4394,10 @@ func (o RuleGroupXssMatchStatementOutput) ToRuleGroupXssMatchStatementPtrOutputW
 	}).(RuleGroupXssMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
 func (o RuleGroupXssMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupXssMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
 func (o RuleGroupXssMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupXssMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -4395,7 +4426,6 @@ func (o RuleGroupXssMatchStatementPtrOutput) Elem() RuleGroupXssMatchStatementOu
 	}).(RuleGroupXssMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-fieldtomatch
 func (o RuleGroupXssMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupXssMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -4405,7 +4435,6 @@ func (o RuleGroupXssMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatc
 	}).(RuleGroupFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-xssmatchstatement.html#cfn-wafv2-rulegroup-xssmatchstatement-texttransformations
 func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupXssMatchStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -4415,9 +4444,8 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 	}).(RuleGroupTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+// Allow traffic towards application.
 type WebACLAllowAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
 	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -4432,9 +4460,8 @@ type WebACLAllowActionInput interface {
 	ToWebACLAllowActionOutputWithContext(context.Context) WebACLAllowActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+// Allow traffic towards application.
 type WebACLAllowActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
 	CustomRequestHandling WebACLCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -4491,7 +4518,7 @@ func (i *webACLAllowActionPtrType) ToWebACLAllowActionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html
+// Allow traffic towards application.
 type WebACLAllowActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLAllowActionOutput) ElementType() reflect.Type {
@@ -4516,7 +4543,6 @@ func (o WebACLAllowActionOutput) ToWebACLAllowActionPtrOutputWithContext(ctx con
 	}).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
 func (o WebACLAllowActionOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v WebACLAllowAction) *WebACLCustomRequestHandling { return v.CustomRequestHandling }).(WebACLCustomRequestHandlingPtrOutput)
 }
@@ -4545,7 +4571,6 @@ func (o WebACLAllowActionPtrOutput) Elem() WebACLAllowActionOutput {
 	}).(WebACLAllowActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html#cfn-wafv2-webacl-allowaction-customrequesthandling
 func (o WebACLAllowActionPtrOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *WebACLAllowAction) *WebACLCustomRequestHandling {
 		if v == nil {
@@ -4555,9 +4580,7 @@ func (o WebACLAllowActionPtrOutput) CustomRequestHandling() WebACLCustomRequestH
 	}).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
 type WebACLAndStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
 	Statements []WebACLStatement `pulumi:"statements"`
 }
 
@@ -4572,9 +4595,7 @@ type WebACLAndStatementInput interface {
 	ToWebACLAndStatementOutputWithContext(context.Context) WebACLAndStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
 type WebACLAndStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
 	Statements WebACLStatementArrayInput `pulumi:"statements"`
 }
 
@@ -4631,7 +4652,6 @@ func (i *webACLAndStatementPtrType) ToWebACLAndStatementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html
 type WebACLAndStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLAndStatementOutput) ElementType() reflect.Type {
@@ -4656,7 +4676,6 @@ func (o WebACLAndStatementOutput) ToWebACLAndStatementPtrOutputWithContext(ctx c
 	}).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
 func (o WebACLAndStatementOutput) Statements() WebACLStatementArrayOutput {
 	return o.ApplyT(func(v WebACLAndStatement) []WebACLStatement { return v.Statements }).(WebACLStatementArrayOutput)
 }
@@ -4685,7 +4704,6 @@ func (o WebACLAndStatementPtrOutput) Elem() WebACLAndStatementOutput {
 	}).(WebACLAndStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html#cfn-wafv2-webacl-andstatement-statements
 func (o WebACLAndStatementPtrOutput) Statements() WebACLStatementArrayOutput {
 	return o.ApplyT(func(v *WebACLAndStatement) []WebACLStatement {
 		if v == nil {
@@ -4695,9 +4713,8 @@ func (o WebACLAndStatementPtrOutput) Statements() WebACLStatementArrayOutput {
 	}).(WebACLStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+// Block traffic towards application.
 type WebACLBlockAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
 	CustomResponse *WebACLCustomResponse `pulumi:"customResponse"`
 }
 
@@ -4712,9 +4729,8 @@ type WebACLBlockActionInput interface {
 	ToWebACLBlockActionOutputWithContext(context.Context) WebACLBlockActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+// Block traffic towards application.
 type WebACLBlockActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
 	CustomResponse WebACLCustomResponsePtrInput `pulumi:"customResponse"`
 }
 
@@ -4771,7 +4787,7 @@ func (i *webACLBlockActionPtrType) ToWebACLBlockActionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLBlockActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html
+// Block traffic towards application.
 type WebACLBlockActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLBlockActionOutput) ElementType() reflect.Type {
@@ -4796,7 +4812,6 @@ func (o WebACLBlockActionOutput) ToWebACLBlockActionPtrOutputWithContext(ctx con
 	}).(WebACLBlockActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
 func (o WebACLBlockActionOutput) CustomResponse() WebACLCustomResponsePtrOutput {
 	return o.ApplyT(func(v WebACLBlockAction) *WebACLCustomResponse { return v.CustomResponse }).(WebACLCustomResponsePtrOutput)
 }
@@ -4825,7 +4840,6 @@ func (o WebACLBlockActionPtrOutput) Elem() WebACLBlockActionOutput {
 	}).(WebACLBlockActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html#cfn-wafv2-webacl-blockaction-customresponse
 func (o WebACLBlockActionPtrOutput) CustomResponse() WebACLCustomResponsePtrOutput {
 	return o.ApplyT(func(v *WebACLBlockAction) *WebACLCustomResponse {
 		if v == nil {
@@ -4835,18 +4849,13 @@ func (o WebACLBlockActionPtrOutput) CustomResponse() WebACLCustomResponsePtrOutp
 	}).(WebACLCustomResponsePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
+// Byte Match statement.
 type WebACLByteMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-	PositionalConstraint string `pulumi:"positionalConstraint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
-	SearchString *string `pulumi:"searchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
-	SearchStringBase64 *string `pulumi:"searchStringBase64"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
-	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
+	FieldToMatch         WebACLFieldToMatch         `pulumi:"fieldToMatch"`
+	PositionalConstraint string                     `pulumi:"positionalConstraint"`
+	SearchString         *string                    `pulumi:"searchString"`
+	SearchStringBase64   *string                    `pulumi:"searchStringBase64"`
+	TextTransformations  []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
 // WebACLByteMatchStatementInput is an input type that accepts WebACLByteMatchStatementArgs and WebACLByteMatchStatementOutput values.
@@ -4860,18 +4869,13 @@ type WebACLByteMatchStatementInput interface {
 	ToWebACLByteMatchStatementOutputWithContext(context.Context) WebACLByteMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
+// Byte Match statement.
 type WebACLByteMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
-	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
-	SearchString pulumi.StringPtrInput `pulumi:"searchString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
-	SearchStringBase64 pulumi.StringPtrInput `pulumi:"searchStringBase64"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
-	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
+	FieldToMatch         WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
+	PositionalConstraint pulumi.StringInput                 `pulumi:"positionalConstraint"`
+	SearchString         pulumi.StringPtrInput              `pulumi:"searchString"`
+	SearchStringBase64   pulumi.StringPtrInput              `pulumi:"searchStringBase64"`
+	TextTransformations  WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
 func (WebACLByteMatchStatementArgs) ElementType() reflect.Type {
@@ -4927,7 +4931,7 @@ func (i *webACLByteMatchStatementPtrType) ToWebACLByteMatchStatementPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html
+// Byte Match statement.
 type WebACLByteMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLByteMatchStatementOutput) ElementType() reflect.Type {
@@ -4952,27 +4956,22 @@ func (o WebACLByteMatchStatementOutput) ToWebACLByteMatchStatementPtrOutputWithC
 	}).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
 func (o WebACLByteMatchStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
 	return o.ApplyT(func(v WebACLByteMatchStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
 func (o WebACLByteMatchStatementOutput) PositionalConstraint() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLByteMatchStatement) string { return v.PositionalConstraint }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
 func (o WebACLByteMatchStatementOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLByteMatchStatement) *string { return v.SearchString }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
 func (o WebACLByteMatchStatementOutput) SearchStringBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLByteMatchStatement) *string { return v.SearchStringBase64 }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
 func (o WebACLByteMatchStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLByteMatchStatement) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
 }
@@ -5001,7 +5000,6 @@ func (o WebACLByteMatchStatementPtrOutput) Elem() WebACLByteMatchStatementOutput
 	}).(WebACLByteMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-fieldtomatch
 func (o WebACLByteMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebACLByteMatchStatement) *WebACLFieldToMatch {
 		if v == nil {
@@ -5011,7 +5009,6 @@ func (o WebACLByteMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrO
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-positionalconstraint
 func (o WebACLByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLByteMatchStatement) *string {
 		if v == nil {
@@ -5021,7 +5018,6 @@ func (o WebACLByteMatchStatementPtrOutput) PositionalConstraint() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstring
 func (o WebACLByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLByteMatchStatement) *string {
 		if v == nil {
@@ -5031,7 +5027,6 @@ func (o WebACLByteMatchStatementPtrOutput) SearchString() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-searchstringbase64
 func (o WebACLByteMatchStatementPtrOutput) SearchStringBase64() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLByteMatchStatement) *string {
 		if v == nil {
@@ -5041,7 +5036,6 @@ func (o WebACLByteMatchStatementPtrOutput) SearchStringBase64() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html#cfn-wafv2-webacl-bytematchstatement-texttransformations
 func (o WebACLByteMatchStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebACLByteMatchStatement) []WebACLTextTransformation {
 		if v == nil {
@@ -5051,9 +5045,8 @@ func (o WebACLByteMatchStatementPtrOutput) TextTransformations() WebACLTextTrans
 	}).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+// Allow traffic towards application.
 type WebACLCountAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
 	CustomRequestHandling *WebACLCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -5068,9 +5061,8 @@ type WebACLCountActionInput interface {
 	ToWebACLCountActionOutputWithContext(context.Context) WebACLCountActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+// Allow traffic towards application.
 type WebACLCountActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
 	CustomRequestHandling WebACLCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -5127,7 +5119,7 @@ func (i *webACLCountActionPtrType) ToWebACLCountActionPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLCountActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+// Allow traffic towards application.
 type WebACLCountActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLCountActionOutput) ElementType() reflect.Type {
@@ -5152,7 +5144,6 @@ func (o WebACLCountActionOutput) ToWebACLCountActionPtrOutputWithContext(ctx con
 	}).(WebACLCountActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
 func (o WebACLCountActionOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v WebACLCountAction) *WebACLCustomRequestHandling { return v.CustomRequestHandling }).(WebACLCustomRequestHandlingPtrOutput)
 }
@@ -5181,7 +5172,6 @@ func (o WebACLCountActionPtrOutput) Elem() WebACLCountActionOutput {
 	}).(WebACLCountActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
 func (o WebACLCountActionPtrOutput) CustomRequestHandling() WebACLCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *WebACLCountAction) *WebACLCustomRequestHandling {
 		if v == nil {
@@ -5191,11 +5181,9 @@ func (o WebACLCountActionPtrOutput) CustomRequestHandling() WebACLCustomRequestH
 	}).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+// HTTP header.
 type WebACLCustomHTTPHeader struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -5210,11 +5198,9 @@ type WebACLCustomHTTPHeaderInput interface {
 	ToWebACLCustomHTTPHeaderOutputWithContext(context.Context) WebACLCustomHTTPHeaderOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+// HTTP header.
 type WebACLCustomHTTPHeaderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5255,7 +5241,7 @@ func (i WebACLCustomHTTPHeaderArray) ToWebACLCustomHTTPHeaderArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomHTTPHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html
+// HTTP header.
 type WebACLCustomHTTPHeaderOutput struct{ *pulumi.OutputState }
 
 func (WebACLCustomHTTPHeaderOutput) ElementType() reflect.Type {
@@ -5270,12 +5256,10 @@ func (o WebACLCustomHTTPHeaderOutput) ToWebACLCustomHTTPHeaderOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-name
 func (o WebACLCustomHTTPHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLCustomHTTPHeader) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html#cfn-wafv2-webacl-customhttpheader-value
 func (o WebACLCustomHTTPHeaderOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLCustomHTTPHeader) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5300,9 +5284,9 @@ func (o WebACLCustomHTTPHeaderArrayOutput) Index(i pulumi.IntInput) WebACLCustom
 	}).(WebACLCustomHTTPHeaderOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+// Custom request handling.
 type WebACLCustomRequestHandling struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+	// Collection of HTTP headers.
 	InsertHeaders []WebACLCustomHTTPHeader `pulumi:"insertHeaders"`
 }
 
@@ -5317,9 +5301,9 @@ type WebACLCustomRequestHandlingInput interface {
 	ToWebACLCustomRequestHandlingOutputWithContext(context.Context) WebACLCustomRequestHandlingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+// Custom request handling.
 type WebACLCustomRequestHandlingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+	// Collection of HTTP headers.
 	InsertHeaders WebACLCustomHTTPHeaderArrayInput `pulumi:"insertHeaders"`
 }
 
@@ -5376,7 +5360,7 @@ func (i *webACLCustomRequestHandlingPtrType) ToWebACLCustomRequestHandlingPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+// Custom request handling.
 type WebACLCustomRequestHandlingOutput struct{ *pulumi.OutputState }
 
 func (WebACLCustomRequestHandlingOutput) ElementType() reflect.Type {
@@ -5401,7 +5385,7 @@ func (o WebACLCustomRequestHandlingOutput) ToWebACLCustomRequestHandlingPtrOutpu
 	}).(WebACLCustomRequestHandlingPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+// Collection of HTTP headers.
 func (o WebACLCustomRequestHandlingOutput) InsertHeaders() WebACLCustomHTTPHeaderArrayOutput {
 	return o.ApplyT(func(v WebACLCustomRequestHandling) []WebACLCustomHTTPHeader { return v.InsertHeaders }).(WebACLCustomHTTPHeaderArrayOutput)
 }
@@ -5430,7 +5414,7 @@ func (o WebACLCustomRequestHandlingPtrOutput) Elem() WebACLCustomRequestHandling
 	}).(WebACLCustomRequestHandlingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+// Collection of HTTP headers.
 func (o WebACLCustomRequestHandlingPtrOutput) InsertHeaders() WebACLCustomHTTPHeaderArrayOutput {
 	return o.ApplyT(func(v *WebACLCustomRequestHandling) []WebACLCustomHTTPHeader {
 		if v == nil {
@@ -5440,13 +5424,12 @@ func (o WebACLCustomRequestHandlingPtrOutput) InsertHeaders() WebACLCustomHTTPHe
 	}).(WebACLCustomHTTPHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+// Custom response.
 type WebACLCustomResponse struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+	// Custom response body key.
 	CustomResponseBodyKey *string `pulumi:"customResponseBodyKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-	ResponseCode int `pulumi:"responseCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+	ResponseCode          int     `pulumi:"responseCode"`
+	// Collection of HTTP headers.
 	ResponseHeaders []WebACLCustomHTTPHeader `pulumi:"responseHeaders"`
 }
 
@@ -5461,13 +5444,12 @@ type WebACLCustomResponseInput interface {
 	ToWebACLCustomResponseOutputWithContext(context.Context) WebACLCustomResponseOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+// Custom response.
 type WebACLCustomResponseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+	// Custom response body key.
 	CustomResponseBodyKey pulumi.StringPtrInput `pulumi:"customResponseBodyKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-	ResponseCode pulumi.IntInput `pulumi:"responseCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+	ResponseCode          pulumi.IntInput       `pulumi:"responseCode"`
+	// Collection of HTTP headers.
 	ResponseHeaders WebACLCustomHTTPHeaderArrayInput `pulumi:"responseHeaders"`
 }
 
@@ -5524,7 +5506,7 @@ func (i *webACLCustomResponsePtrType) ToWebACLCustomResponsePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponsePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+// Custom response.
 type WebACLCustomResponseOutput struct{ *pulumi.OutputState }
 
 func (WebACLCustomResponseOutput) ElementType() reflect.Type {
@@ -5549,17 +5531,16 @@ func (o WebACLCustomResponseOutput) ToWebACLCustomResponsePtrOutputWithContext(c
 	}).(WebACLCustomResponsePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+// Custom response body key.
 func (o WebACLCustomResponseOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLCustomResponse) *string { return v.CustomResponseBodyKey }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
 func (o WebACLCustomResponseOutput) ResponseCode() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLCustomResponse) int { return v.ResponseCode }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+// Collection of HTTP headers.
 func (o WebACLCustomResponseOutput) ResponseHeaders() WebACLCustomHTTPHeaderArrayOutput {
 	return o.ApplyT(func(v WebACLCustomResponse) []WebACLCustomHTTPHeader { return v.ResponseHeaders }).(WebACLCustomHTTPHeaderArrayOutput)
 }
@@ -5588,7 +5569,7 @@ func (o WebACLCustomResponsePtrOutput) Elem() WebACLCustomResponseOutput {
 	}).(WebACLCustomResponseOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+// Custom response body key.
 func (o WebACLCustomResponsePtrOutput) CustomResponseBodyKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLCustomResponse) *string {
 		if v == nil {
@@ -5598,7 +5579,6 @@ func (o WebACLCustomResponsePtrOutput) CustomResponseBodyKey() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
 func (o WebACLCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebACLCustomResponse) *int {
 		if v == nil {
@@ -5608,7 +5588,7 @@ func (o WebACLCustomResponsePtrOutput) ResponseCode() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+// Collection of HTTP headers.
 func (o WebACLCustomResponsePtrOutput) ResponseHeaders() WebACLCustomHTTPHeaderArrayOutput {
 	return o.ApplyT(func(v *WebACLCustomResponse) []WebACLCustomHTTPHeader {
 		if v == nil {
@@ -5618,120 +5598,130 @@ func (o WebACLCustomResponsePtrOutput) ResponseHeaders() WebACLCustomHTTPHeaderA
 	}).(WebACLCustomHTTPHeaderArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
-type WebACLCustomResponseBody struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
-	Content string `pulumi:"content"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
-	ContentType string `pulumi:"contentType"`
+// Custom response key and body map.
+type WebACLCustomResponseBodies struct {
 }
 
-// WebACLCustomResponseBodyInput is an input type that accepts WebACLCustomResponseBodyArgs and WebACLCustomResponseBodyOutput values.
-// You can construct a concrete instance of `WebACLCustomResponseBodyInput` via:
+// WebACLCustomResponseBodiesInput is an input type that accepts WebACLCustomResponseBodiesArgs and WebACLCustomResponseBodiesOutput values.
+// You can construct a concrete instance of `WebACLCustomResponseBodiesInput` via:
 //
-//          WebACLCustomResponseBodyArgs{...}
-type WebACLCustomResponseBodyInput interface {
+//          WebACLCustomResponseBodiesArgs{...}
+type WebACLCustomResponseBodiesInput interface {
 	pulumi.Input
 
-	ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput
-	ToWebACLCustomResponseBodyOutputWithContext(context.Context) WebACLCustomResponseBodyOutput
+	ToWebACLCustomResponseBodiesOutput() WebACLCustomResponseBodiesOutput
+	ToWebACLCustomResponseBodiesOutputWithContext(context.Context) WebACLCustomResponseBodiesOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
-type WebACLCustomResponseBodyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
-	Content pulumi.StringInput `pulumi:"content"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
-	ContentType pulumi.StringInput `pulumi:"contentType"`
+// Custom response key and body map.
+type WebACLCustomResponseBodiesArgs struct {
 }
 
-func (WebACLCustomResponseBodyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLCustomResponseBody)(nil)).Elem()
+func (WebACLCustomResponseBodiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponseBodies)(nil)).Elem()
 }
 
-func (i WebACLCustomResponseBodyArgs) ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput {
-	return i.ToWebACLCustomResponseBodyOutputWithContext(context.Background())
+func (i WebACLCustomResponseBodiesArgs) ToWebACLCustomResponseBodiesOutput() WebACLCustomResponseBodiesOutput {
+	return i.ToWebACLCustomResponseBodiesOutputWithContext(context.Background())
 }
 
-func (i WebACLCustomResponseBodyArgs) ToWebACLCustomResponseBodyOutputWithContext(ctx context.Context) WebACLCustomResponseBodyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodyOutput)
+func (i WebACLCustomResponseBodiesArgs) ToWebACLCustomResponseBodiesOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodiesOutput)
 }
 
-// WebACLCustomResponseBodyMapInput is an input type that accepts WebACLCustomResponseBodyMap and WebACLCustomResponseBodyMapOutput values.
-// You can construct a concrete instance of `WebACLCustomResponseBodyMapInput` via:
+func (i WebACLCustomResponseBodiesArgs) ToWebACLCustomResponseBodiesPtrOutput() WebACLCustomResponseBodiesPtrOutput {
+	return i.ToWebACLCustomResponseBodiesPtrOutputWithContext(context.Background())
+}
+
+func (i WebACLCustomResponseBodiesArgs) ToWebACLCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodiesOutput).ToWebACLCustomResponseBodiesPtrOutputWithContext(ctx)
+}
+
+// WebACLCustomResponseBodiesPtrInput is an input type that accepts WebACLCustomResponseBodiesArgs, WebACLCustomResponseBodiesPtr and WebACLCustomResponseBodiesPtrOutput values.
+// You can construct a concrete instance of `WebACLCustomResponseBodiesPtrInput` via:
 //
-//          WebACLCustomResponseBodyMap{ "key": WebACLCustomResponseBodyArgs{...} }
-type WebACLCustomResponseBodyMapInput interface {
+//          WebACLCustomResponseBodiesArgs{...}
+//
+//  or:
+//
+//          nil
+type WebACLCustomResponseBodiesPtrInput interface {
 	pulumi.Input
 
-	ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput
-	ToWebACLCustomResponseBodyMapOutputWithContext(context.Context) WebACLCustomResponseBodyMapOutput
+	ToWebACLCustomResponseBodiesPtrOutput() WebACLCustomResponseBodiesPtrOutput
+	ToWebACLCustomResponseBodiesPtrOutputWithContext(context.Context) WebACLCustomResponseBodiesPtrOutput
 }
 
-type WebACLCustomResponseBodyMap map[string]WebACLCustomResponseBodyInput
+type webACLCustomResponseBodiesPtrType WebACLCustomResponseBodiesArgs
 
-func (WebACLCustomResponseBodyMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebACLCustomResponseBody)(nil)).Elem()
+func WebACLCustomResponseBodiesPtr(v *WebACLCustomResponseBodiesArgs) WebACLCustomResponseBodiesPtrInput {
+	return (*webACLCustomResponseBodiesPtrType)(v)
 }
 
-func (i WebACLCustomResponseBodyMap) ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput {
-	return i.ToWebACLCustomResponseBodyMapOutputWithContext(context.Background())
+func (*webACLCustomResponseBodiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomResponseBodies)(nil)).Elem()
 }
 
-func (i WebACLCustomResponseBodyMap) ToWebACLCustomResponseBodyMapOutputWithContext(ctx context.Context) WebACLCustomResponseBodyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodyMapOutput)
+func (i *webACLCustomResponseBodiesPtrType) ToWebACLCustomResponseBodiesPtrOutput() WebACLCustomResponseBodiesPtrOutput {
+	return i.ToWebACLCustomResponseBodiesPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html
-type WebACLCustomResponseBodyOutput struct{ *pulumi.OutputState }
-
-func (WebACLCustomResponseBodyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebACLCustomResponseBody)(nil)).Elem()
+func (i *webACLCustomResponseBodiesPtrType) ToWebACLCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLCustomResponseBodiesPtrOutput)
 }
 
-func (o WebACLCustomResponseBodyOutput) ToWebACLCustomResponseBodyOutput() WebACLCustomResponseBodyOutput {
+// Custom response key and body map.
+type WebACLCustomResponseBodiesOutput struct{ *pulumi.OutputState }
+
+func (WebACLCustomResponseBodiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLCustomResponseBodies)(nil)).Elem()
+}
+
+func (o WebACLCustomResponseBodiesOutput) ToWebACLCustomResponseBodiesOutput() WebACLCustomResponseBodiesOutput {
 	return o
 }
 
-func (o WebACLCustomResponseBodyOutput) ToWebACLCustomResponseBodyOutputWithContext(ctx context.Context) WebACLCustomResponseBodyOutput {
+func (o WebACLCustomResponseBodiesOutput) ToWebACLCustomResponseBodiesOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-content
-func (o WebACLCustomResponseBodyOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLCustomResponseBody) string { return v.Content }).(pulumi.StringOutput)
+func (o WebACLCustomResponseBodiesOutput) ToWebACLCustomResponseBodiesPtrOutput() WebACLCustomResponseBodiesPtrOutput {
+	return o.ToWebACLCustomResponseBodiesPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html#cfn-wafv2-webacl-customresponsebody-contenttype
-func (o WebACLCustomResponseBodyOutput) ContentType() pulumi.StringOutput {
-	return o.ApplyT(func(v WebACLCustomResponseBody) string { return v.ContentType }).(pulumi.StringOutput)
+func (o WebACLCustomResponseBodiesOutput) ToWebACLCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebACLCustomResponseBodies) *WebACLCustomResponseBodies {
+		return &v
+	}).(WebACLCustomResponseBodiesPtrOutput)
 }
 
-type WebACLCustomResponseBodyMapOutput struct{ *pulumi.OutputState }
+type WebACLCustomResponseBodiesPtrOutput struct{ *pulumi.OutputState }
 
-func (WebACLCustomResponseBodyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebACLCustomResponseBody)(nil)).Elem()
+func (WebACLCustomResponseBodiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebACLCustomResponseBodies)(nil)).Elem()
 }
 
-func (o WebACLCustomResponseBodyMapOutput) ToWebACLCustomResponseBodyMapOutput() WebACLCustomResponseBodyMapOutput {
+func (o WebACLCustomResponseBodiesPtrOutput) ToWebACLCustomResponseBodiesPtrOutput() WebACLCustomResponseBodiesPtrOutput {
 	return o
 }
 
-func (o WebACLCustomResponseBodyMapOutput) ToWebACLCustomResponseBodyMapOutputWithContext(ctx context.Context) WebACLCustomResponseBodyMapOutput {
+func (o WebACLCustomResponseBodiesPtrOutput) ToWebACLCustomResponseBodiesPtrOutputWithContext(ctx context.Context) WebACLCustomResponseBodiesPtrOutput {
 	return o
 }
 
-func (o WebACLCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebACLCustomResponseBodyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebACLCustomResponseBody {
-		return vs[0].(map[string]WebACLCustomResponseBody)[vs[1].(string)]
-	}).(WebACLCustomResponseBodyOutput)
+func (o WebACLCustomResponseBodiesPtrOutput) Elem() WebACLCustomResponseBodiesOutput {
+	return o.ApplyT(func(v *WebACLCustomResponseBodies) WebACLCustomResponseBodies {
+		if v != nil {
+			return *v
+		}
+		var ret WebACLCustomResponseBodies
+		return ret
+	}).(WebACLCustomResponseBodiesOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+// Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebACLDefaultAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
 	Allow *WebACLAllowAction `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
 	Block *WebACLBlockAction `pulumi:"block"`
 }
 
@@ -5746,11 +5736,9 @@ type WebACLDefaultActionInput interface {
 	ToWebACLDefaultActionOutputWithContext(context.Context) WebACLDefaultActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+// Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebACLDefaultActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
 	Allow WebACLAllowActionPtrInput `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
 	Block WebACLBlockActionPtrInput `pulumi:"block"`
 }
 
@@ -5807,7 +5795,7 @@ func (i *webACLDefaultActionPtrType) ToWebACLDefaultActionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLDefaultActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html
+// Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebACLDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLDefaultActionOutput) ElementType() reflect.Type {
@@ -5832,12 +5820,10 @@ func (o WebACLDefaultActionOutput) ToWebACLDefaultActionPtrOutputWithContext(ctx
 	}).(WebACLDefaultActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
 func (o WebACLDefaultActionOutput) Allow() WebACLAllowActionPtrOutput {
 	return o.ApplyT(func(v WebACLDefaultAction) *WebACLAllowAction { return v.Allow }).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
 func (o WebACLDefaultActionOutput) Block() WebACLBlockActionPtrOutput {
 	return o.ApplyT(func(v WebACLDefaultAction) *WebACLBlockAction { return v.Block }).(WebACLBlockActionPtrOutput)
 }
@@ -5866,7 +5852,6 @@ func (o WebACLDefaultActionPtrOutput) Elem() WebACLDefaultActionOutput {
 	}).(WebACLDefaultActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-allow
 func (o WebACLDefaultActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
 	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLAllowAction {
 		if v == nil {
@@ -5876,7 +5861,6 @@ func (o WebACLDefaultActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
 	}).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html#cfn-wafv2-webacl-defaultaction-block
 func (o WebACLDefaultActionPtrOutput) Block() WebACLBlockActionPtrOutput {
 	return o.ApplyT(func(v *WebACLDefaultAction) *WebACLBlockAction {
 		if v == nil {
@@ -5886,9 +5870,8 @@ func (o WebACLDefaultActionPtrOutput) Block() WebACLBlockActionPtrOutput {
 	}).(WebACLBlockActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+// Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
 type WebACLExcludedRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
 	Name string `pulumi:"name"`
 }
 
@@ -5903,9 +5886,8 @@ type WebACLExcludedRuleInput interface {
 	ToWebACLExcludedRuleOutputWithContext(context.Context) WebACLExcludedRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+// Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
 type WebACLExcludedRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5946,7 +5928,7 @@ func (i WebACLExcludedRuleArray) ToWebACLExcludedRuleArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLExcludedRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html
+// Excluded Rule in the RuleGroup or ManagedRuleGroup will not be evaluated.
 type WebACLExcludedRuleOutput struct{ *pulumi.OutputState }
 
 func (WebACLExcludedRuleOutput) ElementType() reflect.Type {
@@ -5961,7 +5943,6 @@ func (o WebACLExcludedRuleOutput) ToWebACLExcludedRuleOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html#cfn-wafv2-webacl-excludedrule-name
 func (o WebACLExcludedRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLExcludedRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5986,23 +5967,21 @@ func (o WebACLExcludedRuleArrayOutput) Index(i pulumi.IntInput) WebACLExcludedRu
 	}).(WebACLExcludedRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
+// Field of the request to match.
 type WebACLFieldToMatch struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+	// All query arguments of a web request.
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
-	Body interface{} `pulumi:"body"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+	// The body of a web request. This immediately follows the request headers.
+	Body     interface{}     `pulumi:"body"`
 	JsonBody *WebACLJsonBody `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
-	QueryString interface{} `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
+	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+	QueryString  interface{} `pulumi:"queryString"`
 	SingleHeader interface{} `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument interface{} `pulumi:"singleQueryArgument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath interface{} `pulumi:"uriPath"`
 }
 
@@ -6017,23 +5996,21 @@ type WebACLFieldToMatchInput interface {
 	ToWebACLFieldToMatchOutputWithContext(context.Context) WebACLFieldToMatchOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
+// Field of the request to match.
 type WebACLFieldToMatchArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+	// All query arguments of a web request.
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
-	Body pulumi.Input `pulumi:"body"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
+	// The body of a web request. This immediately follows the request headers.
+	Body     pulumi.Input           `pulumi:"body"`
 	JsonBody WebACLJsonBodyPtrInput `pulumi:"jsonBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
-	QueryString pulumi.Input `pulumi:"queryString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
+	// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
+	QueryString  pulumi.Input `pulumi:"queryString"`
 	SingleHeader pulumi.Input `pulumi:"singleHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+	// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 	SingleQueryArgument pulumi.Input `pulumi:"singleQueryArgument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+	// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 	UriPath pulumi.Input `pulumi:"uriPath"`
 }
 
@@ -6090,7 +6067,7 @@ func (i *webACLFieldToMatchPtrType) ToWebACLFieldToMatchPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
+// Field of the request to match.
 type WebACLFieldToMatchOutput struct{ *pulumi.OutputState }
 
 func (WebACLFieldToMatchOutput) ElementType() reflect.Type {
@@ -6115,42 +6092,40 @@ func (o WebACLFieldToMatchOutput) ToWebACLFieldToMatchPtrOutputWithContext(ctx c
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+// All query arguments of a web request.
 func (o WebACLFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
+// The body of a web request. This immediately follows the request headers.
 func (o WebACLFieldToMatchOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.Body }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
 func (o WebACLFieldToMatchOutput) JsonBody() WebACLJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) *WebACLJsonBody { return v.JsonBody }).(WebACLJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebACLFieldToMatchOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.Method }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
+// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
 func (o WebACLFieldToMatchOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.QueryString }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
 func (o WebACLFieldToMatchOutput) SingleHeader() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.SingleHeader }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 func (o WebACLFieldToMatchOutput) SingleQueryArgument() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.SingleQueryArgument }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o WebACLFieldToMatchOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLFieldToMatch) interface{} { return v.UriPath }).(pulumi.AnyOutput)
 }
@@ -6179,7 +6154,7 @@ func (o WebACLFieldToMatchPtrOutput) Elem() WebACLFieldToMatchOutput {
 	}).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+// All query arguments of a web request.
 func (o WebACLFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6189,7 +6164,7 @@ func (o WebACLFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
+// The body of a web request. This immediately follows the request headers.
 func (o WebACLFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6199,7 +6174,6 @@ func (o WebACLFieldToMatchPtrOutput) Body() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
 func (o WebACLFieldToMatchPtrOutput) JsonBody() WebACLJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) *WebACLJsonBody {
 		if v == nil {
@@ -6209,7 +6183,7 @@ func (o WebACLFieldToMatchPtrOutput) JsonBody() WebACLJsonBodyPtrOutput {
 	}).(WebACLJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 func (o WebACLFieldToMatchPtrOutput) Method() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6219,7 +6193,7 @@ func (o WebACLFieldToMatchPtrOutput) Method() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
+// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
 func (o WebACLFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6229,7 +6203,6 @@ func (o WebACLFieldToMatchPtrOutput) QueryString() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
 func (o WebACLFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6239,7 +6212,7 @@ func (o WebACLFieldToMatchPtrOutput) SingleHeader() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
 func (o WebACLFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6249,7 +6222,7 @@ func (o WebACLFieldToMatchPtrOutput) SingleQueryArgument() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
 func (o WebACLFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLFieldToMatch) interface{} {
 		if v == nil {
@@ -6259,12 +6232,9 @@ func (o WebACLFieldToMatchPtrOutput) UriPath() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
 type WebACLForwardedIPConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
-	HeaderName string `pulumi:"headerName"`
+	HeaderName       string `pulumi:"headerName"`
 }
 
 // WebACLForwardedIPConfigurationInput is an input type that accepts WebACLForwardedIPConfigurationArgs and WebACLForwardedIPConfigurationOutput values.
@@ -6278,12 +6248,9 @@ type WebACLForwardedIPConfigurationInput interface {
 	ToWebACLForwardedIPConfigurationOutputWithContext(context.Context) WebACLForwardedIPConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
 type WebACLForwardedIPConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	HeaderName       pulumi.StringInput `pulumi:"headerName"`
 }
 
 func (WebACLForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -6339,7 +6306,6 @@ func (i *webACLForwardedIPConfigurationPtrType) ToWebACLForwardedIPConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html
 type WebACLForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebACLForwardedIPConfigurationOutput) ElementType() reflect.Type {
@@ -6364,12 +6330,10 @@ func (o WebACLForwardedIPConfigurationOutput) ToWebACLForwardedIPConfigurationPt
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
 func (o WebACLForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
 func (o WebACLForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
@@ -6398,7 +6362,6 @@ func (o WebACLForwardedIPConfigurationPtrOutput) Elem() WebACLForwardedIPConfigu
 	}).(WebACLForwardedIPConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-fallbackbehavior
 func (o WebACLForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *string {
 		if v == nil {
@@ -6408,7 +6371,6 @@ func (o WebACLForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html#cfn-wafv2-webacl-forwardedipconfiguration-headername
 func (o WebACLForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLForwardedIPConfiguration) *string {
 		if v == nil {
@@ -6418,11 +6380,8 @@ func (o WebACLForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
 type WebACLGeoMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-	CountryCodes []string `pulumi:"countryCodes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+	CountryCodes      []string                        `pulumi:"countryCodes"`
 	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
 }
 
@@ -6437,11 +6396,8 @@ type WebACLGeoMatchStatementInput interface {
 	ToWebACLGeoMatchStatementOutputWithContext(context.Context) WebACLGeoMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
 type WebACLGeoMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
-	CountryCodes pulumi.StringArrayInput `pulumi:"countryCodes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
+	CountryCodes      pulumi.StringArrayInput                `pulumi:"countryCodes"`
 	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
 }
 
@@ -6498,7 +6454,6 @@ func (i *webACLGeoMatchStatementPtrType) ToWebACLGeoMatchStatementPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html
 type WebACLGeoMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLGeoMatchStatementOutput) ElementType() reflect.Type {
@@ -6523,12 +6478,10 @@ func (o WebACLGeoMatchStatementOutput) ToWebACLGeoMatchStatementPtrOutputWithCon
 	}).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
 func (o WebACLGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebACLGeoMatchStatement) []string { return v.CountryCodes }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
 func (o WebACLGeoMatchStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
@@ -6557,7 +6510,6 @@ func (o WebACLGeoMatchStatementPtrOutput) Elem() WebACLGeoMatchStatementOutput {
 	}).(WebACLGeoMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-countrycodes
 func (o WebACLGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebACLGeoMatchStatement) []string {
 		if v == nil {
@@ -6567,7 +6519,6 @@ func (o WebACLGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html#cfn-wafv2-webacl-geomatchstatement-forwardedipconfig
 func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLGeoMatchStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
@@ -6577,14 +6528,10 @@ func (o WebACLGeoMatchStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPC
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
 type WebACLIPSetForwardedIPConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
 	FallbackBehavior string `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
-	HeaderName string `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
-	Position string `pulumi:"position"`
+	HeaderName       string `pulumi:"headerName"`
+	Position         string `pulumi:"position"`
 }
 
 // WebACLIPSetForwardedIPConfigurationInput is an input type that accepts WebACLIPSetForwardedIPConfigurationArgs and WebACLIPSetForwardedIPConfigurationOutput values.
@@ -6598,14 +6545,10 @@ type WebACLIPSetForwardedIPConfigurationInput interface {
 	ToWebACLIPSetForwardedIPConfigurationOutputWithContext(context.Context) WebACLIPSetForwardedIPConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
 type WebACLIPSetForwardedIPConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
 	FallbackBehavior pulumi.StringInput `pulumi:"fallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
-	HeaderName pulumi.StringInput `pulumi:"headerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
-	Position pulumi.StringInput `pulumi:"position"`
+	HeaderName       pulumi.StringInput `pulumi:"headerName"`
+	Position         pulumi.StringInput `pulumi:"position"`
 }
 
 func (WebACLIPSetForwardedIPConfigurationArgs) ElementType() reflect.Type {
@@ -6661,7 +6604,6 @@ func (i *webACLIPSetForwardedIPConfigurationPtrType) ToWebACLIPSetForwardedIPCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html
 type WebACLIPSetForwardedIPConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WebACLIPSetForwardedIPConfigurationOutput) ElementType() reflect.Type {
@@ -6686,17 +6628,14 @@ func (o WebACLIPSetForwardedIPConfigurationOutput) ToWebACLIPSetForwardedIPConfi
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
 func (o WebACLIPSetForwardedIPConfigurationOutput) FallbackBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.FallbackBehavior }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
 func (o WebACLIPSetForwardedIPConfigurationOutput) HeaderName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.HeaderName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
 func (o WebACLIPSetForwardedIPConfigurationOutput) Position() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetForwardedIPConfiguration) string { return v.Position }).(pulumi.StringOutput)
 }
@@ -6725,7 +6664,6 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Elem() WebACLIPSetForwarde
 	}).(WebACLIPSetForwardedIPConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-fallbackbehavior
 func (o WebACLIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -6735,7 +6673,6 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) FallbackBehavior() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-headername
 func (o WebACLIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -6745,7 +6682,6 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) HeaderName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html#cfn-wafv2-webacl-ipsetforwardedipconfiguration-position
 func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetForwardedIPConfiguration) *string {
 		if v == nil {
@@ -6755,11 +6691,8 @@ func (o WebACLIPSetForwardedIPConfigurationPtrOutput) Position() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
 type WebACLIPSetReferenceStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+	Arn                    string                               `pulumi:"arn"`
 	IPSetForwardedIPConfig *WebACLIPSetForwardedIPConfiguration `pulumi:"iPSetForwardedIPConfig"`
 }
 
@@ -6774,11 +6707,8 @@ type WebACLIPSetReferenceStatementInput interface {
 	ToWebACLIPSetReferenceStatementOutputWithContext(context.Context) WebACLIPSetReferenceStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
 type WebACLIPSetReferenceStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
+	Arn                    pulumi.StringInput                          `pulumi:"arn"`
 	IPSetForwardedIPConfig WebACLIPSetForwardedIPConfigurationPtrInput `pulumi:"iPSetForwardedIPConfig"`
 }
 
@@ -6835,7 +6765,6 @@ func (i *webACLIPSetReferenceStatementPtrType) ToWebACLIPSetReferenceStatementPt
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html
 type WebACLIPSetReferenceStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLIPSetReferenceStatementOutput) ElementType() reflect.Type {
@@ -6860,12 +6789,10 @@ func (o WebACLIPSetReferenceStatementOutput) ToWebACLIPSetReferenceStatementPtrO
 	}).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
 func (o WebACLIPSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLIPSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
 func (o WebACLIPSetReferenceStatementOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
 		return v.IPSetForwardedIPConfig
@@ -6896,7 +6823,6 @@ func (o WebACLIPSetReferenceStatementPtrOutput) Elem() WebACLIPSetReferenceState
 	}).(WebACLIPSetReferenceStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-arn
 func (o WebACLIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetReferenceStatement) *string {
 		if v == nil {
@@ -6906,7 +6832,6 @@ func (o WebACLIPSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html#cfn-wafv2-webacl-ipsetreferencestatement-ipsetforwardedipconfig
 func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLIPSetForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLIPSetReferenceStatement) *WebACLIPSetForwardedIPConfiguration {
 		if v == nil {
@@ -6916,14 +6841,11 @@ func (o WebACLIPSetReferenceStatementPtrOutput) IPSetForwardedIPConfig() WebACLI
 	}).(WebACLIPSetForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type WebACLJsonBody struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
-	InvalidFallbackBehavior *string `pulumi:"invalidFallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
-	MatchPattern WebACLJsonMatchPattern `pulumi:"matchPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
-	MatchScope string `pulumi:"matchScope"`
+	InvalidFallbackBehavior *string                `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            WebACLJsonMatchPattern `pulumi:"matchPattern"`
+	MatchScope              string                 `pulumi:"matchScope"`
 }
 
 // WebACLJsonBodyInput is an input type that accepts WebACLJsonBodyArgs and WebACLJsonBodyOutput values.
@@ -6937,14 +6859,11 @@ type WebACLJsonBodyInput interface {
 	ToWebACLJsonBodyOutputWithContext(context.Context) WebACLJsonBodyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type WebACLJsonBodyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
-	InvalidFallbackBehavior pulumi.StringPtrInput `pulumi:"invalidFallbackBehavior"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
-	MatchPattern WebACLJsonMatchPatternInput `pulumi:"matchPattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
-	MatchScope pulumi.StringInput `pulumi:"matchScope"`
+	InvalidFallbackBehavior pulumi.StringPtrInput       `pulumi:"invalidFallbackBehavior"`
+	MatchPattern            WebACLJsonMatchPatternInput `pulumi:"matchPattern"`
+	MatchScope              pulumi.StringInput          `pulumi:"matchScope"`
 }
 
 func (WebACLJsonBodyArgs) ElementType() reflect.Type {
@@ -7000,7 +6919,7 @@ func (i *webACLJsonBodyPtrType) ToWebACLJsonBodyPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html
+// Inspect the request body as JSON. The request body immediately follows the request headers.
 type WebACLJsonBodyOutput struct{ *pulumi.OutputState }
 
 func (WebACLJsonBodyOutput) ElementType() reflect.Type {
@@ -7025,17 +6944,14 @@ func (o WebACLJsonBodyOutput) ToWebACLJsonBodyPtrOutputWithContext(ctx context.C
 	}).(WebACLJsonBodyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
 func (o WebACLJsonBodyOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLJsonBody) *string { return v.InvalidFallbackBehavior }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
 func (o WebACLJsonBodyOutput) MatchPattern() WebACLJsonMatchPatternOutput {
 	return o.ApplyT(func(v WebACLJsonBody) WebACLJsonMatchPattern { return v.MatchPattern }).(WebACLJsonMatchPatternOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
 func (o WebACLJsonBodyOutput) MatchScope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLJsonBody) string { return v.MatchScope }).(pulumi.StringOutput)
 }
@@ -7064,7 +6980,6 @@ func (o WebACLJsonBodyPtrOutput) Elem() WebACLJsonBodyOutput {
 	}).(WebACLJsonBodyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-invalidfallbackbehavior
 func (o WebACLJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLJsonBody) *string {
 		if v == nil {
@@ -7074,7 +6989,6 @@ func (o WebACLJsonBodyPtrOutput) InvalidFallbackBehavior() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchpattern
 func (o WebACLJsonBodyPtrOutput) MatchPattern() WebACLJsonMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebACLJsonBody) *WebACLJsonMatchPattern {
 		if v == nil {
@@ -7084,7 +6998,6 @@ func (o WebACLJsonBodyPtrOutput) MatchPattern() WebACLJsonMatchPatternPtrOutput 
 	}).(WebACLJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html#cfn-wafv2-webacl-jsonbody-matchscope
 func (o WebACLJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLJsonBody) *string {
 		if v == nil {
@@ -7094,12 +7007,11 @@ func (o WebACLJsonBodyPtrOutput) MatchScope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type WebACLJsonMatchPattern struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
-	All interface{} `pulumi:"all"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
-	IncludedPaths []string `pulumi:"includedPaths"`
+	// Inspect all parts of the web request's JSON body.
+	All           interface{} `pulumi:"all"`
+	IncludedPaths []string    `pulumi:"includedPaths"`
 }
 
 // WebACLJsonMatchPatternInput is an input type that accepts WebACLJsonMatchPatternArgs and WebACLJsonMatchPatternOutput values.
@@ -7113,11 +7025,10 @@ type WebACLJsonMatchPatternInput interface {
 	ToWebACLJsonMatchPatternOutputWithContext(context.Context) WebACLJsonMatchPatternOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type WebACLJsonMatchPatternArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
-	All pulumi.Input `pulumi:"all"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
+	// Inspect all parts of the web request's JSON body.
+	All           pulumi.Input            `pulumi:"all"`
 	IncludedPaths pulumi.StringArrayInput `pulumi:"includedPaths"`
 }
 
@@ -7174,7 +7085,7 @@ func (i *webACLJsonMatchPatternPtrType) ToWebACLJsonMatchPatternPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+// The pattern to look for in the JSON body.
 type WebACLJsonMatchPatternOutput struct{ *pulumi.OutputState }
 
 func (WebACLJsonMatchPatternOutput) ElementType() reflect.Type {
@@ -7199,12 +7110,11 @@ func (o WebACLJsonMatchPatternOutput) ToWebACLJsonMatchPatternPtrOutputWithConte
 	}).(WebACLJsonMatchPatternPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+// Inspect all parts of the web request's JSON body.
 func (o WebACLJsonMatchPatternOutput) All() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLJsonMatchPattern) interface{} { return v.All }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
 func (o WebACLJsonMatchPatternOutput) IncludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WebACLJsonMatchPattern) []string { return v.IncludedPaths }).(pulumi.StringArrayOutput)
 }
@@ -7233,7 +7143,7 @@ func (o WebACLJsonMatchPatternPtrOutput) Elem() WebACLJsonMatchPatternOutput {
 	}).(WebACLJsonMatchPatternOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+// Inspect all parts of the web request's JSON body.
 func (o WebACLJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLJsonMatchPattern) interface{} {
 		if v == nil {
@@ -7243,7 +7153,6 @@ func (o WebACLJsonMatchPatternPtrOutput) All() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
 func (o WebACLJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebACLJsonMatchPattern) []string {
 		if v == nil {
@@ -7253,9 +7162,7 @@ func (o WebACLJsonMatchPatternPtrOutput) IncludedPaths() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
 type WebACLLabel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
 	Name string `pulumi:"name"`
 }
 
@@ -7270,9 +7177,7 @@ type WebACLLabelInput interface {
 	ToWebACLLabelOutputWithContext(context.Context) WebACLLabelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
 type WebACLLabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -7313,7 +7218,6 @@ func (i WebACLLabelArray) ToWebACLLabelArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html
 type WebACLLabelOutput struct{ *pulumi.OutputState }
 
 func (WebACLLabelOutput) ElementType() reflect.Type {
@@ -7328,7 +7232,6 @@ func (o WebACLLabelOutput) ToWebACLLabelOutputWithContext(ctx context.Context) W
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html#cfn-wafv2-webacl-label-name
 func (o WebACLLabelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLLabel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -7353,11 +7256,8 @@ func (o WebACLLabelArrayOutput) Index(i pulumi.IntInput) WebACLLabelOutput {
 	}).(WebACLLabelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
 type WebACLLabelMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+	Key   string `pulumi:"key"`
 	Scope string `pulumi:"scope"`
 }
 
@@ -7372,11 +7272,8 @@ type WebACLLabelMatchStatementInput interface {
 	ToWebACLLabelMatchStatementOutputWithContext(context.Context) WebACLLabelMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
 type WebACLLabelMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
+	Key   pulumi.StringInput `pulumi:"key"`
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
 
@@ -7433,7 +7330,6 @@ func (i *webACLLabelMatchStatementPtrType) ToWebACLLabelMatchStatementPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html
 type WebACLLabelMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLLabelMatchStatementOutput) ElementType() reflect.Type {
@@ -7458,12 +7354,10 @@ func (o WebACLLabelMatchStatementOutput) ToWebACLLabelMatchStatementPtrOutputWit
 	}).(WebACLLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
 func (o WebACLLabelMatchStatementOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
 func (o WebACLLabelMatchStatementOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLLabelMatchStatement) string { return v.Scope }).(pulumi.StringOutput)
 }
@@ -7492,7 +7386,6 @@ func (o WebACLLabelMatchStatementPtrOutput) Elem() WebACLLabelMatchStatementOutp
 	}).(WebACLLabelMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-key
 func (o WebACLLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLLabelMatchStatement) *string {
 		if v == nil {
@@ -7502,7 +7395,6 @@ func (o WebACLLabelMatchStatementPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html#cfn-wafv2-webacl-labelmatchstatement-scope
 func (o WebACLLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLLabelMatchStatement) *string {
 		if v == nil {
@@ -7512,18 +7404,12 @@ func (o WebACLLabelMatchStatementPtrOutput) Scope() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
 type WebACLManagedRuleGroupStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
-	ExcludedRules []WebACLExcludedRule `pulumi:"excludedRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
-	ScopeDownStatement *WebACLStatement `pulumi:"scopeDownStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-	VendorName string `pulumi:"vendorName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
-	Version *string `pulumi:"version"`
+	ExcludedRules      []WebACLExcludedRule `pulumi:"excludedRules"`
+	Name               string               `pulumi:"name"`
+	ScopeDownStatement *WebACLStatement     `pulumi:"scopeDownStatement"`
+	VendorName         string               `pulumi:"vendorName"`
+	Version            *string              `pulumi:"version"`
 }
 
 // WebACLManagedRuleGroupStatementInput is an input type that accepts WebACLManagedRuleGroupStatementArgs and WebACLManagedRuleGroupStatementOutput values.
@@ -7537,18 +7423,12 @@ type WebACLManagedRuleGroupStatementInput interface {
 	ToWebACLManagedRuleGroupStatementOutputWithContext(context.Context) WebACLManagedRuleGroupStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
 type WebACLManagedRuleGroupStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
-	ExcludedRules WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
-	ScopeDownStatement WebACLStatementPtrInput `pulumi:"scopeDownStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
-	VendorName pulumi.StringInput `pulumi:"vendorName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
-	Version pulumi.StringPtrInput `pulumi:"version"`
+	ExcludedRules      WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
+	Name               pulumi.StringInput           `pulumi:"name"`
+	ScopeDownStatement WebACLStatementPtrInput      `pulumi:"scopeDownStatement"`
+	VendorName         pulumi.StringInput           `pulumi:"vendorName"`
+	Version            pulumi.StringPtrInput        `pulumi:"version"`
 }
 
 func (WebACLManagedRuleGroupStatementArgs) ElementType() reflect.Type {
@@ -7604,7 +7484,6 @@ func (i *webACLManagedRuleGroupStatementPtrType) ToWebACLManagedRuleGroupStateme
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLManagedRuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html
 type WebACLManagedRuleGroupStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLManagedRuleGroupStatementOutput) ElementType() reflect.Type {
@@ -7629,27 +7508,22 @@ func (o WebACLManagedRuleGroupStatementOutput) ToWebACLManagedRuleGroupStatement
 	}).(WebACLManagedRuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
 func (o WebACLManagedRuleGroupStatementOutput) ExcludedRules() WebACLExcludedRuleArrayOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) []WebACLExcludedRule { return v.ExcludedRules }).(WebACLExcludedRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
 func (o WebACLManagedRuleGroupStatementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
 func (o WebACLManagedRuleGroupStatementOutput) ScopeDownStatement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) *WebACLStatement { return v.ScopeDownStatement }).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 func (o WebACLManagedRuleGroupStatementOutput) VendorName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) string { return v.VendorName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
 func (o WebACLManagedRuleGroupStatementOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebACLManagedRuleGroupStatement) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -7678,7 +7552,6 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) Elem() WebACLManagedRuleGroupS
 	}).(WebACLManagedRuleGroupStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-excludedrules
 func (o WebACLManagedRuleGroupStatementPtrOutput) ExcludedRules() WebACLExcludedRuleArrayOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) []WebACLExcludedRule {
 		if v == nil {
@@ -7688,7 +7561,6 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) ExcludedRules() WebACLExcluded
 	}).(WebACLExcludedRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-name
 func (o WebACLManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *string {
 		if v == nil {
@@ -7698,7 +7570,6 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) Name() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-scopedownstatement
 func (o WebACLManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *WebACLStatement {
 		if v == nil {
@@ -7708,7 +7579,6 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebACLSta
 	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-vendorname
 func (o WebACLManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *string {
 		if v == nil {
@@ -7718,7 +7588,6 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) VendorName() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html#cfn-wafv2-webacl-managedrulegroupstatement-version
 func (o WebACLManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLManagedRuleGroupStatement) *string {
 		if v == nil {
@@ -7728,9 +7597,7 @@ func (o WebACLManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
 type WebACLNotStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
 	Statement WebACLStatement `pulumi:"statement"`
 }
 
@@ -7745,9 +7612,7 @@ type WebACLNotStatementInput interface {
 	ToWebACLNotStatementOutputWithContext(context.Context) WebACLNotStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
 type WebACLNotStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
 	Statement WebACLStatementInput `pulumi:"statement"`
 }
 
@@ -7804,7 +7669,6 @@ func (i *webACLNotStatementPtrType) ToWebACLNotStatementPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html
 type WebACLNotStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLNotStatementOutput) ElementType() reflect.Type {
@@ -7829,7 +7693,6 @@ func (o WebACLNotStatementOutput) ToWebACLNotStatementPtrOutputWithContext(ctx c
 	}).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
 func (o WebACLNotStatementOutput) Statement() WebACLStatementOutput {
 	return o.ApplyT(func(v WebACLNotStatement) WebACLStatement { return v.Statement }).(WebACLStatementOutput)
 }
@@ -7858,7 +7721,6 @@ func (o WebACLNotStatementPtrOutput) Elem() WebACLNotStatementOutput {
 	}).(WebACLNotStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html#cfn-wafv2-webacl-notstatement-statement
 func (o WebACLNotStatementPtrOutput) Statement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLNotStatement) *WebACLStatement {
 		if v == nil {
@@ -7868,9 +7730,7 @@ func (o WebACLNotStatementPtrOutput) Statement() WebACLStatementPtrOutput {
 	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
 type WebACLOrStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
 	Statements []WebACLStatement `pulumi:"statements"`
 }
 
@@ -7885,9 +7745,7 @@ type WebACLOrStatementInput interface {
 	ToWebACLOrStatementOutputWithContext(context.Context) WebACLOrStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
 type WebACLOrStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
 	Statements WebACLStatementArrayInput `pulumi:"statements"`
 }
 
@@ -7944,7 +7802,6 @@ func (i *webACLOrStatementPtrType) ToWebACLOrStatementPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
 type WebACLOrStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLOrStatementOutput) ElementType() reflect.Type {
@@ -7969,7 +7826,6 @@ func (o WebACLOrStatementOutput) ToWebACLOrStatementPtrOutputWithContext(ctx con
 	}).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
 func (o WebACLOrStatementOutput) Statements() WebACLStatementArrayOutput {
 	return o.ApplyT(func(v WebACLOrStatement) []WebACLStatement { return v.Statements }).(WebACLStatementArrayOutput)
 }
@@ -7998,7 +7854,6 @@ func (o WebACLOrStatementPtrOutput) Elem() WebACLOrStatementOutput {
 	}).(WebACLOrStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
 func (o WebACLOrStatementPtrOutput) Statements() WebACLStatementArrayOutput {
 	return o.ApplyT(func(v *WebACLOrStatement) []WebACLStatement {
 		if v == nil {
@@ -8008,11 +7863,11 @@ func (o WebACLOrStatementPtrOutput) Statements() WebACLStatementArrayOutput {
 	}).(WebACLStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
 type WebACLOverrideAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+	// Count traffic towards application.
 	Count interface{} `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+	// Keep the RuleGroup or ManagedRuleGroup behavior as is.
 	None interface{} `pulumi:"none"`
 }
 
@@ -8027,11 +7882,11 @@ type WebACLOverrideActionInput interface {
 	ToWebACLOverrideActionOutputWithContext(context.Context) WebACLOverrideActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
 type WebACLOverrideActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+	// Count traffic towards application.
 	Count pulumi.Input `pulumi:"count"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+	// Keep the RuleGroup or ManagedRuleGroup behavior as is.
 	None pulumi.Input `pulumi:"none"`
 }
 
@@ -8088,7 +7943,7 @@ func (i *webACLOverrideActionPtrType) ToWebACLOverrideActionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLOverrideActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
 type WebACLOverrideActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLOverrideActionOutput) ElementType() reflect.Type {
@@ -8113,12 +7968,12 @@ func (o WebACLOverrideActionOutput) ToWebACLOverrideActionPtrOutputWithContext(c
 	}).(WebACLOverrideActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+// Count traffic towards application.
 func (o WebACLOverrideActionOutput) Count() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLOverrideAction) interface{} { return v.Count }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+// Keep the RuleGroup or ManagedRuleGroup behavior as is.
 func (o WebACLOverrideActionOutput) None() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebACLOverrideAction) interface{} { return v.None }).(pulumi.AnyOutput)
 }
@@ -8147,7 +8002,7 @@ func (o WebACLOverrideActionPtrOutput) Elem() WebACLOverrideActionOutput {
 	}).(WebACLOverrideActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+// Count traffic towards application.
 func (o WebACLOverrideActionPtrOutput) Count() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLOverrideAction) interface{} {
 		if v == nil {
@@ -8157,7 +8012,7 @@ func (o WebACLOverrideActionPtrOutput) Count() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+// Keep the RuleGroup or ManagedRuleGroup behavior as is.
 func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebACLOverrideAction) interface{} {
 		if v == nil {
@@ -8167,16 +8022,11 @@ func (o WebACLOverrideActionPtrOutput) None() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
 type WebACLRateBasedStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
-	AggregateKeyType string `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
-	ForwardedIPConfig *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
-	Limit int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
-	ScopeDownStatement *WebACLStatement `pulumi:"scopeDownStatement"`
+	AggregateKeyType   string                          `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  *WebACLForwardedIPConfiguration `pulumi:"forwardedIPConfig"`
+	Limit              int                             `pulumi:"limit"`
+	ScopeDownStatement *WebACLStatement                `pulumi:"scopeDownStatement"`
 }
 
 // WebACLRateBasedStatementInput is an input type that accepts WebACLRateBasedStatementArgs and WebACLRateBasedStatementOutput values.
@@ -8190,16 +8040,11 @@ type WebACLRateBasedStatementInput interface {
 	ToWebACLRateBasedStatementOutputWithContext(context.Context) WebACLRateBasedStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
 type WebACLRateBasedStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
-	AggregateKeyType pulumi.StringInput `pulumi:"aggregateKeyType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
-	ForwardedIPConfig WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
-	Limit pulumi.IntInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
-	ScopeDownStatement WebACLStatementPtrInput `pulumi:"scopeDownStatement"`
+	AggregateKeyType   pulumi.StringInput                     `pulumi:"aggregateKeyType"`
+	ForwardedIPConfig  WebACLForwardedIPConfigurationPtrInput `pulumi:"forwardedIPConfig"`
+	Limit              pulumi.IntInput                        `pulumi:"limit"`
+	ScopeDownStatement WebACLStatementPtrInput                `pulumi:"scopeDownStatement"`
 }
 
 func (WebACLRateBasedStatementArgs) ElementType() reflect.Type {
@@ -8255,7 +8100,6 @@ func (i *webACLRateBasedStatementPtrType) ToWebACLRateBasedStatementPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html
 type WebACLRateBasedStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLRateBasedStatementOutput) ElementType() reflect.Type {
@@ -8280,22 +8124,18 @@ func (o WebACLRateBasedStatementOutput) ToWebACLRateBasedStatementPtrOutputWithC
 	}).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
 func (o WebACLRateBasedStatementOutput) AggregateKeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatement) string { return v.AggregateKeyType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
 func (o WebACLRateBasedStatementOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLForwardedIPConfiguration { return v.ForwardedIPConfig }).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
 func (o WebACLRateBasedStatementOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
 func (o WebACLRateBasedStatementOutput) ScopeDownStatement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v WebACLRateBasedStatement) *WebACLStatement { return v.ScopeDownStatement }).(WebACLStatementPtrOutput)
 }
@@ -8324,7 +8164,6 @@ func (o WebACLRateBasedStatementPtrOutput) Elem() WebACLRateBasedStatementOutput
 	}).(WebACLRateBasedStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-aggregatekeytype
 func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *string {
 		if v == nil {
@@ -8334,7 +8173,6 @@ func (o WebACLRateBasedStatementPtrOutput) AggregateKeyType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-forwardedipconfig
 func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIPConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLForwardedIPConfiguration {
 		if v == nil {
@@ -8344,7 +8182,6 @@ func (o WebACLRateBasedStatementPtrOutput) ForwardedIPConfig() WebACLForwardedIP
 	}).(WebACLForwardedIPConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-limit
 func (o WebACLRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *int {
 		if v == nil {
@@ -8354,7 +8191,6 @@ func (o WebACLRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html#cfn-wafv2-webacl-ratebasedstatement-scopedownstatement
 func (o WebACLRateBasedStatementPtrOutput) ScopeDownStatement() WebACLStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLRateBasedStatement) *WebACLStatement {
 		if v == nil {
@@ -8364,13 +8200,9 @@ func (o WebACLRateBasedStatementPtrOutput) ScopeDownStatement() WebACLStatementP
 	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
 type WebACLRegexPatternSetReferenceStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
+	Arn                 string                     `pulumi:"arn"`
+	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -8385,13 +8217,9 @@ type WebACLRegexPatternSetReferenceStatementInput interface {
 	ToWebACLRegexPatternSetReferenceStatementOutputWithContext(context.Context) WebACLRegexPatternSetReferenceStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
 type WebACLRegexPatternSetReferenceStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
+	Arn                 pulumi.StringInput                 `pulumi:"arn"`
+	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -8448,7 +8276,6 @@ func (i *webACLRegexPatternSetReferenceStatementPtrType) ToWebACLRegexPatternSet
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html
 type WebACLRegexPatternSetReferenceStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLRegexPatternSetReferenceStatementOutput) ElementType() reflect.Type {
@@ -8473,17 +8300,14 @@ func (o WebACLRegexPatternSetReferenceStatementOutput) ToWebACLRegexPatternSetRe
 	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
 func (o WebACLRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
 func (o WebACLRegexPatternSetReferenceStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
 	return o.ApplyT(func(v WebACLRegexPatternSetReferenceStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
 func (o WebACLRegexPatternSetReferenceStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLRegexPatternSetReferenceStatement) []WebACLTextTransformation {
 		return v.TextTransformations
@@ -8514,7 +8338,6 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) Elem() WebACLRegexPatt
 	}).(WebACLRegexPatternSetReferenceStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-arn
 func (o WebACLRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -8524,7 +8347,6 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-fieldtomatch
 func (o WebACLRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebACLRegexPatternSetReferenceStatement) *WebACLFieldToMatch {
 		if v == nil {
@@ -8534,7 +8356,6 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() WebACLF
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html#cfn-wafv2-webacl-regexpatternsetreferencestatement-texttransformations
 func (o WebACLRegexPatternSetReferenceStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebACLRegexPatternSetReferenceStatement) []WebACLTextTransformation {
 		if v == nil {
@@ -8544,21 +8365,15 @@ func (o WebACLRegexPatternSetReferenceStatementPtrOutput) TextTransformations() 
 	}).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
+// Rule of WebACL that contains condition and action.
 type WebACLRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-	Action *WebACLRuleAction `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
+	Action         *WebACLRuleAction     `pulumi:"action"`
+	Name           string                `pulumi:"name"`
 	OverrideAction *WebACLOverrideAction `pulumi:"overrideAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-	Priority int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
-	RuleLabels []WebACLLabel `pulumi:"ruleLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement WebACLStatement `pulumi:"statement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
+	Priority       int                   `pulumi:"priority"`
+	// Collection of Rule Labels.
+	RuleLabels       []WebACLLabel          `pulumi:"ruleLabels"`
+	Statement        WebACLStatement        `pulumi:"statement"`
 	VisibilityConfig WebACLVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -8573,21 +8388,15 @@ type WebACLRuleInput interface {
 	ToWebACLRuleOutputWithContext(context.Context) WebACLRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
+// Rule of WebACL that contains condition and action.
 type WebACLRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
-	Action WebACLRuleActionPtrInput `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
+	Action         WebACLRuleActionPtrInput     `pulumi:"action"`
+	Name           pulumi.StringInput           `pulumi:"name"`
 	OverrideAction WebACLOverrideActionPtrInput `pulumi:"overrideAction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
-	RuleLabels WebACLLabelArrayInput `pulumi:"ruleLabels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
-	Statement WebACLStatementInput `pulumi:"statement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
+	Priority       pulumi.IntInput              `pulumi:"priority"`
+	// Collection of Rule Labels.
+	RuleLabels       WebACLLabelArrayInput       `pulumi:"ruleLabels"`
+	Statement        WebACLStatementInput        `pulumi:"statement"`
 	VisibilityConfig WebACLVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -8628,7 +8437,7 @@ func (i WebACLRuleArray) ToWebACLRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html
+// Rule of WebACL that contains condition and action.
 type WebACLRuleOutput struct{ *pulumi.OutputState }
 
 func (WebACLRuleOutput) ElementType() reflect.Type {
@@ -8643,37 +8452,31 @@ func (o WebACLRuleOutput) ToWebACLRuleOutputWithContext(ctx context.Context) Web
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-action
 func (o WebACLRuleOutput) Action() WebACLRuleActionPtrOutput {
 	return o.ApplyT(func(v WebACLRule) *WebACLRuleAction { return v.Action }).(WebACLRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-name
 func (o WebACLRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-overrideaction
 func (o WebACLRuleOutput) OverrideAction() WebACLOverrideActionPtrOutput {
 	return o.ApplyT(func(v WebACLRule) *WebACLOverrideAction { return v.OverrideAction }).(WebACLOverrideActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-priority
 func (o WebACLRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLRule) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-rulelabels
+// Collection of Rule Labels.
 func (o WebACLRuleOutput) RuleLabels() WebACLLabelArrayOutput {
 	return o.ApplyT(func(v WebACLRule) []WebACLLabel { return v.RuleLabels }).(WebACLLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-statement
 func (o WebACLRuleOutput) Statement() WebACLStatementOutput {
 	return o.ApplyT(func(v WebACLRule) WebACLStatement { return v.Statement }).(WebACLStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html#cfn-wafv2-webacl-rule-visibilityconfig
 func (o WebACLRuleOutput) VisibilityConfig() WebACLVisibilityConfigOutput {
 	return o.ApplyT(func(v WebACLRule) WebACLVisibilityConfig { return v.VisibilityConfig }).(WebACLVisibilityConfigOutput)
 }
@@ -8698,13 +8501,10 @@ func (o WebACLRuleArrayOutput) Index(i pulumi.IntInput) WebACLRuleOutput {
 	}).(WebACLRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+// Action taken when Rule matches its condition.
 type WebACLRuleAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
 	Allow *WebACLAllowAction `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
 	Block *WebACLBlockAction `pulumi:"block"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
 	Count *WebACLCountAction `pulumi:"count"`
 }
 
@@ -8719,13 +8519,10 @@ type WebACLRuleActionInput interface {
 	ToWebACLRuleActionOutputWithContext(context.Context) WebACLRuleActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+// Action taken when Rule matches its condition.
 type WebACLRuleActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
 	Allow WebACLAllowActionPtrInput `pulumi:"allow"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
 	Block WebACLBlockActionPtrInput `pulumi:"block"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
 	Count WebACLCountActionPtrInput `pulumi:"count"`
 }
 
@@ -8782,7 +8579,7 @@ func (i *webACLRuleActionPtrType) ToWebACLRuleActionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+// Action taken when Rule matches its condition.
 type WebACLRuleActionOutput struct{ *pulumi.OutputState }
 
 func (WebACLRuleActionOutput) ElementType() reflect.Type {
@@ -8807,17 +8604,14 @@ func (o WebACLRuleActionOutput) ToWebACLRuleActionPtrOutputWithContext(ctx conte
 	}).(WebACLRuleActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
 func (o WebACLRuleActionOutput) Allow() WebACLAllowActionPtrOutput {
 	return o.ApplyT(func(v WebACLRuleAction) *WebACLAllowAction { return v.Allow }).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
 func (o WebACLRuleActionOutput) Block() WebACLBlockActionPtrOutput {
 	return o.ApplyT(func(v WebACLRuleAction) *WebACLBlockAction { return v.Block }).(WebACLBlockActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
 func (o WebACLRuleActionOutput) Count() WebACLCountActionPtrOutput {
 	return o.ApplyT(func(v WebACLRuleAction) *WebACLCountAction { return v.Count }).(WebACLCountActionPtrOutput)
 }
@@ -8846,7 +8640,6 @@ func (o WebACLRuleActionPtrOutput) Elem() WebACLRuleActionOutput {
 	}).(WebACLRuleActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
 func (o WebACLRuleActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
 	return o.ApplyT(func(v *WebACLRuleAction) *WebACLAllowAction {
 		if v == nil {
@@ -8856,7 +8649,6 @@ func (o WebACLRuleActionPtrOutput) Allow() WebACLAllowActionPtrOutput {
 	}).(WebACLAllowActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
 func (o WebACLRuleActionPtrOutput) Block() WebACLBlockActionPtrOutput {
 	return o.ApplyT(func(v *WebACLRuleAction) *WebACLBlockAction {
 		if v == nil {
@@ -8866,7 +8658,6 @@ func (o WebACLRuleActionPtrOutput) Block() WebACLBlockActionPtrOutput {
 	}).(WebACLBlockActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
 func (o WebACLRuleActionPtrOutput) Count() WebACLCountActionPtrOutput {
 	return o.ApplyT(func(v *WebACLRuleAction) *WebACLCountAction {
 		if v == nil {
@@ -8876,11 +8667,8 @@ func (o WebACLRuleActionPtrOutput) Count() WebACLCountActionPtrOutput {
 	}).(WebACLCountActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
 type WebACLRuleGroupReferenceStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-	Arn string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+	Arn           string               `pulumi:"arn"`
 	ExcludedRules []WebACLExcludedRule `pulumi:"excludedRules"`
 }
 
@@ -8895,11 +8683,8 @@ type WebACLRuleGroupReferenceStatementInput interface {
 	ToWebACLRuleGroupReferenceStatementOutputWithContext(context.Context) WebACLRuleGroupReferenceStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
 type WebACLRuleGroupReferenceStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
+	Arn           pulumi.StringInput           `pulumi:"arn"`
 	ExcludedRules WebACLExcludedRuleArrayInput `pulumi:"excludedRules"`
 }
 
@@ -8956,7 +8741,6 @@ func (i *webACLRuleGroupReferenceStatementPtrType) ToWebACLRuleGroupReferenceSta
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html
 type WebACLRuleGroupReferenceStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLRuleGroupReferenceStatementOutput) ElementType() reflect.Type {
@@ -8981,12 +8765,10 @@ func (o WebACLRuleGroupReferenceStatementOutput) ToWebACLRuleGroupReferenceState
 	}).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
 func (o WebACLRuleGroupReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLRuleGroupReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
 func (o WebACLRuleGroupReferenceStatementOutput) ExcludedRules() WebACLExcludedRuleArrayOutput {
 	return o.ApplyT(func(v WebACLRuleGroupReferenceStatement) []WebACLExcludedRule { return v.ExcludedRules }).(WebACLExcludedRuleArrayOutput)
 }
@@ -9015,7 +8797,6 @@ func (o WebACLRuleGroupReferenceStatementPtrOutput) Elem() WebACLRuleGroupRefere
 	}).(WebACLRuleGroupReferenceStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-arn
 func (o WebACLRuleGroupReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLRuleGroupReferenceStatement) *string {
 		if v == nil {
@@ -9025,7 +8806,6 @@ func (o WebACLRuleGroupReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html#cfn-wafv2-webacl-rulegroupreferencestatement-excludedrules
 func (o WebACLRuleGroupReferenceStatementPtrOutput) ExcludedRules() WebACLExcludedRuleArrayOutput {
 	return o.ApplyT(func(v *WebACLRuleGroupReferenceStatement) []WebACLExcludedRule {
 		if v == nil {
@@ -9035,15 +8815,11 @@ func (o WebACLRuleGroupReferenceStatementPtrOutput) ExcludedRules() WebACLExclud
 	}).(WebACLExcludedRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
+// Size Constraint statement.
 type WebACLSizeConstraintStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator string `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-	Size float64 `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
+	ComparisonOperator  string                     `pulumi:"comparisonOperator"`
+	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
+	Size                float64                    `pulumi:"size"`
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -9058,15 +8834,11 @@ type WebACLSizeConstraintStatementInput interface {
 	ToWebACLSizeConstraintStatementOutputWithContext(context.Context) WebACLSizeConstraintStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
+// Size Constraint statement.
 type WebACLSizeConstraintStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
-	ComparisonOperator pulumi.StringInput `pulumi:"comparisonOperator"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
-	Size pulumi.Float64Input `pulumi:"size"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
+	ComparisonOperator  pulumi.StringInput                 `pulumi:"comparisonOperator"`
+	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
+	Size                pulumi.Float64Input                `pulumi:"size"`
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -9123,7 +8895,7 @@ func (i *webACLSizeConstraintStatementPtrType) ToWebACLSizeConstraintStatementPt
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html
+// Size Constraint statement.
 type WebACLSizeConstraintStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLSizeConstraintStatementOutput) ElementType() reflect.Type {
@@ -9148,22 +8920,18 @@ func (o WebACLSizeConstraintStatementOutput) ToWebACLSizeConstraintStatementPtrO
 	}).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
 func (o WebACLSizeConstraintStatementOutput) ComparisonOperator() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLSizeConstraintStatement) string { return v.ComparisonOperator }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
 func (o WebACLSizeConstraintStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
 	return o.ApplyT(func(v WebACLSizeConstraintStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
 func (o WebACLSizeConstraintStatementOutput) Size() pulumi.Float64Output {
 	return o.ApplyT(func(v WebACLSizeConstraintStatement) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
 func (o WebACLSizeConstraintStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLSizeConstraintStatement) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
 }
@@ -9192,7 +8960,6 @@ func (o WebACLSizeConstraintStatementPtrOutput) Elem() WebACLSizeConstraintState
 	}).(WebACLSizeConstraintStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-comparisonoperator
 func (o WebACLSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *string {
 		if v == nil {
@@ -9202,7 +8969,6 @@ func (o WebACLSizeConstraintStatementPtrOutput) ComparisonOperator() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-fieldtomatch
 func (o WebACLSizeConstraintStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *WebACLFieldToMatch {
 		if v == nil {
@@ -9212,7 +8978,6 @@ func (o WebACLSizeConstraintStatementPtrOutput) FieldToMatch() WebACLFieldToMatc
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-size
 func (o WebACLSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *WebACLSizeConstraintStatement) *float64 {
 		if v == nil {
@@ -9222,7 +8987,6 @@ func (o WebACLSizeConstraintStatementPtrOutput) Size() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html#cfn-wafv2-webacl-sizeconstraintstatement-texttransformations
 func (o WebACLSizeConstraintStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebACLSizeConstraintStatement) []WebACLTextTransformation {
 		if v == nil {
@@ -9232,11 +8996,9 @@ func (o WebACLSizeConstraintStatementPtrOutput) TextTransformations() WebACLText
 	}).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
+// Sqli Match Statement.
 type WebACLSqliMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
+	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -9251,11 +9013,9 @@ type WebACLSqliMatchStatementInput interface {
 	ToWebACLSqliMatchStatementOutputWithContext(context.Context) WebACLSqliMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
+// Sqli Match Statement.
 type WebACLSqliMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
+	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -9312,7 +9072,7 @@ func (i *webACLSqliMatchStatementPtrType) ToWebACLSqliMatchStatementPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html
+// Sqli Match Statement.
 type WebACLSqliMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLSqliMatchStatementOutput) ElementType() reflect.Type {
@@ -9337,12 +9097,10 @@ func (o WebACLSqliMatchStatementOutput) ToWebACLSqliMatchStatementPtrOutputWithC
 	}).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
 func (o WebACLSqliMatchStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
 	return o.ApplyT(func(v WebACLSqliMatchStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
 func (o WebACLSqliMatchStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLSqliMatchStatement) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
 }
@@ -9371,7 +9129,6 @@ func (o WebACLSqliMatchStatementPtrOutput) Elem() WebACLSqliMatchStatementOutput
 	}).(WebACLSqliMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-fieldtomatch
 func (o WebACLSqliMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebACLSqliMatchStatement) *WebACLFieldToMatch {
 		if v == nil {
@@ -9381,7 +9138,6 @@ func (o WebACLSqliMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrO
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html#cfn-wafv2-webacl-sqlimatchstatement-texttransformations
 func (o WebACLSqliMatchStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebACLSqliMatchStatement) []WebACLTextTransformation {
 		if v == nil {
@@ -9391,36 +9147,22 @@ func (o WebACLSqliMatchStatementPtrOutput) TextTransformations() WebACLTextTrans
 	}).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebACLStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
-	AndStatement *WebACLAndStatement `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
-	ByteMatchStatement *WebACLByteMatchStatement `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
-	GeoMatchStatement *WebACLGeoMatchStatement `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
-	IPSetReferenceStatement *WebACLIPSetReferenceStatement `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
-	LabelMatchStatement *WebACLLabelMatchStatement `pulumi:"labelMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
-	ManagedRuleGroupStatement *WebACLManagedRuleGroupStatement `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
-	NotStatement *WebACLNotStatement `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
-	OrStatement *WebACLOrStatement `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
-	RateBasedStatement *WebACLRateBasedStatement `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
+	AndStatement                      *WebACLAndStatement                      `pulumi:"andStatement"`
+	ByteMatchStatement                *WebACLByteMatchStatement                `pulumi:"byteMatchStatement"`
+	GeoMatchStatement                 *WebACLGeoMatchStatement                 `pulumi:"geoMatchStatement"`
+	IPSetReferenceStatement           *WebACLIPSetReferenceStatement           `pulumi:"iPSetReferenceStatement"`
+	LabelMatchStatement               *WebACLLabelMatchStatement               `pulumi:"labelMatchStatement"`
+	ManagedRuleGroupStatement         *WebACLManagedRuleGroupStatement         `pulumi:"managedRuleGroupStatement"`
+	NotStatement                      *WebACLNotStatement                      `pulumi:"notStatement"`
+	OrStatement                       *WebACLOrStatement                       `pulumi:"orStatement"`
+	RateBasedStatement                *WebACLRateBasedStatement                `pulumi:"rateBasedStatement"`
 	RegexPatternSetReferenceStatement *WebACLRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
-	RuleGroupReferenceStatement *WebACLRuleGroupReferenceStatement `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
-	SizeConstraintStatement *WebACLSizeConstraintStatement `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
-	SqliMatchStatement *WebACLSqliMatchStatement `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
-	XssMatchStatement *WebACLXssMatchStatement `pulumi:"xssMatchStatement"`
+	RuleGroupReferenceStatement       *WebACLRuleGroupReferenceStatement       `pulumi:"ruleGroupReferenceStatement"`
+	SizeConstraintStatement           *WebACLSizeConstraintStatement           `pulumi:"sizeConstraintStatement"`
+	SqliMatchStatement                *WebACLSqliMatchStatement                `pulumi:"sqliMatchStatement"`
+	XssMatchStatement                 *WebACLXssMatchStatement                 `pulumi:"xssMatchStatement"`
 }
 
 // WebACLStatementInput is an input type that accepts WebACLStatementArgs and WebACLStatementOutput values.
@@ -9434,36 +9176,22 @@ type WebACLStatementInput interface {
 	ToWebACLStatementOutputWithContext(context.Context) WebACLStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebACLStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
-	AndStatement WebACLAndStatementPtrInput `pulumi:"andStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
-	ByteMatchStatement WebACLByteMatchStatementPtrInput `pulumi:"byteMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
-	GeoMatchStatement WebACLGeoMatchStatementPtrInput `pulumi:"geoMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
-	IPSetReferenceStatement WebACLIPSetReferenceStatementPtrInput `pulumi:"iPSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
-	LabelMatchStatement WebACLLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
-	ManagedRuleGroupStatement WebACLManagedRuleGroupStatementPtrInput `pulumi:"managedRuleGroupStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
-	NotStatement WebACLNotStatementPtrInput `pulumi:"notStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
-	OrStatement WebACLOrStatementPtrInput `pulumi:"orStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
-	RateBasedStatement WebACLRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
+	AndStatement                      WebACLAndStatementPtrInput                      `pulumi:"andStatement"`
+	ByteMatchStatement                WebACLByteMatchStatementPtrInput                `pulumi:"byteMatchStatement"`
+	GeoMatchStatement                 WebACLGeoMatchStatementPtrInput                 `pulumi:"geoMatchStatement"`
+	IPSetReferenceStatement           WebACLIPSetReferenceStatementPtrInput           `pulumi:"iPSetReferenceStatement"`
+	LabelMatchStatement               WebACLLabelMatchStatementPtrInput               `pulumi:"labelMatchStatement"`
+	ManagedRuleGroupStatement         WebACLManagedRuleGroupStatementPtrInput         `pulumi:"managedRuleGroupStatement"`
+	NotStatement                      WebACLNotStatementPtrInput                      `pulumi:"notStatement"`
+	OrStatement                       WebACLOrStatementPtrInput                       `pulumi:"orStatement"`
+	RateBasedStatement                WebACLRateBasedStatementPtrInput                `pulumi:"rateBasedStatement"`
 	RegexPatternSetReferenceStatement WebACLRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
-	RuleGroupReferenceStatement WebACLRuleGroupReferenceStatementPtrInput `pulumi:"ruleGroupReferenceStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
-	SizeConstraintStatement WebACLSizeConstraintStatementPtrInput `pulumi:"sizeConstraintStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
-	SqliMatchStatement WebACLSqliMatchStatementPtrInput `pulumi:"sqliMatchStatement"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
-	XssMatchStatement WebACLXssMatchStatementPtrInput `pulumi:"xssMatchStatement"`
+	RuleGroupReferenceStatement       WebACLRuleGroupReferenceStatementPtrInput       `pulumi:"ruleGroupReferenceStatement"`
+	SizeConstraintStatement           WebACLSizeConstraintStatementPtrInput           `pulumi:"sizeConstraintStatement"`
+	SqliMatchStatement                WebACLSqliMatchStatementPtrInput                `pulumi:"sqliMatchStatement"`
+	XssMatchStatement                 WebACLXssMatchStatementPtrInput                 `pulumi:"xssMatchStatement"`
 }
 
 func (WebACLStatementArgs) ElementType() reflect.Type {
@@ -9544,7 +9272,7 @@ func (i WebACLStatementArray) ToWebACLStatementArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLStatementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html
+// First level statement that contains conditions, such as ByteMatch, SizeConstraint, etc
 type WebACLStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLStatementOutput) ElementType() reflect.Type {
@@ -9569,74 +9297,60 @@ func (o WebACLStatementOutput) ToWebACLStatementPtrOutputWithContext(ctx context
 	}).(WebACLStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
 func (o WebACLStatementOutput) AndStatement() WebACLAndStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLAndStatement { return v.AndStatement }).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
 func (o WebACLStatementOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLByteMatchStatement { return v.ByteMatchStatement }).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
 func (o WebACLStatementOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLGeoMatchStatement { return v.GeoMatchStatement }).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
 func (o WebACLStatementOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLIPSetReferenceStatement { return v.IPSetReferenceStatement }).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
 func (o WebACLStatementOutput) LabelMatchStatement() WebACLLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLLabelMatchStatement { return v.LabelMatchStatement }).(WebACLLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
 func (o WebACLStatementOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLManagedRuleGroupStatement { return v.ManagedRuleGroupStatement }).(WebACLManagedRuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
 func (o WebACLStatementOutput) NotStatement() WebACLNotStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLNotStatement { return v.NotStatement }).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
 func (o WebACLStatementOutput) OrStatement() WebACLOrStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLOrStatement { return v.OrStatement }).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
 func (o WebACLStatementOutput) RateBasedStatement() WebACLRateBasedStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLRateBasedStatement { return v.RateBasedStatement }).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
 func (o WebACLStatementOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLRegexPatternSetReferenceStatement {
 		return v.RegexPatternSetReferenceStatement
 	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
 func (o WebACLStatementOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLRuleGroupReferenceStatement { return v.RuleGroupReferenceStatement }).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
 func (o WebACLStatementOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLSizeConstraintStatement { return v.SizeConstraintStatement }).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
 func (o WebACLStatementOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLSqliMatchStatement { return v.SqliMatchStatement }).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
 func (o WebACLStatementOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v WebACLStatement) *WebACLXssMatchStatement { return v.XssMatchStatement }).(WebACLXssMatchStatementPtrOutput)
 }
@@ -9665,7 +9379,6 @@ func (o WebACLStatementPtrOutput) Elem() WebACLStatementOutput {
 	}).(WebACLStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-andstatement
 func (o WebACLStatementPtrOutput) AndStatement() WebACLAndStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLAndStatement {
 		if v == nil {
@@ -9675,7 +9388,6 @@ func (o WebACLStatementPtrOutput) AndStatement() WebACLAndStatementPtrOutput {
 	}).(WebACLAndStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-bytematchstatement
 func (o WebACLStatementPtrOutput) ByteMatchStatement() WebACLByteMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLByteMatchStatement {
 		if v == nil {
@@ -9685,7 +9397,6 @@ func (o WebACLStatementPtrOutput) ByteMatchStatement() WebACLByteMatchStatementP
 	}).(WebACLByteMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-geomatchstatement
 func (o WebACLStatementPtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLGeoMatchStatement {
 		if v == nil {
@@ -9695,7 +9406,6 @@ func (o WebACLStatementPtrOutput) GeoMatchStatement() WebACLGeoMatchStatementPtr
 	}).(WebACLGeoMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ipsetreferencestatement
 func (o WebACLStatementPtrOutput) IPSetReferenceStatement() WebACLIPSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLIPSetReferenceStatement {
 		if v == nil {
@@ -9705,7 +9415,6 @@ func (o WebACLStatementPtrOutput) IPSetReferenceStatement() WebACLIPSetReference
 	}).(WebACLIPSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-labelmatchstatement
 func (o WebACLStatementPtrOutput) LabelMatchStatement() WebACLLabelMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLLabelMatchStatement {
 		if v == nil {
@@ -9715,7 +9424,6 @@ func (o WebACLStatementPtrOutput) LabelMatchStatement() WebACLLabelMatchStatemen
 	}).(WebACLLabelMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-managedrulegroupstatement
 func (o WebACLStatementPtrOutput) ManagedRuleGroupStatement() WebACLManagedRuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLManagedRuleGroupStatement {
 		if v == nil {
@@ -9725,7 +9433,6 @@ func (o WebACLStatementPtrOutput) ManagedRuleGroupStatement() WebACLManagedRuleG
 	}).(WebACLManagedRuleGroupStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-notstatement
 func (o WebACLStatementPtrOutput) NotStatement() WebACLNotStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLNotStatement {
 		if v == nil {
@@ -9735,7 +9442,6 @@ func (o WebACLStatementPtrOutput) NotStatement() WebACLNotStatementPtrOutput {
 	}).(WebACLNotStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-orstatement
 func (o WebACLStatementPtrOutput) OrStatement() WebACLOrStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLOrStatement {
 		if v == nil {
@@ -9745,7 +9451,6 @@ func (o WebACLStatementPtrOutput) OrStatement() WebACLOrStatementPtrOutput {
 	}).(WebACLOrStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-ratebasedstatement
 func (o WebACLStatementPtrOutput) RateBasedStatement() WebACLRateBasedStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLRateBasedStatement {
 		if v == nil {
@@ -9755,7 +9460,6 @@ func (o WebACLStatementPtrOutput) RateBasedStatement() WebACLRateBasedStatementP
 	}).(WebACLRateBasedStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-regexpatternsetreferencestatement
 func (o WebACLStatementPtrOutput) RegexPatternSetReferenceStatement() WebACLRegexPatternSetReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLRegexPatternSetReferenceStatement {
 		if v == nil {
@@ -9765,7 +9469,6 @@ func (o WebACLStatementPtrOutput) RegexPatternSetReferenceStatement() WebACLRege
 	}).(WebACLRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-rulegroupreferencestatement
 func (o WebACLStatementPtrOutput) RuleGroupReferenceStatement() WebACLRuleGroupReferenceStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLRuleGroupReferenceStatement {
 		if v == nil {
@@ -9775,7 +9478,6 @@ func (o WebACLStatementPtrOutput) RuleGroupReferenceStatement() WebACLRuleGroupR
 	}).(WebACLRuleGroupReferenceStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sizeconstraintstatement
 func (o WebACLStatementPtrOutput) SizeConstraintStatement() WebACLSizeConstraintStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLSizeConstraintStatement {
 		if v == nil {
@@ -9785,7 +9487,6 @@ func (o WebACLStatementPtrOutput) SizeConstraintStatement() WebACLSizeConstraint
 	}).(WebACLSizeConstraintStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-sqlimatchstatement
 func (o WebACLStatementPtrOutput) SqliMatchStatement() WebACLSqliMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLSqliMatchStatement {
 		if v == nil {
@@ -9795,7 +9496,6 @@ func (o WebACLStatementPtrOutput) SqliMatchStatement() WebACLSqliMatchStatementP
 	}).(WebACLSqliMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html#cfn-wafv2-webacl-statement-xssmatchstatement
 func (o WebACLStatementPtrOutput) XssMatchStatement() WebACLXssMatchStatementPtrOutput {
 	return o.ApplyT(func(v *WebACLStatement) *WebACLXssMatchStatement {
 		if v == nil {
@@ -9825,12 +9525,110 @@ func (o WebACLStatementArrayOutput) Index(i pulumi.IntInput) WebACLStatementOutp
 	}).(WebACLStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
+type WebACLTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// WebACLTagInput is an input type that accepts WebACLTagArgs and WebACLTagOutput values.
+// You can construct a concrete instance of `WebACLTagInput` via:
+//
+//          WebACLTagArgs{...}
+type WebACLTagInput interface {
+	pulumi.Input
+
+	ToWebACLTagOutput() WebACLTagOutput
+	ToWebACLTagOutputWithContext(context.Context) WebACLTagOutput
+}
+
+type WebACLTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (WebACLTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLTag)(nil)).Elem()
+}
+
+func (i WebACLTagArgs) ToWebACLTagOutput() WebACLTagOutput {
+	return i.ToWebACLTagOutputWithContext(context.Background())
+}
+
+func (i WebACLTagArgs) ToWebACLTagOutputWithContext(ctx context.Context) WebACLTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLTagOutput)
+}
+
+// WebACLTagArrayInput is an input type that accepts WebACLTagArray and WebACLTagArrayOutput values.
+// You can construct a concrete instance of `WebACLTagArrayInput` via:
+//
+//          WebACLTagArray{ WebACLTagArgs{...} }
+type WebACLTagArrayInput interface {
+	pulumi.Input
+
+	ToWebACLTagArrayOutput() WebACLTagArrayOutput
+	ToWebACLTagArrayOutputWithContext(context.Context) WebACLTagArrayOutput
+}
+
+type WebACLTagArray []WebACLTagInput
+
+func (WebACLTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLTag)(nil)).Elem()
+}
+
+func (i WebACLTagArray) ToWebACLTagArrayOutput() WebACLTagArrayOutput {
+	return i.ToWebACLTagArrayOutputWithContext(context.Background())
+}
+
+func (i WebACLTagArray) ToWebACLTagArrayOutputWithContext(ctx context.Context) WebACLTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebACLTagArrayOutput)
+}
+
+type WebACLTagOutput struct{ *pulumi.OutputState }
+
+func (WebACLTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebACLTag)(nil)).Elem()
+}
+
+func (o WebACLTagOutput) ToWebACLTagOutput() WebACLTagOutput {
+	return o
+}
+
+func (o WebACLTagOutput) ToWebACLTagOutputWithContext(ctx context.Context) WebACLTagOutput {
+	return o
+}
+
+func (o WebACLTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o WebACLTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebACLTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type WebACLTagArrayOutput struct{ *pulumi.OutputState }
+
+func (WebACLTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WebACLTag)(nil)).Elem()
+}
+
+func (o WebACLTagArrayOutput) ToWebACLTagArrayOutput() WebACLTagArrayOutput {
+	return o
+}
+
+func (o WebACLTagArrayOutput) ToWebACLTagArrayOutputWithContext(ctx context.Context) WebACLTagArrayOutput {
+	return o
+}
+
+func (o WebACLTagArrayOutput) Index(i pulumi.IntInput) WebACLTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebACLTag {
+		return vs[0].([]WebACLTag)[vs[1].(int)]
+	}).(WebACLTagOutput)
+}
+
+// Text Transformation on the Search String before match.
 type WebACLTextTransformation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
-	Priority int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
-	Type string `pulumi:"type"`
+	Priority int    `pulumi:"priority"`
+	Type     string `pulumi:"type"`
 }
 
 // WebACLTextTransformationInput is an input type that accepts WebACLTextTransformationArgs and WebACLTextTransformationOutput values.
@@ -9844,12 +9642,10 @@ type WebACLTextTransformationInput interface {
 	ToWebACLTextTransformationOutputWithContext(context.Context) WebACLTextTransformationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
+// Text Transformation on the Search String before match.
 type WebACLTextTransformationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
-	Priority pulumi.IntInput `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Priority pulumi.IntInput    `pulumi:"priority"`
+	Type     pulumi.StringInput `pulumi:"type"`
 }
 
 func (WebACLTextTransformationArgs) ElementType() reflect.Type {
@@ -9889,7 +9685,7 @@ func (i WebACLTextTransformationArray) ToWebACLTextTransformationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLTextTransformationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html
+// Text Transformation on the Search String before match.
 type WebACLTextTransformationOutput struct{ *pulumi.OutputState }
 
 func (WebACLTextTransformationOutput) ElementType() reflect.Type {
@@ -9904,12 +9700,10 @@ func (o WebACLTextTransformationOutput) ToWebACLTextTransformationOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-priority
 func (o WebACLTextTransformationOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v WebACLTextTransformation) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html#cfn-wafv2-webacl-texttransformation-type
 func (o WebACLTextTransformationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLTextTransformation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9934,14 +9728,11 @@ func (o WebACLTextTransformationArrayOutput) Index(i pulumi.IntInput) WebACLText
 	}).(WebACLTextTransformationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
+// Visibility Metric of the WebACL.
 type WebACLVisibilityConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled bool `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-	MetricName string `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled bool `pulumi:"sampledRequestsEnabled"`
+	CloudWatchMetricsEnabled bool   `pulumi:"cloudWatchMetricsEnabled"`
+	MetricName               string `pulumi:"metricName"`
+	SampledRequestsEnabled   bool   `pulumi:"sampledRequestsEnabled"`
 }
 
 // WebACLVisibilityConfigInput is an input type that accepts WebACLVisibilityConfigArgs and WebACLVisibilityConfigOutput values.
@@ -9955,14 +9746,11 @@ type WebACLVisibilityConfigInput interface {
 	ToWebACLVisibilityConfigOutputWithContext(context.Context) WebACLVisibilityConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
+// Visibility Metric of the WebACL.
 type WebACLVisibilityConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
-	CloudWatchMetricsEnabled pulumi.BoolInput `pulumi:"cloudWatchMetricsEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
-	SampledRequestsEnabled pulumi.BoolInput `pulumi:"sampledRequestsEnabled"`
+	CloudWatchMetricsEnabled pulumi.BoolInput   `pulumi:"cloudWatchMetricsEnabled"`
+	MetricName               pulumi.StringInput `pulumi:"metricName"`
+	SampledRequestsEnabled   pulumi.BoolInput   `pulumi:"sampledRequestsEnabled"`
 }
 
 func (WebACLVisibilityConfigArgs) ElementType() reflect.Type {
@@ -10018,7 +9806,7 @@ func (i *webACLVisibilityConfigPtrType) ToWebACLVisibilityConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLVisibilityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html
+// Visibility Metric of the WebACL.
 type WebACLVisibilityConfigOutput struct{ *pulumi.OutputState }
 
 func (WebACLVisibilityConfigOutput) ElementType() reflect.Type {
@@ -10043,17 +9831,14 @@ func (o WebACLVisibilityConfigOutput) ToWebACLVisibilityConfigPtrOutputWithConte
 	}).(WebACLVisibilityConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
 func (o WebACLVisibilityConfigOutput) CloudWatchMetricsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebACLVisibilityConfig) bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
 func (o WebACLVisibilityConfigOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v WebACLVisibilityConfig) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
 func (o WebACLVisibilityConfigOutput) SampledRequestsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v WebACLVisibilityConfig) bool { return v.SampledRequestsEnabled }).(pulumi.BoolOutput)
 }
@@ -10082,7 +9867,6 @@ func (o WebACLVisibilityConfigPtrOutput) Elem() WebACLVisibilityConfigOutput {
 	}).(WebACLVisibilityConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-cloudwatchmetricsenabled
 func (o WebACLVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebACLVisibilityConfig) *bool {
 		if v == nil {
@@ -10092,7 +9876,6 @@ func (o WebACLVisibilityConfigPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-metricname
 func (o WebACLVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebACLVisibilityConfig) *string {
 		if v == nil {
@@ -10102,7 +9885,6 @@ func (o WebACLVisibilityConfigPtrOutput) MetricName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html#cfn-wafv2-webacl-visibilityconfig-sampledrequestsenabled
 func (o WebACLVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WebACLVisibilityConfig) *bool {
 		if v == nil {
@@ -10112,11 +9894,9 @@ func (o WebACLVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
+// Xss Match Statement.
 type WebACLXssMatchStatement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatch `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
+	FieldToMatch        WebACLFieldToMatch         `pulumi:"fieldToMatch"`
 	TextTransformations []WebACLTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -10131,11 +9911,9 @@ type WebACLXssMatchStatementInput interface {
 	ToWebACLXssMatchStatementOutputWithContext(context.Context) WebACLXssMatchStatementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
+// Xss Match Statement.
 type WebACLXssMatchStatementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-	FieldToMatch WebACLFieldToMatchInput `pulumi:"fieldToMatch"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
+	FieldToMatch        WebACLFieldToMatchInput            `pulumi:"fieldToMatch"`
 	TextTransformations WebACLTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -10192,7 +9970,7 @@ func (i *webACLXssMatchStatementPtrType) ToWebACLXssMatchStatementPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(WebACLXssMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
+// Xss Match Statement.
 type WebACLXssMatchStatementOutput struct{ *pulumi.OutputState }
 
 func (WebACLXssMatchStatementOutput) ElementType() reflect.Type {
@@ -10217,12 +9995,10 @@ func (o WebACLXssMatchStatementOutput) ToWebACLXssMatchStatementPtrOutputWithCon
 	}).(WebACLXssMatchStatementPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
 func (o WebACLXssMatchStatementOutput) FieldToMatch() WebACLFieldToMatchOutput {
 	return o.ApplyT(func(v WebACLXssMatchStatement) WebACLFieldToMatch { return v.FieldToMatch }).(WebACLFieldToMatchOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
 func (o WebACLXssMatchStatementOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebACLXssMatchStatement) []WebACLTextTransformation { return v.TextTransformations }).(WebACLTextTransformationArrayOutput)
 }
@@ -10251,7 +10027,6 @@ func (o WebACLXssMatchStatementPtrOutput) Elem() WebACLXssMatchStatementOutput {
 	}).(WebACLXssMatchStatementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
 func (o WebACLXssMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebACLXssMatchStatement) *WebACLFieldToMatch {
 		if v == nil {
@@ -10261,7 +10036,6 @@ func (o WebACLXssMatchStatementPtrOutput) FieldToMatch() WebACLFieldToMatchPtrOu
 	}).(WebACLFieldToMatchPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
 func (o WebACLXssMatchStatementPtrOutput) TextTransformations() WebACLTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebACLXssMatchStatement) []WebACLTextTransformation {
 		if v == nil {
@@ -10272,14 +10046,18 @@ func (o WebACLXssMatchStatementPtrOutput) TextTransformations() WebACLTextTransf
 }
 
 func init() {
+	pulumi.RegisterOutputType(IPSetTagOutput{})
+	pulumi.RegisterOutputType(IPSetTagArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationFieldToMatchArrayOutput{})
+	pulumi.RegisterOutputType(RegexPatternSetTagOutput{})
+	pulumi.RegisterOutputType(RegexPatternSetTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupAndStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupByteMatchStatementPtrOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyOutput{})
-	pulumi.RegisterOutputType(RuleGroupCustomResponseBodyMapOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesOutput{})
+	pulumi.RegisterOutputType(RuleGroupCustomResponseBodiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchOutput{})
 	pulumi.RegisterOutputType(RuleGroupFieldToMatchPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupForwardedIPConfigurationOutput{})
@@ -10319,6 +10097,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupStatementOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatementPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupStatementArrayOutput{})
+	pulumi.RegisterOutputType(RuleGroupTagOutput{})
+	pulumi.RegisterOutputType(RuleGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationOutput{})
 	pulumi.RegisterOutputType(RuleGroupTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupVisibilityConfigOutput{})
@@ -10341,8 +10121,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLCustomRequestHandlingPtrOutput{})
 	pulumi.RegisterOutputType(WebACLCustomResponseOutput{})
 	pulumi.RegisterOutputType(WebACLCustomResponsePtrOutput{})
-	pulumi.RegisterOutputType(WebACLCustomResponseBodyOutput{})
-	pulumi.RegisterOutputType(WebACLCustomResponseBodyMapOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponseBodiesOutput{})
+	pulumi.RegisterOutputType(WebACLCustomResponseBodiesPtrOutput{})
 	pulumi.RegisterOutputType(WebACLDefaultActionOutput{})
 	pulumi.RegisterOutputType(WebACLDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebACLExcludedRuleOutput{})
@@ -10390,6 +10170,8 @@ func init() {
 	pulumi.RegisterOutputType(WebACLStatementOutput{})
 	pulumi.RegisterOutputType(WebACLStatementPtrOutput{})
 	pulumi.RegisterOutputType(WebACLStatementArrayOutput{})
+	pulumi.RegisterOutputType(WebACLTagOutput{})
+	pulumi.RegisterOutputType(WebACLTagArrayOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationOutput{})
 	pulumi.RegisterOutputType(WebACLTextTransformationArrayOutput{})
 	pulumi.RegisterOutputType(WebACLVisibilityConfigOutput{})

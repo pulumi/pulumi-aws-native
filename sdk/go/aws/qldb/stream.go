@@ -8,30 +8,22 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html
+// Resource schema for AWS::QLDB::Stream.
 type Stream struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-	ExclusiveEndTime pulumi.StringPtrOutput `pulumi:"exclusiveEndTime"`
-	Id               pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-	InclusiveStartTime pulumi.StringOutput `pulumi:"inclusiveStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+	Arn                  pulumi.StringOutput              `pulumi:"arn"`
+	ExclusiveEndTime     pulumi.StringPtrOutput           `pulumi:"exclusiveEndTime"`
+	InclusiveStartTime   pulumi.StringOutput              `pulumi:"inclusiveStartTime"`
 	KinesisConfiguration StreamKinesisConfigurationOutput `pulumi:"kinesisConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-	LedgerName pulumi.StringOutput `pulumi:"ledgerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-	StreamName pulumi.StringOutput `pulumi:"streamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	LedgerName           pulumi.StringOutput              `pulumi:"ledgerName"`
+	RoleArn              pulumi.StringOutput              `pulumi:"roleArn"`
+	StreamName           pulumi.StringOutput              `pulumi:"streamName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags StreamTagArrayOutput `pulumi:"tags"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -88,38 +80,26 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-	ExclusiveEndTime *string `pulumi:"exclusiveEndTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-	InclusiveStartTime string `pulumi:"inclusiveStartTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+	ExclusiveEndTime     *string                    `pulumi:"exclusiveEndTime"`
+	InclusiveStartTime   string                     `pulumi:"inclusiveStartTime"`
 	KinesisConfiguration StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-	LedgerName string `pulumi:"ledgerName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-	StreamName string `pulumi:"streamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	LedgerName           string                     `pulumi:"ledgerName"`
+	RoleArn              string                     `pulumi:"roleArn"`
+	StreamName           string                     `pulumi:"streamName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []StreamTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-exclusiveendtime
-	ExclusiveEndTime pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-inclusivestarttime
-	InclusiveStartTime pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-kinesisconfiguration
+	ExclusiveEndTime     pulumi.StringPtrInput
+	InclusiveStartTime   pulumi.StringInput
 	KinesisConfiguration StreamKinesisConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-ledgername
-	LedgerName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-rolearn
-	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-streamname
-	StreamName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qldb-stream.html#cfn-qldb-stream-tags
-	Tags aws.TagArrayInput
+	LedgerName           pulumi.StringInput
+	RoleArn              pulumi.StringInput
+	StreamName           pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags StreamTagArrayInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {

@@ -11,21 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
+// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
 type Robot struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+	// The target architecture of the robot.
 	Architecture pulumi.StringOutput `pulumi:"architecture"`
 	Arn          pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet pulumi.StringPtrOutput `pulumi:"fleet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+	// The Greengrass group id.
 	GreengrassGroupId pulumi.StringOutput `pulumi:"greengrassGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+	// The name for the robot.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags RobotTagsPtrOutput     `pulumi:"tags"`
 }
 
 // NewRobot registers a new resource with the given unique name, arguments, and options.
@@ -73,30 +72,28 @@ func (RobotState) ElementType() reflect.Type {
 }
 
 type robotArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+	// The target architecture of the robot.
 	Architecture string `pulumi:"architecture"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet *string `pulumi:"fleet"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+	// The Greengrass group id.
 	GreengrassGroupId string `pulumi:"greengrassGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-	Tags map[string]string `pulumi:"tags"`
+	// The name for the robot.
+	Name *string    `pulumi:"name"`
+	Tags *RobotTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Robot resource.
 type RobotArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+	// The target architecture of the robot.
 	Architecture pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+	// The Amazon Resource Name (ARN) of the fleet.
 	Fleet pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+	// The Greengrass group id.
 	GreengrassGroupId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+	// The name for the robot.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-	Tags pulumi.StringMapInput
+	Tags RobotTagsPtrInput
 }
 
 func (RobotArgs) ElementType() reflect.Type {

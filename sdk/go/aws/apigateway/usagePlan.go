@@ -7,26 +7,24 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+// Resource Type definition for AWS::ApiGateway::UsagePlan
 type UsagePlan struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+	// The API stages to associate with this usage plan.
 	ApiStages UsagePlanApiStageArrayOutput `pulumi:"apiStages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+	// A description of the usage plan.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Id          pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+	// Configures the number of requests that users can make within a given interval.
 	Quota UsagePlanQuotaSettingsPtrOutput `pulumi:"quota"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+	Tags UsagePlanTagArrayOutput `pulumi:"tags"`
+	// Configures the overall request rate (average requests per second) and burst capacity.
 	Throttle UsagePlanThrottleSettingsPtrOutput `pulumi:"throttle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+	// A name for the usage plan.
 	UsagePlanName pulumi.StringPtrOutput `pulumi:"usagePlanName"`
 }
 
@@ -69,33 +67,33 @@ func (UsagePlanState) ElementType() reflect.Type {
 }
 
 type usagePlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+	// The API stages to associate with this usage plan.
 	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+	// A description of the usage plan.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+	// Configures the number of requests that users can make within a given interval.
 	Quota *UsagePlanQuotaSettings `pulumi:"quota"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+	Tags []UsagePlanTag `pulumi:"tags"`
+	// Configures the overall request rate (average requests per second) and burst capacity.
 	Throttle *UsagePlanThrottleSettings `pulumi:"throttle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+	// A name for the usage plan.
 	UsagePlanName *string `pulumi:"usagePlanName"`
 }
 
 // The set of arguments for constructing a UsagePlan resource.
 type UsagePlanArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+	// The API stages to associate with this usage plan.
 	ApiStages UsagePlanApiStageArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+	// A description of the usage plan.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+	// Configures the number of requests that users can make within a given interval.
 	Quota UsagePlanQuotaSettingsPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+	// An array of arbitrary tags (key-value pairs) to associate with the usage plan.
+	Tags UsagePlanTagArrayInput
+	// Configures the overall request rate (average requests per second) and burst capacity.
 	Throttle UsagePlanThrottleSettingsPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+	// A name for the usage plan.
 	UsagePlanName pulumi.StringPtrInput
 }
 

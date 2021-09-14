@@ -8,24 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html
+// The resource schema to create a CodeArtifact domain.
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
-	DomainName    pulumi.StringOutput `pulumi:"domainName"`
+	// The name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The ARN of an AWS Key Management Service (AWS KMS) key associated with a domain.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
-	Name          pulumi.StringOutput `pulumi:"name"`
-	Owner         pulumi.StringOutput `pulumi:"owner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+	// The name of the domain. This field is used for GetAtt
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The 12-digit account ID of the AWS account that owns the domain. This field is used for GetAtt
+	Owner pulumi.StringOutput `pulumi:"owner"`
+	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument pulumi.AnyOutput `pulumi:"permissionsPolicyDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags DomainTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -70,26 +73,22 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+	// The name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-	EncryptionKey *string `pulumi:"encryptionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument interface{} `pulumi:"permissionsPolicyDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []DomainTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-domainname
+	// The name of the domain.
 	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-encryptionkey
-	EncryptionKey pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-permissionspolicydocument
+	// The access control resource policy on the provided domain.
 	PermissionsPolicyDocument pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-domain.html#cfn-codeartifact-domain-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags DomainTagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

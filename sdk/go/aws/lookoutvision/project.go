@@ -11,12 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html
+// The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
 type Project struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname
+	Arn         pulumi.StringOutput `pulumi:"arn"`
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 }
 
@@ -62,13 +61,11 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname
 	ProjectName string `pulumi:"projectName"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutvision-project.html#cfn-lookoutvision-project-projectname
 	ProjectName pulumi.StringInput
 }
 

@@ -11,23 +11,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+// Resource Type definition for AWS::CloudFront::Function
 type Function struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-	AutoPublish pulumi.BoolPtrOutput `pulumi:"autoPublish"`
-	FunctionARN pulumi.StringOutput  `pulumi:"functionARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-	FunctionCode pulumi.StringPtrOutput `pulumi:"functionCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-	FunctionConfig FunctionFunctionConfigPtrOutput `pulumi:"functionConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-	FunctionMetadata            FunctionFunctionMetadataPtrOutput `pulumi:"functionMetadata"`
-	FunctionMetadataFunctionARN pulumi.StringOutput               `pulumi:"functionMetadataFunctionARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-	Name  pulumi.StringOutput `pulumi:"name"`
-	Stage pulumi.StringOutput `pulumi:"stage"`
+	AutoPublish      pulumi.BoolPtrOutput              `pulumi:"autoPublish"`
+	FunctionARN      pulumi.StringOutput               `pulumi:"functionARN"`
+	FunctionCode     pulumi.StringPtrOutput            `pulumi:"functionCode"`
+	FunctionConfig   FunctionFunctionConfigPtrOutput   `pulumi:"functionConfig"`
+	FunctionMetadata FunctionFunctionMetadataPtrOutput `pulumi:"functionMetadata"`
+	Name             pulumi.StringOutput               `pulumi:"name"`
+	Stage            pulumi.StringOutput               `pulumi:"stage"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -72,30 +66,20 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-	AutoPublish *bool `pulumi:"autoPublish"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-	FunctionCode *string `pulumi:"functionCode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-	FunctionConfig *FunctionFunctionConfig `pulumi:"functionConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
+	AutoPublish      *bool                     `pulumi:"autoPublish"`
+	FunctionCode     *string                   `pulumi:"functionCode"`
+	FunctionConfig   *FunctionFunctionConfig   `pulumi:"functionConfig"`
 	FunctionMetadata *FunctionFunctionMetadata `pulumi:"functionMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-	Name string `pulumi:"name"`
+	Name             string                    `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-	AutoPublish pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-	FunctionCode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-	FunctionConfig FunctionFunctionConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
+	AutoPublish      pulumi.BoolPtrInput
+	FunctionCode     pulumi.StringPtrInput
+	FunctionConfig   FunctionFunctionConfigPtrInput
 	FunctionMetadata FunctionFunctionMetadataPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-	Name pulumi.StringInput
+	Name             pulumi.StringInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {

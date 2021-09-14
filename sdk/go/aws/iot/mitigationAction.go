@@ -8,24 +8,21 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html
+// Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 type MitigationAction struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
-	ActionName pulumi.StringPtrOutput `pulumi:"actionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
+	// A unique identifier for the mitigation action.
+	ActionName          pulumi.StringPtrOutput             `pulumi:"actionName"`
 	ActionParams        MitigationActionActionParamsOutput `pulumi:"actionParams"`
 	MitigationActionArn pulumi.StringOutput                `pulumi:"mitigationActionArn"`
 	MitigationActionId  pulumi.StringOutput                `pulumi:"mitigationActionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	RoleArn             pulumi.StringOutput                `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags MitigationActionTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMitigationAction registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +70,22 @@ func (MitigationActionState) ElementType() reflect.Type {
 }
 
 type mitigationActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
-	ActionName *string `pulumi:"actionName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
+	// A unique identifier for the mitigation action.
+	ActionName   *string                      `pulumi:"actionName"`
 	ActionParams MitigationActionActionParams `pulumi:"actionParams"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	RoleArn      string                       `pulumi:"roleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []MitigationActionTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MitigationAction resource.
 type MitigationActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionname
-	ActionName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-actionparams
+	// A unique identifier for the mitigation action.
+	ActionName   pulumi.StringPtrInput
 	ActionParams MitigationActionActionParamsInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-rolearn
-	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-mitigationaction.html#cfn-iot-mitigationaction-tags
-	Tags aws.TagArrayInput
+	RoleArn      pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags MitigationActionTagArrayInput
 }
 
 func (MitigationActionArgs) ElementType() reflect.Type {

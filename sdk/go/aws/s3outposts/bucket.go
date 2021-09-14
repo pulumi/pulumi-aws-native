@@ -8,23 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html
+// Resource Type Definition for AWS::S3Outposts::Bucket
 type Bucket struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the specified bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+	// A name for the bucket.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+	Tags BucketTagArrayOutput `pulumi:"tags"`
 }
 
 // NewBucket registers a new resource with the given unique name, arguments, and options.
@@ -72,26 +72,26 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+	// A name for the bucket.
 	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+	// The id of the customer outpost on which the bucket resides.
 	OutpostId string `pulumi:"outpostId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+	Tags []BucketTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-bucketname
+	// A name for the bucket.
 	BucketName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-lifecycleconfiguration
+	// Rules that define how Amazon S3Outposts manages objects during their lifetime.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-outpostid
+	// The id of the customer outpost on which the bucket resides.
 	OutpostId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucket.html#cfn-s3outposts-bucket-tags
-	Tags aws.TagArrayInput
+	// An arbitrary set of tags (key-value pairs) for this S3Outposts bucket.
+	Tags BucketTagArrayInput
 }
 
 func (BucketArgs) ElementType() reflect.Type {

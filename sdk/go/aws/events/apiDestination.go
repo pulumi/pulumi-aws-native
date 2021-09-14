@@ -11,22 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html
+// Resource Type definition for AWS::Events::ApiDestination.
 type ApiDestination struct {
 	pulumi.CustomResourceState
 
+	// The arn of the api destination.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
-	ConnectionArn pulumi.StringOutput `pulumi:"connectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-	HttpMethod pulumi.StringOutput `pulumi:"httpMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
-	InvocationEndpoint pulumi.StringOutput `pulumi:"invocationEndpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
+	// The arn of the connection.
+	ConnectionArn pulumi.StringOutput    `pulumi:"connectionArn"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	HttpMethod    pulumi.StringOutput    `pulumi:"httpMethod"`
+	// Url endpoint to invoke.
+	InvocationEndpoint           pulumi.StringOutput `pulumi:"invocationEndpoint"`
 	InvocationRateLimitPerSecond pulumi.IntPtrOutput `pulumi:"invocationRateLimitPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+	// Name of the apiDestination.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 }
 
@@ -78,33 +76,27 @@ func (ApiDestinationState) ElementType() reflect.Type {
 }
 
 type apiDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
-	ConnectionArn string `pulumi:"connectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-	HttpMethod string `pulumi:"httpMethod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
-	InvocationEndpoint string `pulumi:"invocationEndpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
-	InvocationRateLimitPerSecond *int `pulumi:"invocationRateLimitPerSecond"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+	// The arn of the connection.
+	ConnectionArn string  `pulumi:"connectionArn"`
+	Description   *string `pulumi:"description"`
+	HttpMethod    string  `pulumi:"httpMethod"`
+	// Url endpoint to invoke.
+	InvocationEndpoint           string `pulumi:"invocationEndpoint"`
+	InvocationRateLimitPerSecond *int   `pulumi:"invocationRateLimitPerSecond"`
+	// Name of the apiDestination.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ApiDestination resource.
 type ApiDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-connectionarn
+	// The arn of the connection.
 	ConnectionArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-httpmethod
-	HttpMethod pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationendpoint
-	InvocationEndpoint pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-invocationratelimitpersecond
+	Description   pulumi.StringPtrInput
+	HttpMethod    pulumi.StringInput
+	// Url endpoint to invoke.
+	InvocationEndpoint           pulumi.StringInput
 	InvocationRateLimitPerSecond pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-apidestination.html#cfn-events-apidestination-name
+	// Name of the apiDestination.
 	Name pulumi.StringPtrInput
 }
 

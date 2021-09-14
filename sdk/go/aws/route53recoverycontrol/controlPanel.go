@@ -11,18 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html
+// AWS Route53 Recovery Control Control Panel resource schema .
 type ControlPanel struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
-	ClusterArn          pulumi.StringPtrOutput `pulumi:"clusterArn"`
-	ControlPanelArn     pulumi.StringOutput    `pulumi:"controlPanelArn"`
-	DefaultControlPanel pulumi.BoolOutput      `pulumi:"defaultControlPanel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
-	Name                pulumi.StringOutput `pulumi:"name"`
-	RoutingControlCount pulumi.IntOutput    `pulumi:"routingControlCount"`
-	Status              pulumi.StringOutput `pulumi:"status"`
+	// Cluster to associate with the Control Panel
+	ClusterArn pulumi.StringPtrOutput `pulumi:"clusterArn"`
+	// The Amazon Resource Name (ARN) of the cluster.
+	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
+	// A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.
+	DefaultControlPanel pulumi.BoolOutput `pulumi:"defaultControlPanel"`
+	// The name of the control panel. You can use any non-white space character in the name.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Count of associated routing controls
+	RoutingControlCount pulumi.IntOutput `pulumi:"routingControlCount"`
+	// The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewControlPanel registers a new resource with the given unique name, arguments, and options.
@@ -67,17 +71,17 @@ func (ControlPanelState) ElementType() reflect.Type {
 }
 
 type controlPanelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+	// Cluster to associate with the Control Panel
 	ClusterArn *string `pulumi:"clusterArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+	// The name of the control panel. You can use any non-white space character in the name.
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a ControlPanel resource.
 type ControlPanelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-clusterarn
+	// Cluster to associate with the Control Panel
 	ClusterArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-controlpanel.html#cfn-route53recoverycontrol-controlpanel-name
+	// The name of the control panel. You can use any non-white space character in the name.
 	Name pulumi.StringInput
 }
 

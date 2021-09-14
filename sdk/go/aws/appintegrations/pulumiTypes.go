@@ -10,9 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
 type EventIntegrationEventFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+	// The source of the events.
 	Source string `pulumi:"source"`
 }
 
@@ -27,9 +26,8 @@ type EventIntegrationEventFilterInput interface {
 	ToEventIntegrationEventFilterOutputWithContext(context.Context) EventIntegrationEventFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
 type EventIntegrationEventFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+	// The source of the events.
 	Source pulumi.StringInput `pulumi:"source"`
 }
 
@@ -86,7 +84,6 @@ func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html
 type EventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationEventFilterOutput) ElementType() reflect.Type {
@@ -111,7 +108,7 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutpu
 	}).(EventIntegrationEventFilterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+// The source of the events.
 func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
 }
@@ -140,7 +137,7 @@ func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilter
 	}).(EventIntegrationEventFilterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html#cfn-appintegrations-eventintegration-eventfilter-source
+// The source of the events.
 func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventIntegrationEventFilter) *string {
 		if v == nil {
@@ -150,17 +147,16 @@ func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
 type EventIntegrationEventIntegrationAssociation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
+	// The metadata associated with the client.
 	ClientAssociationMetadata []EventIntegrationMetadata `pulumi:"clientAssociationMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
+	// The identifier for the client that is associated with the event integration.
 	ClientId *string `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
+	// The name of the Eventbridge rule.
 	EventBridgeRuleName *string `pulumi:"eventBridgeRuleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
+	// The Amazon Resource Name (ARN) for the event integration association.
 	EventIntegrationAssociationArn *string `pulumi:"eventIntegrationAssociationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+	// The identifier for the event integration association.
 	EventIntegrationAssociationId *string `pulumi:"eventIntegrationAssociationId"`
 }
 
@@ -175,17 +171,16 @@ type EventIntegrationEventIntegrationAssociationInput interface {
 	ToEventIntegrationEventIntegrationAssociationOutputWithContext(context.Context) EventIntegrationEventIntegrationAssociationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
 type EventIntegrationEventIntegrationAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
+	// The metadata associated with the client.
 	ClientAssociationMetadata EventIntegrationMetadataArrayInput `pulumi:"clientAssociationMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
+	// The identifier for the client that is associated with the event integration.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
+	// The name of the Eventbridge rule.
 	EventBridgeRuleName pulumi.StringPtrInput `pulumi:"eventBridgeRuleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
+	// The Amazon Resource Name (ARN) for the event integration association.
 	EventIntegrationAssociationArn pulumi.StringPtrInput `pulumi:"eventIntegrationAssociationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+	// The identifier for the event integration association.
 	EventIntegrationAssociationId pulumi.StringPtrInput `pulumi:"eventIntegrationAssociationId"`
 }
 
@@ -226,7 +221,6 @@ func (i EventIntegrationEventIntegrationAssociationArray) ToEventIntegrationEven
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventIntegrationAssociationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
 type EventIntegrationEventIntegrationAssociationOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationEventIntegrationAssociationOutput) ElementType() reflect.Type {
@@ -241,29 +235,29 @@ func (o EventIntegrationEventIntegrationAssociationOutput) ToEventIntegrationEve
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
+// The metadata associated with the client.
 func (o EventIntegrationEventIntegrationAssociationOutput) ClientAssociationMetadata() EventIntegrationMetadataArrayOutput {
 	return o.ApplyT(func(v EventIntegrationEventIntegrationAssociation) []EventIntegrationMetadata {
 		return v.ClientAssociationMetadata
 	}).(EventIntegrationMetadataArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
+// The identifier for the client that is associated with the event integration.
 func (o EventIntegrationEventIntegrationAssociationOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventIntegrationEventIntegrationAssociation) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
+// The name of the Eventbridge rule.
 func (o EventIntegrationEventIntegrationAssociationOutput) EventBridgeRuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventIntegrationEventIntegrationAssociation) *string { return v.EventBridgeRuleName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
+// The Amazon Resource Name (ARN) for the event integration association.
 func (o EventIntegrationEventIntegrationAssociationOutput) EventIntegrationAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventIntegrationEventIntegrationAssociation) *string { return v.EventIntegrationAssociationArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+// The identifier for the event integration association.
 func (o EventIntegrationEventIntegrationAssociationOutput) EventIntegrationAssociationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventIntegrationEventIntegrationAssociation) *string { return v.EventIntegrationAssociationId }).(pulumi.StringPtrOutput)
 }
@@ -288,11 +282,10 @@ func (o EventIntegrationEventIntegrationAssociationArrayOutput) Index(i pulumi.I
 	}).(EventIntegrationEventIntegrationAssociationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html
 type EventIntegrationMetadata struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-key
+	// A key to identify the metadata.
 	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-value
+	// Corresponding metadata value for the key.
 	Value string `pulumi:"value"`
 }
 
@@ -307,11 +300,10 @@ type EventIntegrationMetadataInput interface {
 	ToEventIntegrationMetadataOutputWithContext(context.Context) EventIntegrationMetadataOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html
 type EventIntegrationMetadataArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-key
+	// A key to identify the metadata.
 	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-value
+	// Corresponding metadata value for the key.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -352,7 +344,6 @@ func (i EventIntegrationMetadataArray) ToEventIntegrationMetadataArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationMetadataArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html
 type EventIntegrationMetadataOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationMetadataOutput) ElementType() reflect.Type {
@@ -367,12 +358,12 @@ func (o EventIntegrationMetadataOutput) ToEventIntegrationMetadataOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-key
+// A key to identify the metadata.
 func (o EventIntegrationMetadataOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationMetadata) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-metadata.html#cfn-appintegrations-eventintegration-metadata-value
+// Corresponding metadata value for the key.
 func (o EventIntegrationMetadataOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EventIntegrationMetadata) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -397,6 +388,112 @@ func (o EventIntegrationMetadataArrayOutput) Index(i pulumi.IntInput) EventInteg
 	}).(EventIntegrationMetadataOutput)
 }
 
+type EventIntegrationTag struct {
+	// A key to identify the tag.
+	Key string `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value string `pulumi:"value"`
+}
+
+// EventIntegrationTagInput is an input type that accepts EventIntegrationTagArgs and EventIntegrationTagOutput values.
+// You can construct a concrete instance of `EventIntegrationTagInput` via:
+//
+//          EventIntegrationTagArgs{...}
+type EventIntegrationTagInput interface {
+	pulumi.Input
+
+	ToEventIntegrationTagOutput() EventIntegrationTagOutput
+	ToEventIntegrationTagOutputWithContext(context.Context) EventIntegrationTagOutput
+}
+
+type EventIntegrationTagArgs struct {
+	// A key to identify the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Corresponding tag value for the key.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventIntegrationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventIntegrationTag)(nil)).Elem()
+}
+
+func (i EventIntegrationTagArgs) ToEventIntegrationTagOutput() EventIntegrationTagOutput {
+	return i.ToEventIntegrationTagOutputWithContext(context.Background())
+}
+
+func (i EventIntegrationTagArgs) ToEventIntegrationTagOutputWithContext(ctx context.Context) EventIntegrationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagOutput)
+}
+
+// EventIntegrationTagArrayInput is an input type that accepts EventIntegrationTagArray and EventIntegrationTagArrayOutput values.
+// You can construct a concrete instance of `EventIntegrationTagArrayInput` via:
+//
+//          EventIntegrationTagArray{ EventIntegrationTagArgs{...} }
+type EventIntegrationTagArrayInput interface {
+	pulumi.Input
+
+	ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput
+	ToEventIntegrationTagArrayOutputWithContext(context.Context) EventIntegrationTagArrayOutput
+}
+
+type EventIntegrationTagArray []EventIntegrationTagInput
+
+func (EventIntegrationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventIntegrationTag)(nil)).Elem()
+}
+
+func (i EventIntegrationTagArray) ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput {
+	return i.ToEventIntegrationTagArrayOutputWithContext(context.Background())
+}
+
+func (i EventIntegrationTagArray) ToEventIntegrationTagArrayOutputWithContext(ctx context.Context) EventIntegrationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagArrayOutput)
+}
+
+type EventIntegrationTagOutput struct{ *pulumi.OutputState }
+
+func (EventIntegrationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventIntegrationTag)(nil)).Elem()
+}
+
+func (o EventIntegrationTagOutput) ToEventIntegrationTagOutput() EventIntegrationTagOutput {
+	return o
+}
+
+func (o EventIntegrationTagOutput) ToEventIntegrationTagOutputWithContext(ctx context.Context) EventIntegrationTagOutput {
+	return o
+}
+
+// A key to identify the tag.
+func (o EventIntegrationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventIntegrationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Corresponding tag value for the key.
+func (o EventIntegrationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventIntegrationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventIntegrationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EventIntegrationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventIntegrationTag)(nil)).Elem()
+}
+
+func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutput() EventIntegrationTagArrayOutput {
+	return o
+}
+
+func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutputWithContext(ctx context.Context) EventIntegrationTagArrayOutput {
+	return o
+}
+
+func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegrationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventIntegrationTag {
+		return vs[0].([]EventIntegrationTag)[vs[1].(int)]
+	}).(EventIntegrationTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
 	pulumi.RegisterOutputType(EventIntegrationEventFilterPtrOutput{})
@@ -404,4 +501,6 @@ func init() {
 	pulumi.RegisterOutputType(EventIntegrationEventIntegrationAssociationArrayOutput{})
 	pulumi.RegisterOutputType(EventIntegrationMetadataOutput{})
 	pulumi.RegisterOutputType(EventIntegrationMetadataArrayOutput{})
+	pulumi.RegisterOutputType(EventIntegrationTagOutput{})
+	pulumi.RegisterOutputType(EventIntegrationTagArrayOutput{})
 }

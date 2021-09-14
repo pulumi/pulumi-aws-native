@@ -8,26 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html
+// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the repository association.
 	AssociationArn pulumi.StringOutput `pulumi:"associationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+	// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
+	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringPtrOutput `pulumi:"connectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+	// Name of the repository to be associated.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
+	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
+	// The tags associated with a repository association.
+	Tags RepositoryAssociationTagArrayOutput `pulumi:"tags"`
+	// The type of repository to be associated.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -76,33 +76,33 @@ func (RepositoryAssociationState) ElementType() reflect.Type {
 }
 
 type repositoryAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+	// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
 	BucketName *string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
+	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn *string `pulumi:"connectionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+	// Name of the repository to be associated.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
+	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner *string `pulumi:"owner"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
+	// The tags associated with a repository association.
+	Tags []RepositoryAssociationTag `pulumi:"tags"`
+	// The type of repository to be associated.
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a RepositoryAssociation resource.
 type RepositoryAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-bucketname
+	// The name of the S3 bucket associated with an associated S3 repository. It must start with `codeguru-reviewer-`.
 	BucketName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-connectionarn
+	// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
 	ConnectionArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-name
+	// Name of the repository to be associated.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-owner
+	// The owner of the repository. For a Bitbucket repository, this is the username for the account that owns the repository.
 	Owner pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codegurureviewer-repositoryassociation.html#cfn-codegurureviewer-repositoryassociation-type
+	// The tags associated with a repository association.
+	Tags RepositoryAssociationTagArrayInput
+	// The type of repository to be associated.
 	Type pulumi.StringInput
 }
 

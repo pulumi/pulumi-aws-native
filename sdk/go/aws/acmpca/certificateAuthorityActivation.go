@@ -11,18 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
+// Used to install the certificate authority certificate and update the certificate authority status.
 type CertificateAuthorityActivation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+	// Certificate Authority certificate that will be installed in the Certificate Authority.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+	// Arn of the Certificate Authority.
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
-	CertificateChain         pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	CompleteCertificateChain pulumi.StringOutput    `pulumi:"completeCertificateChain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+	// Certificate chain for the Certificate Authority certificate.
+	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
+	// The complete certificate chain, including the Certificate Authority certificate.
+	CompleteCertificateChain pulumi.StringOutput `pulumi:"completeCertificateChain"`
+	// The status of the Certificate Authority.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
 }
 
@@ -71,25 +72,25 @@ func (CertificateAuthorityActivationState) ElementType() reflect.Type {
 }
 
 type certificateAuthorityActivationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+	// Certificate Authority certificate that will be installed in the Certificate Authority.
 	Certificate string `pulumi:"certificate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+	// Arn of the Certificate Authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+	// Certificate chain for the Certificate Authority certificate.
 	CertificateChain *string `pulumi:"certificateChain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+	// The status of the Certificate Authority.
 	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a CertificateAuthorityActivation resource.
 type CertificateAuthorityActivationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+	// Certificate Authority certificate that will be installed in the Certificate Authority.
 	Certificate pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+	// Arn of the Certificate Authority.
 	CertificateAuthorityArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+	// Certificate chain for the Certificate Authority certificate.
 	CertificateChain pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+	// The status of the Certificate Authority.
 	Status pulumi.StringPtrInput
 }
 

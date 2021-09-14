@@ -8,21 +8,18 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
 type ConnectionAlias struct {
 	pulumi.CustomResourceState
 
 	AliasId              pulumi.StringOutput                                  `pulumi:"aliasId"`
 	Associations         ConnectionAliasConnectionAliasAssociationArrayOutput `pulumi:"associations"`
 	ConnectionAliasState pulumi.StringOutput                                  `pulumi:"connectionAliasState"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	ConnectionString     pulumi.StringOutput                                  `pulumi:"connectionString"`
+	Tags                 ConnectionAliasTagArrayOutput                        `pulumi:"tags"`
 }
 
 // NewConnectionAlias registers a new resource with the given unique name, arguments, and options.
@@ -67,18 +64,14 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 }
 
 type connectionAliasArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-	ConnectionString string `pulumi:"connectionString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	ConnectionString string               `pulumi:"connectionString"`
+	Tags             []ConnectionAliasTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ConnectionAlias resource.
 type ConnectionAliasArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
 	ConnectionString pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-	Tags aws.TagArrayInput
+	Tags             ConnectionAliasTagArrayInput
 }
 
 func (ConnectionAliasArgs) ElementType() reflect.Type {

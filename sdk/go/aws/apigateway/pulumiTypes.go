@@ -10,11 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
 type ApiKeyStageKey struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+	// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
 	RestApiId *string `pulumi:"restApiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+	// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
 	StageName *string `pulumi:"stageName"`
 }
 
@@ -29,11 +28,10 @@ type ApiKeyStageKeyInput interface {
 	ToApiKeyStageKeyOutputWithContext(context.Context) ApiKeyStageKeyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
 type ApiKeyStageKeyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+	// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
 	RestApiId pulumi.StringPtrInput `pulumi:"restApiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+	// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
 	StageName pulumi.StringPtrInput `pulumi:"stageName"`
 }
 
@@ -74,7 +72,6 @@ func (i ApiKeyStageKeyArray) ToApiKeyStageKeyArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyStageKeyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
 type ApiKeyStageKeyOutput struct{ *pulumi.OutputState }
 
 func (ApiKeyStageKeyOutput) ElementType() reflect.Type {
@@ -89,12 +86,12 @@ func (o ApiKeyStageKeyOutput) ToApiKeyStageKeyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
 func (o ApiKeyStageKeyOutput) RestApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyStageKey) *string { return v.RestApiId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property.
 func (o ApiKeyStageKeyOutput) StageName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApiKeyStageKey) *string { return v.StageName }).(pulumi.StringPtrOutput)
 }
@@ -119,9 +116,213 @@ func (o ApiKeyStageKeyArrayOutput) Index(i pulumi.IntInput) ApiKeyStageKeyOutput
 	}).(ApiKeyStageKeyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
+type ApiKeyTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ApiKeyTagInput is an input type that accepts ApiKeyTagArgs and ApiKeyTagOutput values.
+// You can construct a concrete instance of `ApiKeyTagInput` via:
+//
+//          ApiKeyTagArgs{...}
+type ApiKeyTagInput interface {
+	pulumi.Input
+
+	ToApiKeyTagOutput() ApiKeyTagOutput
+	ToApiKeyTagOutputWithContext(context.Context) ApiKeyTagOutput
+}
+
+type ApiKeyTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApiKeyTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyTag)(nil)).Elem()
+}
+
+func (i ApiKeyTagArgs) ToApiKeyTagOutput() ApiKeyTagOutput {
+	return i.ToApiKeyTagOutputWithContext(context.Background())
+}
+
+func (i ApiKeyTagArgs) ToApiKeyTagOutputWithContext(ctx context.Context) ApiKeyTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyTagOutput)
+}
+
+// ApiKeyTagArrayInput is an input type that accepts ApiKeyTagArray and ApiKeyTagArrayOutput values.
+// You can construct a concrete instance of `ApiKeyTagArrayInput` via:
+//
+//          ApiKeyTagArray{ ApiKeyTagArgs{...} }
+type ApiKeyTagArrayInput interface {
+	pulumi.Input
+
+	ToApiKeyTagArrayOutput() ApiKeyTagArrayOutput
+	ToApiKeyTagArrayOutputWithContext(context.Context) ApiKeyTagArrayOutput
+}
+
+type ApiKeyTagArray []ApiKeyTagInput
+
+func (ApiKeyTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyTag)(nil)).Elem()
+}
+
+func (i ApiKeyTagArray) ToApiKeyTagArrayOutput() ApiKeyTagArrayOutput {
+	return i.ToApiKeyTagArrayOutputWithContext(context.Background())
+}
+
+func (i ApiKeyTagArray) ToApiKeyTagArrayOutputWithContext(ctx context.Context) ApiKeyTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiKeyTagArrayOutput)
+}
+
+type ApiKeyTagOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiKeyTag)(nil)).Elem()
+}
+
+func (o ApiKeyTagOutput) ToApiKeyTagOutput() ApiKeyTagOutput {
+	return o
+}
+
+func (o ApiKeyTagOutput) ToApiKeyTagOutputWithContext(ctx context.Context) ApiKeyTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ApiKeyTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ApiKeyTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiKeyTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApiKeyTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiKeyTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiKeyTag)(nil)).Elem()
+}
+
+func (o ApiKeyTagArrayOutput) ToApiKeyTagArrayOutput() ApiKeyTagArrayOutput {
+	return o
+}
+
+func (o ApiKeyTagArrayOutput) ToApiKeyTagArrayOutputWithContext(ctx context.Context) ApiKeyTagArrayOutput {
+	return o
+}
+
+func (o ApiKeyTagArrayOutput) Index(i pulumi.IntInput) ApiKeyTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiKeyTag {
+		return vs[0].([]ApiKeyTag)[vs[1].(int)]
+	}).(ApiKeyTagOutput)
+}
+
+type ClientCertificateTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ClientCertificateTagInput is an input type that accepts ClientCertificateTagArgs and ClientCertificateTagOutput values.
+// You can construct a concrete instance of `ClientCertificateTagInput` via:
+//
+//          ClientCertificateTagArgs{...}
+type ClientCertificateTagInput interface {
+	pulumi.Input
+
+	ToClientCertificateTagOutput() ClientCertificateTagOutput
+	ToClientCertificateTagOutputWithContext(context.Context) ClientCertificateTagOutput
+}
+
+type ClientCertificateTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ClientCertificateTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateTag)(nil)).Elem()
+}
+
+func (i ClientCertificateTagArgs) ToClientCertificateTagOutput() ClientCertificateTagOutput {
+	return i.ToClientCertificateTagOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateTagArgs) ToClientCertificateTagOutputWithContext(ctx context.Context) ClientCertificateTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateTagOutput)
+}
+
+// ClientCertificateTagArrayInput is an input type that accepts ClientCertificateTagArray and ClientCertificateTagArrayOutput values.
+// You can construct a concrete instance of `ClientCertificateTagArrayInput` via:
+//
+//          ClientCertificateTagArray{ ClientCertificateTagArgs{...} }
+type ClientCertificateTagArrayInput interface {
+	pulumi.Input
+
+	ToClientCertificateTagArrayOutput() ClientCertificateTagArrayOutput
+	ToClientCertificateTagArrayOutputWithContext(context.Context) ClientCertificateTagArrayOutput
+}
+
+type ClientCertificateTagArray []ClientCertificateTagInput
+
+func (ClientCertificateTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateTag)(nil)).Elem()
+}
+
+func (i ClientCertificateTagArray) ToClientCertificateTagArrayOutput() ClientCertificateTagArrayOutput {
+	return i.ToClientCertificateTagArrayOutputWithContext(context.Background())
+}
+
+func (i ClientCertificateTagArray) ToClientCertificateTagArrayOutputWithContext(ctx context.Context) ClientCertificateTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClientCertificateTagArrayOutput)
+}
+
+type ClientCertificateTagOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClientCertificateTag)(nil)).Elem()
+}
+
+func (o ClientCertificateTagOutput) ToClientCertificateTagOutput() ClientCertificateTagOutput {
+	return o
+}
+
+func (o ClientCertificateTagOutput) ToClientCertificateTagOutputWithContext(ctx context.Context) ClientCertificateTagOutput {
+	return o
+}
+
+func (o ClientCertificateTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertificateTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ClientCertificateTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ClientCertificateTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ClientCertificateTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ClientCertificateTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClientCertificateTag)(nil)).Elem()
+}
+
+func (o ClientCertificateTagArrayOutput) ToClientCertificateTagArrayOutput() ClientCertificateTagArrayOutput {
+	return o
+}
+
+func (o ClientCertificateTagArrayOutput) ToClientCertificateTagArrayOutputWithContext(ctx context.Context) ClientCertificateTagArrayOutput {
+	return o
+}
+
+func (o ClientCertificateTagArrayOutput) Index(i pulumi.IntInput) ClientCertificateTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClientCertificateTag {
+		return vs[0].([]ClientCertificateTag)[vs[1].(int)]
+	}).(ClientCertificateTagOutput)
+}
+
 type DomainNameEndpointConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
 	Types []string `pulumi:"types"`
 }
 
@@ -136,9 +337,7 @@ type DomainNameEndpointConfigurationInput interface {
 	ToDomainNameEndpointConfigurationOutputWithContext(context.Context) DomainNameEndpointConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
 type DomainNameEndpointConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -195,7 +394,6 @@ func (i *domainNameEndpointConfigurationPtrType) ToDomainNameEndpointConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
 type DomainNameEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -220,7 +418,6 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
@@ -249,7 +446,6 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 	}).(DomainNameEndpointConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
 func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainNameEndpointConfiguration) []string {
 		if v == nil {
@@ -259,11 +455,8 @@ func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutp
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
 type DomainNameMutualTlsAuthentication struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
-	TruststoreUri *string `pulumi:"truststoreUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreUri     *string `pulumi:"truststoreUri"`
 	TruststoreVersion *string `pulumi:"truststoreVersion"`
 }
 
@@ -278,11 +471,8 @@ type DomainNameMutualTlsAuthenticationInput interface {
 	ToDomainNameMutualTlsAuthenticationOutputWithContext(context.Context) DomainNameMutualTlsAuthenticationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
 type DomainNameMutualTlsAuthenticationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
-	TruststoreUri pulumi.StringPtrInput `pulumi:"truststoreUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
+	TruststoreUri     pulumi.StringPtrInput `pulumi:"truststoreUri"`
 	TruststoreVersion pulumi.StringPtrInput `pulumi:"truststoreVersion"`
 }
 
@@ -339,7 +529,6 @@ func (i *domainNameMutualTlsAuthenticationPtrType) ToDomainNameMutualTlsAuthenti
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html
 type DomainNameMutualTlsAuthenticationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameMutualTlsAuthenticationOutput) ElementType() reflect.Type {
@@ -364,12 +553,10 @@ func (o DomainNameMutualTlsAuthenticationOutput) ToDomainNameMutualTlsAuthentica
 	}).(DomainNameMutualTlsAuthenticationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreUri }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
 func (o DomainNameMutualTlsAuthenticationOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameMutualTlsAuthentication) *string { return v.TruststoreVersion }).(pulumi.StringPtrOutput)
 }
@@ -398,7 +585,6 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) Elem() DomainNameMutualTlsAu
 	}).(DomainNameMutualTlsAuthenticationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreuri
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -408,7 +594,6 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-mutualtlsauthentication.html#cfn-apigateway-domainname-mutualtlsauthentication-truststoreversion
 func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameMutualTlsAuthentication) *string {
 		if v == nil {
@@ -418,14 +603,113 @@ func (o DomainNameMutualTlsAuthenticationPtrOutput) TruststoreVersion() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
+type DomainNameTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// DomainNameTagInput is an input type that accepts DomainNameTagArgs and DomainNameTagOutput values.
+// You can construct a concrete instance of `DomainNameTagInput` via:
+//
+//          DomainNameTagArgs{...}
+type DomainNameTagInput interface {
+	pulumi.Input
+
+	ToDomainNameTagOutput() DomainNameTagOutput
+	ToDomainNameTagOutputWithContext(context.Context) DomainNameTagOutput
+}
+
+type DomainNameTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DomainNameTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameTag)(nil)).Elem()
+}
+
+func (i DomainNameTagArgs) ToDomainNameTagOutput() DomainNameTagOutput {
+	return i.ToDomainNameTagOutputWithContext(context.Background())
+}
+
+func (i DomainNameTagArgs) ToDomainNameTagOutputWithContext(ctx context.Context) DomainNameTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameTagOutput)
+}
+
+// DomainNameTagArrayInput is an input type that accepts DomainNameTagArray and DomainNameTagArrayOutput values.
+// You can construct a concrete instance of `DomainNameTagArrayInput` via:
+//
+//          DomainNameTagArray{ DomainNameTagArgs{...} }
+type DomainNameTagArrayInput interface {
+	pulumi.Input
+
+	ToDomainNameTagArrayOutput() DomainNameTagArrayOutput
+	ToDomainNameTagArrayOutputWithContext(context.Context) DomainNameTagArrayOutput
+}
+
+type DomainNameTagArray []DomainNameTagInput
+
+func (DomainNameTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameTag)(nil)).Elem()
+}
+
+func (i DomainNameTagArray) ToDomainNameTagArrayOutput() DomainNameTagArrayOutput {
+	return i.ToDomainNameTagArrayOutputWithContext(context.Background())
+}
+
+func (i DomainNameTagArray) ToDomainNameTagArrayOutputWithContext(ctx context.Context) DomainNameTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameTagArrayOutput)
+}
+
+type DomainNameTagOutput struct{ *pulumi.OutputState }
+
+func (DomainNameTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameTag)(nil)).Elem()
+}
+
+func (o DomainNameTagOutput) ToDomainNameTagOutput() DomainNameTagOutput {
+	return o
+}
+
+func (o DomainNameTagOutput) ToDomainNameTagOutputWithContext(ctx context.Context) DomainNameTagOutput {
+	return o
+}
+
+func (o DomainNameTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainNameTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNameTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DomainNameTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainNameTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNameTag)(nil)).Elem()
+}
+
+func (o DomainNameTagArrayOutput) ToDomainNameTagArrayOutput() DomainNameTagArrayOutput {
+	return o
+}
+
+func (o DomainNameTagArrayOutput) ToDomainNameTagArrayOutputWithContext(ctx context.Context) DomainNameTagArrayOutput {
+	return o
+}
+
+func (o DomainNameTagArrayOutput) Index(i pulumi.IntInput) DomainNameTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNameTag {
+		return vs[0].([]DomainNameTag)[vs[1].(int)]
+	}).(DomainNameTagOutput)
+}
+
 type UsagePlanApiStage struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
 	ApiId *string `pulumi:"apiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	// The name of the stage to associate with the usage plan.
 	Stage *string `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
-	Throttle map[string]UsagePlanThrottleSettings `pulumi:"throttle"`
+	// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+	Throttle interface{} `pulumi:"throttle"`
 }
 
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
@@ -439,14 +723,13 @@ type UsagePlanApiStageInput interface {
 	ToUsagePlanApiStageOutputWithContext(context.Context) UsagePlanApiStageOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 type UsagePlanApiStageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+	// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
 	ApiId pulumi.StringPtrInput `pulumi:"apiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+	// The name of the stage to associate with the usage plan.
 	Stage pulumi.StringPtrInput `pulumi:"stage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
-	Throttle UsagePlanThrottleSettingsMapInput `pulumi:"throttle"`
+	// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+	Throttle pulumi.Input `pulumi:"throttle"`
 }
 
 func (UsagePlanApiStageArgs) ElementType() reflect.Type {
@@ -486,7 +769,6 @@ func (i UsagePlanApiStageArray) ToUsagePlanApiStageArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 type UsagePlanApiStageOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageOutput) ElementType() reflect.Type {
@@ -501,19 +783,19 @@ func (o UsagePlanApiStageOutput) ToUsagePlanApiStageOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
 func (o UsagePlanApiStageOutput) ApiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.ApiId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+// The name of the stage to associate with the usage plan.
 func (o UsagePlanApiStageOutput) Stage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) *string { return v.Stage }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
-func (o UsagePlanApiStageOutput) Throttle() UsagePlanThrottleSettingsMapOutput {
-	return o.ApplyT(func(v UsagePlanApiStage) map[string]UsagePlanThrottleSettings { return v.Throttle }).(UsagePlanThrottleSettingsMapOutput)
+// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
+func (o UsagePlanApiStageOutput) Throttle() pulumi.AnyOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) interface{} { return v.Throttle }).(pulumi.AnyOutput)
 }
 
 type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
@@ -536,13 +818,12 @@ func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStage
 	}).(UsagePlanApiStageOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 type UsagePlanQuotaSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	// The maximum number of requests that users can make within the specified time period.
 	Limit *int `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
 	Offset *int `pulumi:"offset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
 	Period *string `pulumi:"period"`
 }
 
@@ -557,13 +838,12 @@ type UsagePlanQuotaSettingsInput interface {
 	ToUsagePlanQuotaSettingsOutputWithContext(context.Context) UsagePlanQuotaSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 type UsagePlanQuotaSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+	// The maximum number of requests that users can make within the specified time period.
 	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+	// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
 	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+	// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
 	Period pulumi.StringPtrInput `pulumi:"period"`
 }
 
@@ -620,7 +900,6 @@ func (i *usagePlanQuotaSettingsPtrType) ToUsagePlanQuotaSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanQuotaSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 type UsagePlanQuotaSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanQuotaSettingsOutput) ElementType() reflect.Type {
@@ -645,17 +924,17 @@ func (o UsagePlanQuotaSettingsOutput) ToUsagePlanQuotaSettingsPtrOutputWithConte
 	}).(UsagePlanQuotaSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+// The maximum number of requests that users can make within the specified time period.
 func (o UsagePlanQuotaSettingsOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Limit }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
 func (o UsagePlanQuotaSettingsOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
 func (o UsagePlanQuotaSettingsOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UsagePlanQuotaSettings) *string { return v.Period }).(pulumi.StringPtrOutput)
 }
@@ -684,7 +963,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Elem() UsagePlanQuotaSettingsOutput {
 	}).(UsagePlanQuotaSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
+// The maximum number of requests that users can make within the specified time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -694,7 +973,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
+// For the initial time period, the number of requests to subtract from the specified limit. When you first implement a usage plan, the plan might start in the middle of the week or month. With this property, you can decrease the limit for this initial time period.
 func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *int {
 		if v == nil {
@@ -704,7 +983,7 @@ func (o UsagePlanQuotaSettingsPtrOutput) Offset() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
+// The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.
 func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UsagePlanQuotaSettings) *string {
 		if v == nil {
@@ -714,11 +993,116 @@ func (o UsagePlanQuotaSettingsPtrOutput) Period() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
+type UsagePlanTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// UsagePlanTagInput is an input type that accepts UsagePlanTagArgs and UsagePlanTagOutput values.
+// You can construct a concrete instance of `UsagePlanTagInput` via:
+//
+//          UsagePlanTagArgs{...}
+type UsagePlanTagInput interface {
+	pulumi.Input
+
+	ToUsagePlanTagOutput() UsagePlanTagOutput
+	ToUsagePlanTagOutputWithContext(context.Context) UsagePlanTagOutput
+}
+
+type UsagePlanTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (UsagePlanTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanTag)(nil)).Elem()
+}
+
+func (i UsagePlanTagArgs) ToUsagePlanTagOutput() UsagePlanTagOutput {
+	return i.ToUsagePlanTagOutputWithContext(context.Background())
+}
+
+func (i UsagePlanTagArgs) ToUsagePlanTagOutputWithContext(ctx context.Context) UsagePlanTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanTagOutput)
+}
+
+// UsagePlanTagArrayInput is an input type that accepts UsagePlanTagArray and UsagePlanTagArrayOutput values.
+// You can construct a concrete instance of `UsagePlanTagArrayInput` via:
+//
+//          UsagePlanTagArray{ UsagePlanTagArgs{...} }
+type UsagePlanTagArrayInput interface {
+	pulumi.Input
+
+	ToUsagePlanTagArrayOutput() UsagePlanTagArrayOutput
+	ToUsagePlanTagArrayOutputWithContext(context.Context) UsagePlanTagArrayOutput
+}
+
+type UsagePlanTagArray []UsagePlanTagInput
+
+func (UsagePlanTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanTag)(nil)).Elem()
+}
+
+func (i UsagePlanTagArray) ToUsagePlanTagArrayOutput() UsagePlanTagArrayOutput {
+	return i.ToUsagePlanTagArrayOutputWithContext(context.Background())
+}
+
+func (i UsagePlanTagArray) ToUsagePlanTagArrayOutputWithContext(ctx context.Context) UsagePlanTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanTagArrayOutput)
+}
+
+type UsagePlanTagOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanTag)(nil)).Elem()
+}
+
+func (o UsagePlanTagOutput) ToUsagePlanTagOutput() UsagePlanTagOutput {
+	return o
+}
+
+func (o UsagePlanTagOutput) ToUsagePlanTagOutputWithContext(ctx context.Context) UsagePlanTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UsagePlanTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v UsagePlanTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o UsagePlanTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v UsagePlanTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type UsagePlanTagArrayOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanTag)(nil)).Elem()
+}
+
+func (o UsagePlanTagArrayOutput) ToUsagePlanTagArrayOutput() UsagePlanTagArrayOutput {
+	return o
+}
+
+func (o UsagePlanTagArrayOutput) ToUsagePlanTagArrayOutputWithContext(ctx context.Context) UsagePlanTagArrayOutput {
+	return o
+}
+
+func (o UsagePlanTagArrayOutput) Index(i pulumi.IntInput) UsagePlanTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanTag {
+		return vs[0].([]UsagePlanTag)[vs[1].(int)]
+	}).(UsagePlanTagOutput)
+}
+
 type UsagePlanThrottleSettings struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
 	BurstLimit *int `pulumi:"burstLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	// The API request steady-state rate limit (average requests per second over an extended period of time).
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
@@ -733,11 +1117,10 @@ type UsagePlanThrottleSettingsInput interface {
 	ToUsagePlanThrottleSettingsOutputWithContext(context.Context) UsagePlanThrottleSettingsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 type UsagePlanThrottleSettingsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+	// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
 	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+	// The API request steady-state rate limit (average requests per second over an extended period of time).
 	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
 }
 
@@ -794,32 +1177,6 @@ func (i *usagePlanThrottleSettingsPtrType) ToUsagePlanThrottleSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsPtrOutput)
 }
 
-// UsagePlanThrottleSettingsMapInput is an input type that accepts UsagePlanThrottleSettingsMap and UsagePlanThrottleSettingsMapOutput values.
-// You can construct a concrete instance of `UsagePlanThrottleSettingsMapInput` via:
-//
-//          UsagePlanThrottleSettingsMap{ "key": UsagePlanThrottleSettingsArgs{...} }
-type UsagePlanThrottleSettingsMapInput interface {
-	pulumi.Input
-
-	ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput
-	ToUsagePlanThrottleSettingsMapOutputWithContext(context.Context) UsagePlanThrottleSettingsMapOutput
-}
-
-type UsagePlanThrottleSettingsMap map[string]UsagePlanThrottleSettingsInput
-
-func (UsagePlanThrottleSettingsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
-}
-
-func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
-	return i.ToUsagePlanThrottleSettingsMapOutputWithContext(context.Background())
-}
-
-func (i UsagePlanThrottleSettingsMap) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanThrottleSettingsMapOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 type UsagePlanThrottleSettingsOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanThrottleSettingsOutput) ElementType() reflect.Type {
@@ -844,12 +1201,12 @@ func (o UsagePlanThrottleSettingsOutput) ToUsagePlanThrottleSettingsPtrOutputWit
 	}).(UsagePlanThrottleSettingsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+// The API request steady-state rate limit (average requests per second over an extended period of time).
 func (o UsagePlanThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v UsagePlanThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
 }
@@ -878,7 +1235,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) Elem() UsagePlanThrottleSettingsOutp
 	}).(UsagePlanThrottleSettingsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
+// The maximum API request rate limit over a time ranging from one to a few seconds. The maximum API request rate limit depends on whether the underlying token bucket is at its full capacity.
 func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *int {
 		if v == nil {
@@ -888,7 +1245,7 @@ func (o UsagePlanThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
+// The API request steady-state rate limit (average requests per second over an extended period of time).
 func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *UsagePlanThrottleSettings) *float64 {
 		if v == nil {
@@ -898,38 +1255,25 @@ func (o UsagePlanThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-type UsagePlanThrottleSettingsMapOutput struct{ *pulumi.OutputState }
-
-func (UsagePlanThrottleSettingsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UsagePlanThrottleSettings)(nil)).Elem()
-}
-
-func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutput() UsagePlanThrottleSettingsMapOutput {
-	return o
-}
-
-func (o UsagePlanThrottleSettingsMapOutput) ToUsagePlanThrottleSettingsMapOutputWithContext(ctx context.Context) UsagePlanThrottleSettingsMapOutput {
-	return o
-}
-
-func (o UsagePlanThrottleSettingsMapOutput) MapIndex(k pulumi.StringInput) UsagePlanThrottleSettingsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UsagePlanThrottleSettings {
-		return vs[0].(map[string]UsagePlanThrottleSettings)[vs[1].(string)]
-	}).(UsagePlanThrottleSettingsOutput)
-}
-
 func init() {
 	pulumi.RegisterOutputType(ApiKeyStageKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyStageKeyArrayOutput{})
+	pulumi.RegisterOutputType(ApiKeyTagOutput{})
+	pulumi.RegisterOutputType(ApiKeyTagArrayOutput{})
+	pulumi.RegisterOutputType(ClientCertificateTagOutput{})
+	pulumi.RegisterOutputType(ClientCertificateTagArrayOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameTagOutput{})
+	pulumi.RegisterOutputType(DomainNameTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UsagePlanTagOutput{})
+	pulumi.RegisterOutputType(UsagePlanTagArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsPtrOutput{})
-	pulumi.RegisterOutputType(UsagePlanThrottleSettingsMapOutput{})
 }

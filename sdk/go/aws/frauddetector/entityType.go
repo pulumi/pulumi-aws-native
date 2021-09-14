@@ -8,23 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html
+// An entity type for fraud detector.
 type EntityType struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// The entity type ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The timestamp when the entity type was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-description
-	Description     pulumi.StringPtrOutput `pulumi:"description"`
-	LastUpdatedTime pulumi.StringOutput    `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-name
+	// The entity type description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The timestamp when the entity type was last updated.
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The name of the entity type.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Tags associated with this entity type.
+	Tags EntityTypeTagArrayOutput `pulumi:"tags"`
 }
 
 // NewEntityType registers a new resource with the given unique name, arguments, and options.
@@ -69,22 +71,22 @@ func (EntityTypeState) ElementType() reflect.Type {
 }
 
 type entityTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-description
+	// The entity type description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-name
+	// The name of the entity type.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags associated with this entity type.
+	Tags []EntityTypeTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EntityType resource.
 type EntityTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-description
+	// The entity type description.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-name
+	// The name of the entity type.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-tags
-	Tags aws.TagArrayInput
+	// Tags associated with this entity type.
+	Tags EntityTypeTagArrayInput
 }
 
 func (EntityTypeArgs) ElementType() reflect.Type {

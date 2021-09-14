@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
 type StateMachineCloudWatchLogsLogGroup struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
 	LogGroupArn *string `pulumi:"logGroupArn"`
 }
 
@@ -27,9 +25,7 @@ type StateMachineCloudWatchLogsLogGroupInput interface {
 	ToStateMachineCloudWatchLogsLogGroupOutputWithContext(context.Context) StateMachineCloudWatchLogsLogGroupOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
 type StateMachineCloudWatchLogsLogGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
 	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
 }
 
@@ -86,7 +82,6 @@ func (i *stateMachineCloudWatchLogsLogGroupPtrType) ToStateMachineCloudWatchLogs
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineCloudWatchLogsLogGroupPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
 type StateMachineCloudWatchLogsLogGroupOutput struct{ *pulumi.OutputState }
 
 func (StateMachineCloudWatchLogsLogGroupOutput) ElementType() reflect.Type {
@@ -111,7 +106,6 @@ func (o StateMachineCloudWatchLogsLogGroupOutput) ToStateMachineCloudWatchLogsLo
 	}).(StateMachineCloudWatchLogsLogGroupPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
 func (o StateMachineCloudWatchLogsLogGroupOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineCloudWatchLogsLogGroup) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +134,6 @@ func (o StateMachineCloudWatchLogsLogGroupPtrOutput) Elem() StateMachineCloudWat
 	}).(StateMachineCloudWatchLogsLogGroupOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
 func (o StateMachineCloudWatchLogsLogGroupPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineCloudWatchLogsLogGroup) *string {
 		if v == nil {
@@ -150,7 +143,6 @@ func (o StateMachineCloudWatchLogsLogGroupPtrOutput) LogGroupArn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
 type StateMachineDefinition struct {
 }
 
@@ -165,7 +157,6 @@ type StateMachineDefinitionInput interface {
 	ToStateMachineDefinitionOutputWithContext(context.Context) StateMachineDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
 type StateMachineDefinitionArgs struct {
 }
 
@@ -222,7 +213,6 @@ func (i *stateMachineDefinitionPtrType) ToStateMachineDefinitionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
 type StateMachineDefinitionOutput struct{ *pulumi.OutputState }
 
 func (StateMachineDefinitionOutput) ElementType() reflect.Type {
@@ -271,9 +261,125 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 	}).(StateMachineDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
+type StateMachineDefinitionSubstitutions struct {
+}
+
+// StateMachineDefinitionSubstitutionsInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs and StateMachineDefinitionSubstitutionsOutput values.
+// You can construct a concrete instance of `StateMachineDefinitionSubstitutionsInput` via:
+//
+//          StateMachineDefinitionSubstitutionsArgs{...}
+type StateMachineDefinitionSubstitutionsInput interface {
+	pulumi.Input
+
+	ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput
+	ToStateMachineDefinitionSubstitutionsOutputWithContext(context.Context) StateMachineDefinitionSubstitutionsOutput
+}
+
+type StateMachineDefinitionSubstitutionsArgs struct {
+}
+
+func (StateMachineDefinitionSubstitutionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineDefinitionSubstitutions)(nil)).Elem()
+}
+
+func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput {
+	return i.ToStateMachineDefinitionSubstitutionsOutputWithContext(context.Background())
+}
+
+func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsOutput)
+}
+
+func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
+	return i.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
+}
+
+func (i StateMachineDefinitionSubstitutionsArgs) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsOutput).ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx)
+}
+
+// StateMachineDefinitionSubstitutionsPtrInput is an input type that accepts StateMachineDefinitionSubstitutionsArgs, StateMachineDefinitionSubstitutionsPtr and StateMachineDefinitionSubstitutionsPtrOutput values.
+// You can construct a concrete instance of `StateMachineDefinitionSubstitutionsPtrInput` via:
+//
+//          StateMachineDefinitionSubstitutionsArgs{...}
+//
+//  or:
+//
+//          nil
+type StateMachineDefinitionSubstitutionsPtrInput interface {
+	pulumi.Input
+
+	ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput
+	ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Context) StateMachineDefinitionSubstitutionsPtrOutput
+}
+
+type stateMachineDefinitionSubstitutionsPtrType StateMachineDefinitionSubstitutionsArgs
+
+func StateMachineDefinitionSubstitutionsPtr(v *StateMachineDefinitionSubstitutionsArgs) StateMachineDefinitionSubstitutionsPtrInput {
+	return (*stateMachineDefinitionSubstitutionsPtrType)(v)
+}
+
+func (*stateMachineDefinitionSubstitutionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineDefinitionSubstitutions)(nil)).Elem()
+}
+
+func (i *stateMachineDefinitionSubstitutionsPtrType) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
+	return i.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
+}
+
+func (i *stateMachineDefinitionSubstitutionsPtrType) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StateMachineDefinitionSubstitutionsPtrOutput)
+}
+
+type StateMachineDefinitionSubstitutionsOutput struct{ *pulumi.OutputState }
+
+func (StateMachineDefinitionSubstitutionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StateMachineDefinitionSubstitutions)(nil)).Elem()
+}
+
+func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsOutput() StateMachineDefinitionSubstitutionsOutput {
+	return o
+}
+
+func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsOutput {
+	return o
+}
+
+func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
+	return o.ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(context.Background())
+}
+
+func (o StateMachineDefinitionSubstitutionsOutput) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StateMachineDefinitionSubstitutions) *StateMachineDefinitionSubstitutions {
+		return &v
+	}).(StateMachineDefinitionSubstitutionsPtrOutput)
+}
+
+type StateMachineDefinitionSubstitutionsPtrOutput struct{ *pulumi.OutputState }
+
+func (StateMachineDefinitionSubstitutionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StateMachineDefinitionSubstitutions)(nil)).Elem()
+}
+
+func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSubstitutionsPtrOutput() StateMachineDefinitionSubstitutionsPtrOutput {
+	return o
+}
+
+func (o StateMachineDefinitionSubstitutionsPtrOutput) ToStateMachineDefinitionSubstitutionsPtrOutputWithContext(ctx context.Context) StateMachineDefinitionSubstitutionsPtrOutput {
+	return o
+}
+
+func (o StateMachineDefinitionSubstitutionsPtrOutput) Elem() StateMachineDefinitionSubstitutionsOutput {
+	return o.ApplyT(func(v *StateMachineDefinitionSubstitutions) StateMachineDefinitionSubstitutions {
+		if v != nil {
+			return *v
+		}
+		var ret StateMachineDefinitionSubstitutions
+		return ret
+	}).(StateMachineDefinitionSubstitutionsOutput)
+}
+
 type StateMachineLogDestination struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
 	CloudWatchLogsLogGroup *StateMachineCloudWatchLogsLogGroup `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -288,9 +394,7 @@ type StateMachineLogDestinationInput interface {
 	ToStateMachineLogDestinationOutputWithContext(context.Context) StateMachineLogDestinationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
 type StateMachineLogDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
 	CloudWatchLogsLogGroup StateMachineCloudWatchLogsLogGroupPtrInput `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -331,7 +435,6 @@ func (i StateMachineLogDestinationArray) ToStateMachineLogDestinationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLogDestinationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html
 type StateMachineLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLogDestinationOutput) ElementType() reflect.Type {
@@ -346,7 +449,6 @@ func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup
 func (o StateMachineLogDestinationOutput) CloudWatchLogsLogGroup() StateMachineCloudWatchLogsLogGroupPtrOutput {
 	return o.ApplyT(func(v StateMachineLogDestination) *StateMachineCloudWatchLogsLogGroup {
 		return v.CloudWatchLogsLogGroup
@@ -373,14 +475,10 @@ func (o StateMachineLogDestinationArrayOutput) Index(i pulumi.IntInput) StateMac
 	}).(StateMachineLogDestinationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
 type StateMachineLoggingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
-	Destinations []StateMachineLogDestination `pulumi:"destinations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
-	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
-	Level *string `pulumi:"level"`
+	Destinations         []StateMachineLogDestination `pulumi:"destinations"`
+	IncludeExecutionData *bool                        `pulumi:"includeExecutionData"`
+	Level                *string                      `pulumi:"level"`
 }
 
 // StateMachineLoggingConfigurationInput is an input type that accepts StateMachineLoggingConfigurationArgs and StateMachineLoggingConfigurationOutput values.
@@ -394,14 +492,10 @@ type StateMachineLoggingConfigurationInput interface {
 	ToStateMachineLoggingConfigurationOutputWithContext(context.Context) StateMachineLoggingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
 type StateMachineLoggingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
-	Destinations StateMachineLogDestinationArrayInput `pulumi:"destinations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
-	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
-	Level pulumi.StringPtrInput `pulumi:"level"`
+	Destinations         StateMachineLogDestinationArrayInput `pulumi:"destinations"`
+	IncludeExecutionData pulumi.BoolPtrInput                  `pulumi:"includeExecutionData"`
+	Level                pulumi.StringPtrInput                `pulumi:"level"`
 }
 
 func (StateMachineLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -457,7 +551,6 @@ func (i *stateMachineLoggingConfigurationPtrType) ToStateMachineLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html
 type StateMachineLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -482,17 +575,14 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
 func (o StateMachineLoggingConfigurationOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) []StateMachineLogDestination { return v.Destinations }).(StateMachineLogDestinationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
 func (o StateMachineLoggingConfigurationOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *bool { return v.IncludeExecutionData }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
 func (o StateMachineLoggingConfigurationOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) *string { return v.Level }).(pulumi.StringPtrOutput)
 }
@@ -521,7 +611,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingCon
 	}).(StateMachineLoggingConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-destinations
 func (o StateMachineLoggingConfigurationPtrOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) []StateMachineLogDestination {
 		if v == nil {
@@ -531,7 +620,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) Destinations() StateMachineLo
 	}).(StateMachineLogDestinationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-includeexecutiondata
 func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *bool {
 		if v == nil {
@@ -541,7 +629,6 @@ func (o StateMachineLoggingConfigurationPtrOutput) IncludeExecutionData() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-loggingconfiguration.html#cfn-stepfunctions-statemachine-loggingconfiguration-level
 func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) *string {
 		if v == nil {
@@ -551,13 +638,9 @@ func (o StateMachineLoggingConfigurationPtrOutput) Level() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html
 type StateMachineS3Location struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
-	Bucket string `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
+	Bucket  string  `pulumi:"bucket"`
+	Key     string  `pulumi:"key"`
 	Version *string `pulumi:"version"`
 }
 
@@ -572,13 +655,9 @@ type StateMachineS3LocationInput interface {
 	ToStateMachineS3LocationOutputWithContext(context.Context) StateMachineS3LocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html
 type StateMachineS3LocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
-	Bucket pulumi.StringInput `pulumi:"bucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
+	Bucket  pulumi.StringInput    `pulumi:"bucket"`
+	Key     pulumi.StringInput    `pulumi:"key"`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -635,7 +714,6 @@ func (i *stateMachineS3LocationPtrType) ToStateMachineS3LocationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html
 type StateMachineS3LocationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineS3LocationOutput) ElementType() reflect.Type {
@@ -660,17 +738,14 @@ func (o StateMachineS3LocationOutput) ToStateMachineS3LocationPtrOutputWithConte
 	}).(StateMachineS3LocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
 func (o StateMachineS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
 func (o StateMachineS3LocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineS3Location) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
 func (o StateMachineS3LocationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StateMachineS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -699,7 +774,6 @@ func (o StateMachineS3LocationPtrOutput) Elem() StateMachineS3LocationOutput {
 	}).(StateMachineS3LocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-bucket
 func (o StateMachineS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -709,7 +783,6 @@ func (o StateMachineS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-key
 func (o StateMachineS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -719,7 +792,6 @@ func (o StateMachineS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-s3location.html#cfn-stepfunctions-statemachine-s3location-version
 func (o StateMachineS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StateMachineS3Location) *string {
 		if v == nil {
@@ -729,11 +801,8 @@ func (o StateMachineS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html
 type StateMachineTagsEntry struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -748,11 +817,8 @@ type StateMachineTagsEntryInput interface {
 	ToStateMachineTagsEntryOutputWithContext(context.Context) StateMachineTagsEntryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html
 type StateMachineTagsEntryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -793,7 +859,6 @@ func (i StateMachineTagsEntryArray) ToStateMachineTagsEntryArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTagsEntryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html
 type StateMachineTagsEntryOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTagsEntryOutput) ElementType() reflect.Type {
@@ -808,12 +873,10 @@ func (o StateMachineTagsEntryOutput) ToStateMachineTagsEntryOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-key
 func (o StateMachineTagsEntryOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineTagsEntry) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tagsentry.html#cfn-stepfunctions-statemachine-tagsentry-value
 func (o StateMachineTagsEntryOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StateMachineTagsEntry) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -838,9 +901,7 @@ func (o StateMachineTagsEntryArrayOutput) Index(i pulumi.IntInput) StateMachineT
 	}).(StateMachineTagsEntryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
 type StateMachineTracingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -855,9 +916,7 @@ type StateMachineTracingConfigurationInput interface {
 	ToStateMachineTracingConfigurationOutputWithContext(context.Context) StateMachineTracingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
 type StateMachineTracingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -914,7 +973,6 @@ func (i *stateMachineTracingConfigurationPtrType) ToStateMachineTracingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineTracingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html
 type StateMachineTracingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StateMachineTracingConfigurationOutput) ElementType() reflect.Type {
@@ -939,7 +997,6 @@ func (o StateMachineTracingConfigurationOutput) ToStateMachineTracingConfigurati
 	}).(StateMachineTracingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
 func (o StateMachineTracingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StateMachineTracingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -968,7 +1025,6 @@ func (o StateMachineTracingConfigurationPtrOutput) Elem() StateMachineTracingCon
 	}).(StateMachineTracingConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
 func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachineTracingConfiguration) *bool {
 		if v == nil {
@@ -983,6 +1039,8 @@ func init() {
 	pulumi.RegisterOutputType(StateMachineCloudWatchLogsLogGroupPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionOutput{})
 	pulumi.RegisterOutputType(StateMachineDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(StateMachineDefinitionSubstitutionsOutput{})
+	pulumi.RegisterOutputType(StateMachineDefinitionSubstitutionsPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationOutput{})
 	pulumi.RegisterOutputType(StateMachineLogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationOutput{})

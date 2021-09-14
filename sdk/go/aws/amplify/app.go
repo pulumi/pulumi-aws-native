@@ -8,46 +8,31 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html
+// The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
 type App struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-	AccessToken pulumi.StringPtrOutput `pulumi:"accessToken"`
-	AppId       pulumi.StringOutput    `pulumi:"appId"`
-	AppName     pulumi.StringOutput    `pulumi:"appName"`
-	Arn         pulumi.StringOutput    `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
+	AccessToken              pulumi.StringPtrOutput               `pulumi:"accessToken"`
+	AppId                    pulumi.StringOutput                  `pulumi:"appId"`
+	AppName                  pulumi.StringOutput                  `pulumi:"appName"`
+	Arn                      pulumi.StringOutput                  `pulumi:"arn"`
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrOutput `pulumi:"autoBranchCreationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-	BasicAuthConfig AppBasicAuthConfigPtrOutput `pulumi:"basicAuthConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-	BuildSpec pulumi.StringPtrOutput `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-	CustomHeaders pulumi.StringPtrOutput `pulumi:"customHeaders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-	CustomRules   AppCustomRuleArrayOutput `pulumi:"customRules"`
-	DefaultDomain pulumi.StringOutput      `pulumi:"defaultDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-	EnableBranchAutoDeletion pulumi.BoolPtrOutput `pulumi:"enableBranchAutoDeletion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-	EnvironmentVariables AppEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-	IAMServiceRole pulumi.StringPtrOutput `pulumi:"iAMServiceRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-	OauthToken pulumi.StringPtrOutput `pulumi:"oauthToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-	Repository pulumi.StringPtrOutput `pulumi:"repository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	BasicAuthConfig          AppBasicAuthConfigPtrOutput          `pulumi:"basicAuthConfig"`
+	BuildSpec                pulumi.StringPtrOutput               `pulumi:"buildSpec"`
+	CustomHeaders            pulumi.StringPtrOutput               `pulumi:"customHeaders"`
+	CustomRules              AppCustomRuleArrayOutput             `pulumi:"customRules"`
+	DefaultDomain            pulumi.StringOutput                  `pulumi:"defaultDomain"`
+	Description              pulumi.StringPtrOutput               `pulumi:"description"`
+	EnableBranchAutoDeletion pulumi.BoolPtrOutput                 `pulumi:"enableBranchAutoDeletion"`
+	EnvironmentVariables     AppEnvironmentVariableArrayOutput    `pulumi:"environmentVariables"`
+	IAMServiceRole           pulumi.StringPtrOutput               `pulumi:"iAMServiceRole"`
+	Name                     pulumi.StringOutput                  `pulumi:"name"`
+	OauthToken               pulumi.StringPtrOutput               `pulumi:"oauthToken"`
+	Repository               pulumi.StringPtrOutput               `pulumi:"repository"`
+	Tags                     AppTagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewApp registers a new resource with the given unique name, arguments, and options.
@@ -92,66 +77,38 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-	AccessToken *string `pulumi:"accessToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
+	AccessToken              *string                      `pulumi:"accessToken"`
 	AutoBranchCreationConfig *AppAutoBranchCreationConfig `pulumi:"autoBranchCreationConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-	BasicAuthConfig *AppBasicAuthConfig `pulumi:"basicAuthConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-	BuildSpec *string `pulumi:"buildSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-	CustomHeaders *string `pulumi:"customHeaders"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-	CustomRules []AppCustomRule `pulumi:"customRules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
-	EnableBranchAutoDeletion *bool `pulumi:"enableBranchAutoDeletion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-	IAMServiceRole *string `pulumi:"iAMServiceRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-	OauthToken *string `pulumi:"oauthToken"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-	Repository *string `pulumi:"repository"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	BasicAuthConfig          *AppBasicAuthConfig          `pulumi:"basicAuthConfig"`
+	BuildSpec                *string                      `pulumi:"buildSpec"`
+	CustomHeaders            *string                      `pulumi:"customHeaders"`
+	CustomRules              []AppCustomRule              `pulumi:"customRules"`
+	Description              *string                      `pulumi:"description"`
+	EnableBranchAutoDeletion *bool                        `pulumi:"enableBranchAutoDeletion"`
+	EnvironmentVariables     []AppEnvironmentVariable     `pulumi:"environmentVariables"`
+	IAMServiceRole           *string                      `pulumi:"iAMServiceRole"`
+	Name                     string                       `pulumi:"name"`
+	OauthToken               *string                      `pulumi:"oauthToken"`
+	Repository               *string                      `pulumi:"repository"`
+	Tags                     []AppTag                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
-	AccessToken pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
+	AccessToken              pulumi.StringPtrInput
 	AutoBranchCreationConfig AppAutoBranchCreationConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
-	BasicAuthConfig AppBasicAuthConfigPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-buildspec
-	BuildSpec pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customheaders
-	CustomHeaders pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-customrules
-	CustomRules AppCustomRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
-	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+	BasicAuthConfig          AppBasicAuthConfigPtrInput
+	BuildSpec                pulumi.StringPtrInput
+	CustomHeaders            pulumi.StringPtrInput
+	CustomRules              AppCustomRuleArrayInput
+	Description              pulumi.StringPtrInput
 	EnableBranchAutoDeletion pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
-	EnvironmentVariables AppEnvironmentVariableArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-iamservicerole
-	IAMServiceRole pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-oauthtoken
-	OauthToken pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-	Repository pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags
-	Tags aws.TagArrayInput
+	EnvironmentVariables     AppEnvironmentVariableArrayInput
+	IAMServiceRole           pulumi.StringPtrInput
+	Name                     pulumi.StringInput
+	OauthToken               pulumi.StringPtrInput
+	Repository               pulumi.StringPtrInput
+	Tags                     AppTagArrayInput
 }
 
 func (AppArgs) ElementType() reflect.Type {

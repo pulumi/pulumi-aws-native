@@ -8,23 +8,19 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
+// Resource Type definition for AWS::IAM::OIDCProvider
 type OIDCProvider struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-	ClientIdList pulumi.StringArrayOutput `pulumi:"clientIdList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-	ThumbprintList pulumi.StringArrayOutput `pulumi:"thumbprintList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-	Url pulumi.StringPtrOutput `pulumi:"url"`
+	// Amazon Resource Name (ARN) of the OIDC provider
+	Arn            pulumi.StringOutput        `pulumi:"arn"`
+	ClientIdList   pulumi.StringArrayOutput   `pulumi:"clientIdList"`
+	Tags           OIDCProviderTagArrayOutput `pulumi:"tags"`
+	ThumbprintList pulumi.StringArrayOutput   `pulumi:"thumbprintList"`
+	Url            pulumi.StringPtrOutput     `pulumi:"url"`
 }
 
 // NewOIDCProvider registers a new resource with the given unique name, arguments, and options.
@@ -69,26 +65,18 @@ func (OIDCProviderState) ElementType() reflect.Type {
 }
 
 type oidcproviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-	ClientIdList []string `pulumi:"clientIdList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-	ThumbprintList []string `pulumi:"thumbprintList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-	Url *string `pulumi:"url"`
+	ClientIdList   []string          `pulumi:"clientIdList"`
+	Tags           []OIDCProviderTag `pulumi:"tags"`
+	ThumbprintList []string          `pulumi:"thumbprintList"`
+	Url            *string           `pulumi:"url"`
 }
 
 // The set of arguments for constructing a OIDCProvider resource.
 type OIDCProviderArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-	ClientIdList pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
+	ClientIdList   pulumi.StringArrayInput
+	Tags           OIDCProviderTagArrayInput
 	ThumbprintList pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-	Url pulumi.StringPtrInput
+	Url            pulumi.StringPtrInput
 }
 
 func (OIDCProviderArgs) ElementType() reflect.Type {

@@ -10,14 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyAccessPolicyIdentity struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
 	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
 	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
-	User *AccessPolicyUser `pulumi:"user"`
+	User    *AccessPolicyUser    `pulumi:"user"`
 }
 
 // AccessPolicyAccessPolicyIdentityInput is an input type that accepts AccessPolicyAccessPolicyIdentityArgs and AccessPolicyAccessPolicyIdentityOutput values.
@@ -31,14 +28,11 @@ type AccessPolicyAccessPolicyIdentityInput interface {
 	ToAccessPolicyAccessPolicyIdentityOutputWithContext(context.Context) AccessPolicyAccessPolicyIdentityOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyAccessPolicyIdentityArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
 	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
 	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
-	User AccessPolicyUserPtrInput `pulumi:"user"`
+	User    AccessPolicyUserPtrInput    `pulumi:"user"`
 }
 
 func (AccessPolicyAccessPolicyIdentityArgs) ElementType() reflect.Type {
@@ -94,7 +88,7 @@ func (i *accessPolicyAccessPolicyIdentityPtrType) ToAccessPolicyAccessPolicyIden
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyIdentityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyAccessPolicyIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyAccessPolicyIdentityOutput) ElementType() reflect.Type {
@@ -119,17 +113,14 @@ func (o AccessPolicyAccessPolicyIdentityOutput) ToAccessPolicyAccessPolicyIdenti
 	}).(AccessPolicyAccessPolicyIdentityPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
 func (o AccessPolicyAccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
 func (o AccessPolicyAccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
 func (o AccessPolicyAccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
 }
@@ -158,7 +149,6 @@ func (o AccessPolicyAccessPolicyIdentityPtrOutput) Elem() AccessPolicyAccessPoli
 	}).(AccessPolicyAccessPolicyIdentityOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
 func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamRole {
 		if v == nil {
@@ -168,7 +158,6 @@ func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRole
 	}).(AccessPolicyIamRolePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
 func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyIamUser {
 		if v == nil {
@@ -178,7 +167,6 @@ func (o AccessPolicyAccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUser
 	}).(AccessPolicyIamUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
 func (o AccessPolicyAccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyAccessPolicyIdentity) *AccessPolicyUser {
 		if v == nil {
@@ -188,11 +176,9 @@ func (o AccessPolicyAccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOut
 	}).(AccessPolicyUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyAccessPolicyResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
-	Portal *AccessPolicyPortal `pulumi:"portal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
+	Portal  *AccessPolicyPortal  `pulumi:"portal"`
 	Project *AccessPolicyProject `pulumi:"project"`
 }
 
@@ -207,11 +193,9 @@ type AccessPolicyAccessPolicyResourceInput interface {
 	ToAccessPolicyAccessPolicyResourceOutputWithContext(context.Context) AccessPolicyAccessPolicyResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyAccessPolicyResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
-	Portal AccessPolicyPortalPtrInput `pulumi:"portal"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
+	Portal  AccessPolicyPortalPtrInput  `pulumi:"portal"`
 	Project AccessPolicyProjectPtrInput `pulumi:"project"`
 }
 
@@ -268,7 +252,7 @@ func (i *accessPolicyAccessPolicyResourcePtrType) ToAccessPolicyAccessPolicyReso
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyAccessPolicyResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
+// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
 type AccessPolicyAccessPolicyResourceOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyAccessPolicyResourceOutput) ElementType() reflect.Type {
@@ -293,12 +277,10 @@ func (o AccessPolicyAccessPolicyResourceOutput) ToAccessPolicyAccessPolicyResour
 	}).(AccessPolicyAccessPolicyResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
 func (o AccessPolicyAccessPolicyResourceOutput) Portal() AccessPolicyPortalPtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyResource) *AccessPolicyPortal { return v.Portal }).(AccessPolicyPortalPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
 func (o AccessPolicyAccessPolicyResourceOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v AccessPolicyAccessPolicyResource) *AccessPolicyProject { return v.Project }).(AccessPolicyProjectPtrOutput)
 }
@@ -327,7 +309,6 @@ func (o AccessPolicyAccessPolicyResourcePtrOutput) Elem() AccessPolicyAccessPoli
 	}).(AccessPolicyAccessPolicyResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
 func (o AccessPolicyAccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyAccessPolicyResource) *AccessPolicyPortal {
 		if v == nil {
@@ -337,7 +318,6 @@ func (o AccessPolicyAccessPolicyResourcePtrOutput) Portal() AccessPolicyPortalPt
 	}).(AccessPolicyPortalPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
 func (o AccessPolicyAccessPolicyResourcePtrOutput) Project() AccessPolicyProjectPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyAccessPolicyResource) *AccessPolicyProject {
 		if v == nil {
@@ -347,9 +327,9 @@ func (o AccessPolicyAccessPolicyResourcePtrOutput) Project() AccessPolicyProject
 	}).(AccessPolicyProjectPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+// Contains information for an IAM role identity in an access policy.
 type AccessPolicyIamRole struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+	// The ARN of the IAM role.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -364,9 +344,9 @@ type AccessPolicyIamRoleInput interface {
 	ToAccessPolicyIamRoleOutputWithContext(context.Context) AccessPolicyIamRoleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+// Contains information for an IAM role identity in an access policy.
 type AccessPolicyIamRoleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+	// The ARN of the IAM role.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -423,7 +403,7 @@ func (i *accessPolicyIamRolePtrType) ToAccessPolicyIamRolePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamRolePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html
+// Contains information for an IAM role identity in an access policy.
 type AccessPolicyIamRoleOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyIamRoleOutput) ElementType() reflect.Type {
@@ -448,7 +428,7 @@ func (o AccessPolicyIamRoleOutput) ToAccessPolicyIamRolePtrOutputWithContext(ctx
 	}).(AccessPolicyIamRolePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+// The ARN of the IAM role.
 func (o AccessPolicyIamRoleOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIamRole) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -477,7 +457,7 @@ func (o AccessPolicyIamRolePtrOutput) Elem() AccessPolicyIamRoleOutput {
 	}).(AccessPolicyIamRoleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html#cfn-iotsitewise-accesspolicy-iamrole-arn
+// The ARN of the IAM role.
 func (o AccessPolicyIamRolePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIamRole) *string {
 		if v == nil {
@@ -487,9 +467,9 @@ func (o AccessPolicyIamRolePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+// Contains information for an IAM user identity in an access policy.
 type AccessPolicyIamUser struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+	// The ARN of the IAM user.
 	Arn *string `pulumi:"arn"`
 }
 
@@ -504,9 +484,9 @@ type AccessPolicyIamUserInput interface {
 	ToAccessPolicyIamUserOutputWithContext(context.Context) AccessPolicyIamUserOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+// Contains information for an IAM user identity in an access policy.
 type AccessPolicyIamUserArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+	// The ARN of the IAM user.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -563,7 +543,7 @@ func (i *accessPolicyIamUserPtrType) ToAccessPolicyIamUserPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyIamUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html
+// Contains information for an IAM user identity in an access policy.
 type AccessPolicyIamUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyIamUserOutput) ElementType() reflect.Type {
@@ -588,7 +568,7 @@ func (o AccessPolicyIamUserOutput) ToAccessPolicyIamUserPtrOutputWithContext(ctx
 	}).(AccessPolicyIamUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+// The ARN of the IAM user.
 func (o AccessPolicyIamUserOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIamUser) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -617,7 +597,7 @@ func (o AccessPolicyIamUserPtrOutput) Elem() AccessPolicyIamUserOutput {
 	}).(AccessPolicyIamUserOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html#cfn-iotsitewise-accesspolicy-iamuser-arn
+// The ARN of the IAM user.
 func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIamUser) *string {
 		if v == nil {
@@ -627,9 +607,9 @@ func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
+// A portal resource.
 type AccessPolicyPortal struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
+	// The ID of the portal.
 	Id *string `pulumi:"id"`
 }
 
@@ -644,9 +624,9 @@ type AccessPolicyPortalInput interface {
 	ToAccessPolicyPortalOutputWithContext(context.Context) AccessPolicyPortalOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
+// A portal resource.
 type AccessPolicyPortalArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
+	// The ID of the portal.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -703,7 +683,7 @@ func (i *accessPolicyPortalPtrType) ToAccessPolicyPortalPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyPortalPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html
+// A portal resource.
 type AccessPolicyPortalOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyPortalOutput) ElementType() reflect.Type {
@@ -728,7 +708,7 @@ func (o AccessPolicyPortalOutput) ToAccessPolicyPortalPtrOutputWithContext(ctx c
 	}).(AccessPolicyPortalPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
+// The ID of the portal.
 func (o AccessPolicyPortalOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyPortal) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -757,7 +737,7 @@ func (o AccessPolicyPortalPtrOutput) Elem() AccessPolicyPortalOutput {
 	}).(AccessPolicyPortalOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html#cfn-iotsitewise-accesspolicy-portal-id
+// The ID of the portal.
 func (o AccessPolicyPortalPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyPortal) *string {
 		if v == nil {
@@ -767,9 +747,9 @@ func (o AccessPolicyPortalPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html
+// A project resource.
 type AccessPolicyProject struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
+	// The ID of the project.
 	Id *string `pulumi:"id"`
 }
 
@@ -784,9 +764,9 @@ type AccessPolicyProjectInput interface {
 	ToAccessPolicyProjectOutputWithContext(context.Context) AccessPolicyProjectOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html
+// A project resource.
 type AccessPolicyProjectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
+	// The ID of the project.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -843,7 +823,7 @@ func (i *accessPolicyProjectPtrType) ToAccessPolicyProjectPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyProjectPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html
+// A project resource.
 type AccessPolicyProjectOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyProjectOutput) ElementType() reflect.Type {
@@ -868,7 +848,7 @@ func (o AccessPolicyProjectOutput) ToAccessPolicyProjectPtrOutputWithContext(ctx
 	}).(AccessPolicyProjectPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
+// The ID of the project.
 func (o AccessPolicyProjectOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyProject) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -897,7 +877,7 @@ func (o AccessPolicyProjectPtrOutput) Elem() AccessPolicyProjectOutput {
 	}).(AccessPolicyProjectOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html#cfn-iotsitewise-accesspolicy-project-id
+// The ID of the project.
 func (o AccessPolicyProjectPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyProject) *string {
 		if v == nil {
@@ -907,9 +887,9 @@ func (o AccessPolicyProjectPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
+// Contains information for a user identity in an access policy.
 type AccessPolicyUser struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+	// The AWS SSO ID of the user.
 	Id *string `pulumi:"id"`
 }
 
@@ -924,9 +904,9 @@ type AccessPolicyUserInput interface {
 	ToAccessPolicyUserOutputWithContext(context.Context) AccessPolicyUserOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
+// Contains information for a user identity in an access policy.
 type AccessPolicyUserArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+	// The AWS SSO ID of the user.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -983,7 +963,7 @@ func (i *accessPolicyUserPtrType) ToAccessPolicyUserPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html
+// Contains information for a user identity in an access policy.
 type AccessPolicyUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPolicyUserOutput) ElementType() reflect.Type {
@@ -1008,7 +988,7 @@ func (o AccessPolicyUserOutput) ToAccessPolicyUserPtrOutputWithContext(ctx conte
 	}).(AccessPolicyUserPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+// The AWS SSO ID of the user.
 func (o AccessPolicyUserOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPolicyUser) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -1037,7 +1017,7 @@ func (o AccessPolicyUserPtrOutput) Elem() AccessPolicyUserOutput {
 	}).(AccessPolicyUserOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html#cfn-iotsitewise-accesspolicy-user-id
+// The AWS SSO ID of the user.
 func (o AccessPolicyUserPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyUser) *string {
 		if v == nil {
@@ -1047,11 +1027,11 @@ func (o AccessPolicyUserPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
+// A hierarchy specifies allowed parent/child asset relationships.
 type AssetAssetHierarchy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
+	// The ID of the child asset to be associated.
 	ChildAssetId string `pulumi:"childAssetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
+	// The LogicalID of a hierarchy in the parent asset's model.
 	LogicalId string `pulumi:"logicalId"`
 }
 
@@ -1066,11 +1046,11 @@ type AssetAssetHierarchyInput interface {
 	ToAssetAssetHierarchyOutputWithContext(context.Context) AssetAssetHierarchyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
+// A hierarchy specifies allowed parent/child asset relationships.
 type AssetAssetHierarchyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
+	// The ID of the child asset to be associated.
 	ChildAssetId pulumi.StringInput `pulumi:"childAssetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
+	// The LogicalID of a hierarchy in the parent asset's model.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
 }
 
@@ -1111,7 +1091,7 @@ func (i AssetAssetHierarchyArray) ToAssetAssetHierarchyArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetHierarchyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html
+// A hierarchy specifies allowed parent/child asset relationships.
 type AssetAssetHierarchyOutput struct{ *pulumi.OutputState }
 
 func (AssetAssetHierarchyOutput) ElementType() reflect.Type {
@@ -1126,12 +1106,12 @@ func (o AssetAssetHierarchyOutput) ToAssetAssetHierarchyOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-childassetid
+// The ID of the child asset to be associated.
 func (o AssetAssetHierarchyOutput) ChildAssetId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetAssetHierarchy) string { return v.ChildAssetId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html#cfn-iotsitewise-asset-assethierarchy-logicalid
+// The LogicalID of a hierarchy in the parent asset's model.
 func (o AssetAssetHierarchyOutput) LogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetAssetHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
 }
@@ -1156,13 +1136,13 @@ func (o AssetAssetHierarchyArrayOutput) Index(i pulumi.IntInput) AssetAssetHiera
 	}).(AssetAssetHierarchyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
+// The asset property's definition, alias, and notification state.
 type AssetAssetProperty struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
+	// The property alias that identifies the property.
 	Alias *string `pulumi:"alias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
+	// Customer provided ID for property.
 	LogicalId string `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
+	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState *string `pulumi:"notificationState"`
 }
 
@@ -1177,13 +1157,13 @@ type AssetAssetPropertyInput interface {
 	ToAssetAssetPropertyOutputWithContext(context.Context) AssetAssetPropertyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
+// The asset property's definition, alias, and notification state.
 type AssetAssetPropertyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
+	// The property alias that identifies the property.
 	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
+	// Customer provided ID for property.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
+	// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 	NotificationState pulumi.StringPtrInput `pulumi:"notificationState"`
 }
 
@@ -1224,7 +1204,7 @@ func (i AssetAssetPropertyArray) ToAssetAssetPropertyArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AssetAssetPropertyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html
+// The asset property's definition, alias, and notification state.
 type AssetAssetPropertyOutput struct{ *pulumi.OutputState }
 
 func (AssetAssetPropertyOutput) ElementType() reflect.Type {
@@ -1239,17 +1219,17 @@ func (o AssetAssetPropertyOutput) ToAssetAssetPropertyOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-alias
+// The property alias that identifies the property.
 func (o AssetAssetPropertyOutput) Alias() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetAssetProperty) *string { return v.Alias }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-logicalid
+// Customer provided ID for property.
 func (o AssetAssetPropertyOutput) LogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetAssetProperty) string { return v.LogicalId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html#cfn-iotsitewise-asset-assetproperty-notificationstate
+// The MQTT notification state (ENABLED or DISABLED) for this asset property.
 func (o AssetAssetPropertyOutput) NotificationState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetAssetProperty) *string { return v.NotificationState }).(pulumi.StringPtrOutput)
 }
@@ -1274,15 +1254,15 @@ func (o AssetAssetPropertyArrayOutput) Index(i pulumi.IntInput) AssetAssetProper
 	}).(AssetAssetPropertyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelAssetModelCompositeModel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	CompositeModelProperties []AssetModelAssetModelProperty `pulumi:"compositeModelProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+	// A description for the asset composite model.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+	// A unique, friendly name for the asset composite model.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
 	Type string `pulumi:"type"`
 }
 
@@ -1297,15 +1277,15 @@ type AssetModelAssetModelCompositeModelInput interface {
 	ToAssetModelAssetModelCompositeModelOutputWithContext(context.Context) AssetModelAssetModelCompositeModelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelAssetModelCompositeModelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+	// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 	CompositeModelProperties AssetModelAssetModelPropertyArrayInput `pulumi:"compositeModelProperties"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+	// A description for the asset composite model.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+	// A unique, friendly name for the asset composite model.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+	// The type of the composite model. For alarm composite models, this type is AWS/ALARM
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1346,7 +1326,7 @@ func (i AssetModelAssetModelCompositeModelArray) ToAssetModelAssetModelComposite
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelCompositeModelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
 type AssetModelAssetModelCompositeModelOutput struct{ *pulumi.OutputState }
 
 func (AssetModelAssetModelCompositeModelOutput) ElementType() reflect.Type {
@@ -1361,24 +1341,24 @@ func (o AssetModelAssetModelCompositeModelOutput) ToAssetModelAssetModelComposit
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+// The property definitions of the asset model. You can specify up to 200 properties per asset model.
 func (o AssetModelAssetModelCompositeModelOutput) CompositeModelProperties() AssetModelAssetModelPropertyArrayOutput {
 	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) []AssetModelAssetModelProperty {
 		return v.CompositeModelProperties
 	}).(AssetModelAssetModelPropertyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+// A description for the asset composite model.
 func (o AssetModelAssetModelCompositeModelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+// A unique, friendly name for the asset composite model.
 func (o AssetModelAssetModelCompositeModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+// The type of the composite model. For alarm composite models, this type is AWS/ALARM
 func (o AssetModelAssetModelCompositeModelOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelCompositeModel) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1403,13 +1383,13 @@ func (o AssetModelAssetModelCompositeModelArrayOutput) Index(i pulumi.IntInput) 
 	}).(AssetModelAssetModelCompositeModelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
+// Contains information about an asset model hierarchy.
 type AssetModelAssetModelHierarchy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
+	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
 	ChildAssetModelId string `pulumi:"childAssetModelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
+	// Customer provided ID for hierarchy.
 	LogicalId string `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
+	// The name of the asset model hierarchy.
 	Name string `pulumi:"name"`
 }
 
@@ -1424,13 +1404,13 @@ type AssetModelAssetModelHierarchyInput interface {
 	ToAssetModelAssetModelHierarchyOutputWithContext(context.Context) AssetModelAssetModelHierarchyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
+// Contains information about an asset model hierarchy.
 type AssetModelAssetModelHierarchyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
+	// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
 	ChildAssetModelId pulumi.StringInput `pulumi:"childAssetModelId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
+	// Customer provided ID for hierarchy.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
+	// The name of the asset model hierarchy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1471,7 +1451,7 @@ func (i AssetModelAssetModelHierarchyArray) ToAssetModelAssetModelHierarchyArray
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelHierarchyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html
+// Contains information about an asset model hierarchy.
 type AssetModelAssetModelHierarchyOutput struct{ *pulumi.OutputState }
 
 func (AssetModelAssetModelHierarchyOutput) ElementType() reflect.Type {
@@ -1486,17 +1466,17 @@ func (o AssetModelAssetModelHierarchyOutput) ToAssetModelAssetModelHierarchyOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-childassetmodelid
+// The ID of the asset model. All assets in this hierarchy must be instances of the child AssetModelId asset model.
 func (o AssetModelAssetModelHierarchyOutput) ChildAssetModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.ChildAssetModelId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-logicalid
+// Customer provided ID for hierarchy.
 func (o AssetModelAssetModelHierarchyOutput) LogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.LogicalId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html#cfn-iotsitewise-assetmodel-assetmodelhierarchy-name
+// The name of the asset model hierarchy.
 func (o AssetModelAssetModelHierarchyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelHierarchy) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1521,19 +1501,19 @@ func (o AssetModelAssetModelHierarchyArrayOutput) Index(i pulumi.IntInput) Asset
 	}).(AssetModelAssetModelHierarchyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
+// Contains information about an asset model property.
 type AssetModelAssetModelProperty struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
+	// The data type of the asset model property.
 	DataType string `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+	// The data type of the structure for this property.
 	DataTypeSpec *string `pulumi:"dataTypeSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
+	// Customer provided ID for property.
 	LogicalId string `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
+	// The name of the asset model property.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
+	// The property type
 	Type AssetModelPropertyType `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
+	// The unit of the asset model property, such as Newtons or RPM.
 	Unit *string `pulumi:"unit"`
 }
 
@@ -1548,19 +1528,19 @@ type AssetModelAssetModelPropertyInput interface {
 	ToAssetModelAssetModelPropertyOutputWithContext(context.Context) AssetModelAssetModelPropertyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
+// Contains information about an asset model property.
 type AssetModelAssetModelPropertyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
+	// The data type of the asset model property.
 	DataType pulumi.StringInput `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+	// The data type of the structure for this property.
 	DataTypeSpec pulumi.StringPtrInput `pulumi:"dataTypeSpec"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
+	// Customer provided ID for property.
 	LogicalId pulumi.StringInput `pulumi:"logicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
+	// The name of the asset model property.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
+	// The property type
 	Type AssetModelPropertyTypeInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
+	// The unit of the asset model property, such as Newtons or RPM.
 	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
@@ -1601,7 +1581,7 @@ func (i AssetModelAssetModelPropertyArray) ToAssetModelAssetModelPropertyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAssetModelPropertyArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html
+// Contains information about an asset model property.
 type AssetModelAssetModelPropertyOutput struct{ *pulumi.OutputState }
 
 func (AssetModelAssetModelPropertyOutput) ElementType() reflect.Type {
@@ -1616,32 +1596,32 @@ func (o AssetModelAssetModelPropertyOutput) ToAssetModelAssetModelPropertyOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatype
+// The data type of the asset model property.
 func (o AssetModelAssetModelPropertyOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.DataType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-datatypespec
+// The data type of the structure for this property.
 func (o AssetModelAssetModelPropertyOutput) DataTypeSpec() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) *string { return v.DataTypeSpec }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-logicalid
+// Customer provided ID for property.
 func (o AssetModelAssetModelPropertyOutput) LogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.LogicalId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-name
+// The name of the asset model property.
 func (o AssetModelAssetModelPropertyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-type
+// The property type
 func (o AssetModelAssetModelPropertyOutput) Type() AssetModelPropertyTypeOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) AssetModelPropertyType { return v.Type }).(AssetModelPropertyTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html#cfn-iotsitewise-assetmodel-assetmodelproperty-unit
+// The unit of the asset model property, such as Newtons or RPM.
 func (o AssetModelAssetModelPropertyOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAssetModelProperty) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -1666,9 +1646,7 @@ func (o AssetModelAssetModelPropertyArrayOutput) Index(i pulumi.IntInput) AssetM
 	}).(AssetModelAssetModelPropertyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
 type AssetModelAttribute struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
 	DefaultValue *string `pulumi:"defaultValue"`
 }
 
@@ -1683,9 +1661,7 @@ type AssetModelAttributeInput interface {
 	ToAssetModelAttributeOutputWithContext(context.Context) AssetModelAttributeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
 type AssetModelAttributeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 }
 
@@ -1742,7 +1718,6 @@ func (i *assetModelAttributePtrType) ToAssetModelAttributePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelAttributePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html
 type AssetModelAttributeOutput struct{ *pulumi.OutputState }
 
 func (AssetModelAttributeOutput) ElementType() reflect.Type {
@@ -1767,7 +1742,6 @@ func (o AssetModelAttributeOutput) ToAssetModelAttributePtrOutputWithContext(ctx
 	}).(AssetModelAttributePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
 func (o AssetModelAttributeOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelAttribute) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
@@ -1796,7 +1770,6 @@ func (o AssetModelAttributePtrOutput) Elem() AssetModelAttributeOutput {
 	}).(AssetModelAttributeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html#cfn-iotsitewise-assetmodel-attribute-defaultvalue
 func (o AssetModelAttributePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelAttribute) *string {
 		if v == nil {
@@ -1806,11 +1779,10 @@ func (o AssetModelAttributePtrOutput) DefaultValue() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
 type AssetModelExpressionVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
+	// The friendly name of the variable to be used in the expression.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
+	// The variable that identifies an asset property from which to use values.
 	Value AssetModelVariableValue `pulumi:"value"`
 }
 
@@ -1825,11 +1797,10 @@ type AssetModelExpressionVariableInput interface {
 	ToAssetModelExpressionVariableOutputWithContext(context.Context) AssetModelExpressionVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
 type AssetModelExpressionVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
+	// The friendly name of the variable to be used in the expression.
 	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
+	// The variable that identifies an asset property from which to use values.
 	Value AssetModelVariableValueInput `pulumi:"value"`
 }
 
@@ -1870,7 +1841,6 @@ func (i AssetModelExpressionVariableArray) ToAssetModelExpressionVariableArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelExpressionVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
 type AssetModelExpressionVariableOutput struct{ *pulumi.OutputState }
 
 func (AssetModelExpressionVariableOutput) ElementType() reflect.Type {
@@ -1885,12 +1855,12 @@ func (o AssetModelExpressionVariableOutput) ToAssetModelExpressionVariableOutput
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
+// The friendly name of the variable to be used in the expression.
 func (o AssetModelExpressionVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelExpressionVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
+// The variable that identifies an asset property from which to use values.
 func (o AssetModelExpressionVariableOutput) Value() AssetModelVariableValueOutput {
 	return o.ApplyT(func(v AssetModelExpressionVariable) AssetModelVariableValue { return v.Value }).(AssetModelVariableValueOutput)
 }
@@ -1915,13 +1885,12 @@ func (o AssetModelExpressionVariableArrayOutput) Index(i pulumi.IntInput) AssetM
 	}).(AssetModelExpressionVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
 type AssetModelMetric struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+	// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
 	Expression string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+	// The list of variables used in the expression.
 	Variables []AssetModelExpressionVariable `pulumi:"variables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+	// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
 	Window AssetModelMetricWindow `pulumi:"window"`
 }
 
@@ -1936,13 +1905,12 @@ type AssetModelMetricInput interface {
 	ToAssetModelMetricOutputWithContext(context.Context) AssetModelMetricOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
 type AssetModelMetricArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+	// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
 	Expression pulumi.StringInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+	// The list of variables used in the expression.
 	Variables AssetModelExpressionVariableArrayInput `pulumi:"variables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+	// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
 	Window AssetModelMetricWindowInput `pulumi:"window"`
 }
 
@@ -1999,7 +1967,6 @@ func (i *assetModelMetricPtrType) ToAssetModelMetricPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html
 type AssetModelMetricOutput struct{ *pulumi.OutputState }
 
 func (AssetModelMetricOutput) ElementType() reflect.Type {
@@ -2024,17 +1991,17 @@ func (o AssetModelMetricOutput) ToAssetModelMetricPtrOutputWithContext(ctx conte
 	}).(AssetModelMetricPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
 func (o AssetModelMetricOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelMetric) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+// The list of variables used in the expression.
 func (o AssetModelMetricOutput) Variables() AssetModelExpressionVariableArrayOutput {
 	return o.ApplyT(func(v AssetModelMetric) []AssetModelExpressionVariable { return v.Variables }).(AssetModelExpressionVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
 func (o AssetModelMetricOutput) Window() AssetModelMetricWindowOutput {
 	return o.ApplyT(func(v AssetModelMetric) AssetModelMetricWindow { return v.Window }).(AssetModelMetricWindowOutput)
 }
@@ -2063,7 +2030,7 @@ func (o AssetModelMetricPtrOutput) Elem() AssetModelMetricOutput {
 	}).(AssetModelMetricOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-expression
+// The mathematical expression that defines the metric aggregation function. You can specify up to 10 functions per expression.
 func (o AssetModelMetricPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelMetric) *string {
 		if v == nil {
@@ -2073,7 +2040,7 @@ func (o AssetModelMetricPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-variables
+// The list of variables used in the expression.
 func (o AssetModelMetricPtrOutput) Variables() AssetModelExpressionVariableArrayOutput {
 	return o.ApplyT(func(v *AssetModelMetric) []AssetModelExpressionVariable {
 		if v == nil {
@@ -2083,7 +2050,7 @@ func (o AssetModelMetricPtrOutput) Variables() AssetModelExpressionVariableArray
 	}).(AssetModelExpressionVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html#cfn-iotsitewise-assetmodel-metric-window
+// The window (time interval) over which AWS IoT SiteWise computes the metric's aggregation expression
 func (o AssetModelMetricPtrOutput) Window() AssetModelMetricWindowPtrOutput {
 	return o.ApplyT(func(v *AssetModelMetric) *AssetModelMetricWindow {
 		if v == nil {
@@ -2093,9 +2060,8 @@ func (o AssetModelMetricPtrOutput) Window() AssetModelMetricWindowPtrOutput {
 	}).(AssetModelMetricWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+// Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindow struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
 	Tumbling *AssetModelTumblingWindow `pulumi:"tumbling"`
 }
 
@@ -2110,9 +2076,8 @@ type AssetModelMetricWindowInput interface {
 	ToAssetModelMetricWindowOutputWithContext(context.Context) AssetModelMetricWindowOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+// Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindowArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
 	Tumbling AssetModelTumblingWindowPtrInput `pulumi:"tumbling"`
 }
 
@@ -2169,7 +2134,7 @@ func (i *assetModelMetricWindowPtrType) ToAssetModelMetricWindowPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelMetricWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html
+// Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindowOutput struct{ *pulumi.OutputState }
 
 func (AssetModelMetricWindowOutput) ElementType() reflect.Type {
@@ -2194,7 +2159,6 @@ func (o AssetModelMetricWindowOutput) ToAssetModelMetricWindowPtrOutputWithConte
 	}).(AssetModelMetricWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
 func (o AssetModelMetricWindowOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v AssetModelMetricWindow) *AssetModelTumblingWindow { return v.Tumbling }).(AssetModelTumblingWindowPtrOutput)
 }
@@ -2223,7 +2187,6 @@ func (o AssetModelMetricWindowPtrOutput) Elem() AssetModelMetricWindowOutput {
 	}).(AssetModelMetricWindowOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html#cfn-iotsitewise-assetmodel-metricwindow-tumbling
 func (o AssetModelMetricWindowPtrOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v *AssetModelMetricWindow) *AssetModelTumblingWindow {
 		if v == nil {
@@ -2233,16 +2196,12 @@ func (o AssetModelMetricWindowPtrOutput) Tumbling() AssetModelTumblingWindowPtrO
 	}).(AssetModelTumblingWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
+// Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
 	Attribute *AssetModelAttribute `pulumi:"attribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
-	Metric *AssetModelMetric `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
+	Metric    *AssetModelMetric    `pulumi:"metric"`
 	Transform *AssetModelTransform `pulumi:"transform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
-	TypeName string `pulumi:"typeName"`
+	TypeName  string               `pulumi:"typeName"`
 }
 
 // AssetModelPropertyTypeInput is an input type that accepts AssetModelPropertyTypeArgs and AssetModelPropertyTypeOutput values.
@@ -2256,16 +2215,12 @@ type AssetModelPropertyTypeInput interface {
 	ToAssetModelPropertyTypeOutputWithContext(context.Context) AssetModelPropertyTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
+// Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
 	Attribute AssetModelAttributePtrInput `pulumi:"attribute"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
-	Metric AssetModelMetricPtrInput `pulumi:"metric"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
+	Metric    AssetModelMetricPtrInput    `pulumi:"metric"`
 	Transform AssetModelTransformPtrInput `pulumi:"transform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
-	TypeName pulumi.StringInput `pulumi:"typeName"`
+	TypeName  pulumi.StringInput          `pulumi:"typeName"`
 }
 
 func (AssetModelPropertyTypeArgs) ElementType() reflect.Type {
@@ -2280,7 +2235,7 @@ func (i AssetModelPropertyTypeArgs) ToAssetModelPropertyTypeOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelPropertyTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
+// Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyTypeOutput struct{ *pulumi.OutputState }
 
 func (AssetModelPropertyTypeOutput) ElementType() reflect.Type {
@@ -2295,31 +2250,126 @@ func (o AssetModelPropertyTypeOutput) ToAssetModelPropertyTypeOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
 func (o AssetModelPropertyTypeOutput) Attribute() AssetModelAttributePtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelAttribute { return v.Attribute }).(AssetModelAttributePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
 func (o AssetModelPropertyTypeOutput) Metric() AssetModelMetricPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelMetric { return v.Metric }).(AssetModelMetricPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
 func (o AssetModelPropertyTypeOutput) Transform() AssetModelTransformPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelTransform { return v.Transform }).(AssetModelTransformPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
 func (o AssetModelPropertyTypeOutput) TypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) string { return v.TypeName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
+type AssetModelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AssetModelTagInput is an input type that accepts AssetModelTagArgs and AssetModelTagOutput values.
+// You can construct a concrete instance of `AssetModelTagInput` via:
+//
+//          AssetModelTagArgs{...}
+type AssetModelTagInput interface {
+	pulumi.Input
+
+	ToAssetModelTagOutput() AssetModelTagOutput
+	ToAssetModelTagOutputWithContext(context.Context) AssetModelTagOutput
+}
+
+type AssetModelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AssetModelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelTag)(nil)).Elem()
+}
+
+func (i AssetModelTagArgs) ToAssetModelTagOutput() AssetModelTagOutput {
+	return i.ToAssetModelTagOutputWithContext(context.Background())
+}
+
+func (i AssetModelTagArgs) ToAssetModelTagOutputWithContext(ctx context.Context) AssetModelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagOutput)
+}
+
+// AssetModelTagArrayInput is an input type that accepts AssetModelTagArray and AssetModelTagArrayOutput values.
+// You can construct a concrete instance of `AssetModelTagArrayInput` via:
+//
+//          AssetModelTagArray{ AssetModelTagArgs{...} }
+type AssetModelTagArrayInput interface {
+	pulumi.Input
+
+	ToAssetModelTagArrayOutput() AssetModelTagArrayOutput
+	ToAssetModelTagArrayOutputWithContext(context.Context) AssetModelTagArrayOutput
+}
+
+type AssetModelTagArray []AssetModelTagInput
+
+func (AssetModelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelTag)(nil)).Elem()
+}
+
+func (i AssetModelTagArray) ToAssetModelTagArrayOutput() AssetModelTagArrayOutput {
+	return i.ToAssetModelTagArrayOutputWithContext(context.Background())
+}
+
+func (i AssetModelTagArray) ToAssetModelTagArrayOutputWithContext(ctx context.Context) AssetModelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTagArrayOutput)
+}
+
+type AssetModelTagOutput struct{ *pulumi.OutputState }
+
+func (AssetModelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetModelTag)(nil)).Elem()
+}
+
+func (o AssetModelTagOutput) ToAssetModelTagOutput() AssetModelTagOutput {
+	return o
+}
+
+func (o AssetModelTagOutput) ToAssetModelTagOutputWithContext(ctx context.Context) AssetModelTagOutput {
+	return o
+}
+
+func (o AssetModelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AssetModelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetModelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AssetModelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetModelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetModelTag)(nil)).Elem()
+}
+
+func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutput() AssetModelTagArrayOutput {
+	return o
+}
+
+func (o AssetModelTagArrayOutput) ToAssetModelTagArrayOutputWithContext(ctx context.Context) AssetModelTagArrayOutput {
+	return o
+}
+
+func (o AssetModelTagArrayOutput) Index(i pulumi.IntInput) AssetModelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetModelTag {
+		return vs[0].([]AssetModelTag)[vs[1].(int)]
+	}).(AssetModelTagOutput)
+}
+
 type AssetModelTransform struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
+	// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 	Expression string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+	// The list of variables used in the expression.
 	Variables []AssetModelExpressionVariable `pulumi:"variables"`
 }
 
@@ -2334,11 +2384,10 @@ type AssetModelTransformInput interface {
 	ToAssetModelTransformOutputWithContext(context.Context) AssetModelTransformOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
 type AssetModelTransformArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
+	// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 	Expression pulumi.StringInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+	// The list of variables used in the expression.
 	Variables AssetModelExpressionVariableArrayInput `pulumi:"variables"`
 }
 
@@ -2395,7 +2444,6 @@ func (i *assetModelTransformPtrType) ToAssetModelTransformPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTransformPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html
 type AssetModelTransformOutput struct{ *pulumi.OutputState }
 
 func (AssetModelTransformOutput) ElementType() reflect.Type {
@@ -2420,12 +2468,12 @@ func (o AssetModelTransformOutput) ToAssetModelTransformPtrOutputWithContext(ctx
 	}).(AssetModelTransformPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
+// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 func (o AssetModelTransformOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTransform) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+// The list of variables used in the expression.
 func (o AssetModelTransformOutput) Variables() AssetModelExpressionVariableArrayOutput {
 	return o.ApplyT(func(v AssetModelTransform) []AssetModelExpressionVariable { return v.Variables }).(AssetModelExpressionVariableArrayOutput)
 }
@@ -2454,7 +2502,7 @@ func (o AssetModelTransformPtrOutput) Elem() AssetModelTransformOutput {
 	}).(AssetModelTransformOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-expression
+// The mathematical expression that defines the transformation function. You can specify up to 10 functions per expression.
 func (o AssetModelTransformPtrOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelTransform) *string {
 		if v == nil {
@@ -2464,7 +2512,7 @@ func (o AssetModelTransformPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html#cfn-iotsitewise-assetmodel-transform-variables
+// The list of variables used in the expression.
 func (o AssetModelTransformPtrOutput) Variables() AssetModelExpressionVariableArrayOutput {
 	return o.ApplyT(func(v *AssetModelTransform) []AssetModelExpressionVariable {
 		if v == nil {
@@ -2474,12 +2522,10 @@ func (o AssetModelTransformPtrOutput) Variables() AssetModelExpressionVariableAr
 	}).(AssetModelExpressionVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
+// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindow struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
-	Interval string `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
-	Offset *string `pulumi:"offset"`
+	Interval string  `pulumi:"interval"`
+	Offset   *string `pulumi:"offset"`
 }
 
 // AssetModelTumblingWindowInput is an input type that accepts AssetModelTumblingWindowArgs and AssetModelTumblingWindowOutput values.
@@ -2493,12 +2539,10 @@ type AssetModelTumblingWindowInput interface {
 	ToAssetModelTumblingWindowOutputWithContext(context.Context) AssetModelTumblingWindowOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
+// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindowArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
-	Interval pulumi.StringInput `pulumi:"interval"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
-	Offset pulumi.StringPtrInput `pulumi:"offset"`
+	Interval pulumi.StringInput    `pulumi:"interval"`
+	Offset   pulumi.StringPtrInput `pulumi:"offset"`
 }
 
 func (AssetModelTumblingWindowArgs) ElementType() reflect.Type {
@@ -2554,7 +2598,7 @@ func (i *assetModelTumblingWindowPtrType) ToAssetModelTumblingWindowPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelTumblingWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html
+// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time interval. This window is used in metric and aggregation computations.
 type AssetModelTumblingWindowOutput struct{ *pulumi.OutputState }
 
 func (AssetModelTumblingWindowOutput) ElementType() reflect.Type {
@@ -2579,12 +2623,10 @@ func (o AssetModelTumblingWindowOutput) ToAssetModelTumblingWindowPtrOutputWithC
 	}).(AssetModelTumblingWindowPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
 func (o AssetModelTumblingWindowOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) string { return v.Interval }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
 func (o AssetModelTumblingWindowOutput) Offset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelTumblingWindow) *string { return v.Offset }).(pulumi.StringPtrOutput)
 }
@@ -2613,7 +2655,6 @@ func (o AssetModelTumblingWindowPtrOutput) Elem() AssetModelTumblingWindowOutput
 	}).(AssetModelTumblingWindowOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-interval
 func (o AssetModelTumblingWindowPtrOutput) Interval() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelTumblingWindow) *string {
 		if v == nil {
@@ -2623,7 +2664,6 @@ func (o AssetModelTumblingWindowPtrOutput) Interval() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html#cfn-iotsitewise-assetmodel-tumblingwindow-offset
 func (o AssetModelTumblingWindowPtrOutput) Offset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssetModelTumblingWindow) *string {
 		if v == nil {
@@ -2633,12 +2673,9 @@ func (o AssetModelTumblingWindowPtrOutput) Offset() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
 type AssetModelVariableValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
 	HierarchyLogicalId *string `pulumi:"hierarchyLogicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
-	PropertyLogicalId string `pulumi:"propertyLogicalId"`
+	PropertyLogicalId  string  `pulumi:"propertyLogicalId"`
 }
 
 // AssetModelVariableValueInput is an input type that accepts AssetModelVariableValueArgs and AssetModelVariableValueOutput values.
@@ -2652,12 +2689,9 @@ type AssetModelVariableValueInput interface {
 	ToAssetModelVariableValueOutputWithContext(context.Context) AssetModelVariableValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
 type AssetModelVariableValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
 	HierarchyLogicalId pulumi.StringPtrInput `pulumi:"hierarchyLogicalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
-	PropertyLogicalId pulumi.StringInput `pulumi:"propertyLogicalId"`
+	PropertyLogicalId  pulumi.StringInput    `pulumi:"propertyLogicalId"`
 }
 
 func (AssetModelVariableValueArgs) ElementType() reflect.Type {
@@ -2672,7 +2706,6 @@ func (i AssetModelVariableValueArgs) ToAssetModelVariableValueOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssetModelVariableValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html
 type AssetModelVariableValueOutput struct{ *pulumi.OutputState }
 
 func (AssetModelVariableValueOutput) ElementType() reflect.Type {
@@ -2687,22 +2720,221 @@ func (o AssetModelVariableValueOutput) ToAssetModelVariableValueOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-hierarchylogicalid
 func (o AssetModelVariableValueOutput) HierarchyLogicalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) *string { return v.HierarchyLogicalId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html#cfn-iotsitewise-assetmodel-variablevalue-propertylogicalid
 func (o AssetModelVariableValueOutput) PropertyLogicalId() pulumi.StringOutput {
 	return o.ApplyT(func(v AssetModelVariableValue) string { return v.PropertyLogicalId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
+type AssetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// AssetTagInput is an input type that accepts AssetTagArgs and AssetTagOutput values.
+// You can construct a concrete instance of `AssetTagInput` via:
+//
+//          AssetTagArgs{...}
+type AssetTagInput interface {
+	pulumi.Input
+
+	ToAssetTagOutput() AssetTagOutput
+	ToAssetTagOutputWithContext(context.Context) AssetTagOutput
+}
+
+type AssetTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AssetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTag)(nil)).Elem()
+}
+
+func (i AssetTagArgs) ToAssetTagOutput() AssetTagOutput {
+	return i.ToAssetTagOutputWithContext(context.Background())
+}
+
+func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTagOutput)
+}
+
+// AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
+// You can construct a concrete instance of `AssetTagArrayInput` via:
+//
+//          AssetTagArray{ AssetTagArgs{...} }
+type AssetTagArrayInput interface {
+	pulumi.Input
+
+	ToAssetTagArrayOutput() AssetTagArrayOutput
+	ToAssetTagArrayOutputWithContext(context.Context) AssetTagArrayOutput
+}
+
+type AssetTagArray []AssetTagInput
+
+func (AssetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
+}
+
+func (i AssetTagArray) ToAssetTagArrayOutput() AssetTagArrayOutput {
+	return i.ToAssetTagArrayOutputWithContext(context.Background())
+}
+
+func (i AssetTagArray) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssetTagArrayOutput)
+}
+
+type AssetTagOutput struct{ *pulumi.OutputState }
+
+func (AssetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssetTag)(nil)).Elem()
+}
+
+func (o AssetTagOutput) ToAssetTagOutput() AssetTagOutput {
+	return o
+}
+
+func (o AssetTagOutput) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
+	return o
+}
+
+func (o AssetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o AssetTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AssetTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AssetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AssetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssetTag)(nil)).Elem()
+}
+
+func (o AssetTagArrayOutput) ToAssetTagArrayOutput() AssetTagArrayOutput {
+	return o
+}
+
+func (o AssetTagArrayOutput) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
+	return o
+}
+
+func (o AssetTagArrayOutput) Index(i pulumi.IntInput) AssetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssetTag {
+		return vs[0].([]AssetTag)[vs[1].(int)]
+	}).(AssetTagOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type DashboardTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DashboardTagInput is an input type that accepts DashboardTagArgs and DashboardTagOutput values.
+// You can construct a concrete instance of `DashboardTagInput` via:
+//
+//          DashboardTagArgs{...}
+type DashboardTagInput interface {
+	pulumi.Input
+
+	ToDashboardTagOutput() DashboardTagOutput
+	ToDashboardTagOutputWithContext(context.Context) DashboardTagOutput
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type DashboardTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DashboardTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
+}
+
+func (i DashboardTagArgs) ToDashboardTagOutput() DashboardTagOutput {
+	return i.ToDashboardTagOutputWithContext(context.Background())
+}
+
+func (i DashboardTagArgs) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagOutput)
+}
+
+// DashboardTagArrayInput is an input type that accepts DashboardTagArray and DashboardTagArrayOutput values.
+// You can construct a concrete instance of `DashboardTagArrayInput` via:
+//
+//          DashboardTagArray{ DashboardTagArgs{...} }
+type DashboardTagArrayInput interface {
+	pulumi.Input
+
+	ToDashboardTagArrayOutput() DashboardTagArrayOutput
+	ToDashboardTagArrayOutputWithContext(context.Context) DashboardTagArrayOutput
+}
+
+type DashboardTagArray []DashboardTagInput
+
+func (DashboardTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
+}
+
+func (i DashboardTagArray) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
+	return i.ToDashboardTagArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardTagArray) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardTagArrayOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type DashboardTagOutput struct{ *pulumi.OutputState }
+
+func (DashboardTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardTag)(nil)).Elem()
+}
+
+func (o DashboardTagOutput) ToDashboardTagOutput() DashboardTagOutput {
+	return o
+}
+
+func (o DashboardTagOutput) ToDashboardTagOutputWithContext(ctx context.Context) DashboardTagOutput {
+	return o
+}
+
+func (o DashboardTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DashboardTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DashboardTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardTag)(nil)).Elem()
+}
+
+func (o DashboardTagArrayOutput) ToDashboardTagArrayOutput() DashboardTagArrayOutput {
+	return o
+}
+
+func (o DashboardTagArrayOutput) ToDashboardTagArrayOutputWithContext(ctx context.Context) DashboardTagArrayOutput {
+	return o
+}
+
+func (o DashboardTagArrayOutput) Index(i pulumi.IntInput) DashboardTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTag {
+		return vs[0].([]DashboardTag)[vs[1].(int)]
+	}).(DashboardTagOutput)
+}
+
+// Contains a summary of a gateway capability configuration.
 type GatewayGatewayCapabilitySummary struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
 	CapabilityConfiguration *string `pulumi:"capabilityConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
-	CapabilityNamespace string `pulumi:"capabilityNamespace"`
+	CapabilityNamespace     string  `pulumi:"capabilityNamespace"`
 }
 
 // GatewayGatewayCapabilitySummaryInput is an input type that accepts GatewayGatewayCapabilitySummaryArgs and GatewayGatewayCapabilitySummaryOutput values.
@@ -2716,12 +2948,10 @@ type GatewayGatewayCapabilitySummaryInput interface {
 	ToGatewayGatewayCapabilitySummaryOutputWithContext(context.Context) GatewayGatewayCapabilitySummaryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
+// Contains a summary of a gateway capability configuration.
 type GatewayGatewayCapabilitySummaryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
 	CapabilityConfiguration pulumi.StringPtrInput `pulumi:"capabilityConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
-	CapabilityNamespace pulumi.StringInput `pulumi:"capabilityNamespace"`
+	CapabilityNamespace     pulumi.StringInput    `pulumi:"capabilityNamespace"`
 }
 
 func (GatewayGatewayCapabilitySummaryArgs) ElementType() reflect.Type {
@@ -2761,7 +2991,7 @@ func (i GatewayGatewayCapabilitySummaryArray) ToGatewayGatewayCapabilitySummaryA
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayCapabilitySummaryArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html
+// Contains a summary of a gateway capability configuration.
 type GatewayGatewayCapabilitySummaryOutput struct{ *pulumi.OutputState }
 
 func (GatewayGatewayCapabilitySummaryOutput) ElementType() reflect.Type {
@@ -2776,12 +3006,10 @@ func (o GatewayGatewayCapabilitySummaryOutput) ToGatewayGatewayCapabilitySummary
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilityconfiguration
 func (o GatewayGatewayCapabilitySummaryOutput) CapabilityConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayGatewayCapabilitySummary) *string { return v.CapabilityConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html#cfn-iotsitewise-gateway-gatewaycapabilitysummary-capabilitynamespace
 func (o GatewayGatewayCapabilitySummaryOutput) CapabilityNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayGatewayCapabilitySummary) string { return v.CapabilityNamespace }).(pulumi.StringOutput)
 }
@@ -2806,9 +3034,9 @@ func (o GatewayGatewayCapabilitySummaryArrayOutput) Index(i pulumi.IntInput) Gat
 	}).(GatewayGatewayCapabilitySummaryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
+// Contains a gateway's platform information.
 type GatewayGatewayPlatform struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+	// A gateway that runs on AWS IoT Greengrass.
 	Greengrass GatewayGreengrass `pulumi:"greengrass"`
 }
 
@@ -2823,9 +3051,9 @@ type GatewayGatewayPlatformInput interface {
 	ToGatewayGatewayPlatformOutputWithContext(context.Context) GatewayGatewayPlatformOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
+// Contains a gateway's platform information.
 type GatewayGatewayPlatformArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+	// A gateway that runs on AWS IoT Greengrass.
 	Greengrass GatewayGreengrassInput `pulumi:"greengrass"`
 }
 
@@ -2882,7 +3110,7 @@ func (i *gatewayGatewayPlatformPtrType) ToGatewayGatewayPlatformPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayPlatformPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html
+// Contains a gateway's platform information.
 type GatewayGatewayPlatformOutput struct{ *pulumi.OutputState }
 
 func (GatewayGatewayPlatformOutput) ElementType() reflect.Type {
@@ -2907,7 +3135,7 @@ func (o GatewayGatewayPlatformOutput) ToGatewayGatewayPlatformPtrOutputWithConte
 	}).(GatewayGatewayPlatformPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+// A gateway that runs on AWS IoT Greengrass.
 func (o GatewayGatewayPlatformOutput) Greengrass() GatewayGreengrassOutput {
 	return o.ApplyT(func(v GatewayGatewayPlatform) GatewayGreengrass { return v.Greengrass }).(GatewayGreengrassOutput)
 }
@@ -2936,7 +3164,7 @@ func (o GatewayGatewayPlatformPtrOutput) Elem() GatewayGatewayPlatformOutput {
 	}).(GatewayGatewayPlatformOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html#cfn-iotsitewise-gateway-gatewayplatform-greengrass
+// A gateway that runs on AWS IoT Greengrass.
 func (o GatewayGatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput {
 	return o.ApplyT(func(v *GatewayGatewayPlatform) *GatewayGreengrass {
 		if v == nil {
@@ -2946,9 +3174,9 @@ func (o GatewayGatewayPlatformPtrOutput) Greengrass() GatewayGreengrassPtrOutput
 	}).(GatewayGreengrassPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
+// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
 type GatewayGreengrass struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+	// The ARN of the Greengrass group.
 	GroupArn string `pulumi:"groupArn"`
 }
 
@@ -2963,9 +3191,9 @@ type GatewayGreengrassInput interface {
 	ToGatewayGreengrassOutputWithContext(context.Context) GatewayGreengrassOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
+// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
 type GatewayGreengrassArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+	// The ARN of the Greengrass group.
 	GroupArn pulumi.StringInput `pulumi:"groupArn"`
 }
 
@@ -3022,7 +3250,7 @@ func (i *gatewayGreengrassPtrType) ToGatewayGreengrassPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayGreengrassPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
+// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
 type GatewayGreengrassOutput struct{ *pulumi.OutputState }
 
 func (GatewayGreengrassOutput) ElementType() reflect.Type {
@@ -3047,7 +3275,7 @@ func (o GatewayGreengrassOutput) ToGatewayGreengrassPtrOutputWithContext(ctx con
 	}).(GatewayGreengrassPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+// The ARN of the Greengrass group.
 func (o GatewayGreengrassOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GatewayGreengrass) string { return v.GroupArn }).(pulumi.StringOutput)
 }
@@ -3076,7 +3304,7 @@ func (o GatewayGreengrassPtrOutput) Elem() GatewayGreengrassOutput {
 	}).(GatewayGreengrassOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+// The ARN of the Greengrass group.
 func (o GatewayGreengrassPtrOutput) GroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GatewayGreengrass) *string {
 		if v == nil {
@@ -3084,6 +3312,315 @@ func (o GatewayGreengrassPtrOutput) GroupArn() pulumi.StringPtrOutput {
 		}
 		return &v.GroupArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type GatewayTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// GatewayTagInput is an input type that accepts GatewayTagArgs and GatewayTagOutput values.
+// You can construct a concrete instance of `GatewayTagInput` via:
+//
+//          GatewayTagArgs{...}
+type GatewayTagInput interface {
+	pulumi.Input
+
+	ToGatewayTagOutput() GatewayTagOutput
+	ToGatewayTagOutputWithContext(context.Context) GatewayTagOutput
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type GatewayTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GatewayTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTag)(nil)).Elem()
+}
+
+func (i GatewayTagArgs) ToGatewayTagOutput() GatewayTagOutput {
+	return i.ToGatewayTagOutputWithContext(context.Background())
+}
+
+func (i GatewayTagArgs) ToGatewayTagOutputWithContext(ctx context.Context) GatewayTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagOutput)
+}
+
+// GatewayTagArrayInput is an input type that accepts GatewayTagArray and GatewayTagArrayOutput values.
+// You can construct a concrete instance of `GatewayTagArrayInput` via:
+//
+//          GatewayTagArray{ GatewayTagArgs{...} }
+type GatewayTagArrayInput interface {
+	pulumi.Input
+
+	ToGatewayTagArrayOutput() GatewayTagArrayOutput
+	ToGatewayTagArrayOutputWithContext(context.Context) GatewayTagArrayOutput
+}
+
+type GatewayTagArray []GatewayTagInput
+
+func (GatewayTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTag)(nil)).Elem()
+}
+
+func (i GatewayTagArray) ToGatewayTagArrayOutput() GatewayTagArrayOutput {
+	return i.ToGatewayTagArrayOutputWithContext(context.Background())
+}
+
+func (i GatewayTagArray) ToGatewayTagArrayOutputWithContext(ctx context.Context) GatewayTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayTagArrayOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type GatewayTagOutput struct{ *pulumi.OutputState }
+
+func (GatewayTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayTag)(nil)).Elem()
+}
+
+func (o GatewayTagOutput) ToGatewayTagOutput() GatewayTagOutput {
+	return o
+}
+
+func (o GatewayTagOutput) ToGatewayTagOutputWithContext(ctx context.Context) GatewayTagOutput {
+	return o
+}
+
+func (o GatewayTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GatewayTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GatewayTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GatewayTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GatewayTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GatewayTag)(nil)).Elem()
+}
+
+func (o GatewayTagArrayOutput) ToGatewayTagArrayOutput() GatewayTagArrayOutput {
+	return o
+}
+
+func (o GatewayTagArrayOutput) ToGatewayTagArrayOutputWithContext(ctx context.Context) GatewayTagArrayOutput {
+	return o
+}
+
+func (o GatewayTagArrayOutput) Index(i pulumi.IntInput) GatewayTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GatewayTag {
+		return vs[0].([]GatewayTag)[vs[1].(int)]
+	}).(GatewayTagOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
+type PortalTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// PortalTagInput is an input type that accepts PortalTagArgs and PortalTagOutput values.
+// You can construct a concrete instance of `PortalTagInput` via:
+//
+//          PortalTagArgs{...}
+type PortalTagInput interface {
+	pulumi.Input
+
+	ToPortalTagOutput() PortalTagOutput
+	ToPortalTagOutputWithContext(context.Context) PortalTagOutput
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
+type PortalTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PortalTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTag)(nil)).Elem()
+}
+
+func (i PortalTagArgs) ToPortalTagOutput() PortalTagOutput {
+	return i.ToPortalTagOutputWithContext(context.Background())
+}
+
+func (i PortalTagArgs) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTagOutput)
+}
+
+// PortalTagArrayInput is an input type that accepts PortalTagArray and PortalTagArrayOutput values.
+// You can construct a concrete instance of `PortalTagArrayInput` via:
+//
+//          PortalTagArray{ PortalTagArgs{...} }
+type PortalTagArrayInput interface {
+	pulumi.Input
+
+	ToPortalTagArrayOutput() PortalTagArrayOutput
+	ToPortalTagArrayOutputWithContext(context.Context) PortalTagArrayOutput
+}
+
+type PortalTagArray []PortalTagInput
+
+func (PortalTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PortalTag)(nil)).Elem()
+}
+
+func (i PortalTagArray) ToPortalTagArrayOutput() PortalTagArrayOutput {
+	return i.ToPortalTagArrayOutputWithContext(context.Background())
+}
+
+func (i PortalTagArray) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTagArrayOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted.
+type PortalTagOutput struct{ *pulumi.OutputState }
+
+func (PortalTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTag)(nil)).Elem()
+}
+
+func (o PortalTagOutput) ToPortalTagOutput() PortalTagOutput {
+	return o
+}
+
+func (o PortalTagOutput) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
+	return o
+}
+
+func (o PortalTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PortalTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o PortalTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PortalTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PortalTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PortalTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PortalTag)(nil)).Elem()
+}
+
+func (o PortalTagArrayOutput) ToPortalTagArrayOutput() PortalTagArrayOutput {
+	return o
+}
+
+func (o PortalTagArrayOutput) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
+	return o
+}
+
+func (o PortalTagArrayOutput) Index(i pulumi.IntInput) PortalTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PortalTag {
+		return vs[0].([]PortalTag)[vs[1].(int)]
+	}).(PortalTagOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type ProjectTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// ProjectTagInput is an input type that accepts ProjectTagArgs and ProjectTagOutput values.
+// You can construct a concrete instance of `ProjectTagInput` via:
+//
+//          ProjectTagArgs{...}
+type ProjectTagInput interface {
+	pulumi.Input
+
+	ToProjectTagOutput() ProjectTagOutput
+	ToProjectTagOutputWithContext(context.Context) ProjectTagOutput
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type ProjectTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ProjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArgs) ToProjectTagOutput() ProjectTagOutput {
+	return i.ToProjectTagOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArgs) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagOutput)
+}
+
+// ProjectTagArrayInput is an input type that accepts ProjectTagArray and ProjectTagArrayOutput values.
+// You can construct a concrete instance of `ProjectTagArrayInput` via:
+//
+//          ProjectTagArray{ ProjectTagArgs{...} }
+type ProjectTagArrayInput interface {
+	pulumi.Input
+
+	ToProjectTagArrayOutput() ProjectTagArrayOutput
+	ToProjectTagArrayOutputWithContext(context.Context) ProjectTagArrayOutput
+}
+
+type ProjectTagArray []ProjectTagInput
+
+func (ProjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return i.ToProjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectTagArray) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectTagArrayOutput)
+}
+
+// To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
+type ProjectTagOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagOutput) ToProjectTagOutput() ProjectTagOutput {
+	return o
+}
+
+func (o ProjectTagOutput) ToProjectTagOutputWithContext(ctx context.Context) ProjectTagOutput {
+	return o
+}
+
+func (o ProjectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ProjectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ProjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectTag)(nil)).Elem()
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutput() ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) ToProjectTagArrayOutputWithContext(ctx context.Context) ProjectTagArrayOutput {
+	return o
+}
+
+func (o ProjectTagArrayOutput) Index(i pulumi.IntInput) ProjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectTag {
+		return vs[0].([]ProjectTag)[vs[1].(int)]
+	}).(ProjectTagOutput)
 }
 
 func init() {
@@ -3120,15 +3657,27 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelMetricWindowOutput{})
 	pulumi.RegisterOutputType(AssetModelMetricWindowPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelPropertyTypeOutput{})
+	pulumi.RegisterOutputType(AssetModelTagOutput{})
+	pulumi.RegisterOutputType(AssetModelTagArrayOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformOutput{})
 	pulumi.RegisterOutputType(AssetModelTransformPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelTumblingWindowOutput{})
 	pulumi.RegisterOutputType(AssetModelTumblingWindowPtrOutput{})
 	pulumi.RegisterOutputType(AssetModelVariableValueOutput{})
+	pulumi.RegisterOutputType(AssetTagOutput{})
+	pulumi.RegisterOutputType(AssetTagArrayOutput{})
+	pulumi.RegisterOutputType(DashboardTagOutput{})
+	pulumi.RegisterOutputType(DashboardTagArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayCapabilitySummaryOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayCapabilitySummaryArrayOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayPlatformOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayPlatformPtrOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassOutput{})
 	pulumi.RegisterOutputType(GatewayGreengrassPtrOutput{})
+	pulumi.RegisterOutputType(GatewayTagOutput{})
+	pulumi.RegisterOutputType(GatewayTagArrayOutput{})
+	pulumi.RegisterOutputType(PortalTagOutput{})
+	pulumi.RegisterOutputType(PortalTagArrayOutput{})
+	pulumi.RegisterOutputType(ProjectTagOutput{})
+	pulumi.RegisterOutputType(ProjectTagArrayOutput{})
 }

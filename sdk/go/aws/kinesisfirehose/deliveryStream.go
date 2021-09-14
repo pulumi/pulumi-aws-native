@@ -7,37 +7,25 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
+// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 type DeliveryStream struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
+	Arn                                        pulumi.StringOutput                                               `pulumi:"arn"`
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrOutput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-	DeliveryStreamName pulumi.StringPtrOutput `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-	DeliveryStreamType pulumi.StringPtrOutput `pulumi:"deliveryStreamType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-	ElasticsearchDestinationConfiguration DeliveryStreamElasticsearchDestinationConfigurationPtrOutput `pulumi:"elasticsearchDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-	ExtendedS3DestinationConfiguration DeliveryStreamExtendedS3DestinationConfigurationPtrOutput `pulumi:"extendedS3DestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-	HttpEndpointDestinationConfiguration DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput `pulumi:"httpEndpointDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-	KinesisStreamSourceConfiguration DeliveryStreamKinesisStreamSourceConfigurationPtrOutput `pulumi:"kinesisStreamSourceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-	RedshiftDestinationConfiguration DeliveryStreamRedshiftDestinationConfigurationPtrOutput `pulumi:"redshiftDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-	S3DestinationConfiguration DeliveryStreamS3DestinationConfigurationPtrOutput `pulumi:"s3DestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-	SplunkDestinationConfiguration DeliveryStreamSplunkDestinationConfigurationPtrOutput `pulumi:"splunkDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	DeliveryStreamName                         pulumi.StringPtrOutput                                            `pulumi:"deliveryStreamName"`
+	DeliveryStreamType                         pulumi.StringPtrOutput                                            `pulumi:"deliveryStreamType"`
+	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrOutput      `pulumi:"elasticsearchDestinationConfiguration"`
+	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrOutput         `pulumi:"extendedS3DestinationConfiguration"`
+	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput       `pulumi:"httpEndpointDestinationConfiguration"`
+	KinesisStreamSourceConfiguration           DeliveryStreamKinesisStreamSourceConfigurationPtrOutput           `pulumi:"kinesisStreamSourceConfiguration"`
+	RedshiftDestinationConfiguration           DeliveryStreamRedshiftDestinationConfigurationPtrOutput           `pulumi:"redshiftDestinationConfiguration"`
+	S3DestinationConfiguration                 DeliveryStreamS3DestinationConfigurationPtrOutput                 `pulumi:"s3DestinationConfiguration"`
+	SplunkDestinationConfiguration             DeliveryStreamSplunkDestinationConfigurationPtrOutput             `pulumi:"splunkDestinationConfiguration"`
+	Tags                                       DeliveryStreamTagArrayOutput                                      `pulumi:"tags"`
 }
 
 // NewDeliveryStream registers a new resource with the given unique name, arguments, and options.
@@ -79,54 +67,32 @@ func (DeliveryStreamState) ElementType() reflect.Type {
 }
 
 type deliveryStreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
 	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamDeliveryStreamEncryptionConfigurationInput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-	DeliveryStreamName *string `pulumi:"deliveryStreamName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-	DeliveryStreamType *string `pulumi:"deliveryStreamType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-	ElasticsearchDestinationConfiguration *DeliveryStreamElasticsearchDestinationConfiguration `pulumi:"elasticsearchDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-	ExtendedS3DestinationConfiguration *DeliveryStreamExtendedS3DestinationConfiguration `pulumi:"extendedS3DestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-	HttpEndpointDestinationConfiguration *DeliveryStreamHttpEndpointDestinationConfiguration `pulumi:"httpEndpointDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-	KinesisStreamSourceConfiguration *DeliveryStreamKinesisStreamSourceConfiguration `pulumi:"kinesisStreamSourceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-	RedshiftDestinationConfiguration *DeliveryStreamRedshiftDestinationConfiguration `pulumi:"redshiftDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-	S3DestinationConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3DestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-	SplunkDestinationConfiguration *DeliveryStreamSplunkDestinationConfiguration `pulumi:"splunkDestinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	DeliveryStreamName                         *string                                                   `pulumi:"deliveryStreamName"`
+	DeliveryStreamType                         *string                                                   `pulumi:"deliveryStreamType"`
+	ElasticsearchDestinationConfiguration      *DeliveryStreamElasticsearchDestinationConfiguration      `pulumi:"elasticsearchDestinationConfiguration"`
+	ExtendedS3DestinationConfiguration         *DeliveryStreamExtendedS3DestinationConfiguration         `pulumi:"extendedS3DestinationConfiguration"`
+	HttpEndpointDestinationConfiguration       *DeliveryStreamHttpEndpointDestinationConfiguration       `pulumi:"httpEndpointDestinationConfiguration"`
+	KinesisStreamSourceConfiguration           *DeliveryStreamKinesisStreamSourceConfiguration           `pulumi:"kinesisStreamSourceConfiguration"`
+	RedshiftDestinationConfiguration           *DeliveryStreamRedshiftDestinationConfiguration           `pulumi:"redshiftDestinationConfiguration"`
+	S3DestinationConfiguration                 *DeliveryStreamS3DestinationConfiguration                 `pulumi:"s3DestinationConfiguration"`
+	SplunkDestinationConfiguration             *DeliveryStreamSplunkDestinationConfiguration             `pulumi:"splunkDestinationConfiguration"`
+	Tags                                       []DeliveryStreamTag                                       `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DeliveryStream resource.
 type DeliveryStreamArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamDeliveryStreamEncryptionConfigurationInputPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-	DeliveryStreamName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-	DeliveryStreamType pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-	ElasticsearchDestinationConfiguration DeliveryStreamElasticsearchDestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-	ExtendedS3DestinationConfiguration DeliveryStreamExtendedS3DestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-	HttpEndpointDestinationConfiguration DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-	KinesisStreamSourceConfiguration DeliveryStreamKinesisStreamSourceConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-	RedshiftDestinationConfiguration DeliveryStreamRedshiftDestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-	S3DestinationConfiguration DeliveryStreamS3DestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-	SplunkDestinationConfiguration DeliveryStreamSplunkDestinationConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-	Tags aws.TagArrayInput
+	DeliveryStreamName                         pulumi.StringPtrInput
+	DeliveryStreamType                         pulumi.StringPtrInput
+	ElasticsearchDestinationConfiguration      DeliveryStreamElasticsearchDestinationConfigurationPtrInput
+	ExtendedS3DestinationConfiguration         DeliveryStreamExtendedS3DestinationConfigurationPtrInput
+	HttpEndpointDestinationConfiguration       DeliveryStreamHttpEndpointDestinationConfigurationPtrInput
+	KinesisStreamSourceConfiguration           DeliveryStreamKinesisStreamSourceConfigurationPtrInput
+	RedshiftDestinationConfiguration           DeliveryStreamRedshiftDestinationConfigurationPtrInput
+	S3DestinationConfiguration                 DeliveryStreamS3DestinationConfigurationPtrInput
+	SplunkDestinationConfiguration             DeliveryStreamSplunkDestinationConfigurationPtrInput
+	Tags                                       DeliveryStreamTagArrayInput
 }
 
 func (DeliveryStreamArgs) ElementType() reflect.Type {

@@ -11,15 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html
+// Resource Type definition for AWS::SageMaker::ImageVersion
 type ImageVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
-	BaseImage      pulumi.StringOutput `pulumi:"baseImage"`
-	ContainerImage pulumi.StringOutput `pulumi:"containerImage"`
-	ImageArn       pulumi.StringOutput `pulumi:"imageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
+	BaseImage       pulumi.StringOutput `pulumi:"baseImage"`
+	ContainerImage  pulumi.StringOutput `pulumi:"containerImage"`
+	ImageArn        pulumi.StringOutput `pulumi:"imageArn"`
 	ImageName       pulumi.StringOutput `pulumi:"imageName"`
 	ImageVersionArn pulumi.StringOutput `pulumi:"imageVersionArn"`
 	Version         pulumi.IntOutput    `pulumi:"version"`
@@ -70,17 +68,13 @@ func (ImageVersionState) ElementType() reflect.Type {
 }
 
 type imageVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
 	BaseImage string `pulumi:"baseImage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
 	ImageName string `pulumi:"imageName"`
 }
 
 // The set of arguments for constructing a ImageVersion resource.
 type ImageVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-baseimage
 	BaseImage pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html#cfn-sagemaker-imageversion-imagename
 	ImageName pulumi.StringInput
 }
 

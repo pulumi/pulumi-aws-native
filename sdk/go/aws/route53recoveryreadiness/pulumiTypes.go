@@ -10,17 +10,316 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+type CellTag struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// CellTagInput is an input type that accepts CellTagArgs and CellTagOutput values.
+// You can construct a concrete instance of `CellTagInput` via:
+//
+//          CellTagArgs{...}
+type CellTagInput interface {
+	pulumi.Input
+
+	ToCellTagOutput() CellTagOutput
+	ToCellTagOutputWithContext(context.Context) CellTagOutput
+}
+
+type CellTagArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (CellTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CellTag)(nil)).Elem()
+}
+
+func (i CellTagArgs) ToCellTagOutput() CellTagOutput {
+	return i.ToCellTagOutputWithContext(context.Background())
+}
+
+func (i CellTagArgs) ToCellTagOutputWithContext(ctx context.Context) CellTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CellTagOutput)
+}
+
+// CellTagArrayInput is an input type that accepts CellTagArray and CellTagArrayOutput values.
+// You can construct a concrete instance of `CellTagArrayInput` via:
+//
+//          CellTagArray{ CellTagArgs{...} }
+type CellTagArrayInput interface {
+	pulumi.Input
+
+	ToCellTagArrayOutput() CellTagArrayOutput
+	ToCellTagArrayOutputWithContext(context.Context) CellTagArrayOutput
+}
+
+type CellTagArray []CellTagInput
+
+func (CellTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CellTag)(nil)).Elem()
+}
+
+func (i CellTagArray) ToCellTagArrayOutput() CellTagArrayOutput {
+	return i.ToCellTagArrayOutputWithContext(context.Background())
+}
+
+func (i CellTagArray) ToCellTagArrayOutputWithContext(ctx context.Context) CellTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CellTagArrayOutput)
+}
+
+type CellTagOutput struct{ *pulumi.OutputState }
+
+func (CellTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CellTag)(nil)).Elem()
+}
+
+func (o CellTagOutput) ToCellTagOutput() CellTagOutput {
+	return o
+}
+
+func (o CellTagOutput) ToCellTagOutputWithContext(ctx context.Context) CellTagOutput {
+	return o
+}
+
+func (o CellTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CellTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o CellTagOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CellTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type CellTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CellTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CellTag)(nil)).Elem()
+}
+
+func (o CellTagArrayOutput) ToCellTagArrayOutput() CellTagArrayOutput {
+	return o
+}
+
+func (o CellTagArrayOutput) ToCellTagArrayOutputWithContext(ctx context.Context) CellTagArrayOutput {
+	return o
+}
+
+func (o CellTagArrayOutput) Index(i pulumi.IntInput) CellTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CellTag {
+		return vs[0].([]CellTag)[vs[1].(int)]
+	}).(CellTagOutput)
+}
+
+type ReadinessCheckTag struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// ReadinessCheckTagInput is an input type that accepts ReadinessCheckTagArgs and ReadinessCheckTagOutput values.
+// You can construct a concrete instance of `ReadinessCheckTagInput` via:
+//
+//          ReadinessCheckTagArgs{...}
+type ReadinessCheckTagInput interface {
+	pulumi.Input
+
+	ToReadinessCheckTagOutput() ReadinessCheckTagOutput
+	ToReadinessCheckTagOutputWithContext(context.Context) ReadinessCheckTagOutput
+}
+
+type ReadinessCheckTagArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ReadinessCheckTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReadinessCheckTag)(nil)).Elem()
+}
+
+func (i ReadinessCheckTagArgs) ToReadinessCheckTagOutput() ReadinessCheckTagOutput {
+	return i.ToReadinessCheckTagOutputWithContext(context.Background())
+}
+
+func (i ReadinessCheckTagArgs) ToReadinessCheckTagOutputWithContext(ctx context.Context) ReadinessCheckTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckTagOutput)
+}
+
+// ReadinessCheckTagArrayInput is an input type that accepts ReadinessCheckTagArray and ReadinessCheckTagArrayOutput values.
+// You can construct a concrete instance of `ReadinessCheckTagArrayInput` via:
+//
+//          ReadinessCheckTagArray{ ReadinessCheckTagArgs{...} }
+type ReadinessCheckTagArrayInput interface {
+	pulumi.Input
+
+	ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput
+	ToReadinessCheckTagArrayOutputWithContext(context.Context) ReadinessCheckTagArrayOutput
+}
+
+type ReadinessCheckTagArray []ReadinessCheckTagInput
+
+func (ReadinessCheckTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReadinessCheckTag)(nil)).Elem()
+}
+
+func (i ReadinessCheckTagArray) ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput {
+	return i.ToReadinessCheckTagArrayOutputWithContext(context.Background())
+}
+
+func (i ReadinessCheckTagArray) ToReadinessCheckTagArrayOutputWithContext(ctx context.Context) ReadinessCheckTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReadinessCheckTagArrayOutput)
+}
+
+type ReadinessCheckTagOutput struct{ *pulumi.OutputState }
+
+func (ReadinessCheckTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReadinessCheckTag)(nil)).Elem()
+}
+
+func (o ReadinessCheckTagOutput) ToReadinessCheckTagOutput() ReadinessCheckTagOutput {
+	return o
+}
+
+func (o ReadinessCheckTagOutput) ToReadinessCheckTagOutputWithContext(ctx context.Context) ReadinessCheckTagOutput {
+	return o
+}
+
+func (o ReadinessCheckTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ReadinessCheckTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ReadinessCheckTagOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReadinessCheckTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ReadinessCheckTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ReadinessCheckTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReadinessCheckTag)(nil)).Elem()
+}
+
+func (o ReadinessCheckTagArrayOutput) ToReadinessCheckTagArrayOutput() ReadinessCheckTagArrayOutput {
+	return o
+}
+
+func (o ReadinessCheckTagArrayOutput) ToReadinessCheckTagArrayOutputWithContext(ctx context.Context) ReadinessCheckTagArrayOutput {
+	return o
+}
+
+func (o ReadinessCheckTagArrayOutput) Index(i pulumi.IntInput) ReadinessCheckTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReadinessCheckTag {
+		return vs[0].([]ReadinessCheckTag)[vs[1].(int)]
+	}).(ReadinessCheckTagOutput)
+}
+
+type RecoveryGroupTag struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// RecoveryGroupTagInput is an input type that accepts RecoveryGroupTagArgs and RecoveryGroupTagOutput values.
+// You can construct a concrete instance of `RecoveryGroupTagInput` via:
+//
+//          RecoveryGroupTagArgs{...}
+type RecoveryGroupTagInput interface {
+	pulumi.Input
+
+	ToRecoveryGroupTagOutput() RecoveryGroupTagOutput
+	ToRecoveryGroupTagOutputWithContext(context.Context) RecoveryGroupTagOutput
+}
+
+type RecoveryGroupTagArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (RecoveryGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryGroupTag)(nil)).Elem()
+}
+
+func (i RecoveryGroupTagArgs) ToRecoveryGroupTagOutput() RecoveryGroupTagOutput {
+	return i.ToRecoveryGroupTagOutputWithContext(context.Background())
+}
+
+func (i RecoveryGroupTagArgs) ToRecoveryGroupTagOutputWithContext(ctx context.Context) RecoveryGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupTagOutput)
+}
+
+// RecoveryGroupTagArrayInput is an input type that accepts RecoveryGroupTagArray and RecoveryGroupTagArrayOutput values.
+// You can construct a concrete instance of `RecoveryGroupTagArrayInput` via:
+//
+//          RecoveryGroupTagArray{ RecoveryGroupTagArgs{...} }
+type RecoveryGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput
+	ToRecoveryGroupTagArrayOutputWithContext(context.Context) RecoveryGroupTagArrayOutput
+}
+
+type RecoveryGroupTagArray []RecoveryGroupTagInput
+
+func (RecoveryGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecoveryGroupTag)(nil)).Elem()
+}
+
+func (i RecoveryGroupTagArray) ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput {
+	return i.ToRecoveryGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i RecoveryGroupTagArray) ToRecoveryGroupTagArrayOutputWithContext(ctx context.Context) RecoveryGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupTagArrayOutput)
+}
+
+type RecoveryGroupTagOutput struct{ *pulumi.OutputState }
+
+func (RecoveryGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecoveryGroupTag)(nil)).Elem()
+}
+
+func (o RecoveryGroupTagOutput) ToRecoveryGroupTagOutput() RecoveryGroupTagOutput {
+	return o
+}
+
+func (o RecoveryGroupTagOutput) ToRecoveryGroupTagOutputWithContext(ctx context.Context) RecoveryGroupTagOutput {
+	return o
+}
+
+func (o RecoveryGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RecoveryGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RecoveryGroupTagOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RecoveryGroupTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type RecoveryGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RecoveryGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecoveryGroupTag)(nil)).Elem()
+}
+
+func (o RecoveryGroupTagArrayOutput) ToRecoveryGroupTagArrayOutput() RecoveryGroupTagArrayOutput {
+	return o
+}
+
+func (o RecoveryGroupTagArrayOutput) ToRecoveryGroupTagArrayOutputWithContext(ctx context.Context) RecoveryGroupTagArrayOutput {
+	return o
+}
+
+func (o RecoveryGroupTagArrayOutput) Index(i pulumi.IntInput) RecoveryGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecoveryGroupTag {
+		return vs[0].([]RecoveryGroupTag)[vs[1].(int)]
+	}).(RecoveryGroupTagOutput)
+}
+
+// A component for DNS/routing control readiness checks.
 type ResourceSetDNSTargetResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+	// The domain name that acts as an ingress point to a portion of the customer application.
 	DomainName *string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
 	HostedZoneArn *string `pulumi:"hostedZoneArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+	// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 	RecordSetId *string `pulumi:"recordSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
-	RecordType *string `pulumi:"recordType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
+	// The type of DNS record of the target resource.
+	RecordType     *string                    `pulumi:"recordType"`
 	TargetResource *ResourceSetTargetResource `pulumi:"targetResource"`
 }
 
@@ -35,17 +334,16 @@ type ResourceSetDNSTargetResourceInput interface {
 	ToResourceSetDNSTargetResourceOutputWithContext(context.Context) ResourceSetDNSTargetResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+// A component for DNS/routing control readiness checks.
 type ResourceSetDNSTargetResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+	// The domain name that acts as an ingress point to a portion of the customer application.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+	// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
 	HostedZoneArn pulumi.StringPtrInput `pulumi:"hostedZoneArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+	// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
-	RecordType pulumi.StringPtrInput `pulumi:"recordType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
+	// The type of DNS record of the target resource.
+	RecordType     pulumi.StringPtrInput             `pulumi:"recordType"`
 	TargetResource ResourceSetTargetResourcePtrInput `pulumi:"targetResource"`
 }
 
@@ -102,7 +400,7 @@ func (i *resourceSetDNSTargetResourcePtrType) ToResourceSetDNSTargetResourcePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetDNSTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+// A component for DNS/routing control readiness checks.
 type ResourceSetDNSTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetDNSTargetResourceOutput) ElementType() reflect.Type {
@@ -127,27 +425,26 @@ func (o ResourceSetDNSTargetResourceOutput) ToResourceSetDNSTargetResourcePtrOut
 	}).(ResourceSetDNSTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+// The domain name that acts as an ingress point to a portion of the customer application.
 func (o ResourceSetDNSTargetResourceOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
 func (o ResourceSetDNSTargetResourceOutput) HostedZoneArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.HostedZoneArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 func (o ResourceSetDNSTargetResourceOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
+// The type of DNS record of the target resource.
 func (o ResourceSetDNSTargetResourceOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetDNSTargetResource) *string { return v.RecordType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
 func (o ResourceSetDNSTargetResourceOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetDNSTargetResource) *ResourceSetTargetResource { return v.TargetResource }).(ResourceSetTargetResourcePtrOutput)
 }
@@ -176,7 +473,7 @@ func (o ResourceSetDNSTargetResourcePtrOutput) Elem() ResourceSetDNSTargetResour
 	}).(ResourceSetDNSTargetResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+// The domain name that acts as an ingress point to a portion of the customer application.
 func (o ResourceSetDNSTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
 		if v == nil {
@@ -186,7 +483,7 @@ func (o ResourceSetDNSTargetResourcePtrOutput) DomainName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
 func (o ResourceSetDNSTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
 		if v == nil {
@@ -196,7 +493,7 @@ func (o ResourceSetDNSTargetResourcePtrOutput) HostedZoneArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
 func (o ResourceSetDNSTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
 		if v == nil {
@@ -206,7 +503,7 @@ func (o ResourceSetDNSTargetResourcePtrOutput) RecordSetId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
+// The type of DNS record of the target resource.
 func (o ResourceSetDNSTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *string {
 		if v == nil {
@@ -216,7 +513,6 @@ func (o ResourceSetDNSTargetResourcePtrOutput) RecordType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
 func (o ResourceSetDNSTargetResourcePtrOutput) TargetResource() ResourceSetTargetResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetDNSTargetResource) *ResourceSetTargetResource {
 		if v == nil {
@@ -226,9 +522,9 @@ func (o ResourceSetDNSTargetResourcePtrOutput) TargetResource() ResourceSetTarge
 	}).(ResourceSetTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+// The Network Load Balancer resource that a DNS target resource points to.
 type ResourceSetNLBResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+	// A Network Load Balancer resource Amazon Resource Name (ARN).
 	Arn *string `pulumi:"arn"`
 }
 
@@ -243,9 +539,9 @@ type ResourceSetNLBResourceInput interface {
 	ToResourceSetNLBResourceOutputWithContext(context.Context) ResourceSetNLBResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+// The Network Load Balancer resource that a DNS target resource points to.
 type ResourceSetNLBResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+	// A Network Load Balancer resource Amazon Resource Name (ARN).
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -302,7 +598,7 @@ func (i *resourceSetNLBResourcePtrType) ToResourceSetNLBResourcePtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetNLBResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html
+// The Network Load Balancer resource that a DNS target resource points to.
 type ResourceSetNLBResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetNLBResourceOutput) ElementType() reflect.Type {
@@ -327,7 +623,7 @@ func (o ResourceSetNLBResourceOutput) ToResourceSetNLBResourcePtrOutputWithConte
 	}).(ResourceSetNLBResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+// A Network Load Balancer resource Amazon Resource Name (ARN).
 func (o ResourceSetNLBResourceOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetNLBResource) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -356,7 +652,7 @@ func (o ResourceSetNLBResourcePtrOutput) Elem() ResourceSetNLBResourceOutput {
 	}).(ResourceSetNLBResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-nlbresource.html#cfn-route53recoveryreadiness-resourceset-nlbresource-arn
+// A Network Load Balancer resource Amazon Resource Name (ARN).
 func (o ResourceSetNLBResourcePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetNLBResource) *string {
 		if v == nil {
@@ -366,11 +662,11 @@ func (o ResourceSetNLBResourcePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+// The Route 53 resource that a DNS target resource record points to.
 type ResourceSetR53ResourceRecord struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+	// The DNS target domain name.
 	DomainName *string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+	// The Resource Record set id.
 	RecordSetId *string `pulumi:"recordSetId"`
 }
 
@@ -385,11 +681,11 @@ type ResourceSetR53ResourceRecordInput interface {
 	ToResourceSetR53ResourceRecordOutputWithContext(context.Context) ResourceSetR53ResourceRecordOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+// The Route 53 resource that a DNS target resource record points to.
 type ResourceSetR53ResourceRecordArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+	// The DNS target domain name.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+	// The Resource Record set id.
 	RecordSetId pulumi.StringPtrInput `pulumi:"recordSetId"`
 }
 
@@ -446,7 +742,7 @@ func (i *resourceSetR53ResourceRecordPtrType) ToResourceSetR53ResourceRecordPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetR53ResourceRecordPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html
+// The Route 53 resource that a DNS target resource record points to.
 type ResourceSetR53ResourceRecordOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetR53ResourceRecordOutput) ElementType() reflect.Type {
@@ -471,12 +767,12 @@ func (o ResourceSetR53ResourceRecordOutput) ToResourceSetR53ResourceRecordPtrOut
 	}).(ResourceSetR53ResourceRecordPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+// The DNS target domain name.
 func (o ResourceSetR53ResourceRecordOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetR53ResourceRecord) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+// The Resource Record set id.
 func (o ResourceSetR53ResourceRecordOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetR53ResourceRecord) *string { return v.RecordSetId }).(pulumi.StringPtrOutput)
 }
@@ -505,7 +801,7 @@ func (o ResourceSetR53ResourceRecordPtrOutput) Elem() ResourceSetR53ResourceReco
 	}).(ResourceSetR53ResourceRecordOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-domainname
+// The DNS target domain name.
 func (o ResourceSetR53ResourceRecordPtrOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetR53ResourceRecord) *string {
 		if v == nil {
@@ -515,7 +811,7 @@ func (o ResourceSetR53ResourceRecordPtrOutput) DomainName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-r53resourcerecord.html#cfn-route53recoveryreadiness-resourceset-r53resourcerecord-recordsetid
+// The Resource Record set id.
 func (o ResourceSetR53ResourceRecordPtrOutput) RecordSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceSetR53ResourceRecord) *string {
 		if v == nil {
@@ -525,15 +821,14 @@ func (o ResourceSetR53ResourceRecordPtrOutput) RecordSetId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+// The resource element of a ResourceSet
 type ResourceSetResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
-	ComponentId *string `pulumi:"componentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
+	// The component identifier of the resource, generated when DNS target resource is used.
+	ComponentId       *string                       `pulumi:"componentId"`
 	DnsTargetResource *ResourceSetDNSTargetResource `pulumi:"dnsTargetResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes []string `pulumi:"readinessScopes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+	// The Amazon Resource Name (ARN) of the AWS resource.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
 
@@ -548,15 +843,14 @@ type ResourceSetResourceInput interface {
 	ToResourceSetResourceOutputWithContext(context.Context) ResourceSetResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+// The resource element of a ResourceSet
 type ResourceSetResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
-	ComponentId pulumi.StringPtrInput `pulumi:"componentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
+	// The component identifier of the resource, generated when DNS target resource is used.
+	ComponentId       pulumi.StringPtrInput                `pulumi:"componentId"`
 	DnsTargetResource ResourceSetDNSTargetResourcePtrInput `pulumi:"dnsTargetResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+	// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 	ReadinessScopes pulumi.StringArrayInput `pulumi:"readinessScopes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+	// The Amazon Resource Name (ARN) of the AWS resource.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
 }
 
@@ -597,7 +891,7 @@ func (i ResourceSetResourceArray) ToResourceSetResourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetResourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+// The resource element of a ResourceSet
 type ResourceSetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetResourceOutput) ElementType() reflect.Type {
@@ -612,22 +906,21 @@ func (o ResourceSetResourceOutput) ToResourceSetResourceOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
+// The component identifier of the resource, generated when DNS target resource is used.
 func (o ResourceSetResourceOutput) ComponentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ComponentId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
 func (o ResourceSetResourceOutput) DnsTargetResource() ResourceSetDNSTargetResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *ResourceSetDNSTargetResource { return v.DnsTargetResource }).(ResourceSetDNSTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
 func (o ResourceSetResourceOutput) ReadinessScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceSetResource) []string { return v.ReadinessScopes }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+// The Amazon Resource Name (ARN) of the AWS resource.
 func (o ResourceSetResourceOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceSetResource) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
@@ -652,11 +945,109 @@ func (o ResourceSetResourceArrayOutput) Index(i pulumi.IntInput) ResourceSetReso
 	}).(ResourceSetResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+type ResourceSetTag struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// ResourceSetTagInput is an input type that accepts ResourceSetTagArgs and ResourceSetTagOutput values.
+// You can construct a concrete instance of `ResourceSetTagInput` via:
+//
+//          ResourceSetTagArgs{...}
+type ResourceSetTagInput interface {
+	pulumi.Input
+
+	ToResourceSetTagOutput() ResourceSetTagOutput
+	ToResourceSetTagOutputWithContext(context.Context) ResourceSetTagOutput
+}
+
+type ResourceSetTagArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ResourceSetTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
+}
+
+func (i ResourceSetTagArgs) ToResourceSetTagOutput() ResourceSetTagOutput {
+	return i.ToResourceSetTagOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagOutput)
+}
+
+// ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
+// You can construct a concrete instance of `ResourceSetTagArrayInput` via:
+//
+//          ResourceSetTagArray{ ResourceSetTagArgs{...} }
+type ResourceSetTagArrayInput interface {
+	pulumi.Input
+
+	ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput
+	ToResourceSetTagArrayOutputWithContext(context.Context) ResourceSetTagArrayOutput
+}
+
+type ResourceSetTagArray []ResourceSetTagInput
+
+func (ResourceSetTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
+}
+
+func (i ResourceSetTagArray) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
+	return i.ToResourceSetTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceSetTagArray) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagArrayOutput)
+}
+
+type ResourceSetTagOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceSetTag)(nil)).Elem()
+}
+
+func (o ResourceSetTagOutput) ToResourceSetTagOutput() ResourceSetTagOutput {
+	return o
+}
+
+func (o ResourceSetTagOutput) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
+	return o
+}
+
+func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceSetTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ResourceSetTagOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceSetTag) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ResourceSetTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceSetTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceSetTag)(nil)).Elem()
+}
+
+func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutput() ResourceSetTagArrayOutput {
+	return o
+}
+
+func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
+	return o
+}
+
+func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSetTag {
+		return vs[0].([]ResourceSetTag)[vs[1].(int)]
+	}).(ResourceSetTagOutput)
+}
+
+// The target resource that the Route 53 record points to.
 type ResourceSetTargetResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-	NLBResource *ResourceSetNLBResource `pulumi:"nLBResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
+	NLBResource *ResourceSetNLBResource       `pulumi:"nLBResource"`
 	R53Resource *ResourceSetR53ResourceRecord `pulumi:"r53Resource"`
 }
 
@@ -671,11 +1062,9 @@ type ResourceSetTargetResourceInput interface {
 	ToResourceSetTargetResourceOutputWithContext(context.Context) ResourceSetTargetResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+// The target resource that the Route 53 record points to.
 type ResourceSetTargetResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-	NLBResource ResourceSetNLBResourcePtrInput `pulumi:"nLBResource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
+	NLBResource ResourceSetNLBResourcePtrInput       `pulumi:"nLBResource"`
 	R53Resource ResourceSetR53ResourceRecordPtrInput `pulumi:"r53Resource"`
 }
 
@@ -732,7 +1121,7 @@ func (i *resourceSetTargetResourcePtrType) ToResourceSetTargetResourcePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+// The target resource that the Route 53 record points to.
 type ResourceSetTargetResourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetTargetResourceOutput) ElementType() reflect.Type {
@@ -757,12 +1146,10 @@ func (o ResourceSetTargetResourceOutput) ToResourceSetTargetResourcePtrOutputWit
 	}).(ResourceSetTargetResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
 func (o ResourceSetTargetResourceOutput) NLBResource() ResourceSetNLBResourcePtrOutput {
 	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetNLBResource { return v.NLBResource }).(ResourceSetNLBResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
 func (o ResourceSetTargetResourceOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
 	return o.ApplyT(func(v ResourceSetTargetResource) *ResourceSetR53ResourceRecord { return v.R53Resource }).(ResourceSetR53ResourceRecordPtrOutput)
 }
@@ -791,7 +1178,6 @@ func (o ResourceSetTargetResourcePtrOutput) Elem() ResourceSetTargetResourceOutp
 	}).(ResourceSetTargetResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
 func (o ResourceSetTargetResourcePtrOutput) NLBResource() ResourceSetNLBResourcePtrOutput {
 	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetNLBResource {
 		if v == nil {
@@ -801,7 +1187,6 @@ func (o ResourceSetTargetResourcePtrOutput) NLBResource() ResourceSetNLBResource
 	}).(ResourceSetNLBResourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
 func (o ResourceSetTargetResourcePtrOutput) R53Resource() ResourceSetR53ResourceRecordPtrOutput {
 	return o.ApplyT(func(v *ResourceSetTargetResource) *ResourceSetR53ResourceRecord {
 		if v == nil {
@@ -812,6 +1197,12 @@ func (o ResourceSetTargetResourcePtrOutput) R53Resource() ResourceSetR53Resource
 }
 
 func init() {
+	pulumi.RegisterOutputType(CellTagOutput{})
+	pulumi.RegisterOutputType(CellTagArrayOutput{})
+	pulumi.RegisterOutputType(ReadinessCheckTagOutput{})
+	pulumi.RegisterOutputType(ReadinessCheckTagArrayOutput{})
+	pulumi.RegisterOutputType(RecoveryGroupTagOutput{})
+	pulumi.RegisterOutputType(RecoveryGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetDNSTargetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetDNSTargetResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetNLBResourceOutput{})
@@ -820,6 +1211,8 @@ func init() {
 	pulumi.RegisterOutputType(ResourceSetR53ResourceRecordPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceArrayOutput{})
+	pulumi.RegisterOutputType(ResourceSetTagOutput{})
+	pulumi.RegisterOutputType(ResourceSetTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetTargetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetTargetResourcePtrOutput{})
 }

@@ -8,24 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+// A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 type SigningProfile struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the specified signing profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
-	PlatformId        pulumi.StringOutput `pulumi:"platformId"`
-	ProfileName       pulumi.StringOutput `pulumi:"profileName"`
-	ProfileVersion    pulumi.StringOutput `pulumi:"profileVersion"`
+	// The ID of the target signing platform.
+	PlatformId pulumi.StringOutput `pulumi:"platformId"`
+	// A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name.
+	ProfileName pulumi.StringOutput `pulumi:"profileName"`
+	// A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
+	ProfileVersion pulumi.StringOutput `pulumi:"profileVersion"`
+	// The Amazon Resource Name (ARN) of the specified signing profile version.
 	ProfileVersionArn pulumi.StringOutput `pulumi:"profileVersionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrOutput `pulumi:"signatureValidityPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of tags associated with the signing profile.
+	Tags SigningProfileTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSigningProfile registers a new resource with the given unique name, arguments, and options.
@@ -70,22 +73,22 @@ func (SigningProfileState) ElementType() reflect.Type {
 }
 
 type signingProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+	// The ID of the target signing platform.
 	PlatformId string `pulumi:"platformId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+	// Signature validity period of the profile.
 	SignatureValidityPeriod *SigningProfileSignatureValidityPeriod `pulumi:"signatureValidityPeriod"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of tags associated with the signing profile.
+	Tags []SigningProfileTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SigningProfile resource.
 type SigningProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+	// The ID of the target signing platform.
 	PlatformId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+	// Signature validity period of the profile.
 	SignatureValidityPeriod SigningProfileSignatureValidityPeriodPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
-	Tags aws.TagArrayInput
+	// A list of tags associated with the signing profile.
+	Tags SigningProfileTagArrayInput
 }
 
 func (SigningProfileArgs) ElementType() reflect.Type {

@@ -8,29 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+// Resource schema for AWS::MediaPackage::Asset
 type Asset struct {
 	pulumi.CustomResourceState
 
-	Arn             pulumi.StringOutput            `pulumi:"arn"`
-	CreatedAt       pulumi.StringOutput            `pulumi:"createdAt"`
+	// The ARN of the Asset.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The time the Asset was initially submitted for Ingest.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The list of egress endpoints available for the Asset.
 	EgressEndpoints AssetEgressEndpointArrayOutput `pulumi:"egressEndpoints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId pulumi.StringOutput `pulumi:"packagingGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+	// The resource ID to include in SPEKE key requests.
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+	// ARN of the source object in S3.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn pulumi.StringOutput `pulumi:"sourceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags AssetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewAsset registers a new resource with the given unique name, arguments, and options.
@@ -40,9 +40,6 @@ func NewAsset(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Id == nil {
-		return nil, errors.New("invalid value for required argument 'Id'")
-	}
 	if args.PackagingGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'PackagingGroupId'")
 	}
@@ -84,34 +81,30 @@ func (AssetState) ElementType() reflect.Type {
 }
 
 type assetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-	Id string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId string `pulumi:"packagingGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+	// The resource ID to include in SPEKE key requests.
 	ResourceId *string `pulumi:"resourceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+	// ARN of the source object in S3.
 	SourceArn string `pulumi:"sourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn string `pulumi:"sourceRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags []AssetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Asset resource.
 type AssetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-	Id pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+	// The ID of the PackagingGroup for the Asset.
 	PackagingGroupId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+	// The resource ID to include in SPEKE key requests.
 	ResourceId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+	// ARN of the source object in S3.
 	SourceArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+	// The IAM role_arn used to access the source S3 bucket.
 	SourceRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource
+	Tags AssetTagArrayInput
 }
 
 func (AssetArgs) ElementType() reflect.Type {

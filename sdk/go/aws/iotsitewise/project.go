@@ -8,24 +8,25 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
+// Resource schema for AWS::IoTSiteWise::Project
 type Project struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
-	PortalId   pulumi.StringOutput `pulumi:"portalId"`
+	// The ID of the portal in which to create the project.
+	PortalId pulumi.StringOutput `pulumi:"portalId"`
+	// The ARN of the project.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+	// A description for the project.
 	ProjectDescription pulumi.StringPtrOutput `pulumi:"projectDescription"`
-	ProjectId          pulumi.StringOutput    `pulumi:"projectId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+	// The ID of the project.
+	ProjectId pulumi.StringOutput `pulumi:"projectId"`
+	// A friendly name for the project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the project.
+	Tags ProjectTagArrayOutput `pulumi:"tags"`
 }
 
 // NewProject registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +74,26 @@ func (ProjectState) ElementType() reflect.Type {
 }
 
 type projectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+	// The ID of the portal in which to create the project.
 	PortalId string `pulumi:"portalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+	// A description for the project.
 	ProjectDescription *string `pulumi:"projectDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+	// A friendly name for the project.
 	ProjectName string `pulumi:"projectName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the project.
+	Tags []ProjectTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Project resource.
 type ProjectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+	// The ID of the portal in which to create the project.
 	PortalId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+	// A description for the project.
 	ProjectDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+	// A friendly name for the project.
 	ProjectName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the project.
+	Tags ProjectTagArrayInput
 }
 
 func (ProjectArgs) ElementType() reflect.Type {

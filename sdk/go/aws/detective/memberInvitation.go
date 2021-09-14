@@ -11,19 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html
+// Resource schema for AWS::Detective::MemberInvitation
 type MemberInvitation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+	// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
 	DisableEmailNotification pulumi.BoolPtrOutput `pulumi:"disableEmailNotification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+	// The ARN of the graph to which the member account will be invited
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+	// The root email address for the account to be invited, for validation. Updating this field has no effect.
 	MemberEmailAddress pulumi.StringOutput `pulumi:"memberEmailAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+	// The AWS account ID to be invited to join the graph as a member
 	MemberId pulumi.StringOutput `pulumi:"memberId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+	// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 }
 
@@ -75,29 +75,29 @@ func (MemberInvitationState) ElementType() reflect.Type {
 }
 
 type memberInvitationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+	// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
 	DisableEmailNotification *bool `pulumi:"disableEmailNotification"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+	// The ARN of the graph to which the member account will be invited
 	GraphArn string `pulumi:"graphArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+	// The root email address for the account to be invited, for validation. Updating this field has no effect.
 	MemberEmailAddress string `pulumi:"memberEmailAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+	// The AWS account ID to be invited to join the graph as a member
 	MemberId string `pulumi:"memberId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+	// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
 	Message *string `pulumi:"message"`
 }
 
 // The set of arguments for constructing a MemberInvitation resource.
 type MemberInvitationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-disableemailnotification
+	// When set to true, invitation emails are not sent to the member accounts. Member accounts must still accept the invitation before they are added to the behavior graph. Updating this field has no effect.
 	DisableEmailNotification pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-grapharn
+	// The ARN of the graph to which the member account will be invited
 	GraphArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberemailaddress
+	// The root email address for the account to be invited, for validation. Updating this field has no effect.
 	MemberEmailAddress pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-memberid
+	// The AWS account ID to be invited to join the graph as a member
 	MemberId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-memberinvitation.html#cfn-detective-memberinvitation-message
+	// A message to be included in the email invitation sent to the invited account. Updating this field has no effect.
 	Message pulumi.StringPtrInput
 }
 

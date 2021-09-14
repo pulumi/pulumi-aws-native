@@ -8,24 +8,20 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html
+// Resource Type definition for AWS::Config::StoredQuery
 type StoredQuery struct {
 	pulumi.CustomResourceState
 
-	QueryArn pulumi.StringOutput `pulumi:"queryArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription
+	QueryArn         pulumi.StringOutput    `pulumi:"queryArn"`
 	QueryDescription pulumi.StringPtrOutput `pulumi:"queryDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression
-	QueryExpression pulumi.StringOutput `pulumi:"queryExpression"`
-	QueryId         pulumi.StringOutput `pulumi:"queryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname
-	QueryName pulumi.StringOutput `pulumi:"queryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	QueryExpression  pulumi.StringOutput    `pulumi:"queryExpression"`
+	QueryId          pulumi.StringOutput    `pulumi:"queryId"`
+	QueryName        pulumi.StringOutput    `pulumi:"queryName"`
+	// The tags for the stored query.
+	Tags StoredQueryTagArrayOutput `pulumi:"tags"`
 }
 
 // NewStoredQuery registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +69,20 @@ func (StoredQueryState) ElementType() reflect.Type {
 }
 
 type storedQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription
 	QueryDescription *string `pulumi:"queryDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression
-	QueryExpression string `pulumi:"queryExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname
-	QueryName string `pulumi:"queryName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	QueryExpression  string  `pulumi:"queryExpression"`
+	QueryName        string  `pulumi:"queryName"`
+	// The tags for the stored query.
+	Tags []StoredQueryTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a StoredQuery resource.
 type StoredQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-querydescription
 	QueryDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryexpression
-	QueryExpression pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-queryname
-	QueryName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-storedquery.html#cfn-config-storedquery-tags
-	Tags aws.TagArrayInput
+	QueryExpression  pulumi.StringInput
+	QueryName        pulumi.StringInput
+	// The tags for the stored query.
+	Tags StoredQueryTagArrayInput
 }
 
 func (StoredQueryArgs) ElementType() reflect.Type {

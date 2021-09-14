@@ -11,22 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
+// Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
 type Certificate struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-	CACertificatePem pulumi.StringPtrOutput `pulumi:"cACertificatePem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-	CertificateMode pulumi.StringPtrOutput `pulumi:"certificateMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-	CertificatePem pulumi.StringPtrOutput `pulumi:"certificatePem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
+	Arn                       pulumi.StringOutput    `pulumi:"arn"`
+	CACertificatePem          pulumi.StringPtrOutput `pulumi:"cACertificatePem"`
+	CertificateMode           pulumi.StringPtrOutput `pulumi:"certificateMode"`
+	CertificatePem            pulumi.StringPtrOutput `pulumi:"certificatePem"`
 	CertificateSigningRequest pulumi.StringPtrOutput `pulumi:"certificateSigningRequest"`
-	Id                        pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-	Status pulumi.StringOutput `pulumi:"status"`
+	Status                    pulumi.StringOutput    `pulumi:"status"`
 }
 
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
@@ -71,30 +65,20 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-	CACertificatePem *string `pulumi:"cACertificatePem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-	CertificateMode *string `pulumi:"certificateMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-	CertificatePem *string `pulumi:"certificatePem"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
+	CACertificatePem          *string `pulumi:"cACertificatePem"`
+	CertificateMode           *string `pulumi:"certificateMode"`
+	CertificatePem            *string `pulumi:"certificatePem"`
 	CertificateSigningRequest *string `pulumi:"certificateSigningRequest"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-	Status string `pulumi:"status"`
+	Status                    string  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
-	CACertificatePem pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
-	CertificateMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
-	CertificatePem pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
+	CACertificatePem          pulumi.StringPtrInput
+	CertificateMode           pulumi.StringPtrInput
+	CertificatePem            pulumi.StringPtrInput
 	CertificateSigningRequest pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status
-	Status pulumi.StringInput
+	Status                    pulumi.StringInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

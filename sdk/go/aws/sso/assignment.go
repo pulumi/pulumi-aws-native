@@ -11,21 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+// Resource Type definition for SSO assignmet
 type Assignment struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+	// The sso instance that the permission set is owned.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+	// The permission set that the assignemt will be assigned
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+	// The assignee's type, user/group
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+	// The account id to be provisioned.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+	// The type of resource to be provsioned to, only aws account now
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 }
 
@@ -86,33 +86,33 @@ func (AssignmentState) ElementType() reflect.Type {
 }
 
 type assignmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+	// The sso instance that the permission set is owned.
 	InstanceArn string `pulumi:"instanceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+	// The permission set that the assignemt will be assigned
 	PermissionSetArn string `pulumi:"permissionSetArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+	// The assignee's identifier, user id/group id
 	PrincipalId string `pulumi:"principalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+	// The assignee's type, user/group
 	PrincipalType string `pulumi:"principalType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+	// The account id to be provisioned.
 	TargetId string `pulumi:"targetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+	// The type of resource to be provsioned to, only aws account now
 	TargetType string `pulumi:"targetType"`
 }
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+	// The sso instance that the permission set is owned.
 	InstanceArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+	// The permission set that the assignemt will be assigned
 	PermissionSetArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+	// The assignee's identifier, user id/group id
 	PrincipalId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+	// The assignee's type, user/group
 	PrincipalType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+	// The account id to be provisioned.
 	TargetId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+	// The type of resource to be provsioned to, only aws account now
 	TargetType pulumi.StringInput
 }
 

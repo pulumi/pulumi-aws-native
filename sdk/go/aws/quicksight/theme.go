@@ -8,33 +8,41 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html
+// Definition of the AWS::QuickSight::Theme Resource Type.
 type Theme struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
+	// <p>The Amazon Resource Name (ARN) of the theme.</p>
+	Arn          pulumi.StringOutput `pulumi:"arn"`
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-	BaseThemeId pulumi.StringPtrOutput `pulumi:"baseThemeId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
-	Configuration   ThemeThemeConfigurationPtrOutput `pulumi:"configuration"`
-	CreatedTime     pulumi.StringOutput              `pulumi:"createdTime"`
-	LastUpdatedTime pulumi.StringOutput              `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+	// <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+	// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+	// 				<code>ListThemes</code> or choose <b>Themes</b> from
+	// 			within a QuickSight analysis. </p>
+	BaseThemeId   pulumi.StringPtrOutput           `pulumi:"baseThemeId"`
+	Configuration ThemeThemeConfigurationPtrOutput `pulumi:"configuration"`
+	// <p>The date and time that the theme was created.</p>
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// <p>The date and time that the theme was last updated.</p>
+	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// <p>A display name for the theme.</p>
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+	// <p>A valid grouping of resource permissions to apply to the new theme.
+	// 			</p>
 	Permissions ThemeResourcePermissionArrayOutput `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-	ThemeId pulumi.StringOutput `pulumi:"themeId"`
-	Type    pulumi.StringOutput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+	// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+	// 			resource.</p>
+	Tags    ThemeTagArrayOutput     `pulumi:"tags"`
+	ThemeId pulumi.StringOutput     `pulumi:"themeId"`
+	Type    pulumi.StringOutput     `pulumi:"type"`
+	Version ThemeThemeVersionOutput `pulumi:"version"`
+	// <p>A description of the first version of the theme that you're creating. Every time
+	// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+	// 			theme has a description of the version in the <code>VersionDescription</code>
+	// 			field.</p>
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
 
@@ -83,41 +91,51 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
 	AwsAccountId string `pulumi:"awsAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-	BaseThemeId *string `pulumi:"baseThemeId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
+	// <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+	// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+	// 				<code>ListThemes</code> or choose <b>Themes</b> from
+	// 			within a QuickSight analysis. </p>
+	BaseThemeId   *string                  `pulumi:"baseThemeId"`
 	Configuration *ThemeThemeConfiguration `pulumi:"configuration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+	// <p>A display name for the theme.</p>
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+	// <p>A valid grouping of resource permissions to apply to the new theme.
+	// 			</p>
 	Permissions []ThemeResourcePermission `pulumi:"permissions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
-	ThemeId string `pulumi:"themeId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+	// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+	// 			resource.</p>
+	Tags    []ThemeTag `pulumi:"tags"`
+	ThemeId string     `pulumi:"themeId"`
+	// <p>A description of the first version of the theme that you're creating. Every time
+	// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+	// 			theme has a description of the version in the <code>VersionDescription</code>
+	// 			field.</p>
 	VersionDescription *string `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-awsaccountid
 	AwsAccountId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-basethemeid
-	BaseThemeId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-configuration
+	// <p>The ID of the theme that a custom theme will inherit from. All themes inherit from one of
+	// 			the starting themes defined by Amazon QuickSight. For a list of the starting themes, use
+	// 				<code>ListThemes</code> or choose <b>Themes</b> from
+	// 			within a QuickSight analysis. </p>
+	BaseThemeId   pulumi.StringPtrInput
 	Configuration ThemeThemeConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-name
+	// <p>A display name for the theme.</p>
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-permissions
+	// <p>A valid grouping of resource permissions to apply to the new theme.
+	// 			</p>
 	Permissions ThemeResourcePermissionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-themeid
+	// <p>A map of the key-value pairs for the resource tag or tags that you want to add to the
+	// 			resource.</p>
+	Tags    ThemeTagArrayInput
 	ThemeId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-theme.html#cfn-quicksight-theme-versiondescription
+	// <p>A description of the first version of the theme that you're creating. Every time
+	// 				<code>UpdateTheme</code> is called, a new version is created. Each version of the
+	// 			theme has a description of the version in the <code>VersionDescription</code>
+	// 			field.</p>
 	VersionDescription pulumi.StringPtrInput
 }
 

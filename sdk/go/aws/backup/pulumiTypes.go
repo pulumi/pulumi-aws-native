@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
 type BackupPlanAdvancedBackupSettingResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
 	BackupOptions interface{} `pulumi:"backupOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
-	ResourceType string `pulumi:"resourceType"`
+	ResourceType  string      `pulumi:"resourceType"`
 }
 
 // BackupPlanAdvancedBackupSettingResourceTypeInput is an input type that accepts BackupPlanAdvancedBackupSettingResourceTypeArgs and BackupPlanAdvancedBackupSettingResourceTypeOutput values.
@@ -29,12 +26,9 @@ type BackupPlanAdvancedBackupSettingResourceTypeInput interface {
 	ToBackupPlanAdvancedBackupSettingResourceTypeOutputWithContext(context.Context) BackupPlanAdvancedBackupSettingResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
 type BackupPlanAdvancedBackupSettingResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
-	BackupOptions pulumi.Input `pulumi:"backupOptions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+	BackupOptions pulumi.Input       `pulumi:"backupOptions"`
+	ResourceType  pulumi.StringInput `pulumi:"resourceType"`
 }
 
 func (BackupPlanAdvancedBackupSettingResourceTypeArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i BackupPlanAdvancedBackupSettingResourceTypeArray) ToBackupPlanAdvancedBa
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
 type BackupPlanAdvancedBackupSettingResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanAdvancedBackupSettingResourceTypeOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ToBackupPlanAdvancedB
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
 func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) BackupOptions() pulumi.AnyOutput {
 	return o.ApplyT(func(v BackupPlanAdvancedBackupSettingResourceType) interface{} { return v.BackupOptions }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
 func (o BackupPlanAdvancedBackupSettingResourceTypeOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanAdvancedBackupSettingResourceType) string { return v.ResourceType }).(pulumi.StringOutput)
 }
@@ -119,14 +110,10 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.I
 	}).(BackupPlanAdvancedBackupSettingResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
 type BackupPlanBackupPlanResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
 	AdvancedBackupSettings []BackupPlanAdvancedBackupSettingResourceType `pulumi:"advancedBackupSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-	BackupPlanName string `pulumi:"backupPlanName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-	BackupPlanRule []BackupPlanBackupRuleResourceType `pulumi:"backupPlanRule"`
+	BackupPlanName         string                                        `pulumi:"backupPlanName"`
+	BackupPlanRule         []BackupPlanBackupRuleResourceType            `pulumi:"backupPlanRule"`
 }
 
 // BackupPlanBackupPlanResourceTypeInput is an input type that accepts BackupPlanBackupPlanResourceTypeArgs and BackupPlanBackupPlanResourceTypeOutput values.
@@ -140,14 +127,10 @@ type BackupPlanBackupPlanResourceTypeInput interface {
 	ToBackupPlanBackupPlanResourceTypeOutputWithContext(context.Context) BackupPlanBackupPlanResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
 type BackupPlanBackupPlanResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
 	AdvancedBackupSettings BackupPlanAdvancedBackupSettingResourceTypeArrayInput `pulumi:"advancedBackupSettings"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-	BackupPlanName pulumi.StringInput `pulumi:"backupPlanName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-	BackupPlanRule BackupPlanBackupRuleResourceTypeArrayInput `pulumi:"backupPlanRule"`
+	BackupPlanName         pulumi.StringInput                                    `pulumi:"backupPlanName"`
+	BackupPlanRule         BackupPlanBackupRuleResourceTypeArrayInput            `pulumi:"backupPlanRule"`
 }
 
 func (BackupPlanBackupPlanResourceTypeArgs) ElementType() reflect.Type {
@@ -203,7 +186,6 @@ func (i *backupPlanBackupPlanResourceTypePtrType) ToBackupPlanBackupPlanResource
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupPlanResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
 type BackupPlanBackupPlanResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanBackupPlanResourceTypeOutput) ElementType() reflect.Type {
@@ -228,19 +210,16 @@ func (o BackupPlanBackupPlanResourceTypeOutput) ToBackupPlanBackupPlanResourceTy
 	}).(BackupPlanBackupPlanResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
 func (o BackupPlanBackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		return v.AdvancedBackupSettings
 	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
 func (o BackupPlanBackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) string { return v.BackupPlanName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
 func (o BackupPlanBackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanBackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
@@ -269,7 +248,6 @@ func (o BackupPlanBackupPlanResourceTypePtrOutput) Elem() BackupPlanBackupPlanRe
 	}).(BackupPlanBackupPlanResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
 func (o BackupPlanBackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		if v == nil {
@@ -279,7 +257,6 @@ func (o BackupPlanBackupPlanResourceTypePtrOutput) AdvancedBackupSettings() Back
 	}).(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
 func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) *string {
 		if v == nil {
@@ -289,7 +266,6 @@ func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
 func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v *BackupPlanBackupPlanResourceType) []BackupPlanBackupRuleResourceType {
 		if v == nil {
@@ -299,26 +275,16 @@ func (o BackupPlanBackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBa
 	}).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
 type BackupPlanBackupRuleResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
-	CompletionWindowMinutes *float64 `pulumi:"completionWindowMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
-	CopyActions []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
-	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
-	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
-	RuleName string `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
-	ScheduleExpression *string `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
-	StartWindowMinutes *float64 `pulumi:"startWindowMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
-	TargetBackupVault string `pulumi:"targetBackupVault"`
+	CompletionWindowMinutes *float64                           `pulumi:"completionWindowMinutes"`
+	CopyActions             []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
+	EnableContinuousBackup  *bool                              `pulumi:"enableContinuousBackup"`
+	Lifecycle               *BackupPlanLifecycleResourceType   `pulumi:"lifecycle"`
+	RecoveryPointTags       interface{}                        `pulumi:"recoveryPointTags"`
+	RuleName                string                             `pulumi:"ruleName"`
+	ScheduleExpression      *string                            `pulumi:"scheduleExpression"`
+	StartWindowMinutes      *float64                           `pulumi:"startWindowMinutes"`
+	TargetBackupVault       string                             `pulumi:"targetBackupVault"`
 }
 
 // BackupPlanBackupRuleResourceTypeInput is an input type that accepts BackupPlanBackupRuleResourceTypeArgs and BackupPlanBackupRuleResourceTypeOutput values.
@@ -332,26 +298,16 @@ type BackupPlanBackupRuleResourceTypeInput interface {
 	ToBackupPlanBackupRuleResourceTypeOutputWithContext(context.Context) BackupPlanBackupRuleResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
 type BackupPlanBackupRuleResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
-	CompletionWindowMinutes pulumi.Float64PtrInput `pulumi:"completionWindowMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
-	CopyActions BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
-	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
-	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
-	RuleName pulumi.StringInput `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
-	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
-	StartWindowMinutes pulumi.Float64PtrInput `pulumi:"startWindowMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
-	TargetBackupVault pulumi.StringInput `pulumi:"targetBackupVault"`
+	CompletionWindowMinutes pulumi.Float64PtrInput                     `pulumi:"completionWindowMinutes"`
+	CopyActions             BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
+	EnableContinuousBackup  pulumi.BoolPtrInput                        `pulumi:"enableContinuousBackup"`
+	Lifecycle               BackupPlanLifecycleResourceTypePtrInput    `pulumi:"lifecycle"`
+	RecoveryPointTags       pulumi.Input                               `pulumi:"recoveryPointTags"`
+	RuleName                pulumi.StringInput                         `pulumi:"ruleName"`
+	ScheduleExpression      pulumi.StringPtrInput                      `pulumi:"scheduleExpression"`
+	StartWindowMinutes      pulumi.Float64PtrInput                     `pulumi:"startWindowMinutes"`
+	TargetBackupVault       pulumi.StringInput                         `pulumi:"targetBackupVault"`
 }
 
 func (BackupPlanBackupRuleResourceTypeArgs) ElementType() reflect.Type {
@@ -391,7 +347,6 @@ func (i BackupPlanBackupRuleResourceTypeArray) ToBackupPlanBackupRuleResourceTyp
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html
 type BackupPlanBackupRuleResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanBackupRuleResourceTypeOutput) ElementType() reflect.Type {
@@ -406,47 +361,38 @@ func (o BackupPlanBackupRuleResourceTypeOutput) ToBackupPlanBackupRuleResourceTy
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
 func (o BackupPlanBackupRuleResourceTypeOutput) CompletionWindowMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *float64 { return v.CompletionWindowMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
 func (o BackupPlanBackupRuleResourceTypeOutput) CopyActions() BackupPlanCopyActionResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanCopyActionResourceType { return v.CopyActions }).(BackupPlanCopyActionResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-enablecontinuousbackup
 func (o BackupPlanBackupRuleResourceTypeOutput) EnableContinuousBackup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 func (o BackupPlanBackupRuleResourceTypeOutput) Lifecycle() BackupPlanLifecycleResourceTypePtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-recoverypointtags
-func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) map[string]string { return v.RecoveryPointTags }).(pulumi.StringMapOutput)
+func (o BackupPlanBackupRuleResourceTypeOutput) RecoveryPointTags() pulumi.AnyOutput {
+	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) interface{} { return v.RecoveryPointTags }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-rulename
 func (o BackupPlanBackupRuleResourceTypeOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) string { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-scheduleexpression
 func (o BackupPlanBackupRuleResourceTypeOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-startwindowminutes
 func (o BackupPlanBackupRuleResourceTypeOutput) StartWindowMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *float64 { return v.StartWindowMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-targetbackupvault
 func (o BackupPlanBackupRuleResourceTypeOutput) TargetBackupVault() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) string { return v.TargetBackupVault }).(pulumi.StringOutput)
 }
@@ -471,12 +417,9 @@ func (o BackupPlanBackupRuleResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 	}).(BackupPlanBackupRuleResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
 type BackupPlanCopyActionResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
-	DestinationBackupVaultArn string `pulumi:"destinationBackupVaultArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
-	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
+	DestinationBackupVaultArn string                           `pulumi:"destinationBackupVaultArn"`
+	Lifecycle                 *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 }
 
 // BackupPlanCopyActionResourceTypeInput is an input type that accepts BackupPlanCopyActionResourceTypeArgs and BackupPlanCopyActionResourceTypeOutput values.
@@ -490,12 +433,9 @@ type BackupPlanCopyActionResourceTypeInput interface {
 	ToBackupPlanCopyActionResourceTypeOutputWithContext(context.Context) BackupPlanCopyActionResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
 type BackupPlanCopyActionResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
-	DestinationBackupVaultArn pulumi.StringInput `pulumi:"destinationBackupVaultArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
-	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
+	DestinationBackupVaultArn pulumi.StringInput                      `pulumi:"destinationBackupVaultArn"`
+	Lifecycle                 BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 }
 
 func (BackupPlanCopyActionResourceTypeArgs) ElementType() reflect.Type {
@@ -535,7 +475,6 @@ func (i BackupPlanCopyActionResourceTypeArray) ToBackupPlanCopyActionResourceTyp
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanCopyActionResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html
 type BackupPlanCopyActionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanCopyActionResourceTypeOutput) ElementType() reflect.Type {
@@ -550,12 +489,10 @@ func (o BackupPlanCopyActionResourceTypeOutput) ToBackupPlanCopyActionResourceTy
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-destinationbackupvaultarn
 func (o BackupPlanCopyActionResourceTypeOutput) DestinationBackupVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanCopyActionResourceType) string { return v.DestinationBackupVaultArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-copyactionresourcetype.html#cfn-backup-backupplan-copyactionresourcetype-lifecycle
 func (o BackupPlanCopyActionResourceTypeOutput) Lifecycle() BackupPlanLifecycleResourceTypePtrOutput {
 	return o.ApplyT(func(v BackupPlanCopyActionResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
@@ -580,11 +517,8 @@ func (o BackupPlanCopyActionResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 	}).(BackupPlanCopyActionResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
 type BackupPlanLifecycleResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
-	DeleteAfterDays *float64 `pulumi:"deleteAfterDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
+	DeleteAfterDays            *float64 `pulumi:"deleteAfterDays"`
 	MoveToColdStorageAfterDays *float64 `pulumi:"moveToColdStorageAfterDays"`
 }
 
@@ -599,11 +533,8 @@ type BackupPlanLifecycleResourceTypeInput interface {
 	ToBackupPlanLifecycleResourceTypeOutputWithContext(context.Context) BackupPlanLifecycleResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
 type BackupPlanLifecycleResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
-	DeleteAfterDays pulumi.Float64PtrInput `pulumi:"deleteAfterDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
+	DeleteAfterDays            pulumi.Float64PtrInput `pulumi:"deleteAfterDays"`
 	MoveToColdStorageAfterDays pulumi.Float64PtrInput `pulumi:"moveToColdStorageAfterDays"`
 }
 
@@ -660,7 +591,6 @@ func (i *backupPlanLifecycleResourceTypePtrType) ToBackupPlanLifecycleResourceTy
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html
 type BackupPlanLifecycleResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanLifecycleResourceTypeOutput) ElementType() reflect.Type {
@@ -685,12 +615,10 @@ func (o BackupPlanLifecycleResourceTypeOutput) ToBackupPlanLifecycleResourceType
 	}).(BackupPlanLifecycleResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
 func (o BackupPlanLifecycleResourceTypeOutput) DeleteAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *float64 { return v.DeleteAfterDays }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
 func (o BackupPlanLifecycleResourceTypeOutput) MoveToColdStorageAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v BackupPlanLifecycleResourceType) *float64 { return v.MoveToColdStorageAfterDays }).(pulumi.Float64PtrOutput)
 }
@@ -719,7 +647,6 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) Elem() BackupPlanLifecycleReso
 	}).(BackupPlanLifecycleResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-deleteafterdays
 func (o BackupPlanLifecycleResourceTypePtrOutput) DeleteAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BackupPlanLifecycleResourceType) *float64 {
 		if v == nil {
@@ -729,7 +656,6 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) DeleteAfterDays() pulumi.Float
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-lifecycleresourcetype.html#cfn-backup-backupplan-lifecycleresourcetype-movetocoldstorageafterdays
 func (o BackupPlanLifecycleResourceTypePtrOutput) MoveToColdStorageAfterDays() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BackupPlanLifecycleResourceType) *float64 {
 		if v == nil {
@@ -739,16 +665,11 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) MoveToColdStorageAfterDays() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
 type BackupSelectionBackupSelectionResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
-	IamRoleArn string `pulumi:"iamRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
-	ListOfTags []BackupSelectionConditionResourceType `pulumi:"listOfTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
-	Resources []string `pulumi:"resources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
-	SelectionName string `pulumi:"selectionName"`
+	IamRoleArn    string                                 `pulumi:"iamRoleArn"`
+	ListOfTags    []BackupSelectionConditionResourceType `pulumi:"listOfTags"`
+	Resources     []string                               `pulumi:"resources"`
+	SelectionName string                                 `pulumi:"selectionName"`
 }
 
 // BackupSelectionBackupSelectionResourceTypeInput is an input type that accepts BackupSelectionBackupSelectionResourceTypeArgs and BackupSelectionBackupSelectionResourceTypeOutput values.
@@ -762,16 +683,11 @@ type BackupSelectionBackupSelectionResourceTypeInput interface {
 	ToBackupSelectionBackupSelectionResourceTypeOutputWithContext(context.Context) BackupSelectionBackupSelectionResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
 type BackupSelectionBackupSelectionResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
-	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
-	ListOfTags BackupSelectionConditionResourceTypeArrayInput `pulumi:"listOfTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
-	Resources pulumi.StringArrayInput `pulumi:"resources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
-	SelectionName pulumi.StringInput `pulumi:"selectionName"`
+	IamRoleArn    pulumi.StringInput                             `pulumi:"iamRoleArn"`
+	ListOfTags    BackupSelectionConditionResourceTypeArrayInput `pulumi:"listOfTags"`
+	Resources     pulumi.StringArrayInput                        `pulumi:"resources"`
+	SelectionName pulumi.StringInput                             `pulumi:"selectionName"`
 }
 
 func (BackupSelectionBackupSelectionResourceTypeArgs) ElementType() reflect.Type {
@@ -827,7 +743,6 @@ func (i *backupSelectionBackupSelectionResourceTypePtrType) ToBackupSelectionBac
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionBackupSelectionResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html
 type BackupSelectionBackupSelectionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionBackupSelectionResourceTypeOutput) ElementType() reflect.Type {
@@ -852,24 +767,20 @@ func (o BackupSelectionBackupSelectionResourceTypeOutput) ToBackupSelectionBacku
 	}).(BackupSelectionBackupSelectionResourceTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
 func (o BackupSelectionBackupSelectionResourceTypeOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
 func (o BackupSelectionBackupSelectionResourceTypeOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) []BackupSelectionConditionResourceType {
 		return v.ListOfTags
 	}).(BackupSelectionConditionResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
 func (o BackupSelectionBackupSelectionResourceTypeOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
 func (o BackupSelectionBackupSelectionResourceTypeOutput) SelectionName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionBackupSelectionResourceType) string { return v.SelectionName }).(pulumi.StringOutput)
 }
@@ -898,7 +809,6 @@ func (o BackupSelectionBackupSelectionResourceTypePtrOutput) Elem() BackupSelect
 	}).(BackupSelectionBackupSelectionResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-iamrolearn
 func (o BackupSelectionBackupSelectionResourceTypePtrOutput) IamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) *string {
 		if v == nil {
@@ -908,7 +818,6 @@ func (o BackupSelectionBackupSelectionResourceTypePtrOutput) IamRoleArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-listoftags
 func (o BackupSelectionBackupSelectionResourceTypePtrOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
 	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) []BackupSelectionConditionResourceType {
 		if v == nil {
@@ -918,7 +827,6 @@ func (o BackupSelectionBackupSelectionResourceTypePtrOutput) ListOfTags() Backup
 	}).(BackupSelectionConditionResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-resources
 func (o BackupSelectionBackupSelectionResourceTypePtrOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) []string {
 		if v == nil {
@@ -928,7 +836,6 @@ func (o BackupSelectionBackupSelectionResourceTypePtrOutput) Resources() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html#cfn-backup-backupselection-backupselectionresourcetype-selectionname
 func (o BackupSelectionBackupSelectionResourceTypePtrOutput) SelectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupSelectionBackupSelectionResourceType) *string {
 		if v == nil {
@@ -938,13 +845,9 @@ func (o BackupSelectionBackupSelectionResourceTypePtrOutput) SelectionName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
 type BackupSelectionConditionResourceType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
-	ConditionKey string `pulumi:"conditionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
-	ConditionType string `pulumi:"conditionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
+	ConditionKey   string `pulumi:"conditionKey"`
+	ConditionType  string `pulumi:"conditionType"`
 	ConditionValue string `pulumi:"conditionValue"`
 }
 
@@ -959,13 +862,9 @@ type BackupSelectionConditionResourceTypeInput interface {
 	ToBackupSelectionConditionResourceTypeOutputWithContext(context.Context) BackupSelectionConditionResourceTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
 type BackupSelectionConditionResourceTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
-	ConditionKey pulumi.StringInput `pulumi:"conditionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
-	ConditionType pulumi.StringInput `pulumi:"conditionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
+	ConditionKey   pulumi.StringInput `pulumi:"conditionKey"`
+	ConditionType  pulumi.StringInput `pulumi:"conditionType"`
 	ConditionValue pulumi.StringInput `pulumi:"conditionValue"`
 }
 
@@ -1006,7 +905,6 @@ func (i BackupSelectionConditionResourceTypeArray) ToBackupSelectionConditionRes
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionConditionResourceTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
 type BackupSelectionConditionResourceTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionConditionResourceTypeOutput) ElementType() reflect.Type {
@@ -1021,17 +919,14 @@ func (o BackupSelectionConditionResourceTypeOutput) ToBackupSelectionConditionRe
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
 func (o BackupSelectionConditionResourceTypeOutput) ConditionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionConditionResourceType) string { return v.ConditionKey }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
 func (o BackupSelectionConditionResourceTypeOutput) ConditionType() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionConditionResourceType) string { return v.ConditionType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
 func (o BackupSelectionConditionResourceTypeOutput) ConditionValue() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionConditionResourceType) string { return v.ConditionValue }).(pulumi.StringOutput)
 }
@@ -1056,12 +951,9 @@ func (o BackupSelectionConditionResourceTypeArrayOutput) Index(i pulumi.IntInput
 	}).(BackupSelectionConditionResourceTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
 type BackupVaultNotificationObjectType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
-	SNSTopicArn string `pulumi:"sNSTopicArn"`
+	SNSTopicArn       string   `pulumi:"sNSTopicArn"`
 }
 
 // BackupVaultNotificationObjectTypeInput is an input type that accepts BackupVaultNotificationObjectTypeArgs and BackupVaultNotificationObjectTypeOutput values.
@@ -1075,12 +967,9 @@ type BackupVaultNotificationObjectTypeInput interface {
 	ToBackupVaultNotificationObjectTypeOutputWithContext(context.Context) BackupVaultNotificationObjectTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
 type BackupVaultNotificationObjectTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
 	BackupVaultEvents pulumi.StringArrayInput `pulumi:"backupVaultEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
-	SNSTopicArn pulumi.StringInput `pulumi:"sNSTopicArn"`
+	SNSTopicArn       pulumi.StringInput      `pulumi:"sNSTopicArn"`
 }
 
 func (BackupVaultNotificationObjectTypeArgs) ElementType() reflect.Type {
@@ -1136,7 +1025,6 @@ func (i *backupVaultNotificationObjectTypePtrType) ToBackupVaultNotificationObje
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultNotificationObjectTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
 type BackupVaultNotificationObjectTypeOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultNotificationObjectTypeOutput) ElementType() reflect.Type {
@@ -1161,12 +1049,10 @@ func (o BackupVaultNotificationObjectTypeOutput) ToBackupVaultNotificationObject
 	}).(BackupVaultNotificationObjectTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
 func (o BackupVaultNotificationObjectTypeOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BackupVaultNotificationObjectType) []string { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
 func (o BackupVaultNotificationObjectTypeOutput) SNSTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupVaultNotificationObjectType) string { return v.SNSTopicArn }).(pulumi.StringOutput)
 }
@@ -1195,7 +1081,6 @@ func (o BackupVaultNotificationObjectTypePtrOutput) Elem() BackupVaultNotificati
 	}).(BackupVaultNotificationObjectTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
 func (o BackupVaultNotificationObjectTypePtrOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BackupVaultNotificationObjectType) []string {
 		if v == nil {
@@ -1205,7 +1090,6 @@ func (o BackupVaultNotificationObjectTypePtrOutput) BackupVaultEvents() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
 func (o BackupVaultNotificationObjectTypePtrOutput) SNSTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVaultNotificationObjectType) *string {
 		if v == nil {

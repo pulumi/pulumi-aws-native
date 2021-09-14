@@ -10,14 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
+// The AWS account associated with the assessment.
 type AssessmentAWSAccount struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
 	EmailAddress *string `pulumi:"emailAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-	Id *string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-	Name *string `pulumi:"name"`
+	Id           *string `pulumi:"id"`
+	Name         *string `pulumi:"name"`
 }
 
 // AssessmentAWSAccountInput is an input type that accepts AssessmentAWSAccountArgs and AssessmentAWSAccountOutput values.
@@ -31,14 +28,11 @@ type AssessmentAWSAccountInput interface {
 	ToAssessmentAWSAccountOutputWithContext(context.Context) AssessmentAWSAccountOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
+// The AWS account associated with the assessment.
 type AssessmentAWSAccountArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Id           pulumi.StringPtrInput `pulumi:"id"`
+	Name         pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (AssessmentAWSAccountArgs) ElementType() reflect.Type {
@@ -119,7 +113,7 @@ func (i AssessmentAWSAccountArray) ToAssessmentAWSAccountArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSAccountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html
+// The AWS account associated with the assessment.
 type AssessmentAWSAccountOutput struct{ *pulumi.OutputState }
 
 func (AssessmentAWSAccountOutput) ElementType() reflect.Type {
@@ -144,17 +138,14 @@ func (o AssessmentAWSAccountOutput) ToAssessmentAWSAccountPtrOutputWithContext(c
 	}).(AssessmentAWSAccountPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
 func (o AssessmentAWSAccountOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
 func (o AssessmentAWSAccountOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
 func (o AssessmentAWSAccountOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAWSAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -183,7 +174,6 @@ func (o AssessmentAWSAccountPtrOutput) Elem() AssessmentAWSAccountOutput {
 	}).(AssessmentAWSAccountOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-emailaddress
 func (o AssessmentAWSAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
 		if v == nil {
@@ -193,7 +183,6 @@ func (o AssessmentAWSAccountPtrOutput) EmailAddress() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-id
 func (o AssessmentAWSAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
 		if v == nil {
@@ -203,7 +192,6 @@ func (o AssessmentAWSAccountPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsaccount.html#cfn-auditmanager-assessment-awsaccount-name
 func (o AssessmentAWSAccountPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAWSAccount) *string {
 		if v == nil {
@@ -233,9 +221,8 @@ func (o AssessmentAWSAccountArrayOutput) Index(i pulumi.IntInput) AssessmentAWSA
 	}).(AssessmentAWSAccountOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+// An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAWSService struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
 	ServiceName *string `pulumi:"serviceName"`
 }
 
@@ -250,9 +237,8 @@ type AssessmentAWSServiceInput interface {
 	ToAssessmentAWSServiceOutputWithContext(context.Context) AssessmentAWSServiceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+// An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAWSServiceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 }
 
@@ -293,7 +279,7 @@ func (i AssessmentAWSServiceArray) ToAssessmentAWSServiceArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAWSServiceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+// An AWS service such as Amazon S3, AWS CloudTrail, and so on.
 type AssessmentAWSServiceOutput struct{ *pulumi.OutputState }
 
 func (AssessmentAWSServiceOutput) ElementType() reflect.Type {
@@ -308,7 +294,6 @@ func (o AssessmentAWSServiceOutput) ToAssessmentAWSServiceOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
 func (o AssessmentAWSServiceOutput) ServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAWSService) *string { return v.ServiceName }).(pulumi.StringPtrOutput)
 }
@@ -333,11 +318,9 @@ func (o AssessmentAWSServiceArrayOutput) Index(i pulumi.IntInput) AssessmentAWSS
 	}).(AssessmentAWSServiceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
+// The destination in which evidence reports are stored for the specified assessment.
 type AssessmentAssessmentReportsDestination struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-	Destination *string `pulumi:"destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
+	Destination     *string `pulumi:"destination"`
 	DestinationType *string `pulumi:"destinationType"`
 }
 
@@ -352,11 +335,9 @@ type AssessmentAssessmentReportsDestinationInput interface {
 	ToAssessmentAssessmentReportsDestinationOutputWithContext(context.Context) AssessmentAssessmentReportsDestinationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
+// The destination in which evidence reports are stored for the specified assessment.
 type AssessmentAssessmentReportsDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
-	Destination pulumi.StringPtrInput `pulumi:"destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
+	Destination     pulumi.StringPtrInput `pulumi:"destination"`
 	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
 }
 
@@ -413,7 +394,7 @@ func (i *assessmentAssessmentReportsDestinationPtrType) ToAssessmentAssessmentRe
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html
+// The destination in which evidence reports are stored for the specified assessment.
 type AssessmentAssessmentReportsDestinationOutput struct{ *pulumi.OutputState }
 
 func (AssessmentAssessmentReportsDestinationOutput) ElementType() reflect.Type {
@@ -438,12 +419,10 @@ func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentRepo
 	}).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
 func (o AssessmentAssessmentReportsDestinationOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *string { return v.Destination }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
 func (o AssessmentAssessmentReportsDestinationOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
 }
@@ -472,7 +451,6 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) Elem() AssessmentAssess
 	}).(AssessmentAssessmentReportsDestinationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destination
 func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
 		if v == nil {
@@ -482,7 +460,6 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) Destination() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-assessmentreportsdestination.html#cfn-auditmanager-assessment-assessmentreportsdestination-destinationtype
 func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssessmentAssessmentReportsDestination) *string {
 		if v == nil {
@@ -492,30 +469,19 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) DestinationType() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
+// The assignment of a control set to a delegate for review.
 type AssessmentDelegation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
-	AssessmentId *string `pulumi:"assessmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
-	AssessmentName *string `pulumi:"assessmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
-	Comment *string `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
-	ControlSetId *string `pulumi:"controlSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
-	CreatedBy *string `pulumi:"createdBy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
-	CreationTime *float64 `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
-	Id *string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
-	LastUpdated *float64 `pulumi:"lastUpdated"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
-	RoleArn *string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
-	RoleType *string `pulumi:"roleType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
-	Status *string `pulumi:"status"`
+	AssessmentId   *string  `pulumi:"assessmentId"`
+	AssessmentName *string  `pulumi:"assessmentName"`
+	Comment        *string  `pulumi:"comment"`
+	ControlSetId   *string  `pulumi:"controlSetId"`
+	CreatedBy      *string  `pulumi:"createdBy"`
+	CreationTime   *float64 `pulumi:"creationTime"`
+	Id             *string  `pulumi:"id"`
+	LastUpdated    *float64 `pulumi:"lastUpdated"`
+	RoleArn        *string  `pulumi:"roleArn"`
+	RoleType       *string  `pulumi:"roleType"`
+	Status         *string  `pulumi:"status"`
 }
 
 // AssessmentDelegationInput is an input type that accepts AssessmentDelegationArgs and AssessmentDelegationOutput values.
@@ -529,30 +495,19 @@ type AssessmentDelegationInput interface {
 	ToAssessmentDelegationOutputWithContext(context.Context) AssessmentDelegationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
+// The assignment of a control set to a delegate for review.
 type AssessmentDelegationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
-	AssessmentId pulumi.StringPtrInput `pulumi:"assessmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
-	AssessmentName pulumi.StringPtrInput `pulumi:"assessmentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
-	Comment pulumi.StringPtrInput `pulumi:"comment"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
-	ControlSetId pulumi.StringPtrInput `pulumi:"controlSetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
-	CreatedBy pulumi.StringPtrInput `pulumi:"createdBy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
-	CreationTime pulumi.Float64PtrInput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
-	LastUpdated pulumi.Float64PtrInput `pulumi:"lastUpdated"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
-	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
-	Status pulumi.StringPtrInput `pulumi:"status"`
+	AssessmentId   pulumi.StringPtrInput  `pulumi:"assessmentId"`
+	AssessmentName pulumi.StringPtrInput  `pulumi:"assessmentName"`
+	Comment        pulumi.StringPtrInput  `pulumi:"comment"`
+	ControlSetId   pulumi.StringPtrInput  `pulumi:"controlSetId"`
+	CreatedBy      pulumi.StringPtrInput  `pulumi:"createdBy"`
+	CreationTime   pulumi.Float64PtrInput `pulumi:"creationTime"`
+	Id             pulumi.StringPtrInput  `pulumi:"id"`
+	LastUpdated    pulumi.Float64PtrInput `pulumi:"lastUpdated"`
+	RoleArn        pulumi.StringPtrInput  `pulumi:"roleArn"`
+	RoleType       pulumi.StringPtrInput  `pulumi:"roleType"`
+	Status         pulumi.StringPtrInput  `pulumi:"status"`
 }
 
 func (AssessmentDelegationArgs) ElementType() reflect.Type {
@@ -592,7 +547,7 @@ func (i AssessmentDelegationArray) ToAssessmentDelegationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentDelegationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html
+// The assignment of a control set to a delegate for review.
 type AssessmentDelegationOutput struct{ *pulumi.OutputState }
 
 func (AssessmentDelegationOutput) ElementType() reflect.Type {
@@ -607,57 +562,46 @@ func (o AssessmentDelegationOutput) ToAssessmentDelegationOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentid
 func (o AssessmentDelegationOutput) AssessmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.AssessmentId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-assessmentname
 func (o AssessmentDelegationOutput) AssessmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.AssessmentName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-comment
 func (o AssessmentDelegationOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-controlsetid
 func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.ControlSetId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-createdby
 func (o AssessmentDelegationOutput) CreatedBy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-creationtime
 func (o AssessmentDelegationOutput) CreationTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *float64 { return v.CreationTime }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-id
 func (o AssessmentDelegationOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-lastupdated
 func (o AssessmentDelegationOutput) LastUpdated() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *float64 { return v.LastUpdated }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-rolearn
 func (o AssessmentDelegationOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-roletype
 func (o AssessmentDelegationOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.RoleType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html#cfn-auditmanager-assessment-delegation-status
 func (o AssessmentDelegationOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentDelegation) *string { return v.Status }).(pulumi.StringPtrOutput)
 }
@@ -682,11 +626,9 @@ func (o AssessmentDelegationArrayOutput) Index(i pulumi.IntInput) AssessmentDele
 	}).(AssessmentDelegationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+// The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRole struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-	RoleArn *string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+	RoleArn  *string `pulumi:"roleArn"`
 	RoleType *string `pulumi:"roleType"`
 }
 
@@ -701,11 +643,9 @@ type AssessmentRoleInput interface {
 	ToAssessmentRoleOutputWithContext(context.Context) AssessmentRoleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+// The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRoleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
+	RoleArn  pulumi.StringPtrInput `pulumi:"roleArn"`
 	RoleType pulumi.StringPtrInput `pulumi:"roleType"`
 }
 
@@ -746,7 +686,7 @@ func (i AssessmentRoleArray) ToAssessmentRoleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRoleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+// The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
 type AssessmentRoleOutput struct{ *pulumi.OutputState }
 
 func (AssessmentRoleOutput) ElementType() reflect.Type {
@@ -761,12 +701,10 @@ func (o AssessmentRoleOutput) ToAssessmentRoleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
 func (o AssessmentRoleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentRole) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
 func (o AssessmentRoleOutput) RoleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssessmentRole) *string { return v.RoleType }).(pulumi.StringPtrOutput)
 }
@@ -791,11 +729,11 @@ func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput
 	}).(AssessmentRoleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+// The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScope struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+	// The AWS accounts included in scope.
 	AwsAccounts []AssessmentAWSAccount `pulumi:"awsAccounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+	// The AWS services included in scope.
 	AwsServices []AssessmentAWSService `pulumi:"awsServices"`
 }
 
@@ -810,11 +748,11 @@ type AssessmentScopeInput interface {
 	ToAssessmentScopeOutputWithContext(context.Context) AssessmentScopeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+// The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScopeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+	// The AWS accounts included in scope.
 	AwsAccounts AssessmentAWSAccountArrayInput `pulumi:"awsAccounts"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+	// The AWS services included in scope.
 	AwsServices AssessmentAWSServiceArrayInput `pulumi:"awsServices"`
 }
 
@@ -871,7 +809,7 @@ func (i *assessmentScopePtrType) ToAssessmentScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html
+// The wrapper that contains the AWS accounts and AWS services in scope for the assessment.
 type AssessmentScopeOutput struct{ *pulumi.OutputState }
 
 func (AssessmentScopeOutput) ElementType() reflect.Type {
@@ -896,12 +834,12 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 	}).(AssessmentScopePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+// The AWS accounts included in scope.
 func (o AssessmentScopeOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSAccount { return v.AwsAccounts }).(AssessmentAWSAccountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+// The AWS services included in scope.
 func (o AssessmentScopeOutput) AwsServices() AssessmentAWSServiceArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentAWSService { return v.AwsServices }).(AssessmentAWSServiceArrayOutput)
 }
@@ -930,7 +868,7 @@ func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
 	}).(AssessmentScopeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsaccounts
+// The AWS accounts included in scope.
 func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAWSAccountArrayOutput {
 	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSAccount {
 		if v == nil {
@@ -940,7 +878,7 @@ func (o AssessmentScopePtrOutput) AwsAccounts() AssessmentAWSAccountArrayOutput 
 	}).(AssessmentAWSAccountArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-scope.html#cfn-auditmanager-assessment-scope-awsservices
+// The AWS services included in scope.
 func (o AssessmentScopePtrOutput) AwsServices() AssessmentAWSServiceArrayOutput {
 	return o.ApplyT(func(v *AssessmentScope) []AssessmentAWSService {
 		if v == nil {
@@ -948,6 +886,115 @@ func (o AssessmentScopePtrOutput) AwsServices() AssessmentAWSServiceArrayOutput 
 		}
 		return v.AwsServices
 	}).(AssessmentAWSServiceArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AssessmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AssessmentTagInput is an input type that accepts AssessmentTagArgs and AssessmentTagOutput values.
+// You can construct a concrete instance of `AssessmentTagInput` via:
+//
+//          AssessmentTagArgs{...}
+type AssessmentTagInput interface {
+	pulumi.Input
+
+	ToAssessmentTagOutput() AssessmentTagOutput
+	ToAssessmentTagOutputWithContext(context.Context) AssessmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AssessmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AssessmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTag)(nil)).Elem()
+}
+
+func (i AssessmentTagArgs) ToAssessmentTagOutput() AssessmentTagOutput {
+	return i.ToAssessmentTagOutputWithContext(context.Background())
+}
+
+func (i AssessmentTagArgs) ToAssessmentTagOutputWithContext(ctx context.Context) AssessmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagOutput)
+}
+
+// AssessmentTagArrayInput is an input type that accepts AssessmentTagArray and AssessmentTagArrayOutput values.
+// You can construct a concrete instance of `AssessmentTagArrayInput` via:
+//
+//          AssessmentTagArray{ AssessmentTagArgs{...} }
+type AssessmentTagArrayInput interface {
+	pulumi.Input
+
+	ToAssessmentTagArrayOutput() AssessmentTagArrayOutput
+	ToAssessmentTagArrayOutputWithContext(context.Context) AssessmentTagArrayOutput
+}
+
+type AssessmentTagArray []AssessmentTagInput
+
+func (AssessmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentTag)(nil)).Elem()
+}
+
+func (i AssessmentTagArray) ToAssessmentTagArrayOutput() AssessmentTagArrayOutput {
+	return i.ToAssessmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i AssessmentTagArray) ToAssessmentTagArrayOutputWithContext(ctx context.Context) AssessmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AssessmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AssessmentTagOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentTag)(nil)).Elem()
+}
+
+func (o AssessmentTagOutput) ToAssessmentTagOutput() AssessmentTagOutput {
+	return o
+}
+
+func (o AssessmentTagOutput) ToAssessmentTagOutputWithContext(ctx context.Context) AssessmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AssessmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AssessmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AssessmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AssessmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AssessmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AssessmentTag)(nil)).Elem()
+}
+
+func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutput() AssessmentTagArrayOutput {
+	return o
+}
+
+func (o AssessmentTagArrayOutput) ToAssessmentTagArrayOutputWithContext(ctx context.Context) AssessmentTagArrayOutput {
+	return o
+}
+
+func (o AssessmentTagArrayOutput) Index(i pulumi.IntInput) AssessmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AssessmentTag {
+		return vs[0].([]AssessmentTag)[vs[1].(int)]
+	}).(AssessmentTagOutput)
 }
 
 func init() {
@@ -964,4 +1011,6 @@ func init() {
 	pulumi.RegisterOutputType(AssessmentRoleArrayOutput{})
 	pulumi.RegisterOutputType(AssessmentScopeOutput{})
 	pulumi.RegisterOutputType(AssessmentScopePtrOutput{})
+	pulumi.RegisterOutputType(AssessmentTagOutput{})
+	pulumi.RegisterOutputType(AssessmentTagArrayOutput{})
 }

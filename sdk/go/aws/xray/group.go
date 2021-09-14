@@ -10,19 +10,18 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html
+// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
 type Group struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+	// The filter expression defining criteria by which to group traces.
 	FilterExpression pulumi.StringPtrOutput `pulumi:"filterExpression"`
-	GroupARN         pulumi.StringOutput    `pulumi:"groupARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
+	// The ARN of the group that was generated on creation.
+	GroupARN pulumi.StringOutput `pulumi:"groupARN"`
+	// The case-sensitive name of the new group. Names must be unique.
+	GroupName             pulumi.StringPtrOutput              `pulumi:"groupName"`
 	InsightsConfiguration GroupInsightsConfigurationPtrOutput `pulumi:"insightsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-	Tags pulumi.ArrayOutput `pulumi:"tags"`
+	Tags                  pulumi.ArrayOutput                  `pulumi:"tags"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -64,26 +63,22 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+	// The filter expression defining criteria by which to group traces.
 	FilterExpression *string `pulumi:"filterExpression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-	GroupName *string `pulumi:"groupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
+	// The case-sensitive name of the new group. Names must be unique.
+	GroupName             *string                     `pulumi:"groupName"`
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-	Tags []interface{} `pulumi:"tags"`
+	Tags                  []interface{}               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-filterexpression
+	// The filter expression defining criteria by which to group traces.
 	FilterExpression pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-groupname
-	GroupName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-insightsconfiguration
+	// The case-sensitive name of the new group. Names must be unique.
+	GroupName             pulumi.StringPtrInput
 	InsightsConfiguration GroupInsightsConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-group.html#cfn-xray-group-tags
-	Tags pulumi.ArrayInput
+	Tags                  pulumi.ArrayInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {

@@ -8,34 +8,37 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+// Resource schema for AWS::IoTSiteWise::Portal
 type Portal struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 	Alarms pulumi.AnyOutput `pulumi:"alarms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+	// The email address that sends alarm notifications.
 	NotificationSenderEmail pulumi.StringPtrOutput `pulumi:"notificationSenderEmail"`
-	PortalArn               pulumi.StringOutput    `pulumi:"portalArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+	// The ARN of the portal, which has the following format.
+	PortalArn pulumi.StringOutput `pulumi:"portalArn"`
+	// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
 	PortalAuthMode pulumi.StringPtrOutput `pulumi:"portalAuthMode"`
-	PortalClientId pulumi.StringOutput    `pulumi:"portalClientId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+	// The AWS SSO application generated client ID (used with AWS SSO APIs).
+	PortalClientId pulumi.StringOutput `pulumi:"portalClientId"`
+	// The AWS administrator's contact email address.
 	PortalContactEmail pulumi.StringOutput `pulumi:"portalContactEmail"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+	// A description for the portal.
 	PortalDescription pulumi.StringPtrOutput `pulumi:"portalDescription"`
-	PortalId          pulumi.StringOutput    `pulumi:"portalId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
-	PortalName     pulumi.StringOutput `pulumi:"portalName"`
+	// The ID of the portal.
+	PortalId pulumi.StringOutput `pulumi:"portalId"`
+	// A friendly name for the portal.
+	PortalName pulumi.StringOutput `pulumi:"portalName"`
+	// The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
 	PortalStartUrl pulumi.StringOutput `pulumi:"portalStartUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the portal.
+	Tags PortalTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPortal registers a new resource with the given unique name, arguments, and options.
@@ -86,42 +89,42 @@ func (PortalState) ElementType() reflect.Type {
 }
 
 type portalArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 	Alarms interface{} `pulumi:"alarms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+	// The email address that sends alarm notifications.
 	NotificationSenderEmail *string `pulumi:"notificationSenderEmail"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+	// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
 	PortalAuthMode *string `pulumi:"portalAuthMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+	// The AWS administrator's contact email address.
 	PortalContactEmail string `pulumi:"portalContactEmail"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+	// A description for the portal.
 	PortalDescription *string `pulumi:"portalDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+	// A friendly name for the portal.
 	PortalName string `pulumi:"portalName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the portal.
+	Tags []PortalTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Portal resource.
 type PortalArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+	// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
 	Alarms pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+	// The email address that sends alarm notifications.
 	NotificationSenderEmail pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+	// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
 	PortalAuthMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+	// The AWS administrator's contact email address.
 	PortalContactEmail pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+	// A description for the portal.
 	PortalDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+	// A friendly name for the portal.
 	PortalName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the portal.
+	Tags PortalTagArrayInput
 }
 
 func (PortalArgs) ElementType() reflect.Type {

@@ -11,22 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+// Resource schema for AWS::MediaConnect::Flow
 type Flow struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
-	AvailabilityZone     pulumi.StringPtrOutput `pulumi:"availabilityZone"`
-	FlowArn              pulumi.StringOutput    `pulumi:"flowArn"`
-	FlowAvailabilityZone pulumi.StringOutput    `pulumi:"flowAvailabilityZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
+	AvailabilityZone pulumi.StringPtrOutput `pulumi:"availabilityZone"`
+	// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+	FlowArn pulumi.StringOutput `pulumi:"flowArn"`
+	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
+	FlowAvailabilityZone pulumi.StringOutput `pulumi:"flowAvailabilityZone"`
+	// The name of the flow.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+	// The source of the flow.
 	Source FlowSourceTypeOutput `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+	// The source failover config of the flow.
 	SourceFailoverConfig FlowFailoverConfigPtrOutput `pulumi:"sourceFailoverConfig"`
-	SourceIngestIp       pulumi.StringOutput         `pulumi:"sourceIngestIp"`
-	SourceSourceArn      pulumi.StringOutput         `pulumi:"sourceSourceArn"`
 }
 
 // NewFlow registers a new resource with the given unique name, arguments, and options.
@@ -74,25 +74,25 @@ func (FlowState) ElementType() reflect.Type {
 }
 
 type flowArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+	// The name of the flow.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+	// The source of the flow.
 	Source FlowSourceType `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+	// The source failover config of the flow.
 	SourceFailoverConfig *FlowFailoverConfig `pulumi:"sourceFailoverConfig"`
 }
 
 // The set of arguments for constructing a Flow resource.
 type FlowArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+	// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
 	AvailabilityZone pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+	// The name of the flow.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+	// The source of the flow.
 	Source FlowSourceTypeInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+	// The source failover config of the flow.
 	SourceFailoverConfig FlowFailoverConfigPtrInput
 }
 

@@ -10,21 +10,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html
+// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 type SamplingRule struct {
 	pulumi.CustomResourceState
 
-	RuleARN pulumi.StringOutput `pulumi:"ruleARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-	SamplingRule SamplingRuleSamplingRulePtrOutput `pulumi:"samplingRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
+	RuleARN            pulumi.StringOutput                     `pulumi:"ruleARN"`
+	RuleName           pulumi.StringPtrOutput                  `pulumi:"ruleName"`
+	SamplingRule       SamplingRuleSamplingRulePtrOutput       `pulumi:"samplingRule"`
 	SamplingRuleRecord SamplingRuleSamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
 	SamplingRuleUpdate SamplingRuleSamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-	Tags pulumi.ArrayOutput `pulumi:"tags"`
+	Tags               pulumi.ArrayOutput                      `pulumi:"tags"`
 }
 
 // NewSamplingRule registers a new resource with the given unique name, arguments, and options.
@@ -66,30 +61,20 @@ func (SamplingRuleState) ElementType() reflect.Type {
 }
 
 type samplingRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-	RuleName *string `pulumi:"ruleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-	SamplingRule *SamplingRuleSamplingRule `pulumi:"samplingRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
+	RuleName           *string                         `pulumi:"ruleName"`
+	SamplingRule       *SamplingRuleSamplingRule       `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleSamplingRuleRecord `pulumi:"samplingRuleRecord"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
 	SamplingRuleUpdate *SamplingRuleSamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-	Tags []interface{} `pulumi:"tags"`
+	Tags               []interface{}                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SamplingRule resource.
 type SamplingRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-rulename
-	RuleName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrule
-	SamplingRule SamplingRuleSamplingRulePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingrulerecord
+	RuleName           pulumi.StringPtrInput
+	SamplingRule       SamplingRuleSamplingRulePtrInput
 	SamplingRuleRecord SamplingRuleSamplingRuleRecordPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-samplingruleupdate
 	SamplingRuleUpdate SamplingRuleSamplingRuleUpdatePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-samplingrule.html#cfn-xray-samplingrule-tags
-	Tags pulumi.ArrayInput
+	Tags               pulumi.ArrayInput
 }
 
 func (SamplingRuleArgs) ElementType() reflect.Type {

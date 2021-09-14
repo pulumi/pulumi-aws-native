@@ -8,31 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
+// AWS Ground Station Mission Profile resource type for CloudFormation.
 type MissionProfile struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-	ContactPrePassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPrePassDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-	DataflowEdges MissionProfileDataflowEdgeArrayOutput `pulumi:"dataflowEdges"`
-	Id            pulumi.StringOutput                   `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+	// Pre-pass time needed before the contact.
+	ContactPrePassDurationSeconds pulumi.IntPtrOutput                   `pulumi:"contactPrePassDurationSeconds"`
+	DataflowEdges                 MissionProfileDataflowEdgeArrayOutput `pulumi:"dataflowEdges"`
+	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntOutput `pulumi:"minimumViableContactDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-	Name   pulumi.StringOutput `pulumi:"name"`
-	Region pulumi.StringOutput `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-	TrackingConfigArn pulumi.StringOutput `pulumi:"trackingConfigArn"`
+	// A name used to identify a mission profile.
+	Name              pulumi.StringOutput          `pulumi:"name"`
+	Region            pulumi.StringOutput          `pulumi:"region"`
+	Tags              MissionProfileTagArrayOutput `pulumi:"tags"`
+	TrackingConfigArn pulumi.StringOutput          `pulumi:"trackingConfigArn"`
 }
 
 // NewMissionProfile registers a new resource with the given unique name, arguments, and options.
@@ -86,37 +81,31 @@ func (MissionProfileState) ElementType() reflect.Type {
 }
 
 type missionProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
-	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-	DataflowEdges []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+	// Pre-pass time needed before the contact.
+	ContactPrePassDurationSeconds *int                         `pulumi:"contactPrePassDurationSeconds"`
+	DataflowEdges                 []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
+	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds int `pulumi:"minimumViableContactDurationSeconds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-	TrackingConfigArn string `pulumi:"trackingConfigArn"`
+	// A name used to identify a mission profile.
+	Name              string              `pulumi:"name"`
+	Tags              []MissionProfileTag `pulumi:"tags"`
+	TrackingConfigArn string              `pulumi:"trackingConfigArn"`
 }
 
 // The set of arguments for constructing a MissionProfile resource.
 type MissionProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+	// Post-pass time needed after the contact.
 	ContactPostPassDurationSeconds pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-	DataflowEdges MissionProfileDataflowEdgeArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+	DataflowEdges                 MissionProfileDataflowEdgeArrayInput
+	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
+	// A name used to identify a mission profile.
+	Name              pulumi.StringInput
+	Tags              MissionProfileTagArrayInput
 	TrackingConfigArn pulumi.StringInput
 }
 

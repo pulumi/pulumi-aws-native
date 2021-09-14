@@ -10,23 +10,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html
+// Test and Publish a resource that has been registered in the CloudFormation Registry.
 type PublicTypeVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+	// The Amazon Resource Number (ARN) of the extension.
 	Arn pulumi.StringPtrOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+	// A url to the S3 bucket where logs for the testType run will be available
 	LogDeliveryBucket pulumi.StringPtrOutput `pulumi:"logDeliveryBucket"`
-	PublicTypeArn     pulumi.StringOutput    `pulumi:"publicTypeArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+	// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+	PublicTypeArn pulumi.StringOutput `pulumi:"publicTypeArn"`
+	// The version number of a public third-party extension
 	PublicVersionNumber pulumi.StringPtrOutput `pulumi:"publicVersionNumber"`
-	PublisherId         pulumi.StringOutput    `pulumi:"publisherId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+	// The publisher id assigned by CloudFormation for publishing in this region.
+	PublisherId pulumi.StringOutput `pulumi:"publisherId"`
+	// The kind of extension
 	Type pulumi.StringPtrOutput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
-	TypeName       pulumi.StringPtrOutput `pulumi:"typeName"`
-	TypeVersionArn pulumi.StringOutput    `pulumi:"typeVersionArn"`
+	// The name of the type being registered.
+	//
+	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+	TypeName pulumi.StringPtrOutput `pulumi:"typeName"`
+	// The Amazon Resource Number (ARN) of the extension with the versionId.
+	TypeVersionArn pulumi.StringOutput `pulumi:"typeVersionArn"`
 }
 
 // NewPublicTypeVersion registers a new resource with the given unique name, arguments, and options.
@@ -68,29 +73,33 @@ func (PublicTypeVersionState) ElementType() reflect.Type {
 }
 
 type publicTypeVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+	// The Amazon Resource Number (ARN) of the extension.
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+	// A url to the S3 bucket where logs for the testType run will be available
 	LogDeliveryBucket *string `pulumi:"logDeliveryBucket"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+	// The version number of a public third-party extension
 	PublicVersionNumber *string `pulumi:"publicVersionNumber"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+	// The kind of extension
 	Type *string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+	// The name of the type being registered.
+	//
+	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
 	TypeName *string `pulumi:"typeName"`
 }
 
 // The set of arguments for constructing a PublicTypeVersion resource.
 type PublicTypeVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-arn
+	// The Amazon Resource Number (ARN) of the extension.
 	Arn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-logdeliverybucket
+	// A url to the S3 bucket where logs for the testType run will be available
 	LogDeliveryBucket pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-publicversionnumber
+	// The version number of a public third-party extension
 	PublicVersionNumber pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-type
+	// The kind of extension
 	Type pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-publictypeversion.html#cfn-cloudformation-publictypeversion-typename
+	// The name of the type being registered.
+	//
+	// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
 	TypeName pulumi.StringPtrInput
 }
 

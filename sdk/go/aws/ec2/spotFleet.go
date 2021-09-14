@@ -11,12 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
+// Resource Type definition for AWS::EC2::SpotFleet
 type SpotFleet struct {
 	pulumi.CustomResourceState
 
-	Id pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
 	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigDataOutput `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -62,13 +60,11 @@ func (SpotFleetState) ElementType() reflect.Type {
 }
 
 type spotFleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
 	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
 // The set of arguments for constructing a SpotFleet resource.
 type SpotFleetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata
 	SpotFleetRequestConfigData SpotFleetSpotFleetRequestConfigDataInput
 }
 

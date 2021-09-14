@@ -7,26 +7,21 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html
 type DetectorEntityType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-createdtime
+	// The time when the entity type was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the entity type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this entity type.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // DetectorEntityTypeInput is an input type that accepts DetectorEntityTypeArgs and DetectorEntityTypeOutput values.
@@ -40,22 +35,18 @@ type DetectorEntityTypeInput interface {
 	ToDetectorEntityTypeOutputWithContext(context.Context) DetectorEntityTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html
 type DetectorEntityTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-createdtime
+	// The time when the entity type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the entity type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this entity type.
+	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
 
 func (DetectorEntityTypeArgs) ElementType() reflect.Type {
@@ -95,7 +86,6 @@ func (i DetectorEntityTypeArray) ToDetectorEntityTypeArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEntityTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html
 type DetectorEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (DetectorEntityTypeOutput) ElementType() reflect.Type {
@@ -110,39 +100,36 @@ func (o DetectorEntityTypeOutput) ToDetectorEntityTypeOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-arn
 func (o DetectorEntityTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-createdtime
+// The time when the entity type was created.
 func (o DetectorEntityTypeOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-description
+// The description.
 func (o DetectorEntityTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-inline
 func (o DetectorEntityTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-lastupdatedtime
+// The time when the entity type was last updated.
 func (o DetectorEntityTypeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-name
 func (o DetectorEntityTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEntityType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-entitytype.html#cfn-frauddetector-detector-entitytype-tags
-func (o DetectorEntityTypeOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorEntityType) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this entity type.
+func (o DetectorEntityTypeOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorEntityType) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 type DetectorEntityTypeArrayOutput struct{ *pulumi.OutputState }
@@ -165,28 +152,23 @@ func (o DetectorEntityTypeArrayOutput) Index(i pulumi.IntInput) DetectorEntityTy
 	}).(DetectorEntityTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
 type DetectorEventType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+	// The ARN of the event type.
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-	EntityTypes []DetectorEntityType `pulumi:"entityTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
+	// The description of the event type.
+	Description    *string                 `pulumi:"description"`
+	EntityTypes    []DetectorEntityType    `pulumi:"entityTypes"`
 	EventVariables []DetectorEventVariable `pulumi:"eventVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-	Labels []DetectorLabel `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+	Inline         *bool                   `pulumi:"inline"`
+	Labels         []DetectorLabel         `pulumi:"labels"`
+	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+	// The name for the event type
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// Tags associated with this event type.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // DetectorEventTypeInput is an input type that accepts DetectorEventTypeArgs and DetectorEventTypeOutput values.
@@ -200,28 +182,23 @@ type DetectorEventTypeInput interface {
 	ToDetectorEventTypeOutputWithContext(context.Context) DetectorEventTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
 type DetectorEventTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+	// The ARN of the event type.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-	EntityTypes DetectorEntityTypeArrayInput `pulumi:"entityTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
+	// The description of the event type.
+	Description    pulumi.StringPtrInput           `pulumi:"description"`
+	EntityTypes    DetectorEntityTypeArrayInput    `pulumi:"entityTypes"`
 	EventVariables DetectorEventVariableArrayInput `pulumi:"eventVariables"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-	Labels DetectorLabelArrayInput `pulumi:"labels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+	Inline         pulumi.BoolPtrInput             `pulumi:"inline"`
+	Labels         DetectorLabelArrayInput         `pulumi:"labels"`
+	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+	// The name for the event type
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	// Tags associated with this event type.
+	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
 
 func (DetectorEventTypeArgs) ElementType() reflect.Type {
@@ -277,7 +254,6 @@ func (i *detectorEventTypePtrType) ToDetectorEventTypePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEventTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
 type DetectorEventTypeOutput struct{ *pulumi.OutputState }
 
 func (DetectorEventTypeOutput) ElementType() reflect.Type {
@@ -302,54 +278,50 @@ func (o DetectorEventTypeOutput) ToDetectorEventTypePtrOutputWithContext(ctx con
 	}).(DetectorEventTypePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+// The ARN of the event type.
 func (o DetectorEventTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+// The time when the event type was created.
 func (o DetectorEventTypeOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
+// The description of the event type.
 func (o DetectorEventTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
 func (o DetectorEventTypeOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEntityType { return v.EntityTypes }).(DetectorEntityTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
 func (o DetectorEventTypeOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEventVariable { return v.EventVariables }).(DetectorEventVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
 func (o DetectorEventTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
 func (o DetectorEventTypeOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorLabel { return v.Labels }).(DetectorLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+// The time when the event type was last updated.
 func (o DetectorEventTypeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+// The name for the event type
 func (o DetectorEventTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
-func (o DetectorEventTypeOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorEventType) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event type.
+func (o DetectorEventTypeOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorEventType) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 type DetectorEventTypePtrOutput struct{ *pulumi.OutputState }
@@ -376,7 +348,7 @@ func (o DetectorEventTypePtrOutput) Elem() DetectorEventTypeOutput {
 	}).(DetectorEventTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+// The ARN of the event type.
 func (o DetectorEventTypePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *string {
 		if v == nil {
@@ -386,7 +358,7 @@ func (o DetectorEventTypePtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+// The time when the event type was created.
 func (o DetectorEventTypePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *string {
 		if v == nil {
@@ -396,7 +368,7 @@ func (o DetectorEventTypePtrOutput) CreatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
+// The description of the event type.
 func (o DetectorEventTypePtrOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *string {
 		if v == nil {
@@ -406,7 +378,6 @@ func (o DetectorEventTypePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
 func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEntityType {
 		if v == nil {
@@ -416,7 +387,6 @@ func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput 
 	}).(DetectorEntityTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
 func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEventVariable {
 		if v == nil {
@@ -426,7 +396,6 @@ func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayO
 	}).(DetectorEventVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
 func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *bool {
 		if v == nil {
@@ -436,7 +405,6 @@ func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
 func (o DetectorEventTypePtrOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorLabel {
 		if v == nil {
@@ -446,7 +414,7 @@ func (o DetectorEventTypePtrOutput) Labels() DetectorLabelArrayOutput {
 	}).(DetectorLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+// The time when the event type was last updated.
 func (o DetectorEventTypePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *string {
 		if v == nil {
@@ -456,7 +424,7 @@ func (o DetectorEventTypePtrOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+// The name for the event type
 func (o DetectorEventTypePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DetectorEventType) *string {
 		if v == nil {
@@ -466,40 +434,32 @@ func (o DetectorEventTypePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
-func (o DetectorEventTypePtrOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v *DetectorEventType) []aws.Tag {
+// Tags associated with this event type.
+func (o DetectorEventTypePtrOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v *DetectorEventType) []DetectorTag {
 		if v == nil {
 			return nil
 		}
 		return v.Tags
-	}).(aws.TagArrayOutput)
+	}).(DetectorTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
 type DetectorEventVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
-	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
-	DataSource *string `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
-	DataType *string `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
+	// The time when the event variable was created.
+	CreatedTime  *string `pulumi:"createdTime"`
+	DataSource   *string `pulumi:"dataSource"`
+	DataType     *string `pulumi:"dataType"`
 	DefaultValue *string `pulumi:"defaultValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the event variable was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
-	VariableType *string `pulumi:"variableType"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this event variable.
+	Tags         []DetectorTag `pulumi:"tags"`
+	VariableType *string       `pulumi:"variableType"`
 }
 
 // DetectorEventVariableInput is an input type that accepts DetectorEventVariableArgs and DetectorEventVariableOutput values.
@@ -513,29 +473,21 @@ type DetectorEventVariableInput interface {
 	ToDetectorEventVariableOutputWithContext(context.Context) DetectorEventVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
 type DetectorEventVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
-	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
+	// The time when the event variable was created.
+	CreatedTime  pulumi.StringPtrInput `pulumi:"createdTime"`
+	DataSource   pulumi.StringPtrInput `pulumi:"dataSource"`
+	DataType     pulumi.StringPtrInput `pulumi:"dataType"`
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the event variable was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this event variable.
+	Tags         DetectorTagArrayInput `pulumi:"tags"`
 	VariableType pulumi.StringPtrInput `pulumi:"variableType"`
 }
 
@@ -576,7 +528,6 @@ func (i DetectorEventVariableArray) ToDetectorEventVariableArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorEventVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
 type DetectorEventVariableOutput struct{ *pulumi.OutputState }
 
 func (DetectorEventVariableOutput) ElementType() reflect.Type {
@@ -591,57 +542,50 @@ func (o DetectorEventVariableOutput) ToDetectorEventVariableOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
 func (o DetectorEventVariableOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
+// The time when the event variable was created.
 func (o DetectorEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
 func (o DetectorEventVariableOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
 func (o DetectorEventVariableOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
 func (o DetectorEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
+// The description.
 func (o DetectorEventVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
 func (o DetectorEventVariableOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
+// The time when the event variable was last updated.
 func (o DetectorEventVariableOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
 func (o DetectorEventVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
-func (o DetectorEventVariableOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorEventVariable) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event variable.
+func (o DetectorEventVariableOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorEventVariable) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
 func (o DetectorEventVariableOutput) VariableType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventVariable) *string { return v.VariableType }).(pulumi.StringPtrOutput)
 }
@@ -666,22 +610,18 @@ func (o DetectorEventVariableArrayOutput) Index(i pulumi.IntInput) DetectorEvent
 	}).(DetectorEventVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
 type DetectorLabel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
+	// The time when the label was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the label was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this label.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // DetectorLabelInput is an input type that accepts DetectorLabelArgs and DetectorLabelOutput values.
@@ -695,22 +635,18 @@ type DetectorLabelInput interface {
 	ToDetectorLabelOutputWithContext(context.Context) DetectorLabelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
 type DetectorLabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
+	// The time when the label was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the label was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this label.
+	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
 
 func (DetectorLabelArgs) ElementType() reflect.Type {
@@ -750,7 +686,6 @@ func (i DetectorLabelArray) ToDetectorLabelArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
 type DetectorLabelOutput struct{ *pulumi.OutputState }
 
 func (DetectorLabelOutput) ElementType() reflect.Type {
@@ -765,39 +700,36 @@ func (o DetectorLabelOutput) ToDetectorLabelOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
 func (o DetectorLabelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
+// The time when the label was created.
 func (o DetectorLabelOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
+// The description.
 func (o DetectorLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
 func (o DetectorLabelOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
+// The time when the label was last updated.
 func (o DetectorLabelOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
 func (o DetectorLabelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorLabel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
-func (o DetectorLabelOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorLabel) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this label.
+func (o DetectorLabelOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorLabel) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 type DetectorLabelArrayOutput struct{ *pulumi.OutputState }
@@ -820,9 +752,8 @@ func (o DetectorLabelArrayOutput) Index(i pulumi.IntInput) DetectorLabelOutput {
 	}).(DetectorLabelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+// A model to associate with a detector.
 type DetectorModel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
 	Arn *string `pulumi:"arn"`
 }
 
@@ -837,9 +768,8 @@ type DetectorModelInput interface {
 	ToDetectorModelOutputWithContext(context.Context) DetectorModelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+// A model to associate with a detector.
 type DetectorModelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 }
 
@@ -880,7 +810,7 @@ func (i DetectorModelArray) ToDetectorModelArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorModelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+// A model to associate with a detector.
 type DetectorModelOutput struct{ *pulumi.OutputState }
 
 func (DetectorModelOutput) ElementType() reflect.Type {
@@ -895,7 +825,6 @@ func (o DetectorModelOutput) ToDetectorModelOutputWithContext(ctx context.Contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
 func (o DetectorModelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorModel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -920,22 +849,18 @@ func (o DetectorModelArrayOutput) Index(i pulumi.IntInput) DetectorModelOutput {
 	}).(DetectorModelOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html
 type DetectorOutcome struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-createdtime
+	// The time when the outcome was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the outcome was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this outcome.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // DetectorOutcomeInput is an input type that accepts DetectorOutcomeArgs and DetectorOutcomeOutput values.
@@ -949,22 +874,18 @@ type DetectorOutcomeInput interface {
 	ToDetectorOutcomeOutputWithContext(context.Context) DetectorOutcomeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html
 type DetectorOutcomeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-createdtime
+	// The time when the outcome was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the outcome was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this outcome.
+	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
 
 func (DetectorOutcomeArgs) ElementType() reflect.Type {
@@ -1004,7 +925,6 @@ func (i DetectorOutcomeArray) ToDetectorOutcomeArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorOutcomeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html
 type DetectorOutcomeOutput struct{ *pulumi.OutputState }
 
 func (DetectorOutcomeOutput) ElementType() reflect.Type {
@@ -1019,39 +939,36 @@ func (o DetectorOutcomeOutput) ToDetectorOutcomeOutputWithContext(ctx context.Co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-arn
 func (o DetectorOutcomeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-createdtime
+// The time when the outcome was created.
 func (o DetectorOutcomeOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-description
+// The description.
 func (o DetectorOutcomeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-inline
 func (o DetectorOutcomeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-lastupdatedtime
+// The time when the outcome was last updated.
 func (o DetectorOutcomeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-name
 func (o DetectorOutcomeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorOutcome) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-outcome.html#cfn-frauddetector-detector-outcome-tags
-func (o DetectorOutcomeOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorOutcome) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this outcome.
+func (o DetectorOutcomeOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorOutcome) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 type DetectorOutcomeArrayOutput struct{ *pulumi.OutputState }
@@ -1074,30 +991,22 @@ func (o DetectorOutcomeArrayOutput) Index(i pulumi.IntInput) DetectorOutcomeOutp
 	}).(DetectorOutcomeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html
 type DetectorRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-createdtime
+	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-detectorid
-	DetectorId *string `pulumi:"detectorId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-expression
-	Expression *string `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
-	Language *string `pulumi:"language"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-lastupdatedtime
-	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-outcomes
-	Outcomes []DetectorOutcome `pulumi:"outcomes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleid
-	RuleId *string `pulumi:"ruleId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleversion
-	RuleVersion *string `pulumi:"ruleVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	DetectorId  *string `pulumi:"detectorId"`
+	Expression  *string `pulumi:"expression"`
+	Language    *string `pulumi:"language"`
+	// The time when the event type was last updated.
+	LastUpdatedTime *string           `pulumi:"lastUpdatedTime"`
+	Outcomes        []DetectorOutcome `pulumi:"outcomes"`
+	RuleId          *string           `pulumi:"ruleId"`
+	RuleVersion     *string           `pulumi:"ruleVersion"`
+	// Tags associated with this event type.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // DetectorRuleInput is an input type that accepts DetectorRuleArgs and DetectorRuleOutput values.
@@ -1111,30 +1020,22 @@ type DetectorRuleInput interface {
 	ToDetectorRuleOutputWithContext(context.Context) DetectorRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html
 type DetectorRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-createdtime
+	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-detectorid
-	DetectorId pulumi.StringPtrInput `pulumi:"detectorId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-expression
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
-	Language pulumi.StringPtrInput `pulumi:"language"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-lastupdatedtime
-	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-outcomes
-	Outcomes DetectorOutcomeArrayInput `pulumi:"outcomes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleid
-	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleversion
-	RuleVersion pulumi.StringPtrInput `pulumi:"ruleVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	DetectorId  pulumi.StringPtrInput `pulumi:"detectorId"`
+	Expression  pulumi.StringPtrInput `pulumi:"expression"`
+	Language    pulumi.StringPtrInput `pulumi:"language"`
+	// The time when the event type was last updated.
+	LastUpdatedTime pulumi.StringPtrInput     `pulumi:"lastUpdatedTime"`
+	Outcomes        DetectorOutcomeArrayInput `pulumi:"outcomes"`
+	RuleId          pulumi.StringPtrInput     `pulumi:"ruleId"`
+	RuleVersion     pulumi.StringPtrInput     `pulumi:"ruleVersion"`
+	// Tags associated with this event type.
+	Tags DetectorTagArrayInput `pulumi:"tags"`
 }
 
 func (DetectorRuleArgs) ElementType() reflect.Type {
@@ -1174,7 +1075,6 @@ func (i DetectorRuleArray) ToDetectorRuleArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DetectorRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html
 type DetectorRuleOutput struct{ *pulumi.OutputState }
 
 func (DetectorRuleOutput) ElementType() reflect.Type {
@@ -1189,59 +1089,52 @@ func (o DetectorRuleOutput) ToDetectorRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-arn
 func (o DetectorRuleOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-createdtime
+// The time when the event type was created.
 func (o DetectorRuleOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-description
+// The description.
 func (o DetectorRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-detectorid
 func (o DetectorRuleOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-expression
 func (o DetectorRuleOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-language
 func (o DetectorRuleOutput) Language() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.Language }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-lastupdatedtime
+// The time when the event type was last updated.
 func (o DetectorRuleOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-outcomes
 func (o DetectorRuleOutput) Outcomes() DetectorOutcomeArrayOutput {
 	return o.ApplyT(func(v DetectorRule) []DetectorOutcome { return v.Outcomes }).(DetectorOutcomeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleid
 func (o DetectorRuleOutput) RuleId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.RuleId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-ruleversion
 func (o DetectorRuleOutput) RuleVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.RuleVersion }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-rule.html#cfn-frauddetector-detector-rule-tags
-func (o DetectorRuleOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v DetectorRule) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event type.
+func (o DetectorRuleOutput) Tags() DetectorTagArrayOutput {
+	return o.ApplyT(func(v DetectorRule) []DetectorTag { return v.Tags }).(DetectorTagArrayOutput)
 }
 
 type DetectorRuleArrayOutput struct{ *pulumi.OutputState }
@@ -1264,22 +1157,218 @@ func (o DetectorRuleArrayOutput) Index(i pulumi.IntInput) DetectorRuleOutput {
 	}).(DetectorRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html
+type DetectorTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// DetectorTagInput is an input type that accepts DetectorTagArgs and DetectorTagOutput values.
+// You can construct a concrete instance of `DetectorTagInput` via:
+//
+//          DetectorTagArgs{...}
+type DetectorTagInput interface {
+	pulumi.Input
+
+	ToDetectorTagOutput() DetectorTagOutput
+	ToDetectorTagOutputWithContext(context.Context) DetectorTagOutput
+}
+
+type DetectorTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DetectorTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorTag)(nil)).Elem()
+}
+
+func (i DetectorTagArgs) ToDetectorTagOutput() DetectorTagOutput {
+	return i.ToDetectorTagOutputWithContext(context.Background())
+}
+
+func (i DetectorTagArgs) ToDetectorTagOutputWithContext(ctx context.Context) DetectorTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagOutput)
+}
+
+// DetectorTagArrayInput is an input type that accepts DetectorTagArray and DetectorTagArrayOutput values.
+// You can construct a concrete instance of `DetectorTagArrayInput` via:
+//
+//          DetectorTagArray{ DetectorTagArgs{...} }
+type DetectorTagArrayInput interface {
+	pulumi.Input
+
+	ToDetectorTagArrayOutput() DetectorTagArrayOutput
+	ToDetectorTagArrayOutputWithContext(context.Context) DetectorTagArrayOutput
+}
+
+type DetectorTagArray []DetectorTagInput
+
+func (DetectorTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorTag)(nil)).Elem()
+}
+
+func (i DetectorTagArray) ToDetectorTagArrayOutput() DetectorTagArrayOutput {
+	return i.ToDetectorTagArrayOutputWithContext(context.Background())
+}
+
+func (i DetectorTagArray) ToDetectorTagArrayOutputWithContext(ctx context.Context) DetectorTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorTagArrayOutput)
+}
+
+type DetectorTagOutput struct{ *pulumi.OutputState }
+
+func (DetectorTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorTag)(nil)).Elem()
+}
+
+func (o DetectorTagOutput) ToDetectorTagOutput() DetectorTagOutput {
+	return o
+}
+
+func (o DetectorTagOutput) ToDetectorTagOutputWithContext(ctx context.Context) DetectorTagOutput {
+	return o
+}
+
+func (o DetectorTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o DetectorTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DetectorTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DetectorTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DetectorTag)(nil)).Elem()
+}
+
+func (o DetectorTagArrayOutput) ToDetectorTagArrayOutput() DetectorTagArrayOutput {
+	return o
+}
+
+func (o DetectorTagArrayOutput) ToDetectorTagArrayOutputWithContext(ctx context.Context) DetectorTagArrayOutput {
+	return o
+}
+
+func (o DetectorTagArrayOutput) Index(i pulumi.IntInput) DetectorTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DetectorTag {
+		return vs[0].([]DetectorTag)[vs[1].(int)]
+	}).(DetectorTagOutput)
+}
+
+type EntityTypeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// EntityTypeTagInput is an input type that accepts EntityTypeTagArgs and EntityTypeTagOutput values.
+// You can construct a concrete instance of `EntityTypeTagInput` via:
+//
+//          EntityTypeTagArgs{...}
+type EntityTypeTagInput interface {
+	pulumi.Input
+
+	ToEntityTypeTagOutput() EntityTypeTagOutput
+	ToEntityTypeTagOutputWithContext(context.Context) EntityTypeTagOutput
+}
+
+type EntityTypeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EntityTypeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTypeTag)(nil)).Elem()
+}
+
+func (i EntityTypeTagArgs) ToEntityTypeTagOutput() EntityTypeTagOutput {
+	return i.ToEntityTypeTagOutputWithContext(context.Background())
+}
+
+func (i EntityTypeTagArgs) ToEntityTypeTagOutputWithContext(ctx context.Context) EntityTypeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTypeTagOutput)
+}
+
+// EntityTypeTagArrayInput is an input type that accepts EntityTypeTagArray and EntityTypeTagArrayOutput values.
+// You can construct a concrete instance of `EntityTypeTagArrayInput` via:
+//
+//          EntityTypeTagArray{ EntityTypeTagArgs{...} }
+type EntityTypeTagArrayInput interface {
+	pulumi.Input
+
+	ToEntityTypeTagArrayOutput() EntityTypeTagArrayOutput
+	ToEntityTypeTagArrayOutputWithContext(context.Context) EntityTypeTagArrayOutput
+}
+
+type EntityTypeTagArray []EntityTypeTagInput
+
+func (EntityTypeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityTypeTag)(nil)).Elem()
+}
+
+func (i EntityTypeTagArray) ToEntityTypeTagArrayOutput() EntityTypeTagArrayOutput {
+	return i.ToEntityTypeTagArrayOutputWithContext(context.Background())
+}
+
+func (i EntityTypeTagArray) ToEntityTypeTagArrayOutputWithContext(ctx context.Context) EntityTypeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EntityTypeTagArrayOutput)
+}
+
+type EntityTypeTagOutput struct{ *pulumi.OutputState }
+
+func (EntityTypeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EntityTypeTag)(nil)).Elem()
+}
+
+func (o EntityTypeTagOutput) ToEntityTypeTagOutput() EntityTypeTagOutput {
+	return o
+}
+
+func (o EntityTypeTagOutput) ToEntityTypeTagOutputWithContext(ctx context.Context) EntityTypeTagOutput {
+	return o
+}
+
+func (o EntityTypeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityTypeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o EntityTypeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EntityTypeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EntityTypeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EntityTypeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EntityTypeTag)(nil)).Elem()
+}
+
+func (o EntityTypeTagArrayOutput) ToEntityTypeTagArrayOutput() EntityTypeTagArrayOutput {
+	return o
+}
+
+func (o EntityTypeTagArrayOutput) ToEntityTypeTagArrayOutputWithContext(ctx context.Context) EntityTypeTagArrayOutput {
+	return o
+}
+
+func (o EntityTypeTagArrayOutput) Index(i pulumi.IntInput) EntityTypeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EntityTypeTag {
+		return vs[0].([]EntityTypeTag)[vs[1].(int)]
+	}).(EntityTypeTagOutput)
+}
+
 type EventTypeEntityType struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-createdtime
+	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags []EventTypeTag `pulumi:"tags"`
 }
 
 // EventTypeEntityTypeInput is an input type that accepts EventTypeEntityTypeArgs and EventTypeEntityTypeOutput values.
@@ -1293,22 +1382,18 @@ type EventTypeEntityTypeInput interface {
 	ToEventTypeEntityTypeOutputWithContext(context.Context) EventTypeEntityTypeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html
 type EventTypeEntityTypeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-createdtime
+	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags EventTypeTagArrayInput `pulumi:"tags"`
 }
 
 func (EventTypeEntityTypeArgs) ElementType() reflect.Type {
@@ -1348,7 +1433,6 @@ func (i EventTypeEntityTypeArray) ToEventTypeEntityTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEntityTypeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html
 type EventTypeEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (EventTypeEntityTypeOutput) ElementType() reflect.Type {
@@ -1363,39 +1447,36 @@ func (o EventTypeEntityTypeOutput) ToEventTypeEntityTypeOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-arn
 func (o EventTypeEntityTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-createdtime
+// The time when the event type was created.
 func (o EventTypeEntityTypeOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-description
+// The description.
 func (o EventTypeEntityTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-inline
 func (o EventTypeEntityTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-lastupdatedtime
+// The time when the event type was last updated.
 func (o EventTypeEntityTypeOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-name
 func (o EventTypeEntityTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEntityType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-entitytype.html#cfn-frauddetector-eventtype-entitytype-tags
-func (o EventTypeEntityTypeOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v EventTypeEntityType) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event type.
+func (o EventTypeEntityTypeOutput) Tags() EventTypeTagArrayOutput {
+	return o.ApplyT(func(v EventTypeEntityType) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
 }
 
 type EventTypeEntityTypeArrayOutput struct{ *pulumi.OutputState }
@@ -1418,30 +1499,22 @@ func (o EventTypeEntityTypeArrayOutput) Index(i pulumi.IntInput) EventTypeEntity
 	}).(EventTypeEntityTypeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html
 type EventTypeEventVariable struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-createdtime
-	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datasource
-	DataSource *string `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datatype
-	DataType *string `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-defaultvalue
+	// The time when the event type was created.
+	CreatedTime  *string `pulumi:"createdTime"`
+	DataSource   *string `pulumi:"dataSource"`
+	DataType     *string `pulumi:"dataType"`
 	DefaultValue *string `pulumi:"defaultValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-variabletype
-	VariableType *string `pulumi:"variableType"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags         []EventTypeTag `pulumi:"tags"`
+	VariableType *string        `pulumi:"variableType"`
 }
 
 // EventTypeEventVariableInput is an input type that accepts EventTypeEventVariableArgs and EventTypeEventVariableOutput values.
@@ -1455,30 +1528,22 @@ type EventTypeEventVariableInput interface {
 	ToEventTypeEventVariableOutputWithContext(context.Context) EventTypeEventVariableOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html
 type EventTypeEventVariableArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-createdtime
-	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datasource
-	DataSource pulumi.StringPtrInput `pulumi:"dataSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datatype
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-defaultvalue
+	// The time when the event type was created.
+	CreatedTime  pulumi.StringPtrInput `pulumi:"createdTime"`
+	DataSource   pulumi.StringPtrInput `pulumi:"dataSource"`
+	DataType     pulumi.StringPtrInput `pulumi:"dataType"`
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-variabletype
-	VariableType pulumi.StringPtrInput `pulumi:"variableType"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags         EventTypeTagArrayInput `pulumi:"tags"`
+	VariableType pulumi.StringPtrInput  `pulumi:"variableType"`
 }
 
 func (EventTypeEventVariableArgs) ElementType() reflect.Type {
@@ -1518,7 +1583,6 @@ func (i EventTypeEventVariableArray) ToEventTypeEventVariableArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeEventVariableArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html
 type EventTypeEventVariableOutput struct{ *pulumi.OutputState }
 
 func (EventTypeEventVariableOutput) ElementType() reflect.Type {
@@ -1533,57 +1597,50 @@ func (o EventTypeEventVariableOutput) ToEventTypeEventVariableOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-arn
 func (o EventTypeEventVariableOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-createdtime
+// The time when the event type was created.
 func (o EventTypeEventVariableOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datasource
 func (o EventTypeEventVariableOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DataSource }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-datatype
 func (o EventTypeEventVariableOutput) DataType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DataType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-defaultvalue
 func (o EventTypeEventVariableOutput) DefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-description
+// The description.
 func (o EventTypeEventVariableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-inline
 func (o EventTypeEventVariableOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-lastupdatedtime
+// The time when the event type was last updated.
 func (o EventTypeEventVariableOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-name
 func (o EventTypeEventVariableOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-tags
-func (o EventTypeEventVariableOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v EventTypeEventVariable) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event type.
+func (o EventTypeEventVariableOutput) Tags() EventTypeTagArrayOutput {
+	return o.ApplyT(func(v EventTypeEventVariable) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-eventvariable.html#cfn-frauddetector-eventtype-eventvariable-variabletype
 func (o EventTypeEventVariableOutput) VariableType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeEventVariable) *string { return v.VariableType }).(pulumi.StringPtrOutput)
 }
@@ -1608,22 +1665,18 @@ func (o EventTypeEventVariableArrayOutput) Index(i pulumi.IntInput) EventTypeEve
 	}).(EventTypeEventVariableOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html
 type EventTypeLabel struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-arn
 	Arn *string `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-createdtime
+	// The time when the event type was created.
 	CreatedTime *string `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-description
+	// The description.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-inline
-	Inline *bool `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-lastupdatedtime
+	Inline      *bool   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Name            *string `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags []EventTypeTag `pulumi:"tags"`
 }
 
 // EventTypeLabelInput is an input type that accepts EventTypeLabelArgs and EventTypeLabelOutput values.
@@ -1637,22 +1690,18 @@ type EventTypeLabelInput interface {
 	ToEventTypeLabelOutputWithContext(context.Context) EventTypeLabelOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html
 type EventTypeLabelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-arn
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-createdtime
+	// The time when the event type was created.
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-description
+	// The description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-inline
-	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-lastupdatedtime
+	Inline      pulumi.BoolPtrInput   `pulumi:"inline"`
+	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-tags
-	Tags aws.TagArrayInput `pulumi:"tags"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	// Tags associated with this event type.
+	Tags EventTypeTagArrayInput `pulumi:"tags"`
 }
 
 func (EventTypeLabelArgs) ElementType() reflect.Type {
@@ -1692,7 +1741,6 @@ func (i EventTypeLabelArray) ToEventTypeLabelArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EventTypeLabelArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html
 type EventTypeLabelOutput struct{ *pulumi.OutputState }
 
 func (EventTypeLabelOutput) ElementType() reflect.Type {
@@ -1707,39 +1755,36 @@ func (o EventTypeLabelOutput) ToEventTypeLabelOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-arn
 func (o EventTypeLabelOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-createdtime
+// The time when the event type was created.
 func (o EventTypeLabelOutput) CreatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.CreatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-description
+// The description.
 func (o EventTypeLabelOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-inline
 func (o EventTypeLabelOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-lastupdatedtime
+// The time when the event type was last updated.
 func (o EventTypeLabelOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-name
 func (o EventTypeLabelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTypeLabel) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-eventtype-label.html#cfn-frauddetector-eventtype-label-tags
-func (o EventTypeLabelOutput) Tags() aws.TagArrayOutput {
-	return o.ApplyT(func(v EventTypeLabel) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+// Tags associated with this event type.
+func (o EventTypeLabelOutput) Tags() EventTypeTagArrayOutput {
+	return o.ApplyT(func(v EventTypeLabel) []EventTypeTag { return v.Tags }).(EventTypeTagArrayOutput)
 }
 
 type EventTypeLabelArrayOutput struct{ *pulumi.OutputState }
@@ -1762,6 +1807,406 @@ func (o EventTypeLabelArrayOutput) Index(i pulumi.IntInput) EventTypeLabelOutput
 	}).(EventTypeLabelOutput)
 }
 
+type EventTypeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// EventTypeTagInput is an input type that accepts EventTypeTagArgs and EventTypeTagOutput values.
+// You can construct a concrete instance of `EventTypeTagInput` via:
+//
+//          EventTypeTagArgs{...}
+type EventTypeTagInput interface {
+	pulumi.Input
+
+	ToEventTypeTagOutput() EventTypeTagOutput
+	ToEventTypeTagOutputWithContext(context.Context) EventTypeTagOutput
+}
+
+type EventTypeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (EventTypeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTypeTag)(nil)).Elem()
+}
+
+func (i EventTypeTagArgs) ToEventTypeTagOutput() EventTypeTagOutput {
+	return i.ToEventTypeTagOutputWithContext(context.Background())
+}
+
+func (i EventTypeTagArgs) ToEventTypeTagOutputWithContext(ctx context.Context) EventTypeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTypeTagOutput)
+}
+
+// EventTypeTagArrayInput is an input type that accepts EventTypeTagArray and EventTypeTagArrayOutput values.
+// You can construct a concrete instance of `EventTypeTagArrayInput` via:
+//
+//          EventTypeTagArray{ EventTypeTagArgs{...} }
+type EventTypeTagArrayInput interface {
+	pulumi.Input
+
+	ToEventTypeTagArrayOutput() EventTypeTagArrayOutput
+	ToEventTypeTagArrayOutputWithContext(context.Context) EventTypeTagArrayOutput
+}
+
+type EventTypeTagArray []EventTypeTagInput
+
+func (EventTypeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTypeTag)(nil)).Elem()
+}
+
+func (i EventTypeTagArray) ToEventTypeTagArrayOutput() EventTypeTagArrayOutput {
+	return i.ToEventTypeTagArrayOutputWithContext(context.Background())
+}
+
+func (i EventTypeTagArray) ToEventTypeTagArrayOutputWithContext(ctx context.Context) EventTypeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTypeTagArrayOutput)
+}
+
+type EventTypeTagOutput struct{ *pulumi.OutputState }
+
+func (EventTypeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTypeTag)(nil)).Elem()
+}
+
+func (o EventTypeTagOutput) ToEventTypeTagOutput() EventTypeTagOutput {
+	return o
+}
+
+func (o EventTypeTagOutput) ToEventTypeTagOutputWithContext(ctx context.Context) EventTypeTagOutput {
+	return o
+}
+
+func (o EventTypeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTypeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o EventTypeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v EventTypeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type EventTypeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTypeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTypeTag)(nil)).Elem()
+}
+
+func (o EventTypeTagArrayOutput) ToEventTypeTagArrayOutput() EventTypeTagArrayOutput {
+	return o
+}
+
+func (o EventTypeTagArrayOutput) ToEventTypeTagArrayOutputWithContext(ctx context.Context) EventTypeTagArrayOutput {
+	return o
+}
+
+func (o EventTypeTagArrayOutput) Index(i pulumi.IntInput) EventTypeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTypeTag {
+		return vs[0].([]EventTypeTag)[vs[1].(int)]
+	}).(EventTypeTagOutput)
+}
+
+type LabelTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// LabelTagInput is an input type that accepts LabelTagArgs and LabelTagOutput values.
+// You can construct a concrete instance of `LabelTagInput` via:
+//
+//          LabelTagArgs{...}
+type LabelTagInput interface {
+	pulumi.Input
+
+	ToLabelTagOutput() LabelTagOutput
+	ToLabelTagOutputWithContext(context.Context) LabelTagOutput
+}
+
+type LabelTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (LabelTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelTag)(nil)).Elem()
+}
+
+func (i LabelTagArgs) ToLabelTagOutput() LabelTagOutput {
+	return i.ToLabelTagOutputWithContext(context.Background())
+}
+
+func (i LabelTagArgs) ToLabelTagOutputWithContext(ctx context.Context) LabelTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelTagOutput)
+}
+
+// LabelTagArrayInput is an input type that accepts LabelTagArray and LabelTagArrayOutput values.
+// You can construct a concrete instance of `LabelTagArrayInput` via:
+//
+//          LabelTagArray{ LabelTagArgs{...} }
+type LabelTagArrayInput interface {
+	pulumi.Input
+
+	ToLabelTagArrayOutput() LabelTagArrayOutput
+	ToLabelTagArrayOutputWithContext(context.Context) LabelTagArrayOutput
+}
+
+type LabelTagArray []LabelTagInput
+
+func (LabelTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelTag)(nil)).Elem()
+}
+
+func (i LabelTagArray) ToLabelTagArrayOutput() LabelTagArrayOutput {
+	return i.ToLabelTagArrayOutputWithContext(context.Background())
+}
+
+func (i LabelTagArray) ToLabelTagArrayOutputWithContext(ctx context.Context) LabelTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelTagArrayOutput)
+}
+
+type LabelTagOutput struct{ *pulumi.OutputState }
+
+func (LabelTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelTag)(nil)).Elem()
+}
+
+func (o LabelTagOutput) ToLabelTagOutput() LabelTagOutput {
+	return o
+}
+
+func (o LabelTagOutput) ToLabelTagOutputWithContext(ctx context.Context) LabelTagOutput {
+	return o
+}
+
+func (o LabelTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o LabelTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type LabelTagArrayOutput struct{ *pulumi.OutputState }
+
+func (LabelTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelTag)(nil)).Elem()
+}
+
+func (o LabelTagArrayOutput) ToLabelTagArrayOutput() LabelTagArrayOutput {
+	return o
+}
+
+func (o LabelTagArrayOutput) ToLabelTagArrayOutputWithContext(ctx context.Context) LabelTagArrayOutput {
+	return o
+}
+
+func (o LabelTagArrayOutput) Index(i pulumi.IntInput) LabelTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabelTag {
+		return vs[0].([]LabelTag)[vs[1].(int)]
+	}).(LabelTagOutput)
+}
+
+type OutcomeTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// OutcomeTagInput is an input type that accepts OutcomeTagArgs and OutcomeTagOutput values.
+// You can construct a concrete instance of `OutcomeTagInput` via:
+//
+//          OutcomeTagArgs{...}
+type OutcomeTagInput interface {
+	pulumi.Input
+
+	ToOutcomeTagOutput() OutcomeTagOutput
+	ToOutcomeTagOutputWithContext(context.Context) OutcomeTagOutput
+}
+
+type OutcomeTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (OutcomeTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutcomeTag)(nil)).Elem()
+}
+
+func (i OutcomeTagArgs) ToOutcomeTagOutput() OutcomeTagOutput {
+	return i.ToOutcomeTagOutputWithContext(context.Background())
+}
+
+func (i OutcomeTagArgs) ToOutcomeTagOutputWithContext(ctx context.Context) OutcomeTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutcomeTagOutput)
+}
+
+// OutcomeTagArrayInput is an input type that accepts OutcomeTagArray and OutcomeTagArrayOutput values.
+// You can construct a concrete instance of `OutcomeTagArrayInput` via:
+//
+//          OutcomeTagArray{ OutcomeTagArgs{...} }
+type OutcomeTagArrayInput interface {
+	pulumi.Input
+
+	ToOutcomeTagArrayOutput() OutcomeTagArrayOutput
+	ToOutcomeTagArrayOutputWithContext(context.Context) OutcomeTagArrayOutput
+}
+
+type OutcomeTagArray []OutcomeTagInput
+
+func (OutcomeTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutcomeTag)(nil)).Elem()
+}
+
+func (i OutcomeTagArray) ToOutcomeTagArrayOutput() OutcomeTagArrayOutput {
+	return i.ToOutcomeTagArrayOutputWithContext(context.Background())
+}
+
+func (i OutcomeTagArray) ToOutcomeTagArrayOutputWithContext(ctx context.Context) OutcomeTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OutcomeTagArrayOutput)
+}
+
+type OutcomeTagOutput struct{ *pulumi.OutputState }
+
+func (OutcomeTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutcomeTag)(nil)).Elem()
+}
+
+func (o OutcomeTagOutput) ToOutcomeTagOutput() OutcomeTagOutput {
+	return o
+}
+
+func (o OutcomeTagOutput) ToOutcomeTagOutputWithContext(ctx context.Context) OutcomeTagOutput {
+	return o
+}
+
+func (o OutcomeTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v OutcomeTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o OutcomeTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v OutcomeTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type OutcomeTagArrayOutput struct{ *pulumi.OutputState }
+
+func (OutcomeTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OutcomeTag)(nil)).Elem()
+}
+
+func (o OutcomeTagArrayOutput) ToOutcomeTagArrayOutput() OutcomeTagArrayOutput {
+	return o
+}
+
+func (o OutcomeTagArrayOutput) ToOutcomeTagArrayOutputWithContext(ctx context.Context) OutcomeTagArrayOutput {
+	return o
+}
+
+func (o OutcomeTagArrayOutput) Index(i pulumi.IntInput) OutcomeTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OutcomeTag {
+		return vs[0].([]OutcomeTag)[vs[1].(int)]
+	}).(OutcomeTagOutput)
+}
+
+type VariableTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// VariableTagInput is an input type that accepts VariableTagArgs and VariableTagOutput values.
+// You can construct a concrete instance of `VariableTagInput` via:
+//
+//          VariableTagArgs{...}
+type VariableTagInput interface {
+	pulumi.Input
+
+	ToVariableTagOutput() VariableTagOutput
+	ToVariableTagOutputWithContext(context.Context) VariableTagOutput
+}
+
+type VariableTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (VariableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableTag)(nil)).Elem()
+}
+
+func (i VariableTagArgs) ToVariableTagOutput() VariableTagOutput {
+	return i.ToVariableTagOutputWithContext(context.Background())
+}
+
+func (i VariableTagArgs) ToVariableTagOutputWithContext(ctx context.Context) VariableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableTagOutput)
+}
+
+// VariableTagArrayInput is an input type that accepts VariableTagArray and VariableTagArrayOutput values.
+// You can construct a concrete instance of `VariableTagArrayInput` via:
+//
+//          VariableTagArray{ VariableTagArgs{...} }
+type VariableTagArrayInput interface {
+	pulumi.Input
+
+	ToVariableTagArrayOutput() VariableTagArrayOutput
+	ToVariableTagArrayOutputWithContext(context.Context) VariableTagArrayOutput
+}
+
+type VariableTagArray []VariableTagInput
+
+func (VariableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VariableTag)(nil)).Elem()
+}
+
+func (i VariableTagArray) ToVariableTagArrayOutput() VariableTagArrayOutput {
+	return i.ToVariableTagArrayOutputWithContext(context.Background())
+}
+
+func (i VariableTagArray) ToVariableTagArrayOutputWithContext(ctx context.Context) VariableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableTagArrayOutput)
+}
+
+type VariableTagOutput struct{ *pulumi.OutputState }
+
+func (VariableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableTag)(nil)).Elem()
+}
+
+func (o VariableTagOutput) ToVariableTagOutput() VariableTagOutput {
+	return o
+}
+
+func (o VariableTagOutput) ToVariableTagOutputWithContext(ctx context.Context) VariableTagOutput {
+	return o
+}
+
+func (o VariableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v VariableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o VariableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v VariableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type VariableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (VariableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VariableTag)(nil)).Elem()
+}
+
+func (o VariableTagArrayOutput) ToVariableTagArrayOutput() VariableTagArrayOutput {
+	return o
+}
+
+func (o VariableTagArrayOutput) ToVariableTagArrayOutputWithContext(ctx context.Context) VariableTagArrayOutput {
+	return o
+}
+
+func (o VariableTagArrayOutput) Index(i pulumi.IntInput) VariableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VariableTag {
+		return vs[0].([]VariableTag)[vs[1].(int)]
+	}).(VariableTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DetectorEntityTypeOutput{})
 	pulumi.RegisterOutputType(DetectorEntityTypeArrayOutput{})
@@ -1777,10 +2222,22 @@ func init() {
 	pulumi.RegisterOutputType(DetectorOutcomeArrayOutput{})
 	pulumi.RegisterOutputType(DetectorRuleOutput{})
 	pulumi.RegisterOutputType(DetectorRuleArrayOutput{})
+	pulumi.RegisterOutputType(DetectorTagOutput{})
+	pulumi.RegisterOutputType(DetectorTagArrayOutput{})
+	pulumi.RegisterOutputType(EntityTypeTagOutput{})
+	pulumi.RegisterOutputType(EntityTypeTagArrayOutput{})
 	pulumi.RegisterOutputType(EventTypeEntityTypeOutput{})
 	pulumi.RegisterOutputType(EventTypeEntityTypeArrayOutput{})
 	pulumi.RegisterOutputType(EventTypeEventVariableOutput{})
 	pulumi.RegisterOutputType(EventTypeEventVariableArrayOutput{})
 	pulumi.RegisterOutputType(EventTypeLabelOutput{})
 	pulumi.RegisterOutputType(EventTypeLabelArrayOutput{})
+	pulumi.RegisterOutputType(EventTypeTagOutput{})
+	pulumi.RegisterOutputType(EventTypeTagArrayOutput{})
+	pulumi.RegisterOutputType(LabelTagOutput{})
+	pulumi.RegisterOutputType(LabelTagArrayOutput{})
+	pulumi.RegisterOutputType(OutcomeTagOutput{})
+	pulumi.RegisterOutputType(OutcomeTagArrayOutput{})
+	pulumi.RegisterOutputType(VariableTagOutput{})
+	pulumi.RegisterOutputType(VariableTagArrayOutput{})
 }

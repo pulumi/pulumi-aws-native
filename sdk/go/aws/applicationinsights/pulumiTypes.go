@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
+// A CloudWatch alarm to be monitored for the component.
 type ApplicationAlarm struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
+	// The name of the CloudWatch alarm to be monitored for the component.
 	AlarmName string `pulumi:"alarmName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+	// Indicates the degree of outage when the alarm goes off.
 	Severity *string `pulumi:"severity"`
 }
 
@@ -29,11 +29,11 @@ type ApplicationAlarmInput interface {
 	ToApplicationAlarmOutputWithContext(context.Context) ApplicationAlarmOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
+// A CloudWatch alarm to be monitored for the component.
 type ApplicationAlarmArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
+	// The name of the CloudWatch alarm to be monitored for the component.
 	AlarmName pulumi.StringInput `pulumi:"alarmName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+	// Indicates the degree of outage when the alarm goes off.
 	Severity pulumi.StringPtrInput `pulumi:"severity"`
 }
 
@@ -74,7 +74,7 @@ func (i ApplicationAlarmArray) ToApplicationAlarmArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
+// A CloudWatch alarm to be monitored for the component.
 type ApplicationAlarmOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAlarmOutput) ElementType() reflect.Type {
@@ -89,12 +89,12 @@ func (o ApplicationAlarmOutput) ToApplicationAlarmOutputWithContext(ctx context.
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
+// The name of the CloudWatch alarm to be monitored for the component.
 func (o ApplicationAlarmOutput) AlarmName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+// Indicates the degree of outage when the alarm goes off.
 func (o ApplicationAlarmOutput) Severity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationAlarm) *string { return v.Severity }).(pulumi.StringPtrOutput)
 }
@@ -119,9 +119,9 @@ func (o ApplicationAlarmArrayOutput) Index(i pulumi.IntInput) ApplicationAlarmOu
 	}).(ApplicationAlarmOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+// A metric to be monitored for the component.
 type ApplicationAlarmMetric struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+	// The name of the metric to be monitored for the component.
 	AlarmMetricName string `pulumi:"alarmMetricName"`
 }
 
@@ -136,9 +136,9 @@ type ApplicationAlarmMetricInput interface {
 	ToApplicationAlarmMetricOutputWithContext(context.Context) ApplicationAlarmMetricOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+// A metric to be monitored for the component.
 type ApplicationAlarmMetricArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+	// The name of the metric to be monitored for the component.
 	AlarmMetricName pulumi.StringInput `pulumi:"alarmMetricName"`
 }
 
@@ -179,7 +179,7 @@ func (i ApplicationAlarmMetricArray) ToApplicationAlarmMetricArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAlarmMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html
+// A metric to be monitored for the component.
 type ApplicationAlarmMetricOutput struct{ *pulumi.OutputState }
 
 func (ApplicationAlarmMetricOutput) ElementType() reflect.Type {
@@ -194,7 +194,7 @@ func (o ApplicationAlarmMetricOutput) ToApplicationAlarmMetricOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarmmetric.html#cfn-applicationinsights-application-alarmmetric-alarmmetricname
+// The name of the metric to be monitored for the component.
 func (o ApplicationAlarmMetricOutput) AlarmMetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationAlarmMetric) string { return v.AlarmMetricName }).(pulumi.StringOutput)
 }
@@ -219,11 +219,11 @@ func (o ApplicationAlarmMetricArrayOutput) Index(i pulumi.IntInput) ApplicationA
 	}).(ApplicationAlarmMetricOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
+// The configuration settings of the component.
 type ApplicationComponentConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+	// The configuration settings
 	ConfigurationDetails *ApplicationConfigurationDetails `pulumi:"configurationDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+	// Sub component configurations of the component.
 	SubComponentTypeConfigurations []ApplicationSubComponentTypeConfiguration `pulumi:"subComponentTypeConfigurations"`
 }
 
@@ -238,11 +238,11 @@ type ApplicationComponentConfigurationInput interface {
 	ToApplicationComponentConfigurationOutputWithContext(context.Context) ApplicationComponentConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
+// The configuration settings of the component.
 type ApplicationComponentConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+	// The configuration settings
 	ConfigurationDetails ApplicationConfigurationDetailsPtrInput `pulumi:"configurationDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+	// Sub component configurations of the component.
 	SubComponentTypeConfigurations ApplicationSubComponentTypeConfigurationArrayInput `pulumi:"subComponentTypeConfigurations"`
 }
 
@@ -299,7 +299,7 @@ func (i *applicationComponentConfigurationPtrType) ToApplicationComponentConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
+// The configuration settings of the component.
 type ApplicationComponentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationComponentConfigurationOutput) ElementType() reflect.Type {
@@ -324,14 +324,14 @@ func (o ApplicationComponentConfigurationOutput) ToApplicationComponentConfigura
 	}).(ApplicationComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+// The configuration settings
 func (o ApplicationComponentConfigurationOutput) ConfigurationDetails() ApplicationConfigurationDetailsPtrOutput {
 	return o.ApplyT(func(v ApplicationComponentConfiguration) *ApplicationConfigurationDetails {
 		return v.ConfigurationDetails
 	}).(ApplicationConfigurationDetailsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+// Sub component configurations of the component.
 func (o ApplicationComponentConfigurationOutput) SubComponentTypeConfigurations() ApplicationSubComponentTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationComponentConfiguration) []ApplicationSubComponentTypeConfiguration {
 		return v.SubComponentTypeConfigurations
@@ -362,7 +362,7 @@ func (o ApplicationComponentConfigurationPtrOutput) Elem() ApplicationComponentC
 	}).(ApplicationComponentConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+// The configuration settings
 func (o ApplicationComponentConfigurationPtrOutput) ConfigurationDetails() ApplicationConfigurationDetailsPtrOutput {
 	return o.ApplyT(func(v *ApplicationComponentConfiguration) *ApplicationConfigurationDetails {
 		if v == nil {
@@ -372,7 +372,7 @@ func (o ApplicationComponentConfigurationPtrOutput) ConfigurationDetails() Appli
 	}).(ApplicationConfigurationDetailsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+// Sub component configurations of the component.
 func (o ApplicationComponentConfigurationPtrOutput) SubComponentTypeConfigurations() ApplicationSubComponentTypeConfigurationArrayOutput {
 	return o.ApplyT(func(v *ApplicationComponentConfiguration) []ApplicationSubComponentTypeConfiguration {
 		if v == nil {
@@ -382,19 +382,19 @@ func (o ApplicationComponentConfigurationPtrOutput) SubComponentTypeConfiguratio
 	}).(ApplicationSubComponentTypeConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
+// The monitoring setting of the component.
 type ApplicationComponentMonitoringSetting struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
+	// The ARN of the compnonent.
 	ComponentARN *string `pulumi:"componentARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+	// The component monitoring configuration mode.
 	ComponentConfigurationMode string `pulumi:"componentConfigurationMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
+	// The name of the component.
 	ComponentName *string `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+	// The monitoring configuration of the component.
 	CustomComponentConfiguration *ApplicationComponentConfiguration `pulumi:"customComponentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+	// The overwritten settings on default component monitoring configuration.
 	DefaultOverwriteComponentConfiguration *ApplicationComponentConfiguration `pulumi:"defaultOverwriteComponentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+	// The tier of the application component.
 	Tier string `pulumi:"tier"`
 }
 
@@ -409,19 +409,19 @@ type ApplicationComponentMonitoringSettingInput interface {
 	ToApplicationComponentMonitoringSettingOutputWithContext(context.Context) ApplicationComponentMonitoringSettingOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
+// The monitoring setting of the component.
 type ApplicationComponentMonitoringSettingArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
+	// The ARN of the compnonent.
 	ComponentARN pulumi.StringPtrInput `pulumi:"componentARN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+	// The component monitoring configuration mode.
 	ComponentConfigurationMode pulumi.StringInput `pulumi:"componentConfigurationMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
+	// The name of the component.
 	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+	// The monitoring configuration of the component.
 	CustomComponentConfiguration ApplicationComponentConfigurationPtrInput `pulumi:"customComponentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+	// The overwritten settings on default component monitoring configuration.
 	DefaultOverwriteComponentConfiguration ApplicationComponentConfigurationPtrInput `pulumi:"defaultOverwriteComponentConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+	// The tier of the application component.
 	Tier pulumi.StringInput `pulumi:"tier"`
 }
 
@@ -462,7 +462,7 @@ func (i ApplicationComponentMonitoringSettingArray) ToApplicationComponentMonito
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationComponentMonitoringSettingArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html
+// The monitoring setting of the component.
 type ApplicationComponentMonitoringSettingOutput struct{ *pulumi.OutputState }
 
 func (ApplicationComponentMonitoringSettingOutput) ElementType() reflect.Type {
@@ -477,36 +477,36 @@ func (o ApplicationComponentMonitoringSettingOutput) ToApplicationComponentMonit
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentarn
+// The ARN of the compnonent.
 func (o ApplicationComponentMonitoringSettingOutput) ComponentARN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.ComponentARN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentconfigurationmode
+// The component monitoring configuration mode.
 func (o ApplicationComponentMonitoringSettingOutput) ComponentConfigurationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) string { return v.ComponentConfigurationMode }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-componentname
+// The name of the component.
 func (o ApplicationComponentMonitoringSettingOutput) ComponentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-customcomponentconfiguration
+// The monitoring configuration of the component.
 func (o ApplicationComponentMonitoringSettingOutput) CustomComponentConfiguration() ApplicationComponentConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *ApplicationComponentConfiguration {
 		return v.CustomComponentConfiguration
 	}).(ApplicationComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-defaultoverwritecomponentconfiguration
+// The overwritten settings on default component monitoring configuration.
 func (o ApplicationComponentMonitoringSettingOutput) DefaultOverwriteComponentConfiguration() ApplicationComponentConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) *ApplicationComponentConfiguration {
 		return v.DefaultOverwriteComponentConfiguration
 	}).(ApplicationComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentmonitoringsetting.html#cfn-applicationinsights-application-componentmonitoringsetting-tier
+// The tier of the application component.
 func (o ApplicationComponentMonitoringSettingOutput) Tier() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationComponentMonitoringSetting) string { return v.Tier }).(pulumi.StringOutput)
 }
@@ -531,17 +531,17 @@ func (o ApplicationComponentMonitoringSettingArrayOutput) Index(i pulumi.IntInpu
 	}).(ApplicationComponentMonitoringSettingOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+// The configuration settings.
 type ApplicationConfigurationDetails struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+	// A list of metrics to monitor for the component.
 	AlarmMetrics []ApplicationAlarmMetric `pulumi:"alarmMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+	// A list of alarms to monitor for the component.
 	Alarms []ApplicationAlarm `pulumi:"alarms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+	// The JMX Prometheus Exporter settings.
 	JMXPrometheusExporter *ApplicationJMXPrometheusExporter `pulumi:"jMXPrometheusExporter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+	// A list of Windows Events to log.
 	WindowsEvents []ApplicationWindowsEvent `pulumi:"windowsEvents"`
 }
 
@@ -556,17 +556,17 @@ type ApplicationConfigurationDetailsInput interface {
 	ToApplicationConfigurationDetailsOutputWithContext(context.Context) ApplicationConfigurationDetailsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+// The configuration settings.
 type ApplicationConfigurationDetailsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+	// A list of metrics to monitor for the component.
 	AlarmMetrics ApplicationAlarmMetricArrayInput `pulumi:"alarmMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+	// A list of alarms to monitor for the component.
 	Alarms ApplicationAlarmArrayInput `pulumi:"alarms"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+	// The JMX Prometheus Exporter settings.
 	JMXPrometheusExporter ApplicationJMXPrometheusExporterPtrInput `pulumi:"jMXPrometheusExporter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+	// A list of Windows Events to log.
 	WindowsEvents ApplicationWindowsEventArrayInput `pulumi:"windowsEvents"`
 }
 
@@ -623,7 +623,7 @@ func (i *applicationConfigurationDetailsPtrType) ToApplicationConfigurationDetai
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationDetailsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html
+// The configuration settings.
 type ApplicationConfigurationDetailsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationConfigurationDetailsOutput) ElementType() reflect.Type {
@@ -648,29 +648,29 @@ func (o ApplicationConfigurationDetailsOutput) ToApplicationConfigurationDetails
 	}).(ApplicationConfigurationDetailsPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+// A list of metrics to monitor for the component.
 func (o ApplicationConfigurationDetailsOutput) AlarmMetrics() ApplicationAlarmMetricArrayOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationAlarmMetric { return v.AlarmMetrics }).(ApplicationAlarmMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+// A list of alarms to monitor for the component.
 func (o ApplicationConfigurationDetailsOutput) Alarms() ApplicationAlarmArrayOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationAlarm { return v.Alarms }).(ApplicationAlarmArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+// The JMX Prometheus Exporter settings.
 func (o ApplicationConfigurationDetailsOutput) JMXPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
 		return v.JMXPrometheusExporter
 	}).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+// A list of logs to monitor for the component.
 func (o ApplicationConfigurationDetailsOutput) Logs() ApplicationLogArrayOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationLog { return v.Logs }).(ApplicationLogArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+// A list of Windows Events to log.
 func (o ApplicationConfigurationDetailsOutput) WindowsEvents() ApplicationWindowsEventArrayOutput {
 	return o.ApplyT(func(v ApplicationConfigurationDetails) []ApplicationWindowsEvent { return v.WindowsEvents }).(ApplicationWindowsEventArrayOutput)
 }
@@ -699,7 +699,7 @@ func (o ApplicationConfigurationDetailsPtrOutput) Elem() ApplicationConfiguratio
 	}).(ApplicationConfigurationDetailsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarmmetrics
+// A list of metrics to monitor for the component.
 func (o ApplicationConfigurationDetailsPtrOutput) AlarmMetrics() ApplicationAlarmMetricArrayOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) []ApplicationAlarmMetric {
 		if v == nil {
@@ -709,7 +709,7 @@ func (o ApplicationConfigurationDetailsPtrOutput) AlarmMetrics() ApplicationAlar
 	}).(ApplicationAlarmMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-alarms
+// A list of alarms to monitor for the component.
 func (o ApplicationConfigurationDetailsPtrOutput) Alarms() ApplicationAlarmArrayOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) []ApplicationAlarm {
 		if v == nil {
@@ -719,7 +719,7 @@ func (o ApplicationConfigurationDetailsPtrOutput) Alarms() ApplicationAlarmArray
 	}).(ApplicationAlarmArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-jmxprometheusexporter
+// The JMX Prometheus Exporter settings.
 func (o ApplicationConfigurationDetailsPtrOutput) JMXPrometheusExporter() ApplicationJMXPrometheusExporterPtrOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) *ApplicationJMXPrometheusExporter {
 		if v == nil {
@@ -729,7 +729,7 @@ func (o ApplicationConfigurationDetailsPtrOutput) JMXPrometheusExporter() Applic
 	}).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-logs
+// A list of logs to monitor for the component.
 func (o ApplicationConfigurationDetailsPtrOutput) Logs() ApplicationLogArrayOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) []ApplicationLog {
 		if v == nil {
@@ -739,7 +739,7 @@ func (o ApplicationConfigurationDetailsPtrOutput) Logs() ApplicationLogArrayOutp
 	}).(ApplicationLogArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-configurationdetails.html#cfn-applicationinsights-application-configurationdetails-windowsevents
+// A list of Windows Events to log.
 func (o ApplicationConfigurationDetailsPtrOutput) WindowsEvents() ApplicationWindowsEventArrayOutput {
 	return o.ApplyT(func(v *ApplicationConfigurationDetails) []ApplicationWindowsEvent {
 		if v == nil {
@@ -749,11 +749,11 @@ func (o ApplicationConfigurationDetailsPtrOutput) WindowsEvents() ApplicationWin
 	}).(ApplicationWindowsEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+// The custom grouped component.
 type ApplicationCustomComponent struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+	// The name of the component.
 	ComponentName string `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+	// The list of resource ARNs that belong to the component.
 	ResourceList []string `pulumi:"resourceList"`
 }
 
@@ -768,11 +768,11 @@ type ApplicationCustomComponentInput interface {
 	ToApplicationCustomComponentOutputWithContext(context.Context) ApplicationCustomComponentOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+// The custom grouped component.
 type ApplicationCustomComponentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+	// The name of the component.
 	ComponentName pulumi.StringInput `pulumi:"componentName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+	// The list of resource ARNs that belong to the component.
 	ResourceList pulumi.StringArrayInput `pulumi:"resourceList"`
 }
 
@@ -813,7 +813,7 @@ func (i ApplicationCustomComponentArray) ToApplicationCustomComponentArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCustomComponentArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html
+// The custom grouped component.
 type ApplicationCustomComponentOutput struct{ *pulumi.OutputState }
 
 func (ApplicationCustomComponentOutput) ElementType() reflect.Type {
@@ -828,12 +828,12 @@ func (o ApplicationCustomComponentOutput) ToApplicationCustomComponentOutputWith
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-componentname
+// The name of the component.
 func (o ApplicationCustomComponentOutput) ComponentName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationCustomComponent) string { return v.ComponentName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-customcomponent.html#cfn-applicationinsights-application-customcomponent-resourcelist
+// The list of resource ARNs that belong to the component.
 func (o ApplicationCustomComponentOutput) ResourceList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationCustomComponent) []string { return v.ResourceList }).(pulumi.StringArrayOutput)
 }
@@ -858,13 +858,13 @@ func (o ApplicationCustomComponentArrayOutput) Index(i pulumi.IntInput) Applicat
 	}).(ApplicationCustomComponentOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
+// The JMX Prometheus Exporter settings.
 type ApplicationJMXPrometheusExporter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+	// Java agent host port
 	HostPort *string `pulumi:"hostPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+	// JMX service URL.
 	JMXURL *string `pulumi:"jMXURL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+	// Prometheus exporter port
 	PrometheusPort *string `pulumi:"prometheusPort"`
 }
 
@@ -879,13 +879,13 @@ type ApplicationJMXPrometheusExporterInput interface {
 	ToApplicationJMXPrometheusExporterOutputWithContext(context.Context) ApplicationJMXPrometheusExporterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
+// The JMX Prometheus Exporter settings.
 type ApplicationJMXPrometheusExporterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+	// Java agent host port
 	HostPort pulumi.StringPtrInput `pulumi:"hostPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+	// JMX service URL.
 	JMXURL pulumi.StringPtrInput `pulumi:"jMXURL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+	// Prometheus exporter port
 	PrometheusPort pulumi.StringPtrInput `pulumi:"prometheusPort"`
 }
 
@@ -942,7 +942,7 @@ func (i *applicationJMXPrometheusExporterPtrType) ToApplicationJMXPrometheusExpo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html
+// The JMX Prometheus Exporter settings.
 type ApplicationJMXPrometheusExporterOutput struct{ *pulumi.OutputState }
 
 func (ApplicationJMXPrometheusExporterOutput) ElementType() reflect.Type {
@@ -967,17 +967,17 @@ func (o ApplicationJMXPrometheusExporterOutput) ToApplicationJMXPrometheusExport
 	}).(ApplicationJMXPrometheusExporterPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+// Java agent host port
 func (o ApplicationJMXPrometheusExporterOutput) HostPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.HostPort }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+// JMX service URL.
 func (o ApplicationJMXPrometheusExporterOutput) JMXURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.JMXURL }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+// Prometheus exporter port
 func (o ApplicationJMXPrometheusExporterOutput) PrometheusPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationJMXPrometheusExporter) *string { return v.PrometheusPort }).(pulumi.StringPtrOutput)
 }
@@ -1006,7 +1006,7 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) Elem() ApplicationJMXPromethe
 	}).(ApplicationJMXPrometheusExporterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-hostport
+// Java agent host port
 func (o ApplicationJMXPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
 		if v == nil {
@@ -1016,7 +1016,7 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) HostPort() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-jmxurl
+// JMX service URL.
 func (o ApplicationJMXPrometheusExporterPtrOutput) JMXURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
 		if v == nil {
@@ -1026,7 +1026,7 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) JMXURL() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html#cfn-applicationinsights-application-jmxprometheusexporter-prometheusport
+// Prometheus exporter port
 func (o ApplicationJMXPrometheusExporterPtrOutput) PrometheusPort() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationJMXPrometheusExporter) *string {
 		if v == nil {
@@ -1036,17 +1036,17 @@ func (o ApplicationJMXPrometheusExporterPtrOutput) PrometheusPort() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+// A log to be monitored for the component.
 type ApplicationLog struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+	// The type of encoding of the logs to be monitored.
 	Encoding *string `pulumi:"encoding"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName *string `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+	// The path of the logs to be monitored.
 	LogPath *string `pulumi:"logPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+	// The log type decides the log patterns against which Application Insights analyzes the log.
 	LogType string `pulumi:"logType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+	// The name of the log pattern set.
 	PatternSet *string `pulumi:"patternSet"`
 }
 
@@ -1061,17 +1061,17 @@ type ApplicationLogInput interface {
 	ToApplicationLogOutputWithContext(context.Context) ApplicationLogOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+// A log to be monitored for the component.
 type ApplicationLogArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+	// The type of encoding of the logs to be monitored.
 	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+	// The path of the logs to be monitored.
 	LogPath pulumi.StringPtrInput `pulumi:"logPath"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+	// The log type decides the log patterns against which Application Insights analyzes the log.
 	LogType pulumi.StringInput `pulumi:"logType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+	// The name of the log pattern set.
 	PatternSet pulumi.StringPtrInput `pulumi:"patternSet"`
 }
 
@@ -1112,7 +1112,7 @@ func (i ApplicationLogArray) ToApplicationLogArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+// A log to be monitored for the component.
 type ApplicationLogOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLogOutput) ElementType() reflect.Type {
@@ -1127,27 +1127,27 @@ func (o ApplicationLogOutput) ToApplicationLogOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+// The type of encoding of the logs to be monitored.
 func (o ApplicationLogOutput) Encoding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLog) *string { return v.Encoding }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+// The CloudWatch log group name to be associated to the monitored log.
 func (o ApplicationLogOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLog) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+// The path of the logs to be monitored.
 func (o ApplicationLogOutput) LogPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLog) *string { return v.LogPath }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+// The log type decides the log patterns against which Application Insights analyzes the log.
 func (o ApplicationLogOutput) LogType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationLog) string { return v.LogType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+// The name of the log pattern set.
 func (o ApplicationLogOutput) PatternSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationLog) *string { return v.PatternSet }).(pulumi.StringPtrOutput)
 }
@@ -1172,13 +1172,13 @@ func (o ApplicationLogArrayOutput) Index(i pulumi.IntInput) ApplicationLogOutput
 	}).(ApplicationLogOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+// The log pattern.
 type ApplicationLogPattern struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+	// The log pattern.
 	Pattern string `pulumi:"pattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+	// The name of the log pattern.
 	PatternName string `pulumi:"patternName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+	// Rank of the log pattern.
 	Rank int `pulumi:"rank"`
 }
 
@@ -1193,13 +1193,13 @@ type ApplicationLogPatternInput interface {
 	ToApplicationLogPatternOutputWithContext(context.Context) ApplicationLogPatternOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+// The log pattern.
 type ApplicationLogPatternArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+	// The log pattern.
 	Pattern pulumi.StringInput `pulumi:"pattern"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+	// The name of the log pattern.
 	PatternName pulumi.StringInput `pulumi:"patternName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+	// Rank of the log pattern.
 	Rank pulumi.IntInput `pulumi:"rank"`
 }
 
@@ -1240,7 +1240,7 @@ func (i ApplicationLogPatternArray) ToApplicationLogPatternArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html
+// The log pattern.
 type ApplicationLogPatternOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLogPatternOutput) ElementType() reflect.Type {
@@ -1255,17 +1255,17 @@ func (o ApplicationLogPatternOutput) ToApplicationLogPatternOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-pattern
+// The log pattern.
 func (o ApplicationLogPatternOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationLogPattern) string { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-patternname
+// The name of the log pattern.
 func (o ApplicationLogPatternOutput) PatternName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationLogPattern) string { return v.PatternName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpattern.html#cfn-applicationinsights-application-logpattern-rank
+// Rank of the log pattern.
 func (o ApplicationLogPatternOutput) Rank() pulumi.IntOutput {
 	return o.ApplyT(func(v ApplicationLogPattern) int { return v.Rank }).(pulumi.IntOutput)
 }
@@ -1290,11 +1290,11 @@ func (o ApplicationLogPatternArrayOutput) Index(i pulumi.IntInput) ApplicationLo
 	}).(ApplicationLogPatternOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+// The log pattern set.
 type ApplicationLogPatternSet struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+	// The log patterns of a set.
 	LogPatterns []ApplicationLogPattern `pulumi:"logPatterns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+	// The name of the log pattern set.
 	PatternSetName string `pulumi:"patternSetName"`
 }
 
@@ -1309,11 +1309,11 @@ type ApplicationLogPatternSetInput interface {
 	ToApplicationLogPatternSetOutputWithContext(context.Context) ApplicationLogPatternSetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+// The log pattern set.
 type ApplicationLogPatternSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+	// The log patterns of a set.
 	LogPatterns ApplicationLogPatternArrayInput `pulumi:"logPatterns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+	// The name of the log pattern set.
 	PatternSetName pulumi.StringInput `pulumi:"patternSetName"`
 }
 
@@ -1354,7 +1354,7 @@ func (i ApplicationLogPatternSetArray) ToApplicationLogPatternSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogPatternSetArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+// The log pattern set.
 type ApplicationLogPatternSetOutput struct{ *pulumi.OutputState }
 
 func (ApplicationLogPatternSetOutput) ElementType() reflect.Type {
@@ -1369,12 +1369,12 @@ func (o ApplicationLogPatternSetOutput) ToApplicationLogPatternSetOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+// The log patterns of a set.
 func (o ApplicationLogPatternSetOutput) LogPatterns() ApplicationLogPatternArrayOutput {
 	return o.ApplyT(func(v ApplicationLogPatternSet) []ApplicationLogPattern { return v.LogPatterns }).(ApplicationLogPatternArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+// The name of the log pattern set.
 func (o ApplicationLogPatternSetOutput) PatternSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationLogPatternSet) string { return v.PatternSetName }).(pulumi.StringOutput)
 }
@@ -1399,13 +1399,13 @@ func (o ApplicationLogPatternSetArrayOutput) Index(i pulumi.IntInput) Applicatio
 	}).(ApplicationLogPatternSetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+// The configuration settings of sub components.
 type ApplicationSubComponentConfigurationDetails struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+	// A list of metrics to monitor for the component.
 	AlarmMetrics []ApplicationAlarmMetric `pulumi:"alarmMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+	// A list of logs to monitor for the component.
 	Logs []ApplicationLog `pulumi:"logs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+	// A list of Windows Events to log.
 	WindowsEvents []ApplicationWindowsEvent `pulumi:"windowsEvents"`
 }
 
@@ -1420,13 +1420,13 @@ type ApplicationSubComponentConfigurationDetailsInput interface {
 	ToApplicationSubComponentConfigurationDetailsOutputWithContext(context.Context) ApplicationSubComponentConfigurationDetailsOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+// The configuration settings of sub components.
 type ApplicationSubComponentConfigurationDetailsArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+	// A list of metrics to monitor for the component.
 	AlarmMetrics ApplicationAlarmMetricArrayInput `pulumi:"alarmMetrics"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+	// A list of logs to monitor for the component.
 	Logs ApplicationLogArrayInput `pulumi:"logs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+	// A list of Windows Events to log.
 	WindowsEvents ApplicationWindowsEventArrayInput `pulumi:"windowsEvents"`
 }
 
@@ -1442,7 +1442,7 @@ func (i ApplicationSubComponentConfigurationDetailsArgs) ToApplicationSubCompone
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSubComponentConfigurationDetailsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html
+// The configuration settings of sub components.
 type ApplicationSubComponentConfigurationDetailsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSubComponentConfigurationDetailsOutput) ElementType() reflect.Type {
@@ -1457,26 +1457,26 @@ func (o ApplicationSubComponentConfigurationDetailsOutput) ToApplicationSubCompo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-alarmmetrics
+// A list of metrics to monitor for the component.
 func (o ApplicationSubComponentConfigurationDetailsOutput) AlarmMetrics() ApplicationAlarmMetricArrayOutput {
 	return o.ApplyT(func(v ApplicationSubComponentConfigurationDetails) []ApplicationAlarmMetric { return v.AlarmMetrics }).(ApplicationAlarmMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-logs
+// A list of logs to monitor for the component.
 func (o ApplicationSubComponentConfigurationDetailsOutput) Logs() ApplicationLogArrayOutput {
 	return o.ApplyT(func(v ApplicationSubComponentConfigurationDetails) []ApplicationLog { return v.Logs }).(ApplicationLogArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponentconfigurationdetails.html#cfn-applicationinsights-application-subcomponentconfigurationdetails-windowsevents
+// A list of Windows Events to log.
 func (o ApplicationSubComponentConfigurationDetailsOutput) WindowsEvents() ApplicationWindowsEventArrayOutput {
 	return o.ApplyT(func(v ApplicationSubComponentConfigurationDetails) []ApplicationWindowsEvent { return v.WindowsEvents }).(ApplicationWindowsEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+// One type sub component configurations for the component.
 type ApplicationSubComponentTypeConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+	// The configuration settings of sub components.
 	SubComponentConfigurationDetails ApplicationSubComponentConfigurationDetails `pulumi:"subComponentConfigurationDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+	// The sub component type.
 	SubComponentType string `pulumi:"subComponentType"`
 }
 
@@ -1491,11 +1491,11 @@ type ApplicationSubComponentTypeConfigurationInput interface {
 	ToApplicationSubComponentTypeConfigurationOutputWithContext(context.Context) ApplicationSubComponentTypeConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+// One type sub component configurations for the component.
 type ApplicationSubComponentTypeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+	// The configuration settings of sub components.
 	SubComponentConfigurationDetails ApplicationSubComponentConfigurationDetailsInput `pulumi:"subComponentConfigurationDetails"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+	// The sub component type.
 	SubComponentType pulumi.StringInput `pulumi:"subComponentType"`
 }
 
@@ -1536,7 +1536,7 @@ func (i ApplicationSubComponentTypeConfigurationArray) ToApplicationSubComponent
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSubComponentTypeConfigurationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+// One type sub component configurations for the component.
 type ApplicationSubComponentTypeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSubComponentTypeConfigurationOutput) ElementType() reflect.Type {
@@ -1551,14 +1551,14 @@ func (o ApplicationSubComponentTypeConfigurationOutput) ToApplicationSubComponen
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+// The configuration settings of sub components.
 func (o ApplicationSubComponentTypeConfigurationOutput) SubComponentConfigurationDetails() ApplicationSubComponentConfigurationDetailsOutput {
 	return o.ApplyT(func(v ApplicationSubComponentTypeConfiguration) ApplicationSubComponentConfigurationDetails {
 		return v.SubComponentConfigurationDetails
 	}).(ApplicationSubComponentConfigurationDetailsOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+// The sub component type.
 func (o ApplicationSubComponentTypeConfigurationOutput) SubComponentType() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSubComponentTypeConfiguration) string { return v.SubComponentType }).(pulumi.StringOutput)
 }
@@ -1583,15 +1583,124 @@ func (o ApplicationSubComponentTypeConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ApplicationSubComponentTypeConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+// A key-value pair to associate with a resource.
+type ApplicationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// ApplicationTagInput is an input type that accepts ApplicationTagArgs and ApplicationTagOutput values.
+// You can construct a concrete instance of `ApplicationTagInput` via:
+//
+//          ApplicationTagArgs{...}
+type ApplicationTagInput interface {
+	pulumi.Input
+
+	ToApplicationTagOutput() ApplicationTagOutput
+	ToApplicationTagOutputWithContext(context.Context) ApplicationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type ApplicationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApplicationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
+}
+
+func (i ApplicationTagArgs) ToApplicationTagOutput() ApplicationTagOutput {
+	return i.ToApplicationTagOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagArgs) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagOutput)
+}
+
+// ApplicationTagArrayInput is an input type that accepts ApplicationTagArray and ApplicationTagArrayOutput values.
+// You can construct a concrete instance of `ApplicationTagArrayInput` via:
+//
+//          ApplicationTagArray{ ApplicationTagArgs{...} }
+type ApplicationTagArrayInput interface {
+	pulumi.Input
+
+	ToApplicationTagArrayOutput() ApplicationTagArrayOutput
+	ToApplicationTagArrayOutputWithContext(context.Context) ApplicationTagArrayOutput
+}
+
+type ApplicationTagArray []ApplicationTagInput
+
+func (ApplicationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
+}
+
+func (i ApplicationTagArray) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
+	return i.ToApplicationTagArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationTagArray) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ApplicationTagOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTag)(nil)).Elem()
+}
+
+func (o ApplicationTagOutput) ToApplicationTagOutput() ApplicationTagOutput {
+	return o
+}
+
+func (o ApplicationTagOutput) ToApplicationTagOutputWithContext(ctx context.Context) ApplicationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ApplicationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o ApplicationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApplicationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationTag)(nil)).Elem()
+}
+
+func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutput() ApplicationTagArrayOutput {
+	return o
+}
+
+func (o ApplicationTagArrayOutput) ToApplicationTagArrayOutputWithContext(ctx context.Context) ApplicationTagArrayOutput {
+	return o
+}
+
+func (o ApplicationTagArrayOutput) Index(i pulumi.IntInput) ApplicationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationTag {
+		return vs[0].([]ApplicationTag)[vs[1].(int)]
+	}).(ApplicationTagOutput)
+}
+
+// A Windows Event to be monitored for the component.
 type ApplicationWindowsEvent struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+	// The levels of event to log.
 	EventLevels []string `pulumi:"eventLevels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+	// The type of Windows Events to log.
 	EventName string `pulumi:"eventName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName string `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+	// The name of the log pattern set.
 	PatternSet *string `pulumi:"patternSet"`
 }
 
@@ -1606,15 +1715,15 @@ type ApplicationWindowsEventInput interface {
 	ToApplicationWindowsEventOutputWithContext(context.Context) ApplicationWindowsEventOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+// A Windows Event to be monitored for the component.
 type ApplicationWindowsEventArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+	// The levels of event to log.
 	EventLevels pulumi.StringArrayInput `pulumi:"eventLevels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+	// The type of Windows Events to log.
 	EventName pulumi.StringInput `pulumi:"eventName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+	// The CloudWatch log group name to be associated to the monitored log.
 	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+	// The name of the log pattern set.
 	PatternSet pulumi.StringPtrInput `pulumi:"patternSet"`
 }
 
@@ -1655,7 +1764,7 @@ func (i ApplicationWindowsEventArray) ToApplicationWindowsEventArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationWindowsEventArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+// A Windows Event to be monitored for the component.
 type ApplicationWindowsEventOutput struct{ *pulumi.OutputState }
 
 func (ApplicationWindowsEventOutput) ElementType() reflect.Type {
@@ -1670,22 +1779,22 @@ func (o ApplicationWindowsEventOutput) ToApplicationWindowsEventOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+// The levels of event to log.
 func (o ApplicationWindowsEventOutput) EventLevels() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationWindowsEvent) []string { return v.EventLevels }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+// The type of Windows Events to log.
 func (o ApplicationWindowsEventOutput) EventName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationWindowsEvent) string { return v.EventName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+// The CloudWatch log group name to be associated to the monitored log.
 func (o ApplicationWindowsEventOutput) LogGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationWindowsEvent) string { return v.LogGroupName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+// The name of the log pattern set.
 func (o ApplicationWindowsEventOutput) PatternSet() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationWindowsEvent) *string { return v.PatternSet }).(pulumi.StringPtrOutput)
 }
@@ -1734,6 +1843,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationSubComponentConfigurationDetailsOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationSubComponentTypeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationTagOutput{})
+	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationWindowsEventOutput{})
 	pulumi.RegisterOutputType(ApplicationWindowsEventArrayOutput{})
 }

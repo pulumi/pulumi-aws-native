@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
 type LicenseBorrowConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
-	AllowEarlyCheckIn bool `pulumi:"allowEarlyCheckIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
-	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
+	AllowEarlyCheckIn      bool `pulumi:"allowEarlyCheckIn"`
+	MaxTimeToLiveInMinutes int  `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 // LicenseBorrowConfigurationInput is an input type that accepts LicenseBorrowConfigurationArgs and LicenseBorrowConfigurationOutput values.
@@ -29,12 +26,9 @@ type LicenseBorrowConfigurationInput interface {
 	ToLicenseBorrowConfigurationOutputWithContext(context.Context) LicenseBorrowConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
 type LicenseBorrowConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
-	AllowEarlyCheckIn pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
-	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
+	AllowEarlyCheckIn      pulumi.BoolInput `pulumi:"allowEarlyCheckIn"`
+	MaxTimeToLiveInMinutes pulumi.IntInput  `pulumi:"maxTimeToLiveInMinutes"`
 }
 
 func (LicenseBorrowConfigurationArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *licenseBorrowConfigurationPtrType) ToLicenseBorrowConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseBorrowConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
 type LicenseBorrowConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseBorrowConfigurationOutput) ElementType() reflect.Type {
@@ -115,12 +108,10 @@ func (o LicenseBorrowConfigurationOutput) ToLicenseBorrowConfigurationPtrOutputW
 	}).(LicenseBorrowConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
 func (o LicenseBorrowConfigurationOutput) AllowEarlyCheckIn() pulumi.BoolOutput {
 	return o.ApplyT(func(v LicenseBorrowConfiguration) bool { return v.AllowEarlyCheckIn }).(pulumi.BoolOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
 func (o LicenseBorrowConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LicenseBorrowConfiguration) int { return v.MaxTimeToLiveInMinutes }).(pulumi.IntOutput)
 }
@@ -149,7 +140,6 @@ func (o LicenseBorrowConfigurationPtrOutput) Elem() LicenseBorrowConfigurationOu
 	}).(LicenseBorrowConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
 func (o LicenseBorrowConfigurationPtrOutput) AllowEarlyCheckIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LicenseBorrowConfiguration) *bool {
 		if v == nil {
@@ -159,7 +149,6 @@ func (o LicenseBorrowConfigurationPtrOutput) AllowEarlyCheckIn() pulumi.BoolPtrO
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
 func (o LicenseBorrowConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LicenseBorrowConfiguration) *int {
 		if v == nil {
@@ -169,14 +158,10 @@ func (o LicenseBorrowConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
 type LicenseConsumptionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-	BorrowConfiguration *LicenseBorrowConfiguration `pulumi:"borrowConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
+	BorrowConfiguration      *LicenseBorrowConfiguration      `pulumi:"borrowConfiguration"`
 	ProvisionalConfiguration *LicenseProvisionalConfiguration `pulumi:"provisionalConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
-	RenewType *string `pulumi:"renewType"`
+	RenewType                *string                          `pulumi:"renewType"`
 }
 
 // LicenseConsumptionConfigurationInput is an input type that accepts LicenseConsumptionConfigurationArgs and LicenseConsumptionConfigurationOutput values.
@@ -190,14 +175,10 @@ type LicenseConsumptionConfigurationInput interface {
 	ToLicenseConsumptionConfigurationOutputWithContext(context.Context) LicenseConsumptionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
 type LicenseConsumptionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
-	BorrowConfiguration LicenseBorrowConfigurationPtrInput `pulumi:"borrowConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
+	BorrowConfiguration      LicenseBorrowConfigurationPtrInput      `pulumi:"borrowConfiguration"`
 	ProvisionalConfiguration LicenseProvisionalConfigurationPtrInput `pulumi:"provisionalConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
-	RenewType pulumi.StringPtrInput `pulumi:"renewType"`
+	RenewType                pulumi.StringPtrInput                   `pulumi:"renewType"`
 }
 
 func (LicenseConsumptionConfigurationArgs) ElementType() reflect.Type {
@@ -253,7 +234,6 @@ func (i *licenseConsumptionConfigurationPtrType) ToLicenseConsumptionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseConsumptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html
 type LicenseConsumptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseConsumptionConfigurationOutput) ElementType() reflect.Type {
@@ -278,19 +258,16 @@ func (o LicenseConsumptionConfigurationOutput) ToLicenseConsumptionConfiguration
 	}).(LicenseConsumptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
 func (o LicenseConsumptionConfigurationOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *LicenseBorrowConfiguration { return v.BorrowConfiguration }).(LicenseBorrowConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
 func (o LicenseConsumptionConfigurationOutput) ProvisionalConfiguration() LicenseProvisionalConfigurationPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *LicenseProvisionalConfiguration {
 		return v.ProvisionalConfiguration
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
 func (o LicenseConsumptionConfigurationOutput) RenewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseConsumptionConfiguration) *string { return v.RenewType }).(pulumi.StringPtrOutput)
 }
@@ -319,7 +296,6 @@ func (o LicenseConsumptionConfigurationPtrOutput) Elem() LicenseConsumptionConfi
 	}).(LicenseConsumptionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-borrowconfiguration
 func (o LicenseConsumptionConfigurationPtrOutput) BorrowConfiguration() LicenseBorrowConfigurationPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseBorrowConfiguration {
 		if v == nil {
@@ -329,7 +305,6 @@ func (o LicenseConsumptionConfigurationPtrOutput) BorrowConfiguration() LicenseB
 	}).(LicenseBorrowConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-provisionalconfiguration
 func (o LicenseConsumptionConfigurationPtrOutput) ProvisionalConfiguration() LicenseProvisionalConfigurationPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *LicenseProvisionalConfiguration {
 		if v == nil {
@@ -339,7 +314,6 @@ func (o LicenseConsumptionConfigurationPtrOutput) ProvisionalConfiguration() Lic
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-consumptionconfiguration.html#cfn-licensemanager-license-consumptionconfiguration-renewtype
 func (o LicenseConsumptionConfigurationPtrOutput) RenewType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseConsumptionConfiguration) *string {
 		if v == nil {
@@ -349,20 +323,13 @@ func (o LicenseConsumptionConfigurationPtrOutput) RenewType() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
 type LicenseEntitlement struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-	AllowCheckIn *bool `pulumi:"allowCheckIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
-	MaxCount *int `pulumi:"maxCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
-	Overage *bool `pulumi:"overage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
-	Unit string `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
-	Value *string `pulumi:"value"`
+	AllowCheckIn *bool   `pulumi:"allowCheckIn"`
+	MaxCount     *int    `pulumi:"maxCount"`
+	Name         string  `pulumi:"name"`
+	Overage      *bool   `pulumi:"overage"`
+	Unit         string  `pulumi:"unit"`
+	Value        *string `pulumi:"value"`
 }
 
 // LicenseEntitlementInput is an input type that accepts LicenseEntitlementArgs and LicenseEntitlementOutput values.
@@ -376,20 +343,13 @@ type LicenseEntitlementInput interface {
 	ToLicenseEntitlementOutputWithContext(context.Context) LicenseEntitlementOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
 type LicenseEntitlementArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
-	AllowCheckIn pulumi.BoolPtrInput `pulumi:"allowCheckIn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
-	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
-	Overage pulumi.BoolPtrInput `pulumi:"overage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	AllowCheckIn pulumi.BoolPtrInput   `pulumi:"allowCheckIn"`
+	MaxCount     pulumi.IntPtrInput    `pulumi:"maxCount"`
+	Name         pulumi.StringInput    `pulumi:"name"`
+	Overage      pulumi.BoolPtrInput   `pulumi:"overage"`
+	Unit         pulumi.StringInput    `pulumi:"unit"`
+	Value        pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (LicenseEntitlementArgs) ElementType() reflect.Type {
@@ -429,7 +389,6 @@ func (i LicenseEntitlementArray) ToLicenseEntitlementArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseEntitlementArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html
 type LicenseEntitlementOutput struct{ *pulumi.OutputState }
 
 func (LicenseEntitlementOutput) ElementType() reflect.Type {
@@ -444,32 +403,26 @@ func (o LicenseEntitlementOutput) ToLicenseEntitlementOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-allowcheckin
 func (o LicenseEntitlementOutput) AllowCheckIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *bool { return v.AllowCheckIn }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-maxcount
 func (o LicenseEntitlementOutput) MaxCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *int { return v.MaxCount }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-name
 func (o LicenseEntitlementOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseEntitlement) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-overage
 func (o LicenseEntitlementOutput) Overage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *bool { return v.Overage }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-unit
 func (o LicenseEntitlementOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseEntitlement) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-entitlement.html#cfn-licensemanager-license-entitlement-value
 func (o LicenseEntitlementOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseEntitlement) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -494,11 +447,8 @@ func (o LicenseEntitlementArrayOutput) Index(i pulumi.IntInput) LicenseEntitleme
 	}).(LicenseEntitlementOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
 type LicenseIssuerData struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
+	Name    string  `pulumi:"name"`
 	SignKey *string `pulumi:"signKey"`
 }
 
@@ -513,11 +463,8 @@ type LicenseIssuerDataInput interface {
 	ToLicenseIssuerDataOutputWithContext(context.Context) LicenseIssuerDataOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
 type LicenseIssuerDataArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
+	Name    pulumi.StringInput    `pulumi:"name"`
 	SignKey pulumi.StringPtrInput `pulumi:"signKey"`
 }
 
@@ -574,7 +521,6 @@ func (i *licenseIssuerDataPtrType) ToLicenseIssuerDataPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseIssuerDataPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html
 type LicenseIssuerDataOutput struct{ *pulumi.OutputState }
 
 func (LicenseIssuerDataOutput) ElementType() reflect.Type {
@@ -599,12 +545,10 @@ func (o LicenseIssuerDataOutput) ToLicenseIssuerDataPtrOutputWithContext(ctx con
 	}).(LicenseIssuerDataPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
 func (o LicenseIssuerDataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseIssuerData) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
 func (o LicenseIssuerDataOutput) SignKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LicenseIssuerData) *string { return v.SignKey }).(pulumi.StringPtrOutput)
 }
@@ -633,7 +577,6 @@ func (o LicenseIssuerDataPtrOutput) Elem() LicenseIssuerDataOutput {
 	}).(LicenseIssuerDataOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-name
 func (o LicenseIssuerDataPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseIssuerData) *string {
 		if v == nil {
@@ -643,7 +586,6 @@ func (o LicenseIssuerDataPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-issuerdata.html#cfn-licensemanager-license-issuerdata-signkey
 func (o LicenseIssuerDataPtrOutput) SignKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseIssuerData) *string {
 		if v == nil {
@@ -653,11 +595,8 @@ func (o LicenseIssuerDataPtrOutput) SignKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
 type LicenseMetadata struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
+	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
 }
 
@@ -672,11 +611,8 @@ type LicenseMetadataInput interface {
 	ToLicenseMetadataOutputWithContext(context.Context) LicenseMetadataOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
 type LicenseMetadataArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
-	Name pulumi.StringInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
+	Name  pulumi.StringInput `pulumi:"name"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -717,7 +653,6 @@ func (i LicenseMetadataArray) ToLicenseMetadataArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseMetadataArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html
 type LicenseMetadataOutput struct{ *pulumi.OutputState }
 
 func (LicenseMetadataOutput) ElementType() reflect.Type {
@@ -732,12 +667,10 @@ func (o LicenseMetadataOutput) ToLicenseMetadataOutputWithContext(ctx context.Co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-name
 func (o LicenseMetadataOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseMetadata) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-metadata.html#cfn-licensemanager-license-metadata-value
 func (o LicenseMetadataOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseMetadata) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -762,9 +695,7 @@ func (o LicenseMetadataArrayOutput) Index(i pulumi.IntInput) LicenseMetadataOutp
 	}).(LicenseMetadataOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
 type LicenseProvisionalConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
 	MaxTimeToLiveInMinutes int `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -779,9 +710,7 @@ type LicenseProvisionalConfigurationInput interface {
 	ToLicenseProvisionalConfigurationOutputWithContext(context.Context) LicenseProvisionalConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
 type LicenseProvisionalConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
 	MaxTimeToLiveInMinutes pulumi.IntInput `pulumi:"maxTimeToLiveInMinutes"`
 }
 
@@ -838,7 +767,6 @@ func (i *licenseProvisionalConfigurationPtrType) ToLicenseProvisionalConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseProvisionalConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html
 type LicenseProvisionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LicenseProvisionalConfigurationOutput) ElementType() reflect.Type {
@@ -863,7 +791,6 @@ func (o LicenseProvisionalConfigurationOutput) ToLicenseProvisionalConfiguration
 	}).(LicenseProvisionalConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
 func (o LicenseProvisionalConfigurationOutput) MaxTimeToLiveInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v LicenseProvisionalConfiguration) int { return v.MaxTimeToLiveInMinutes }).(pulumi.IntOutput)
 }
@@ -892,7 +819,6 @@ func (o LicenseProvisionalConfigurationPtrOutput) Elem() LicenseProvisionalConfi
 	}).(LicenseProvisionalConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-provisionalconfiguration.html#cfn-licensemanager-license-provisionalconfiguration-maxtimetoliveinminutes
 func (o LicenseProvisionalConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LicenseProvisionalConfiguration) *int {
 		if v == nil {
@@ -902,11 +828,10 @@ func (o LicenseProvisionalConfigurationPtrOutput) MaxTimeToLiveInMinutes() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
 type LicenseValidityDateFormat struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+	// Validity begin date for the license.
 	Begin string `pulumi:"begin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+	// Validity begin date for the license.
 	End string `pulumi:"end"`
 }
 
@@ -921,11 +846,10 @@ type LicenseValidityDateFormatInput interface {
 	ToLicenseValidityDateFormatOutputWithContext(context.Context) LicenseValidityDateFormatOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
 type LicenseValidityDateFormatArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+	// Validity begin date for the license.
 	Begin pulumi.StringInput `pulumi:"begin"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+	// Validity begin date for the license.
 	End pulumi.StringInput `pulumi:"end"`
 }
 
@@ -982,7 +906,6 @@ func (i *licenseValidityDateFormatPtrType) ToLicenseValidityDateFormatPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(LicenseValidityDateFormatPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html
 type LicenseValidityDateFormatOutput struct{ *pulumi.OutputState }
 
 func (LicenseValidityDateFormatOutput) ElementType() reflect.Type {
@@ -1007,12 +930,12 @@ func (o LicenseValidityDateFormatOutput) ToLicenseValidityDateFormatPtrOutputWit
 	}).(LicenseValidityDateFormatPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+// Validity begin date for the license.
 func (o LicenseValidityDateFormatOutput) Begin() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseValidityDateFormat) string { return v.Begin }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+// Validity begin date for the license.
 func (o LicenseValidityDateFormatOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v LicenseValidityDateFormat) string { return v.End }).(pulumi.StringOutput)
 }
@@ -1041,7 +964,7 @@ func (o LicenseValidityDateFormatPtrOutput) Elem() LicenseValidityDateFormatOutp
 	}).(LicenseValidityDateFormatOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-begin
+// Validity begin date for the license.
 func (o LicenseValidityDateFormatPtrOutput) Begin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseValidityDateFormat) *string {
 		if v == nil {
@@ -1051,7 +974,7 @@ func (o LicenseValidityDateFormatPtrOutput) Begin() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-validitydateformat.html#cfn-licensemanager-license-validitydateformat-end
+// Validity begin date for the license.
 func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LicenseValidityDateFormat) *string {
 		if v == nil {

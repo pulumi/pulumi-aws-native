@@ -8,39 +8,40 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
 type GameServerGroup struct {
 	pulumi.CustomResourceState
 
+	// A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
 	AutoScalingGroupArn pulumi.StringOutput `pulumi:"autoScalingGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy GameServerGroupAutoScalingPolicyPtrOutput `pulumi:"autoScalingPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
 	BalancingStrategy pulumi.StringPtrOutput `pulumi:"balancingStrategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
-	DeleteOption       pulumi.StringPtrOutput `pulumi:"deleteOption"`
-	GameServerGroupArn pulumi.StringOutput    `pulumi:"gameServerGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+	// The type of delete to perform.
+	DeleteOption pulumi.StringPtrOutput `pulumi:"deleteOption"`
+	// A generated unique ID for the game server group.
+	GameServerGroupArn pulumi.StringOutput `pulumi:"gameServerGroupArn"`
+	// An identifier for the new game server group.
 	GameServerGroupName pulumi.StringOutput `pulumi:"gameServerGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy pulumi.StringPtrOutput `pulumi:"gameServerProtectionPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayOutput `pulumi:"instanceDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 	LaunchTemplate GameServerGroupLaunchTemplateOutput `pulumi:"launchTemplate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize pulumi.Float64PtrOutput `pulumi:"maxSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	MinSize pulumi.Float64PtrOutput `pulumi:"minSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+	// A list of labels to assign to the new game server group resource.
+	Tags GameServerGroupTagArrayOutput `pulumi:"tags"`
+	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets pulumi.StringArrayOutput `pulumi:"vpcSubnets"`
 }
 
@@ -95,57 +96,57 @@ func (GameServerGroupState) ElementType() reflect.Type {
 }
 
 type gameServerGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy *GameServerGroupAutoScalingPolicy `pulumi:"autoScalingPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
 	BalancingStrategy *string `pulumi:"balancingStrategy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+	// The type of delete to perform.
 	DeleteOption *string `pulumi:"deleteOption"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+	// An identifier for the new game server group.
 	GameServerGroupName string `pulumi:"gameServerGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy *string `pulumi:"gameServerProtectionPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions []GameServerGroupInstanceDefinition `pulumi:"instanceDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 	LaunchTemplate GameServerGroupLaunchTemplate `pulumi:"launchTemplate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize *float64 `pulumi:"maxSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	MinSize *float64 `pulumi:"minSize"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+	// A list of labels to assign to the new game server group resource.
+	Tags []GameServerGroupTag `pulumi:"tags"`
+	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets []string `pulumi:"vpcSubnets"`
 }
 
 // The set of arguments for constructing a GameServerGroup resource.
 type GameServerGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+	// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
 	AutoScalingPolicy GameServerGroupAutoScalingPolicyPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+	// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
 	BalancingStrategy pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+	// The type of delete to perform.
 	DeleteOption pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+	// An identifier for the new game server group.
 	GameServerGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+	// A flag that indicates whether instances in the game server group are protected from early termination.
 	GameServerProtectionPolicy pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+	// A set of EC2 instance types to use when creating instances in the group.
 	InstanceDefinitions GameServerGroupInstanceDefinitionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+	// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
 	LaunchTemplate GameServerGroupLaunchTemplateInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+	// The maximum number of instances allowed in the EC2 Auto Scaling group.
 	MaxSize pulumi.Float64PtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+	// The minimum number of instances allowed in the EC2 Auto Scaling group.
 	MinSize pulumi.Float64PtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
 	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+	// A list of labels to assign to the new game server group resource.
+	Tags GameServerGroupTagArrayInput
+	// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
 	VpcSubnets pulumi.StringArrayInput
 }
 

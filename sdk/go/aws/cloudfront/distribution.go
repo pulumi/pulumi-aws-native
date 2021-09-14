@@ -8,20 +8,16 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
+// Resource Type definition for AWS::CloudFront::Distribution
 type Distribution struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
 	DistributionConfig DistributionDistributionConfigOutput `pulumi:"distributionConfig"`
 	DomainName         pulumi.StringOutput                  `pulumi:"domainName"`
-	Id                 pulumi.StringOutput                  `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags               DistributionTagArrayOutput           `pulumi:"tags"`
 }
 
 // NewDistribution registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +62,14 @@ func (DistributionState) ElementType() reflect.Type {
 }
 
 type distributionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
 	DistributionConfig DistributionDistributionConfig `pulumi:"distributionConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags               []DistributionTag              `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Distribution resource.
 type DistributionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
 	DistributionConfig DistributionDistributionConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
-	Tags aws.TagArrayInput
+	Tags               DistributionTagArrayInput
 }
 
 func (DistributionArgs) ElementType() reflect.Type {

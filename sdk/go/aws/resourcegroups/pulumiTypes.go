@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
 type GroupConfigurationItem struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
 	Parameters []GroupConfigurationParameter `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-	Type *string `pulumi:"type"`
+	Type       *string                       `pulumi:"type"`
 }
 
 // GroupConfigurationItemInput is an input type that accepts GroupConfigurationItemArgs and GroupConfigurationItemOutput values.
@@ -29,12 +26,9 @@ type GroupConfigurationItemInput interface {
 	ToGroupConfigurationItemOutputWithContext(context.Context) GroupConfigurationItemOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
 type GroupConfigurationItemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
 	Parameters GroupConfigurationParameterArrayInput `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Type       pulumi.StringPtrInput                 `pulumi:"type"`
 }
 
 func (GroupConfigurationItemArgs) ElementType() reflect.Type {
@@ -74,7 +68,6 @@ func (i GroupConfigurationItemArray) ToGroupConfigurationItemArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
 type GroupConfigurationItemOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationItemOutput) ElementType() reflect.Type {
@@ -89,12 +82,10 @@ func (o GroupConfigurationItemOutput) ToGroupConfigurationItemOutputWithContext(
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
 func (o GroupConfigurationItemOutput) Parameters() GroupConfigurationParameterArrayOutput {
 	return o.ApplyT(func(v GroupConfigurationItem) []GroupConfigurationParameter { return v.Parameters }).(GroupConfigurationParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
 func (o GroupConfigurationItemOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConfigurationItem) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -119,11 +110,8 @@ func (o GroupConfigurationItemArrayOutput) Index(i pulumi.IntInput) GroupConfigu
 	}).(GroupConfigurationItemOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
 type GroupConfigurationParameter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
+	Name   *string  `pulumi:"name"`
 	Values []string `pulumi:"values"`
 }
 
@@ -138,11 +126,8 @@ type GroupConfigurationParameterInput interface {
 	ToGroupConfigurationParameterOutputWithContext(context.Context) GroupConfigurationParameterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
 type GroupConfigurationParameterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
+	Name   pulumi.StringPtrInput   `pulumi:"name"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -183,7 +168,6 @@ func (i GroupConfigurationParameterArray) ToGroupConfigurationParameterArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GroupConfigurationParameterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html
 type GroupConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (GroupConfigurationParameterOutput) ElementType() reflect.Type {
@@ -198,12 +182,10 @@ func (o GroupConfigurationParameterOutput) ToGroupConfigurationParameterOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-name
 func (o GroupConfigurationParameterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupConfigurationParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationparameter.html#cfn-resourcegroups-group-configurationparameter-values
 func (o GroupConfigurationParameterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupConfigurationParameter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -228,14 +210,10 @@ func (o GroupConfigurationParameterArrayOutput) Index(i pulumi.IntInput) GroupCo
 	}).(GroupConfigurationParameterOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 type GroupQuery struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-	ResourceTypeFilters []string `pulumi:"resourceTypeFilters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-	StackIdentifier *string `pulumi:"stackIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-	TagFilters []GroupTagFilter `pulumi:"tagFilters"`
+	ResourceTypeFilters []string         `pulumi:"resourceTypeFilters"`
+	StackIdentifier     *string          `pulumi:"stackIdentifier"`
+	TagFilters          []GroupTagFilter `pulumi:"tagFilters"`
 }
 
 // GroupQueryInput is an input type that accepts GroupQueryArgs and GroupQueryOutput values.
@@ -249,14 +227,10 @@ type GroupQueryInput interface {
 	ToGroupQueryOutputWithContext(context.Context) GroupQueryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 type GroupQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-	ResourceTypeFilters pulumi.StringArrayInput `pulumi:"resourceTypeFilters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-	StackIdentifier pulumi.StringPtrInput `pulumi:"stackIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-	TagFilters GroupTagFilterArrayInput `pulumi:"tagFilters"`
+	ResourceTypeFilters pulumi.StringArrayInput  `pulumi:"resourceTypeFilters"`
+	StackIdentifier     pulumi.StringPtrInput    `pulumi:"stackIdentifier"`
+	TagFilters          GroupTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
 func (GroupQueryArgs) ElementType() reflect.Type {
@@ -312,7 +286,6 @@ func (i *groupQueryPtrType) ToGroupQueryPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(GroupQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
 type GroupQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupQueryOutput) ElementType() reflect.Type {
@@ -337,17 +310,14 @@ func (o GroupQueryOutput) ToGroupQueryPtrOutputWithContext(ctx context.Context) 
 	}).(GroupQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
 func (o GroupQueryOutput) ResourceTypeFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupQuery) []string { return v.ResourceTypeFilters }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
 func (o GroupQueryOutput) StackIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupQuery) *string { return v.StackIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
 func (o GroupQueryOutput) TagFilters() GroupTagFilterArrayOutput {
 	return o.ApplyT(func(v GroupQuery) []GroupTagFilter { return v.TagFilters }).(GroupTagFilterArrayOutput)
 }
@@ -376,7 +346,6 @@ func (o GroupQueryPtrOutput) Elem() GroupQueryOutput {
 	}).(GroupQueryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
 func (o GroupQueryPtrOutput) ResourceTypeFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupQuery) []string {
 		if v == nil {
@@ -386,7 +355,6 @@ func (o GroupQueryPtrOutput) ResourceTypeFilters() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
 func (o GroupQueryPtrOutput) StackIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupQuery) *string {
 		if v == nil {
@@ -396,7 +364,6 @@ func (o GroupQueryPtrOutput) StackIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
 func (o GroupQueryPtrOutput) TagFilters() GroupTagFilterArrayOutput {
 	return o.ApplyT(func(v *GroupQuery) []GroupTagFilter {
 		if v == nil {
@@ -406,12 +373,9 @@ func (o GroupQueryPtrOutput) TagFilters() GroupTagFilterArrayOutput {
 	}).(GroupTagFilterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
 type GroupResourceQuery struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
 	Query *GroupQuery `pulumi:"query"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-	Type *string `pulumi:"type"`
+	Type  *string     `pulumi:"type"`
 }
 
 // GroupResourceQueryInput is an input type that accepts GroupResourceQueryArgs and GroupResourceQueryOutput values.
@@ -425,12 +389,9 @@ type GroupResourceQueryInput interface {
 	ToGroupResourceQueryOutputWithContext(context.Context) GroupResourceQueryOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
 type GroupResourceQueryArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
-	Query GroupQueryPtrInput `pulumi:"query"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
+	Query GroupQueryPtrInput    `pulumi:"query"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GroupResourceQueryArgs) ElementType() reflect.Type {
@@ -486,7 +447,6 @@ func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html
 type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
@@ -511,12 +471,10 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
 func (o GroupResourceQueryOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *GroupQuery { return v.Query }).(GroupQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
 func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -545,7 +503,6 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 	}).(GroupResourceQueryOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-query
 func (o GroupResourceQueryPtrOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) *GroupQuery {
 		if v == nil {
@@ -555,7 +512,6 @@ func (o GroupResourceQueryPtrOutput) Query() GroupQueryPtrOutput {
 	}).(GroupQueryPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-resourcequery.html#cfn-resourcegroups-group-resourcequery-type
 func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) *string {
 		if v == nil {
@@ -565,11 +521,108 @@ func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
+type GroupTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// GroupTagInput is an input type that accepts GroupTagArgs and GroupTagOutput values.
+// You can construct a concrete instance of `GroupTagInput` via:
+//
+//          GroupTagArgs{...}
+type GroupTagInput interface {
+	pulumi.Input
+
+	ToGroupTagOutput() GroupTagOutput
+	ToGroupTagOutputWithContext(context.Context) GroupTagOutput
+}
+
+type GroupTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupTag)(nil)).Elem()
+}
+
+func (i GroupTagArgs) ToGroupTagOutput() GroupTagOutput {
+	return i.ToGroupTagOutputWithContext(context.Background())
+}
+
+func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
+}
+
+// GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
+// You can construct a concrete instance of `GroupTagArrayInput` via:
+//
+//          GroupTagArray{ GroupTagArgs{...} }
+type GroupTagArrayInput interface {
+	pulumi.Input
+
+	ToGroupTagArrayOutput() GroupTagArrayOutput
+	ToGroupTagArrayOutputWithContext(context.Context) GroupTagArrayOutput
+}
+
+type GroupTagArray []GroupTagInput
+
+func (GroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
+}
+
+func (i GroupTagArray) ToGroupTagArrayOutput() GroupTagArrayOutput {
+	return i.ToGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
+}
+
+type GroupTagOutput struct{ *pulumi.OutputState }
+
+func (GroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupTag)(nil)).Elem()
+}
+
+func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
+	return o
+}
+
+func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
+	return o
+}
+
+func (o GroupTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GroupTag)(nil)).Elem()
+}
+
+func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
+	return o
+}
+
+func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
+	return o
+}
+
+func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupTag {
+		return vs[0].([]GroupTag)[vs[1].(int)]
+	}).(GroupTagOutput)
+}
+
 type GroupTagFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
+	Key    *string  `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -584,11 +637,8 @@ type GroupTagFilterInput interface {
 	ToGroupTagFilterOutputWithContext(context.Context) GroupTagFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
 type GroupTagFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
+	Key    pulumi.StringPtrInput   `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -629,7 +679,6 @@ func (i GroupTagFilterArray) ToGroupTagFilterArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagFilterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html
 type GroupTagFilterOutput struct{ *pulumi.OutputState }
 
 func (GroupTagFilterOutput) ElementType() reflect.Type {
@@ -644,12 +693,10 @@ func (o GroupTagFilterOutput) ToGroupTagFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-key
 func (o GroupTagFilterOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupTagFilter) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-tagfilter.html#cfn-resourcegroups-group-tagfilter-values
 func (o GroupTagFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GroupTagFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -683,6 +730,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupQueryPtrOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryPtrOutput{})
+	pulumi.RegisterOutputType(GroupTagOutput{})
+	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GroupTagFilterOutput{})
 	pulumi.RegisterOutputType(GroupTagFilterArrayOutput{})
 }

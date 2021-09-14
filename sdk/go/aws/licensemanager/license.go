@@ -11,34 +11,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
+// Resource Type definition for AWS::LicenseManager::License
 type License struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-	Beneficiary pulumi.StringPtrOutput `pulumi:"beneficiary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
+	// Beneficiary of the license.
+	Beneficiary              pulumi.StringPtrOutput                `pulumi:"beneficiary"`
 	ConsumptionConfiguration LicenseConsumptionConfigurationOutput `pulumi:"consumptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-	Entitlements LicenseEntitlementArrayOutput `pulumi:"entitlements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
+	Entitlements             LicenseEntitlementArrayOutput         `pulumi:"entitlements"`
+	// Home region for the created license.
+	HomeRegion pulumi.StringOutput     `pulumi:"homeRegion"`
 	Issuer     LicenseIssuerDataOutput `pulumi:"issuer"`
-	LicenseArn pulumi.StringOutput     `pulumi:"licenseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+	// Amazon Resource Name is a unique name for each resource.
+	LicenseArn      pulumi.StringOutput        `pulumi:"licenseArn"`
 	LicenseMetadata LicenseMetadataArrayOutput `pulumi:"licenseMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+	// Name for the created license.
 	LicenseName pulumi.StringOutput `pulumi:"licenseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+	// Product name for the created license.
 	ProductName pulumi.StringOutput `pulumi:"productName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-	ProductSKU pulumi.StringPtrOutput `pulumi:"productSKU"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-	Validity LicenseValidityDateFormatOutput `pulumi:"validity"`
-	Version  pulumi.StringOutput             `pulumi:"version"`
+	// ProductSKU of the license.
+	ProductSKU pulumi.StringPtrOutput          `pulumi:"productSKU"`
+	Status     pulumi.StringPtrOutput          `pulumi:"status"`
+	Validity   LicenseValidityDateFormatOutput `pulumi:"validity"`
+	// The version of the license.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewLicense registers a new resource with the given unique name, arguments, and options.
@@ -101,54 +97,42 @@ func (LicenseState) ElementType() reflect.Type {
 }
 
 type licenseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-	Beneficiary *string `pulumi:"beneficiary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
+	// Beneficiary of the license.
+	Beneficiary              *string                         `pulumi:"beneficiary"`
 	ConsumptionConfiguration LicenseConsumptionConfiguration `pulumi:"consumptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-	Entitlements []LicenseEntitlement `pulumi:"entitlements"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-	HomeRegion string `pulumi:"homeRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-	Issuer LicenseIssuerData `pulumi:"issuer"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+	Entitlements             []LicenseEntitlement            `pulumi:"entitlements"`
+	// Home region for the created license.
+	HomeRegion      string            `pulumi:"homeRegion"`
+	Issuer          LicenseIssuerData `pulumi:"issuer"`
 	LicenseMetadata []LicenseMetadata `pulumi:"licenseMetadata"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+	// Name for the created license.
 	LicenseName string `pulumi:"licenseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+	// Product name for the created license.
 	ProductName string `pulumi:"productName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
-	ProductSKU *string `pulumi:"productSKU"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-	Status *string `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-	Validity LicenseValidityDateFormat `pulumi:"validity"`
+	// ProductSKU of the license.
+	ProductSKU *string                   `pulumi:"productSKU"`
+	Status     *string                   `pulumi:"status"`
+	Validity   LicenseValidityDateFormat `pulumi:"validity"`
 }
 
 // The set of arguments for constructing a License resource.
 type LicenseArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
-	Beneficiary pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
+	// Beneficiary of the license.
+	Beneficiary              pulumi.StringPtrInput
 	ConsumptionConfiguration LicenseConsumptionConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-	Entitlements LicenseEntitlementArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
-	HomeRegion pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-	Issuer LicenseIssuerDataInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
+	Entitlements             LicenseEntitlementArrayInput
+	// Home region for the created license.
+	HomeRegion      pulumi.StringInput
+	Issuer          LicenseIssuerDataInput
 	LicenseMetadata LicenseMetadataArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+	// Name for the created license.
 	LicenseName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+	// Product name for the created license.
 	ProductName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+	// ProductSKU of the license.
 	ProductSKU pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-	Status pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-	Validity LicenseValidityDateFormatInput
+	Status     pulumi.StringPtrInput
+	Validity   LicenseValidityDateFormatInput
 }
 
 func (LicenseArgs) ElementType() reflect.Type {

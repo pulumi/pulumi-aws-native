@@ -11,15 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type RobotApplicationVersion struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
 	Application        pulumi.StringOutput `pulumi:"application"`
 	ApplicationVersion pulumi.StringOutput `pulumi:"applicationVersion"`
 	Arn                pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
 }
 
@@ -65,17 +64,15 @@ func (RobotApplicationVersionState) ElementType() reflect.Type {
 }
 
 type robotApplicationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
 	Application string `pulumi:"application"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
 }
 
 // The set of arguments for constructing a RobotApplicationVersion resource.
 type RobotApplicationVersionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
 	Application pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+	// The revision ID of robot application.
 	CurrentRevisionId pulumi.StringPtrInput
 }
 

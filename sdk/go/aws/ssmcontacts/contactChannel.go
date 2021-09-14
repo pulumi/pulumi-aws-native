@@ -7,24 +7,24 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html
+// Resource Type definition for AWS::SSMContacts::ContactChannel
 type ContactChannel struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the engagement to a contact channel.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-	ChannelAddress pulumi.StringOutput `pulumi:"channelAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-	ChannelName pulumi.StringOutput `pulumi:"channelName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-	ChannelType pulumi.StringOutput `pulumi:"channelType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-	ContactId pulumi.StringOutput `pulumi:"contactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+	// The details that SSM Incident Manager uses when trying to engage the contact channel.
+	ChannelAddress pulumi.StringPtrOutput `pulumi:"channelAddress"`
+	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+	ChannelName pulumi.StringPtrOutput `pulumi:"channelName"`
+	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	ChannelType pulumi.StringPtrOutput `pulumi:"channelType"`
+	// ARN of the contact resource
+	ContactId pulumi.StringPtrOutput `pulumi:"contactId"`
+	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
 	DeferActivation pulumi.BoolPtrOutput `pulumi:"deferActivation"`
 }
 
@@ -32,21 +32,9 @@ type ContactChannel struct {
 func NewContactChannel(ctx *pulumi.Context,
 	name string, args *ContactChannelArgs, opts ...pulumi.ResourceOption) (*ContactChannel, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ContactChannelArgs{}
 	}
 
-	if args.ChannelAddress == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelAddress'")
-	}
-	if args.ChannelName == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelName'")
-	}
-	if args.ChannelType == nil {
-		return nil, errors.New("invalid value for required argument 'ChannelType'")
-	}
-	if args.ContactId == nil {
-		return nil, errors.New("invalid value for required argument 'ContactId'")
-	}
 	var resource ContactChannel
 	err := ctx.RegisterResource("aws-native:ssmcontacts:ContactChannel", name, args, &resource, opts...)
 	if err != nil {
@@ -79,29 +67,29 @@ func (ContactChannelState) ElementType() reflect.Type {
 }
 
 type contactChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-	ChannelAddress string `pulumi:"channelAddress"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-	ChannelName string `pulumi:"channelName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-	ChannelType string `pulumi:"channelType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-	ContactId string `pulumi:"contactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+	// The details that SSM Incident Manager uses when trying to engage the contact channel.
+	ChannelAddress *string `pulumi:"channelAddress"`
+	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+	ChannelName *string `pulumi:"channelName"`
+	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	ChannelType *string `pulumi:"channelType"`
+	// ARN of the contact resource
+	ContactId *string `pulumi:"contactId"`
+	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
 	DeferActivation *bool `pulumi:"deferActivation"`
 }
 
 // The set of arguments for constructing a ContactChannel resource.
 type ContactChannelArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeladdress
-	ChannelAddress pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channelname
-	ChannelName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-channeltype
-	ChannelType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-contactid
-	ContactId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contactchannel.html#cfn-ssmcontacts-contactchannel-deferactivation
+	// The details that SSM Incident Manager uses when trying to engage the contact channel.
+	ChannelAddress pulumi.StringPtrInput
+	// The device name. String of 6 to 50 alphabetical, numeric, dash, and underscore characters.
+	ChannelName pulumi.StringPtrInput
+	// Device type, which specify notification channel. Currently supported values: “SMS”, “VOICE”, “EMAIL”, “CHATBOT.
+	ChannelType pulumi.StringPtrInput
+	// ARN of the contact resource
+	ContactId pulumi.StringPtrInput
+	// If you want to activate the channel at a later time, you can choose to defer activation. SSM Incident Manager can't engage your contact channel until it has been activated.
 	DeferActivation pulumi.BoolPtrInput
 }
 

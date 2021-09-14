@@ -7,16 +7,14 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
+// Resource Type definition for AWS::EC2::InternetGateway
 type InternetGateway struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags InternetGatewayTagArrayOutput `pulumi:"tags"`
 }
 
 // NewInternetGateway registers a new resource with the given unique name, arguments, and options.
@@ -58,14 +56,12 @@ func (InternetGatewayState) ElementType() reflect.Type {
 }
 
 type internetGatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags []InternetGatewayTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a InternetGateway resource.
 type InternetGatewayArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
-	Tags aws.TagArrayInput
+	Tags InternetGatewayTagArrayInput
 }
 
 func (InternetGatewayArgs) ElementType() reflect.Type {

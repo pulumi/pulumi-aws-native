@@ -7,20 +7,19 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html
+// The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
 type GlobalNetwork struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the global network.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+	// The description of the global network.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	Id          pulumi.StringOutput    `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags for the global network.
+	Tags GlobalNetworkTagArrayOutput `pulumi:"tags"`
 }
 
 // NewGlobalNetwork registers a new resource with the given unique name, arguments, and options.
@@ -62,18 +61,18 @@ func (GlobalNetworkState) ElementType() reflect.Type {
 }
 
 type globalNetworkArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+	// The description of the global network.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags for the global network.
+	Tags []GlobalNetworkTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a GlobalNetwork resource.
 type GlobalNetworkArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-description
+	// The description of the global network.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html#cfn-networkmanager-globalnetwork-tags
-	Tags aws.TagArrayInput
+	// The tags for the global network.
+	Tags GlobalNetworkTagArrayInput
 }
 
 func (GlobalNetworkArgs) ElementType() reflect.Type {

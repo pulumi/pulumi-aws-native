@@ -8,22 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html
+// Resource Type definition for AWS::IVS::PlaybackKeyPair
 type PlaybackKeyPair struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput `pulumi:"arn"`
+	// Key-pair identifier.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Key-pair identifier.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial pulumi.StringOutput `pulumi:"publicKeyMaterial"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags PlaybackKeyPairTagArrayOutput `pulumi:"tags"`
 }
 
 // NewPlaybackKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -68,22 +69,22 @@ func (PlaybackKeyPairState) ElementType() reflect.Type {
 }
 
 type playbackKeyPairArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial string `pulumi:"publicKeyMaterial"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags []PlaybackKeyPairTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaybackKeyPair resource.
 type PlaybackKeyPairArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-name
+	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource. The value does not need to be unique.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-publickeymaterial
+	// The public portion of a customer-generated key pair.
 	PublicKeyMaterial pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html#cfn-ivs-playbackkeypair-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags PlaybackKeyPairTagArrayInput
 }
 
 func (PlaybackKeyPairArgs) ElementType() reflect.Type {

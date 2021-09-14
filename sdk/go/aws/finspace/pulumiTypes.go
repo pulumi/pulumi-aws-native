@@ -10,19 +10,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+// Additional parameters to identify Federation mode
 type EnvironmentFederationParameters struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+	// SAML metadata URL to link with the Environment
 	ApplicationCallBackURL *string `pulumi:"applicationCallBackURL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+	// Attribute map for SAML configuration
 	AttributeMap interface{} `pulumi:"attributeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+	// Federation provider name to link with the Environment
 	FederationProviderName *string `pulumi:"federationProviderName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+	// SAML metadata URL to link with the Environment
 	FederationURN *string `pulumi:"federationURN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+	// SAML metadata document to link the federation provider to the Environment
 	SamlMetadataDocument *string `pulumi:"samlMetadataDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+	// SAML metadata URL to link with the Environment
 	SamlMetadataURL *string `pulumi:"samlMetadataURL"`
 }
 
@@ -37,19 +37,19 @@ type EnvironmentFederationParametersInput interface {
 	ToEnvironmentFederationParametersOutputWithContext(context.Context) EnvironmentFederationParametersOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+// Additional parameters to identify Federation mode
 type EnvironmentFederationParametersArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+	// SAML metadata URL to link with the Environment
 	ApplicationCallBackURL pulumi.StringPtrInput `pulumi:"applicationCallBackURL"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+	// Attribute map for SAML configuration
 	AttributeMap pulumi.Input `pulumi:"attributeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+	// Federation provider name to link with the Environment
 	FederationProviderName pulumi.StringPtrInput `pulumi:"federationProviderName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+	// SAML metadata URL to link with the Environment
 	FederationURN pulumi.StringPtrInput `pulumi:"federationURN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+	// SAML metadata document to link the federation provider to the Environment
 	SamlMetadataDocument pulumi.StringPtrInput `pulumi:"samlMetadataDocument"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+	// SAML metadata URL to link with the Environment
 	SamlMetadataURL pulumi.StringPtrInput `pulumi:"samlMetadataURL"`
 }
 
@@ -106,7 +106,7 @@ func (i *environmentFederationParametersPtrType) ToEnvironmentFederationParamete
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentFederationParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+// Additional parameters to identify Federation mode
 type EnvironmentFederationParametersOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentFederationParametersOutput) ElementType() reflect.Type {
@@ -131,32 +131,32 @@ func (o EnvironmentFederationParametersOutput) ToEnvironmentFederationParameters
 	}).(EnvironmentFederationParametersPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersOutput) ApplicationCallBackURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.ApplicationCallBackURL }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+// Attribute map for SAML configuration
 func (o EnvironmentFederationParametersOutput) AttributeMap() pulumi.AnyOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) interface{} { return v.AttributeMap }).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+// Federation provider name to link with the Environment
 func (o EnvironmentFederationParametersOutput) FederationProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.FederationProviderName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersOutput) FederationURN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.FederationURN }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+// SAML metadata document to link the federation provider to the Environment
 func (o EnvironmentFederationParametersOutput) SamlMetadataDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.SamlMetadataDocument }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersOutput) SamlMetadataURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentFederationParameters) *string { return v.SamlMetadataURL }).(pulumi.StringPtrOutput)
 }
@@ -185,7 +185,7 @@ func (o EnvironmentFederationParametersPtrOutput) Elem() EnvironmentFederationPa
 	}).(EnvironmentFederationParametersOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersPtrOutput) ApplicationCallBackURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
@@ -195,7 +195,7 @@ func (o EnvironmentFederationParametersPtrOutput) ApplicationCallBackURL() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+// Attribute map for SAML configuration
 func (o EnvironmentFederationParametersPtrOutput) AttributeMap() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) interface{} {
 		if v == nil {
@@ -205,7 +205,7 @@ func (o EnvironmentFederationParametersPtrOutput) AttributeMap() pulumi.AnyOutpu
 	}).(pulumi.AnyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+// Federation provider name to link with the Environment
 func (o EnvironmentFederationParametersPtrOutput) FederationProviderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
@@ -215,7 +215,7 @@ func (o EnvironmentFederationParametersPtrOutput) FederationProviderName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersPtrOutput) FederationURN() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
@@ -225,7 +225,7 @@ func (o EnvironmentFederationParametersPtrOutput) FederationURN() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+// SAML metadata document to link the federation provider to the Environment
 func (o EnvironmentFederationParametersPtrOutput) SamlMetadataDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {
@@ -235,7 +235,7 @@ func (o EnvironmentFederationParametersPtrOutput) SamlMetadataDocument() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+// SAML metadata URL to link with the Environment
 func (o EnvironmentFederationParametersPtrOutput) SamlMetadataURL() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentFederationParameters) *string {
 		if v == nil {

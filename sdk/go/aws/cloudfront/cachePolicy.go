@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html
+// Resource Type definition for AWS::CloudFront::CachePolicy
 type CachePolicy struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
 	CachePolicyConfig CachePolicyCachePolicyConfigOutput `pulumi:"cachePolicyConfig"`
-	Id                pulumi.StringOutput                `pulumi:"id"`
 	LastModifiedTime  pulumi.StringOutput                `pulumi:"lastModifiedTime"`
 }
 
@@ -63,13 +61,11 @@ func (CachePolicyState) ElementType() reflect.Type {
 }
 
 type cachePolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
 	CachePolicyConfig CachePolicyCachePolicyConfig `pulumi:"cachePolicyConfig"`
 }
 
 // The set of arguments for constructing a CachePolicy resource.
 type CachePolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cachepolicy.html#cfn-cloudfront-cachepolicy-cachepolicyconfig
 	CachePolicyConfig CachePolicyCachePolicyConfigInput
 }
 

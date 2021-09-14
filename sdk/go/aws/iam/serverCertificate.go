@@ -7,27 +7,21 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html
+// Resource Type definition for AWS::IAM::ServerCertificate
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatebody
-	CertificateBody pulumi.StringPtrOutput `pulumi:"certificateBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatechain
-	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-path
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-privatekey
-	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-servercertificatename
-	ServerCertificateName pulumi.StringPtrOutput `pulumi:"serverCertificateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Amazon Resource Name (ARN) of the server certificate
+	Arn                   pulumi.StringOutput             `pulumi:"arn"`
+	CertificateBody       pulumi.StringPtrOutput          `pulumi:"certificateBody"`
+	CertificateChain      pulumi.StringPtrOutput          `pulumi:"certificateChain"`
+	Path                  pulumi.StringPtrOutput          `pulumi:"path"`
+	PrivateKey            pulumi.StringPtrOutput          `pulumi:"privateKey"`
+	ServerCertificateName pulumi.StringPtrOutput          `pulumi:"serverCertificateName"`
+	Tags                  ServerCertificateTagArrayOutput `pulumi:"tags"`
 }
 
 // NewServerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -69,34 +63,22 @@ func (ServerCertificateState) ElementType() reflect.Type {
 }
 
 type serverCertificateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatebody
-	CertificateBody *string `pulumi:"certificateBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatechain
-	CertificateChain *string `pulumi:"certificateChain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-path
-	Path *string `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-privatekey
-	PrivateKey *string `pulumi:"privateKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-servercertificatename
-	ServerCertificateName *string `pulumi:"serverCertificateName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	CertificateBody       *string                `pulumi:"certificateBody"`
+	CertificateChain      *string                `pulumi:"certificateChain"`
+	Path                  *string                `pulumi:"path"`
+	PrivateKey            *string                `pulumi:"privateKey"`
+	ServerCertificateName *string                `pulumi:"serverCertificateName"`
+	Tags                  []ServerCertificateTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServerCertificate resource.
 type ServerCertificateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatebody
-	CertificateBody pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatechain
-	CertificateChain pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-path
-	Path pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-privatekey
-	PrivateKey pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-servercertificatename
+	CertificateBody       pulumi.StringPtrInput
+	CertificateChain      pulumi.StringPtrInput
+	Path                  pulumi.StringPtrInput
+	PrivateKey            pulumi.StringPtrInput
 	ServerCertificateName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-tags
-	Tags aws.TagArrayInput
+	Tags                  ServerCertificateTagArrayInput
 }
 
 func (ServerCertificateArgs) ElementType() reflect.Type {

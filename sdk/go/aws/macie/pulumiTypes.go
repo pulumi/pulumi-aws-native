@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
+// Map of filter criteria.
 type FindingsFilterCriterion struct {
 }
 
@@ -25,7 +25,7 @@ type FindingsFilterCriterionInput interface {
 	ToFindingsFilterCriterionOutputWithContext(context.Context) FindingsFilterCriterionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
+// Map of filter criteria.
 type FindingsFilterCriterionArgs struct {
 }
 
@@ -82,7 +82,7 @@ func (i *findingsFilterCriterionPtrType) ToFindingsFilterCriterionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterCriterionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterion.html
+// Map of filter criteria.
 type FindingsFilterCriterionOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterCriterionOutput) ElementType() reflect.Type {
@@ -131,9 +131,7 @@ func (o FindingsFilterCriterionPtrOutput) Elem() FindingsFilterCriterionOutput {
 	}).(FindingsFilterCriterionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
 type FindingsFilterFindingCriteria struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
 	Criterion *FindingsFilterCriterion `pulumi:"criterion"`
 }
 
@@ -148,9 +146,7 @@ type FindingsFilterFindingCriteriaInput interface {
 	ToFindingsFilterFindingCriteriaOutputWithContext(context.Context) FindingsFilterFindingCriteriaOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
 type FindingsFilterFindingCriteriaArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
 	Criterion FindingsFilterCriterionPtrInput `pulumi:"criterion"`
 }
 
@@ -207,7 +203,6 @@ func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPt
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -232,7 +227,6 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrO
 	}).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
 func (o FindingsFilterFindingCriteriaOutput) Criterion() FindingsFilterCriterionPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) *FindingsFilterCriterion { return v.Criterion }).(FindingsFilterCriterionPtrOutput)
 }
@@ -261,7 +255,6 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCrit
 	}).(FindingsFilterFindingCriteriaOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
 func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriterionPtrOutput {
 	return o.ApplyT(func(v *FindingsFilterFindingCriteria) *FindingsFilterCriterion {
 		if v == nil {
@@ -271,11 +264,9 @@ func (o FindingsFilterFindingCriteriaPtrOutput) Criterion() FindingsFilterCriter
 	}).(FindingsFilterCriterionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+// Returned by ListHandler representing filter name and ID.
 type FindingsFilterFindingsFilterListItem struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
-	Id *string `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
+	Id   *string `pulumi:"id"`
 	Name *string `pulumi:"name"`
 }
 
@@ -290,11 +281,9 @@ type FindingsFilterFindingsFilterListItemInput interface {
 	ToFindingsFilterFindingsFilterListItemOutputWithContext(context.Context) FindingsFilterFindingsFilterListItemOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+// Returned by ListHandler representing filter name and ID.
 type FindingsFilterFindingsFilterListItemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
+	Id   pulumi.StringPtrInput `pulumi:"id"`
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -335,7 +324,7 @@ func (i FindingsFilterFindingsFilterListItemArray) ToFindingsFilterFindingsFilte
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingsFilterListItemArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+// Returned by ListHandler representing filter name and ID.
 type FindingsFilterFindingsFilterListItemOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingsFilterListItemOutput) ElementType() reflect.Type {
@@ -350,12 +339,10 @@ func (o FindingsFilterFindingsFilterListItemOutput) ToFindingsFilterFindingsFilt
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
 func (o FindingsFilterFindingsFilterListItemOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingsFilterListItem) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
 func (o FindingsFilterFindingsFilterListItemOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FindingsFilterFindingsFilterListItem) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

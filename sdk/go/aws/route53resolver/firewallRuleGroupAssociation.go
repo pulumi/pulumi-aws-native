@@ -8,33 +8,38 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
+// Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
 type FirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput `pulumi:"arn"`
-	CreationTime     pulumi.StringOutput `pulumi:"creationTime"`
+	// Arn
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Rfc3339TimeString
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The id of the creator request.
 	CreatorRequestId pulumi.StringOutput `pulumi:"creatorRequestId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+	// FirewallRuleGroupId
 	FirewallRuleGroupId pulumi.StringOutput `pulumi:"firewallRuleGroupId"`
-	Id                  pulumi.StringOutput `pulumi:"id"`
-	ManagedOwnerName    pulumi.StringOutput `pulumi:"managedOwnerName"`
-	ModificationTime    pulumi.StringOutput `pulumi:"modificationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+	// ServicePrincipal
+	ManagedOwnerName pulumi.StringOutput `pulumi:"managedOwnerName"`
+	// Rfc3339TimeString
+	ModificationTime pulumi.StringOutput `pulumi:"modificationTime"`
+	// MutationProtectionStatus
 	MutationProtection pulumi.StringPtrOutput `pulumi:"mutationProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+	// FirewallRuleGroupAssociationName
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
-	Priority      pulumi.IntOutput    `pulumi:"priority"`
-	Status        pulumi.StringOutput `pulumi:"status"`
+	// Priority
+	Priority pulumi.IntOutput `pulumi:"priority"`
+	// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+	Status pulumi.StringOutput `pulumi:"status"`
+	// FirewallDomainListAssociationStatus
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+	// Tags
+	Tags FirewallRuleGroupAssociationTagArrayOutput `pulumi:"tags"`
+	// VpcId
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -86,33 +91,33 @@ func (FirewallRuleGroupAssociationState) ElementType() reflect.Type {
 }
 
 type firewallRuleGroupAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+	// FirewallRuleGroupId
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+	// MutationProtectionStatus
 	MutationProtection *string `pulumi:"mutationProtection"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+	// FirewallRuleGroupAssociationName
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+	// Priority
 	Priority int `pulumi:"priority"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+	// Tags
+	Tags []FirewallRuleGroupAssociationTag `pulumi:"tags"`
+	// VpcId
 	VpcId string `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a FirewallRuleGroupAssociation resource.
 type FirewallRuleGroupAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+	// FirewallRuleGroupId
 	FirewallRuleGroupId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+	// MutationProtectionStatus
 	MutationProtection pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+	// FirewallRuleGroupAssociationName
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+	// Priority
 	Priority pulumi.IntInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+	// Tags
+	Tags FirewallRuleGroupAssociationTagArrayInput
+	// VpcId
 	VpcId pulumi.StringInput
 }
 

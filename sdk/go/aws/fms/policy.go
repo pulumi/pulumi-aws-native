@@ -11,34 +11,22 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
+// Creates an AWS Firewall Manager policy.
 type Policy struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-	DeleteAllPolicyResources pulumi.BoolPtrOutput `pulumi:"deleteAllPolicyResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-	ExcludeMap PolicyIEMapPtrOutput `pulumi:"excludeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-	ExcludeResourceTags pulumi.BoolOutput   `pulumi:"excludeResourceTags"`
-	Id                  pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-	IncludeMap PolicyIEMapPtrOutput `pulumi:"includeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-	PolicyName pulumi.StringOutput `pulumi:"policyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-	RemediationEnabled pulumi.BoolOutput `pulumi:"remediationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-	ResourceTags PolicyResourceTagArrayOutput `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-	ResourceTypeList pulumi.StringArrayOutput `pulumi:"resourceTypeList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-	SecurityServicePolicyData pulumi.AnyOutput `pulumi:"securityServicePolicyData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-	Tags PolicyPolicyTagArrayOutput `pulumi:"tags"`
+	Arn                       pulumi.StringOutput          `pulumi:"arn"`
+	DeleteAllPolicyResources  pulumi.BoolPtrOutput         `pulumi:"deleteAllPolicyResources"`
+	ExcludeMap                PolicyIEMapPtrOutput         `pulumi:"excludeMap"`
+	ExcludeResourceTags       pulumi.BoolOutput            `pulumi:"excludeResourceTags"`
+	IncludeMap                PolicyIEMapPtrOutput         `pulumi:"includeMap"`
+	PolicyName                pulumi.StringOutput          `pulumi:"policyName"`
+	RemediationEnabled        pulumi.BoolOutput            `pulumi:"remediationEnabled"`
+	ResourceTags              PolicyResourceTagArrayOutput `pulumi:"resourceTags"`
+	ResourceType              pulumi.StringOutput          `pulumi:"resourceType"`
+	ResourceTypeList          pulumi.StringArrayOutput     `pulumi:"resourceTypeList"`
+	SecurityServicePolicyData pulumi.AnyOutput             `pulumi:"securityServicePolicyData"`
+	Tags                      PolicyPolicyTagArrayOutput   `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -95,54 +83,32 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-	DeleteAllPolicyResources *bool `pulumi:"deleteAllPolicyResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-	ExcludeMap *PolicyIEMap `pulumi:"excludeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-	ExcludeResourceTags bool `pulumi:"excludeResourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-	IncludeMap *PolicyIEMap `pulumi:"includeMap"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-	PolicyName string `pulumi:"policyName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-	RemediationEnabled bool `pulumi:"remediationEnabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-	ResourceTags []PolicyResourceTag `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-	ResourceType string `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-	ResourceTypeList []string `pulumi:"resourceTypeList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-	SecurityServicePolicyData interface{} `pulumi:"securityServicePolicyData"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-	Tags []PolicyPolicyTag `pulumi:"tags"`
+	DeleteAllPolicyResources  *bool               `pulumi:"deleteAllPolicyResources"`
+	ExcludeMap                *PolicyIEMap        `pulumi:"excludeMap"`
+	ExcludeResourceTags       bool                `pulumi:"excludeResourceTags"`
+	IncludeMap                *PolicyIEMap        `pulumi:"includeMap"`
+	PolicyName                string              `pulumi:"policyName"`
+	RemediationEnabled        bool                `pulumi:"remediationEnabled"`
+	ResourceTags              []PolicyResourceTag `pulumi:"resourceTags"`
+	ResourceType              string              `pulumi:"resourceType"`
+	ResourceTypeList          []string            `pulumi:"resourceTypeList"`
+	SecurityServicePolicyData interface{}         `pulumi:"securityServicePolicyData"`
+	Tags                      []PolicyPolicyTag   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-	DeleteAllPolicyResources pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-	ExcludeMap PolicyIEMapPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-	ExcludeResourceTags pulumi.BoolInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-	IncludeMap PolicyIEMapPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-	PolicyName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-	RemediationEnabled pulumi.BoolInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-	ResourceTags PolicyResourceTagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-	ResourceType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-	ResourceTypeList pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
+	DeleteAllPolicyResources  pulumi.BoolPtrInput
+	ExcludeMap                PolicyIEMapPtrInput
+	ExcludeResourceTags       pulumi.BoolInput
+	IncludeMap                PolicyIEMapPtrInput
+	PolicyName                pulumi.StringInput
+	RemediationEnabled        pulumi.BoolInput
+	ResourceTags              PolicyResourceTagArrayInput
+	ResourceType              pulumi.StringInput
+	ResourceTypeList          pulumi.StringArrayInput
 	SecurityServicePolicyData pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-	Tags PolicyPolicyTagArrayInput
+	Tags                      PolicyPolicyTagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

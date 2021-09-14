@@ -10,55 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
-type ExperimentTemplateExperimentTemplateAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-	ActionId string `pulumi:"actionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-	Parameters map[string]string `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-	StartAfter []string `pulumi:"startAfter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-	Targets map[string]string `pulumi:"targets"`
-}
-
-// ExperimentTemplateExperimentTemplateActionInput is an input type that accepts ExperimentTemplateExperimentTemplateActionArgs and ExperimentTemplateExperimentTemplateActionOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateActionInput` via:
-//
-//          ExperimentTemplateExperimentTemplateActionArgs{...}
-type ExperimentTemplateExperimentTemplateActionInput interface {
-	pulumi.Input
-
-	ToExperimentTemplateExperimentTemplateActionOutput() ExperimentTemplateExperimentTemplateActionOutput
-	ToExperimentTemplateExperimentTemplateActionOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateActionOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
-type ExperimentTemplateExperimentTemplateActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-	ActionId pulumi.StringInput `pulumi:"actionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-	StartAfter pulumi.StringArrayInput `pulumi:"startAfter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-	Targets pulumi.StringMapInput `pulumi:"targets"`
-}
-
-func (ExperimentTemplateExperimentTemplateActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateAction)(nil)).Elem()
-}
-
-func (i ExperimentTemplateExperimentTemplateActionArgs) ToExperimentTemplateExperimentTemplateActionOutput() ExperimentTemplateExperimentTemplateActionOutput {
-	return i.ToExperimentTemplateExperimentTemplateActionOutputWithContext(context.Background())
-}
-
-func (i ExperimentTemplateExperimentTemplateActionArgs) ToExperimentTemplateExperimentTemplateActionOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateActionOutput)
+// The actions for the experiment.
+type ExperimentTemplateExperimentTemplateActionMap struct {
 }
 
 // ExperimentTemplateExperimentTemplateActionMapInput is an input type that accepts ExperimentTemplateExperimentTemplateActionMap and ExperimentTemplateExperimentTemplateActionMapOutput values.
@@ -72,64 +25,68 @@ type ExperimentTemplateExperimentTemplateActionMapInput interface {
 	ToExperimentTemplateExperimentTemplateActionMapOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateActionMapOutput
 }
 
-type ExperimentTemplateExperimentTemplateActionMap map[string]ExperimentTemplateExperimentTemplateActionInput
-
-func (ExperimentTemplateExperimentTemplateActionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExperimentTemplateExperimentTemplateAction)(nil)).Elem()
+// The actions for the experiment.
+type ExperimentTemplateExperimentTemplateActionMapArgs struct {
 }
 
-func (i ExperimentTemplateExperimentTemplateActionMap) ToExperimentTemplateExperimentTemplateActionMapOutput() ExperimentTemplateExperimentTemplateActionMapOutput {
+func (ExperimentTemplateExperimentTemplateActionMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateActionMap)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentTemplateActionMapArgs) ToExperimentTemplateExperimentTemplateActionMapOutput() ExperimentTemplateExperimentTemplateActionMapOutput {
 	return i.ToExperimentTemplateExperimentTemplateActionMapOutputWithContext(context.Background())
 }
 
-func (i ExperimentTemplateExperimentTemplateActionMap) ToExperimentTemplateExperimentTemplateActionMapOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapOutput {
+func (i ExperimentTemplateExperimentTemplateActionMapArgs) ToExperimentTemplateExperimentTemplateActionMapOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateActionMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html
-type ExperimentTemplateExperimentTemplateActionOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateExperimentTemplateActionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateAction)(nil)).Elem()
+func (i ExperimentTemplateExperimentTemplateActionMapArgs) ToExperimentTemplateExperimentTemplateActionMapPtrOutput() ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return i.ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(context.Background())
 }
 
-func (o ExperimentTemplateExperimentTemplateActionOutput) ToExperimentTemplateExperimentTemplateActionOutput() ExperimentTemplateExperimentTemplateActionOutput {
-	return o
+func (i ExperimentTemplateExperimentTemplateActionMapArgs) ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateActionMapOutput).ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(ctx)
 }
 
-func (o ExperimentTemplateExperimentTemplateActionOutput) ToExperimentTemplateExperimentTemplateActionOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionOutput {
-	return o
+// ExperimentTemplateExperimentTemplateActionMapPtrInput is an input type that accepts ExperimentTemplateExperimentTemplateActionMapArgs, ExperimentTemplateExperimentTemplateActionMapPtr and ExperimentTemplateExperimentTemplateActionMapPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateActionMapPtrInput` via:
+//
+//          ExperimentTemplateExperimentTemplateActionMapArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperimentTemplateExperimentTemplateActionMapPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentTemplateActionMapPtrOutput() ExperimentTemplateExperimentTemplateActionMapPtrOutput
+	ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateActionMapPtrOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-actionid
-func (o ExperimentTemplateExperimentTemplateActionOutput) ActionId() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateAction) string { return v.ActionId }).(pulumi.StringOutput)
+type experimentTemplateExperimentTemplateActionMapPtrType ExperimentTemplateExperimentTemplateActionMapArgs
+
+func ExperimentTemplateExperimentTemplateActionMapPtr(v *ExperimentTemplateExperimentTemplateActionMapArgs) ExperimentTemplateExperimentTemplateActionMapPtrInput {
+	return (*experimentTemplateExperimentTemplateActionMapPtrType)(v)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-description
-func (o ExperimentTemplateExperimentTemplateActionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (*experimentTemplateExperimentTemplateActionMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentTemplateActionMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-parameters
-func (o ExperimentTemplateExperimentTemplateActionOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateAction) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (i *experimentTemplateExperimentTemplateActionMapPtrType) ToExperimentTemplateExperimentTemplateActionMapPtrOutput() ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return i.ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-startafter
-func (o ExperimentTemplateExperimentTemplateActionOutput) StartAfter() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateAction) []string { return v.StartAfter }).(pulumi.StringArrayOutput)
+func (i *experimentTemplateExperimentTemplateActionMapPtrType) ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateActionMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateaction.html#cfn-fis-experimenttemplate-experimenttemplateaction-targets
-func (o ExperimentTemplateExperimentTemplateActionOutput) Targets() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateAction) map[string]string { return v.Targets }).(pulumi.StringMapOutput)
-}
-
+// The actions for the experiment.
 type ExperimentTemplateExperimentTemplateActionMapOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateExperimentTemplateActionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExperimentTemplateExperimentTemplateAction)(nil)).Elem()
+	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateActionMap)(nil)).Elem()
 }
 
 func (o ExperimentTemplateExperimentTemplateActionMapOutput) ToExperimentTemplateExperimentTemplateActionMapOutput() ExperimentTemplateExperimentTemplateActionMapOutput {
@@ -140,18 +97,43 @@ func (o ExperimentTemplateExperimentTemplateActionMapOutput) ToExperimentTemplat
 	return o
 }
 
-func (o ExperimentTemplateExperimentTemplateActionMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateExperimentTemplateActionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExperimentTemplateExperimentTemplateAction {
-		return vs[0].(map[string]ExperimentTemplateExperimentTemplateAction)[vs[1].(string)]
-	}).(ExperimentTemplateExperimentTemplateActionOutput)
+func (o ExperimentTemplateExperimentTemplateActionMapOutput) ToExperimentTemplateExperimentTemplateActionMapPtrOutput() ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return o.ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html
+func (o ExperimentTemplateExperimentTemplateActionMapOutput) ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentTemplateActionMap) *ExperimentTemplateExperimentTemplateActionMap {
+		return &v
+	}).(ExperimentTemplateExperimentTemplateActionMapPtrOutput)
+}
+
+type ExperimentTemplateExperimentTemplateActionMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentTemplateActionMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentTemplateActionMap)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentTemplateActionMapPtrOutput) ToExperimentTemplateExperimentTemplateActionMapPtrOutput() ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentTemplateActionMapPtrOutput) ToExperimentTemplateExperimentTemplateActionMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateActionMapPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentTemplateActionMapPtrOutput) Elem() ExperimentTemplateExperimentTemplateActionMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentTemplateActionMap) ExperimentTemplateExperimentTemplateActionMap {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentTemplateActionMap
+		return ret
+	}).(ExperimentTemplateExperimentTemplateActionMapOutput)
+}
+
 type ExperimentTemplateExperimentTemplateStopCondition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
-	Source string `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
-	Value *string `pulumi:"value"`
+	Source string  `pulumi:"source"`
+	Value  *string `pulumi:"value"`
 }
 
 // ExperimentTemplateExperimentTemplateStopConditionInput is an input type that accepts ExperimentTemplateExperimentTemplateStopConditionArgs and ExperimentTemplateExperimentTemplateStopConditionOutput values.
@@ -165,12 +147,9 @@ type ExperimentTemplateExperimentTemplateStopConditionInput interface {
 	ToExperimentTemplateExperimentTemplateStopConditionOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateStopConditionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html
 type ExperimentTemplateExperimentTemplateStopConditionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
-	Source pulumi.StringInput `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Source pulumi.StringInput    `pulumi:"source"`
+	Value  pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (ExperimentTemplateExperimentTemplateStopConditionArgs) ElementType() reflect.Type {
@@ -210,7 +189,6 @@ func (i ExperimentTemplateExperimentTemplateStopConditionArray) ToExperimentTemp
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateStopConditionArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html
 type ExperimentTemplateExperimentTemplateStopConditionOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateExperimentTemplateStopConditionOutput) ElementType() reflect.Type {
@@ -225,12 +203,10 @@ func (o ExperimentTemplateExperimentTemplateStopConditionOutput) ToExperimentTem
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-source
 func (o ExperimentTemplateExperimentTemplateStopConditionOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateStopCondition) string { return v.Source }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatestopcondition.html#cfn-fis-experimenttemplate-experimenttemplatestopcondition-value
 func (o ExperimentTemplateExperimentTemplateStopConditionOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateStopCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -255,55 +231,8 @@ func (o ExperimentTemplateExperimentTemplateStopConditionArrayOutput) Index(i pu
 	}).(ExperimentTemplateExperimentTemplateStopConditionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
-type ExperimentTemplateExperimentTemplateTarget struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-	Filters []ExperimentTemplateExperimentTemplateTargetFilter `pulumi:"filters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-	ResourceArns []string `pulumi:"resourceArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-	ResourceTags map[string]string `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-	ResourceType string `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-	SelectionMode string `pulumi:"selectionMode"`
-}
-
-// ExperimentTemplateExperimentTemplateTargetInput is an input type that accepts ExperimentTemplateExperimentTemplateTargetArgs and ExperimentTemplateExperimentTemplateTargetOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateTargetInput` via:
-//
-//          ExperimentTemplateExperimentTemplateTargetArgs{...}
-type ExperimentTemplateExperimentTemplateTargetInput interface {
-	pulumi.Input
-
-	ToExperimentTemplateExperimentTemplateTargetOutput() ExperimentTemplateExperimentTemplateTargetOutput
-	ToExperimentTemplateExperimentTemplateTargetOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateTargetOutput
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
-type ExperimentTemplateExperimentTemplateTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-	Filters ExperimentTemplateExperimentTemplateTargetFilterArrayInput `pulumi:"filters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-	ResourceArns pulumi.StringArrayInput `pulumi:"resourceArns"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-	ResourceType pulumi.StringInput `pulumi:"resourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-	SelectionMode pulumi.StringInput `pulumi:"selectionMode"`
-}
-
-func (ExperimentTemplateExperimentTemplateTargetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTarget)(nil)).Elem()
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetArgs) ToExperimentTemplateExperimentTemplateTargetOutput() ExperimentTemplateExperimentTemplateTargetOutput {
-	return i.ToExperimentTemplateExperimentTemplateTargetOutputWithContext(context.Background())
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetArgs) ToExperimentTemplateExperimentTemplateTargetOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetOutput)
+// The targets for the experiment.
+type ExperimentTemplateExperimentTemplateTargetMap struct {
 }
 
 // ExperimentTemplateExperimentTemplateTargetMapInput is an input type that accepts ExperimentTemplateExperimentTemplateTargetMap and ExperimentTemplateExperimentTemplateTargetMapOutput values.
@@ -317,66 +246,68 @@ type ExperimentTemplateExperimentTemplateTargetMapInput interface {
 	ToExperimentTemplateExperimentTemplateTargetMapOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateTargetMapOutput
 }
 
-type ExperimentTemplateExperimentTemplateTargetMap map[string]ExperimentTemplateExperimentTemplateTargetInput
-
-func (ExperimentTemplateExperimentTemplateTargetMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExperimentTemplateExperimentTemplateTarget)(nil)).Elem()
+// The targets for the experiment.
+type ExperimentTemplateExperimentTemplateTargetMapArgs struct {
 }
 
-func (i ExperimentTemplateExperimentTemplateTargetMap) ToExperimentTemplateExperimentTemplateTargetMapOutput() ExperimentTemplateExperimentTemplateTargetMapOutput {
+func (ExperimentTemplateExperimentTemplateTargetMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTargetMap)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentTemplateTargetMapArgs) ToExperimentTemplateExperimentTemplateTargetMapOutput() ExperimentTemplateExperimentTemplateTargetMapOutput {
 	return i.ToExperimentTemplateExperimentTemplateTargetMapOutputWithContext(context.Background())
 }
 
-func (i ExperimentTemplateExperimentTemplateTargetMap) ToExperimentTemplateExperimentTemplateTargetMapOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapOutput {
+func (i ExperimentTemplateExperimentTemplateTargetMapArgs) ToExperimentTemplateExperimentTemplateTargetMapOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetMapOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html
-type ExperimentTemplateExperimentTemplateTargetOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateExperimentTemplateTargetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTarget)(nil)).Elem()
+func (i ExperimentTemplateExperimentTemplateTargetMapArgs) ToExperimentTemplateExperimentTemplateTargetMapPtrOutput() ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return i.ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(context.Background())
 }
 
-func (o ExperimentTemplateExperimentTemplateTargetOutput) ToExperimentTemplateExperimentTemplateTargetOutput() ExperimentTemplateExperimentTemplateTargetOutput {
-	return o
+func (i ExperimentTemplateExperimentTemplateTargetMapArgs) ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetMapOutput).ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(ctx)
 }
 
-func (o ExperimentTemplateExperimentTemplateTargetOutput) ToExperimentTemplateExperimentTemplateTargetOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetOutput {
-	return o
+// ExperimentTemplateExperimentTemplateTargetMapPtrInput is an input type that accepts ExperimentTemplateExperimentTemplateTargetMapArgs, ExperimentTemplateExperimentTemplateTargetMapPtr and ExperimentTemplateExperimentTemplateTargetMapPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateTargetMapPtrInput` via:
+//
+//          ExperimentTemplateExperimentTemplateTargetMapArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperimentTemplateExperimentTemplateTargetMapPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentTemplateTargetMapPtrOutput() ExperimentTemplateExperimentTemplateTargetMapPtrOutput
+	ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateTargetMapPtrOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-filters
-func (o ExperimentTemplateExperimentTemplateTargetOutput) Filters() ExperimentTemplateExperimentTemplateTargetFilterArrayOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTarget) []ExperimentTemplateExperimentTemplateTargetFilter {
-		return v.Filters
-	}).(ExperimentTemplateExperimentTemplateTargetFilterArrayOutput)
+type experimentTemplateExperimentTemplateTargetMapPtrType ExperimentTemplateExperimentTemplateTargetMapArgs
+
+func ExperimentTemplateExperimentTemplateTargetMapPtr(v *ExperimentTemplateExperimentTemplateTargetMapArgs) ExperimentTemplateExperimentTemplateTargetMapPtrInput {
+	return (*experimentTemplateExperimentTemplateTargetMapPtrType)(v)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcearns
-func (o ExperimentTemplateExperimentTemplateTargetOutput) ResourceArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTarget) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
+func (*experimentTemplateExperimentTemplateTargetMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentTemplateTargetMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetags
-func (o ExperimentTemplateExperimentTemplateTargetOutput) ResourceTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTarget) map[string]string { return v.ResourceTags }).(pulumi.StringMapOutput)
+func (i *experimentTemplateExperimentTemplateTargetMapPtrType) ToExperimentTemplateExperimentTemplateTargetMapPtrOutput() ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return i.ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-resourcetype
-func (o ExperimentTemplateExperimentTemplateTargetOutput) ResourceType() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTarget) string { return v.ResourceType }).(pulumi.StringOutput)
+func (i *experimentTemplateExperimentTemplateTargetMapPtrType) ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetarget.html#cfn-fis-experimenttemplate-experimenttemplatetarget-selectionmode
-func (o ExperimentTemplateExperimentTemplateTargetOutput) SelectionMode() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTarget) string { return v.SelectionMode }).(pulumi.StringOutput)
-}
-
+// The targets for the experiment.
 type ExperimentTemplateExperimentTemplateTargetMapOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateExperimentTemplateTargetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ExperimentTemplateExperimentTemplateTarget)(nil)).Elem()
+	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTargetMap)(nil)).Elem()
 }
 
 func (o ExperimentTemplateExperimentTemplateTargetMapOutput) ToExperimentTemplateExperimentTemplateTargetMapOutput() ExperimentTemplateExperimentTemplateTargetMapOutput {
@@ -387,128 +318,45 @@ func (o ExperimentTemplateExperimentTemplateTargetMapOutput) ToExperimentTemplat
 	return o
 }
 
-func (o ExperimentTemplateExperimentTemplateTargetMapOutput) MapIndex(k pulumi.StringInput) ExperimentTemplateExperimentTemplateTargetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExperimentTemplateExperimentTemplateTarget {
-		return vs[0].(map[string]ExperimentTemplateExperimentTemplateTarget)[vs[1].(string)]
-	}).(ExperimentTemplateExperimentTemplateTargetOutput)
+func (o ExperimentTemplateExperimentTemplateTargetMapOutput) ToExperimentTemplateExperimentTemplateTargetMapPtrOutput() ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return o.ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(context.Background())
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
-type ExperimentTemplateExperimentTemplateTargetFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-	Path string `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
-	Values []string `pulumi:"values"`
+func (o ExperimentTemplateExperimentTemplateTargetMapOutput) ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentTemplateTargetMap) *ExperimentTemplateExperimentTemplateTargetMap {
+		return &v
+	}).(ExperimentTemplateExperimentTemplateTargetMapPtrOutput)
 }
 
-// ExperimentTemplateExperimentTemplateTargetFilterInput is an input type that accepts ExperimentTemplateExperimentTemplateTargetFilterArgs and ExperimentTemplateExperimentTemplateTargetFilterOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateTargetFilterInput` via:
-//
-//          ExperimentTemplateExperimentTemplateTargetFilterArgs{...}
-type ExperimentTemplateExperimentTemplateTargetFilterInput interface {
-	pulumi.Input
+type ExperimentTemplateExperimentTemplateTargetMapPtrOutput struct{ *pulumi.OutputState }
 
-	ToExperimentTemplateExperimentTemplateTargetFilterOutput() ExperimentTemplateExperimentTemplateTargetFilterOutput
-	ToExperimentTemplateExperimentTemplateTargetFilterOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateTargetFilterOutput
+func (ExperimentTemplateExperimentTemplateTargetMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentTemplateTargetMap)(nil)).Elem()
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
-type ExperimentTemplateExperimentTemplateTargetFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-	Path pulumi.StringInput `pulumi:"path"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (ExperimentTemplateExperimentTemplateTargetFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTargetFilter)(nil)).Elem()
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetFilterArgs) ToExperimentTemplateExperimentTemplateTargetFilterOutput() ExperimentTemplateExperimentTemplateTargetFilterOutput {
-	return i.ToExperimentTemplateExperimentTemplateTargetFilterOutputWithContext(context.Background())
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetFilterArgs) ToExperimentTemplateExperimentTemplateTargetFilterOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetFilterOutput)
-}
-
-// ExperimentTemplateExperimentTemplateTargetFilterArrayInput is an input type that accepts ExperimentTemplateExperimentTemplateTargetFilterArray and ExperimentTemplateExperimentTemplateTargetFilterArrayOutput values.
-// You can construct a concrete instance of `ExperimentTemplateExperimentTemplateTargetFilterArrayInput` via:
-//
-//          ExperimentTemplateExperimentTemplateTargetFilterArray{ ExperimentTemplateExperimentTemplateTargetFilterArgs{...} }
-type ExperimentTemplateExperimentTemplateTargetFilterArrayInput interface {
-	pulumi.Input
-
-	ToExperimentTemplateExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateExperimentTemplateTargetFilterArrayOutput
-	ToExperimentTemplateExperimentTemplateTargetFilterArrayOutputWithContext(context.Context) ExperimentTemplateExperimentTemplateTargetFilterArrayOutput
-}
-
-type ExperimentTemplateExperimentTemplateTargetFilterArray []ExperimentTemplateExperimentTemplateTargetFilterInput
-
-func (ExperimentTemplateExperimentTemplateTargetFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExperimentTemplateExperimentTemplateTargetFilter)(nil)).Elem()
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetFilterArray) ToExperimentTemplateExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateExperimentTemplateTargetFilterArrayOutput {
-	return i.ToExperimentTemplateExperimentTemplateTargetFilterArrayOutputWithContext(context.Background())
-}
-
-func (i ExperimentTemplateExperimentTemplateTargetFilterArray) ToExperimentTemplateExperimentTemplateTargetFilterArrayOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentTemplateTargetFilterArrayOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html
-type ExperimentTemplateExperimentTemplateTargetFilterOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateExperimentTemplateTargetFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExperimentTemplateExperimentTemplateTargetFilter)(nil)).Elem()
-}
-
-func (o ExperimentTemplateExperimentTemplateTargetFilterOutput) ToExperimentTemplateExperimentTemplateTargetFilterOutput() ExperimentTemplateExperimentTemplateTargetFilterOutput {
+func (o ExperimentTemplateExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateExperimentTemplateTargetMapPtrOutput() ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
 	return o
 }
 
-func (o ExperimentTemplateExperimentTemplateTargetFilterOutput) ToExperimentTemplateExperimentTemplateTargetFilterOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetFilterOutput {
+func (o ExperimentTemplateExperimentTemplateTargetMapPtrOutput) ToExperimentTemplateExperimentTemplateTargetMapPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetMapPtrOutput {
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-path
-func (o ExperimentTemplateExperimentTemplateTargetFilterOutput) Path() pulumi.StringOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTargetFilter) string { return v.Path }).(pulumi.StringOutput)
-}
-
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatetargetfilter.html#cfn-fis-experimenttemplate-experimenttemplatetargetfilter-values
-func (o ExperimentTemplateExperimentTemplateTargetFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentTemplateTargetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
-type ExperimentTemplateExperimentTemplateTargetFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (ExperimentTemplateExperimentTemplateTargetFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ExperimentTemplateExperimentTemplateTargetFilter)(nil)).Elem()
-}
-
-func (o ExperimentTemplateExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateExperimentTemplateTargetFilterArrayOutput() ExperimentTemplateExperimentTemplateTargetFilterArrayOutput {
-	return o
-}
-
-func (o ExperimentTemplateExperimentTemplateTargetFilterArrayOutput) ToExperimentTemplateExperimentTemplateTargetFilterArrayOutputWithContext(ctx context.Context) ExperimentTemplateExperimentTemplateTargetFilterArrayOutput {
-	return o
-}
-
-func (o ExperimentTemplateExperimentTemplateTargetFilterArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateExperimentTemplateTargetFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperimentTemplateExperimentTemplateTargetFilter {
-		return vs[0].([]ExperimentTemplateExperimentTemplateTargetFilter)[vs[1].(int)]
-	}).(ExperimentTemplateExperimentTemplateTargetFilterOutput)
+func (o ExperimentTemplateExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateExperimentTemplateTargetMapOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentTemplateTargetMap) ExperimentTemplateExperimentTemplateTargetMap {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentTemplateTargetMap
+		return ret
+	}).(ExperimentTemplateExperimentTemplateTargetMapOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateActionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateActionMapOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateActionMapPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateStopConditionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateStopConditionArrayOutput{})
-	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateTargetOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateTargetMapOutput{})
-	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateTargetFilterOutput{})
-	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateTargetFilterArrayOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentTemplateTargetMapPtrOutput{})
 }

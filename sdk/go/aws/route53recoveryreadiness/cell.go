@@ -8,22 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
+// The API Schema for AWS Route53 Recovery Readiness Cells.
 type Cell struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the cell.
 	CellArn pulumi.StringOutput `pulumi:"cellArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+	// The name of the cell to create.
 	CellName pulumi.StringOutput `pulumi:"cellName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
-	Cells                 pulumi.StringArrayOutput `pulumi:"cells"`
+	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
+	Cells pulumi.StringArrayOutput `pulumi:"cells"`
+	// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
 	ParentReadinessScopes pulumi.StringArrayOutput `pulumi:"parentReadinessScopes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags CellTagArrayOutput `pulumi:"tags"`
 }
 
 // NewCell registers a new resource with the given unique name, arguments, and options.
@@ -68,22 +69,22 @@ func (CellState) ElementType() reflect.Type {
 }
 
 type cellArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+	// The name of the cell to create.
 	CellName string `pulumi:"cellName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells []string `pulumi:"cells"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A collection of tags associated with a resource
+	Tags []CellTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cell resource.
 type CellArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+	// The name of the cell to create.
 	CellName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+	// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
 	Cells pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
-	Tags aws.TagArrayInput
+	// A collection of tags associated with a resource
+	Tags CellTagArrayInput
 }
 
 func (CellArgs) ElementType() reflect.Type {

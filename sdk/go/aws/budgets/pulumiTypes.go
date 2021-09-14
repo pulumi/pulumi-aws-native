@@ -10,11 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
 type BudgetsActionActionThreshold struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
-	Type string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
+	Type  string  `pulumi:"type"`
 	Value float64 `pulumi:"value"`
 }
 
@@ -29,11 +26,8 @@ type BudgetsActionActionThresholdInput interface {
 	ToBudgetsActionActionThresholdOutputWithContext(context.Context) BudgetsActionActionThresholdOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
 type BudgetsActionActionThresholdArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
-	Type pulumi.StringInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
+	Type  pulumi.StringInput  `pulumi:"type"`
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -90,7 +84,6 @@ func (i *budgetsActionActionThresholdPtrType) ToBudgetsActionActionThresholdPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionActionThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html
 type BudgetsActionActionThresholdOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionActionThresholdOutput) ElementType() reflect.Type {
@@ -115,12 +108,10 @@ func (o BudgetsActionActionThresholdOutput) ToBudgetsActionActionThresholdPtrOut
 	}).(BudgetsActionActionThresholdPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
 func (o BudgetsActionActionThresholdOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionActionThreshold) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
 func (o BudgetsActionActionThresholdOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetsActionActionThreshold) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -149,7 +140,6 @@ func (o BudgetsActionActionThresholdPtrOutput) Elem() BudgetsActionActionThresho
 	}).(BudgetsActionActionThresholdOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-type
 func (o BudgetsActionActionThresholdPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionActionThreshold) *string {
 		if v == nil {
@@ -159,7 +149,6 @@ func (o BudgetsActionActionThresholdPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-actionthreshold.html#cfn-budgets-budgetsaction-actionthreshold-value
 func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *BudgetsActionActionThreshold) *float64 {
 		if v == nil {
@@ -169,13 +158,9 @@ func (o BudgetsActionActionThresholdPtrOutput) Value() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
 type BudgetsActionDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
 	IamActionDefinition *BudgetsActionIamActionDefinition `pulumi:"iamActionDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
 	ScpActionDefinition *BudgetsActionScpActionDefinition `pulumi:"scpActionDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
 	SsmActionDefinition *BudgetsActionSsmActionDefinition `pulumi:"ssmActionDefinition"`
 }
 
@@ -190,13 +175,9 @@ type BudgetsActionDefinitionInput interface {
 	ToBudgetsActionDefinitionOutputWithContext(context.Context) BudgetsActionDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
 type BudgetsActionDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
 	IamActionDefinition BudgetsActionIamActionDefinitionPtrInput `pulumi:"iamActionDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
 	ScpActionDefinition BudgetsActionScpActionDefinitionPtrInput `pulumi:"scpActionDefinition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
 	SsmActionDefinition BudgetsActionSsmActionDefinitionPtrInput `pulumi:"ssmActionDefinition"`
 }
 
@@ -253,7 +234,6 @@ func (i *budgetsActionDefinitionPtrType) ToBudgetsActionDefinitionPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html
 type BudgetsActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionDefinitionOutput) ElementType() reflect.Type {
@@ -278,17 +258,14 @@ func (o BudgetsActionDefinitionOutput) ToBudgetsActionDefinitionPtrOutputWithCon
 	}).(BudgetsActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
 func (o BudgetsActionDefinitionOutput) IamActionDefinition() BudgetsActionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionIamActionDefinition { return v.IamActionDefinition }).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
 func (o BudgetsActionDefinitionOutput) ScpActionDefinition() BudgetsActionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionScpActionDefinition { return v.ScpActionDefinition }).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
 func (o BudgetsActionDefinitionOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetsActionDefinition) *BudgetsActionSsmActionDefinition { return v.SsmActionDefinition }).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
@@ -317,7 +294,6 @@ func (o BudgetsActionDefinitionPtrOutput) Elem() BudgetsActionDefinitionOutput {
 	}).(BudgetsActionDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-iamactiondefinition
 func (o BudgetsActionDefinitionPtrOutput) IamActionDefinition() BudgetsActionIamActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionIamActionDefinition {
 		if v == nil {
@@ -327,7 +303,6 @@ func (o BudgetsActionDefinitionPtrOutput) IamActionDefinition() BudgetsActionIam
 	}).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-scpactiondefinition
 func (o BudgetsActionDefinitionPtrOutput) ScpActionDefinition() BudgetsActionScpActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionScpActionDefinition {
 		if v == nil {
@@ -337,7 +312,6 @@ func (o BudgetsActionDefinitionPtrOutput) ScpActionDefinition() BudgetsActionScp
 	}).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-definition.html#cfn-budgets-budgetsaction-definition-ssmactiondefinition
 func (o BudgetsActionDefinitionPtrOutput) SsmActionDefinition() BudgetsActionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionDefinition) *BudgetsActionSsmActionDefinition {
 		if v == nil {
@@ -347,16 +321,11 @@ func (o BudgetsActionDefinitionPtrOutput) SsmActionDefinition() BudgetsActionSsm
 	}).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
 type BudgetsActionIamActionDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
-	Groups []string `pulumi:"groups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
-	PolicyArn string `pulumi:"policyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
-	Roles []string `pulumi:"roles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
-	Users []string `pulumi:"users"`
+	Groups    []string `pulumi:"groups"`
+	PolicyArn string   `pulumi:"policyArn"`
+	Roles     []string `pulumi:"roles"`
+	Users     []string `pulumi:"users"`
 }
 
 // BudgetsActionIamActionDefinitionInput is an input type that accepts BudgetsActionIamActionDefinitionArgs and BudgetsActionIamActionDefinitionOutput values.
@@ -370,16 +339,11 @@ type BudgetsActionIamActionDefinitionInput interface {
 	ToBudgetsActionIamActionDefinitionOutputWithContext(context.Context) BudgetsActionIamActionDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
 type BudgetsActionIamActionDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
-	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
-	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
-	Roles pulumi.StringArrayInput `pulumi:"roles"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
-	Users pulumi.StringArrayInput `pulumi:"users"`
+	Groups    pulumi.StringArrayInput `pulumi:"groups"`
+	PolicyArn pulumi.StringInput      `pulumi:"policyArn"`
+	Roles     pulumi.StringArrayInput `pulumi:"roles"`
+	Users     pulumi.StringArrayInput `pulumi:"users"`
 }
 
 func (BudgetsActionIamActionDefinitionArgs) ElementType() reflect.Type {
@@ -435,7 +399,6 @@ func (i *budgetsActionIamActionDefinitionPtrType) ToBudgetsActionIamActionDefini
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html
 type BudgetsActionIamActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionIamActionDefinitionOutput) ElementType() reflect.Type {
@@ -460,22 +423,18 @@ func (o BudgetsActionIamActionDefinitionOutput) ToBudgetsActionIamActionDefiniti
 	}).(BudgetsActionIamActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
 func (o BudgetsActionIamActionDefinitionOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
 func (o BudgetsActionIamActionDefinitionOutput) PolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) string { return v.PolicyArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
 func (o BudgetsActionIamActionDefinitionOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Roles }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
 func (o BudgetsActionIamActionDefinitionOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionIamActionDefinition) []string { return v.Users }).(pulumi.StringArrayOutput)
 }
@@ -504,7 +463,6 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Elem() BudgetsActionIamAction
 	}).(BudgetsActionIamActionDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-groups
 func (o BudgetsActionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -514,7 +472,6 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Groups() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-policyarn
 func (o BudgetsActionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) *string {
 		if v == nil {
@@ -524,7 +481,6 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) PolicyArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-roles
 func (o BudgetsActionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -534,7 +490,6 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Roles() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-iamactiondefinition.html#cfn-budgets-budgetsaction-iamactiondefinition-users
 func (o BudgetsActionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionIamActionDefinition) []string {
 		if v == nil {
@@ -544,11 +499,8 @@ func (o BudgetsActionIamActionDefinitionPtrOutput) Users() pulumi.StringArrayOut
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
 type BudgetsActionScpActionDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
-	PolicyId string `pulumi:"policyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
+	PolicyId  string   `pulumi:"policyId"`
 	TargetIds []string `pulumi:"targetIds"`
 }
 
@@ -563,11 +515,8 @@ type BudgetsActionScpActionDefinitionInput interface {
 	ToBudgetsActionScpActionDefinitionOutputWithContext(context.Context) BudgetsActionScpActionDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
 type BudgetsActionScpActionDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
-	PolicyId pulumi.StringInput `pulumi:"policyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
+	PolicyId  pulumi.StringInput      `pulumi:"policyId"`
 	TargetIds pulumi.StringArrayInput `pulumi:"targetIds"`
 }
 
@@ -624,7 +573,6 @@ func (i *budgetsActionScpActionDefinitionPtrType) ToBudgetsActionScpActionDefini
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
 type BudgetsActionScpActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionScpActionDefinitionOutput) ElementType() reflect.Type {
@@ -649,12 +597,10 @@ func (o BudgetsActionScpActionDefinitionOutput) ToBudgetsActionScpActionDefiniti
 	}).(BudgetsActionScpActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
 func (o BudgetsActionScpActionDefinitionOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionScpActionDefinition) string { return v.PolicyId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
 func (o BudgetsActionScpActionDefinitionOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionScpActionDefinition) []string { return v.TargetIds }).(pulumi.StringArrayOutput)
 }
@@ -683,7 +629,6 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) Elem() BudgetsActionScpAction
 	}).(BudgetsActionScpActionDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
 func (o BudgetsActionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionScpActionDefinition) *string {
 		if v == nil {
@@ -693,7 +638,6 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) PolicyId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
 func (o BudgetsActionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionScpActionDefinition) []string {
 		if v == nil {
@@ -703,14 +647,10 @@ func (o BudgetsActionScpActionDefinitionPtrOutput) TargetIds() pulumi.StringArra
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
 type BudgetsActionSsmActionDefinition struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
 	InstanceIds []string `pulumi:"instanceIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
-	Region string `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
-	Subtype string `pulumi:"subtype"`
+	Region      string   `pulumi:"region"`
+	Subtype     string   `pulumi:"subtype"`
 }
 
 // BudgetsActionSsmActionDefinitionInput is an input type that accepts BudgetsActionSsmActionDefinitionArgs and BudgetsActionSsmActionDefinitionOutput values.
@@ -724,14 +664,10 @@ type BudgetsActionSsmActionDefinitionInput interface {
 	ToBudgetsActionSsmActionDefinitionOutputWithContext(context.Context) BudgetsActionSsmActionDefinitionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
 type BudgetsActionSsmActionDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
 	InstanceIds pulumi.StringArrayInput `pulumi:"instanceIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
-	Region pulumi.StringInput `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
-	Subtype pulumi.StringInput `pulumi:"subtype"`
+	Region      pulumi.StringInput      `pulumi:"region"`
+	Subtype     pulumi.StringInput      `pulumi:"subtype"`
 }
 
 func (BudgetsActionSsmActionDefinitionArgs) ElementType() reflect.Type {
@@ -787,7 +723,6 @@ func (i *budgetsActionSsmActionDefinitionPtrType) ToBudgetsActionSsmActionDefini
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html
 type BudgetsActionSsmActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionSsmActionDefinitionOutput) ElementType() reflect.Type {
@@ -812,17 +747,14 @@ func (o BudgetsActionSsmActionDefinitionOutput) ToBudgetsActionSsmActionDefiniti
 	}).(BudgetsActionSsmActionDefinitionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
 func (o BudgetsActionSsmActionDefinitionOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) []string { return v.InstanceIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
 func (o BudgetsActionSsmActionDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
 func (o BudgetsActionSsmActionDefinitionOutput) Subtype() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSsmActionDefinition) string { return v.Subtype }).(pulumi.StringOutput)
 }
@@ -851,7 +783,6 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Elem() BudgetsActionSsmAction
 	}).(BudgetsActionSsmActionDefinitionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-instanceids
 func (o BudgetsActionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) []string {
 		if v == nil {
@@ -861,7 +792,6 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) InstanceIds() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-region
 func (o BudgetsActionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *string {
 		if v == nil {
@@ -871,7 +801,6 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Region() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-ssmactiondefinition.html#cfn-budgets-budgetsaction-ssmactiondefinition-subtype
 func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BudgetsActionSsmActionDefinition) *string {
 		if v == nil {
@@ -881,12 +810,9 @@ func (o BudgetsActionSsmActionDefinitionPtrOutput) Subtype() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
 type BudgetsActionSubscriber struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
 	Address string `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
-	Type string `pulumi:"type"`
+	Type    string `pulumi:"type"`
 }
 
 // BudgetsActionSubscriberInput is an input type that accepts BudgetsActionSubscriberArgs and BudgetsActionSubscriberOutput values.
@@ -900,12 +826,9 @@ type BudgetsActionSubscriberInput interface {
 	ToBudgetsActionSubscriberOutputWithContext(context.Context) BudgetsActionSubscriberOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
 type BudgetsActionSubscriberArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
 	Address pulumi.StringInput `pulumi:"address"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
-	Type pulumi.StringInput `pulumi:"type"`
+	Type    pulumi.StringInput `pulumi:"type"`
 }
 
 func (BudgetsActionSubscriberArgs) ElementType() reflect.Type {
@@ -945,7 +868,6 @@ func (i BudgetsActionSubscriberArray) ToBudgetsActionSubscriberArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetsActionSubscriberArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html
 type BudgetsActionSubscriberOutput struct{ *pulumi.OutputState }
 
 func (BudgetsActionSubscriberOutput) ElementType() reflect.Type {
@@ -960,12 +882,10 @@ func (o BudgetsActionSubscriberOutput) ToBudgetsActionSubscriberOutputWithContex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-address
 func (o BudgetsActionSubscriberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSubscriber) string { return v.Address }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-subscriber.html#cfn-budgets-budgetsaction-subscriber-type
 func (o BudgetsActionSubscriberOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetsActionSubscriber) string { return v.Type }).(pulumi.StringOutput)
 }

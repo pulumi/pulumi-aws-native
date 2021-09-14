@@ -10,18 +10,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+// Logging configuration for the environment.
 type EnvironmentLoggingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
 	DagProcessingLogs *EnvironmentModuleLoggingConfiguration `pulumi:"dagProcessingLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-	SchedulerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"schedulerLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-	TaskLogs *EnvironmentModuleLoggingConfiguration `pulumi:"taskLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-	WebserverLogs *EnvironmentModuleLoggingConfiguration `pulumi:"webserverLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
-	WorkerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"workerLogs"`
+	SchedulerLogs     *EnvironmentModuleLoggingConfiguration `pulumi:"schedulerLogs"`
+	TaskLogs          *EnvironmentModuleLoggingConfiguration `pulumi:"taskLogs"`
+	WebserverLogs     *EnvironmentModuleLoggingConfiguration `pulumi:"webserverLogs"`
+	WorkerLogs        *EnvironmentModuleLoggingConfiguration `pulumi:"workerLogs"`
 }
 
 // EnvironmentLoggingConfigurationInput is an input type that accepts EnvironmentLoggingConfigurationArgs and EnvironmentLoggingConfigurationOutput values.
@@ -35,18 +30,13 @@ type EnvironmentLoggingConfigurationInput interface {
 	ToEnvironmentLoggingConfigurationOutputWithContext(context.Context) EnvironmentLoggingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+// Logging configuration for the environment.
 type EnvironmentLoggingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
 	DagProcessingLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"dagProcessingLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-	SchedulerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"schedulerLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-	TaskLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"taskLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-	WebserverLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"webserverLogs"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
-	WorkerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"workerLogs"`
+	SchedulerLogs     EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"schedulerLogs"`
+	TaskLogs          EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"taskLogs"`
+	WebserverLogs     EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"webserverLogs"`
+	WorkerLogs        EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"workerLogs"`
 }
 
 func (EnvironmentLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -102,7 +92,7 @@ func (i *environmentLoggingConfigurationPtrType) ToEnvironmentLoggingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+// Logging configuration for the environment.
 type EnvironmentLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -127,29 +117,24 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		return v.DagProcessingLogs
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
 func (o EnvironmentLoggingConfigurationOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.SchedulerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
 func (o EnvironmentLoggingConfigurationOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.TaskLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
 func (o EnvironmentLoggingConfigurationOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WebserverLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
 func (o EnvironmentLoggingConfigurationOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WorkerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
@@ -178,7 +163,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfi
 	}).(EnvironmentLoggingConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
 func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -188,7 +172,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() Environmen
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
 func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -198,7 +181,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
 func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -208,7 +190,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLo
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
 func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -218,7 +199,6 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
 func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -228,14 +208,11 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModule
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
+// Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
 	CloudWatchLogGroupArn *string `pulumi:"cloudWatchLogGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
-	Enabled *bool `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
-	LogLevel *string `pulumi:"logLevel"`
+	Enabled               *bool   `pulumi:"enabled"`
+	LogLevel              *string `pulumi:"logLevel"`
 }
 
 // EnvironmentModuleLoggingConfigurationInput is an input type that accepts EnvironmentModuleLoggingConfigurationArgs and EnvironmentModuleLoggingConfigurationOutput values.
@@ -249,14 +226,11 @@ type EnvironmentModuleLoggingConfigurationInput interface {
 	ToEnvironmentModuleLoggingConfigurationOutputWithContext(context.Context) EnvironmentModuleLoggingConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
+// Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
 	CloudWatchLogGroupArn pulumi.StringPtrInput `pulumi:"cloudWatchLogGroupArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
-	LogLevel pulumi.StringPtrInput `pulumi:"logLevel"`
+	Enabled               pulumi.BoolPtrInput   `pulumi:"enabled"`
+	LogLevel              pulumi.StringPtrInput `pulumi:"logLevel"`
 }
 
 func (EnvironmentModuleLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -312,7 +286,7 @@ func (i *environmentModuleLoggingConfigurationPtrType) ToEnvironmentModuleLoggin
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html
+// Logging configuration for a specific airflow component.
 type EnvironmentModuleLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentModuleLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -337,17 +311,14 @@ func (o EnvironmentModuleLoggingConfigurationOutput) ToEnvironmentModuleLoggingC
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
 func (o EnvironmentModuleLoggingConfigurationOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *string { return v.CloudWatchLogGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
 func (o EnvironmentModuleLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
 func (o EnvironmentModuleLoggingConfigurationOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentModuleLoggingConfiguration) *string { return v.LogLevel }).(pulumi.StringPtrOutput)
 }
@@ -376,7 +347,6 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Elem() EnvironmentModule
 	}).(EnvironmentModuleLoggingConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-cloudwatchloggrouparn
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) CloudWatchLogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *string {
 		if v == nil {
@@ -386,7 +356,6 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) CloudWatchLogGroupArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-enabled
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *bool {
 		if v == nil {
@@ -396,7 +365,6 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-moduleloggingconfiguration.html#cfn-mwaa-environment-moduleloggingconfiguration-loglevel
 func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentModuleLoggingConfiguration) *string {
 		if v == nil {
@@ -406,11 +374,11 @@ func (o EnvironmentModuleLoggingConfigurationPtrOutput) LogLevel() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+// Configures the network resources of the environment.
 type EnvironmentNetworkConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+	// A list of security groups to use for the environment.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+	// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
 	SubnetIds []string `pulumi:"subnetIds"`
 }
 
@@ -425,11 +393,11 @@ type EnvironmentNetworkConfigurationInput interface {
 	ToEnvironmentNetworkConfigurationOutputWithContext(context.Context) EnvironmentNetworkConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+// Configures the network resources of the environment.
 type EnvironmentNetworkConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+	// A list of security groups to use for the environment.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+	// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 }
 
@@ -486,7 +454,7 @@ func (i *environmentNetworkConfigurationPtrType) ToEnvironmentNetworkConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+// Configures the network resources of the environment.
 type EnvironmentNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -511,12 +479,12 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 	}).(EnvironmentNetworkConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+// A list of security groups to use for the environment.
 func (o EnvironmentNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
 func (o EnvironmentNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -545,7 +513,7 @@ func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfi
 	}).(EnvironmentNetworkConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+// A list of security groups to use for the environment.
 func (o EnvironmentNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
 		if v == nil {
@@ -555,7 +523,7 @@ func (o EnvironmentNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.Stri
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
 func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
 		if v == nil {
@@ -565,7 +533,7 @@ func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+// A map of tags for the environment.
 type EnvironmentTagMap struct {
 }
 
@@ -580,7 +548,7 @@ type EnvironmentTagMapInput interface {
 	ToEnvironmentTagMapOutputWithContext(context.Context) EnvironmentTagMapOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+// A map of tags for the environment.
 type EnvironmentTagMapArgs struct {
 }
 
@@ -637,7 +605,7 @@ func (i *environmentTagMapPtrType) ToEnvironmentTagMapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagMapPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+// A map of tags for the environment.
 type EnvironmentTagMapOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentTagMapOutput) ElementType() reflect.Type {

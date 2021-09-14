@@ -11,24 +11,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type SimulationApplication struct {
 	pulumi.CustomResourceState
 
-	Arn               pulumi.StringOutput `pulumi:"arn"`
-	CurrentRevisionId pulumi.StringOutput `pulumi:"currentRevisionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The current revision id.
+	CurrentRevisionId pulumi.StringPtrOutput `pulumi:"currentRevisionId"`
+	// The name of the simulation application.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+	// The rendering engine for the simulation application.
 	RenderingEngine SimulationApplicationRenderingEngineOutput `pulumi:"renderingEngine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteOutput `pulumi:"simulationSoftwareSuite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayOutput `pulumi:"sources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	Tags    SimulationApplicationTagsPtrOutput           `pulumi:"tags"`
 }
 
 // NewSimulationApplication registers a new resource with the given unique name, arguments, and options.
@@ -82,38 +82,36 @@ func (SimulationApplicationState) ElementType() reflect.Type {
 }
 
 type simulationApplicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+	// The current revision id.
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+	// The name of the simulation application.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+	// The rendering engine for the simulation application.
 	RenderingEngine SimulationApplicationRenderingEngine `pulumi:"renderingEngine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuite `pulumi:"simulationSoftwareSuite"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+	// The sources of the simulation application.
 	Sources []SimulationApplicationSourceConfig `pulumi:"sources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-	Tags map[string]string `pulumi:"tags"`
+	Tags    *SimulationApplicationTags          `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SimulationApplication resource.
 type SimulationApplicationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+	// The current revision id.
 	CurrentRevisionId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+	// The name of the simulation application.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+	// The rendering engine for the simulation application.
 	RenderingEngine SimulationApplicationRenderingEngineInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+	// The robot software suite (ROS distribution) used by the simulation application.
 	RobotSoftwareSuite SimulationApplicationRobotSoftwareSuiteInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+	// The simulation software suite used by the simulation application.
 	SimulationSoftwareSuite SimulationApplicationSimulationSoftwareSuiteInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+	// The sources of the simulation application.
 	Sources SimulationApplicationSourceConfigArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-	Tags pulumi.StringMapInput
+	Tags    SimulationApplicationTagsPtrInput
 }
 
 func (SimulationApplicationArgs) ElementType() reflect.Type {

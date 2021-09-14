@@ -11,27 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type Environment struct {
 	pulumi.CustomResourceState
 
-	AwsAccountId              pulumi.StringOutput `pulumi:"awsAccountId"`
+	// AWS account ID associated with the Environment
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// ID for FinSpace created account used to store Environment artifacts
 	DedicatedServiceAccountId pulumi.StringOutput `pulumi:"dedicatedServiceAccountId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
-	Description    pulumi.StringPtrOutput `pulumi:"description"`
-	EnvironmentArn pulumi.StringOutput    `pulumi:"environmentArn"`
-	EnvironmentId  pulumi.StringOutput    `pulumi:"environmentId"`
-	EnvironmentUrl pulumi.StringOutput    `pulumi:"environmentUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
-	FederationMode pulumi.StringPtrOutput `pulumi:"federationMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
+	// Description of the Environment
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// ARN of the Environment
+	EnvironmentArn pulumi.StringOutput `pulumi:"environmentArn"`
+	// Unique identifier for representing FinSpace Environment
+	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
+	// URL used to login to the Environment
+	EnvironmentUrl pulumi.StringOutput `pulumi:"environmentUrl"`
+	// Federation mode used with the Environment
+	FederationMode       pulumi.StringPtrOutput                   `pulumi:"federationMode"`
 	FederationParameters EnvironmentFederationParametersPtrOutput `pulumi:"federationParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
-	Name                     pulumi.StringOutput `pulumi:"name"`
+	// Name of the Environment
+	Name pulumi.StringOutput `pulumi:"name"`
+	// SageMaker Studio Domain URL associated with the Environment
 	SageMakerStudioDomainUrl pulumi.StringOutput `pulumi:"sageMakerStudioDomainUrl"`
-	Status                   pulumi.StringOutput `pulumi:"status"`
+	// State of the Environment
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewEnvironment registers a new resource with the given unique name, arguments, and options.
@@ -76,29 +82,27 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+	// Description of the Environment
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
-	FederationMode *string `pulumi:"federationMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
+	// Federation mode used with the Environment
+	FederationMode       *string                          `pulumi:"federationMode"`
 	FederationParameters *EnvironmentFederationParameters `pulumi:"federationParameters"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+	// Name of the Environment
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-description
+	// Description of the Environment
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationmode
-	FederationMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-federationparameters
+	// Federation mode used with the Environment
+	FederationMode       pulumi.StringPtrInput
 	FederationParameters EnvironmentFederationParametersPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-kmskeyid
+	// KMS key used to encrypt customer data within FinSpace Environment infrastructure
 	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-finspace-environment.html#cfn-finspace-environment-name
+	// Name of the Environment
 	Name pulumi.StringInput
 }
 

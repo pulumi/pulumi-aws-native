@@ -11,18 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
+// Resource Type definition for AWS::ApiGateway::RequestValidator
 type RequestValidator struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
-	Name               pulumi.StringPtrOutput `pulumi:"name"`
-	RequestValidatorId pulumi.StringOutput    `pulumi:"requestValidatorId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+	// Name of the request validator.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// ID of the request validator.
+	RequestValidatorId pulumi.StringOutput `pulumi:"requestValidatorId"`
+	// The identifier of the targeted API entity.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
 	ValidateRequestBody pulumi.BoolPtrOutput `pulumi:"validateRequestBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+	// Indicates whether to validate request parameters.
 	ValidateRequestParameters pulumi.BoolPtrOutput `pulumi:"validateRequestParameters"`
 }
 
@@ -68,25 +69,25 @@ func (RequestValidatorState) ElementType() reflect.Type {
 }
 
 type requestValidatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+	// Name of the request validator.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+	// The identifier of the targeted API entity.
 	RestApiId string `pulumi:"restApiId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
 	ValidateRequestBody *bool `pulumi:"validateRequestBody"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+	// Indicates whether to validate request parameters.
 	ValidateRequestParameters *bool `pulumi:"validateRequestParameters"`
 }
 
 // The set of arguments for constructing a RequestValidator resource.
 type RequestValidatorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-name
+	// Name of the request validator.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-restapiid
+	// The identifier of the targeted API entity.
 	RestApiId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestbody
+	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
 	ValidateRequestBody pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html#cfn-apigateway-requestvalidator-validaterequestparameters
+	// Indicates whether to validate request parameters.
 	ValidateRequestParameters pulumi.BoolPtrInput
 }
 

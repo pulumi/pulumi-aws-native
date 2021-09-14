@@ -10,11 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+// CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 type TrailDataResource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+	// The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
 	Type string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 	Values []string `pulumi:"values"`
 }
 
@@ -29,11 +29,11 @@ type TrailDataResourceInput interface {
 	ToTrailDataResourceOutputWithContext(context.Context) TrailDataResourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+// CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 type TrailDataResourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+	// The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
 	Type pulumi.StringInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+	// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -74,7 +74,7 @@ func (i TrailDataResourceArray) ToTrailDataResourceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TrailDataResourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+// CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
 type TrailDataResourceOutput struct{ *pulumi.OutputState }
 
 func (TrailDataResourceOutput) ElementType() reflect.Type {
@@ -89,12 +89,12 @@ func (o TrailDataResourceOutput) ToTrailDataResourceOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+// The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
 func (o TrailDataResourceOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v TrailDataResource) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 func (o TrailDataResourceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailDataResource) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -119,15 +119,14 @@ func (o TrailDataResourceArrayOutput) Index(i pulumi.IntInput) TrailDataResource
 	}).(TrailDataResourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
+// The type of email sending events to publish to the event destination.
 type TrailEventSelector struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
 	DataResources []TrailDataResource `pulumi:"dataResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+	// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
 	ExcludeManagementEventSources []string `pulumi:"excludeManagementEventSources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
+	// Specify if you want your event selector to include management events for your trail.
 	IncludeManagementEvents *bool `pulumi:"includeManagementEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+	// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 	ReadWriteType *string `pulumi:"readWriteType"`
 }
 
@@ -142,15 +141,14 @@ type TrailEventSelectorInput interface {
 	ToTrailEventSelectorOutputWithContext(context.Context) TrailEventSelectorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
+// The type of email sending events to publish to the event destination.
 type TrailEventSelectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
 	DataResources TrailDataResourceArrayInput `pulumi:"dataResources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+	// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
 	ExcludeManagementEventSources pulumi.StringArrayInput `pulumi:"excludeManagementEventSources"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
+	// Specify if you want your event selector to include management events for your trail.
 	IncludeManagementEvents pulumi.BoolPtrInput `pulumi:"includeManagementEvents"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+	// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 	ReadWriteType pulumi.StringPtrInput `pulumi:"readWriteType"`
 }
 
@@ -191,7 +189,7 @@ func (i TrailEventSelectorArray) ToTrailEventSelectorArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TrailEventSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
+// The type of email sending events to publish to the event destination.
 type TrailEventSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailEventSelectorOutput) ElementType() reflect.Type {
@@ -206,22 +204,21 @@ func (o TrailEventSelectorOutput) ToTrailEventSelectorOutputWithContext(ctx cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
 func (o TrailEventSelectorOutput) DataResources() TrailDataResourceArrayOutput {
 	return o.ApplyT(func(v TrailEventSelector) []TrailDataResource { return v.DataResources }).(TrailDataResourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
 func (o TrailEventSelectorOutput) ExcludeManagementEventSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TrailEventSelector) []string { return v.ExcludeManagementEventSources }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
+// Specify if you want your event selector to include management events for your trail.
 func (o TrailEventSelectorOutput) IncludeManagementEvents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TrailEventSelector) *bool { return v.IncludeManagementEvents }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
 func (o TrailEventSelectorOutput) ReadWriteType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailEventSelector) *string { return v.ReadWriteType }).(pulumi.StringPtrOutput)
 }
@@ -246,9 +243,9 @@ func (o TrailEventSelectorArrayOutput) Index(i pulumi.IntInput) TrailEventSelect
 	}).(TrailEventSelectorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+// A string that contains insight types that are logged on a trail.
 type TrailInsightSelector struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+	// The type of insight to log on a trail.
 	InsightType *string `pulumi:"insightType"`
 }
 
@@ -263,9 +260,9 @@ type TrailInsightSelectorInput interface {
 	ToTrailInsightSelectorOutputWithContext(context.Context) TrailInsightSelectorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+// A string that contains insight types that are logged on a trail.
 type TrailInsightSelectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+	// The type of insight to log on a trail.
 	InsightType pulumi.StringPtrInput `pulumi:"insightType"`
 }
 
@@ -306,7 +303,7 @@ func (i TrailInsightSelectorArray) ToTrailInsightSelectorArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TrailInsightSelectorArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+// A string that contains insight types that are logged on a trail.
 type TrailInsightSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrailInsightSelectorOutput) ElementType() reflect.Type {
@@ -321,7 +318,7 @@ func (o TrailInsightSelectorOutput) ToTrailInsightSelectorOutputWithContext(ctx 
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+// The type of insight to log on a trail.
 func (o TrailInsightSelectorOutput) InsightType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TrailInsightSelector) *string { return v.InsightType }).(pulumi.StringPtrOutput)
 }
@@ -346,6 +343,115 @@ func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSe
 	}).(TrailInsightSelectorOutput)
 }
 
+// An arbitrary set of tags (key-value pairs) for this trail.
+type TrailTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// TrailTagInput is an input type that accepts TrailTagArgs and TrailTagOutput values.
+// You can construct a concrete instance of `TrailTagInput` via:
+//
+//          TrailTagArgs{...}
+type TrailTagInput interface {
+	pulumi.Input
+
+	ToTrailTagOutput() TrailTagOutput
+	ToTrailTagOutputWithContext(context.Context) TrailTagOutput
+}
+
+// An arbitrary set of tags (key-value pairs) for this trail.
+type TrailTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrailTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailTag)(nil)).Elem()
+}
+
+func (i TrailTagArgs) ToTrailTagOutput() TrailTagOutput {
+	return i.ToTrailTagOutputWithContext(context.Background())
+}
+
+func (i TrailTagArgs) ToTrailTagOutputWithContext(ctx context.Context) TrailTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailTagOutput)
+}
+
+// TrailTagArrayInput is an input type that accepts TrailTagArray and TrailTagArrayOutput values.
+// You can construct a concrete instance of `TrailTagArrayInput` via:
+//
+//          TrailTagArray{ TrailTagArgs{...} }
+type TrailTagArrayInput interface {
+	pulumi.Input
+
+	ToTrailTagArrayOutput() TrailTagArrayOutput
+	ToTrailTagArrayOutputWithContext(context.Context) TrailTagArrayOutput
+}
+
+type TrailTagArray []TrailTagInput
+
+func (TrailTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailTag)(nil)).Elem()
+}
+
+func (i TrailTagArray) ToTrailTagArrayOutput() TrailTagArrayOutput {
+	return i.ToTrailTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrailTagArray) ToTrailTagArrayOutputWithContext(ctx context.Context) TrailTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrailTagArrayOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this trail.
+type TrailTagOutput struct{ *pulumi.OutputState }
+
+func (TrailTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrailTag)(nil)).Elem()
+}
+
+func (o TrailTagOutput) ToTrailTagOutput() TrailTagOutput {
+	return o
+}
+
+func (o TrailTagOutput) ToTrailTagOutputWithContext(ctx context.Context) TrailTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TrailTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrailTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o TrailTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrailTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrailTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrailTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrailTag)(nil)).Elem()
+}
+
+func (o TrailTagArrayOutput) ToTrailTagArrayOutput() TrailTagArrayOutput {
+	return o
+}
+
+func (o TrailTagArrayOutput) ToTrailTagArrayOutputWithContext(ctx context.Context) TrailTagArrayOutput {
+	return o
+}
+
+func (o TrailTagArrayOutput) Index(i pulumi.IntInput) TrailTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrailTag {
+		return vs[0].([]TrailTag)[vs[1].(int)]
+	}).(TrailTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(TrailDataResourceOutput{})
 	pulumi.RegisterOutputType(TrailDataResourceArrayOutput{})
@@ -353,4 +459,6 @@ func init() {
 	pulumi.RegisterOutputType(TrailEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailInsightSelectorOutput{})
 	pulumi.RegisterOutputType(TrailInsightSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TrailTagOutput{})
+	pulumi.RegisterOutputType(TrailTagArrayOutput{})
 }

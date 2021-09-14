@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 type ResourceCollection struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
 	ResourceCollectionFilter ResourceCollectionResourceCollectionFilterOutput `pulumi:"resourceCollectionFilter"`
-	ResourceCollectionType   pulumi.StringOutput                              `pulumi:"resourceCollectionType"`
+	// The type of ResourceCollection
+	ResourceCollectionType pulumi.StringOutput `pulumi:"resourceCollectionType"`
 }
 
 // NewResourceCollection registers a new resource with the given unique name, arguments, and options.
@@ -62,13 +62,11 @@ func (ResourceCollectionState) ElementType() reflect.Type {
 }
 
 type resourceCollectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
 	ResourceCollectionFilter ResourceCollectionResourceCollectionFilter `pulumi:"resourceCollectionFilter"`
 }
 
 // The set of arguments for constructing a ResourceCollection resource.
 type ResourceCollectionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
 	ResourceCollectionFilter ResourceCollectionResourceCollectionFilterInput
 }
 

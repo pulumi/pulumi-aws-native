@@ -10,24 +10,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type Grant struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
 	AllowedOperations pulumi.StringArrayOutput `pulumi:"allowedOperations"`
-	GrantArn          pulumi.StringOutput      `pulumi:"grantArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+	// Arn of the grant.
+	GrantArn pulumi.StringOutput `pulumi:"grantArn"`
+	// Name for the created Grant.
 	GrantName pulumi.StringPtrOutput `pulumi:"grantName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+	// Home region for the created grant.
 	HomeRegion pulumi.StringPtrOutput `pulumi:"homeRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-	LicenseArn pulumi.StringPtrOutput `pulumi:"licenseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+	// License Arn for the grant.
+	LicenseArn pulumi.StringPtrOutput   `pulumi:"licenseArn"`
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-	Status  pulumi.StringPtrOutput `pulumi:"status"`
-	Version pulumi.StringOutput    `pulumi:"version"`
+	Status     pulumi.StringPtrOutput   `pulumi:"status"`
+	// The version of the grant.
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewGrant registers a new resource with the given unique name, arguments, and options.
@@ -69,34 +68,28 @@ func (GrantState) ElementType() reflect.Type {
 }
 
 type grantArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
 	AllowedOperations []string `pulumi:"allowedOperations"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+	// Name for the created Grant.
 	GrantName *string `pulumi:"grantName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+	// Home region for the created grant.
 	HomeRegion *string `pulumi:"homeRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
-	LicenseArn *string `pulumi:"licenseArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
+	// License Arn for the grant.
+	LicenseArn *string  `pulumi:"licenseArn"`
 	Principals []string `pulumi:"principals"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-	Status *string `pulumi:"status"`
+	Status     *string  `pulumi:"status"`
 }
 
 // The set of arguments for constructing a Grant resource.
 type GrantArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
 	AllowedOperations pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+	// Name for the created Grant.
 	GrantName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+	// Home region for the created grant.
 	HomeRegion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+	// License Arn for the grant.
 	LicenseArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
 	Principals pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-	Status pulumi.StringPtrInput
+	Status     pulumi.StringPtrInput
 }
 
 func (GrantArgs) ElementType() reflect.Type {

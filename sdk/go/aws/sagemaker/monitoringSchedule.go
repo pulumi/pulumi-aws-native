@@ -8,31 +8,30 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+// Resource Type definition for AWS::SageMaker::MonitoringSchedule
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 
-	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
+	// The time at which the schedule was created.
+	CreationTime pulumi.StringOutput    `pulumi:"creationTime"`
 	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
-	FailureReason    pulumi.StringPtrOutput `pulumi:"failureReason"`
-	LastModifiedTime pulumi.StringOutput    `pulumi:"lastModifiedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+	// Contains the reason a monitoring job failed, if it failed.
+	FailureReason pulumi.StringPtrOutput `pulumi:"failureReason"`
+	// A timestamp that indicates the last time the monitoring job was modified.
+	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
+	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrOutput `pulumi:"lastMonitoringExecutionSummary"`
-	MonitoringScheduleArn          pulumi.StringOutput                                   `pulumi:"monitoringScheduleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
+	// The Amazon Resource Name (ARN) of the monitoring schedule.
+	MonitoringScheduleArn    pulumi.StringOutput                              `pulumi:"monitoringScheduleArn"`
 	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-	MonitoringScheduleName pulumi.StringOutput `pulumi:"monitoringScheduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+	MonitoringScheduleName   pulumi.StringOutput                              `pulumi:"monitoringScheduleName"`
+	// The status of a schedule job.
 	MonitoringScheduleStatus pulumi.StringPtrOutput `pulumi:"monitoringScheduleStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags MonitoringScheduleTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMonitoringSchedule registers a new resource with the given unique name, arguments, and options.
@@ -80,38 +79,32 @@ func (MonitoringScheduleState) ElementType() reflect.Type {
 }
 
 type monitoringScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
 	EndpointName *string `pulumi:"endpointName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason *string `pulumi:"failureReason"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-	MonitoringScheduleName string `pulumi:"monitoringScheduleName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfig    `pulumi:"monitoringScheduleConfig"`
+	MonitoringScheduleName         string                                        `pulumi:"monitoringScheduleName"`
+	// The status of a schedule job.
 	MonitoringScheduleStatus *string `pulumi:"monitoringScheduleStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []MonitoringScheduleTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MonitoringSchedule resource.
 type MonitoringScheduleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
 	EndpointName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+	// Contains the reason a monitoring job failed, if it failed.
 	FailureReason pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-	MonitoringScheduleConfig MonitoringScheduleMonitoringScheduleConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-	MonitoringScheduleName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+	MonitoringScheduleConfig       MonitoringScheduleMonitoringScheduleConfigInput
+	MonitoringScheduleName         pulumi.StringInput
+	// The status of a schedule job.
 	MonitoringScheduleStatus pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags MonitoringScheduleTagArrayInput
 }
 
 func (MonitoringScheduleArgs) ElementType() reflect.Type {

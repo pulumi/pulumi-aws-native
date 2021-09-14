@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html
 type SigningProfileSignatureValidityPeriod struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
-	Type *string `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value
-	Value *int `pulumi:"value"`
+	Type  *string `pulumi:"type"`
+	Value *int    `pulumi:"value"`
 }
 
 // SigningProfileSignatureValidityPeriodInput is an input type that accepts SigningProfileSignatureValidityPeriodArgs and SigningProfileSignatureValidityPeriodOutput values.
@@ -29,12 +26,9 @@ type SigningProfileSignatureValidityPeriodInput interface {
 	ToSigningProfileSignatureValidityPeriodOutputWithContext(context.Context) SigningProfileSignatureValidityPeriodOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html
 type SigningProfileSignatureValidityPeriodArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value
-	Value pulumi.IntPtrInput `pulumi:"value"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.IntPtrInput    `pulumi:"value"`
 }
 
 func (SigningProfileSignatureValidityPeriodArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *signingProfileSignatureValidityPeriodPtrType) ToSigningProfileSignature
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html
 type SigningProfileSignatureValidityPeriodOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileSignatureValidityPeriodOutput) ElementType() reflect.Type {
@@ -115,12 +108,10 @@ func (o SigningProfileSignatureValidityPeriodOutput) ToSigningProfileSignatureVa
 	}).(SigningProfileSignatureValidityPeriodPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
 func (o SigningProfileSignatureValidityPeriodOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value
 func (o SigningProfileSignatureValidityPeriodOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SigningProfileSignatureValidityPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -149,7 +140,6 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Elem() SigningProfileSig
 	}).(SigningProfileSignatureValidityPeriodOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-type
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *string {
 		if v == nil {
@@ -159,7 +149,6 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Type() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-signer-signingprofile-signaturevalidityperiod.html#cfn-signer-signingprofile-signaturevalidityperiod-value
 func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriod) *int {
 		if v == nil {
@@ -169,7 +158,109 @@ func (o SigningProfileSignatureValidityPeriodPtrOutput) Value() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type SigningProfileTag struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// SigningProfileTagInput is an input type that accepts SigningProfileTagArgs and SigningProfileTagOutput values.
+// You can construct a concrete instance of `SigningProfileTagInput` via:
+//
+//          SigningProfileTagArgs{...}
+type SigningProfileTagInput interface {
+	pulumi.Input
+
+	ToSigningProfileTagOutput() SigningProfileTagOutput
+	ToSigningProfileTagOutputWithContext(context.Context) SigningProfileTagOutput
+}
+
+type SigningProfileTagArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SigningProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningProfileTag)(nil)).Elem()
+}
+
+func (i SigningProfileTagArgs) ToSigningProfileTagOutput() SigningProfileTagOutput {
+	return i.ToSigningProfileTagOutputWithContext(context.Background())
+}
+
+func (i SigningProfileTagArgs) ToSigningProfileTagOutputWithContext(ctx context.Context) SigningProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileTagOutput)
+}
+
+// SigningProfileTagArrayInput is an input type that accepts SigningProfileTagArray and SigningProfileTagArrayOutput values.
+// You can construct a concrete instance of `SigningProfileTagArrayInput` via:
+//
+//          SigningProfileTagArray{ SigningProfileTagArgs{...} }
+type SigningProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToSigningProfileTagArrayOutput() SigningProfileTagArrayOutput
+	ToSigningProfileTagArrayOutputWithContext(context.Context) SigningProfileTagArrayOutput
+}
+
+type SigningProfileTagArray []SigningProfileTagInput
+
+func (SigningProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningProfileTag)(nil)).Elem()
+}
+
+func (i SigningProfileTagArray) ToSigningProfileTagArrayOutput() SigningProfileTagArrayOutput {
+	return i.ToSigningProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i SigningProfileTagArray) ToSigningProfileTagArrayOutputWithContext(ctx context.Context) SigningProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileTagArrayOutput)
+}
+
+type SigningProfileTagOutput struct{ *pulumi.OutputState }
+
+func (SigningProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SigningProfileTag)(nil)).Elem()
+}
+
+func (o SigningProfileTagOutput) ToSigningProfileTagOutput() SigningProfileTagOutput {
+	return o
+}
+
+func (o SigningProfileTagOutput) ToSigningProfileTagOutputWithContext(ctx context.Context) SigningProfileTagOutput {
+	return o
+}
+
+func (o SigningProfileTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SigningProfileTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o SigningProfileTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SigningProfileTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SigningProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (SigningProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SigningProfileTag)(nil)).Elem()
+}
+
+func (o SigningProfileTagArrayOutput) ToSigningProfileTagArrayOutput() SigningProfileTagArrayOutput {
+	return o
+}
+
+func (o SigningProfileTagArrayOutput) ToSigningProfileTagArrayOutputWithContext(ctx context.Context) SigningProfileTagArrayOutput {
+	return o
+}
+
+func (o SigningProfileTagArrayOutput) Index(i pulumi.IntInput) SigningProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningProfileTag {
+		return vs[0].([]SigningProfileTag)[vs[1].(int)]
+	}).(SigningProfileTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SigningProfileSignatureValidityPeriodOutput{})
 	pulumi.RegisterOutputType(SigningProfileSignatureValidityPeriodPtrOutput{})
+	pulumi.RegisterOutputType(SigningProfileTagOutput{})
+	pulumi.RegisterOutputType(SigningProfileTagArrayOutput{})
 }

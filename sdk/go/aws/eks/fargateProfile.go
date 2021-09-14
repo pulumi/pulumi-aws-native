@@ -8,27 +8,24 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html
+// Resource Schema for AWS::EKS::FargateProfile
 type FargateProfile struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+	// Name of the Cluster
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+	// Name of FargateProfile
 	FargateProfileName pulumi.StringPtrOutput `pulumi:"fargateProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
-	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The IAM policy arn for pods
+	PodExecutionRoleArn pulumi.StringOutput               `pulumi:"podExecutionRoleArn"`
+	Selectors           FargateProfileSelectorArrayOutput `pulumi:"selectors"`
+	Subnets             pulumi.StringArrayOutput          `pulumi:"subnets"`
+	// An array of key-value pairs to apply to this resource.
+	Tags FargateProfileTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFargateProfile registers a new resource with the given unique name, arguments, and options.
@@ -79,34 +76,30 @@ func (FargateProfileState) ElementType() reflect.Type {
 }
 
 type fargateProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+	// Name of the Cluster
 	ClusterName string `pulumi:"clusterName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+	// Name of FargateProfile
 	FargateProfileName *string `pulumi:"fargateProfileName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
-	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-	Selectors []FargateProfileSelector `pulumi:"selectors"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-	Subnets []string `pulumi:"subnets"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The IAM policy arn for pods
+	PodExecutionRoleArn string                   `pulumi:"podExecutionRoleArn"`
+	Selectors           []FargateProfileSelector `pulumi:"selectors"`
+	Subnets             []string                 `pulumi:"subnets"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []FargateProfileTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FargateProfile resource.
 type FargateProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-clustername
+	// Name of the Cluster
 	ClusterName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-fargateprofilename
+	// Name of FargateProfile
 	FargateProfileName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-podexecutionrolearn
+	// The IAM policy arn for pods
 	PodExecutionRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-selectors
-	Selectors FargateProfileSelectorArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-subnets
-	Subnets pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-fargateprofile.html#cfn-eks-fargateprofile-tags
-	Tags aws.TagArrayInput
+	Selectors           FargateProfileSelectorArrayInput
+	Subnets             pulumi.StringArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags FargateProfileTagArrayInput
 }
 
 func (FargateProfileArgs) ElementType() reflect.Type {

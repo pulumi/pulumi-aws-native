@@ -11,16 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
+// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
 type ServiceActionAssociation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-	ProductId pulumi.StringOutput `pulumi:"productId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
+	ProductId              pulumi.StringOutput `pulumi:"productId"`
 	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-	ServiceActionId pulumi.StringOutput `pulumi:"serviceActionId"`
+	ServiceActionId        pulumi.StringOutput `pulumi:"serviceActionId"`
 }
 
 // NewServiceActionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -71,22 +68,16 @@ func (ServiceActionAssociationState) ElementType() reflect.Type {
 }
 
 type serviceActionAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-	ProductId string `pulumi:"productId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
+	ProductId              string `pulumi:"productId"`
 	ProvisioningArtifactId string `pulumi:"provisioningArtifactId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-	ServiceActionId string `pulumi:"serviceActionId"`
+	ServiceActionId        string `pulumi:"serviceActionId"`
 }
 
 // The set of arguments for constructing a ServiceActionAssociation resource.
 type ServiceActionAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-	ProductId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
+	ProductId              pulumi.StringInput
 	ProvisioningArtifactId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-	ServiceActionId pulumi.StringInput
+	ServiceActionId        pulumi.StringInput
 }
 
 func (ServiceActionAssociationArgs) ElementType() reflect.Type {

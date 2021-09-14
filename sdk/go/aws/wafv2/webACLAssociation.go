@@ -11,14 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html
+// Associates WebACL to Application Load Balancer, CloudFront or API Gateway.
 type WebACLAssociation struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-	WebACLArn pulumi.StringOutput `pulumi:"webACLArn"`
+	WebACLArn   pulumi.StringOutput `pulumi:"webACLArn"`
 }
 
 // NewWebACLAssociation registers a new resource with the given unique name, arguments, and options.
@@ -66,18 +64,14 @@ func (WebACLAssociationState) ElementType() reflect.Type {
 }
 
 type webACLAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
 	ResourceArn string `pulumi:"resourceArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-	WebACLArn string `pulumi:"webACLArn"`
+	WebACLArn   string `pulumi:"webACLArn"`
 }
 
 // The set of arguments for constructing a WebACLAssociation resource.
 type WebACLAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-resourcearn
 	ResourceArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webaclassociation.html#cfn-wafv2-webaclassociation-webaclarn
-	WebACLArn pulumi.StringInput
+	WebACLArn   pulumi.StringInput
 }
 
 func (WebACLAssociationArgs) ElementType() reflect.Type {

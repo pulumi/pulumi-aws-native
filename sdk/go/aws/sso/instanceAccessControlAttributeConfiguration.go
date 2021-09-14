@@ -11,13 +11,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
+// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
 type InstanceAccessControlAttributeConfiguration struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayOutput `pulumi:"accessControlAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+	InstanceAccessControlAttributeConfiguration pulumi.AnyOutput `pulumi:"instanceAccessControlAttributeConfiguration"`
+	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 }
 
@@ -63,17 +64,19 @@ func (InstanceAccessControlAttributeConfigurationState) ElementType() reflect.Ty
 }
 
 type instanceAccessControlAttributeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
 	AccessControlAttributes []InstanceAccessControlAttributeConfigurationAccessControlAttribute `pulumi:"accessControlAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+	InstanceAccessControlAttributeConfiguration interface{} `pulumi:"instanceAccessControlAttributeConfiguration"`
+	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn string `pulumi:"instanceArn"`
 }
 
 // The set of arguments for constructing a InstanceAccessControlAttributeConfiguration resource.
 type InstanceAccessControlAttributeConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
 	AccessControlAttributes InstanceAccessControlAttributeConfigurationAccessControlAttributeArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+	// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+	InstanceAccessControlAttributeConfiguration pulumi.Input
+	// The ARN of the AWS SSO instance under which the operation will be executed.
 	InstanceArn pulumi.StringInput
 }
 

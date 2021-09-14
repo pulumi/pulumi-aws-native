@@ -8,31 +8,23 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+// Resource schema for AWS::EC2::NetworkInsightsPath
 type NetworkInsightsPath struct {
 	pulumi.CustomResourceState
 
-	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-	Destination pulumi.StringOutput `pulumi:"destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-	DestinationPort        pulumi.IntPtrOutput `pulumi:"destinationPort"`
-	NetworkInsightsPathArn pulumi.StringOutput `pulumi:"networkInsightsPathArn"`
-	NetworkInsightsPathId  pulumi.StringOutput `pulumi:"networkInsightsPathId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-	Protocol pulumi.StringOutput `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-	Source pulumi.StringOutput `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	CreatedDate            pulumi.StringOutput               `pulumi:"createdDate"`
+	Destination            pulumi.StringOutput               `pulumi:"destination"`
+	DestinationIp          pulumi.StringPtrOutput            `pulumi:"destinationIp"`
+	DestinationPort        pulumi.IntPtrOutput               `pulumi:"destinationPort"`
+	NetworkInsightsPathArn pulumi.StringOutput               `pulumi:"networkInsightsPathArn"`
+	NetworkInsightsPathId  pulumi.StringOutput               `pulumi:"networkInsightsPathId"`
+	Protocol               pulumi.StringOutput               `pulumi:"protocol"`
+	Source                 pulumi.StringOutput               `pulumi:"source"`
+	SourceIp               pulumi.StringPtrOutput            `pulumi:"sourceIp"`
+	Tags                   NetworkInsightsPathTagArrayOutput `pulumi:"tags"`
 }
 
 // NewNetworkInsightsPath registers a new resource with the given unique name, arguments, and options.
@@ -83,38 +75,24 @@ func (NetworkInsightsPathState) ElementType() reflect.Type {
 }
 
 type networkInsightsPathArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-	Destination string `pulumi:"destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-	DestinationIp *string `pulumi:"destinationIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-	DestinationPort *int `pulumi:"destinationPort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-	Protocol string `pulumi:"protocol"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-	Source string `pulumi:"source"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-	SourceIp *string `pulumi:"sourceIp"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Destination     string                   `pulumi:"destination"`
+	DestinationIp   *string                  `pulumi:"destinationIp"`
+	DestinationPort *int                     `pulumi:"destinationPort"`
+	Protocol        string                   `pulumi:"protocol"`
+	Source          string                   `pulumi:"source"`
+	SourceIp        *string                  `pulumi:"sourceIp"`
+	Tags            []NetworkInsightsPathTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkInsightsPath resource.
 type NetworkInsightsPathArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-	Destination pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-	DestinationIp pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
+	Destination     pulumi.StringInput
+	DestinationIp   pulumi.StringPtrInput
 	DestinationPort pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-	Protocol pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-	Source pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-	SourceIp pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-	Tags aws.TagArrayInput
+	Protocol        pulumi.StringInput
+	Source          pulumi.StringInput
+	SourceIp        pulumi.StringPtrInput
+	Tags            NetworkInsightsPathTagArrayInput
 }
 
 func (NetworkInsightsPathArgs) ElementType() reflect.Type {

@@ -10,9 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
 type AssociationInstanceAssociationOutputLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
 	S3Location *AssociationS3OutputLocation `pulumi:"s3Location"`
 }
 
@@ -27,9 +25,7 @@ type AssociationInstanceAssociationOutputLocationInput interface {
 	ToAssociationInstanceAssociationOutputLocationOutputWithContext(context.Context) AssociationInstanceAssociationOutputLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
 type AssociationInstanceAssociationOutputLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
 	S3Location AssociationS3OutputLocationPtrInput `pulumi:"s3Location"`
 }
 
@@ -86,7 +82,6 @@ func (i *associationInstanceAssociationOutputLocationPtrType) ToAssociationInsta
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html
 type AssociationInstanceAssociationOutputLocationOutput struct{ *pulumi.OutputState }
 
 func (AssociationInstanceAssociationOutputLocationOutput) ElementType() reflect.Type {
@@ -111,7 +106,6 @@ func (o AssociationInstanceAssociationOutputLocationOutput) ToAssociationInstanc
 	}).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
 func (o AssociationInstanceAssociationOutputLocationOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation { return v.S3Location }).(AssociationS3OutputLocationPtrOutput)
 }
@@ -140,7 +134,6 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) Elem() Associatio
 	}).(AssociationInstanceAssociationOutputLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
 func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v *AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation {
 		if v == nil {
@@ -150,14 +143,10 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() Asso
 	}).(AssociationS3OutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
 type AssociationS3OutputLocation struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
 	OutputS3BucketName *string `pulumi:"outputS3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
-	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
-	OutputS3Region *string `pulumi:"outputS3Region"`
+	OutputS3KeyPrefix  *string `pulumi:"outputS3KeyPrefix"`
+	OutputS3Region     *string `pulumi:"outputS3Region"`
 }
 
 // AssociationS3OutputLocationInput is an input type that accepts AssociationS3OutputLocationArgs and AssociationS3OutputLocationOutput values.
@@ -171,14 +160,10 @@ type AssociationS3OutputLocationInput interface {
 	ToAssociationS3OutputLocationOutputWithContext(context.Context) AssociationS3OutputLocationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
 type AssociationS3OutputLocationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
 	OutputS3BucketName pulumi.StringPtrInput `pulumi:"outputS3BucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
-	OutputS3KeyPrefix pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
-	OutputS3Region pulumi.StringPtrInput `pulumi:"outputS3Region"`
+	OutputS3KeyPrefix  pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
+	OutputS3Region     pulumi.StringPtrInput `pulumi:"outputS3Region"`
 }
 
 func (AssociationS3OutputLocationArgs) ElementType() reflect.Type {
@@ -234,7 +219,6 @@ func (i *associationS3OutputLocationPtrType) ToAssociationS3OutputLocationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationS3OutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html
 type AssociationS3OutputLocationOutput struct{ *pulumi.OutputState }
 
 func (AssociationS3OutputLocationOutput) ElementType() reflect.Type {
@@ -259,17 +243,14 @@ func (o AssociationS3OutputLocationOutput) ToAssociationS3OutputLocationPtrOutpu
 	}).(AssociationS3OutputLocationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
 func (o AssociationS3OutputLocationOutput) OutputS3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
 func (o AssociationS3OutputLocationOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
 func (o AssociationS3OutputLocationOutput) OutputS3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationS3OutputLocation) *string { return v.OutputS3Region }).(pulumi.StringPtrOutput)
 }
@@ -298,7 +279,6 @@ func (o AssociationS3OutputLocationPtrOutput) Elem() AssociationS3OutputLocation
 	}).(AssociationS3OutputLocationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
 func (o AssociationS3OutputLocationPtrOutput) OutputS3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -308,7 +288,6 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3BucketName() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
 func (o AssociationS3OutputLocationPtrOutput) OutputS3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -318,7 +297,6 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3KeyPrefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3region
 func (o AssociationS3OutputLocationPtrOutput) OutputS3Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AssociationS3OutputLocation) *string {
 		if v == nil {
@@ -328,11 +306,8 @@ func (o AssociationS3OutputLocationPtrOutput) OutputS3Region() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 type AssociationTarget struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
-	Key string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
+	Key    string   `pulumi:"key"`
 	Values []string `pulumi:"values"`
 }
 
@@ -347,11 +322,8 @@ type AssociationTargetInput interface {
 	ToAssociationTargetOutputWithContext(context.Context) AssociationTargetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 type AssociationTargetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
-	Key pulumi.StringInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
+	Key    pulumi.StringInput      `pulumi:"key"`
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -392,7 +364,6 @@ func (i AssociationTargetArray) ToAssociationTargetArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AssociationTargetArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 type AssociationTargetOutput struct{ *pulumi.OutputState }
 
 func (AssociationTargetOutput) ElementType() reflect.Type {
@@ -407,12 +378,10 @@ func (o AssociationTargetOutput) ToAssociationTargetOutputWithContext(ctx contex
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
 func (o AssociationTargetOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v AssociationTarget) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
 func (o AssociationTargetOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AssociationTarget) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -437,13 +406,12 @@ func (o AssociationTargetArrayOutput) Index(i pulumi.IntInput) AssociationTarget
 	}).(AssociationTargetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
 type DocumentAttachmentsSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+	// The key of a key-value pair that identifies the location of an attachment to a document.
 	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+	// The name of the document attachment file.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+	// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
 	Values []string `pulumi:"values"`
 }
 
@@ -458,13 +426,12 @@ type DocumentAttachmentsSourceInput interface {
 	ToDocumentAttachmentsSourceOutputWithContext(context.Context) DocumentAttachmentsSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
 type DocumentAttachmentsSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+	// The key of a key-value pair that identifies the location of an attachment to a document.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+	// The name of the document attachment file.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+	// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -505,7 +472,6 @@ func (i DocumentAttachmentsSourceArray) ToDocumentAttachmentsSourceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentAttachmentsSourceArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
 type DocumentAttachmentsSourceOutput struct{ *pulumi.OutputState }
 
 func (DocumentAttachmentsSourceOutput) ElementType() reflect.Type {
@@ -520,17 +486,17 @@ func (o DocumentAttachmentsSourceOutput) ToDocumentAttachmentsSourceOutputWithCo
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+// The key of a key-value pair that identifies the location of an attachment to a document.
 func (o DocumentAttachmentsSourceOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+// The name of the document attachment file.
 func (o DocumentAttachmentsSourceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
 func (o DocumentAttachmentsSourceOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DocumentAttachmentsSource) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -555,11 +521,10 @@ func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentA
 	}).(DocumentAttachmentsSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
 type DocumentDocumentRequires struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+	// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+	// The document version required by the current document.
 	Version *string `pulumi:"version"`
 }
 
@@ -574,11 +539,10 @@ type DocumentDocumentRequiresInput interface {
 	ToDocumentDocumentRequiresOutputWithContext(context.Context) DocumentDocumentRequiresOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
 type DocumentDocumentRequiresArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+	// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+	// The document version required by the current document.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -619,7 +583,6 @@ func (i DocumentDocumentRequiresArray) ToDocumentDocumentRequiresArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentDocumentRequiresArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
 type DocumentDocumentRequiresOutput struct{ *pulumi.OutputState }
 
 func (DocumentDocumentRequiresOutput) ElementType() reflect.Type {
@@ -634,12 +597,12 @@ func (o DocumentDocumentRequiresOutput) ToDocumentDocumentRequiresOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
 func (o DocumentDocumentRequiresOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+// The document version required by the current document.
 func (o DocumentDocumentRequiresOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentDocumentRequires) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -664,12 +627,115 @@ func (o DocumentDocumentRequiresArrayOutput) Index(i pulumi.IntInput) DocumentDo
 	}).(DocumentDocumentRequiresOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
+type DocumentTag struct {
+	// The name of the tag.
+	Key *string `pulumi:"key"`
+	// The value of the tag.
+	Value *string `pulumi:"value"`
+}
+
+// DocumentTagInput is an input type that accepts DocumentTagArgs and DocumentTagOutput values.
+// You can construct a concrete instance of `DocumentTagInput` via:
+//
+//          DocumentTagArgs{...}
+type DocumentTagInput interface {
+	pulumi.Input
+
+	ToDocumentTagOutput() DocumentTagOutput
+	ToDocumentTagOutputWithContext(context.Context) DocumentTagOutput
+}
+
+type DocumentTagArgs struct {
+	// The name of the tag.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value of the tag.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DocumentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentTag)(nil)).Elem()
+}
+
+func (i DocumentTagArgs) ToDocumentTagOutput() DocumentTagOutput {
+	return i.ToDocumentTagOutputWithContext(context.Background())
+}
+
+func (i DocumentTagArgs) ToDocumentTagOutputWithContext(ctx context.Context) DocumentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentTagOutput)
+}
+
+// DocumentTagArrayInput is an input type that accepts DocumentTagArray and DocumentTagArrayOutput values.
+// You can construct a concrete instance of `DocumentTagArrayInput` via:
+//
+//          DocumentTagArray{ DocumentTagArgs{...} }
+type DocumentTagArrayInput interface {
+	pulumi.Input
+
+	ToDocumentTagArrayOutput() DocumentTagArrayOutput
+	ToDocumentTagArrayOutputWithContext(context.Context) DocumentTagArrayOutput
+}
+
+type DocumentTagArray []DocumentTagInput
+
+func (DocumentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentTag)(nil)).Elem()
+}
+
+func (i DocumentTagArray) ToDocumentTagArrayOutput() DocumentTagArrayOutput {
+	return i.ToDocumentTagArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentTagArray) ToDocumentTagArrayOutputWithContext(ctx context.Context) DocumentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentTagArrayOutput)
+}
+
+type DocumentTagOutput struct{ *pulumi.OutputState }
+
+func (DocumentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentTag)(nil)).Elem()
+}
+
+func (o DocumentTagOutput) ToDocumentTagOutput() DocumentTagOutput {
+	return o
+}
+
+func (o DocumentTagOutput) ToDocumentTagOutputWithContext(ctx context.Context) DocumentTagOutput {
+	return o
+}
+
+// The name of the tag.
+func (o DocumentTagOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentTag) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value of the tag.
+func (o DocumentTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DocumentTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type DocumentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentTag)(nil)).Elem()
+}
+
+func (o DocumentTagArrayOutput) ToDocumentTagArrayOutput() DocumentTagArrayOutput {
+	return o
+}
+
+func (o DocumentTagArrayOutput) ToDocumentTagArrayOutputWithContext(ctx context.Context) DocumentTagArrayOutput {
+	return o
+}
+
+func (o DocumentTagArrayOutput) Index(i pulumi.IntInput) DocumentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentTag {
+		return vs[0].([]DocumentTag)[vs[1].(int)]
+	}).(DocumentTagOutput)
+}
+
 type ResourceDataSyncAwsOrganizationsSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-	OrganizationSourceType string `pulumi:"organizationSourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-	OrganizationalUnits []string `pulumi:"organizationalUnits"`
+	OrganizationSourceType string   `pulumi:"organizationSourceType"`
+	OrganizationalUnits    []string `pulumi:"organizationalUnits"`
 }
 
 // ResourceDataSyncAwsOrganizationsSourceInput is an input type that accepts ResourceDataSyncAwsOrganizationsSourceArgs and ResourceDataSyncAwsOrganizationsSourceOutput values.
@@ -683,12 +749,9 @@ type ResourceDataSyncAwsOrganizationsSourceInput interface {
 	ToResourceDataSyncAwsOrganizationsSourceOutputWithContext(context.Context) ResourceDataSyncAwsOrganizationsSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
 type ResourceDataSyncAwsOrganizationsSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-	OrganizationSourceType pulumi.StringInput `pulumi:"organizationSourceType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-	OrganizationalUnits pulumi.StringArrayInput `pulumi:"organizationalUnits"`
+	OrganizationSourceType pulumi.StringInput      `pulumi:"organizationSourceType"`
+	OrganizationalUnits    pulumi.StringArrayInput `pulumi:"organizationalUnits"`
 }
 
 func (ResourceDataSyncAwsOrganizationsSourceArgs) ElementType() reflect.Type {
@@ -744,7 +807,6 @@ func (i *resourceDataSyncAwsOrganizationsSourcePtrType) ToResourceDataSyncAwsOrg
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
 type ResourceDataSyncAwsOrganizationsSourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncAwsOrganizationsSourceOutput) ElementType() reflect.Type {
@@ -769,12 +831,10 @@ func (o ResourceDataSyncAwsOrganizationsSourceOutput) ToResourceDataSyncAwsOrgan
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
 func (o ResourceDataSyncAwsOrganizationsSourceOutput) OrganizationSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncAwsOrganizationsSource) string { return v.OrganizationSourceType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
 func (o ResourceDataSyncAwsOrganizationsSourceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDataSyncAwsOrganizationsSource) []string { return v.OrganizationalUnits }).(pulumi.StringArrayOutput)
 }
@@ -803,7 +863,6 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) Elem() ResourceDataSync
 	}).(ResourceDataSyncAwsOrganizationsSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
 func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationSourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncAwsOrganizationsSource) *string {
 		if v == nil {
@@ -813,7 +872,6 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationSourceType(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
 func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDataSyncAwsOrganizationsSource) []string {
 		if v == nil {
@@ -823,18 +881,12 @@ func (o ResourceDataSyncAwsOrganizationsSourcePtrOutput) OrganizationalUnits() p
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html
 type ResourceDataSyncS3Destination struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
-	BucketName string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
+	BucketName   string  `pulumi:"bucketName"`
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
-	BucketRegion string `pulumi:"bucketRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
-	KMSKeyArn *string `pulumi:"kMSKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
-	SyncFormat string `pulumi:"syncFormat"`
+	BucketRegion string  `pulumi:"bucketRegion"`
+	KMSKeyArn    *string `pulumi:"kMSKeyArn"`
+	SyncFormat   string  `pulumi:"syncFormat"`
 }
 
 // ResourceDataSyncS3DestinationInput is an input type that accepts ResourceDataSyncS3DestinationArgs and ResourceDataSyncS3DestinationOutput values.
@@ -848,18 +900,12 @@ type ResourceDataSyncS3DestinationInput interface {
 	ToResourceDataSyncS3DestinationOutputWithContext(context.Context) ResourceDataSyncS3DestinationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html
 type ResourceDataSyncS3DestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
-	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
+	BucketName   pulumi.StringInput    `pulumi:"bucketName"`
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
-	BucketRegion pulumi.StringInput `pulumi:"bucketRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
-	KMSKeyArn pulumi.StringPtrInput `pulumi:"kMSKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
-	SyncFormat pulumi.StringInput `pulumi:"syncFormat"`
+	BucketRegion pulumi.StringInput    `pulumi:"bucketRegion"`
+	KMSKeyArn    pulumi.StringPtrInput `pulumi:"kMSKeyArn"`
+	SyncFormat   pulumi.StringInput    `pulumi:"syncFormat"`
 }
 
 func (ResourceDataSyncS3DestinationArgs) ElementType() reflect.Type {
@@ -915,7 +961,6 @@ func (i *resourceDataSyncS3DestinationPtrType) ToResourceDataSyncS3DestinationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html
 type ResourceDataSyncS3DestinationOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncS3DestinationOutput) ElementType() reflect.Type {
@@ -940,27 +985,22 @@ func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrO
 	}).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
 func (o ResourceDataSyncS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
 func (o ResourceDataSyncS3DestinationOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
 func (o ResourceDataSyncS3DestinationOutput) BucketRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketRegion }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
 func (o ResourceDataSyncS3DestinationOutput) KMSKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.KMSKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
 func (o ResourceDataSyncS3DestinationOutput) SyncFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.SyncFormat }).(pulumi.StringOutput)
 }
@@ -989,7 +1029,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) Elem() ResourceDataSyncS3Destina
 	}).(ResourceDataSyncS3DestinationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketname
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -999,7 +1038,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketprefix
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1009,7 +1047,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketPrefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-bucketregion
 func (o ResourceDataSyncS3DestinationPtrOutput) BucketRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1019,7 +1056,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketRegion() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-kmskeyarn
 func (o ResourceDataSyncS3DestinationPtrOutput) KMSKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1029,7 +1065,6 @@ func (o ResourceDataSyncS3DestinationPtrOutput) KMSKeyArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-s3destination.html#cfn-ssm-resourcedatasync-s3destination-syncformat
 func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
 		if v == nil {
@@ -1039,16 +1074,11 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
 type ResourceDataSyncSyncSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
 	AwsOrganizationsSource *ResourceDataSyncAwsOrganizationsSource `pulumi:"awsOrganizationsSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-	IncludeFutureRegions *bool `pulumi:"includeFutureRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-	SourceRegions []string `pulumi:"sourceRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-	SourceType string `pulumi:"sourceType"`
+	IncludeFutureRegions   *bool                                   `pulumi:"includeFutureRegions"`
+	SourceRegions          []string                                `pulumi:"sourceRegions"`
+	SourceType             string                                  `pulumi:"sourceType"`
 }
 
 // ResourceDataSyncSyncSourceInput is an input type that accepts ResourceDataSyncSyncSourceArgs and ResourceDataSyncSyncSourceOutput values.
@@ -1062,16 +1092,11 @@ type ResourceDataSyncSyncSourceInput interface {
 	ToResourceDataSyncSyncSourceOutputWithContext(context.Context) ResourceDataSyncSyncSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
 type ResourceDataSyncSyncSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
 	AwsOrganizationsSource ResourceDataSyncAwsOrganizationsSourcePtrInput `pulumi:"awsOrganizationsSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-	IncludeFutureRegions pulumi.BoolPtrInput `pulumi:"includeFutureRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-	SourceRegions pulumi.StringArrayInput `pulumi:"sourceRegions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-	SourceType pulumi.StringInput `pulumi:"sourceType"`
+	IncludeFutureRegions   pulumi.BoolPtrInput                            `pulumi:"includeFutureRegions"`
+	SourceRegions          pulumi.StringArrayInput                        `pulumi:"sourceRegions"`
+	SourceType             pulumi.StringInput                             `pulumi:"sourceType"`
 }
 
 func (ResourceDataSyncSyncSourceArgs) ElementType() reflect.Type {
@@ -1127,7 +1152,6 @@ func (i *resourceDataSyncSyncSourcePtrType) ToResourceDataSyncSyncSourcePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncSyncSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
 type ResourceDataSyncSyncSourceOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncSyncSourceOutput) ElementType() reflect.Type {
@@ -1152,24 +1176,20 @@ func (o ResourceDataSyncSyncSourceOutput) ToResourceDataSyncSyncSourcePtrOutputW
 	}).(ResourceDataSyncSyncSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
 func (o ResourceDataSyncSyncSourceOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		return v.AwsOrganizationsSource
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
 func (o ResourceDataSyncSyncSourceOutput) IncludeFutureRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) *bool { return v.IncludeFutureRegions }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
 func (o ResourceDataSyncSyncSourceOutput) SourceRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) []string { return v.SourceRegions }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
 func (o ResourceDataSyncSyncSourceOutput) SourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) string { return v.SourceType }).(pulumi.StringOutput)
 }
@@ -1198,7 +1218,6 @@ func (o ResourceDataSyncSyncSourcePtrOutput) Elem() ResourceDataSyncSyncSourceOu
 	}).(ResourceDataSyncSyncSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
 func (o ResourceDataSyncSyncSourcePtrOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		if v == nil {
@@ -1208,7 +1227,6 @@ func (o ResourceDataSyncSyncSourcePtrOutput) AwsOrganizationsSource() ResourceDa
 	}).(ResourceDataSyncAwsOrganizationsSourcePtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
 func (o ResourceDataSyncSyncSourcePtrOutput) IncludeFutureRegions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *bool {
 		if v == nil {
@@ -1218,7 +1236,6 @@ func (o ResourceDataSyncSyncSourcePtrOutput) IncludeFutureRegions() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
 func (o ResourceDataSyncSyncSourcePtrOutput) SourceRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) []string {
 		if v == nil {
@@ -1228,7 +1245,6 @@ func (o ResourceDataSyncSyncSourcePtrOutput) SourceRegions() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
 func (o ResourceDataSyncSyncSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *string {
 		if v == nil {
@@ -1249,6 +1265,8 @@ func init() {
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
 	pulumi.RegisterOutputType(DocumentDocumentRequiresOutput{})
 	pulumi.RegisterOutputType(DocumentDocumentRequiresArrayOutput{})
+	pulumi.RegisterOutputType(DocumentTagOutput{})
+	pulumi.RegisterOutputType(DocumentTagArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourceOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncAwsOrganizationsSourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})

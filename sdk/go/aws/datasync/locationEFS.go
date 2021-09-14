@@ -8,24 +8,24 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html
+// Resource schema for AWS::DataSync::LocationEFS.
 type LocationEFS struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
 	Ec2Config LocationEFSEc2ConfigOutput `pulumi:"ec2Config"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
+	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringOutput `pulumi:"efsFilesystemArn"`
-	LocationArn      pulumi.StringOutput `pulumi:"locationArn"`
-	LocationUri      pulumi.StringOutput `pulumi:"locationUri"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+	// The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
+	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
+	// The URL of the EFS location that was described.
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory pulumi.StringPtrOutput `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationEFSTagArrayOutput `pulumi:"tags"`
 }
 
 // NewLocationEFS registers a new resource with the given unique name, arguments, and options.
@@ -73,26 +73,24 @@ func (LocationEFSState) ElementType() reflect.Type {
 }
 
 type locationEFSArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
 	Ec2Config LocationEFSEc2Config `pulumi:"ec2Config"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
+	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn string `pulumi:"efsFilesystemArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory *string `pulumi:"subdirectory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []LocationEFSTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocationEFS resource.
 type LocationEFSArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
 	Ec2Config LocationEFSEc2ConfigInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
+	// The Amazon Resource Name (ARN) for the Amazon EFS file system.
 	EfsFilesystemArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+	// A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
 	Subdirectory pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags LocationEFSTagArrayInput
 }
 
 func (LocationEFSArgs) ElementType() reflect.Type {

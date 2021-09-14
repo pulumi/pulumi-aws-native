@@ -8,32 +8,30 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html
+// The AWS::AppRunner::Service resource specifies an AppRunner Service.
 type Service struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
-	AutoScalingConfigurationArn pulumi.StringPtrOutput `pulumi:"autoScalingConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-	EncryptionConfiguration ServiceEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
-	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-	InstanceConfiguration ServiceInstanceConfigurationPtrOutput `pulumi:"instanceConfiguration"`
-	ServiceArn            pulumi.StringOutput                   `pulumi:"serviceArn"`
-	ServiceId             pulumi.StringOutput                   `pulumi:"serviceId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
+	// Autoscaling configuration ARN
+	AutoScalingConfigurationArn pulumi.StringPtrOutput                   `pulumi:"autoScalingConfigurationArn"`
+	EncryptionConfiguration     ServiceEncryptionConfigurationPtrOutput  `pulumi:"encryptionConfiguration"`
+	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrOutput `pulumi:"healthCheckConfiguration"`
+	InstanceConfiguration       ServiceInstanceConfigurationPtrOutput    `pulumi:"instanceConfiguration"`
+	// The Amazon Resource Name (ARN) of the AppRunner Service.
+	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
+	// The AppRunner Service Id
+	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	// The AppRunner Service Name.
 	ServiceName pulumi.StringPtrOutput `pulumi:"serviceName"`
-	ServiceUrl  pulumi.StringOutput    `pulumi:"serviceUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
+	// The Service Url of the AppRunner Service.
+	ServiceUrl          pulumi.StringOutput              `pulumi:"serviceUrl"`
 	SourceConfiguration ServiceSourceConfigurationOutput `pulumi:"sourceConfiguration"`
-	Status              pulumi.StringOutput              `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// AppRunner Service status.
+	Status pulumi.StringOutput   `pulumi:"status"`
+	Tags   ServiceTagArrayOutput `pulumi:"tags"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -78,38 +76,28 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
-	AutoScalingConfigurationArn *string `pulumi:"autoScalingConfigurationArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-	EncryptionConfiguration *ServiceEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
-	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
-	ServiceName *string `pulumi:"serviceName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
+	// Autoscaling configuration ARN
+	AutoScalingConfigurationArn *string                          `pulumi:"autoScalingConfigurationArn"`
+	EncryptionConfiguration     *ServiceEncryptionConfiguration  `pulumi:"encryptionConfiguration"`
+	HealthCheckConfiguration    *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
+	InstanceConfiguration       *ServiceInstanceConfiguration    `pulumi:"instanceConfiguration"`
+	// The AppRunner Service Name.
+	ServiceName         *string                    `pulumi:"serviceName"`
 	SourceConfiguration ServiceSourceConfiguration `pulumi:"sourceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                []ServiceTag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-autoscalingconfigurationarn
+	// Autoscaling configuration ARN
 	AutoScalingConfigurationArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-encryptionconfiguration
-	EncryptionConfiguration ServiceEncryptionConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-healthcheckconfiguration
-	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-instanceconfiguration
-	InstanceConfiguration ServiceInstanceConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-servicename
-	ServiceName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-sourceconfiguration
+	EncryptionConfiguration     ServiceEncryptionConfigurationPtrInput
+	HealthCheckConfiguration    ServiceHealthCheckConfigurationPtrInput
+	InstanceConfiguration       ServiceInstanceConfigurationPtrInput
+	// The AppRunner Service Name.
+	ServiceName         pulumi.StringPtrInput
 	SourceConfiguration ServiceSourceConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-service.html#cfn-apprunner-service-tags
-	Tags aws.TagArrayInput
+	Tags                ServiceTagArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {

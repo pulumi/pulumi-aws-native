@@ -10,16 +10,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
 type LaunchProfileStreamConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-	ClipboardMode string `pulumi:"clipboardMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-	Ec2InstanceTypes []string `pulumi:"ec2InstanceTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
+	ClipboardMode             string   `pulumi:"clipboardMode"`
+	Ec2InstanceTypes          []string `pulumi:"ec2InstanceTypes"`
 	MaxSessionLengthInMinutes *float64 `pulumi:"maxSessionLengthInMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-	StreamingImageIds []string `pulumi:"streamingImageIds"`
+	StreamingImageIds         []string `pulumi:"streamingImageIds"`
 }
 
 // LaunchProfileStreamConfigurationInput is an input type that accepts LaunchProfileStreamConfigurationArgs and LaunchProfileStreamConfigurationOutput values.
@@ -33,16 +28,11 @@ type LaunchProfileStreamConfigurationInput interface {
 	ToLaunchProfileStreamConfigurationOutputWithContext(context.Context) LaunchProfileStreamConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
 type LaunchProfileStreamConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-	ClipboardMode pulumi.StringInput `pulumi:"clipboardMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-	Ec2InstanceTypes pulumi.StringArrayInput `pulumi:"ec2InstanceTypes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
-	MaxSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxSessionLengthInMinutes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
+	ClipboardMode             pulumi.StringInput      `pulumi:"clipboardMode"`
+	Ec2InstanceTypes          pulumi.StringArrayInput `pulumi:"ec2InstanceTypes"`
+	MaxSessionLengthInMinutes pulumi.Float64PtrInput  `pulumi:"maxSessionLengthInMinutes"`
+	StreamingImageIds         pulumi.StringArrayInput `pulumi:"streamingImageIds"`
 }
 
 func (LaunchProfileStreamConfigurationArgs) ElementType() reflect.Type {
@@ -98,7 +88,6 @@ func (i *launchProfileStreamConfigurationPtrType) ToLaunchProfileStreamConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
 type LaunchProfileStreamConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamConfigurationOutput) ElementType() reflect.Type {
@@ -123,22 +112,18 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 	}).(LaunchProfileStreamConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
 func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) string { return v.ClipboardMode }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
 func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.Ec2InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
 func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
@@ -167,7 +152,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamCon
 	}).(LaunchProfileStreamConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
 func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
@@ -177,7 +161,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
 func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -187,7 +170,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -197,7 +179,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
 func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -207,11 +188,156 @@ func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.St
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html
+type StreamingImageStreamingImageEncryptionConfiguration struct {
+	KeyArn  *string `pulumi:"keyArn"`
+	KeyType string  `pulumi:"keyType"`
+}
+
+// StreamingImageStreamingImageEncryptionConfigurationInput is an input type that accepts StreamingImageStreamingImageEncryptionConfigurationArgs and StreamingImageStreamingImageEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `StreamingImageStreamingImageEncryptionConfigurationInput` via:
+//
+//          StreamingImageStreamingImageEncryptionConfigurationArgs{...}
+type StreamingImageStreamingImageEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput
+	ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput
+}
+
+type StreamingImageStreamingImageEncryptionConfigurationArgs struct {
+	KeyArn  pulumi.StringPtrInput `pulumi:"keyArn"`
+	KeyType pulumi.StringInput    `pulumi:"keyType"`
+}
+
+func (StreamingImageStreamingImageEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput {
+	return i.ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationOutput)
+}
+
+func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return i.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i StreamingImageStreamingImageEncryptionConfigurationArgs) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationOutput).ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// StreamingImageStreamingImageEncryptionConfigurationPtrInput is an input type that accepts StreamingImageStreamingImageEncryptionConfigurationArgs, StreamingImageStreamingImageEncryptionConfigurationPtr and StreamingImageStreamingImageEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `StreamingImageStreamingImageEncryptionConfigurationPtrInput` via:
+//
+//          StreamingImageStreamingImageEncryptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type StreamingImageStreamingImageEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput
+	ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput
+}
+
+type streamingImageStreamingImageEncryptionConfigurationPtrType StreamingImageStreamingImageEncryptionConfigurationArgs
+
+func StreamingImageStreamingImageEncryptionConfigurationPtr(v *StreamingImageStreamingImageEncryptionConfigurationArgs) StreamingImageStreamingImageEncryptionConfigurationPtrInput {
+	return (*streamingImageStreamingImageEncryptionConfigurationPtrType)(v)
+}
+
+func (*streamingImageStreamingImageEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *streamingImageStreamingImageEncryptionConfigurationPtrType) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return i.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *streamingImageStreamingImageEncryptionConfigurationPtrType) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageStreamingImageEncryptionConfigurationPtrOutput)
+}
+
+type StreamingImageStreamingImageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (StreamingImageStreamingImageEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationOutput() StreamingImageStreamingImageEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationOutput {
+	return o
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return o.ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamingImageStreamingImageEncryptionConfiguration) *StreamingImageStreamingImageEncryptionConfiguration {
+		return &v
+	}).(StreamingImageStreamingImageEncryptionConfigurationPtrOutput)
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamingImageStreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingImageStreamingImageEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type StreamingImageStreamingImageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamingImageStreamingImageEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutput() StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageStreamingImageEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageStreamingImageEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) StreamingImageStreamingImageEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StreamingImageStreamingImageEncryptionConfiguration
+		return ret
+	}).(StreamingImageStreamingImageEncryptionConfigurationOutput)
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingImageStreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageStreamingImageEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyType
+	}).(pulumi.StringPtrOutput)
+}
+
 type StudioComponentActiveDirectoryComputerAttribute struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
-	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -226,11 +352,8 @@ type StudioComponentActiveDirectoryComputerAttributeInput interface {
 	ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(context.Context) StudioComponentActiveDirectoryComputerAttributeOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html
 type StudioComponentActiveDirectoryComputerAttributeArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -271,7 +394,6 @@ func (i StudioComponentActiveDirectoryComputerAttributeArray) ToStudioComponentA
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html
 type StudioComponentActiveDirectoryComputerAttributeOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentActiveDirectoryComputerAttributeOutput) ElementType() reflect.Type {
@@ -286,12 +408,10 @@ func (o StudioComponentActiveDirectoryComputerAttributeOutput) ToStudioComponent
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-name
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectorycomputerattribute.html#cfn-nimblestudio-studiocomponent-activedirectorycomputerattribute-value
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -316,14 +436,10 @@ func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) Index(i pulu
 	}).(StudioComponentActiveDirectoryComputerAttributeOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
 type StudioComponentActiveDirectoryConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-	ComputerAttributes []StudioComponentActiveDirectoryComputerAttribute `pulumi:"computerAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
-	DirectoryId *string `pulumi:"directoryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
-	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+	ComputerAttributes                  []StudioComponentActiveDirectoryComputerAttribute `pulumi:"computerAttributes"`
+	DirectoryId                         *string                                           `pulumi:"directoryId"`
+	OrganizationalUnitDistinguishedName *string                                           `pulumi:"organizationalUnitDistinguishedName"`
 }
 
 // StudioComponentActiveDirectoryConfigurationInput is an input type that accepts StudioComponentActiveDirectoryConfigurationArgs and StudioComponentActiveDirectoryConfigurationOutput values.
@@ -337,14 +453,10 @@ type StudioComponentActiveDirectoryConfigurationInput interface {
 	ToStudioComponentActiveDirectoryConfigurationOutputWithContext(context.Context) StudioComponentActiveDirectoryConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
 type StudioComponentActiveDirectoryConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-	ComputerAttributes StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
-	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
-	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+	ComputerAttributes                  StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
+	DirectoryId                         pulumi.StringPtrInput                                     `pulumi:"directoryId"`
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput                                     `pulumi:"organizationalUnitDistinguishedName"`
 }
 
 func (StudioComponentActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
@@ -400,7 +512,6 @@ func (i *studioComponentActiveDirectoryConfigurationPtrType) ToStudioComponentAc
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
 type StudioComponentActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -425,19 +536,16 @@ func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActi
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
 func (o StudioComponentActiveDirectoryConfigurationOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		return v.ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
 func (o StudioComponentActiveDirectoryConfigurationOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
 func (o StudioComponentActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
@@ -468,7 +576,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) Elem() StudioCompo
 	}).(StudioComponentActiveDirectoryConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		if v == nil {
@@ -478,7 +585,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -488,7 +594,6 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -498,12 +603,9 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html
 type StudioComponentComputeFarmConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
 	ActiveDirectoryUser *string `pulumi:"activeDirectoryUser"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
-	Endpoint *string `pulumi:"endpoint"`
+	Endpoint            *string `pulumi:"endpoint"`
 }
 
 // StudioComponentComputeFarmConfigurationInput is an input type that accepts StudioComponentComputeFarmConfigurationArgs and StudioComponentComputeFarmConfigurationOutput values.
@@ -517,12 +619,9 @@ type StudioComponentComputeFarmConfigurationInput interface {
 	ToStudioComponentComputeFarmConfigurationOutputWithContext(context.Context) StudioComponentComputeFarmConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html
 type StudioComponentComputeFarmConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
 	ActiveDirectoryUser pulumi.StringPtrInput `pulumi:"activeDirectoryUser"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	Endpoint            pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
 func (StudioComponentComputeFarmConfigurationArgs) ElementType() reflect.Type {
@@ -578,7 +677,6 @@ func (i *studioComponentComputeFarmConfigurationPtrType) ToStudioComponentComput
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html
 type StudioComponentComputeFarmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentComputeFarmConfigurationOutput) ElementType() reflect.Type {
@@ -603,12 +701,10 @@ func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeF
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
 func (o StudioComponentComputeFarmConfigurationOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.ActiveDirectoryUser }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
 func (o StudioComponentComputeFarmConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -637,7 +733,6 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Elem() StudioComponent
 	}).(StudioComponentComputeFarmConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-activedirectoryuser
 func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -647,7 +742,6 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-computefarmconfiguration.html#cfn-nimblestudio-studiocomponent-computefarmconfiguration-endpoint
 func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -657,9 +751,7 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
 type StudioComponentLicenseServiceConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
 	Endpoint *string `pulumi:"endpoint"`
 }
 
@@ -674,9 +766,7 @@ type StudioComponentLicenseServiceConfigurationInput interface {
 	ToStudioComponentLicenseServiceConfigurationOutputWithContext(context.Context) StudioComponentLicenseServiceConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
 type StudioComponentLicenseServiceConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
@@ -733,7 +823,6 @@ func (i *studioComponentLicenseServiceConfigurationPtrType) ToStudioComponentLic
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html
 type StudioComponentLicenseServiceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentLicenseServiceConfigurationOutput) ElementType() reflect.Type {
@@ -758,7 +847,6 @@ func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicen
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
 func (o StudioComponentLicenseServiceConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentLicenseServiceConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -787,7 +875,6 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Elem() StudioCompon
 	}).(StudioComponentLicenseServiceConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-licenseserviceconfiguration.html#cfn-nimblestudio-studiocomponent-licenseserviceconfiguration-endpoint
 func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentLicenseServiceConfiguration) *string {
 		if v == nil {
@@ -797,11 +884,8 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
 type StudioComponentScriptParameterKeyValue struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
-	Key *string `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -816,11 +900,8 @@ type StudioComponentScriptParameterKeyValueInput interface {
 	ToStudioComponentScriptParameterKeyValueOutputWithContext(context.Context) StudioComponentScriptParameterKeyValueOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
 type StudioComponentScriptParameterKeyValueArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
+	Key   pulumi.StringPtrInput `pulumi:"key"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -861,7 +942,6 @@ func (i StudioComponentScriptParameterKeyValueArray) ToStudioComponentScriptPara
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html
 type StudioComponentScriptParameterKeyValueOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentScriptParameterKeyValueOutput) ElementType() reflect.Type {
@@ -876,12 +956,10 @@ func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptPar
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-key
 func (o StudioComponentScriptParameterKeyValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-scriptparameterkeyvalue.html#cfn-nimblestudio-studiocomponent-scriptparameterkeyvalue-value
 func (o StudioComponentScriptParameterKeyValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -906,17 +984,11 @@ func (o StudioComponentScriptParameterKeyValueArrayOutput) Index(i pulumi.IntInp
 	}).(StudioComponentScriptParameterKeyValueOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html
 type StudioComponentSharedFileSystemConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
-	Endpoint *string `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
-	FileSystemId *string `pulumi:"fileSystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
-	LinuxMountPoint *string `pulumi:"linuxMountPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
-	ShareName *string `pulumi:"shareName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
+	Endpoint          *string `pulumi:"endpoint"`
+	FileSystemId      *string `pulumi:"fileSystemId"`
+	LinuxMountPoint   *string `pulumi:"linuxMountPoint"`
+	ShareName         *string `pulumi:"shareName"`
 	WindowsMountDrive *string `pulumi:"windowsMountDrive"`
 }
 
@@ -931,17 +1003,11 @@ type StudioComponentSharedFileSystemConfigurationInput interface {
 	ToStudioComponentSharedFileSystemConfigurationOutputWithContext(context.Context) StudioComponentSharedFileSystemConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html
 type StudioComponentSharedFileSystemConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
-	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
-	LinuxMountPoint pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
-	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
+	Endpoint          pulumi.StringPtrInput `pulumi:"endpoint"`
+	FileSystemId      pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	LinuxMountPoint   pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
+	ShareName         pulumi.StringPtrInput `pulumi:"shareName"`
 	WindowsMountDrive pulumi.StringPtrInput `pulumi:"windowsMountDrive"`
 }
 
@@ -998,7 +1064,6 @@ func (i *studioComponentSharedFileSystemConfigurationPtrType) ToStudioComponentS
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html
 type StudioComponentSharedFileSystemConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentSharedFileSystemConfigurationOutput) ElementType() reflect.Type {
@@ -1023,27 +1088,22 @@ func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSha
 	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
 func (o StudioComponentSharedFileSystemConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
 func (o StudioComponentSharedFileSystemConfigurationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
 func (o StudioComponentSharedFileSystemConfigurationOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.LinuxMountPoint }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
 func (o StudioComponentSharedFileSystemConfigurationOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
 func (o StudioComponentSharedFileSystemConfigurationOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.WindowsMountDrive }).(pulumi.StringPtrOutput)
 }
@@ -1072,7 +1132,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Elem() StudioComp
 	}).(StudioComponentSharedFileSystemConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-endpoint
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -1082,7 +1141,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-filesystemid
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -1092,7 +1150,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-linuxmountpoint
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -1102,7 +1159,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint()
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-sharename
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -1112,7 +1168,6 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-sharedfilesystemconfiguration.html#cfn-nimblestudio-studiocomponent-sharedfilesystemconfiguration-windowsmountdrive
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -1122,15 +1177,10 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
 type StudioComponentStudioComponentConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
-	ActiveDirectoryConfiguration *StudioComponentActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
-	ComputeFarmConfiguration *StudioComponentComputeFarmConfiguration `pulumi:"computeFarmConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
-	LicenseServiceConfiguration *StudioComponentLicenseServiceConfiguration `pulumi:"licenseServiceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
+	ActiveDirectoryConfiguration  *StudioComponentActiveDirectoryConfiguration  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      *StudioComponentComputeFarmConfiguration      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   *StudioComponentLicenseServiceConfiguration   `pulumi:"licenseServiceConfiguration"`
 	SharedFileSystemConfiguration *StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
 }
 
@@ -1145,15 +1195,10 @@ type StudioComponentStudioComponentConfigurationInput interface {
 	ToStudioComponentStudioComponentConfigurationOutputWithContext(context.Context) StudioComponentStudioComponentConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
 type StudioComponentStudioComponentConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
-	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfigurationPtrInput `pulumi:"activeDirectoryConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
-	ComputeFarmConfiguration StudioComponentComputeFarmConfigurationPtrInput `pulumi:"computeFarmConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
-	LicenseServiceConfiguration StudioComponentLicenseServiceConfigurationPtrInput `pulumi:"licenseServiceConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
+	ActiveDirectoryConfiguration  StudioComponentActiveDirectoryConfigurationPtrInput  `pulumi:"activeDirectoryConfiguration"`
+	ComputeFarmConfiguration      StudioComponentComputeFarmConfigurationPtrInput      `pulumi:"computeFarmConfiguration"`
+	LicenseServiceConfiguration   StudioComponentLicenseServiceConfigurationPtrInput   `pulumi:"licenseServiceConfiguration"`
 	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationPtrInput `pulumi:"sharedFileSystemConfiguration"`
 }
 
@@ -1210,7 +1255,6 @@ func (i *studioComponentStudioComponentConfigurationPtrType) ToStudioComponentSt
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
 type StudioComponentStudioComponentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentStudioComponentConfigurationOutput) ElementType() reflect.Type {
@@ -1235,28 +1279,24 @@ func (o StudioComponentStudioComponentConfigurationOutput) ToStudioComponentStud
 	}).(StudioComponentStudioComponentConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
 func (o StudioComponentStudioComponentConfigurationOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
 		return v.ActiveDirectoryConfiguration
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
 func (o StudioComponentStudioComponentConfigurationOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
 		return v.ComputeFarmConfiguration
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
 func (o StudioComponentStudioComponentConfigurationOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
 		return v.LicenseServiceConfiguration
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
 func (o StudioComponentStudioComponentConfigurationOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
 		return v.SharedFileSystemConfiguration
@@ -1287,7 +1327,6 @@ func (o StudioComponentStudioComponentConfigurationPtrOutput) Elem() StudioCompo
 	}).(StudioComponentStudioComponentConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
 func (o StudioComponentStudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
 		if v == nil {
@@ -1297,7 +1336,6 @@ func (o StudioComponentStudioComponentConfigurationPtrOutput) ActiveDirectoryCon
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
 func (o StudioComponentStudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
 		if v == nil {
@@ -1307,7 +1345,6 @@ func (o StudioComponentStudioComponentConfigurationPtrOutput) ComputeFarmConfigu
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
 func (o StudioComponentStudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
 		if v == nil {
@@ -1317,7 +1354,6 @@ func (o StudioComponentStudioComponentConfigurationPtrOutput) LicenseServiceConf
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
 func (o StudioComponentStudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
 	return o.ApplyT(func(v *StudioComponentStudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
 		if v == nil {
@@ -1327,16 +1363,11 @@ func (o StudioComponentStudioComponentConfigurationPtrOutput) SharedFileSystemCo
 	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html
 type StudioComponentStudioComponentInitializationScript struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
 	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
-	Platform *string `pulumi:"platform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
-	RunContext *string `pulumi:"runContext"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
-	Script *string `pulumi:"script"`
+	Platform                     *string `pulumi:"platform"`
+	RunContext                   *string `pulumi:"runContext"`
+	Script                       *string `pulumi:"script"`
 }
 
 // StudioComponentStudioComponentInitializationScriptInput is an input type that accepts StudioComponentStudioComponentInitializationScriptArgs and StudioComponentStudioComponentInitializationScriptOutput values.
@@ -1350,16 +1381,11 @@ type StudioComponentStudioComponentInitializationScriptInput interface {
 	ToStudioComponentStudioComponentInitializationScriptOutputWithContext(context.Context) StudioComponentStudioComponentInitializationScriptOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html
 type StudioComponentStudioComponentInitializationScriptArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
 	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
-	Platform pulumi.StringPtrInput `pulumi:"platform"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
-	RunContext pulumi.StringPtrInput `pulumi:"runContext"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
-	Script pulumi.StringPtrInput `pulumi:"script"`
+	Platform                     pulumi.StringPtrInput `pulumi:"platform"`
+	RunContext                   pulumi.StringPtrInput `pulumi:"runContext"`
+	Script                       pulumi.StringPtrInput `pulumi:"script"`
 }
 
 func (StudioComponentStudioComponentInitializationScriptArgs) ElementType() reflect.Type {
@@ -1399,7 +1425,6 @@ func (i StudioComponentStudioComponentInitializationScriptArray) ToStudioCompone
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentStudioComponentInitializationScriptArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html
 type StudioComponentStudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentStudioComponentInitializationScriptOutput) ElementType() reflect.Type {
@@ -1414,24 +1439,20 @@ func (o StudioComponentStudioComponentInitializationScriptOutput) ToStudioCompon
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-launchprofileprotocolversion
 func (o StudioComponentStudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string {
 		return v.LaunchProfileProtocolVersion
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-platform
 func (o StudioComponentStudioComponentInitializationScriptOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-runcontext
 func (o StudioComponentStudioComponentInitializationScriptOutput) RunContext() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.RunContext }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentinitializationscript.html#cfn-nimblestudio-studiocomponent-studiocomponentinitializationscript-script
 func (o StudioComponentStudioComponentInitializationScriptOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentStudioComponentInitializationScript) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -1456,12 +1477,9 @@ func (o StudioComponentStudioComponentInitializationScriptArrayOutput) Index(i p
 	}).(StudioComponentStudioComponentInitializationScriptOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html
 type StudioStudioEncryptionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
-	KeyArn *string `pulumi:"keyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
-	KeyType string `pulumi:"keyType"`
+	KeyArn  *string `pulumi:"keyArn"`
+	KeyType string  `pulumi:"keyType"`
 }
 
 // StudioStudioEncryptionConfigurationInput is an input type that accepts StudioStudioEncryptionConfigurationArgs and StudioStudioEncryptionConfigurationOutput values.
@@ -1475,12 +1493,9 @@ type StudioStudioEncryptionConfigurationInput interface {
 	ToStudioStudioEncryptionConfigurationOutputWithContext(context.Context) StudioStudioEncryptionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html
 type StudioStudioEncryptionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
-	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
-	KeyType pulumi.StringInput `pulumi:"keyType"`
+	KeyArn  pulumi.StringPtrInput `pulumi:"keyArn"`
+	KeyType pulumi.StringInput    `pulumi:"keyType"`
 }
 
 func (StudioStudioEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -1536,7 +1551,6 @@ func (i *studioStudioEncryptionConfigurationPtrType) ToStudioStudioEncryptionCon
 	return pulumi.ToOutputWithContext(ctx, i).(StudioStudioEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html
 type StudioStudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioStudioEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -1561,12 +1575,10 @@ func (o StudioStudioEncryptionConfigurationOutput) ToStudioStudioEncryptionConfi
 	}).(StudioStudioEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
 func (o StudioStudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioStudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
 func (o StudioStudioEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v StudioStudioEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
@@ -1595,7 +1607,6 @@ func (o StudioStudioEncryptionConfigurationPtrOutput) Elem() StudioStudioEncrypt
 	}).(StudioStudioEncryptionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keyarn
 func (o StudioStudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioStudioEncryptionConfiguration) *string {
 		if v == nil {
@@ -1605,7 +1616,6 @@ func (o StudioStudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studio-studioencryptionconfiguration.html#cfn-nimblestudio-studio-studioencryptionconfiguration-keytype
 func (o StudioStudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioStudioEncryptionConfiguration) *string {
 		if v == nil {
@@ -1618,6 +1628,8 @@ func (o StudioStudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtr
 func init() {
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchProfileStreamConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(StreamingImageStreamingImageEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(StreamingImageStreamingImageEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryComputerAttributeArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationOutput{})

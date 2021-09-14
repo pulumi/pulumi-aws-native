@@ -7,47 +7,31 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
+// Resource Schema describing various properties for ECS TaskDefinition
 type TaskDefinition struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-	ContainerDefinitions TaskDefinitionContainerDefinitionArrayOutput `pulumi:"containerDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
-	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
-	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
-	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
-	Family pulumi.StringPtrOutput `pulumi:"family"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayOutput `pulumi:"inferenceAccelerators"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
-	IpcMode pulumi.StringPtrOutput `pulumi:"ipcMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
-	Memory pulumi.StringPtrOutput `pulumi:"memory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
-	NetworkMode pulumi.StringPtrOutput `pulumi:"networkMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
-	PidMode pulumi.StringPtrOutput `pulumi:"pidMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
-	PlacementConstraints TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
-	ProxyConfiguration TaskDefinitionProxyConfigurationPtrOutput `pulumi:"proxyConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
-	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-	Tags              aws.TagArrayOutput  `pulumi:"tags"`
-	TaskDefinitionArn pulumi.StringOutput `pulumi:"taskDefinitionArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
-	TaskRoleArn pulumi.StringPtrOutput `pulumi:"taskRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
-	Volumes TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
+	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayOutput               `pulumi:"containerDefinitions"`
+	Cpu                     pulumi.StringPtrOutput                                     `pulumi:"cpu"`
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrOutput                    `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        pulumi.StringPtrOutput                                     `pulumi:"executionRoleArn"`
+	Family                  pulumi.StringPtrOutput                                     `pulumi:"family"`
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayOutput              `pulumi:"inferenceAccelerators"`
+	IpcMode                 pulumi.StringPtrOutput                                     `pulumi:"ipcMode"`
+	Memory                  pulumi.StringPtrOutput                                     `pulumi:"memory"`
+	NetworkMode             pulumi.StringPtrOutput                                     `pulumi:"networkMode"`
+	PidMode                 pulumi.StringPtrOutput                                     `pulumi:"pidMode"`
+	PlacementConstraints    TaskDefinitionTaskDefinitionPlacementConstraintArrayOutput `pulumi:"placementConstraints"`
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrOutput                  `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities pulumi.StringArrayOutput                                   `pulumi:"requiresCompatibilities"`
+	Tags                    TaskDefinitionTagArrayOutput                               `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the Amazon ECS task definition
+	TaskDefinitionArn pulumi.StringOutput             `pulumi:"taskDefinitionArn"`
+	TaskRoleArn       pulumi.StringPtrOutput          `pulumi:"taskRoleArn"`
+	Volumes           TaskDefinitionVolumeArrayOutput `pulumi:"volumes"`
 }
 
 // NewTaskDefinition registers a new resource with the given unique name, arguments, and options.
@@ -89,74 +73,42 @@ func (TaskDefinitionState) ElementType() reflect.Type {
 }
 
 type taskDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-	ContainerDefinitions []TaskDefinitionContainerDefinition `pulumi:"containerDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
-	Cpu *string `pulumi:"cpu"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
-	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
-	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
-	Family *string `pulumi:"family"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
-	InferenceAccelerators []TaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
-	IpcMode *string `pulumi:"ipcMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
-	Memory *string `pulumi:"memory"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
-	NetworkMode *string `pulumi:"networkMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
-	PidMode *string `pulumi:"pidMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
-	PlacementConstraints []TaskDefinitionTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
-	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
-	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
-	TaskRoleArn *string `pulumi:"taskRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
-	Volumes []TaskDefinitionVolume `pulumi:"volumes"`
+	ContainerDefinitions    []TaskDefinitionContainerDefinition               `pulumi:"containerDefinitions"`
+	Cpu                     *string                                           `pulumi:"cpu"`
+	EphemeralStorage        *TaskDefinitionEphemeralStorage                   `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn        *string                                           `pulumi:"executionRoleArn"`
+	Family                  *string                                           `pulumi:"family"`
+	InferenceAccelerators   []TaskDefinitionInferenceAccelerator              `pulumi:"inferenceAccelerators"`
+	IpcMode                 *string                                           `pulumi:"ipcMode"`
+	Memory                  *string                                           `pulumi:"memory"`
+	NetworkMode             *string                                           `pulumi:"networkMode"`
+	PidMode                 *string                                           `pulumi:"pidMode"`
+	PlacementConstraints    []TaskDefinitionTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
+	ProxyConfiguration      *TaskDefinitionProxyConfiguration                 `pulumi:"proxyConfiguration"`
+	RequiresCompatibilities []string                                          `pulumi:"requiresCompatibilities"`
+	Tags                    []TaskDefinitionTag                               `pulumi:"tags"`
+	TaskRoleArn             *string                                           `pulumi:"taskRoleArn"`
+	Volumes                 []TaskDefinitionVolume                            `pulumi:"volumes"`
 }
 
 // The set of arguments for constructing a TaskDefinition resource.
 type TaskDefinitionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-containerdefinitions
-	ContainerDefinitions TaskDefinitionContainerDefinitionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-cpu
-	Cpu pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ephemeralstorage
-	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-executionrolearn
-	ExecutionRoleArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
-	Family pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
-	InferenceAccelerators TaskDefinitionInferenceAcceleratorArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
-	IpcMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
-	Memory pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
-	NetworkMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
-	PidMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
-	PlacementConstraints TaskDefinitionTaskDefinitionPlacementConstraintArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
-	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
+	ContainerDefinitions    TaskDefinitionContainerDefinitionArrayInput
+	Cpu                     pulumi.StringPtrInput
+	EphemeralStorage        TaskDefinitionEphemeralStoragePtrInput
+	ExecutionRoleArn        pulumi.StringPtrInput
+	Family                  pulumi.StringPtrInput
+	InferenceAccelerators   TaskDefinitionInferenceAcceleratorArrayInput
+	IpcMode                 pulumi.StringPtrInput
+	Memory                  pulumi.StringPtrInput
+	NetworkMode             pulumi.StringPtrInput
+	PidMode                 pulumi.StringPtrInput
+	PlacementConstraints    TaskDefinitionTaskDefinitionPlacementConstraintArrayInput
+	ProxyConfiguration      TaskDefinitionProxyConfigurationPtrInput
 	RequiresCompatibilities pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
-	TaskRoleArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-volumes
-	Volumes TaskDefinitionVolumeArrayInput
+	Tags                    TaskDefinitionTagArrayInput
+	TaskRoleArn             pulumi.StringPtrInput
+	Volumes                 TaskDefinitionVolumeArrayInput
 }
 
 func (TaskDefinitionArgs) ElementType() reflect.Type {

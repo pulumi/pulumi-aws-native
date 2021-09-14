@@ -8,26 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html
+// A domain defined for 3rd party data source in Profile Service
 type Domain struct {
 	pulumi.CustomResourceState
 
+	// The time of this integration got created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl pulumi.StringPtrOutput `pulumi:"deadLetterQueueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+	// The default encryption key
 	DefaultEncryptionKey pulumi.StringPtrOutput `pulumi:"defaultEncryptionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays pulumi.IntPtrOutput `pulumi:"defaultExpirationDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
-	DomainName    pulumi.StringOutput `pulumi:"domainName"`
+	// The unique name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// The time of this integration got last updated at
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The tags (keys and values) associated with the domain
+	Tags DomainTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomain registers a new resource with the given unique name, arguments, and options.
@@ -72,30 +73,30 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+	// The default encryption key
 	DefaultEncryptionKey *string `pulumi:"defaultEncryptionKey"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays *int `pulumi:"defaultExpirationDays"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+	// The unique name of the domain.
 	DomainName string `pulumi:"domainName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The tags (keys and values) associated with the domain
+	Tags []DomainTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-deadletterqueueurl
+	// The URL of the SQS dead letter queue
 	DeadLetterQueueUrl pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultencryptionkey
+	// The default encryption key
 	DefaultEncryptionKey pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-defaultexpirationdays
+	// The default number of days until the data within the domain expires.
 	DefaultExpirationDays pulumi.IntPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-domainname
+	// The unique name of the domain.
 	DomainName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html#cfn-customerprofiles-domain-tags
-	Tags aws.TagArrayInput
+	// The tags (keys and values) associated with the domain
+	Tags DomainTagArrayInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

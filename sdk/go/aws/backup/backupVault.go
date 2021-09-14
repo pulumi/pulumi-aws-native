@@ -7,36 +7,28 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
+// Resource Type definition for AWS::Backup::BackupVault
 type BackupVault struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-	AccessPolicy    pulumi.AnyOutput    `pulumi:"accessPolicy"`
-	BackupVaultArn  pulumi.StringOutput `pulumi:"backupVaultArn"`
-	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags pulumi.StringMapOutput `pulumi:"backupVaultTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-	Notifications BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
+	AccessPolicy     pulumi.AnyOutput                           `pulumi:"accessPolicy"`
+	BackupVaultArn   pulumi.StringOutput                        `pulumi:"backupVaultArn"`
+	BackupVaultName  pulumi.StringOutput                        `pulumi:"backupVaultName"`
+	BackupVaultTags  pulumi.AnyOutput                           `pulumi:"backupVaultTags"`
+	EncryptionKeyArn pulumi.StringPtrOutput                     `pulumi:"encryptionKeyArn"`
+	Notifications    BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
 }
 
 // NewBackupVault registers a new resource with the given unique name, arguments, and options.
 func NewBackupVault(ctx *pulumi.Context,
 	name string, args *BackupVaultArgs, opts ...pulumi.ResourceOption) (*BackupVault, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &BackupVaultArgs{}
 	}
 
-	if args.BackupVaultName == nil {
-		return nil, errors.New("invalid value for required argument 'BackupVaultName'")
-	}
 	var resource BackupVault
 	err := ctx.RegisterResource("aws-native:backup:BackupVault", name, args, &resource, opts...)
 	if err != nil {
@@ -69,30 +61,18 @@ func (BackupVaultState) ElementType() reflect.Type {
 }
 
 type backupVaultArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-	AccessPolicy interface{} `pulumi:"accessPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-	BackupVaultName string `pulumi:"backupVaultName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-	Notifications *BackupVaultNotificationObjectType `pulumi:"notifications"`
+	AccessPolicy     interface{}                        `pulumi:"accessPolicy"`
+	BackupVaultTags  interface{}                        `pulumi:"backupVaultTags"`
+	EncryptionKeyArn *string                            `pulumi:"encryptionKeyArn"`
+	Notifications    *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
 
 // The set of arguments for constructing a BackupVault resource.
 type BackupVaultArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-	AccessPolicy pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-	BackupVaultName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-	BackupVaultTags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
+	AccessPolicy     pulumi.Input
+	BackupVaultTags  pulumi.Input
 	EncryptionKeyArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-	Notifications BackupVaultNotificationObjectTypePtrInput
+	Notifications    BackupVaultNotificationObjectTypePtrInput
 }
 
 func (BackupVaultArgs) ElementType() reflect.Type {

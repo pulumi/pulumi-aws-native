@@ -11,12 +11,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html
+// The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
-	RegistryId pulumi.StringOutput `pulumi:"registryId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
+	// The RegistryId associated with the aws account.
+	RegistryId               pulumi.StringOutput                                    `pulumi:"registryId"`
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationOutput `pulumi:"replicationConfiguration"`
 }
 
@@ -62,13 +62,11 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 }
 
 type replicationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
 	ReplicationConfiguration ReplicationConfigurationReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
 // The set of arguments for constructing a ReplicationConfiguration resource.
 type ReplicationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationInput
 }
 

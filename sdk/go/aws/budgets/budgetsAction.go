@@ -11,27 +11,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type BudgetsAction struct {
 	pulumi.CustomResourceState
 
-	ActionId pulumi.StringOutput `pulumi:"actionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-	ActionThreshold BudgetsActionActionThresholdOutput `pulumi:"actionThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-	ActionType pulumi.StringOutput `pulumi:"actionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-	ApprovalModel pulumi.StringPtrOutput `pulumi:"approvalModel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-	Definition BudgetsActionDefinitionOutput `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-	Subscribers BudgetsActionSubscriberArrayOutput `pulumi:"subscribers"`
+	ActionId         pulumi.StringOutput                `pulumi:"actionId"`
+	ActionThreshold  BudgetsActionActionThresholdOutput `pulumi:"actionThreshold"`
+	ActionType       pulumi.StringOutput                `pulumi:"actionType"`
+	ApprovalModel    pulumi.StringPtrOutput             `pulumi:"approvalModel"`
+	BudgetName       pulumi.StringOutput                `pulumi:"budgetName"`
+	Definition       BudgetsActionDefinitionOutput      `pulumi:"definition"`
+	ExecutionRoleArn pulumi.StringOutput                `pulumi:"executionRoleArn"`
+	NotificationType pulumi.StringOutput                `pulumi:"notificationType"`
+	Subscribers      BudgetsActionSubscriberArrayOutput `pulumi:"subscribers"`
 }
 
 // NewBudgetsAction registers a new resource with the given unique name, arguments, and options.
@@ -91,42 +83,26 @@ func (BudgetsActionState) ElementType() reflect.Type {
 }
 
 type budgetsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-	ActionThreshold BudgetsActionActionThreshold `pulumi:"actionThreshold"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-	ActionType string `pulumi:"actionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-	ApprovalModel *string `pulumi:"approvalModel"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-	BudgetName string `pulumi:"budgetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-	Definition BudgetsActionDefinition `pulumi:"definition"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-	NotificationType string `pulumi:"notificationType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-	Subscribers []BudgetsActionSubscriber `pulumi:"subscribers"`
+	ActionThreshold  BudgetsActionActionThreshold `pulumi:"actionThreshold"`
+	ActionType       string                       `pulumi:"actionType"`
+	ApprovalModel    *string                      `pulumi:"approvalModel"`
+	BudgetName       string                       `pulumi:"budgetName"`
+	Definition       BudgetsActionDefinition      `pulumi:"definition"`
+	ExecutionRoleArn string                       `pulumi:"executionRoleArn"`
+	NotificationType string                       `pulumi:"notificationType"`
+	Subscribers      []BudgetsActionSubscriber    `pulumi:"subscribers"`
 }
 
 // The set of arguments for constructing a BudgetsAction resource.
 type BudgetsActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-	ActionThreshold BudgetsActionActionThresholdInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-	ActionType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-	ApprovalModel pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-	BudgetName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-	Definition BudgetsActionDefinitionInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
+	ActionThreshold  BudgetsActionActionThresholdInput
+	ActionType       pulumi.StringInput
+	ApprovalModel    pulumi.StringPtrInput
+	BudgetName       pulumi.StringInput
+	Definition       BudgetsActionDefinitionInput
 	ExecutionRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
 	NotificationType pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-	Subscribers BudgetsActionSubscriberArrayInput
+	Subscribers      BudgetsActionSubscriberArrayInput
 }
 
 func (BudgetsActionArgs) ElementType() reflect.Type {

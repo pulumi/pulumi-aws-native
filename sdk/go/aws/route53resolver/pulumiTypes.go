@@ -10,21 +10,239 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
+// A key-value pair to associate with a resource.
+type FirewallDomainListTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// FirewallDomainListTagInput is an input type that accepts FirewallDomainListTagArgs and FirewallDomainListTagOutput values.
+// You can construct a concrete instance of `FirewallDomainListTagInput` via:
+//
+//          FirewallDomainListTagArgs{...}
+type FirewallDomainListTagInput interface {
+	pulumi.Input
+
+	ToFirewallDomainListTagOutput() FirewallDomainListTagOutput
+	ToFirewallDomainListTagOutputWithContext(context.Context) FirewallDomainListTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FirewallDomainListTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FirewallDomainListTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallDomainListTag)(nil)).Elem()
+}
+
+func (i FirewallDomainListTagArgs) ToFirewallDomainListTagOutput() FirewallDomainListTagOutput {
+	return i.ToFirewallDomainListTagOutputWithContext(context.Background())
+}
+
+func (i FirewallDomainListTagArgs) ToFirewallDomainListTagOutputWithContext(ctx context.Context) FirewallDomainListTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallDomainListTagOutput)
+}
+
+// FirewallDomainListTagArrayInput is an input type that accepts FirewallDomainListTagArray and FirewallDomainListTagArrayOutput values.
+// You can construct a concrete instance of `FirewallDomainListTagArrayInput` via:
+//
+//          FirewallDomainListTagArray{ FirewallDomainListTagArgs{...} }
+type FirewallDomainListTagArrayInput interface {
+	pulumi.Input
+
+	ToFirewallDomainListTagArrayOutput() FirewallDomainListTagArrayOutput
+	ToFirewallDomainListTagArrayOutputWithContext(context.Context) FirewallDomainListTagArrayOutput
+}
+
+type FirewallDomainListTagArray []FirewallDomainListTagInput
+
+func (FirewallDomainListTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallDomainListTag)(nil)).Elem()
+}
+
+func (i FirewallDomainListTagArray) ToFirewallDomainListTagArrayOutput() FirewallDomainListTagArrayOutput {
+	return i.ToFirewallDomainListTagArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallDomainListTagArray) ToFirewallDomainListTagArrayOutputWithContext(ctx context.Context) FirewallDomainListTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallDomainListTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FirewallDomainListTagOutput struct{ *pulumi.OutputState }
+
+func (FirewallDomainListTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallDomainListTag)(nil)).Elem()
+}
+
+func (o FirewallDomainListTagOutput) ToFirewallDomainListTagOutput() FirewallDomainListTagOutput {
+	return o
+}
+
+func (o FirewallDomainListTagOutput) ToFirewallDomainListTagOutputWithContext(ctx context.Context) FirewallDomainListTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallDomainListTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallDomainListTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallDomainListTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallDomainListTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FirewallDomainListTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallDomainListTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallDomainListTag)(nil)).Elem()
+}
+
+func (o FirewallDomainListTagArrayOutput) ToFirewallDomainListTagArrayOutput() FirewallDomainListTagArrayOutput {
+	return o
+}
+
+func (o FirewallDomainListTagArrayOutput) ToFirewallDomainListTagArrayOutputWithContext(ctx context.Context) FirewallDomainListTagArrayOutput {
+	return o
+}
+
+func (o FirewallDomainListTagArrayOutput) Index(i pulumi.IntInput) FirewallDomainListTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallDomainListTag {
+		return vs[0].([]FirewallDomainListTag)[vs[1].(int)]
+	}).(FirewallDomainListTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupAssociationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// FirewallRuleGroupAssociationTagInput is an input type that accepts FirewallRuleGroupAssociationTagArgs and FirewallRuleGroupAssociationTagOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupAssociationTagInput` via:
+//
+//          FirewallRuleGroupAssociationTagArgs{...}
+type FirewallRuleGroupAssociationTagInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupAssociationTagOutput() FirewallRuleGroupAssociationTagOutput
+	ToFirewallRuleGroupAssociationTagOutputWithContext(context.Context) FirewallRuleGroupAssociationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupAssociationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FirewallRuleGroupAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupAssociationTag)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupAssociationTagArgs) ToFirewallRuleGroupAssociationTagOutput() FirewallRuleGroupAssociationTagOutput {
+	return i.ToFirewallRuleGroupAssociationTagOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupAssociationTagArgs) ToFirewallRuleGroupAssociationTagOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupAssociationTagOutput)
+}
+
+// FirewallRuleGroupAssociationTagArrayInput is an input type that accepts FirewallRuleGroupAssociationTagArray and FirewallRuleGroupAssociationTagArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupAssociationTagArrayInput` via:
+//
+//          FirewallRuleGroupAssociationTagArray{ FirewallRuleGroupAssociationTagArgs{...} }
+type FirewallRuleGroupAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupAssociationTagArrayOutput() FirewallRuleGroupAssociationTagArrayOutput
+	ToFirewallRuleGroupAssociationTagArrayOutputWithContext(context.Context) FirewallRuleGroupAssociationTagArrayOutput
+}
+
+type FirewallRuleGroupAssociationTagArray []FirewallRuleGroupAssociationTagInput
+
+func (FirewallRuleGroupAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleGroupAssociationTag)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupAssociationTagArray) ToFirewallRuleGroupAssociationTagArrayOutput() FirewallRuleGroupAssociationTagArrayOutput {
+	return i.ToFirewallRuleGroupAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupAssociationTagArray) ToFirewallRuleGroupAssociationTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupAssociationTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupAssociationTag)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupAssociationTagOutput) ToFirewallRuleGroupAssociationTagOutput() FirewallRuleGroupAssociationTagOutput {
+	return o
+}
+
+func (o FirewallRuleGroupAssociationTagOutput) ToFirewallRuleGroupAssociationTagOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallRuleGroupAssociationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupAssociationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallRuleGroupAssociationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupAssociationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FirewallRuleGroupAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleGroupAssociationTag)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupAssociationTagArrayOutput) ToFirewallRuleGroupAssociationTagArrayOutput() FirewallRuleGroupAssociationTagArrayOutput {
+	return o
+}
+
+func (o FirewallRuleGroupAssociationTagArrayOutput) ToFirewallRuleGroupAssociationTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagArrayOutput {
+	return o
+}
+
+func (o FirewallRuleGroupAssociationTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGroupAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleGroupAssociationTag {
+		return vs[0].([]FirewallRuleGroupAssociationTag)[vs[1].(int)]
+	}).(FirewallRuleGroupAssociationTagOutput)
+}
+
+// Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-action
+	// Rule Action
 	Action string `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridednstype
+	// BlockOverrideDnsType
 	BlockOverrideDnsType *string `pulumi:"blockOverrideDnsType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridedomain
+	// BlockOverrideDomain
 	BlockOverrideDomain *string `pulumi:"blockOverrideDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridettl
+	// BlockOverrideTtl
 	BlockOverrideTtl *int `pulumi:"blockOverrideTtl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
+	// BlockResponse
 	BlockResponse *string `pulumi:"blockResponse"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
+	// ResourceId
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-priority
+	// Rule Priority
 	Priority int `pulumi:"priority"`
 }
 
@@ -39,21 +257,21 @@ type FirewallRuleGroupFirewallRuleInput interface {
 	ToFirewallRuleGroupFirewallRuleOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
+// Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-action
+	// Rule Action
 	Action pulumi.StringInput `pulumi:"action"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridednstype
+	// BlockOverrideDnsType
 	BlockOverrideDnsType pulumi.StringPtrInput `pulumi:"blockOverrideDnsType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridedomain
+	// BlockOverrideDomain
 	BlockOverrideDomain pulumi.StringPtrInput `pulumi:"blockOverrideDomain"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridettl
+	// BlockOverrideTtl
 	BlockOverrideTtl pulumi.IntPtrInput `pulumi:"blockOverrideTtl"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
+	// BlockResponse
 	BlockResponse pulumi.StringPtrInput `pulumi:"blockResponse"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
+	// ResourceId
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-priority
+	// Rule Priority
 	Priority pulumi.IntInput `pulumi:"priority"`
 }
 
@@ -94,7 +312,7 @@ func (i FirewallRuleGroupFirewallRuleArray) ToFirewallRuleGroupFirewallRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html
+// Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FirewallRuleGroupFirewallRuleOutput) ElementType() reflect.Type {
@@ -109,37 +327,37 @@ func (o FirewallRuleGroupFirewallRuleOutput) ToFirewallRuleGroupFirewallRuleOutp
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-action
+// Rule Action
 func (o FirewallRuleGroupFirewallRuleOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) string { return v.Action }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridednstype
+// BlockOverrideDnsType
 func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideDnsType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.BlockOverrideDnsType }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridedomain
+// BlockOverrideDomain
 func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.BlockOverrideDomain }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockoverridettl
+// BlockOverrideTtl
 func (o FirewallRuleGroupFirewallRuleOutput) BlockOverrideTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *int { return v.BlockOverrideTtl }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-blockresponse
+// BlockResponse
 func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.BlockResponse }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-firewalldomainlistid
+// ResourceId
 func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53resolver-firewallrulegroup-firewallrule.html#cfn-route53resolver-firewallrulegroup-firewallrule-priority
+// Rule Priority
 func (o FirewallRuleGroupFirewallRuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) int { return v.Priority }).(pulumi.IntOutput)
 }
@@ -164,7 +382,122 @@ func (o FirewallRuleGroupFirewallRuleArrayOutput) Index(i pulumi.IntInput) Firew
 	}).(FirewallRuleGroupFirewallRuleOutput)
 }
 
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// FirewallRuleGroupTagInput is an input type that accepts FirewallRuleGroupTagArgs and FirewallRuleGroupTagOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupTagInput` via:
+//
+//          FirewallRuleGroupTagArgs{...}
+type FirewallRuleGroupTagInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupTagOutput() FirewallRuleGroupTagOutput
+	ToFirewallRuleGroupTagOutputWithContext(context.Context) FirewallRuleGroupTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (FirewallRuleGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupTag)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupTagArgs) ToFirewallRuleGroupTagOutput() FirewallRuleGroupTagOutput {
+	return i.ToFirewallRuleGroupTagOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupTagArgs) ToFirewallRuleGroupTagOutputWithContext(ctx context.Context) FirewallRuleGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupTagOutput)
+}
+
+// FirewallRuleGroupTagArrayInput is an input type that accepts FirewallRuleGroupTagArray and FirewallRuleGroupTagArrayOutput values.
+// You can construct a concrete instance of `FirewallRuleGroupTagArrayInput` via:
+//
+//          FirewallRuleGroupTagArray{ FirewallRuleGroupTagArgs{...} }
+type FirewallRuleGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupTagArrayOutput() FirewallRuleGroupTagArrayOutput
+	ToFirewallRuleGroupTagArrayOutputWithContext(context.Context) FirewallRuleGroupTagArrayOutput
+}
+
+type FirewallRuleGroupTagArray []FirewallRuleGroupTagInput
+
+func (FirewallRuleGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleGroupTag)(nil)).Elem()
+}
+
+func (i FirewallRuleGroupTagArray) ToFirewallRuleGroupTagArrayOutput() FirewallRuleGroupTagArrayOutput {
+	return i.ToFirewallRuleGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i FirewallRuleGroupTagArray) ToFirewallRuleGroupTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type FirewallRuleGroupTagOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupTag)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupTagOutput) ToFirewallRuleGroupTagOutput() FirewallRuleGroupTagOutput {
+	return o
+}
+
+func (o FirewallRuleGroupTagOutput) ToFirewallRuleGroupTagOutputWithContext(ctx context.Context) FirewallRuleGroupTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallRuleGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o FirewallRuleGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v FirewallRuleGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type FirewallRuleGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FirewallRuleGroupTag)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupTagArrayOutput) ToFirewallRuleGroupTagArrayOutput() FirewallRuleGroupTagArrayOutput {
+	return o
+}
+
+func (o FirewallRuleGroupTagArrayOutput) ToFirewallRuleGroupTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupTagArrayOutput {
+	return o
+}
+
+func (o FirewallRuleGroupTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleGroupTag {
+		return vs[0].([]FirewallRuleGroupTag)[vs[1].(int)]
+	}).(FirewallRuleGroupTagOutput)
+}
+
 func init() {
+	pulumi.RegisterOutputType(FirewallDomainListTagOutput{})
+	pulumi.RegisterOutputType(FirewallDomainListTagArrayOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupAssociationTagOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleArrayOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupTagOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupTagArrayOutput{})
 }

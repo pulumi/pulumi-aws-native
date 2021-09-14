@@ -8,32 +8,29 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html
+// Resource Type definition for AWS::SageMaker::FeatureGroup
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+	// Description about the FeatureGroup.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+	// The Event Time Feature Name.
 	EventTimeFeatureName pulumi.StringOutput `pulumi:"eventTimeFeatureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayOutput `pulumi:"featureDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-	FeatureGroupName pulumi.StringOutput `pulumi:"featureGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
-	OfflineStoreConfig pulumi.AnyOutput `pulumi:"offlineStoreConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-	OnlineStoreConfig pulumi.AnyOutput `pulumi:"onlineStoreConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+	// The Name of the FeatureGroup.
+	FeatureGroupName   pulumi.StringOutput `pulumi:"featureGroupName"`
+	OfflineStoreConfig pulumi.AnyOutput    `pulumi:"offlineStoreConfig"`
+	OnlineStoreConfig  pulumi.AnyOutput    `pulumi:"onlineStoreConfig"`
+	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+	// Role Arn
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pair to apply to this resource.
+	Tags FeatureGroupTagArrayOutput `pulumi:"tags"`
 }
 
 // NewFeatureGroup registers a new resource with the given unique name, arguments, and options.
@@ -87,46 +84,42 @@ func (FeatureGroupState) ElementType() reflect.Type {
 }
 
 type featureGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+	// Description about the FeatureGroup.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+	// The Event Time Feature Name.
 	EventTimeFeatureName string `pulumi:"eventTimeFeatureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+	// An Array of Feature Definition
 	FeatureDefinitions []FeatureGroupFeatureDefinition `pulumi:"featureDefinitions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-	FeatureGroupName string `pulumi:"featureGroupName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
+	// The Name of the FeatureGroup.
+	FeatureGroupName   string      `pulumi:"featureGroupName"`
 	OfflineStoreConfig interface{} `pulumi:"offlineStoreConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-	OnlineStoreConfig interface{} `pulumi:"onlineStoreConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+	OnlineStoreConfig  interface{} `pulumi:"onlineStoreConfig"`
+	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+	// Role Arn
 	RoleArn *string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pair to apply to this resource.
+	Tags []FeatureGroupTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FeatureGroup resource.
 type FeatureGroupArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-description
+	// Description about the FeatureGroup.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-eventtimefeaturename
+	// The Event Time Feature Name.
 	EventTimeFeatureName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuredefinitions
+	// An Array of Feature Definition
 	FeatureDefinitions FeatureGroupFeatureDefinitionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-featuregroupname
-	FeatureGroupName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-offlinestoreconfig
+	// The Name of the FeatureGroup.
+	FeatureGroupName   pulumi.StringInput
 	OfflineStoreConfig pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-onlinestoreconfig
-	OnlineStoreConfig pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-recordidentifierfeaturename
+	OnlineStoreConfig  pulumi.Input
+	// The Record Identifier Feature Name.
 	RecordIdentifierFeatureName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-rolearn
+	// Role Arn
 	RoleArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html#cfn-sagemaker-featuregroup-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pair to apply to this resource.
+	Tags FeatureGroupTagArrayInput
 }
 
 func (FeatureGroupArgs) ElementType() reflect.Type {

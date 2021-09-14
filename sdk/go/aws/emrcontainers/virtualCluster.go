@@ -8,22 +8,20 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html
+// Resource Schema of AWS::EMRContainers::VirtualCluster Type
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
+	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
-	Id                pulumi.StringOutput                   `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
+	// Name of the virtual cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// An array of key-value pairs to apply to this virtual cluster.
+	Tags VirtualClusterTagArrayOutput `pulumi:"tags"`
 }
 
 // NewVirtualCluster registers a new resource with the given unique name, arguments, and options.
@@ -71,22 +69,22 @@ func (VirtualClusterState) ElementType() reflect.Type {
 }
 
 type virtualClusterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
+	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
+	// Name of the virtual cluster.
 	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// An array of key-value pairs to apply to this virtual cluster.
+	Tags []VirtualClusterTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualCluster resource.
 type VirtualClusterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-containerprovider
+	// Container provider of the virtual cluster.
 	ContainerProvider VirtualClusterContainerProviderInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-name
+	// Name of the virtual cluster.
 	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrcontainers-virtualcluster.html#cfn-emrcontainers-virtualcluster-tags
-	Tags aws.TagArrayInput
+	// An array of key-value pairs to apply to this virtual cluster.
+	Tags VirtualClusterTagArrayInput
 }
 
 func (VirtualClusterArgs) ElementType() reflect.Type {

@@ -10,12 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
 type AlertAction struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
 	LambdaConfiguration *AlertLambdaConfiguration `pulumi:"lambdaConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-	SNSConfiguration *AlertSNSConfiguration `pulumi:"sNSConfiguration"`
+	SNSConfiguration    *AlertSNSConfiguration    `pulumi:"sNSConfiguration"`
 }
 
 // AlertActionInput is an input type that accepts AlertActionArgs and AlertActionOutput values.
@@ -29,12 +26,9 @@ type AlertActionInput interface {
 	ToAlertActionOutputWithContext(context.Context) AlertActionOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
 type AlertActionArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
 	LambdaConfiguration AlertLambdaConfigurationPtrInput `pulumi:"lambdaConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-	SNSConfiguration AlertSNSConfigurationPtrInput `pulumi:"sNSConfiguration"`
+	SNSConfiguration    AlertSNSConfigurationPtrInput    `pulumi:"sNSConfiguration"`
 }
 
 func (AlertActionArgs) ElementType() reflect.Type {
@@ -90,7 +84,6 @@ func (i *alertActionPtrType) ToAlertActionPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlertActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
 type AlertActionOutput struct{ *pulumi.OutputState }
 
 func (AlertActionOutput) ElementType() reflect.Type {
@@ -115,12 +108,10 @@ func (o AlertActionOutput) ToAlertActionPtrOutputWithContext(ctx context.Context
 	}).(AlertActionPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
 func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertLambdaConfiguration { return v.LambdaConfiguration }).(AlertLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
 func (o AlertActionOutput) SNSConfiguration() AlertSNSConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertSNSConfiguration { return v.SNSConfiguration }).(AlertSNSConfigurationPtrOutput)
 }
@@ -149,7 +140,6 @@ func (o AlertActionPtrOutput) Elem() AlertActionOutput {
 	}).(AlertActionOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
 func (o AlertActionPtrOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v *AlertAction) *AlertLambdaConfiguration {
 		if v == nil {
@@ -159,7 +149,6 @@ func (o AlertActionPtrOutput) LambdaConfiguration() AlertLambdaConfigurationPtrO
 	}).(AlertLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
 func (o AlertActionPtrOutput) SNSConfiguration() AlertSNSConfigurationPtrOutput {
 	return o.ApplyT(func(v *AlertAction) *AlertSNSConfiguration {
 		if v == nil {
@@ -169,11 +158,11 @@ func (o AlertActionPtrOutput) SNSConfiguration() AlertSNSConfigurationPtrOutput 
 	}).(AlertSNSConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+// Configuration options for a Lambda alert action.
 type AlertLambdaConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+	// ARN of a Lambda to send alert notifications to.
 	LambdaArn string `pulumi:"lambdaArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+	// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -188,11 +177,11 @@ type AlertLambdaConfigurationInput interface {
 	ToAlertLambdaConfigurationOutputWithContext(context.Context) AlertLambdaConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+// Configuration options for a Lambda alert action.
 type AlertLambdaConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+	// ARN of a Lambda to send alert notifications to.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+	// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -249,7 +238,7 @@ func (i *alertLambdaConfigurationPtrType) ToAlertLambdaConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AlertLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+// Configuration options for a Lambda alert action.
 type AlertLambdaConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AlertLambdaConfigurationOutput) ElementType() reflect.Type {
@@ -274,12 +263,12 @@ func (o AlertLambdaConfigurationOutput) ToAlertLambdaConfigurationPtrOutputWithC
 	}).(AlertLambdaConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+// ARN of a Lambda to send alert notifications to.
 func (o AlertLambdaConfigurationOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertLambdaConfiguration) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
 func (o AlertLambdaConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertLambdaConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -308,7 +297,7 @@ func (o AlertLambdaConfigurationPtrOutput) Elem() AlertLambdaConfigurationOutput
 	}).(AlertLambdaConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+// ARN of a Lambda to send alert notifications to.
 func (o AlertLambdaConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertLambdaConfiguration) *string {
 		if v == nil {
@@ -318,7 +307,7 @@ func (o AlertLambdaConfigurationPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
 func (o AlertLambdaConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertLambdaConfiguration) *string {
 		if v == nil {
@@ -328,11 +317,11 @@ func (o AlertLambdaConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
+// Configuration options for an SNS alert action.
 type AlertSNSConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+	// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+	// ARN of an SNS topic to send alert notifications to.
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
@@ -347,11 +336,11 @@ type AlertSNSConfigurationInput interface {
 	ToAlertSNSConfigurationOutputWithContext(context.Context) AlertSNSConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
+// Configuration options for an SNS alert action.
 type AlertSNSConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+	// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+	// ARN of an SNS topic to send alert notifications to.
 	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
@@ -408,7 +397,7 @@ func (i *alertSNSConfigurationPtrType) ToAlertSNSConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AlertSNSConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html
+// Configuration options for an SNS alert action.
 type AlertSNSConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AlertSNSConfigurationOutput) ElementType() reflect.Type {
@@ -433,12 +422,12 @@ func (o AlertSNSConfigurationOutput) ToAlertSNSConfigurationPtrOutputWithContext
 	}).(AlertSNSConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 func (o AlertSNSConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertSNSConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+// ARN of an SNS topic to send alert notifications to.
 func (o AlertSNSConfigurationOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AlertSNSConfiguration) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -467,7 +456,7 @@ func (o AlertSNSConfigurationPtrOutput) Elem() AlertSNSConfigurationOutput {
 	}).(AlertSNSConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-rolearn
+// ARN of an IAM role that LookoutMetrics should assume to access the SNS topic.
 func (o AlertSNSConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertSNSConfiguration) *string {
 		if v == nil {
@@ -477,7 +466,7 @@ func (o AlertSNSConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-snsconfiguration.html#cfn-lookoutmetrics-alert-snsconfiguration-snstopicarn
+// ARN of an SNS topic to send alert notifications to.
 func (o AlertSNSConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AlertSNSConfiguration) *string {
 		if v == nil {
@@ -487,9 +476,8 @@ func (o AlertSNSConfigurationPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
 type AnomalyDetectorAnomalyDetectorConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+	// Frequency of anomaly detection
 	AnomalyDetectorFrequency string `pulumi:"anomalyDetectorFrequency"`
 }
 
@@ -504,9 +492,8 @@ type AnomalyDetectorAnomalyDetectorConfigInput interface {
 	ToAnomalyDetectorAnomalyDetectorConfigOutputWithContext(context.Context) AnomalyDetectorAnomalyDetectorConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
 type AnomalyDetectorAnomalyDetectorConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+	// Frequency of anomaly detection
 	AnomalyDetectorFrequency pulumi.StringInput `pulumi:"anomalyDetectorFrequency"`
 }
 
@@ -563,7 +550,6 @@ func (i *anomalyDetectorAnomalyDetectorConfigPtrType) ToAnomalyDetectorAnomalyDe
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAnomalyDetectorConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
 type AnomalyDetectorAnomalyDetectorConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorAnomalyDetectorConfigOutput) ElementType() reflect.Type {
@@ -588,7 +574,7 @@ func (o AnomalyDetectorAnomalyDetectorConfigOutput) ToAnomalyDetectorAnomalyDete
 	}).(AnomalyDetectorAnomalyDetectorConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+// Frequency of anomaly detection
 func (o AnomalyDetectorAnomalyDetectorConfigOutput) AnomalyDetectorFrequency() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAnomalyDetectorConfig) string { return v.AnomalyDetectorFrequency }).(pulumi.StringOutput)
 }
@@ -617,7 +603,7 @@ func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) Elem() AnomalyDetectorAno
 	}).(AnomalyDetectorAnomalyDetectorConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+// Frequency of anomaly detection
 func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorAnomalyDetectorConfig) *string {
 		if v == nil {
@@ -627,12 +613,9 @@ func (o AnomalyDetectorAnomalyDetectorConfigPtrOutput) AnomalyDetectorFrequency(
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html
 type AnomalyDetectorAppFlowConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
 	FlowName string `pulumi:"flowName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn  string `pulumi:"roleArn"`
 }
 
 // AnomalyDetectorAppFlowConfigInput is an input type that accepts AnomalyDetectorAppFlowConfigArgs and AnomalyDetectorAppFlowConfigOutput values.
@@ -646,12 +629,9 @@ type AnomalyDetectorAppFlowConfigInput interface {
 	ToAnomalyDetectorAppFlowConfigOutputWithContext(context.Context) AnomalyDetectorAppFlowConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html
 type AnomalyDetectorAppFlowConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
 	FlowName pulumi.StringInput `pulumi:"flowName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	RoleArn  pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (AnomalyDetectorAppFlowConfigArgs) ElementType() reflect.Type {
@@ -707,7 +687,6 @@ func (i *anomalyDetectorAppFlowConfigPtrType) ToAnomalyDetectorAppFlowConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html
 type AnomalyDetectorAppFlowConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorAppFlowConfigOutput) ElementType() reflect.Type {
@@ -732,12 +711,10 @@ func (o AnomalyDetectorAppFlowConfigOutput) ToAnomalyDetectorAppFlowConfigPtrOut
 	}).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
 func (o AnomalyDetectorAppFlowConfigOutput) FlowName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAppFlowConfig) string { return v.FlowName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
 func (o AnomalyDetectorAppFlowConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorAppFlowConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -766,7 +743,6 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) Elem() AnomalyDetectorAppFlowConf
 	}).(AnomalyDetectorAppFlowConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-flowname
 func (o AnomalyDetectorAppFlowConfigPtrOutput) FlowName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorAppFlowConfig) *string {
 		if v == nil {
@@ -776,7 +752,6 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) FlowName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-appflowconfig.html#cfn-lookoutmetrics-anomalydetector-appflowconfig-rolearn
 func (o AnomalyDetectorAppFlowConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorAppFlowConfig) *string {
 		if v == nil {
@@ -786,9 +761,7 @@ func (o AnomalyDetectorAppFlowConfigPtrOutput) RoleArn() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
 type AnomalyDetectorCloudwatchConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -803,9 +776,7 @@ type AnomalyDetectorCloudwatchConfigInput interface {
 	ToAnomalyDetectorCloudwatchConfigOutputWithContext(context.Context) AnomalyDetectorCloudwatchConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
 type AnomalyDetectorCloudwatchConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -862,7 +833,6 @@ func (i *anomalyDetectorCloudwatchConfigPtrType) ToAnomalyDetectorCloudwatchConf
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html
 type AnomalyDetectorCloudwatchConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorCloudwatchConfigOutput) ElementType() reflect.Type {
@@ -887,7 +857,6 @@ func (o AnomalyDetectorCloudwatchConfigOutput) ToAnomalyDetectorCloudwatchConfig
 	}).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
 func (o AnomalyDetectorCloudwatchConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorCloudwatchConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -916,7 +885,6 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) Elem() AnomalyDetectorCloudwat
 	}).(AnomalyDetectorCloudwatchConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-cloudwatchconfig.html#cfn-lookoutmetrics-anomalydetector-cloudwatchconfig-rolearn
 func (o AnomalyDetectorCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCloudwatchConfig) *string {
 		if v == nil {
@@ -926,20 +894,13 @@ func (o AnomalyDetectorCloudwatchConfigPtrOutput) RoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html
 type AnomalyDetectorCsvFormatDescriptor struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
-	Charset *string `pulumi:"charset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
-	ContainsHeader *bool `pulumi:"containsHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
-	Delimiter *string `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
-	FileCompression *string `pulumi:"fileCompression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
-	HeaderList []string `pulumi:"headerList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
-	QuoteSymbol *string `pulumi:"quoteSymbol"`
+	Charset         *string  `pulumi:"charset"`
+	ContainsHeader  *bool    `pulumi:"containsHeader"`
+	Delimiter       *string  `pulumi:"delimiter"`
+	FileCompression *string  `pulumi:"fileCompression"`
+	HeaderList      []string `pulumi:"headerList"`
+	QuoteSymbol     *string  `pulumi:"quoteSymbol"`
 }
 
 // AnomalyDetectorCsvFormatDescriptorInput is an input type that accepts AnomalyDetectorCsvFormatDescriptorArgs and AnomalyDetectorCsvFormatDescriptorOutput values.
@@ -953,20 +914,13 @@ type AnomalyDetectorCsvFormatDescriptorInput interface {
 	ToAnomalyDetectorCsvFormatDescriptorOutputWithContext(context.Context) AnomalyDetectorCsvFormatDescriptorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html
 type AnomalyDetectorCsvFormatDescriptorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
-	Charset pulumi.StringPtrInput `pulumi:"charset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
-	ContainsHeader pulumi.BoolPtrInput `pulumi:"containsHeader"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
-	Delimiter pulumi.StringPtrInput `pulumi:"delimiter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
-	FileCompression pulumi.StringPtrInput `pulumi:"fileCompression"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
-	HeaderList pulumi.StringArrayInput `pulumi:"headerList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
-	QuoteSymbol pulumi.StringPtrInput `pulumi:"quoteSymbol"`
+	Charset         pulumi.StringPtrInput   `pulumi:"charset"`
+	ContainsHeader  pulumi.BoolPtrInput     `pulumi:"containsHeader"`
+	Delimiter       pulumi.StringPtrInput   `pulumi:"delimiter"`
+	FileCompression pulumi.StringPtrInput   `pulumi:"fileCompression"`
+	HeaderList      pulumi.StringArrayInput `pulumi:"headerList"`
+	QuoteSymbol     pulumi.StringPtrInput   `pulumi:"quoteSymbol"`
 }
 
 func (AnomalyDetectorCsvFormatDescriptorArgs) ElementType() reflect.Type {
@@ -1022,7 +976,6 @@ func (i *anomalyDetectorCsvFormatDescriptorPtrType) ToAnomalyDetectorCsvFormatDe
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html
 type AnomalyDetectorCsvFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorCsvFormatDescriptorOutput) ElementType() reflect.Type {
@@ -1047,32 +1000,26 @@ func (o AnomalyDetectorCsvFormatDescriptorOutput) ToAnomalyDetectorCsvFormatDesc
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
 func (o AnomalyDetectorCsvFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
 func (o AnomalyDetectorCsvFormatDescriptorOutput) ContainsHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *bool { return v.ContainsHeader }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
 func (o AnomalyDetectorCsvFormatDescriptorOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.Delimiter }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
 func (o AnomalyDetectorCsvFormatDescriptorOutput) FileCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.FileCompression }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
 func (o AnomalyDetectorCsvFormatDescriptorOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) []string { return v.HeaderList }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
 func (o AnomalyDetectorCsvFormatDescriptorOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorCsvFormatDescriptor) *string { return v.QuoteSymbol }).(pulumi.StringPtrOutput)
 }
@@ -1101,7 +1048,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Elem() AnomalyDetectorCsvFo
 	}).(AnomalyDetectorCsvFormatDescriptorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-charset
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -1111,7 +1057,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Charset() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-containsheader
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ContainsHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *bool {
 		if v == nil {
@@ -1121,7 +1066,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) ContainsHeader() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-delimiter
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Delimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -1131,7 +1075,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) Delimiter() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-filecompression
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -1141,7 +1084,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) FileCompression() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-headerlist
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) HeaderList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) []string {
 		if v == nil {
@@ -1151,7 +1093,6 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) HeaderList() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-csvformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-csvformatdescriptor-quotesymbol
 func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) QuoteSymbol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorCsvFormatDescriptor) *string {
 		if v == nil {
@@ -1161,11 +1102,8 @@ func (o AnomalyDetectorCsvFormatDescriptorPtrOutput) QuoteSymbol() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
 type AnomalyDetectorFileFormatDescriptor struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-	CsvFormatDescriptor *AnomalyDetectorCsvFormatDescriptor `pulumi:"csvFormatDescriptor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
+	CsvFormatDescriptor  *AnomalyDetectorCsvFormatDescriptor  `pulumi:"csvFormatDescriptor"`
 	JsonFormatDescriptor *AnomalyDetectorJsonFormatDescriptor `pulumi:"jsonFormatDescriptor"`
 }
 
@@ -1180,11 +1118,8 @@ type AnomalyDetectorFileFormatDescriptorInput interface {
 	ToAnomalyDetectorFileFormatDescriptorOutputWithContext(context.Context) AnomalyDetectorFileFormatDescriptorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
 type AnomalyDetectorFileFormatDescriptorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
-	CsvFormatDescriptor AnomalyDetectorCsvFormatDescriptorPtrInput `pulumi:"csvFormatDescriptor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
+	CsvFormatDescriptor  AnomalyDetectorCsvFormatDescriptorPtrInput  `pulumi:"csvFormatDescriptor"`
 	JsonFormatDescriptor AnomalyDetectorJsonFormatDescriptorPtrInput `pulumi:"jsonFormatDescriptor"`
 }
 
@@ -1241,7 +1176,6 @@ func (i *anomalyDetectorFileFormatDescriptorPtrType) ToAnomalyDetectorFileFormat
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html
 type AnomalyDetectorFileFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorFileFormatDescriptorOutput) ElementType() reflect.Type {
@@ -1266,14 +1200,12 @@ func (o AnomalyDetectorFileFormatDescriptorOutput) ToAnomalyDetectorFileFormatDe
 	}).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
 func (o AnomalyDetectorFileFormatDescriptorOutput) CsvFormatDescriptor() AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorCsvFormatDescriptor {
 		return v.CsvFormatDescriptor
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
 func (o AnomalyDetectorFileFormatDescriptorOutput) JsonFormatDescriptor() AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorJsonFormatDescriptor {
 		return v.JsonFormatDescriptor
@@ -1304,7 +1236,6 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) Elem() AnomalyDetectorFile
 	}).(AnomalyDetectorFileFormatDescriptorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-csvformatdescriptor
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) CsvFormatDescriptor() AnomalyDetectorCsvFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorCsvFormatDescriptor {
 		if v == nil {
@@ -1314,7 +1245,6 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) CsvFormatDescriptor() Anom
 	}).(AnomalyDetectorCsvFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-fileformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-fileformatdescriptor-jsonformatdescriptor
 func (o AnomalyDetectorFileFormatDescriptorPtrOutput) JsonFormatDescriptor() AnomalyDetectorJsonFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorFileFormatDescriptor) *AnomalyDetectorJsonFormatDescriptor {
 		if v == nil {
@@ -1324,11 +1254,8 @@ func (o AnomalyDetectorFileFormatDescriptorPtrOutput) JsonFormatDescriptor() Ano
 	}).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
 type AnomalyDetectorJsonFormatDescriptor struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
-	Charset *string `pulumi:"charset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
+	Charset         *string `pulumi:"charset"`
 	FileCompression *string `pulumi:"fileCompression"`
 }
 
@@ -1343,11 +1270,8 @@ type AnomalyDetectorJsonFormatDescriptorInput interface {
 	ToAnomalyDetectorJsonFormatDescriptorOutputWithContext(context.Context) AnomalyDetectorJsonFormatDescriptorOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
 type AnomalyDetectorJsonFormatDescriptorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
-	Charset pulumi.StringPtrInput `pulumi:"charset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
+	Charset         pulumi.StringPtrInput `pulumi:"charset"`
 	FileCompression pulumi.StringPtrInput `pulumi:"fileCompression"`
 }
 
@@ -1404,7 +1328,6 @@ func (i *anomalyDetectorJsonFormatDescriptorPtrType) ToAnomalyDetectorJsonFormat
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html
 type AnomalyDetectorJsonFormatDescriptorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorJsonFormatDescriptorOutput) ElementType() reflect.Type {
@@ -1429,12 +1352,10 @@ func (o AnomalyDetectorJsonFormatDescriptorOutput) ToAnomalyDetectorJsonFormatDe
 	}).(AnomalyDetectorJsonFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
 func (o AnomalyDetectorJsonFormatDescriptorOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.Charset }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
 func (o AnomalyDetectorJsonFormatDescriptorOutput) FileCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorJsonFormatDescriptor) *string { return v.FileCompression }).(pulumi.StringPtrOutput)
 }
@@ -1463,7 +1384,6 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Elem() AnomalyDetectorJson
 	}).(AnomalyDetectorJsonFormatDescriptorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-charset
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Charset() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *string {
 		if v == nil {
@@ -1473,7 +1393,6 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) Charset() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-jsonformatdescriptor.html#cfn-lookoutmetrics-anomalydetector-jsonformatdescriptor-filecompression
 func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorJsonFormatDescriptor) *string {
 		if v == nil {
@@ -1483,14 +1402,11 @@ func (o AnomalyDetectorJsonFormatDescriptorPtrOutput) FileCompression() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
 type AnomalyDetectorMetric struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
-	AggregationFunction string `pulumi:"aggregationFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-	MetricName string `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
-	Namespace *string `pulumi:"namespace"`
+	// Operator used to aggregate metric values
+	AggregationFunction string  `pulumi:"aggregationFunction"`
+	MetricName          string  `pulumi:"metricName"`
+	Namespace           *string `pulumi:"namespace"`
 }
 
 // AnomalyDetectorMetricInput is an input type that accepts AnomalyDetectorMetricArgs and AnomalyDetectorMetricOutput values.
@@ -1504,14 +1420,11 @@ type AnomalyDetectorMetricInput interface {
 	ToAnomalyDetectorMetricOutputWithContext(context.Context) AnomalyDetectorMetricOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
 type AnomalyDetectorMetricArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
-	AggregationFunction pulumi.StringInput `pulumi:"aggregationFunction"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
-	MetricName pulumi.StringInput `pulumi:"metricName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
-	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// Operator used to aggregate metric values
+	AggregationFunction pulumi.StringInput    `pulumi:"aggregationFunction"`
+	MetricName          pulumi.StringInput    `pulumi:"metricName"`
+	Namespace           pulumi.StringPtrInput `pulumi:"namespace"`
 }
 
 func (AnomalyDetectorMetricArgs) ElementType() reflect.Type {
@@ -1551,7 +1464,6 @@ func (i AnomalyDetectorMetricArray) ToAnomalyDetectorMetricArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html
 type AnomalyDetectorMetricOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricOutput) ElementType() reflect.Type {
@@ -1566,17 +1478,15 @@ func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricOutputWithContext(ct
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-aggregationfunction
+// Operator used to aggregate metric values
 func (o AnomalyDetectorMetricOutput) AggregationFunction() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.AggregationFunction }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-metricname
 func (o AnomalyDetectorMetricOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetric) string { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metric.html#cfn-lookoutmetrics-anomalydetector-metric-namespace
 func (o AnomalyDetectorMetricOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
@@ -1601,26 +1511,22 @@ func (o AnomalyDetectorMetricArrayOutput) Index(i pulumi.IntInput) AnomalyDetect
 	}).(AnomalyDetectorMetricOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
 type AnomalyDetectorMetricSet struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+	// Dimensions for this MetricSet.
 	DimensionList []string `pulumi:"dimensionList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+	// Metrics captured by this MetricSet.
 	MetricList []AnomalyDetectorMetric `pulumi:"metricList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+	// A description for the MetricSet.
 	MetricSetDescription *string `pulumi:"metricSetDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+	// A frequency period to aggregate the data
 	MetricSetFrequency *string `pulumi:"metricSetFrequency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
-	MetricSetName string `pulumi:"metricSetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-	MetricSource AnomalyDetectorMetricSource `pulumi:"metricSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
-	Offset *int `pulumi:"offset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
+	// The name of the MetricSet.
+	MetricSetName string                      `pulumi:"metricSetName"`
+	MetricSource  AnomalyDetectorMetricSource `pulumi:"metricSource"`
+	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
+	Offset          *int                            `pulumi:"offset"`
 	TimestampColumn *AnomalyDetectorTimestampColumn `pulumi:"timestampColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-	Timezone *string `pulumi:"timezone"`
+	Timezone        *string                         `pulumi:"timezone"`
 }
 
 // AnomalyDetectorMetricSetInput is an input type that accepts AnomalyDetectorMetricSetArgs and AnomalyDetectorMetricSetOutput values.
@@ -1634,26 +1540,22 @@ type AnomalyDetectorMetricSetInput interface {
 	ToAnomalyDetectorMetricSetOutputWithContext(context.Context) AnomalyDetectorMetricSetOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
 type AnomalyDetectorMetricSetArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+	// Dimensions for this MetricSet.
 	DimensionList pulumi.StringArrayInput `pulumi:"dimensionList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+	// Metrics captured by this MetricSet.
 	MetricList AnomalyDetectorMetricArrayInput `pulumi:"metricList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+	// A description for the MetricSet.
 	MetricSetDescription pulumi.StringPtrInput `pulumi:"metricSetDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+	// A frequency period to aggregate the data
 	MetricSetFrequency pulumi.StringPtrInput `pulumi:"metricSetFrequency"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
-	MetricSetName pulumi.StringInput `pulumi:"metricSetName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-	MetricSource AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
-	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
+	// The name of the MetricSet.
+	MetricSetName pulumi.StringInput               `pulumi:"metricSetName"`
+	MetricSource  AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
+	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
+	Offset          pulumi.IntPtrInput                     `pulumi:"offset"`
 	TimestampColumn AnomalyDetectorTimestampColumnPtrInput `pulumi:"timestampColumn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	Timezone        pulumi.StringPtrInput                  `pulumi:"timezone"`
 }
 
 func (AnomalyDetectorMetricSetArgs) ElementType() reflect.Type {
@@ -1693,7 +1595,6 @@ func (i AnomalyDetectorMetricSetArray) ToAnomalyDetectorMetricSetArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricSetArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
 type AnomalyDetectorMetricSetOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricSetOutput) ElementType() reflect.Type {
@@ -1708,47 +1609,44 @@ func (o AnomalyDetectorMetricSetOutput) ToAnomalyDetectorMetricSetOutputWithCont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+// Dimensions for this MetricSet.
 func (o AnomalyDetectorMetricSetOutput) DimensionList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) []string { return v.DimensionList }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+// Metrics captured by this MetricSet.
 func (o AnomalyDetectorMetricSetOutput) MetricList() AnomalyDetectorMetricArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) []AnomalyDetectorMetric { return v.MetricList }).(AnomalyDetectorMetricArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+// A description for the MetricSet.
 func (o AnomalyDetectorMetricSetOutput) MetricSetDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *string { return v.MetricSetDescription }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+// A frequency period to aggregate the data
 func (o AnomalyDetectorMetricSetOutput) MetricSetFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *string { return v.MetricSetFrequency }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
+// The name of the MetricSet.
 func (o AnomalyDetectorMetricSetOutput) MetricSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) string { return v.MetricSetName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
 func (o AnomalyDetectorMetricSetOutput) MetricSource() AnomalyDetectorMetricSourceOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) AnomalyDetectorMetricSource { return v.MetricSource }).(AnomalyDetectorMetricSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
+// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
 func (o AnomalyDetectorMetricSetOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
 func (o AnomalyDetectorMetricSetOutput) TimestampColumn() AnomalyDetectorTimestampColumnPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *AnomalyDetectorTimestampColumn { return v.TimestampColumn }).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
 func (o AnomalyDetectorMetricSetOutput) Timezone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *string { return v.Timezone }).(pulumi.StringPtrOutput)
 }
@@ -1773,18 +1671,12 @@ func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 	}).(AnomalyDetectorMetricSetOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html
 type AnomalyDetectorMetricSource struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
-	AppFlowConfig *AnomalyDetectorAppFlowConfig `pulumi:"appFlowConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
-	CloudwatchConfig *AnomalyDetectorCloudwatchConfig `pulumi:"cloudwatchConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
-	RDSSourceConfig *AnomalyDetectorRDSSourceConfig `pulumi:"rDSSourceConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
+	AppFlowConfig        *AnomalyDetectorAppFlowConfig        `pulumi:"appFlowConfig"`
+	CloudwatchConfig     *AnomalyDetectorCloudwatchConfig     `pulumi:"cloudwatchConfig"`
+	RDSSourceConfig      *AnomalyDetectorRDSSourceConfig      `pulumi:"rDSSourceConfig"`
 	RedshiftSourceConfig *AnomalyDetectorRedshiftSourceConfig `pulumi:"redshiftSourceConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
-	S3SourceConfig *AnomalyDetectorS3SourceConfig `pulumi:"s3SourceConfig"`
+	S3SourceConfig       *AnomalyDetectorS3SourceConfig       `pulumi:"s3SourceConfig"`
 }
 
 // AnomalyDetectorMetricSourceInput is an input type that accepts AnomalyDetectorMetricSourceArgs and AnomalyDetectorMetricSourceOutput values.
@@ -1798,18 +1690,12 @@ type AnomalyDetectorMetricSourceInput interface {
 	ToAnomalyDetectorMetricSourceOutputWithContext(context.Context) AnomalyDetectorMetricSourceOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html
 type AnomalyDetectorMetricSourceArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
-	AppFlowConfig AnomalyDetectorAppFlowConfigPtrInput `pulumi:"appFlowConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
-	CloudwatchConfig AnomalyDetectorCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
-	RDSSourceConfig AnomalyDetectorRDSSourceConfigPtrInput `pulumi:"rDSSourceConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
+	AppFlowConfig        AnomalyDetectorAppFlowConfigPtrInput        `pulumi:"appFlowConfig"`
+	CloudwatchConfig     AnomalyDetectorCloudwatchConfigPtrInput     `pulumi:"cloudwatchConfig"`
+	RDSSourceConfig      AnomalyDetectorRDSSourceConfigPtrInput      `pulumi:"rDSSourceConfig"`
 	RedshiftSourceConfig AnomalyDetectorRedshiftSourceConfigPtrInput `pulumi:"redshiftSourceConfig"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
-	S3SourceConfig AnomalyDetectorS3SourceConfigPtrInput `pulumi:"s3SourceConfig"`
+	S3SourceConfig       AnomalyDetectorS3SourceConfigPtrInput       `pulumi:"s3SourceConfig"`
 }
 
 func (AnomalyDetectorMetricSourceArgs) ElementType() reflect.Type {
@@ -1824,7 +1710,6 @@ func (i AnomalyDetectorMetricSourceArgs) ToAnomalyDetectorMetricSourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricSourceOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html
 type AnomalyDetectorMetricSourceOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricSourceOutput) ElementType() reflect.Type {
@@ -1839,51 +1724,37 @@ func (o AnomalyDetectorMetricSourceOutput) ToAnomalyDetectorMetricSourceOutputWi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-appflowconfig
 func (o AnomalyDetectorMetricSourceOutput) AppFlowConfig() AnomalyDetectorAppFlowConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorAppFlowConfig { return v.AppFlowConfig }).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-cloudwatchconfig
 func (o AnomalyDetectorMetricSourceOutput) CloudwatchConfig() AnomalyDetectorCloudwatchConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorCloudwatchConfig { return v.CloudwatchConfig }).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-rdssourceconfig
 func (o AnomalyDetectorMetricSourceOutput) RDSSourceConfig() AnomalyDetectorRDSSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRDSSourceConfig { return v.RDSSourceConfig }).(AnomalyDetectorRDSSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-redshiftsourceconfig
 func (o AnomalyDetectorMetricSourceOutput) RedshiftSourceConfig() AnomalyDetectorRedshiftSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRedshiftSourceConfig {
 		return v.RedshiftSourceConfig
 	}).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricsource.html#cfn-lookoutmetrics-anomalydetector-metricsource-s3sourceconfig
 func (o AnomalyDetectorMetricSourceOutput) S3SourceConfig() AnomalyDetectorS3SourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorS3SourceConfig { return v.S3SourceConfig }).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html
 type AnomalyDetectorRDSSourceConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
-	DBInstanceIdentifier string `pulumi:"dBInstanceIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
-	DatabaseHost string `pulumi:"databaseHost"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
-	DatabaseName string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
-	DatabasePort int `pulumi:"databasePort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
-	SecretManagerArn string `pulumi:"secretManagerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
-	TableName string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
-	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
+	DBInstanceIdentifier string                          `pulumi:"dBInstanceIdentifier"`
+	DatabaseHost         string                          `pulumi:"databaseHost"`
+	DatabaseName         string                          `pulumi:"databaseName"`
+	DatabasePort         int                             `pulumi:"databasePort"`
+	RoleArn              string                          `pulumi:"roleArn"`
+	SecretManagerArn     string                          `pulumi:"secretManagerArn"`
+	TableName            string                          `pulumi:"tableName"`
+	VpcConfiguration     AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // AnomalyDetectorRDSSourceConfigInput is an input type that accepts AnomalyDetectorRDSSourceConfigArgs and AnomalyDetectorRDSSourceConfigOutput values.
@@ -1897,24 +1768,15 @@ type AnomalyDetectorRDSSourceConfigInput interface {
 	ToAnomalyDetectorRDSSourceConfigOutputWithContext(context.Context) AnomalyDetectorRDSSourceConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html
 type AnomalyDetectorRDSSourceConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
-	DBInstanceIdentifier pulumi.StringInput `pulumi:"dBInstanceIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
-	DatabaseHost pulumi.StringInput `pulumi:"databaseHost"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
-	DatabasePort pulumi.IntInput `pulumi:"databasePort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
-	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
-	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
+	DBInstanceIdentifier pulumi.StringInput                   `pulumi:"dBInstanceIdentifier"`
+	DatabaseHost         pulumi.StringInput                   `pulumi:"databaseHost"`
+	DatabaseName         pulumi.StringInput                   `pulumi:"databaseName"`
+	DatabasePort         pulumi.IntInput                      `pulumi:"databasePort"`
+	RoleArn              pulumi.StringInput                   `pulumi:"roleArn"`
+	SecretManagerArn     pulumi.StringInput                   `pulumi:"secretManagerArn"`
+	TableName            pulumi.StringInput                   `pulumi:"tableName"`
+	VpcConfiguration     AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
 func (AnomalyDetectorRDSSourceConfigArgs) ElementType() reflect.Type {
@@ -1970,7 +1832,6 @@ func (i *anomalyDetectorRDSSourceConfigPtrType) ToAnomalyDetectorRDSSourceConfig
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRDSSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html
 type AnomalyDetectorRDSSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorRDSSourceConfigOutput) ElementType() reflect.Type {
@@ -1995,42 +1856,34 @@ func (o AnomalyDetectorRDSSourceConfigOutput) ToAnomalyDetectorRDSSourceConfigPt
 	}).(AnomalyDetectorRDSSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
 func (o AnomalyDetectorRDSSourceConfigOutput) DBInstanceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DBInstanceIdentifier }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
 func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
 func (o AnomalyDetectorRDSSourceConfigOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
 func (o AnomalyDetectorRDSSourceConfigOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
 func (o AnomalyDetectorRDSSourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
 func (o AnomalyDetectorRDSSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
 func (o AnomalyDetectorRDSSourceConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
 func (o AnomalyDetectorRDSSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRDSSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -2059,7 +1912,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) Elem() AnomalyDetectorRDSSource
 	}).(AnomalyDetectorRDSSourceConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-dbinstanceidentifier
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) DBInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2069,7 +1921,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DBInstanceIdentifier() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasehost
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2079,7 +1930,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databasename
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2089,7 +1939,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabaseName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-databaseport
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *int {
 		if v == nil {
@@ -2099,7 +1948,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-rolearn
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2109,7 +1957,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-secretmanagerarn
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2119,7 +1966,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) SecretManagerArn() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-tablename
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *string {
 		if v == nil {
@@ -2129,7 +1975,6 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) TableName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-rdssourceconfig.html#cfn-lookoutmetrics-anomalydetector-rdssourceconfig-vpcconfiguration
 func (o AnomalyDetectorRDSSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRDSSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
@@ -2139,24 +1984,15 @@ func (o AnomalyDetectorRDSSourceConfigPtrOutput) VpcConfiguration() AnomalyDetec
 	}).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html
 type AnomalyDetectorRedshiftSourceConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
-	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
-	DatabaseHost string `pulumi:"databaseHost"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
-	DatabaseName string `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
-	DatabasePort int `pulumi:"databasePort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
-	SecretManagerArn string `pulumi:"secretManagerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
-	TableName string `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
-	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
+	ClusterIdentifier string                          `pulumi:"clusterIdentifier"`
+	DatabaseHost      string                          `pulumi:"databaseHost"`
+	DatabaseName      string                          `pulumi:"databaseName"`
+	DatabasePort      int                             `pulumi:"databasePort"`
+	RoleArn           string                          `pulumi:"roleArn"`
+	SecretManagerArn  string                          `pulumi:"secretManagerArn"`
+	TableName         string                          `pulumi:"tableName"`
+	VpcConfiguration  AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
 // AnomalyDetectorRedshiftSourceConfigInput is an input type that accepts AnomalyDetectorRedshiftSourceConfigArgs and AnomalyDetectorRedshiftSourceConfigOutput values.
@@ -2170,24 +2006,15 @@ type AnomalyDetectorRedshiftSourceConfigInput interface {
 	ToAnomalyDetectorRedshiftSourceConfigOutputWithContext(context.Context) AnomalyDetectorRedshiftSourceConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html
 type AnomalyDetectorRedshiftSourceConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
-	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
-	DatabaseHost pulumi.StringInput `pulumi:"databaseHost"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
-	DatabasePort pulumi.IntInput `pulumi:"databasePort"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
-	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
-	TableName pulumi.StringInput `pulumi:"tableName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
-	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
+	ClusterIdentifier pulumi.StringInput                   `pulumi:"clusterIdentifier"`
+	DatabaseHost      pulumi.StringInput                   `pulumi:"databaseHost"`
+	DatabaseName      pulumi.StringInput                   `pulumi:"databaseName"`
+	DatabasePort      pulumi.IntInput                      `pulumi:"databasePort"`
+	RoleArn           pulumi.StringInput                   `pulumi:"roleArn"`
+	SecretManagerArn  pulumi.StringInput                   `pulumi:"secretManagerArn"`
+	TableName         pulumi.StringInput                   `pulumi:"tableName"`
+	VpcConfiguration  AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
 func (AnomalyDetectorRedshiftSourceConfigArgs) ElementType() reflect.Type {
@@ -2243,7 +2070,6 @@ func (i *anomalyDetectorRedshiftSourceConfigPtrType) ToAnomalyDetectorRedshiftSo
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html
 type AnomalyDetectorRedshiftSourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorRedshiftSourceConfigOutput) ElementType() reflect.Type {
@@ -2268,42 +2094,34 @@ func (o AnomalyDetectorRedshiftSourceConfigOutput) ToAnomalyDetectorRedshiftSour
 	}).(AnomalyDetectorRedshiftSourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
 func (o AnomalyDetectorRedshiftSourceConfigOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabaseHost() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.DatabaseHost }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
 func (o AnomalyDetectorRedshiftSourceConfigOutput) DatabasePort() pulumi.IntOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) int { return v.DatabasePort }).(pulumi.IntOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
 func (o AnomalyDetectorRedshiftSourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
 func (o AnomalyDetectorRedshiftSourceConfigOutput) SecretManagerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.SecretManagerArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
 func (o AnomalyDetectorRedshiftSourceConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
 func (o AnomalyDetectorRedshiftSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -2332,7 +2150,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) Elem() AnomalyDetectorReds
 	}).(AnomalyDetectorRedshiftSourceConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-clusteridentifier
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2342,7 +2159,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) ClusterIdentifier() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasehost
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseHost() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2352,7 +2168,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseHost() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databasename
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2362,7 +2177,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabaseName() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-databaseport
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabasePort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *int {
 		if v == nil {
@@ -2372,7 +2186,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) DatabasePort() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-rolearn
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2382,7 +2195,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) RoleArn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-secretmanagerarn
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) SecretManagerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2392,7 +2204,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) SecretManagerArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-tablename
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *string {
 		if v == nil {
@@ -2402,7 +2213,6 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) TableName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-redshiftsourceconfig.html#cfn-lookoutmetrics-anomalydetector-redshiftsourceconfig-vpcconfiguration
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
@@ -2412,16 +2222,11 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) VpcConfiguration() Anomaly
 	}).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
 type AnomalyDetectorS3SourceConfig struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-	FileFormatDescriptor AnomalyDetectorFileFormatDescriptor `pulumi:"fileFormatDescriptor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-	HistoricalDataPathList []string `pulumi:"historicalDataPathList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-	TemplatedPathList []string `pulumi:"templatedPathList"`
+	FileFormatDescriptor   AnomalyDetectorFileFormatDescriptor `pulumi:"fileFormatDescriptor"`
+	HistoricalDataPathList []string                            `pulumi:"historicalDataPathList"`
+	RoleArn                string                              `pulumi:"roleArn"`
+	TemplatedPathList      []string                            `pulumi:"templatedPathList"`
 }
 
 // AnomalyDetectorS3SourceConfigInput is an input type that accepts AnomalyDetectorS3SourceConfigArgs and AnomalyDetectorS3SourceConfigOutput values.
@@ -2435,16 +2240,11 @@ type AnomalyDetectorS3SourceConfigInput interface {
 	ToAnomalyDetectorS3SourceConfigOutputWithContext(context.Context) AnomalyDetectorS3SourceConfigOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
 type AnomalyDetectorS3SourceConfigArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
-	FileFormatDescriptor AnomalyDetectorFileFormatDescriptorInput `pulumi:"fileFormatDescriptor"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
-	HistoricalDataPathList pulumi.StringArrayInput `pulumi:"historicalDataPathList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
-	TemplatedPathList pulumi.StringArrayInput `pulumi:"templatedPathList"`
+	FileFormatDescriptor   AnomalyDetectorFileFormatDescriptorInput `pulumi:"fileFormatDescriptor"`
+	HistoricalDataPathList pulumi.StringArrayInput                  `pulumi:"historicalDataPathList"`
+	RoleArn                pulumi.StringInput                       `pulumi:"roleArn"`
+	TemplatedPathList      pulumi.StringArrayInput                  `pulumi:"templatedPathList"`
 }
 
 func (AnomalyDetectorS3SourceConfigArgs) ElementType() reflect.Type {
@@ -2500,7 +2300,6 @@ func (i *anomalyDetectorS3SourceConfigPtrType) ToAnomalyDetectorS3SourceConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html
 type AnomalyDetectorS3SourceConfigOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorS3SourceConfigOutput) ElementType() reflect.Type {
@@ -2525,24 +2324,20 @@ func (o AnomalyDetectorS3SourceConfigOutput) ToAnomalyDetectorS3SourceConfigPtrO
 	}).(AnomalyDetectorS3SourceConfigPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
 func (o AnomalyDetectorS3SourceConfigOutput) FileFormatDescriptor() AnomalyDetectorFileFormatDescriptorOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) AnomalyDetectorFileFormatDescriptor {
 		return v.FileFormatDescriptor
 	}).(AnomalyDetectorFileFormatDescriptorOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
 func (o AnomalyDetectorS3SourceConfigOutput) HistoricalDataPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) []string { return v.HistoricalDataPathList }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
 func (o AnomalyDetectorS3SourceConfigOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
 func (o AnomalyDetectorS3SourceConfigOutput) TemplatedPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorS3SourceConfig) []string { return v.TemplatedPathList }).(pulumi.StringArrayOutput)
 }
@@ -2571,7 +2366,6 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) Elem() AnomalyDetectorS3SourceCo
 	}).(AnomalyDetectorS3SourceConfigOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-fileformatdescriptor
 func (o AnomalyDetectorS3SourceConfigPtrOutput) FileFormatDescriptor() AnomalyDetectorFileFormatDescriptorPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) *AnomalyDetectorFileFormatDescriptor {
 		if v == nil {
@@ -2581,7 +2375,6 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) FileFormatDescriptor() AnomalyDe
 	}).(AnomalyDetectorFileFormatDescriptorPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-historicaldatapathlist
 func (o AnomalyDetectorS3SourceConfigPtrOutput) HistoricalDataPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) []string {
 		if v == nil {
@@ -2591,7 +2384,6 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) HistoricalDataPathList() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-rolearn
 func (o AnomalyDetectorS3SourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) *string {
 		if v == nil {
@@ -2601,7 +2393,6 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) RoleArn() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-s3sourceconfig.html#cfn-lookoutmetrics-anomalydetector-s3sourceconfig-templatedpathlist
 func (o AnomalyDetectorS3SourceConfigPtrOutput) TemplatedPathList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorS3SourceConfig) []string {
 		if v == nil {
@@ -2611,12 +2402,10 @@ func (o AnomalyDetectorS3SourceConfigPtrOutput) TemplatedPathList() pulumi.Strin
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
 type AnomalyDetectorTimestampColumn struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+	// A timestamp format for the timestamps in the dataset
 	ColumnFormat *string `pulumi:"columnFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
-	ColumnName *string `pulumi:"columnName"`
+	ColumnName   *string `pulumi:"columnName"`
 }
 
 // AnomalyDetectorTimestampColumnInput is an input type that accepts AnomalyDetectorTimestampColumnArgs and AnomalyDetectorTimestampColumnOutput values.
@@ -2630,12 +2419,10 @@ type AnomalyDetectorTimestampColumnInput interface {
 	ToAnomalyDetectorTimestampColumnOutputWithContext(context.Context) AnomalyDetectorTimestampColumnOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
 type AnomalyDetectorTimestampColumnArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+	// A timestamp format for the timestamps in the dataset
 	ColumnFormat pulumi.StringPtrInput `pulumi:"columnFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
-	ColumnName pulumi.StringPtrInput `pulumi:"columnName"`
+	ColumnName   pulumi.StringPtrInput `pulumi:"columnName"`
 }
 
 func (AnomalyDetectorTimestampColumnArgs) ElementType() reflect.Type {
@@ -2691,7 +2478,6 @@ func (i *anomalyDetectorTimestampColumnPtrType) ToAnomalyDetectorTimestampColumn
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html
 type AnomalyDetectorTimestampColumnOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorTimestampColumnOutput) ElementType() reflect.Type {
@@ -2716,12 +2502,11 @@ func (o AnomalyDetectorTimestampColumnOutput) ToAnomalyDetectorTimestampColumnPt
 	}).(AnomalyDetectorTimestampColumnPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+// A timestamp format for the timestamps in the dataset
 func (o AnomalyDetectorTimestampColumnOutput) ColumnFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorTimestampColumn) *string { return v.ColumnFormat }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
 func (o AnomalyDetectorTimestampColumnOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorTimestampColumn) *string { return v.ColumnName }).(pulumi.StringPtrOutput)
 }
@@ -2750,7 +2535,7 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) Elem() AnomalyDetectorTimestamp
 	}).(AnomalyDetectorTimestampColumnOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnformat
+// A timestamp format for the timestamps in the dataset
 func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorTimestampColumn) *string {
 		if v == nil {
@@ -2760,7 +2545,6 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnFormat() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-timestampcolumn.html#cfn-lookoutmetrics-anomalydetector-timestampcolumn-columnname
 func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorTimestampColumn) *string {
 		if v == nil {
@@ -2770,12 +2554,9 @@ func (o AnomalyDetectorTimestampColumnPtrOutput) ColumnName() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
 type AnomalyDetectorVpcConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
 	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-	SubnetIdList []string `pulumi:"subnetIdList"`
+	SubnetIdList        []string `pulumi:"subnetIdList"`
 }
 
 // AnomalyDetectorVpcConfigurationInput is an input type that accepts AnomalyDetectorVpcConfigurationArgs and AnomalyDetectorVpcConfigurationOutput values.
@@ -2789,12 +2570,9 @@ type AnomalyDetectorVpcConfigurationInput interface {
 	ToAnomalyDetectorVpcConfigurationOutputWithContext(context.Context) AnomalyDetectorVpcConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
 type AnomalyDetectorVpcConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
 	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
-	SubnetIdList pulumi.StringArrayInput `pulumi:"subnetIdList"`
+	SubnetIdList        pulumi.StringArrayInput `pulumi:"subnetIdList"`
 }
 
 func (AnomalyDetectorVpcConfigurationArgs) ElementType() reflect.Type {
@@ -2850,7 +2628,6 @@ func (i *anomalyDetectorVpcConfigurationPtrType) ToAnomalyDetectorVpcConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html
 type AnomalyDetectorVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorVpcConfigurationOutput) ElementType() reflect.Type {
@@ -2875,12 +2652,10 @@ func (o AnomalyDetectorVpcConfigurationOutput) ToAnomalyDetectorVpcConfiguration
 	}).(AnomalyDetectorVpcConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
 func (o AnomalyDetectorVpcConfigurationOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorVpcConfiguration) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
 func (o AnomalyDetectorVpcConfigurationOutput) SubnetIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorVpcConfiguration) []string { return v.SubnetIdList }).(pulumi.StringArrayOutput)
 }
@@ -2909,7 +2684,6 @@ func (o AnomalyDetectorVpcConfigurationPtrOutput) Elem() AnomalyDetectorVpcConfi
 	}).(AnomalyDetectorVpcConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-securitygroupidlist
 func (o AnomalyDetectorVpcConfigurationPtrOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorVpcConfiguration) []string {
 		if v == nil {
@@ -2919,7 +2693,6 @@ func (o AnomalyDetectorVpcConfigurationPtrOutput) SecurityGroupIdList() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-vpcconfiguration.html#cfn-lookoutmetrics-anomalydetector-vpcconfiguration-subnetidlist
 func (o AnomalyDetectorVpcConfigurationPtrOutput) SubnetIdList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyDetectorVpcConfiguration) []string {
 		if v == nil {

@@ -8,25 +8,20 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html
+// Resource Type definition for AWS::SageMaker::Image
 type Image struct {
 	pulumi.CustomResourceState
 
-	ImageArn pulumi.StringOutput `pulumi:"imageArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription
+	ImageArn         pulumi.StringOutput    `pulumi:"imageArn"`
 	ImageDescription pulumi.StringPtrOutput `pulumi:"imageDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedisplayname
 	ImageDisplayName pulumi.StringPtrOutput `pulumi:"imageDisplayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagename
-	ImageName pulumi.StringOutput `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn
-	ImageRoleArn pulumi.StringOutput `pulumi:"imageRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	ImageName        pulumi.StringOutput    `pulumi:"imageName"`
+	ImageRoleArn     pulumi.StringOutput    `pulumi:"imageRoleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags ImageTagArrayOutput `pulumi:"tags"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -74,30 +69,22 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription
 	ImageDescription *string `pulumi:"imageDescription"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedisplayname
 	ImageDisplayName *string `pulumi:"imageDisplayName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagename
-	ImageName string `pulumi:"imageName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn
-	ImageRoleArn string `pulumi:"imageRoleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	ImageName        string  `pulumi:"imageName"`
+	ImageRoleArn     string  `pulumi:"imageRoleArn"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []ImageTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedescription
 	ImageDescription pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagedisplayname
 	ImageDisplayName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagename
-	ImageName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-imagerolearn
-	ImageRoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html#cfn-sagemaker-image-tags
-	Tags aws.TagArrayInput
+	ImageName        pulumi.StringInput
+	ImageRoleArn     pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags ImageTagArrayInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {

@@ -10,34 +10,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
+// Resource Type definition for AWS::EFS::FileSystem
 type FileSystem struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-	AvailabilityZoneName pulumi.StringPtrOutput `pulumi:"availabilityZoneName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-	BackupPolicy FileSystemBackupPolicyPtrOutput `pulumi:"backupPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
-	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-	Encrypted    pulumi.BoolPtrOutput `pulumi:"encrypted"`
-	FileSystemId pulumi.StringOutput  `pulumi:"fileSystemId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-	FileSystemPolicy pulumi.AnyOutput `pulumi:"fileSystemPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-	FileSystemTags FileSystemElasticFileSystemTagArrayOutput `pulumi:"fileSystemTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-	LifecyclePolicies FileSystemLifecyclePolicyArrayOutput `pulumi:"lifecyclePolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-	PerformanceMode pulumi.StringPtrOutput `pulumi:"performanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-	ThroughputMode pulumi.StringPtrOutput `pulumi:"throughputMode"`
+	Arn                  pulumi.StringOutput             `pulumi:"arn"`
+	AvailabilityZoneName pulumi.StringPtrOutput          `pulumi:"availabilityZoneName"`
+	BackupPolicy         FileSystemBackupPolicyPtrOutput `pulumi:"backupPolicy"`
+	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
+	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrOutput                      `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	Encrypted                      pulumi.BoolPtrOutput                      `pulumi:"encrypted"`
+	FileSystemId                   pulumi.StringOutput                       `pulumi:"fileSystemId"`
+	FileSystemPolicy               pulumi.AnyOutput                          `pulumi:"fileSystemPolicy"`
+	FileSystemTags                 FileSystemElasticFileSystemTagArrayOutput `pulumi:"fileSystemTags"`
+	KmsKeyId                       pulumi.StringPtrOutput                    `pulumi:"kmsKeyId"`
+	LifecyclePolicies              FileSystemLifecyclePolicyArrayOutput      `pulumi:"lifecyclePolicies"`
+	PerformanceMode                pulumi.StringPtrOutput                    `pulumi:"performanceMode"`
+	ProvisionedThroughputInMibps   pulumi.Float64PtrOutput                   `pulumi:"provisionedThroughputInMibps"`
+	ThroughputMode                 pulumi.StringPtrOutput                    `pulumi:"throughputMode"`
 }
 
 // NewFileSystem registers a new resource with the given unique name, arguments, and options.
@@ -79,54 +69,34 @@ func (FileSystemState) ElementType() reflect.Type {
 }
 
 type fileSystemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
-	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-	BackupPolicy *FileSystemBackupPolicy `pulumi:"backupPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
-	BypassPolicyLockoutSafetyCheck *bool `pulumi:"bypassPolicyLockoutSafetyCheck"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-	Encrypted *bool `pulumi:"encrypted"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-	FileSystemPolicy interface{} `pulumi:"fileSystemPolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-	FileSystemTags []FileSystemElasticFileSystemTag `pulumi:"fileSystemTags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-	LifecyclePolicies []FileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-	PerformanceMode *string `pulumi:"performanceMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-	ThroughputMode *string `pulumi:"throughputMode"`
+	AvailabilityZoneName *string                 `pulumi:"availabilityZoneName"`
+	BackupPolicy         *FileSystemBackupPolicy `pulumi:"backupPolicy"`
+	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
+	BypassPolicyLockoutSafetyCheck *bool                            `pulumi:"bypassPolicyLockoutSafetyCheck"`
+	Encrypted                      *bool                            `pulumi:"encrypted"`
+	FileSystemPolicy               interface{}                      `pulumi:"fileSystemPolicy"`
+	FileSystemTags                 []FileSystemElasticFileSystemTag `pulumi:"fileSystemTags"`
+	KmsKeyId                       *string                          `pulumi:"kmsKeyId"`
+	LifecyclePolicies              []FileSystemLifecyclePolicy      `pulumi:"lifecyclePolicies"`
+	PerformanceMode                *string                          `pulumi:"performanceMode"`
+	ProvisionedThroughputInMibps   *float64                         `pulumi:"provisionedThroughputInMibps"`
+	ThroughputMode                 *string                          `pulumi:"throughputMode"`
 }
 
 // The set of arguments for constructing a FileSystem resource.
 type FileSystemArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-availabilityzonename
 	AvailabilityZoneName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
-	BackupPolicy FileSystemBackupPolicyPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-bypasspolicylockoutsafetycheck
+	BackupPolicy         FileSystemBackupPolicyPtrInput
+	// Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
-	Encrypted pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystempolicy
-	FileSystemPolicy pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
-	FileSystemTags FileSystemElasticFileSystemTagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
-	KmsKeyId pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-lifecyclepolicies
-	LifecyclePolicies FileSystemLifecyclePolicyArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
-	PerformanceMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-provisionedthroughputinmibps
-	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-throughputmode
-	ThroughputMode pulumi.StringPtrInput
+	Encrypted                      pulumi.BoolPtrInput
+	FileSystemPolicy               pulumi.Input
+	FileSystemTags                 FileSystemElasticFileSystemTagArrayInput
+	KmsKeyId                       pulumi.StringPtrInput
+	LifecyclePolicies              FileSystemLifecyclePolicyArrayInput
+	PerformanceMode                pulumi.StringPtrInput
+	ProvisionedThroughputInMibps   pulumi.Float64PtrInput
+	ThroughputMode                 pulumi.StringPtrInput
 }
 
 func (FileSystemArgs) ElementType() reflect.Type {

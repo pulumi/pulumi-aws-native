@@ -7,43 +7,31 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+// Resource Type definition for AWS::SSM::ResourceDataSync
 type ResourceDataSync struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-	BucketPrefix pulumi.StringPtrOutput `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-	KMSKeyArn pulumi.StringPtrOutput `pulumi:"kMSKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
+	BucketName    pulumi.StringPtrOutput                 `pulumi:"bucketName"`
+	BucketPrefix  pulumi.StringPtrOutput                 `pulumi:"bucketPrefix"`
+	BucketRegion  pulumi.StringPtrOutput                 `pulumi:"bucketRegion"`
+	KMSKeyArn     pulumi.StringPtrOutput                 `pulumi:"kMSKeyArn"`
 	S3Destination ResourceDataSyncS3DestinationPtrOutput `pulumi:"s3Destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-	SyncFormat pulumi.StringPtrOutput `pulumi:"syncFormat"`
-	SyncName   pulumi.StringOutput    `pulumi:"syncName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-	SyncSource ResourceDataSyncSyncSourcePtrOutput `pulumi:"syncSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-	SyncType pulumi.StringPtrOutput `pulumi:"syncType"`
+	SyncFormat    pulumi.StringPtrOutput                 `pulumi:"syncFormat"`
+	SyncName      pulumi.StringOutput                    `pulumi:"syncName"`
+	SyncSource    ResourceDataSyncSyncSourcePtrOutput    `pulumi:"syncSource"`
+	SyncType      pulumi.StringPtrOutput                 `pulumi:"syncType"`
 }
 
 // NewResourceDataSync registers a new resource with the given unique name, arguments, and options.
 func NewResourceDataSync(ctx *pulumi.Context,
 	name string, args *ResourceDataSyncArgs, opts ...pulumi.ResourceOption) (*ResourceDataSync, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ResourceDataSyncArgs{}
 	}
 
-	if args.SyncName == nil {
-		return nil, errors.New("invalid value for required argument 'SyncName'")
-	}
 	var resource ResourceDataSync
 	err := ctx.RegisterResource("aws-native:ssm:ResourceDataSync", name, args, &resource, opts...)
 	if err != nil {
@@ -76,46 +64,26 @@ func (ResourceDataSyncState) ElementType() reflect.Type {
 }
 
 type resourceDataSyncArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-	BucketName *string `pulumi:"bucketName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-	BucketRegion *string `pulumi:"bucketRegion"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-	KMSKeyArn *string `pulumi:"kMSKeyArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
+	BucketName    *string                        `pulumi:"bucketName"`
+	BucketPrefix  *string                        `pulumi:"bucketPrefix"`
+	BucketRegion  *string                        `pulumi:"bucketRegion"`
+	KMSKeyArn     *string                        `pulumi:"kMSKeyArn"`
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-	SyncFormat *string `pulumi:"syncFormat"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-	SyncName string `pulumi:"syncName"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-	SyncSource *ResourceDataSyncSyncSource `pulumi:"syncSource"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-	SyncType *string `pulumi:"syncType"`
+	SyncFormat    *string                        `pulumi:"syncFormat"`
+	SyncSource    *ResourceDataSyncSyncSource    `pulumi:"syncSource"`
+	SyncType      *string                        `pulumi:"syncType"`
 }
 
 // The set of arguments for constructing a ResourceDataSync resource.
 type ResourceDataSyncArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-	BucketName pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-	BucketPrefix pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-	BucketRegion pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-	KMSKeyArn pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
+	BucketName    pulumi.StringPtrInput
+	BucketPrefix  pulumi.StringPtrInput
+	BucketRegion  pulumi.StringPtrInput
+	KMSKeyArn     pulumi.StringPtrInput
 	S3Destination ResourceDataSyncS3DestinationPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-	SyncFormat pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-	SyncName pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-	SyncSource ResourceDataSyncSyncSourcePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-	SyncType pulumi.StringPtrInput
+	SyncFormat    pulumi.StringPtrInput
+	SyncSource    ResourceDataSyncSyncSourcePtrInput
+	SyncType      pulumi.StringPtrInput
 }
 
 func (ResourceDataSyncArgs) ElementType() reflect.Type {

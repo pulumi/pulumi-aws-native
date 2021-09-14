@@ -7,44 +7,32 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 type SafetyRule struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
 	AssertionRule SafetyRuleAssertionRulePtrOutput `pulumi:"assertionRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-	ControlPanelArn pulumi.StringOutput `pulumi:"controlPanelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-	GatingRule SafetyRuleGatingRulePtrOutput `pulumi:"gatingRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-	Name pulumi.StringOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-	RuleConfig    SafetyRuleRuleConfigOutput `pulumi:"ruleConfig"`
-	SafetyRuleArn pulumi.StringOutput        `pulumi:"safetyRuleArn"`
-	Status        pulumi.StringOutput        `pulumi:"status"`
+	// The Amazon Resource Name (ARN) of the control panel.
+	ControlPanelArn pulumi.StringPtrOutput        `pulumi:"controlPanelArn"`
+	GatingRule      SafetyRuleGatingRulePtrOutput `pulumi:"gatingRule"`
+	Name            pulumi.StringPtrOutput        `pulumi:"name"`
+	RuleConfig      SafetyRuleRuleConfigPtrOutput `pulumi:"ruleConfig"`
+	// The Amazon Resource Name (ARN) of the safety rule.
+	SafetyRuleArn pulumi.StringOutput `pulumi:"safetyRuleArn"`
+	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewSafetyRule registers a new resource with the given unique name, arguments, and options.
 func NewSafetyRule(ctx *pulumi.Context,
 	name string, args *SafetyRuleArgs, opts ...pulumi.ResourceOption) (*SafetyRule, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &SafetyRuleArgs{}
 	}
 
-	if args.ControlPanelArn == nil {
-		return nil, errors.New("invalid value for required argument 'ControlPanelArn'")
-	}
-	if args.Name == nil {
-		return nil, errors.New("invalid value for required argument 'Name'")
-	}
-	if args.RuleConfig == nil {
-		return nil, errors.New("invalid value for required argument 'RuleConfig'")
-	}
 	var resource SafetyRule
 	err := ctx.RegisterResource("aws-native:route53recoverycontrol:SafetyRule", name, args, &resource, opts...)
 	if err != nil {
@@ -77,30 +65,22 @@ func (SafetyRuleState) ElementType() reflect.Type {
 }
 
 type safetyRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
 	AssertionRule *SafetyRuleAssertionRule `pulumi:"assertionRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-	ControlPanelArn string `pulumi:"controlPanelArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-	GatingRule *SafetyRuleGatingRule `pulumi:"gatingRule"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-	Name string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-	RuleConfig SafetyRuleRuleConfig `pulumi:"ruleConfig"`
+	// The Amazon Resource Name (ARN) of the control panel.
+	ControlPanelArn *string               `pulumi:"controlPanelArn"`
+	GatingRule      *SafetyRuleGatingRule `pulumi:"gatingRule"`
+	Name            *string               `pulumi:"name"`
+	RuleConfig      *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 }
 
 // The set of arguments for constructing a SafetyRule resource.
 type SafetyRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
 	AssertionRule SafetyRuleAssertionRulePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
-	ControlPanelArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-	GatingRule SafetyRuleGatingRulePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-	Name pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-	RuleConfig SafetyRuleRuleConfigInput
+	// The Amazon Resource Name (ARN) of the control panel.
+	ControlPanelArn pulumi.StringPtrInput
+	GatingRule      SafetyRuleGatingRulePtrInput
+	Name            pulumi.StringPtrInput
+	RuleConfig      SafetyRuleRuleConfigPtrInput
 }
 
 func (SafetyRuleArgs) ElementType() reflect.Type {

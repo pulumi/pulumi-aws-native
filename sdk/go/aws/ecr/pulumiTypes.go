@@ -10,9 +10,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+// An object representing the replication configuration for a registry.
 type ReplicationConfigurationReplicationConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 	Rules []ReplicationConfigurationReplicationRule `pulumi:"rules"`
 }
 
@@ -27,9 +27,9 @@ type ReplicationConfigurationReplicationConfigurationInput interface {
 	ToReplicationConfigurationReplicationConfigurationOutputWithContext(context.Context) ReplicationConfigurationReplicationConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+// An object representing the replication configuration for a registry.
 type ReplicationConfigurationReplicationConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+	// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 	Rules ReplicationConfigurationReplicationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -86,7 +86,7 @@ func (i *replicationConfigurationReplicationConfigurationPtrType) ToReplicationC
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html
+// An object representing the replication configuration for a registry.
 type ReplicationConfigurationReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -111,7 +111,7 @@ func (o ReplicationConfigurationReplicationConfigurationOutput) ToReplicationCon
 	}).(ReplicationConfigurationReplicationConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 func (o ReplicationConfigurationReplicationConfigurationOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
 		return v.Rules
@@ -142,7 +142,7 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Elem() Replic
 	}).(ReplicationConfigurationReplicationConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html#cfn-ecr-replicationconfiguration-replicationconfiguration-rules
+// An array of objects representing the replication rules for a replication configuration. A replication configuration may contain only one replication rule but the rule may contain one or more replication destinations.
 func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() ReplicationConfigurationReplicationRuleArrayOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationReplicationConfiguration) []ReplicationConfigurationReplicationRule {
 		if v == nil {
@@ -152,11 +152,9 @@ func (o ReplicationConfigurationReplicationConfigurationPtrOutput) Rules() Repli
 	}).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestination struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
-	Region string `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+	Region     string `pulumi:"region"`
 	RegistryId string `pulumi:"registryId"`
 }
 
@@ -171,11 +169,9 @@ type ReplicationConfigurationReplicationDestinationInput interface {
 	ToReplicationConfigurationReplicationDestinationOutputWithContext(context.Context) ReplicationConfigurationReplicationDestinationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestinationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
-	Region pulumi.StringInput `pulumi:"region"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
+	Region     pulumi.StringInput `pulumi:"region"`
 	RegistryId pulumi.StringInput `pulumi:"registryId"`
 }
 
@@ -216,7 +212,7 @@ func (i ReplicationConfigurationReplicationDestinationArray) ToReplicationConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationDestinationArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationDestinationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationDestinationOutput) ElementType() reflect.Type {
@@ -231,12 +227,10 @@ func (o ReplicationConfigurationReplicationDestinationOutput) ToReplicationConfi
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-region
 func (o ReplicationConfigurationReplicationDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html#cfn-ecr-replicationconfiguration-replicationdestination-registryid
 func (o ReplicationConfigurationReplicationDestinationOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationDestination) string { return v.RegistryId }).(pulumi.StringOutput)
 }
@@ -261,9 +255,9 @@ func (o ReplicationConfigurationReplicationDestinationArrayOutput) Index(i pulum
 	}).(ReplicationConfigurationReplicationDestinationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+	// An array of objects representing the details of a replication destination.
 	Destinations []ReplicationConfigurationReplicationDestination `pulumi:"destinations"`
 }
 
@@ -278,9 +272,9 @@ type ReplicationConfigurationReplicationRuleInput interface {
 	ToReplicationConfigurationReplicationRuleOutputWithContext(context.Context) ReplicationConfigurationReplicationRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+	// An array of objects representing the details of a replication destination.
 	Destinations ReplicationConfigurationReplicationDestinationArrayInput `pulumi:"destinations"`
 }
 
@@ -321,7 +315,7 @@ func (i ReplicationConfigurationReplicationRuleArray) ToReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationReplicationRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+// An array of objects representing the details of a replication destination.
 type ReplicationConfigurationReplicationRuleOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationReplicationRuleOutput) ElementType() reflect.Type {
@@ -336,7 +330,7 @@ func (o ReplicationConfigurationReplicationRuleOutput) ToReplicationConfiguratio
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+// An array of objects representing the details of a replication destination.
 func (o ReplicationConfigurationReplicationRuleOutput) Destinations() ReplicationConfigurationReplicationDestinationArrayOutput {
 	return o.ApplyT(func(v ReplicationConfigurationReplicationRule) []ReplicationConfigurationReplicationDestination {
 		return v.Destinations
@@ -363,12 +357,14 @@ func (o ReplicationConfigurationReplicationRuleArrayOutput) Index(i pulumi.IntIn
 	}).(ReplicationConfigurationReplicationRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+//
+// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryEncryptionConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
-	EncryptionType string `pulumi:"encryptionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
-	KmsKey *string `pulumi:"kmsKey"`
+	EncryptionType string  `pulumi:"encryptionType"`
+	KmsKey         *string `pulumi:"kmsKey"`
 }
 
 // RepositoryEncryptionConfigurationInput is an input type that accepts RepositoryEncryptionConfigurationArgs and RepositoryEncryptionConfigurationOutput values.
@@ -382,12 +378,14 @@ type RepositoryEncryptionConfigurationInput interface {
 	ToRepositoryEncryptionConfigurationOutputWithContext(context.Context) RepositoryEncryptionConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+//
+// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryEncryptionConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
-	KmsKey pulumi.StringPtrInput `pulumi:"kmsKey"`
+	EncryptionType pulumi.StringInput    `pulumi:"encryptionType"`
+	KmsKey         pulumi.StringPtrInput `pulumi:"kmsKey"`
 }
 
 func (RepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -443,7 +441,11 @@ func (i *repositoryEncryptionConfigurationPtrType) ToRepositoryEncryptionConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html
+// The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
+//
+// By default, when no encryption configuration is set or the AES256 encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts your data at rest using an AES-256 encryption algorithm. This does not require any action on your part.
+//
+// For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html
 type RepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -468,12 +470,10 @@ func (o RepositoryEncryptionConfigurationOutput) ToRepositoryEncryptionConfigura
 	}).(RepositoryEncryptionConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
 func (o RepositoryEncryptionConfigurationOutput) EncryptionType() pulumi.StringOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) string { return v.EncryptionType }).(pulumi.StringOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
 func (o RepositoryEncryptionConfigurationOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryEncryptionConfiguration) *string { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -502,7 +502,6 @@ func (o RepositoryEncryptionConfigurationPtrOutput) Elem() RepositoryEncryptionC
 	}).(RepositoryEncryptionConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-encryptiontype
 func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
 		if v == nil {
@@ -512,7 +511,6 @@ func (o RepositoryEncryptionConfigurationPtrOutput) EncryptionType() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html#cfn-ecr-repository-encryptionconfiguration-kmskey
 func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryEncryptionConfiguration) *string {
 		if v == nil {
@@ -522,9 +520,8 @@ func (o RepositoryEncryptionConfigurationPtrOutput) KmsKey() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 type RepositoryImageScanningConfiguration struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
 	ScanOnPush *bool `pulumi:"scanOnPush"`
 }
 
@@ -539,9 +536,8 @@ type RepositoryImageScanningConfigurationInput interface {
 	ToRepositoryImageScanningConfigurationOutputWithContext(context.Context) RepositoryImageScanningConfigurationOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 type RepositoryImageScanningConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
 	ScanOnPush pulumi.BoolPtrInput `pulumi:"scanOnPush"`
 }
 
@@ -598,7 +594,7 @@ func (i *repositoryImageScanningConfigurationPtrType) ToRepositoryImageScanningC
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html
+// The image scanning configuration for the repository. This setting determines whether images are scanned for known vulnerabilities after being pushed to the repository.
 type RepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RepositoryImageScanningConfigurationOutput) ElementType() reflect.Type {
@@ -623,7 +619,6 @@ func (o RepositoryImageScanningConfigurationOutput) ToRepositoryImageScanningCon
 	}).(RepositoryImageScanningConfigurationPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
 func (o RepositoryImageScanningConfigurationOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RepositoryImageScanningConfiguration) *bool { return v.ScanOnPush }).(pulumi.BoolPtrOutput)
 }
@@ -652,7 +647,6 @@ func (o RepositoryImageScanningConfigurationPtrOutput) Elem() RepositoryImageSca
 	}).(RepositoryImageScanningConfigurationOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html#cfn-ecr-repository-imagescanningconfiguration-scanonpush
 func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RepositoryImageScanningConfiguration) *bool {
 		if v == nil {
@@ -662,12 +656,10 @@ func (o RepositoryImageScanningConfigurationPtrOutput) ScanOnPush() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
+// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
 type RepositoryLifecyclePolicy struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
 	LifecyclePolicyText *string `pulumi:"lifecyclePolicyText"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
-	RegistryId *string `pulumi:"registryId"`
+	RegistryId          *string `pulumi:"registryId"`
 }
 
 // RepositoryLifecyclePolicyInput is an input type that accepts RepositoryLifecyclePolicyArgs and RepositoryLifecyclePolicyOutput values.
@@ -681,12 +673,10 @@ type RepositoryLifecyclePolicyInput interface {
 	ToRepositoryLifecyclePolicyOutputWithContext(context.Context) RepositoryLifecyclePolicyOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
+// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
 type RepositoryLifecyclePolicyArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
 	LifecyclePolicyText pulumi.StringPtrInput `pulumi:"lifecyclePolicyText"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
-	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
+	RegistryId          pulumi.StringPtrInput `pulumi:"registryId"`
 }
 
 func (RepositoryLifecyclePolicyArgs) ElementType() reflect.Type {
@@ -742,7 +732,7 @@ func (i *repositoryLifecyclePolicyPtrType) ToRepositoryLifecyclePolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLifecyclePolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html
+// The LifecyclePolicy property type specifies a lifecycle policy. For information about lifecycle policy syntax, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html
 type RepositoryLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (RepositoryLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -767,12 +757,10 @@ func (o RepositoryLifecyclePolicyOutput) ToRepositoryLifecyclePolicyPtrOutputWit
 	}).(RepositoryLifecyclePolicyPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
 func (o RepositoryLifecyclePolicyOutput) LifecyclePolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.LifecyclePolicyText }).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
 func (o RepositoryLifecyclePolicyOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryLifecyclePolicy) *string { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
@@ -801,7 +789,6 @@ func (o RepositoryLifecyclePolicyPtrOutput) Elem() RepositoryLifecyclePolicyOutp
 	}).(RepositoryLifecyclePolicyOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
 func (o RepositoryLifecyclePolicyPtrOutput) LifecyclePolicyText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryLifecyclePolicy) *string {
 		if v == nil {
@@ -811,7 +798,6 @@ func (o RepositoryLifecyclePolicyPtrOutput) LifecyclePolicyText() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
 func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryLifecyclePolicy) *string {
 		if v == nil {
@@ -819,6 +805,115 @@ func (o RepositoryLifecyclePolicyPtrOutput) RegistryId() pulumi.StringPtrOutput 
 		}
 		return v.RegistryId
 	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RepositoryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RepositoryTagInput is an input type that accepts RepositoryTagArgs and RepositoryTagOutput values.
+// You can construct a concrete instance of `RepositoryTagInput` via:
+//
+//          RepositoryTagArgs{...}
+type RepositoryTagInput interface {
+	pulumi.Input
+
+	ToRepositoryTagOutput() RepositoryTagOutput
+	ToRepositoryTagOutputWithContext(context.Context) RepositoryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RepositoryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RepositoryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
+}
+
+func (i RepositoryTagArgs) ToRepositoryTagOutput() RepositoryTagOutput {
+	return i.ToRepositoryTagOutputWithContext(context.Background())
+}
+
+func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
+}
+
+// RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
+// You can construct a concrete instance of `RepositoryTagArrayInput` via:
+//
+//          RepositoryTagArray{ RepositoryTagArgs{...} }
+type RepositoryTagArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryTagArrayOutput() RepositoryTagArrayOutput
+	ToRepositoryTagArrayOutputWithContext(context.Context) RepositoryTagArrayOutput
+}
+
+type RepositoryTagArray []RepositoryTagInput
+
+func (RepositoryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
+}
+
+func (i RepositoryTagArray) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
+	return i.ToRepositoryTagArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type RepositoryTagOutput struct{ *pulumi.OutputState }
+
+func (RepositoryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryTag)(nil)).Elem()
+}
+
+func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
+	return o
+}
+
+func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RepositoryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RepositoryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RepositoryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryTag)(nil)).Elem()
+}
+
+func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArrayOutput {
+	return o
+}
+
+func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
+	return o
+}
+
+func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryTag {
+		return vs[0].([]RepositoryTag)[vs[1].(int)]
+	}).(RepositoryTagOutput)
 }
 
 func init() {
@@ -834,4 +929,6 @@ func init() {
 	pulumi.RegisterOutputType(RepositoryImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryLifecyclePolicyPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryTagOutput{})
+	pulumi.RegisterOutputType(RepositoryTagArrayOutput{})
 }

@@ -8,24 +8,27 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html
+// The AWS::EC2::TransitGatewayMulticastDomain type
 type TransitGatewayMulticastDomain struct {
 	pulumi.CustomResourceState
 
+	// The time the transit gateway multicast domain was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
-	Options pulumi.AnyOutput    `pulumi:"options"`
-	State   pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
-	TransitGatewayId                 pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// The options for the transit gateway multicast domain.
+	Options pulumi.AnyOutput `pulumi:"options"`
+	// The state of the transit gateway multicast domain.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The tags for the transit gateway multicast domain.
+	Tags TransitGatewayMulticastDomainTagArrayOutput `pulumi:"tags"`
+	// The ID of the transit gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainArn pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainArn"`
-	TransitGatewayMulticastDomainId  pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
+	// The ID of the transit gateway multicast domain.
+	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 // NewTransitGatewayMulticastDomain registers a new resource with the given unique name, arguments, and options.
@@ -70,21 +73,21 @@ func (TransitGatewayMulticastDomainState) ElementType() reflect.Type {
 }
 
 type transitGatewayMulticastDomainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+	// The options for the transit gateway multicast domain.
 	Options interface{} `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+	// The tags for the transit gateway multicast domain.
+	Tags []TransitGatewayMulticastDomainTag `pulumi:"tags"`
+	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
 
 // The set of arguments for constructing a TransitGatewayMulticastDomain resource.
 type TransitGatewayMulticastDomainArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+	// The options for the transit gateway multicast domain.
 	Options pulumi.Input
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+	// The tags for the transit gateway multicast domain.
+	Tags TransitGatewayMulticastDomainTagArrayInput
+	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
 }
 

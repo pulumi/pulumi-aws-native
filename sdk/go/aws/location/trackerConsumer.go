@@ -11,13 +11,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html
+// Definition of AWS::Location::TrackerConsumer Resource Type
 type TrackerConsumer struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
 	ConsumerArn pulumi.StringOutput `pulumi:"consumerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
 }
 
@@ -66,17 +64,13 @@ func (TrackerConsumerState) ElementType() reflect.Type {
 }
 
 type trackerConsumerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
 	ConsumerArn string `pulumi:"consumerArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
 	TrackerName string `pulumi:"trackerName"`
 }
 
 // The set of arguments for constructing a TrackerConsumer resource.
 type TrackerConsumerArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-consumerarn
 	ConsumerArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-trackerconsumer.html#cfn-location-trackerconsumer-trackername
 	TrackerName pulumi.StringInput
 }
 

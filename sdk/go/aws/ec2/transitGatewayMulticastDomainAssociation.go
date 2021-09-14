@@ -11,18 +11,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html
+// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
 type TransitGatewayMulticastDomainAssociation struct {
 	pulumi.CustomResourceState
 
-	ResourceId   pulumi.StringOutput `pulumi:"resourceId"`
+	// The ID of the resource.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The type of resource, for example a VPC attachment.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	State        pulumi.StringOutput `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+	// The state of the subnet association.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The IDs of the subnets to associate with the transit gateway multicast domain.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+	// The ID of the transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
 
@@ -74,21 +77,21 @@ func (TransitGatewayMulticastDomainAssociationState) ElementType() reflect.Type 
 }
 
 type transitGatewayMulticastDomainAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+	// The IDs of the subnets to associate with the transit gateway multicast domain.
 	SubnetId string `pulumi:"subnetId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+	// The ID of the transit gateway attachment.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
 
 // The set of arguments for constructing a TransitGatewayMulticastDomainAssociation resource.
 type TransitGatewayMulticastDomainAssociationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-subnetid
+	// The IDs of the subnets to associate with the transit gateway multicast domain.
 	SubnetId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewayattachmentid
+	// The ID of the transit gateway attachment.
 	TransitGatewayAttachmentId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomainassociation.html#cfn-ec2-transitgatewaymulticastdomainassociation-transitgatewaymulticastdomainid
+	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringInput
 }
 

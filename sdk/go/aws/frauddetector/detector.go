@@ -8,37 +8,35 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html
+// A resource schema for a Detector in Amazon Fraud Detector.
 type Detector struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the detector.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+	// The models to associate with this detector.
 	AssociatedModels DetectorModelArrayOutput `pulumi:"associatedModels"`
-	CreatedTime      pulumi.StringOutput      `pulumi:"createdTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+	// The time when the detector was created.
+	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
+	// The description of the detector.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
-	DetectorId        pulumi.StringOutput `pulumi:"detectorId"`
+	// The ID of the detector
+	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
+	// The active version ID of the detector
 	DetectorVersionId pulumi.StringOutput `pulumi:"detectorVersionId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+	// The desired detector version status for the detector
 	DetectorVersionStatus pulumi.StringPtrOutput `pulumi:"detectorVersionStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
-	EventType                DetectorEventTypeOutput `pulumi:"eventType"`
-	EventTypeArn             pulumi.StringOutput     `pulumi:"eventTypeArn"`
-	EventTypeCreatedTime     pulumi.StringOutput     `pulumi:"eventTypeCreatedTime"`
-	EventTypeLastUpdatedTime pulumi.StringOutput     `pulumi:"eventTypeLastUpdatedTime"`
-	LastUpdatedTime          pulumi.StringOutput     `pulumi:"lastUpdatedTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-	RuleExecutionMode pulumi.StringPtrOutput `pulumi:"ruleExecutionMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-	Rules DetectorRuleArrayOutput `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The event type to associate this detector with.
+	EventType DetectorEventTypeOutput `pulumi:"eventType"`
+	// The time when the detector was last updated.
+	LastUpdatedTime   pulumi.StringOutput     `pulumi:"lastUpdatedTime"`
+	RuleExecutionMode pulumi.StringPtrOutput  `pulumi:"ruleExecutionMode"`
+	Rules             DetectorRuleArrayOutput `pulumi:"rules"`
+	// Tags associated with this detector.
+	Tags DetectorTagArrayOutput `pulumi:"tags"`
 }
 
 // NewDetector registers a new resource with the given unique name, arguments, and options.
@@ -89,42 +87,38 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+	// The models to associate with this detector.
 	AssociatedModels []DetectorModel `pulumi:"associatedModels"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+	// The description of the detector.
 	Description *string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+	// The ID of the detector
 	DetectorId string `pulumi:"detectorId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+	// The desired detector version status for the detector
 	DetectorVersionStatus *string `pulumi:"detectorVersionStatus"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
-	EventType DetectorEventType `pulumi:"eventType"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
-	RuleExecutionMode *string `pulumi:"ruleExecutionMode"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-	Rules []DetectorRule `pulumi:"rules"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// The event type to associate this detector with.
+	EventType         DetectorEventType `pulumi:"eventType"`
+	RuleExecutionMode *string           `pulumi:"ruleExecutionMode"`
+	Rules             []DetectorRule    `pulumi:"rules"`
+	// Tags associated with this detector.
+	Tags []DetectorTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-associatedmodels
+	// The models to associate with this detector.
 	AssociatedModels DetectorModelArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-description
+	// The description of the detector.
 	Description pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorid
+	// The ID of the detector
 	DetectorId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-detectorversionstatus
+	// The desired detector version status for the detector
 	DetectorVersionStatus pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-eventtype
-	EventType DetectorEventTypeInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-ruleexecutionmode
+	// The event type to associate this detector with.
+	EventType         DetectorEventTypeInput
 	RuleExecutionMode pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-rules
-	Rules DetectorRuleArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-detector.html#cfn-frauddetector-detector-tags
-	Tags aws.TagArrayInput
+	Rules             DetectorRuleArrayInput
+	// Tags associated with this detector.
+	Tags DetectorTagArrayInput
 }
 
 func (DetectorArgs) ElementType() reflect.Type {

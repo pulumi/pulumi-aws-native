@@ -8,22 +8,22 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+// Resource Type definition for AWS::IVS::RecordingConfiguration
 type RecordingConfiguration struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
+	// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
+	Arn                      pulumi.StringOutput                                  `pulumi:"arn"`
 	DestinationConfiguration RecordingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
-	Name  pulumi.StringPtrOutput `pulumi:"name"`
-	State pulumi.StringOutput    `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// Recording Configuration Name.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Recording Configuration State.
+	State pulumi.StringOutput `pulumi:"state"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags RecordingConfigurationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewRecordingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -68,22 +68,20 @@ func (RecordingConfigurationState) ElementType() reflect.Type {
 }
 
 type recordingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
 	DestinationConfiguration RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+	// Recording Configuration Name.
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags []RecordingConfigurationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RecordingConfiguration resource.
 type RecordingConfigurationArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
 	DestinationConfiguration RecordingConfigurationDestinationConfigurationInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+	// Recording Configuration Name.
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the asset model.
+	Tags RecordingConfigurationTagArrayInput
 }
 
 func (RecordingConfigurationArgs) ElementType() reflect.Type {

@@ -11,23 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html
+// Resource Type definition for AWS::ElastiCache::User
 type User struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+	// Access permissions string used for this user account.
 	AccessString pulumi.StringPtrOutput `pulumi:"accessString"`
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+	// The Amazon Resource Name (ARN) of the user account.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Must be redis.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
-	Status    pulumi.StringOutput      `pulumi:"status"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+	// Indicates the user status. Can be "active", "modifying" or "deleting".
+	Status pulumi.StringOutput `pulumi:"status"`
+	// The ID of the user.
 	UserId pulumi.StringOutput `pulumi:"userId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+	// The username of the user.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -79,33 +81,33 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+	// Access permissions string used for this user account.
 	AccessString *string `pulumi:"accessString"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+	// Must be redis.
 	Engine string `pulumi:"engine"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+	// Indicates a password is not required for this user account.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+	// The ID of the user.
 	UserId string `pulumi:"userId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+	// The username of the user.
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-accessstring
+	// Access permissions string used for this user account.
 	AccessString pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-engine
+	// Must be redis.
 	Engine pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-nopasswordrequired
+	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-passwords
+	// Passwords used for this user account. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-userid
+	// The ID of the user.
 	UserId pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html#cfn-elasticache-user-username
+	// The username of the user.
 	UserName pulumi.StringInput
 }
 

@@ -8,23 +8,26 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+// The AWS::EC2::TransitGatewayConnect type
 type TransitGatewayConnect struct {
 	pulumi.CustomResourceState
 
+	// The creation time.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+	// The Connect attachment options.
 	Options TransitGatewayConnectTransitGatewayConnectOptionsOutput `pulumi:"options"`
-	State   pulumi.StringOutput                                     `pulumi:"state"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
-	Tags                       aws.TagArrayOutput  `pulumi:"tags"`
+	// The state of the attachment.
+	State pulumi.StringOutput `pulumi:"state"`
+	// The tags for the attachment.
+	Tags TransitGatewayConnectTagArrayOutput `pulumi:"tags"`
+	// The ID of the Connect attachment.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
-	TransitGatewayId           pulumi.StringOutput `pulumi:"transitGatewayId"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+	// The ID of the transit gateway.
+	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
+	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transportTransitGatewayAttachmentId"`
 }
 
@@ -73,21 +76,21 @@ func (TransitGatewayConnectState) ElementType() reflect.Type {
 }
 
 type transitGatewayConnectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+	// The Connect attachment options.
 	Options TransitGatewayConnectTransitGatewayConnectOptions `pulumi:"options"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
-	Tags []aws.Tag `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+	// The tags for the attachment.
+	Tags []TransitGatewayConnectTag `pulumi:"tags"`
+	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId string `pulumi:"transportTransitGatewayAttachmentId"`
 }
 
 // The set of arguments for constructing a TransitGatewayConnect resource.
 type TransitGatewayConnectArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+	// The Connect attachment options.
 	Options TransitGatewayConnectTransitGatewayConnectOptionsInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
-	Tags aws.TagArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+	// The tags for the attachment.
+	Tags TransitGatewayConnectTagArrayInput
+	// The ID of the attachment from which the Connect attachment was created.
 	TransportTransitGatewayAttachmentId pulumi.StringInput
 }
 

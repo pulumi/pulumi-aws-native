@@ -7,40 +7,21 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
+// An example resource schema demonstrating some basic constructs and validation rules.
 type ServiceProfile struct {
 	pulumi.CustomResourceState
 
+	// Service profile Arn. Returned after successful create.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	Id  pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
-	LoRaWAN                       ServiceProfileLoRaWANServiceProfilePtrOutput `pulumi:"loRaWAN"`
-	LoRaWANChannelMask            pulumi.StringOutput                          `pulumi:"loRaWANChannelMask"`
-	LoRaWANDevStatusReqFreq       pulumi.IntOutput                             `pulumi:"loRaWANDevStatusReqFreq"`
-	LoRaWANDlBucketSize           pulumi.IntOutput                             `pulumi:"loRaWANDlBucketSize"`
-	LoRaWANDlRate                 pulumi.IntOutput                             `pulumi:"loRaWANDlRate"`
-	LoRaWANDlRatePolicy           pulumi.StringOutput                          `pulumi:"loRaWANDlRatePolicy"`
-	LoRaWANDrMax                  pulumi.IntOutput                             `pulumi:"loRaWANDrMax"`
-	LoRaWANDrMin                  pulumi.IntOutput                             `pulumi:"loRaWANDrMin"`
-	LoRaWANHrAllowed              pulumi.BoolOutput                            `pulumi:"loRaWANHrAllowed"`
-	LoRaWANMinGwDiversity         pulumi.IntOutput                             `pulumi:"loRaWANMinGwDiversity"`
-	LoRaWANNwkGeoLoc              pulumi.BoolOutput                            `pulumi:"loRaWANNwkGeoLoc"`
-	LoRaWANPrAllowed              pulumi.BoolOutput                            `pulumi:"loRaWANPrAllowed"`
-	LoRaWANRaAllowed              pulumi.BoolOutput                            `pulumi:"loRaWANRaAllowed"`
-	LoRaWANReportDevStatusBattery pulumi.BoolOutput                            `pulumi:"loRaWANReportDevStatusBattery"`
-	LoRaWANReportDevStatusMargin  pulumi.BoolOutput                            `pulumi:"loRaWANReportDevStatusMargin"`
-	LoRaWANTargetPer              pulumi.IntOutput                             `pulumi:"loRaWANTargetPer"`
-	LoRaWANUlBucketSize           pulumi.IntOutput                             `pulumi:"loRaWANUlBucketSize"`
-	LoRaWANUlRate                 pulumi.IntOutput                             `pulumi:"loRaWANUlRate"`
-	LoRaWANUlRatePolicy           pulumi.StringOutput                          `pulumi:"loRaWANUlRatePolicy"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+	LoRaWAN ServiceProfileLoRaWANServiceProfilePtrOutput `pulumi:"loRaWAN"`
+	// Name of service profile
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the service profile.
+	Tags ServiceProfileTagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceProfile registers a new resource with the given unique name, arguments, and options.
@@ -82,22 +63,22 @@ func (ServiceProfileState) ElementType() reflect.Type {
 }
 
 type serviceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
 	LoRaWAN *ServiceProfileLoRaWANServiceProfile `pulumi:"loRaWAN"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+	// Name of service profile
 	Name *string `pulumi:"name"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
-	Tags []aws.Tag `pulumi:"tags"`
+	// A list of key-value pairs that contain metadata for the service profile.
+	Tags []ServiceProfileTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceProfile resource.
 type ServiceProfileArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+	// LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
 	LoRaWAN ServiceProfileLoRaWANServiceProfilePtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+	// Name of service profile
 	Name pulumi.StringPtrInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
-	Tags aws.TagArrayInput
+	// A list of key-value pairs that contain metadata for the service profile.
+	Tags ServiceProfileTagArrayInput
 }
 
 func (ServiceProfileArgs) ElementType() reflect.Type {

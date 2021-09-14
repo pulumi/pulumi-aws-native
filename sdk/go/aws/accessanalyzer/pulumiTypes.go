@@ -10,11 +10,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRule struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
 	Filter []AnalyzerFilter `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+	// The archive rule name
 	RuleName string `pulumi:"ruleName"`
 }
 
@@ -29,11 +28,10 @@ type AnalyzerArchiveRuleInput interface {
 	ToAnalyzerArchiveRuleOutputWithContext(context.Context) AnalyzerArchiveRuleOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRuleArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
 	Filter AnalyzerFilterArrayInput `pulumi:"filter"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+	// The archive rule name
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
 }
 
@@ -74,7 +72,7 @@ func (i AnalyzerArchiveRuleArray) ToAnalyzerArchiveRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerArchiveRuleArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRuleOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerArchiveRuleOutput) ElementType() reflect.Type {
@@ -89,12 +87,11 @@ func (o AnalyzerArchiveRuleOutput) ToAnalyzerArchiveRuleOutputWithContext(ctx co
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
 func (o AnalyzerArchiveRuleOutput) Filter() AnalyzerFilterArrayOutput {
 	return o.ApplyT(func(v AnalyzerArchiveRule) []AnalyzerFilter { return v.Filter }).(AnalyzerFilterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+// The archive rule name
 func (o AnalyzerArchiveRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerArchiveRule) string { return v.RuleName }).(pulumi.StringOutput)
 }
@@ -119,18 +116,12 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 	}).(AnalyzerArchiveRuleOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
 type AnalyzerFilter struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
 	Contains []string `pulumi:"contains"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-	Eq []string `pulumi:"eq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-	Exists *bool `pulumi:"exists"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-	Neq []string `pulumi:"neq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-	Property string `pulumi:"property"`
+	Eq       []string `pulumi:"eq"`
+	Exists   *bool    `pulumi:"exists"`
+	Neq      []string `pulumi:"neq"`
+	Property string   `pulumi:"property"`
 }
 
 // AnalyzerFilterInput is an input type that accepts AnalyzerFilterArgs and AnalyzerFilterOutput values.
@@ -144,18 +135,12 @@ type AnalyzerFilterInput interface {
 	ToAnalyzerFilterOutputWithContext(context.Context) AnalyzerFilterOutput
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
 type AnalyzerFilterArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
 	Contains pulumi.StringArrayInput `pulumi:"contains"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-	Eq pulumi.StringArrayInput `pulumi:"eq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-	Exists pulumi.BoolPtrInput `pulumi:"exists"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-	Neq pulumi.StringArrayInput `pulumi:"neq"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-	Property pulumi.StringInput `pulumi:"property"`
+	Eq       pulumi.StringArrayInput `pulumi:"eq"`
+	Exists   pulumi.BoolPtrInput     `pulumi:"exists"`
+	Neq      pulumi.StringArrayInput `pulumi:"neq"`
+	Property pulumi.StringInput      `pulumi:"property"`
 }
 
 func (AnalyzerFilterArgs) ElementType() reflect.Type {
@@ -195,7 +180,6 @@ func (i AnalyzerFilterArray) ToAnalyzerFilterArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerFilterArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
 type AnalyzerFilterOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerFilterOutput) ElementType() reflect.Type {
@@ -210,27 +194,22 @@ func (o AnalyzerFilterOutput) ToAnalyzerFilterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
 func (o AnalyzerFilterOutput) Contains() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Contains }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
 func (o AnalyzerFilterOutput) Eq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Eq }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
 func (o AnalyzerFilterOutput) Exists() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AnalyzerFilter) *bool { return v.Exists }).(pulumi.BoolPtrOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
 func (o AnalyzerFilterOutput) Neq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalyzerFilter) []string { return v.Neq }).(pulumi.StringArrayOutput)
 }
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
 func (o AnalyzerFilterOutput) Property() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalyzerFilter) string { return v.Property }).(pulumi.StringOutput)
 }
@@ -255,9 +234,120 @@ func (o AnalyzerFilterArrayOutput) Index(i pulumi.IntInput) AnalyzerFilterOutput
 	}).(AnalyzerFilterOutput)
 }
 
+// A key-value pair to associate with a resource.
+type AnalyzerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AnalyzerTagInput is an input type that accepts AnalyzerTagArgs and AnalyzerTagOutput values.
+// You can construct a concrete instance of `AnalyzerTagInput` via:
+//
+//          AnalyzerTagArgs{...}
+type AnalyzerTagInput interface {
+	pulumi.Input
+
+	ToAnalyzerTagOutput() AnalyzerTagOutput
+	ToAnalyzerTagOutputWithContext(context.Context) AnalyzerTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AnalyzerTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AnalyzerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
+}
+
+func (i AnalyzerTagArgs) ToAnalyzerTagOutput() AnalyzerTagOutput {
+	return i.ToAnalyzerTagOutputWithContext(context.Background())
+}
+
+func (i AnalyzerTagArgs) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagOutput)
+}
+
+// AnalyzerTagArrayInput is an input type that accepts AnalyzerTagArray and AnalyzerTagArrayOutput values.
+// You can construct a concrete instance of `AnalyzerTagArrayInput` via:
+//
+//          AnalyzerTagArray{ AnalyzerTagArgs{...} }
+type AnalyzerTagArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput
+	ToAnalyzerTagArrayOutputWithContext(context.Context) AnalyzerTagArrayOutput
+}
+
+type AnalyzerTagArray []AnalyzerTagInput
+
+func (AnalyzerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
+}
+
+func (i AnalyzerTagArray) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
+	return i.ToAnalyzerTagArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerTagArray) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AnalyzerTagOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
+}
+
+func (o AnalyzerTagOutput) ToAnalyzerTagOutput() AnalyzerTagOutput {
+	return o
+}
+
+func (o AnalyzerTagOutput) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnalyzerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyzerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnalyzerTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyzerTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AnalyzerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
+}
+
+func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerTag {
+		return vs[0].([]AnalyzerTag)[vs[1].(int)]
+	}).(AnalyzerTagOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleOutput{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerTagOutput{})
+	pulumi.RegisterOutputType(AnalyzerTagArrayOutput{})
 }

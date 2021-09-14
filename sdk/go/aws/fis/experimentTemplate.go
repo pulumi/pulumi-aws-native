@@ -11,23 +11,16 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
+// Resource schema for AWS::FIS::ExperimentTemplate
 type ExperimentTemplate struct {
 	pulumi.CustomResourceState
 
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	Actions ExperimentTemplateExperimentTemplateActionMapOutput `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-	Description pulumi.StringOutput `pulumi:"description"`
-	Id          pulumi.StringOutput `pulumi:"id"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
+	Actions        ExperimentTemplateExperimentTemplateActionMapPtrOutput       `pulumi:"actions"`
+	Description    pulumi.StringOutput                                          `pulumi:"description"`
+	RoleArn        pulumi.StringOutput                                          `pulumi:"roleArn"`
 	StopConditions ExperimentTemplateExperimentTemplateStopConditionArrayOutput `pulumi:"stopConditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-	Targets ExperimentTemplateExperimentTemplateTargetMapOutput `pulumi:"targets"`
+	Tags           pulumi.AnyOutput                                             `pulumi:"tags"`
+	Targets        ExperimentTemplateExperimentTemplateTargetMapOutput          `pulumi:"targets"`
 }
 
 // NewExperimentTemplate registers a new resource with the given unique name, arguments, and options.
@@ -84,34 +77,22 @@ func (ExperimentTemplateState) ElementType() reflect.Type {
 }
 
 type experimentTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	Actions map[string]ExperimentTemplateExperimentTemplateAction `pulumi:"actions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-	Description string `pulumi:"description"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-	RoleArn string `pulumi:"roleArn"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
+	Actions        *ExperimentTemplateExperimentTemplateActionMap      `pulumi:"actions"`
+	Description    string                                              `pulumi:"description"`
+	RoleArn        string                                              `pulumi:"roleArn"`
 	StopConditions []ExperimentTemplateExperimentTemplateStopCondition `pulumi:"stopConditions"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-	Tags map[string]string `pulumi:"tags"`
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-	Targets map[string]ExperimentTemplateExperimentTemplateTarget `pulumi:"targets"`
+	Tags           interface{}                                         `pulumi:"tags"`
+	Targets        ExperimentTemplateExperimentTemplateTargetMap       `pulumi:"targets"`
 }
 
 // The set of arguments for constructing a ExperimentTemplate resource.
 type ExperimentTemplateArgs struct {
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-	Actions ExperimentTemplateExperimentTemplateActionMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-	Description pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-	RoleArn pulumi.StringInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
+	Actions        ExperimentTemplateExperimentTemplateActionMapPtrInput
+	Description    pulumi.StringInput
+	RoleArn        pulumi.StringInput
 	StopConditions ExperimentTemplateExperimentTemplateStopConditionArrayInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-	Tags pulumi.StringMapInput
-	// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-	Targets ExperimentTemplateExperimentTemplateTargetMapInput
+	Tags           pulumi.Input
+	Targets        ExperimentTemplateExperimentTemplateTargetMapInput
 }
 
 func (ExperimentTemplateArgs) ElementType() reflect.Type {
