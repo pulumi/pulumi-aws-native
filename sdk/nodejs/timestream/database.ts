@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html
+ * The AWS::Timestream::Database resource creates a Timestream database.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -37,17 +37,17 @@ export class Database extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-databasename
+     * The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
      */
     public readonly databaseName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-kmskeyid
+     * The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.timestream.DatabaseTag[] | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -82,15 +82,15 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-databasename
+     * The name for the database. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the database name.
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-kmskeyid
+     * The KMS key for the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html#cfn-timestream-database-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.timestream.DatabaseTagArgs>[]>;
 }

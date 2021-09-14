@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+ * Resource schema for AWS::DataSync::Task.
  */
 export class Task extends pulumi.CustomResource {
     /**
@@ -36,46 +36,46 @@ export class Task extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+     * The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
      */
     public readonly cloudWatchLogGroupArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+     * The ARN of an AWS storage resource's location.
      */
     public readonly destinationLocationArn!: pulumi.Output<string>;
     public /*out*/ readonly destinationNetworkInterfaceArns!: pulumi.Output<string[]>;
+    /**
+     * Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
+     */
     public /*out*/ readonly errorCode!: pulumi.Output<string>;
+    /**
+     * Detailed description of an error that was encountered during the task execution.
+     */
     public /*out*/ readonly errorDetail!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-     */
     public readonly excludes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-     */
     public readonly includes!: pulumi.Output<outputs.datasync.TaskFilterRule[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+     * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-     */
     public readonly options!: pulumi.Output<outputs.datasync.TaskOptions | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-     */
     public readonly schedule!: pulumi.Output<outputs.datasync.TaskTaskSchedule | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+     * The ARN of the source location for the task.
      */
     public readonly sourceLocationArn!: pulumi.Output<string>;
     public /*out*/ readonly sourceNetworkInterfaceArns!: pulumi.Output<string[]>;
+    /**
+     * The status of the task that was described.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.TaskTag[] | undefined>;
+    /**
+     * The ARN of the task.
+     */
     public /*out*/ readonly taskArn!: pulumi.Output<string>;
 
     /**
@@ -139,39 +139,27 @@ export class Task extends pulumi.CustomResource {
  */
 export interface TaskArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+     * The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
      */
     cloudWatchLogGroupArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+     * The ARN of an AWS storage resource's location.
      */
     destinationLocationArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-     */
     excludes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-     */
     includes?: pulumi.Input<pulumi.Input<inputs.datasync.TaskFilterRuleArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+     * The name of a task. This value is a text reference that is used to identify the task in the console.
      */
     name?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-     */
     options?: pulumi.Input<inputs.datasync.TaskOptionsArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-     */
     schedule?: pulumi.Input<inputs.datasync.TaskTaskScheduleArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+     * The ARN of the source location for the task.
      */
     sourceLocationArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.TaskTagArgs>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html
+ * Resource Type definition for AWS::Connect::QuickConnect
  */
 export class QuickConnect extends pulumi.CustomResource {
     /**
@@ -36,26 +36,29 @@ export class QuickConnect extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+     * The description of the quick connect.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+     * The identifier of the Amazon Connect instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+     * The name of the quick connect.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) for the quick connect.
+     */
     public /*out*/ readonly quickConnectArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+     * Configuration settings for the quick connect.
      */
     public readonly quickConnectConfig!: pulumi.Output<outputs.connect.QuickConnectQuickConnectConfig>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+     * One or more tags.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.connect.QuickConnectTag[] | undefined>;
 
     /**
      * Create a QuickConnect resource with the given unique name, arguments, and options.
@@ -103,23 +106,23 @@ export class QuickConnect extends pulumi.CustomResource {
  */
 export interface QuickConnectArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-description
+     * The description of the quick connect.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-instancearn
+     * The identifier of the Amazon Connect instance.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-name
+     * The name of the quick connect.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-quickconnectconfig
+     * Configuration settings for the quick connect.
      */
     quickConnectConfig: pulumi.Input<inputs.connect.QuickConnectQuickConnectConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html#cfn-connect-quickconnect-tags
+     * One or more tags.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.connect.QuickConnectTagArgs>[]>;
 }

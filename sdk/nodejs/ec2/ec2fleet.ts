@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
+ * Resource Type definition for AWS::EC2::EC2Fleet
  */
 export class EC2Fleet extends pulumi.CustomResource {
     /**
@@ -35,54 +35,18 @@ export class EC2Fleet extends pulumi.CustomResource {
         return obj['__pulumiType'] === EC2Fleet.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-     */
     public readonly context!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-     */
     public readonly excessCapacityTerminationPolicy!: pulumi.Output<string | undefined>;
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-     */
     public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.EC2FleetFleetLaunchTemplateConfigRequest[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-     */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.EC2FleetOnDemandOptionsRequest | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-     */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-     */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.EC2FleetSpotOptionsRequest | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-     */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.EC2FleetTagSpecification[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-     */
     public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.EC2FleetTargetCapacitySpecificationRequest>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-     */
     public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-     */
     public readonly type!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-     */
     public readonly validFrom!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-     */
     public readonly validUntil!: pulumi.Output<string | undefined>;
 
     /**
@@ -141,52 +105,16 @@ export class EC2Fleet extends pulumi.CustomResource {
  * The set of arguments for constructing a EC2Fleet resource.
  */
 export interface EC2FleetArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-context
-     */
     context?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-excesscapacityterminationpolicy
-     */
     excessCapacityTerminationPolicy?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-launchtemplateconfigs
-     */
     launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-ondemandoptions
-     */
     onDemandOptions?: pulumi.Input<inputs.ec2.EC2FleetOnDemandOptionsRequestArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-replaceunhealthyinstances
-     */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-spotoptions
-     */
     spotOptions?: pulumi.Input<inputs.ec2.EC2FleetSpotOptionsRequestArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-tagspecifications
-     */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.EC2FleetTagSpecificationArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-targetcapacityspecification
-     */
     targetCapacitySpecification: pulumi.Input<inputs.ec2.EC2FleetTargetCapacitySpecificationRequestArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-terminateinstanceswithexpiration
-     */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-type
-     */
     type?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-     */
     validFrom?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-     */
     validUntil?: pulumi.Input<string>;
 }

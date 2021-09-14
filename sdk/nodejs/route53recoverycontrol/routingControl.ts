@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
+ * AWS Route53 Recovery Control Routing Control resource schema .
  */
 export class RoutingControl extends pulumi.CustomResource {
     /**
@@ -35,18 +35,24 @@ export class RoutingControl extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+     * Arn associated with Control Panel
      */
     public readonly clusterArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+     * The Amazon Resource Name (ARN) of the control panel.
      */
     public readonly controlPanelArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+     * The name of the routing control. You can use any non-white space character in the name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the routing control.
+     */
     public /*out*/ readonly routingControlArn!: pulumi.Output<string>;
+    /**
+     * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -87,15 +93,15 @@ export class RoutingControl extends pulumi.CustomResource {
  */
 export interface RoutingControlArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+     * Arn associated with Control Panel
      */
     clusterArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+     * The Amazon Resource Name (ARN) of the control panel.
      */
     controlPanelArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+     * The name of the routing control. You can use any non-white space character in the name.
      */
     name: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+ * A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
  */
 export class Dimension extends pulumi.CustomResource {
     /**
@@ -35,21 +35,24 @@ export class Dimension extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dimension.__pulumiType;
     }
 
+    /**
+     * The ARN (Amazon resource name) of the created dimension.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+     * A unique identifier for the dimension.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+     * Specifies the value or list of values for the dimension.
      */
     public readonly stringValues!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+     * Metadata that can be used to manage the dimension.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iot.DimensionTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+     * Specifies the type of the dimension.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -94,19 +97,19 @@ export class Dimension extends pulumi.CustomResource {
  */
 export interface DimensionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+     * A unique identifier for the dimension.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+     * Specifies the value or list of values for the dimension.
      */
     stringValues: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+     * Metadata that can be used to manage the dimension.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iot.DimensionTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+     * Specifies the type of the dimension.
      */
     type: pulumi.Input<string>;
 }

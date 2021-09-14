@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html
+ * Resource schema of AWS::EC2::PrefixList Type
  */
 export class PrefixList extends pulumi.CustomResource {
     /**
@@ -36,28 +36,40 @@ export class PrefixList extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+     * Ip Version of Prefix List.
      */
     public readonly addressFamily!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Prefix List.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+     * Entries of Prefix List.
      */
     public readonly entries!: pulumi.Output<outputs.ec2.PrefixListEntry[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+     * Max Entries of Prefix List.
      */
     public readonly maxEntries!: pulumi.Output<number>;
+    /**
+     * Owner Id of Prefix List.
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * Id of Prefix List.
+     */
     public /*out*/ readonly prefixListId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+     * Name of Prefix List.
      */
     public readonly prefixListName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+     * Tags for Prefix List
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.PrefixListTag[] | undefined>;
+    /**
+     * Version of Prefix List.
+     */
     public /*out*/ readonly version!: pulumi.Output<number>;
 
     /**
@@ -112,23 +124,23 @@ export class PrefixList extends pulumi.CustomResource {
  */
 export interface PrefixListArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-addressfamily
+     * Ip Version of Prefix List.
      */
     addressFamily: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-entries
+     * Entries of Prefix List.
      */
     entries?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListEntryArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-maxentries
+     * Max Entries of Prefix List.
      */
     maxEntries: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-prefixlistname
+     * Name of Prefix List.
      */
     prefixListName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-prefixlist.html#cfn-ec2-prefixlist-tags
+     * Tags for Prefix List
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.PrefixListTagArgs>[]>;
 }

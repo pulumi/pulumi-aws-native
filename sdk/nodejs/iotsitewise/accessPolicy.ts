@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html
+ * Resource schema for AWS::IoTSiteWise::AccessPolicy
  */
 export class AccessPolicy extends pulumi.CustomResource {
     /**
@@ -35,18 +35,24 @@ export class AccessPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPolicy.__pulumiType;
     }
 
+    /**
+     * The ARN of the access policy.
+     */
     public /*out*/ readonly accessPolicyArn!: pulumi.Output<string>;
+    /**
+     * The ID of the access policy.
+     */
     public /*out*/ readonly accessPolicyId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
+     * The identity for this access policy. Choose either a user or a group but not both.
      */
     public readonly accessPolicyIdentity!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyIdentity>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
+     * The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
      */
     public readonly accessPolicyPermission!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+     * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
      */
     public readonly accessPolicyResource!: pulumi.Output<outputs.iotsitewise.AccessPolicyAccessPolicyResource>;
 
@@ -94,15 +100,15 @@ export class AccessPolicy extends pulumi.CustomResource {
  */
 export interface AccessPolicyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity
+     * The identity for this access policy. Choose either a user or a group but not both.
      */
     accessPolicyIdentity: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyIdentityArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicypermission
+     * The permission level for this access policy. Valid values are ADMINISTRATOR or VIEWER.
      */
     accessPolicyPermission: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-accesspolicy.html#cfn-iotsitewise-accesspolicy-accesspolicyresource
+     * The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
      */
     accessPolicyResource: pulumi.Input<inputs.iotsitewise.AccessPolicyAccessPolicyResourceArgs>;
 }

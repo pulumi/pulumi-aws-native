@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html
+ * Resource Type definition for AWS::IAM::ServerCertificate
  */
 export class ServerCertificate extends pulumi.CustomResource {
     /**
@@ -35,31 +35,16 @@ export class ServerCertificate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServerCertificate.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the server certificate
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatebody
-     */
     public readonly certificateBody!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatechain
-     */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-path
-     */
     public readonly path!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-privatekey
-     */
     public readonly privateKey!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-servercertificatename
-     */
     public readonly serverCertificateName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iam.ServerCertificateTag[] | undefined>;
 
     /**
      * Create a ServerCertificate resource with the given unique name, arguments, and options.
@@ -99,28 +84,10 @@ export class ServerCertificate extends pulumi.CustomResource {
  * The set of arguments for constructing a ServerCertificate resource.
  */
 export interface ServerCertificateArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatebody
-     */
     certificateBody?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-certificatechain
-     */
     certificateChain?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-path
-     */
     path?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-privatekey
-     */
     privateKey?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-servercertificatename
-     */
     serverCertificateName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servercertificate.html#cfn-iam-servercertificate-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iam.ServerCertificateTagArgs>[]>;
 }

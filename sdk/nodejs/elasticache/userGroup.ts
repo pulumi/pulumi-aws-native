@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+ * Resource Type definition for AWS::ElastiCache::UserGroup
  */
 export class UserGroup extends pulumi.CustomResource {
     /**
@@ -34,18 +34,24 @@ export class UserGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === UserGroup.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the user account.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+     * Must be redis.
      */
     public readonly engine!: pulumi.Output<string>;
+    /**
+     * Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+     * The ID of the user group.
      */
     public readonly userGroupId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+     * List of users associated to this user group.
      */
     public readonly userIds!: pulumi.Output<string[] | undefined>;
 
@@ -90,15 +96,15 @@ export class UserGroup extends pulumi.CustomResource {
  */
 export interface UserGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+     * Must be redis.
      */
     engine: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+     * The ID of the user group.
      */
     userGroupId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+     * List of users associated to this user group.
      */
     userIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html
+ * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**
@@ -35,28 +35,37 @@ export class AccessPoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccessPoint.__pulumiType;
     }
 
+    /**
+     * The alias of this Access Point. This alias can be used for compatibility purposes with other AWS services and third-party applications.
+     */
     public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified accesspoint.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
+     * The name of the bucket that you want to associate this Access Point with.
      */
     public readonly bucket!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string>;
+    /**
+     * The name you want to assign to this Access Point. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID for the access point name.
+     */
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
+     */
     public /*out*/ readonly networkOrigin!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
+     * The Access Point Policy you want to apply to this access point.
      */
-    public readonly policy!: pulumi.Output<any | string | undefined>;
+    public readonly policy!: pulumi.Output<any | undefined>;
+    public readonly policyStatus!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-     */
-    public readonly policyStatus!: pulumi.Output<any | string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+     * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     public readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3.AccessPointPublicAccessBlockConfiguration | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+     * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.s3.AccessPointVpcConfiguration | undefined>;
 
@@ -75,13 +84,13 @@ export class AccessPoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'bucket'");
             }
             inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["name"] = args ? args.name : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["policyStatus"] = args ? args.policyStatus : undefined;
             inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
             inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
             inputs["alias"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
+            inputs["name"] = undefined /*out*/;
             inputs["networkOrigin"] = undefined /*out*/;
         } else {
             inputs["alias"] = undefined /*out*/;
@@ -106,27 +115,20 @@ export class AccessPoint extends pulumi.CustomResource {
  */
 export interface AccessPointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-bucket
+     * The name of the bucket that you want to associate this Access Point with.
      */
     bucket: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-name
+     * The Access Point Policy you want to apply to this access point.
      */
-    name?: pulumi.Input<string>;
+    policy?: any;
+    policyStatus?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policy
-     */
-    policy?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-policystatus
-     */
-    policyStatus?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-publicaccessblockconfiguration
+     * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
      */
     publicAccessBlockConfiguration?: pulumi.Input<inputs.s3.AccessPointPublicAccessBlockConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html#cfn-s3-accesspoint-vpcconfiguration
+     * If you include this field, Amazon S3 restricts access to this Access Point to requests from the specified Virtual Private Cloud (VPC).
      */
     vpcConfiguration?: pulumi.Input<inputs.s3.AccessPointVpcConfigurationArgs>;
 }

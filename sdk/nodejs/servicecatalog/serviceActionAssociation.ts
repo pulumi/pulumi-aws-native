@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
+ * Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
  */
 export class ServiceActionAssociation extends pulumi.CustomResource {
     /**
@@ -34,17 +34,8 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceActionAssociation.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-     */
     public readonly productId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-     */
     public readonly provisioningArtifactId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-     */
     public readonly serviceActionId!: pulumi.Output<string>;
 
     /**
@@ -86,16 +77,7 @@ export class ServiceActionAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceActionAssociation resource.
  */
 export interface ServiceActionAssociationArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-     */
     productId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-     */
     provisioningArtifactId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-     */
     serviceActionId: pulumi.Input<string>;
 }

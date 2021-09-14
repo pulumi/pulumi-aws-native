@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html
+ * The default version of a resource that has been registered in the CloudFormation Registry.
  */
 export class ResourceDefaultVersion extends pulumi.CustomResource {
     /**
@@ -34,17 +34,22 @@ export class ResourceDefaultVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceDefaultVersion.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     public readonly typeName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+     * The Amazon Resource Name (ARN) of the type version.
      */
     public readonly typeVersionArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+     * The ID of an existing version of the resource to set as the default.
      */
     public readonly versionId!: pulumi.Output<string | undefined>;
 
@@ -81,15 +86,17 @@ export class ResourceDefaultVersion extends pulumi.CustomResource {
  */
 export interface ResourceDefaultVersionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     typeName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-typeversionarn
+     * The Amazon Resource Name (ARN) of the type version.
      */
     typeVersionArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourcedefaultversion.html#cfn-cloudformation-resourcedefaultversion-versionid
+     * The ID of an existing version of the resource to set as the default.
      */
     versionId?: pulumi.Input<string>;
 }

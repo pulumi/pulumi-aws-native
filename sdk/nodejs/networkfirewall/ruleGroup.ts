@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html
+ * Resource type definition for AWS::NetworkFirewall::RuleGroup
  */
 export class RuleGroup extends pulumi.CustomResource {
     /**
@@ -35,31 +35,13 @@ export class RuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === RuleGroup.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-     */
     public readonly capacity!: pulumi.Output<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-     */
     public readonly ruleGroup!: pulumi.Output<outputs.networkfirewall.RuleGroupRuleGroup | undefined>;
     public /*out*/ readonly ruleGroupArn!: pulumi.Output<string>;
     public /*out*/ readonly ruleGroupId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-     */
     public readonly ruleGroupName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-     */
+    public readonly tags!: pulumi.Output<outputs.networkfirewall.RuleGroupTag[] | undefined>;
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -111,28 +93,10 @@ export class RuleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-capacity
-     */
     capacity: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroup
-     */
     ruleGroup?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-rulegroupname
-     */
     ruleGroupName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-rulegroup.html#cfn-networkfirewall-rulegroup-type
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.RuleGroupTagArgs>[]>;
     type: pulumi.Input<string>;
 }

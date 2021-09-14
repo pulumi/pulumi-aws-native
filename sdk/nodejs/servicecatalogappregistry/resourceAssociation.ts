@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html
+ * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
  */
 export class ResourceAssociation extends pulumi.CustomResource {
     /**
@@ -35,18 +35,17 @@ export class ResourceAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+     * The name or the Id of the Application.
      */
     public readonly application!: pulumi.Output<string>;
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+     * The name or the Id of the Resource.
      */
     public readonly resource!: pulumi.Output<string>;
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+     * The type of the CFN Resource for now it's enum CFN_STACK.
      */
     public readonly resourceType!: pulumi.Output<string>;
 
@@ -74,12 +73,10 @@ export class ResourceAssociation extends pulumi.CustomResource {
             inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["applicationArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["resourceArn"] = undefined /*out*/;
         } else {
             inputs["application"] = undefined /*out*/;
             inputs["applicationArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["resource"] = undefined /*out*/;
             inputs["resourceArn"] = undefined /*out*/;
             inputs["resourceType"] = undefined /*out*/;
@@ -96,15 +93,15 @@ export class ResourceAssociation extends pulumi.CustomResource {
  */
 export interface ResourceAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-application
+     * The name or the Id of the Application.
      */
     application: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resource
+     * The name or the Id of the Resource.
      */
     resource: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-resourceassociation.html#cfn-servicecatalogappregistry-resourceassociation-resourcetype
+     * The type of the CFN Resource for now it's enum CFN_STACK.
      */
     resourceType: pulumi.Input<string>;
 }

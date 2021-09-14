@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html
+ * AWS Ground Station DataflowEndpointGroup schema for CloudFormation
  */
 export class DataflowEndpointGroup extends pulumi.CustomResource {
     /**
@@ -36,15 +36,8 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-     */
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupTag[] | undefined>;
 
     /**
      * Create a DataflowEndpointGroup resource with the given unique name, arguments, and options.
@@ -63,11 +56,9 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
             inputs["endpointDetails"] = args ? args.endpointDetails : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["endpointDetails"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -81,12 +72,6 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DataflowEndpointGroup resource.
  */
 export interface DataflowEndpointGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-endpointdetails
-     */
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-dataflowendpointgroup.html#cfn-groundstation-dataflowendpointgroup-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupTagArgs>[]>;
 }

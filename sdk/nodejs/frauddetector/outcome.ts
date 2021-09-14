@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html
+ * An outcome for rule evaluation.
  */
 export class Outcome extends pulumi.CustomResource {
     /**
@@ -35,21 +35,30 @@ export class Outcome extends pulumi.CustomResource {
         return obj['__pulumiType'] === Outcome.__pulumiType;
     }
 
+    /**
+     * The outcome ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The timestamp when the outcome was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description
+     * The outcome description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the outcome was last updated.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name
+     * The name of the outcome.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags
+     * Tags associated with this outcome.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.frauddetector.OutcomeTag[] | undefined>;
 
     /**
      * Create a Outcome resource with the given unique name, arguments, and options.
@@ -91,15 +100,15 @@ export class Outcome extends pulumi.CustomResource {
  */
 export interface OutcomeArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-description
+     * The outcome description.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-name
+     * The name of the outcome.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html#cfn-frauddetector-outcome-tags
+     * Tags associated with this outcome.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.OutcomeTagArgs>[]>;
 }

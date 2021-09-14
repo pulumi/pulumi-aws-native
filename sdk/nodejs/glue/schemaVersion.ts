@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html
+ * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
  */
 export class SchemaVersion extends pulumi.CustomResource {
     /**
@@ -35,14 +35,14 @@ export class SchemaVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SchemaVersion.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-     */
     public readonly schema!: pulumi.Output<outputs.glue.SchemaVersionSchema>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+     * Complete definition of the schema in plain-text.
      */
     public readonly schemaDefinition!: pulumi.Output<string>;
+    /**
+     * Represents the version ID associated with the schema version.
+     */
     public /*out*/ readonly versionId!: pulumi.Output<string>;
 
     /**
@@ -81,12 +81,9 @@ export class SchemaVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SchemaVersion resource.
  */
 export interface SchemaVersionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schema
-     */
     schema: pulumi.Input<inputs.glue.SchemaVersionSchemaArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-schemaversion.html#cfn-glue-schemaversion-schemadefinition
+     * Complete definition of the schema in plain-text.
      */
     schemaDefinition: pulumi.Input<string>;
 }

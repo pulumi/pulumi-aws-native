@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html
+ * Resource type definition for AWS::NetworkFirewall::Firewall
  */
 export class Firewall extends pulumi.CustomResource {
     /**
@@ -35,44 +35,17 @@ export class Firewall extends pulumi.CustomResource {
         return obj['__pulumiType'] === Firewall.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-     */
     public readonly deleteProtection!: pulumi.Output<boolean | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly endpointIds!: pulumi.Output<string[]>;
     public /*out*/ readonly firewallArn!: pulumi.Output<string>;
     public /*out*/ readonly firewallId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-     */
     public readonly firewallName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-     */
     public readonly firewallPolicyArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-     */
     public readonly firewallPolicyChangeProtection!: pulumi.Output<boolean | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-     */
     public readonly subnetChangeProtection!: pulumi.Output<boolean | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-     */
     public readonly subnetMappings!: pulumi.Output<outputs.networkfirewall.FirewallSubnetMapping[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-     */
+    public readonly tags!: pulumi.Output<outputs.networkfirewall.FirewallTag[] | undefined>;
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -135,40 +108,13 @@ export class Firewall extends pulumi.CustomResource {
  * The set of arguments for constructing a Firewall resource.
  */
 export interface FirewallArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-deleteprotection
-     */
     deleteProtection?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallname
-     */
     firewallName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicyarn
-     */
     firewallPolicyArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-firewallpolicychangeprotection
-     */
     firewallPolicyChangeProtection?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetchangeprotection
-     */
     subnetChangeProtection?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-subnetmappings
-     */
     subnetMappings: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallSubnetMappingArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewall.html#cfn-networkfirewall-firewall-vpcid
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallTagArgs>[]>;
     vpcId: pulumi.Input<string>;
 }

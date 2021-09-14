@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+ * Resource type definition for AWS::SSMIncidents::ReplicationSet
  */
 export class ReplicationSet extends pulumi.CustomResource {
     /**
@@ -35,13 +35,13 @@ export class ReplicationSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === ReplicationSet.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
+     * The ARN of the ReplicationSet.
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly deletionProtected!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+     * The ReplicationSet configuration.
      */
     public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetReplicationRegion[]>;
 
@@ -78,12 +78,9 @@ export class ReplicationSet extends pulumi.CustomResource {
  * The set of arguments for constructing a ReplicationSet resource.
  */
 export interface ReplicationSetArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-     */
     deletionProtected?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+     * The ReplicationSet configuration.
      */
     regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetReplicationRegionArgs>[]>;
 }

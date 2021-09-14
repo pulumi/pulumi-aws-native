@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html
+ * Resource Type definition for AWS::SageMaker::ModelPackageGroup
  */
 export class ModelPackageGroup extends pulumi.CustomResource {
     /**
@@ -35,25 +35,22 @@ export class ModelPackageGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === ModelPackageGroup.__pulumiType;
     }
 
+    /**
+     * The time at which the model package group was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public /*out*/ readonly modelPackageGroupArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-     */
     public readonly modelPackageGroupDescription!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-     */
     public readonly modelPackageGroupName!: pulumi.Output<string>;
+    public readonly modelPackageGroupPolicy!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+     * The status of a modelpackage group job.
      */
-    public readonly modelPackageGroupPolicy!: pulumi.Output<any | string | undefined>;
     public /*out*/ readonly modelPackageGroupStatus!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.ModelPackageGroupTag[] | undefined>;
 
     /**
      * Create a ModelPackageGroup resource with the given unique name, arguments, and options.
@@ -96,20 +93,11 @@ export class ModelPackageGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ModelPackageGroup resource.
  */
 export interface ModelPackageGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupdescription
-     */
     modelPackageGroupDescription?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegroupname
-     */
     modelPackageGroupName: pulumi.Input<string>;
+    modelPackageGroupPolicy?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-modelpackagegrouppolicy
+     * An array of key-value pairs to apply to this resource.
      */
-    modelPackageGroupPolicy?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html#cfn-sagemaker-modelpackagegroup-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelPackageGroupTagArgs>[]>;
 }

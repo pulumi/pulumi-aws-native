@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+ * Resource Type definition for AWS::SageMaker::AppImageConfig
  */
 export class AppImageConfig extends pulumi.CustomResource {
     /**
@@ -35,19 +35,22 @@ export class AppImageConfig extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppImageConfig.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AppImageConfig.
+     */
     public /*out*/ readonly appImageConfigArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+     * The Name of the AppImageConfig.
      */
     public readonly appImageConfigName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+     * The KernelGatewayImageConfig.
      */
     public readonly kernelGatewayImageConfig!: pulumi.Output<outputs.sagemaker.AppImageConfigKernelGatewayImageConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+     * A list of tags to apply to the AppImageConfig.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.AppImageConfigTag[] | undefined>;
 
     /**
      * Create a AppImageConfig resource with the given unique name, arguments, and options.
@@ -85,15 +88,15 @@ export class AppImageConfig extends pulumi.CustomResource {
  */
 export interface AppImageConfigArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+     * The Name of the AppImageConfig.
      */
     appImageConfigName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+     * The KernelGatewayImageConfig.
      */
     kernelGatewayImageConfig?: pulumi.Input<inputs.sagemaker.AppImageConfigKernelGatewayImageConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+     * A list of tags to apply to the AppImageConfig.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.AppImageConfigTagArgs>[]>;
 }

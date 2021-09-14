@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html
+ * A resource that has been registered in the CloudFormation Registry.
  */
 export class ResourceVersion extends pulumi.CustomResource {
     /**
@@ -35,27 +35,55 @@ export class ResourceVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceVersion.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the type, here the ResourceVersion. This is used to uniquely identify a ResourceVersion resource
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
+     * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates if this type version is the current default version
+     */
     public /*out*/ readonly isDefaultVersion!: pulumi.Output<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
+     * Specifies logging configuration information for a type.
      */
     public readonly loggingConfig!: pulumi.Output<outputs.cloudformation.ResourceVersionLoggingConfig | undefined>;
+    /**
+     * The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.
+     */
     public /*out*/ readonly provisioningType!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
+     * A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+     *
+     * For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
      */
     public readonly schemaHandlerPackage!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the type without the versionID.
+     */
     public /*out*/ readonly typeArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     public readonly typeName!: pulumi.Output<string>;
+    /**
+     * The ID of the version of the type represented by this resource instance.
+     */
     public /*out*/ readonly versionId!: pulumi.Output<string>;
+    /**
+     * The scope at which the type is visible and usable in CloudFormation operations.
+     *
+     * Valid values include:
+     *
+     * PRIVATE: The type is only visible and usable within the account in which it is registered. Currently, AWS CloudFormation marks any types you register as PRIVATE.
+     *
+     * PUBLIC: The type is publically visible and usable within any Amazon account.
+     */
     public /*out*/ readonly visibility!: pulumi.Output<string>;
 
     /**
@@ -109,19 +137,23 @@ export class ResourceVersion extends pulumi.CustomResource {
  */
 export interface ResourceVersionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-executionrolearn
+     * The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
      */
     executionRoleArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-loggingconfig
+     * Specifies logging configuration information for a type.
      */
     loggingConfig?: pulumi.Input<inputs.cloudformation.ResourceVersionLoggingConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-schemahandlerpackage
+     * A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.
+     *
+     * For information on generating a schema handler package for the type you want to register, see submit in the CloudFormation CLI User Guide.
      */
     schemaHandlerPackage: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-resourceversion.html#cfn-cloudformation-resourceversion-typename
+     * The name of the type being registered.
+     *
+     * We recommend that type names adhere to the following pattern: company_or_organization::service::type.
      */
     typeName: pulumi.Input<string>;
 }

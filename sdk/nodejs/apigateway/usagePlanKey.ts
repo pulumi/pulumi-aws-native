@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
+ * Resource Type definition for AWS::ApiGateway::UsagePlanKey
  */
 export class UsagePlanKey extends pulumi.CustomResource {
     /**
@@ -34,17 +34,16 @@ export class UsagePlanKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === UsagePlanKey.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+     * The ID of the usage plan key.
      */
     public readonly keyId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+     * The type of usage plan key. Currently, the only valid key type is API_KEY.
      */
     public readonly keyType!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+     * The ID of the usage plan.
      */
     public readonly usagePlanId!: pulumi.Output<string>;
 
@@ -71,9 +70,7 @@ export class UsagePlanKey extends pulumi.CustomResource {
             inputs["keyId"] = args ? args.keyId : undefined;
             inputs["keyType"] = args ? args.keyType : undefined;
             inputs["usagePlanId"] = args ? args.usagePlanId : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["keyId"] = undefined /*out*/;
             inputs["keyType"] = undefined /*out*/;
             inputs["usagePlanId"] = undefined /*out*/;
@@ -90,15 +87,15 @@ export class UsagePlanKey extends pulumi.CustomResource {
  */
 export interface UsagePlanKeyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keyid
+     * The ID of the usage plan key.
      */
     keyId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-keytype
+     * The type of usage plan key. Currently, the only valid key type is API_KEY.
      */
     keyType: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html#cfn-apigateway-usageplankey-usageplanid
+     * The ID of the usage plan.
      */
     usagePlanId: pulumi.Input<string>;
 }

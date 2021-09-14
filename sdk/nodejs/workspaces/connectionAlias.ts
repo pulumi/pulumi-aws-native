@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+ * Resource Type definition for AWS::WorkSpaces::ConnectionAlias
  */
 export class ConnectionAlias extends pulumi.CustomResource {
     /**
@@ -38,14 +38,8 @@ export class ConnectionAlias extends pulumi.CustomResource {
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
     public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasConnectionAliasAssociation[]>;
     public /*out*/ readonly connectionAliasState!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-     */
     public readonly connectionString!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.workspaces.ConnectionAliasTag[] | undefined>;
 
     /**
      * Create a ConnectionAlias resource with the given unique name, arguments, and options.
@@ -84,12 +78,6 @@ export class ConnectionAlias extends pulumi.CustomResource {
  * The set of arguments for constructing a ConnectionAlias resource.
  */
 export interface ConnectionAliasArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-     */
     connectionString: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.workspaces.ConnectionAliasTagArgs>[]>;
 }

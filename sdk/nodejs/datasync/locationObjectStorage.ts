@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html
+ * Resource schema for AWS::DataSync::LocationObjectStorage.
  */
 export class LocationObjectStorage extends pulumi.CustomResource {
     /**
@@ -36,43 +36,49 @@ export class LocationObjectStorage extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+     * Optional. The access key is used if credentials are required to access the self-managed object storage server.
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
+     * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
      */
     public readonly agentArns!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
+     * The name of the bucket on the self-managed object storage server.
      */
     public readonly bucketName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the location that is created.
+     */
     public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    /**
+     * The URL of the object storage location that was described.
+     */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
+     * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
     public readonly secretKey!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+     * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
     public readonly serverHostname!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
+     * The port that your self-managed server accepts inbound network traffic on.
      */
     public readonly serverPort!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
+     * The protocol that the object storage server uses to communicate.
      */
     public readonly serverProtocol!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
+     * The subdirectory in the self-managed object storage server that is used to read data from.
      */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.LocationObjectStorageTag[] | undefined>;
 
     /**
      * Create a LocationObjectStorage resource with the given unique name, arguments, and options.
@@ -130,39 +136,39 @@ export class LocationObjectStorage extends pulumi.CustomResource {
  */
 export interface LocationObjectStorageArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-accesskey
+     * Optional. The access key is used if credentials are required to access the self-managed object storage server.
      */
     accessKey?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-agentarns
+     * The Amazon Resource Name (ARN) of the agents associated with the self-managed object storage server location.
      */
     agentArns: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-bucketname
+     * The name of the bucket on the self-managed object storage server.
      */
     bucketName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-secretkey
+     * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */
     secretKey?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverhostname
+     * The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server.
      */
     serverHostname: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverport
+     * The port that your self-managed server accepts inbound network traffic on.
      */
     serverPort?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-serverprotocol
+     * The protocol that the object storage server uses to communicate.
      */
     serverProtocol?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-subdirectory
+     * The subdirectory in the self-managed object storage server that is used to read data from.
      */
     subdirectory?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationobjectstorage.html#cfn-datasync-locationobjectstorage-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationObjectStorageTagArgs>[]>;
 }

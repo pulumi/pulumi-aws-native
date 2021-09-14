@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html
+ * Resource schema for AWS::Athena::WorkGroup
  */
 export class WorkGroup extends pulumi.CustomResource {
     /**
@@ -35,37 +35,38 @@ export class WorkGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === WorkGroup.__pulumiType;
     }
 
+    /**
+     * The date and time the workgroup was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+     * The workgroup description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+     * The workGroup name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
     public readonly recursiveDeleteOption!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+     * The state of the workgroup: ENABLED or DISABLED.
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+     * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.athena.WorkGroupTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+     * The workgroup configuration
      */
     public readonly workGroupConfiguration!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfiguration | undefined>;
-    public /*out*/ readonly workGroupConfigurationEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+     * The workgroup configuration update object
      */
     public readonly workGroupConfigurationUpdates!: pulumi.Output<outputs.athena.WorkGroupWorkGroupConfigurationUpdates | undefined>;
-    public /*out*/ readonly workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion!: pulumi.Output<string>;
 
     /**
      * Create a WorkGroup resource with the given unique name, arguments, and options.
@@ -89,8 +90,6 @@ export class WorkGroup extends pulumi.CustomResource {
             inputs["workGroupConfiguration"] = args ? args.workGroupConfiguration : undefined;
             inputs["workGroupConfigurationUpdates"] = args ? args.workGroupConfigurationUpdates : undefined;
             inputs["creationTime"] = undefined /*out*/;
-            inputs["workGroupConfigurationEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
-            inputs["workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
@@ -99,9 +98,7 @@ export class WorkGroup extends pulumi.CustomResource {
             inputs["state"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["workGroupConfiguration"] = undefined /*out*/;
-            inputs["workGroupConfigurationEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
             inputs["workGroupConfigurationUpdates"] = undefined /*out*/;
-            inputs["workGroupConfigurationUpdatesEngineVersionEffectiveEngineVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -115,31 +112,31 @@ export class WorkGroup extends pulumi.CustomResource {
  */
 export interface WorkGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-description
+     * The workgroup description.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-name
+     * The workGroup name.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-recursivedeleteoption
+     * The option to delete the workgroup and its contents even if the workgroup contains any named queries.
      */
     recursiveDeleteOption?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-state
+     * The state of the workgroup: ENABLED or DISABLED.
      */
     state?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-tags
+     * One or more tags, separated by commas, that you want to attach to the workgroup as you create it
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.athena.WorkGroupTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfiguration
+     * The workgroup configuration
      */
     workGroupConfiguration?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html#cfn-athena-workgroup-workgroupconfigurationupdates
+     * The workgroup configuration update object
      */
     workGroupConfigurationUpdates?: pulumi.Input<inputs.athena.WorkGroupWorkGroupConfigurationUpdatesArgs>;
 }

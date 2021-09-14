@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
+ * Resource Type definition for AWS::Config::ConfigurationAggregator
  */
 export class ConfigurationAggregator extends pulumi.CustomResource {
     /**
@@ -35,23 +35,20 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationAggregator.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
-     */
     public readonly accountAggregationSources!: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the aggregator.
+     */
     public /*out*/ readonly configurationAggregatorArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+     * The name of the aggregator.
      */
     public readonly configurationAggregatorName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
-     */
     public readonly organizationAggregationSource!: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
+     * The tags for the configuration aggregator.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.configuration.ConfigurationAggregatorTag[] | undefined>;
 
     /**
      * Create a ConfigurationAggregator resource with the given unique name, arguments, and options.
@@ -87,20 +84,14 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationAggregator resource.
  */
 export interface ConfigurationAggregatorArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-accountaggregationsources
-     */
     accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-configurationaggregatorname
+     * The name of the aggregator.
      */
     configurationAggregatorName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-organizationaggregationsource
-     */
     organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html#cfn-config-configurationaggregator-tags
+     * The tags for the configuration aggregator.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorTagArgs>[]>;
 }

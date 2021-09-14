@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html
+ * AWS Ground Station Mission Profile resource type for CloudFormation.
  */
 export class MissionProfile extends pulumi.CustomResource {
     /**
@@ -37,34 +37,24 @@ export class MissionProfile extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+     * Post-pass time needed after the contact.
      */
     public readonly contactPostPassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+     * Pre-pass time needed before the contact.
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-     */
     public readonly dataflowEdges!: pulumi.Output<outputs.groundstation.MissionProfileDataflowEdge[]>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+     * Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
      */
     public readonly minimumViableContactDurationSeconds!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+     * A name used to identify a mission profile.
      */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly region!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-     */
+    public readonly tags!: pulumi.Output<outputs.groundstation.MissionProfileTag[] | undefined>;
     public readonly trackingConfigArn!: pulumi.Output<string>;
 
     /**
@@ -98,14 +88,12 @@ export class MissionProfile extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["trackingConfigArn"] = args ? args.trackingConfigArn : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["region"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["contactPostPassDurationSeconds"] = undefined /*out*/;
             inputs["contactPrePassDurationSeconds"] = undefined /*out*/;
             inputs["dataflowEdges"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["minimumViableContactDurationSeconds"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["region"] = undefined /*out*/;
@@ -124,31 +112,22 @@ export class MissionProfile extends pulumi.CustomResource {
  */
 export interface MissionProfileArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactpostpassdurationseconds
+     * Post-pass time needed after the contact.
      */
     contactPostPassDurationSeconds?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-contactprepassdurationseconds
+     * Pre-pass time needed before the contact.
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-dataflowedges
-     */
     dataflowEdges: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileDataflowEdgeArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-minimumviablecontactdurationseconds
+     * Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
      */
     minimumViableContactDurationSeconds: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-name
+     * A name used to identify a mission profile.
      */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html#cfn-groundstation-missionprofile-trackingconfigarn
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileTagArgs>[]>;
     trackingConfigArn: pulumi.Input<string>;
 }

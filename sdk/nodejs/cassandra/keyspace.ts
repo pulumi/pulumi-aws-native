@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html
+ * Resource schema for AWS::Cassandra::Keyspace
  */
 export class Keyspace extends pulumi.CustomResource {
     /**
@@ -36,13 +36,10 @@ export class Keyspace extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+     * Name for Cassandra keyspace
      */
     public readonly keyspaceName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.cassandra.KeyspaceTag[] | undefined>;
 
     /**
      * Create a Keyspace resource with the given unique name, arguments, and options.
@@ -73,11 +70,8 @@ export class Keyspace extends pulumi.CustomResource {
  */
 export interface KeyspaceArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-keyspacename
+     * Name for Cassandra keyspace
      */
     keyspaceName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html#cfn-cassandra-keyspace-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.cassandra.KeyspaceTagArgs>[]>;
 }

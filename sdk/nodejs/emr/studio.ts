@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html
+ * Resource schema for AWS::EMR::Studio
  */
 export class Studio extends pulumi.CustomResource {
     /**
@@ -35,51 +35,68 @@ export class Studio extends pulumi.CustomResource {
         return obj['__pulumiType'] === Studio.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the EMR Studio.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-authmode
+     * Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
      */
     public readonly authMode!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-defaults3location
+     * The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
      */
     public readonly defaultS3Location!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
+     * A detailed description of the Studio.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-enginesecuritygroupid
+     * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
      */
     public readonly engineSecurityGroupId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-name
+     * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
+     */
+    public readonly idpAuthUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The name of relay state parameter for external Identity Provider.
+     */
+    public readonly idpRelayStateParameterName!: pulumi.Output<string | undefined>;
+    /**
+     * A descriptive name for the Amazon EMR Studio.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-servicerole
+     * The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
      */
     public readonly serviceRole!: pulumi.Output<string>;
+    /**
+     * The ID of the EMR Studio.
+     */
     public /*out*/ readonly studioId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-subnetids
+     * A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-tags
+     * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.emr.StudioTag[] | undefined>;
+    /**
+     * The unique Studio access URL.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-userrole
+     * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
      */
-    public readonly userRole!: pulumi.Output<string>;
+    public readonly userRole!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-vpcid
+     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      */
     public readonly vpcId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-workspacesecuritygroupid
+     * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId.
      */
     public readonly workspaceSecurityGroupId!: pulumi.Output<string>;
 
@@ -112,9 +129,6 @@ export class Studio extends pulumi.CustomResource {
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetIds'");
             }
-            if ((!args || args.userRole === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'userRole'");
-            }
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
@@ -125,6 +139,8 @@ export class Studio extends pulumi.CustomResource {
             inputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
+            inputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
+            inputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["serviceRole"] = args ? args.serviceRole : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -141,6 +157,8 @@ export class Studio extends pulumi.CustomResource {
             inputs["defaultS3Location"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["engineSecurityGroupId"] = undefined /*out*/;
+            inputs["idpAuthUrl"] = undefined /*out*/;
+            inputs["idpRelayStateParameterName"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["serviceRole"] = undefined /*out*/;
             inputs["studioId"] = undefined /*out*/;
@@ -163,47 +181,55 @@ export class Studio extends pulumi.CustomResource {
  */
 export interface StudioArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-authmode
+     * Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
      */
     authMode: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-defaults3location
+     * The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
      */
     defaultS3Location: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-description
+     * A detailed description of the Studio.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-enginesecuritygroupid
+     * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
      */
     engineSecurityGroupId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-name
+     * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
+     */
+    idpAuthUrl?: pulumi.Input<string>;
+    /**
+     * The name of relay state parameter for external Identity Provider.
+     */
+    idpRelayStateParameterName?: pulumi.Input<string>;
+    /**
+     * A descriptive name for the Amazon EMR Studio.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-servicerole
+     * The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
      */
     serviceRole: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-subnetids
+     * A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-tags
+     * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.emr.StudioTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-userrole
+     * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
      */
-    userRole: pulumi.Input<string>;
+    userRole?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-vpcid
+     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
      */
     vpcId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studio.html#cfn-emr-studio-workspacesecuritygroupid
+     * The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId.
      */
     workspaceSecurityGroupId: pulumi.Input<string>;
 }

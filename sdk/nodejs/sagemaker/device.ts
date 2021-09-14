@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+ * Resource schema for AWS::SageMaker::Device
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -36,17 +36,17 @@ export class Device extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+     * The Edge Device you want to register against a device fleet
      */
-    public readonly device!: pulumi.Output<any | string | undefined>;
+    public readonly device!: pulumi.Output<outputs.sagemaker.DeviceDevice | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+     * The name of the edge device fleet
      */
     public readonly deviceFleetName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+     * Associate tags with the resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.DeviceTag[] | undefined>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -82,15 +82,15 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+     * The Edge Device you want to register against a device fleet
      */
-    device?: pulumi.Input<any | string>;
+    device?: pulumi.Input<inputs.sagemaker.DeviceDeviceArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+     * The name of the edge device fleet
      */
     deviceFleetName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+     * Associate tags with the resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.DeviceTagArgs>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+ * Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
  */
 export class FirewallRuleGroup extends pulumi.CustomResource {
     /**
@@ -35,28 +35,54 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallRuleGroup.__pulumiType;
     }
 
+    /**
+     * Arn
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Rfc3339TimeString
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The id of the creator request.
+     */
     public /*out*/ readonly creatorRequestId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+     * FirewallRules
      */
     public readonly firewallRules!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupFirewallRule[] | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
+     * Rfc3339TimeString
+     */
     public /*out*/ readonly modificationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+     * FirewallRuleGroupName
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * AccountId
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * Count
+     */
     public /*out*/ readonly ruleCount!: pulumi.Output<number>;
+    /**
+     * ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+     */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
+    /**
+     * ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * FirewallRuleGroupStatus
+     */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+     * Tags
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.route53resolver.FirewallRuleGroupTag[] | undefined>;
 
     /**
      * Create a FirewallRuleGroup resource with the given unique name, arguments, and options.
@@ -75,7 +101,6 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["creationTime"] = undefined /*out*/;
             inputs["creatorRequestId"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["modificationTime"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["ruleCount"] = undefined /*out*/;
@@ -87,7 +112,6 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
             inputs["creationTime"] = undefined /*out*/;
             inputs["creatorRequestId"] = undefined /*out*/;
             inputs["firewallRules"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["modificationTime"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
@@ -109,15 +133,15 @@ export class FirewallRuleGroup extends pulumi.CustomResource {
  */
 export interface FirewallRuleGroupArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+     * FirewallRules
      */
     firewallRules?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupFirewallRuleArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+     * FirewallRuleGroupName
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+     * Tags
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.FirewallRuleGroupTagArgs>[]>;
 }

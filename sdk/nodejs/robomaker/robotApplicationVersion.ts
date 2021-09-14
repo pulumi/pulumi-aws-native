@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class RobotApplicationVersion extends pulumi.CustomResource {
     /**
@@ -34,14 +34,11 @@ export class RobotApplicationVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === RobotApplicationVersion.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-     */
     public readonly application!: pulumi.Output<string>;
     public /*out*/ readonly applicationVersion!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+     * The revision ID of robot application.
      */
     public readonly currentRevisionId!: pulumi.Output<string | undefined>;
 
@@ -80,12 +77,9 @@ export class RobotApplicationVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a RobotApplicationVersion resource.
  */
 export interface RobotApplicationVersionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-application
-     */
     application: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robotapplicationversion.html#cfn-robomaker-robotapplicationversion-currentrevisionid
+     * The revision ID of robot application.
      */
     currentRevisionId?: pulumi.Input<string>;
 }

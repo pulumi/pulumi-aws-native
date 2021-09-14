@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html
+ * The resource schema to create a CodeArtifact repository.
  */
 export class Repository extends pulumi.CustomResource {
     /**
@@ -35,32 +35,44 @@ export class Repository extends pulumi.CustomResource {
         return obj['__pulumiType'] === Repository.__pulumiType;
     }
 
+    /**
+     * The ARN of the repository.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+     * A text description of the repository.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly domainName!: pulumi.Output<string>;
-    public readonly domainOwner!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+     * The name of the domain that contains the repository.
+     */
+    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    /**
+     * The 12-digit account ID of the AWS account that owns the domain.
+     */
+    public /*out*/ readonly domainOwner!: pulumi.Output<string>;
+    /**
+     * A list of external connections associated with the repository.
      */
     public readonly externalConnections!: pulumi.Output<string[] | undefined>;
+    /**
+     * The name of the repository. This is used for GetAtt
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+     * The access control resource policy on the provided repository.
      */
-    public readonly permissionsPolicyDocument!: pulumi.Output<any | string | undefined>;
+    public readonly permissionsPolicyDocument!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+     * The name of the repository.
      */
     public readonly repositoryName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.codeartifact.RepositoryTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+     * A list of upstream repositories associated with the repository.
      */
     public readonly upstreams!: pulumi.Output<string[] | undefined>;
 
@@ -75,21 +87,18 @@ export class Repository extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
             inputs["description"] = args ? args.description : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["domainOwner"] = args ? args.domainOwner : undefined;
             inputs["externalConnections"] = args ? args.externalConnections : undefined;
             inputs["permissionsPolicyDocument"] = args ? args.permissionsPolicyDocument : undefined;
             inputs["repositoryName"] = args ? args.repositoryName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["upstreams"] = args ? args.upstreams : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["domainName"] = undefined /*out*/;
+            inputs["domainOwner"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
@@ -115,35 +124,27 @@ export class Repository extends pulumi.CustomResource {
  */
 export interface RepositoryArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-description
+     * A text description of the repository.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainname
-     */
-    domainName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-domainowner
-     */
-    domainOwner?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-externalconnections
+     * A list of external connections associated with the repository.
      */
     externalConnections?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-permissionspolicydocument
+     * The access control resource policy on the provided repository.
      */
-    permissionsPolicyDocument?: pulumi.Input<any | string>;
+    permissionsPolicyDocument?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-repositoryname
+     * The name of the repository.
      */
     repositoryName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codeartifact.RepositoryTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeartifact-repository.html#cfn-codeartifact-repository-upstreams
+     * A list of upstream repositories associated with the repository.
      */
     upstreams?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html
+ * Resource Type definition for AWS::SageMaker::Project
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -35,26 +35,30 @@ export class Project extends pulumi.CustomResource {
         return obj['__pulumiType'] === Project.__pulumiType;
     }
 
+    /**
+     * The time at which the project was created.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public /*out*/ readonly projectArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-     */
     public readonly projectDescription!: pulumi.Output<string | undefined>;
     public /*out*/ readonly projectId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-     */
     public readonly projectName!: pulumi.Output<string>;
+    /**
+     * The status of a project.
+     */
     public /*out*/ readonly projectStatus!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+     * Provisioned ServiceCatalog  Details
      */
-    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<any | string>;
+    public /*out*/ readonly serviceCatalogProvisionedProductDetails!: pulumi.Output<any>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+     * Input ServiceCatalog Provisioning Details
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly serviceCatalogProvisioningDetails!: pulumi.Output<any>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.sagemaker.ProjectTag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -81,6 +85,7 @@ export class Project extends pulumi.CustomResource {
             inputs["projectArn"] = undefined /*out*/;
             inputs["projectId"] = undefined /*out*/;
             inputs["projectStatus"] = undefined /*out*/;
+            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
         } else {
             inputs["creationTime"] = undefined /*out*/;
             inputs["projectArn"] = undefined /*out*/;
@@ -88,6 +93,7 @@ export class Project extends pulumi.CustomResource {
             inputs["projectId"] = undefined /*out*/;
             inputs["projectName"] = undefined /*out*/;
             inputs["projectStatus"] = undefined /*out*/;
+            inputs["serviceCatalogProvisionedProductDetails"] = undefined /*out*/;
             inputs["serviceCatalogProvisioningDetails"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -102,20 +108,14 @@ export class Project extends pulumi.CustomResource {
  * The set of arguments for constructing a Project resource.
  */
 export interface ProjectArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectdescription
-     */
     projectDescription?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-projectname
-     */
     projectName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-servicecatalogprovisioningdetails
+     * Input ServiceCatalog Provisioning Details
      */
-    serviceCatalogProvisioningDetails: pulumi.Input<any | string>;
+    serviceCatalogProvisioningDetails: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html#cfn-sagemaker-project-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.ProjectTagArgs>[]>;
 }

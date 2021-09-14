@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
+ * Describes a route for a local gateway route table.
  */
 export class LocalGatewayRoute extends pulumi.CustomResource {
     /**
@@ -35,18 +35,24 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+     * The CIDR block used for destination matches.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+     * The ID of the local gateway route table.
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+     * The ID of the virtual interface group.
      */
     public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    /**
+     * The state of the route.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * The route type.
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
@@ -93,15 +99,15 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
  */
 export interface LocalGatewayRouteArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+     * The CIDR block used for destination matches.
      */
     destinationCidrBlock: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+     * The ID of the local gateway route table.
      */
     localGatewayRouteTableId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+     * The ID of the virtual interface group.
      */
     localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
 }

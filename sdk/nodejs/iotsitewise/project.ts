@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html
+ * Resource schema for AWS::IoTSiteWise::Project
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -36,23 +36,29 @@ export class Project extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+     * The ID of the portal in which to create the project.
      */
     public readonly portalId!: pulumi.Output<string>;
+    /**
+     * The ARN of the project.
+     */
     public /*out*/ readonly projectArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+     * A description for the project.
      */
     public readonly projectDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the project.
+     */
     public /*out*/ readonly projectId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+     * A friendly name for the project.
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+     * A list of key-value pairs that contain metadata for the project.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotsitewise.ProjectTag[] | undefined>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -97,19 +103,19 @@ export class Project extends pulumi.CustomResource {
  */
 export interface ProjectArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-portalid
+     * The ID of the portal in which to create the project.
      */
     portalId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectdescription
+     * A description for the project.
      */
     projectDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-projectname
+     * A friendly name for the project.
      */
     projectName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-project.html#cfn-iotsitewise-project-tags
+     * A list of key-value pairs that contain metadata for the project.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.ProjectTagArgs>[]>;
 }

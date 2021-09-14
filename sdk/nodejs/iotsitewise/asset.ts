@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html
+ * Resource schema for AWS::IoTSiteWise::Asset
  */
 export class Asset extends pulumi.CustomResource {
     /**
@@ -35,28 +35,28 @@ export class Asset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Asset.__pulumiType;
     }
 
-    public /*out*/ readonly assetArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
+     * The ARN of the asset
      */
+    public /*out*/ readonly assetArn!: pulumi.Output<string>;
     public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetAssetHierarchy[] | undefined>;
+    /**
+     * The ID of the asset
+     */
     public /*out*/ readonly assetId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+     * The ID of the asset model from which to create the asset.
      */
     public readonly assetModelId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
+     * A unique, friendly name for the asset.
      */
     public readonly assetName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-     */
     public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetAssetProperty[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+     * A list of key-value pairs that contain metadata for the asset.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotsitewise.AssetTag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -102,24 +102,18 @@ export class Asset extends pulumi.CustomResource {
  * The set of arguments for constructing a Asset resource.
  */
 export interface AssetArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assethierarchies
-     */
     assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetHierarchyArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetmodelid
+     * The ID of the asset model from which to create the asset.
      */
     assetModelId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetname
+     * A unique, friendly name for the asset.
      */
     assetName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-assetproperties
-     */
     assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetAssetPropertyArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-asset.html#cfn-iotsitewise-asset-tags
+     * A list of key-value pairs that contain metadata for the asset.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetTagArgs>[]>;
 }

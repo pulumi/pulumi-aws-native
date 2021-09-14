@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html
+ * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
 export class OriginEndpoint extends pulumi.CustomResource {
     /**
@@ -35,62 +35,49 @@ export class OriginEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginEndpoint.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
+     * The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+     * The ID of the Channel the OriginEndpoint is associated with.
      */
     public readonly channelId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-     */
     public readonly cmafPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointCmafPackage | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-     */
     public readonly dashPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointDashPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+     * A short text description of the OriginEndpoint.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-     */
     public readonly hlsPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointHlsPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-     */
-    public readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+     * A short string appended to the end of the OriginEndpoint URL.
      */
     public readonly manifestName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-     */
     public readonly mssPackage!: pulumi.Output<outputs.mediapackage.OriginEndpointMssPackage | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+     * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
     public readonly origination!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+     * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */
     public readonly startoverWindowSeconds!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+     * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mediapackage.OriginEndpointTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+     * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */
     public readonly timeDelaySeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The URL of the packaged OriginEndpoint for consumption.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+     * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
      */
     public readonly whitelist!: pulumi.Output<string[] | undefined>;
 
@@ -108,16 +95,12 @@ export class OriginEndpoint extends pulumi.CustomResource {
             if ((!args || args.channelId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'channelId'");
             }
-            if ((!args || args.id === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             inputs["authorization"] = args ? args.authorization : undefined;
             inputs["channelId"] = args ? args.channelId : undefined;
             inputs["cmafPackage"] = args ? args.cmafPackage : undefined;
             inputs["dashPackage"] = args ? args.dashPackage : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["hlsPackage"] = args ? args.hlsPackage : undefined;
-            inputs["id"] = args ? args.id : undefined;
             inputs["manifestName"] = args ? args.manifestName : undefined;
             inputs["mssPackage"] = args ? args.mssPackage : undefined;
             inputs["origination"] = args ? args.origination : undefined;
@@ -135,7 +118,6 @@ export class OriginEndpoint extends pulumi.CustomResource {
             inputs["dashPackage"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
             inputs["hlsPackage"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["manifestName"] = undefined /*out*/;
             inputs["mssPackage"] = undefined /*out*/;
             inputs["origination"] = undefined /*out*/;
@@ -156,60 +138,41 @@ export class OriginEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginEndpoint resource.
  */
 export interface OriginEndpointArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-authorization
-     */
     authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-channelid
+     * The ID of the Channel the OriginEndpoint is associated with.
      */
     channelId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-cmafpackage
-     */
     cmafPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointCmafPackageArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-dashpackage
-     */
     dashPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointDashPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-description
+     * A short text description of the OriginEndpoint.
      */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-hlspackage
-     */
     hlsPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointHlsPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-id
-     */
-    id: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-manifestname
+     * A short string appended to the end of the OriginEndpoint URL.
      */
     manifestName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-msspackage
-     */
     mssPackage?: pulumi.Input<inputs.mediapackage.OriginEndpointMssPackageArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-origination
+     * Control whether origination of video is allowed for this OriginEndpoint. If set to ALLOW, the OriginEndpoint may by requested, pursuant to any other form of access control. If set to DENY, the OriginEndpoint may not be requested. This can be helpful for Live to VOD harvesting, or for temporarily disabling origination
      */
     origination?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-startoverwindowseconds
+     * Maximum duration (seconds) of content to retain for startover playback. If not specified, startover playback will be disabled for the OriginEndpoint.
      */
     startoverWindowSeconds?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-tags
+     * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.OriginEndpointTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-timedelayseconds
+     * Amount of delay (seconds) to enforce on the playback of live content. If not specified, there will be no time delay in effect for the OriginEndpoint.
      */
     timeDelaySeconds?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-originendpoint.html#cfn-mediapackage-originendpoint-whitelist
+     * A list of source IP CIDR blocks that will be allowed to access the OriginEndpoint.
      */
     whitelist?: pulumi.Input<pulumi.Input<string>[]>;
 }

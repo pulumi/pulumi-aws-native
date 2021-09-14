@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+ * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
  */
 export class SafetyRule extends pulumi.CustomResource {
     /**
@@ -35,27 +35,21 @@ export class SafetyRule extends pulumi.CustomResource {
         return obj['__pulumiType'] === SafetyRule.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-     */
     public readonly assertionRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleAssertionRule | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
+     * The Amazon Resource Name (ARN) of the control panel.
      */
-    public readonly controlPanelArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-     */
+    public readonly controlPanelArn!: pulumi.Output<string | undefined>;
     public readonly gatingRule!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleGatingRule | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
+    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
+     * The Amazon Resource Name (ARN) of the safety rule.
      */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-     */
-    public readonly ruleConfig!: pulumi.Output<outputs.route53recoverycontrol.SafetyRuleRuleConfig>;
     public /*out*/ readonly safetyRuleArn!: pulumi.Output<string>;
+    /**
+     * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+     */
     public /*out*/ readonly status!: pulumi.Output<string>;
 
     /**
@@ -65,19 +59,10 @@ export class SafetyRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SafetyRuleArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SafetyRuleArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlPanelArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'controlPanelArn'");
-            }
-            if ((!args || args.name === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
-            if ((!args || args.ruleConfig === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ruleConfig'");
-            }
             inputs["assertionRule"] = args ? args.assertionRule : undefined;
             inputs["controlPanelArn"] = args ? args.controlPanelArn : undefined;
             inputs["gatingRule"] = args ? args.gatingRule : undefined;
@@ -105,24 +90,12 @@ export class SafetyRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SafetyRule resource.
  */
 export interface SafetyRuleArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-     */
     assertionRule?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleAssertionRuleArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
+     * The Amazon Resource Name (ARN) of the control panel.
      */
-    controlPanelArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-     */
+    controlPanelArn?: pulumi.Input<string>;
     gatingRule?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleGatingRuleArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-     */
-    name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-     */
-    ruleConfig: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfigArgs>;
+    name?: pulumi.Input<string>;
+    ruleConfig?: pulumi.Input<inputs.route53recoverycontrol.SafetyRuleRuleConfigArgs>;
 }

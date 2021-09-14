@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+ * The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
  */
 export class Session extends pulumi.CustomResource {
     /**
@@ -34,14 +34,20 @@ export class Session extends pulumi.CustomResource {
         return obj['__pulumiType'] === Session.__pulumiType;
     }
 
+    /**
+     * AWS account ID of customer
+     */
     public /*out*/ readonly awsAccountId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+     * A enumeration value that specifies how frequently finding updates are published.
      */
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
+    /**
+     * Service role used by Macie
+     */
     public /*out*/ readonly serviceRole!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+     * A enumeration value that specifies the status of the Macie Session.
      */
     public readonly status!: pulumi.Output<string | undefined>;
 
@@ -78,11 +84,11 @@ export class Session extends pulumi.CustomResource {
  */
 export interface SessionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+     * A enumeration value that specifies how frequently finding updates are published.
      */
     findingPublishingFrequency?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+     * A enumeration value that specifies the status of the Macie Session.
      */
     status?: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+ * Definition of the AWS::QuickSight::Template Resource Type.
  */
 export class Template extends pulumi.CustomResource {
     /**
@@ -35,35 +35,39 @@ export class Template extends pulumi.CustomResource {
         return obj['__pulumiType'] === Template.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
+     * <p>The Amazon Resource Name (ARN) of the template.</p>
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>Time when this was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    /**
+     * <p>Time when this was last updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+     * <p>A display name for the template.</p>
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+     * <p>A list of resource permissions to be set on the template. </p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-     */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateTemplateSourceEntity | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-     */
+    public readonly tags!: pulumi.Output<outputs.quicksight.TemplateTag[] | undefined>;
     public readonly templateId!: pulumi.Output<string>;
+    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateTemplateVersion>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+     * <p>A description of the current template version being created. This API operation creates the
+     * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+     * 			version is created. Each version of the template maintains a description of the version
+     * 			in the <code>VersionDescription</code> field.</p>
      */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
@@ -94,6 +98,7 @@ export class Template extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["awsAccountId"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class Template extends pulumi.CustomResource {
             inputs["sourceEntity"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["templateId"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
             inputs["versionDescription"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -117,32 +123,26 @@ export class Template extends pulumi.CustomResource {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-     */
     awsAccountId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+     * <p>A display name for the template.</p>
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+     * <p>A list of resource permissions to be set on the template. </p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-     */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateTemplateSourceEntityArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateTagArgs>[]>;
     templateId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+     * <p>A description of the current template version being created. This API operation creates the
+     * 			first version of the template. Every time <code>UpdateTemplate</code> is called, a new
+     * 			version is created. Each version of the template maintains a description of the version
+     * 			in the <code>VersionDescription</code> field.</p>
      */
     versionDescription?: pulumi.Input<string>;
 }

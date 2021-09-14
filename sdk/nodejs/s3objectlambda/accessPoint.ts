@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+ * The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
  */
 export class AccessPoint extends pulumi.CustomResource {
     /**
@@ -36,15 +36,23 @@ export class AccessPoint extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The date and time when the Object lambda Access Point was created.
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+     * The name you want to assign to this Object lambda Access Point.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+     * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
     public readonly objectLambdaConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointObjectLambdaConfiguration | undefined>;
+    public /*out*/ readonly policyStatus!: pulumi.Output<any>;
+    /**
+     * The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+     */
+    public /*out*/ readonly publicAccessBlockConfiguration!: pulumi.Output<outputs.s3objectlambda.AccessPointPublicAccessBlockConfiguration>;
 
     /**
      * Create a AccessPoint resource with the given unique name, arguments, and options.
@@ -64,11 +72,15 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["objectLambdaConfiguration"] = args ? args.objectLambdaConfiguration : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
+            inputs["policyStatus"] = undefined /*out*/;
+            inputs["publicAccessBlockConfiguration"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["creationDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["objectLambdaConfiguration"] = undefined /*out*/;
+            inputs["policyStatus"] = undefined /*out*/;
+            inputs["publicAccessBlockConfiguration"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -82,11 +94,11 @@ export class AccessPoint extends pulumi.CustomResource {
  */
 export interface AccessPointArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+     * The name you want to assign to this Object lambda Access Point.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+     * The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
      */
     objectLambdaConfiguration?: pulumi.Input<inputs.s3objectlambda.AccessPointObjectLambdaConfigurationArgs>;
 }

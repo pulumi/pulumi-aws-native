@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+ * The AWS::EC2::TransitGatewayConnect type
  */
 export class TransitGatewayConnect extends pulumi.CustomResource {
     /**
@@ -35,20 +35,32 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
         return obj['__pulumiType'] === TransitGatewayConnect.__pulumiType;
     }
 
+    /**
+     * The creation time.
+     */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+     * The Connect attachment options.
      */
     public readonly options!: pulumi.Output<outputs.ec2.TransitGatewayConnectTransitGatewayConnectOptions>;
+    /**
+     * The state of the attachment.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+     * The tags for the attachment.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayConnectTag[] | undefined>;
+    /**
+     * The ID of the Connect attachment.
+     */
     public /*out*/ readonly transitGatewayAttachmentId!: pulumi.Output<string>;
+    /**
+     * The ID of the transit gateway.
+     */
     public /*out*/ readonly transitGatewayId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+     * The ID of the attachment from which the Connect attachment was created.
      */
     public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string>;
 
@@ -97,15 +109,15 @@ export class TransitGatewayConnect extends pulumi.CustomResource {
  */
 export interface TransitGatewayConnectArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+     * The Connect attachment options.
      */
     options: pulumi.Input<inputs.ec2.TransitGatewayConnectTransitGatewayConnectOptionsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+     * The tags for the attachment.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.TransitGatewayConnectTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+     * The ID of the attachment from which the Connect attachment was created.
      */
     transportTransitGatewayAttachmentId: pulumi.Input<string>;
 }

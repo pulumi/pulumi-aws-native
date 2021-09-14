@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+ * Resource schema for AWS::DataSync::Agent.
  */
 export class Agent extends pulumi.CustomResource {
     /**
@@ -36,29 +36,35 @@ export class Agent extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+     * Activation key of the Agent.
      */
     public readonly activationKey!: pulumi.Output<string>;
+    /**
+     * The DataSync Agent ARN.
+     */
     public /*out*/ readonly agentArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+     * The name configured for the agent. Text reference used to identify the agent in the console.
      */
     public readonly agentName!: pulumi.Output<string | undefined>;
+    /**
+     * The service endpoints that the agent will connect to.
+     */
     public /*out*/ readonly endpointType!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+     * The ARNs of the security group used to protect your data transfer task subnets.
      */
     public readonly securityGroupArns!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+     * The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
     public readonly subnetArns!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.AgentTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+     * The ID of the VPC endpoint that the agent has access to.
      */
     public readonly vpcEndpointId!: pulumi.Output<string | undefined>;
 
@@ -106,27 +112,27 @@ export class Agent extends pulumi.CustomResource {
  */
 export interface AgentArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+     * Activation key of the Agent.
      */
     activationKey: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+     * The name configured for the agent. Text reference used to identify the agent in the console.
      */
     agentName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+     * The ARNs of the security group used to protect your data transfer task subnets.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+     * The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
     subnetArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.AgentTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+     * The ID of the VPC endpoint that the agent has access to.
      */
     vpcEndpointId?: pulumi.Input<string>;
 }

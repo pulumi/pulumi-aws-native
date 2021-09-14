@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html
+ * Resource Type definition for AWS::IAM::OIDCProvider
  */
 export class OIDCProvider extends pulumi.CustomResource {
     /**
@@ -35,22 +35,13 @@ export class OIDCProvider extends pulumi.CustomResource {
         return obj['__pulumiType'] === OIDCProvider.__pulumiType;
     }
 
+    /**
+     * Amazon Resource Name (ARN) of the OIDC provider
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-     */
     public readonly clientIdList!: pulumi.Output<string[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-     */
+    public readonly tags!: pulumi.Output<outputs.iam.OIDCProviderTag[] | undefined>;
     public readonly thumbprintList!: pulumi.Output<string[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-     */
     public readonly url!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,20 +81,8 @@ export class OIDCProvider extends pulumi.CustomResource {
  * The set of arguments for constructing a OIDCProvider resource.
  */
 export interface OIDCProviderArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-clientidlist
-     */
     clientIdList?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-thumbprintlist
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.iam.OIDCProviderTagArgs>[]>;
     thumbprintList: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-oidcprovider.html#cfn-iam-oidcprovider-url
-     */
     url?: pulumi.Input<string>;
 }

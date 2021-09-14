@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
+ * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
 export class CostCategory extends pulumi.CustomResource {
     /**
@@ -34,26 +34,23 @@ export class CostCategory extends pulumi.CustomResource {
         return obj['__pulumiType'] === CostCategory.__pulumiType;
     }
 
+    /**
+     * Cost category ARN
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+     * The default value for the cost category
      */
     public readonly defaultValue!: pulumi.Output<string | undefined>;
     public /*out*/ readonly effectiveStart!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-     */
     public readonly ruleVersion!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+     * JSON array format of Expression in Billing and Cost Management API
      */
     public readonly rules!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+     * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
     public readonly splitChargeRules!: pulumi.Output<string | undefined>;
 
@@ -105,23 +102,17 @@ export class CostCategory extends pulumi.CustomResource {
  */
 export interface CostCategoryArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+     * The default value for the cost category
      */
     defaultValue?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-     */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-     */
     ruleVersion: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+     * JSON array format of Expression in Billing and Cost Management API
      */
     rules: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+     * Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
      */
     splitChargeRules?: pulumi.Input<string>;
 }

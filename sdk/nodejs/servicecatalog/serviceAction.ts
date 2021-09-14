@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html
+ * Resource Schema for AWS::ServiceCatalog::ServiceAction
  */
 export class ServiceAction extends pulumi.CustomResource {
     /**
@@ -35,26 +35,10 @@ export class ServiceAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceAction.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-     */
     public readonly acceptLanguage!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-     */
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-     */
     public readonly definitionType!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-     */
     public readonly name!: pulumi.Output<string>;
 
     /**
@@ -82,13 +66,11 @@ export class ServiceAction extends pulumi.CustomResource {
             inputs["definitionType"] = args ? args.definitionType : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["acceptLanguage"] = undefined /*out*/;
             inputs["definition"] = undefined /*out*/;
             inputs["definitionType"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -102,24 +84,9 @@ export class ServiceAction extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceAction resource.
  */
 export interface ServiceActionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-acceptlanguage
-     */
     acceptLanguage?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definition
-     */
     definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-definitiontype
-     */
     definitionType: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceaction.html#cfn-servicecatalog-serviceaction-name
-     */
     name: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html
+ * Resource schema for AWS::ImageBuilder::DistributionConfiguration
  */
 export class DistributionConfiguration extends pulumi.CustomResource {
     /**
@@ -35,20 +35,26 @@ export class DistributionConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === DistributionConfiguration.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the distribution configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+     * The description of the distribution configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+     * The distributions of the distribution configuration.
      */
     public readonly distributions!: pulumi.Output<outputs.imagebuilder.DistributionConfigurationDistribution[]>;
+    /**
+     * The name of the distribution configuration.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
+     * The tags associated with the component.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
 
     /**
      * Create a DistributionConfiguration resource with the given unique name, arguments, and options.
@@ -91,19 +97,19 @@ export class DistributionConfiguration extends pulumi.CustomResource {
  */
 export interface DistributionConfigurationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-description
+     * The description of the distribution configuration.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-distributions
+     * The distributions of the distribution configuration.
      */
     distributions: pulumi.Input<pulumi.Input<inputs.imagebuilder.DistributionConfigurationDistributionArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-name
+     * The name of the distribution configuration.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-distributionconfiguration.html#cfn-imagebuilder-distributionconfiguration-tags
+     * The tags associated with the component.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: any;
 }

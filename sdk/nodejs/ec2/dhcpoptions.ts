@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+ * Resource Type definition for AWS::EC2::DHCPOptions
  */
 export class DHCPOptions extends pulumi.CustomResource {
     /**
@@ -37,29 +37,29 @@ export class DHCPOptions extends pulumi.CustomResource {
 
     public /*out*/ readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+     * This value is used to complete unqualified DNS hostnames.
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+     * The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
      */
     public readonly domainNameServers!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+     * The IPv4 addresses of up to four NetBIOS name servers.
      */
     public readonly netbiosNameServers!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+     * The NetBIOS node type (1, 2, 4, or 8).
      */
     public readonly netbiosNodeType!: pulumi.Output<number | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+     * The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
      */
     public readonly ntpServers!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+     * Any tags assigned to the DHCP options set.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.DHCPOptionsTag[] | undefined>;
 
     /**
      * Create a DHCPOptions resource with the given unique name, arguments, and options.
@@ -100,27 +100,27 @@ export class DHCPOptions extends pulumi.CustomResource {
  */
 export interface DHCPOptionsArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+     * This value is used to complete unqualified DNS hostnames.
      */
     domainName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+     * The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
      */
     domainNameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+     * The IPv4 addresses of up to four NetBIOS name servers.
      */
     netbiosNameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+     * The NetBIOS node type (1, 2, 4, or 8).
      */
     netbiosNodeType?: pulumi.Input<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+     * The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
      */
     ntpServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+     * Any tags assigned to the DHCP options set.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.DHCPOptionsTagArgs>[]>;
 }

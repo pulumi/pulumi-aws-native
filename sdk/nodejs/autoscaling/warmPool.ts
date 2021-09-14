@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
+ * Resource schema for AWS::AutoScaling::WarmPool.
  */
 export class WarmPool extends pulumi.CustomResource {
     /**
@@ -34,21 +34,9 @@ export class WarmPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === WarmPool.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-     */
     public readonly autoScalingGroupName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-     */
     public readonly maxGroupPreparedCapacity!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-     */
     public readonly minSize!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-     */
     public readonly poolState!: pulumi.Output<string | undefined>;
 
     /**
@@ -86,20 +74,8 @@ export class WarmPool extends pulumi.CustomResource {
  * The set of arguments for constructing a WarmPool resource.
  */
 export interface WarmPoolArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-     */
     autoScalingGroupName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-     */
     maxGroupPreparedCapacity?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-     */
     minSize?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-     */
     poolState?: pulumi.Input<string>;
 }

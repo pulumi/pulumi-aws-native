@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
+ * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
  */
 export class DeliveryStream extends pulumi.CustomResource {
     /**
@@ -36,50 +36,17 @@ export class DeliveryStream extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
-     */
     public readonly deliveryStreamEncryptionConfigurationInput!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInput | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-     */
     public readonly deliveryStreamName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-     */
     public readonly deliveryStreamType!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-     */
     public readonly elasticsearchDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-     */
     public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-     */
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-     */
     public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-     */
     public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-     */
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-     */
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamTag[] | undefined>;
 
     /**
      * Create a DeliveryStream resource with the given unique name, arguments, and options.
@@ -129,48 +96,15 @@ export class DeliveryStream extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliveryStream resource.
  */
 export interface DeliveryStreamArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
-     */
     deliveryStreamEncryptionConfigurationInput?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-     */
     deliveryStreamName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-     */
     deliveryStreamType?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-     */
     elasticsearchDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-     */
     extendedS3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-     */
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-     */
     kinesisStreamSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-     */
     redshiftDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-     */
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-     */
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.kinesisfirehose.DeliveryStreamTagArgs>[]>;
 }

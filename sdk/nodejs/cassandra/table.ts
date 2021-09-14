@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html
+ * Resource schema for AWS::Cassandra::Table
  */
 export class Table extends pulumi.CustomResource {
     /**
@@ -35,42 +35,36 @@ export class Table extends pulumi.CustomResource {
         return obj['__pulumiType'] === Table.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-     */
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+     * Clustering key columns of the table
      */
     public readonly clusteringKeyColumns!: pulumi.Output<outputs.cassandra.TableClusteringKeyColumn[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-     */
     public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+     * Name for Cassandra keyspace
      */
     public readonly keyspaceName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+     * Partition key columns of the table
      */
     public readonly partitionKeyColumns!: pulumi.Output<outputs.cassandra.TableColumn[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+     * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
      */
     public readonly pointInTimeRecoveryEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+     * Non-key columns of the table
      */
     public readonly regularColumns!: pulumi.Output<outputs.cassandra.TableColumn[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+     * Name for Cassandra table
      */
     public readonly tableName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+     * An array of key-value pairs to apply to this resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.cassandra.TableTag[] | undefined>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -120,40 +114,34 @@ export class Table extends pulumi.CustomResource {
  * The set of arguments for constructing a Table resource.
  */
 export interface TableArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-billingmode
-     */
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-clusteringkeycolumns
+     * Clustering key columns of the table
      */
     clusteringKeyColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableClusteringKeyColumnArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-encryptionspecification
-     */
     encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-keyspacename
+     * Name for Cassandra keyspace
      */
     keyspaceName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-partitionkeycolumns
+     * Partition key columns of the table
      */
     partitionKeyColumns: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-pointintimerecoveryenabled
+     * Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
      */
     pointInTimeRecoveryEnabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-regularcolumns
+     * Non-key columns of the table
      */
     regularColumns?: pulumi.Input<pulumi.Input<inputs.cassandra.TableColumnArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tablename
+     * Name for Cassandra table
      */
     tableName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html#cfn-cassandra-table-tags
+     * An array of key-value pairs to apply to this resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.cassandra.TableTagArgs>[]>;
 }

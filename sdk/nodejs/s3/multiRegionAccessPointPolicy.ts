@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+ * The policy to be attached to a Multi Region Access Point
  */
 export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     /**
@@ -35,13 +35,17 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+     * The name of the Multi Region Access Point to apply policy
      */
     public readonly mrapName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+     * Policy document to apply to a Multi Region Access Point
      */
-    public readonly policy!: pulumi.Output<any | string>;
+    public readonly policy!: pulumi.Output<any>;
+    /**
+     * The Policy Status associated with this Multi Region Access Point
+     */
+    public /*out*/ readonly policyStatus!: pulumi.Output<any>;
 
     /**
      * Create a MultiRegionAccessPointPolicy resource with the given unique name, arguments, and options.
@@ -62,9 +66,11 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
             }
             inputs["mrapName"] = args ? args.mrapName : undefined;
             inputs["policy"] = args ? args.policy : undefined;
+            inputs["policyStatus"] = undefined /*out*/;
         } else {
             inputs["mrapName"] = undefined /*out*/;
             inputs["policy"] = undefined /*out*/;
+            inputs["policyStatus"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -78,11 +84,11 @@ export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {
  */
 export interface MultiRegionAccessPointPolicyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+     * The name of the Multi Region Access Point to apply policy
      */
     mrapName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+     * Policy document to apply to a Multi Region Access Point
      */
-    policy: pulumi.Input<any | string>;
+    policy: any;
 }

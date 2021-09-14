@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
+ * Resource Type definition for AWS::ApiGateway::Account
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -35,10 +35,9 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+     * The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
      */
     public readonly cloudWatchRoleArn!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -52,10 +51,8 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             inputs["cloudWatchRoleArn"] = args ? args.cloudWatchRoleArn : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["cloudWatchRoleArn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -69,7 +66,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
+     * The Amazon Resource Name (ARN) of an IAM role that has write access to CloudWatch Logs in your account.
      */
     cloudWatchRoleArn?: pulumi.Input<string>;
 }

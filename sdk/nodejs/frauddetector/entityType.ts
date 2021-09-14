@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html
+ * An entity type for fraud detector.
  */
 export class EntityType extends pulumi.CustomResource {
     /**
@@ -35,21 +35,30 @@ export class EntityType extends pulumi.CustomResource {
         return obj['__pulumiType'] === EntityType.__pulumiType;
     }
 
+    /**
+     * The entity type ARN.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The timestamp when the entity type was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-description
+     * The entity type description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the entity type was last updated.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-name
+     * The name of the entity type.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-tags
+     * Tags associated with this entity type.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.frauddetector.EntityTypeTag[] | undefined>;
 
     /**
      * Create a EntityType resource with the given unique name, arguments, and options.
@@ -91,15 +100,15 @@ export class EntityType extends pulumi.CustomResource {
  */
 export interface EntityTypeArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-description
+     * The entity type description.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-name
+     * The name of the entity type.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-entitytype.html#cfn-frauddetector-entitytype-tags
+     * Tags associated with this entity type.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.EntityTypeTagArgs>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html
+ * A signing profile is a signing template that can be used to carry out a pre-defined signing job.
  */
 export class SigningProfile extends pulumi.CustomResource {
     /**
@@ -35,22 +35,34 @@ export class SigningProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === SigningProfile.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the specified signing profile.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+     * The ID of the target signing platform.
      */
     public readonly platformId!: pulumi.Output<string>;
+    /**
+     * A name for the signing profile. AWS CloudFormation generates a unique physical ID and uses that ID for the signing profile name. 
+     */
     public /*out*/ readonly profileName!: pulumi.Output<string>;
+    /**
+     * A version for the signing profile. AWS Signer generates a unique version for each profile of the same profile name.
+     */
     public /*out*/ readonly profileVersion!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the specified signing profile version.
+     */
     public /*out*/ readonly profileVersionArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+     * Signature validity period of the profile.
      */
     public readonly signatureValidityPeriod!: pulumi.Output<outputs.signer.SigningProfileSignatureValidityPeriod | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+     * A list of tags associated with the signing profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.signer.SigningProfileTag[] | undefined>;
 
     /**
      * Create a SigningProfile resource with the given unique name, arguments, and options.
@@ -94,15 +106,15 @@ export class SigningProfile extends pulumi.CustomResource {
  */
 export interface SigningProfileArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-platformid
+     * The ID of the target signing platform.
      */
     platformId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-signaturevalidityperiod
+     * Signature validity period of the profile.
      */
     signatureValidityPeriod?: pulumi.Input<inputs.signer.SigningProfileSignatureValidityPeriodArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-signer-signingprofile.html#cfn-signer-signingprofile-tags
+     * A list of tags associated with the signing profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.signer.SigningProfileTagArgs>[]>;
 }

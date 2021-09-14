@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html
+ * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**
@@ -35,13 +35,13 @@ export class BucketPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+     * The Amazon Resource Name (ARN) of the specified bucket.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+     * A policy document containing permissions to add to the specified bucket.
      */
-    public readonly policyDocument!: pulumi.Output<any | string>;
+    public readonly policyDocument!: pulumi.Output<any>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -78,11 +78,11 @@ export class BucketPolicy extends pulumi.CustomResource {
  */
 export interface BucketPolicyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-bucket
+     * The Amazon Resource Name (ARN) of the specified bucket.
      */
     bucket: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-bucketpolicy.html#cfn-s3outposts-bucketpolicy-policydocument
+     * A policy document containing permissions to add to the specified bucket.
      */
-    policyDocument: pulumi.Input<any | string>;
+    policyDocument: any;
 }

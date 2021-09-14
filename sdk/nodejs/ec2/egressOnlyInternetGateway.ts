@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
+ * Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
  */
 export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     /**
@@ -34,9 +34,8 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === EgressOnlyInternetGateway.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+     * The ID of the VPC for which to create the egress-only internet gateway.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -55,9 +54,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -72,7 +69,7 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  */
 export interface EgressOnlyInternetGatewayArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+     * The ID of the VPC for which to create the egress-only internet gateway.
      */
     vpcId: pulumi.Input<string>;
 }

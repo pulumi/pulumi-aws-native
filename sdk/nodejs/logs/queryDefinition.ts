@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+ * The resource schema for AWSLogs QueryDefinition
  */
 export class QueryDefinition extends pulumi.CustomResource {
     /**
@@ -35,16 +35,19 @@ export class QueryDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+     * Optionally define specific log groups as part of your query definition
      */
     public readonly logGroupNames!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+     * A name for the saved query definition
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Unique identifier of a query definition
+     */
     public /*out*/ readonly queryDefinitionId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+     * The query string to use for this definition
      */
     public readonly queryString!: pulumi.Output<string>;
 
@@ -87,15 +90,15 @@ export class QueryDefinition extends pulumi.CustomResource {
  */
 export interface QueryDefinitionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+     * Optionally define specific log groups as part of your query definition
      */
     logGroupNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+     * A name for the saved query definition
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+     * The query string to use for this definition
      */
     queryString: pulumi.Input<string>;
 }

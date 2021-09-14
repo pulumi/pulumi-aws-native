@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
+ * The resource schema for AWSLogs ResourcePolicy
  */
 export class ResourcePolicy extends pulumi.CustomResource {
     /**
@@ -35,11 +35,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+     * The policy document
      */
     public readonly policyDocument!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+     * A name for resource policy
      */
     public readonly policyName!: pulumi.Output<string>;
 
@@ -78,11 +78,11 @@ export class ResourcePolicy extends pulumi.CustomResource {
  */
 export interface ResourcePolicyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+     * The policy document
      */
     policyDocument: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+     * A name for resource policy
      */
     policyName: pulumi.Input<string>;
 }

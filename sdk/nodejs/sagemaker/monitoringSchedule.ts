@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+ * Resource Type definition for AWS::SageMaker::MonitoringSchedule
  */
 export class MonitoringSchedule extends pulumi.CustomResource {
     /**
@@ -35,37 +35,37 @@ export class MonitoringSchedule extends pulumi.CustomResource {
         return obj['__pulumiType'] === MonitoringSchedule.__pulumiType;
     }
 
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
+     * The time at which the schedule was created.
      */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public readonly endpointName!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+     * Contains the reason a monitoring job failed, if it failed.
      */
     public readonly failureReason!: pulumi.Output<string | undefined>;
+    /**
+     * A timestamp that indicates the last time the monitoring job was modified.
+     */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+     * Describes metadata on the last execution to run, if there was one.
      */
     public readonly lastMonitoringExecutionSummary!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringExecutionSummary | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the monitoring schedule.
+     */
     public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-     */
     public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleMonitoringScheduleConfig>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-     */
     public readonly monitoringScheduleName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+     * The status of a schedule job.
      */
     public readonly monitoringScheduleStatus!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.MonitoringScheduleTag[] | undefined>;
 
     /**
      * Create a MonitoringSchedule resource with the given unique name, arguments, and options.
@@ -117,32 +117,23 @@ export class MonitoringSchedule extends pulumi.CustomResource {
  * The set of arguments for constructing a MonitoringSchedule resource.
  */
 export interface MonitoringScheduleArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-     */
     endpointName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+     * Contains the reason a monitoring job failed, if it failed.
      */
     failureReason?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+     * Describes metadata on the last execution to run, if there was one.
      */
     lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-     */
     monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-     */
     monitoringScheduleName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+     * The status of a schedule job.
      */
     monitoringScheduleStatus?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.MonitoringScheduleTagArgs>[]>;
 }

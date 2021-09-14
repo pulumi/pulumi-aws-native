@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
+ * Resource schema for AWS::IoTFleetHub::Application
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -35,30 +35,54 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The ARN of the application.
+     */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
+    /**
+     * When the Application was created
+     */
     public /*out*/ readonly applicationCreationDate!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+     * Application Description, should be between 1 and 2048 characters.
      */
     public readonly applicationDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the application.
+     */
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
+    /**
+     * When the Application was last updated
+     */
     public /*out*/ readonly applicationLastUpdateDate!: pulumi.Output<number>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+     * Application Name, should be between 1 and 256 characters.
      */
     public readonly applicationName!: pulumi.Output<string>;
+    /**
+     * The current state of the application.
+     */
     public /*out*/ readonly applicationState!: pulumi.Output<string>;
+    /**
+     * The URL of the application.
+     */
     public /*out*/ readonly applicationUrl!: pulumi.Output<string>;
+    /**
+     * A message indicating why Create or Delete Application failed.
+     */
     public /*out*/ readonly errorMessage!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+     * The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The AWS SSO application generated client ID (used with AWS SSO APIs).
+     */
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+     * A list of key-value pairs that contain metadata for the application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotfleethub.ApplicationTag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -115,19 +139,19 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+     * Application Description, should be between 1 and 2048 characters.
      */
     applicationDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+     * Application Name, should be between 1 and 256 characters.
      */
     applicationName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+     * The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
      */
     roleArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+     * A list of key-value pairs that contain metadata for the application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotfleethub.ApplicationTagArgs>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html
+ * Resource Type definition for AWS::SageMaker::App
  */
 export class App extends pulumi.CustomResource {
     /**
@@ -35,29 +35,32 @@ export class App extends pulumi.CustomResource {
         return obj['__pulumiType'] === App.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the app.
+     */
     public /*out*/ readonly appArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+     * The name of the app.
      */
     public readonly appName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+     * The type of app.
      */
     public readonly appType!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+     * The domain ID.
      */
     public readonly domainId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      */
     public readonly resourceSpec!: pulumi.Output<outputs.sagemaker.AppResourceSpec | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+     * A list of tags to apply to the app.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.AppTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+     * The user profile name.
      */
     public readonly userProfileName!: pulumi.Output<string>;
 
@@ -112,27 +115,27 @@ export class App extends pulumi.CustomResource {
  */
 export interface AppArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-appname
+     * The name of the app.
      */
     appName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-apptype
+     * The type of app.
      */
     appType: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-domainid
+     * The domain ID.
      */
     domainId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-resourcespec
+     * The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpecArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-tags
+     * A list of tags to apply to the app.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.AppTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html#cfn-sagemaker-app-userprofilename
+     * The user profile name.
      */
     userProfileName: pulumi.Input<string>;
 }

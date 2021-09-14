@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class ServiceProfile extends pulumi.CustomResource {
     /**
@@ -35,38 +35,22 @@ export class ServiceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceProfile.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+     * Service profile Arn. Returned after successful create.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
     public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.ServiceProfileLoRaWANServiceProfile | undefined>;
-    public /*out*/ readonly loRaWANChannelMask!: pulumi.Output<string>;
-    public /*out*/ readonly loRaWANDevStatusReqFreq!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANDlBucketSize!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANDlRate!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANDlRatePolicy!: pulumi.Output<string>;
-    public /*out*/ readonly loRaWANDrMax!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANDrMin!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANHrAllowed!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANMinGwDiversity!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANNwkGeoLoc!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANPrAllowed!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANRaAllowed!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANReportDevStatusBattery!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANReportDevStatusMargin!: pulumi.Output<boolean>;
-    public /*out*/ readonly loRaWANTargetPer!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANUlBucketSize!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANUlRate!: pulumi.Output<number>;
-    public /*out*/ readonly loRaWANUlRatePolicy!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+     * Name of service profile
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+     * A list of key-value pairs that contain metadata for the service profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotwireless.ServiceProfileTag[] | undefined>;
 
     /**
      * Create a ServiceProfile resource with the given unique name, arguments, and options.
@@ -83,47 +67,9 @@ export class ServiceProfile extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
-            inputs["loRaWANChannelMask"] = undefined /*out*/;
-            inputs["loRaWANDevStatusReqFreq"] = undefined /*out*/;
-            inputs["loRaWANDlBucketSize"] = undefined /*out*/;
-            inputs["loRaWANDlRate"] = undefined /*out*/;
-            inputs["loRaWANDlRatePolicy"] = undefined /*out*/;
-            inputs["loRaWANDrMax"] = undefined /*out*/;
-            inputs["loRaWANDrMin"] = undefined /*out*/;
-            inputs["loRaWANHrAllowed"] = undefined /*out*/;
-            inputs["loRaWANMinGwDiversity"] = undefined /*out*/;
-            inputs["loRaWANNwkGeoLoc"] = undefined /*out*/;
-            inputs["loRaWANPrAllowed"] = undefined /*out*/;
-            inputs["loRaWANRaAllowed"] = undefined /*out*/;
-            inputs["loRaWANReportDevStatusBattery"] = undefined /*out*/;
-            inputs["loRaWANReportDevStatusMargin"] = undefined /*out*/;
-            inputs["loRaWANTargetPer"] = undefined /*out*/;
-            inputs["loRaWANUlBucketSize"] = undefined /*out*/;
-            inputs["loRaWANUlRate"] = undefined /*out*/;
-            inputs["loRaWANUlRatePolicy"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["loRaWAN"] = undefined /*out*/;
-            inputs["loRaWANChannelMask"] = undefined /*out*/;
-            inputs["loRaWANDevStatusReqFreq"] = undefined /*out*/;
-            inputs["loRaWANDlBucketSize"] = undefined /*out*/;
-            inputs["loRaWANDlRate"] = undefined /*out*/;
-            inputs["loRaWANDlRatePolicy"] = undefined /*out*/;
-            inputs["loRaWANDrMax"] = undefined /*out*/;
-            inputs["loRaWANDrMin"] = undefined /*out*/;
-            inputs["loRaWANHrAllowed"] = undefined /*out*/;
-            inputs["loRaWANMinGwDiversity"] = undefined /*out*/;
-            inputs["loRaWANNwkGeoLoc"] = undefined /*out*/;
-            inputs["loRaWANPrAllowed"] = undefined /*out*/;
-            inputs["loRaWANRaAllowed"] = undefined /*out*/;
-            inputs["loRaWANReportDevStatusBattery"] = undefined /*out*/;
-            inputs["loRaWANReportDevStatusMargin"] = undefined /*out*/;
-            inputs["loRaWANTargetPer"] = undefined /*out*/;
-            inputs["loRaWANUlBucketSize"] = undefined /*out*/;
-            inputs["loRaWANUlRate"] = undefined /*out*/;
-            inputs["loRaWANUlRatePolicy"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
@@ -139,15 +85,15 @@ export class ServiceProfile extends pulumi.CustomResource {
  */
 export interface ServiceProfileArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-lorawan
+     * LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
      */
     loRaWAN?: pulumi.Input<inputs.iotwireless.ServiceProfileLoRaWANServiceProfileArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-name
+     * Name of service profile
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-serviceprofile.html#cfn-iotwireless-serviceprofile-tags
+     * A list of key-value pairs that contain metadata for the service profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.ServiceProfileTagArgs>[]>;
 }

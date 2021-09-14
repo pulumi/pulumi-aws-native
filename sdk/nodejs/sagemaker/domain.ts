@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html
+ * Resource Type definition for AWS::SageMaker::Domain
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -36,40 +36,55 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
+     * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
     public readonly appNetworkAccessType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
+     * The mode of authentication that members use to access the domain.
      */
     public readonly authMode!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+     * The default user settings.
      */
     public readonly defaultUserSettings!: pulumi.Output<outputs.sagemaker.DomainUserSettings>;
+    /**
+     * The Amazon Resource Name (ARN) of the created domain.
+     */
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
+    /**
+     * The domain name.
+     */
     public /*out*/ readonly domainId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
+     * A name for the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * The ID of the Amazon Elastic File System (EFS) managed by this Domain.
+     */
     public /*out*/ readonly homeEfsFileSystemId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
+     * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The SSO managed application instance ID.
+     */
     public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
+     * The VPC subnets that Studio uses for communication.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags
+     * A list of tags to apply to the user profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.sagemaker.DomainTag[] | undefined>;
+    /**
+     * The URL to the created domain.
+     */
     public /*out*/ readonly url!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
+     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -139,35 +154,35 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-appnetworkaccesstype
+     * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
      */
     appNetworkAccessType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-authmode
+     * The mode of authentication that members use to access the domain.
      */
     authMode: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-defaultusersettings
+     * The default user settings.
      */
     defaultUserSettings: pulumi.Input<inputs.sagemaker.DomainUserSettingsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-domainname
+     * A name for the domain.
      */
     domainName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-kmskeyid
+     * SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-subnetids
+     * The VPC subnets that Studio uses for communication.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-tags
+     * A list of tags to apply to the user profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html#cfn-sagemaker-domain-vpcid
+     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
      */
     vpcId: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class SimulationApplication extends pulumi.CustomResource {
     /**
@@ -36,31 +36,31 @@ export class SimulationApplication extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly currentRevisionId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+     * The current revision id.
+     */
+    public readonly currentRevisionId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the simulation application.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+     * The rendering engine for the simulation application.
      */
     public readonly renderingEngine!: pulumi.Output<outputs.robomaker.SimulationApplicationRenderingEngine>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+     * The robot software suite (ROS distribution) used by the simulation application.
      */
     public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.SimulationApplicationRobotSoftwareSuite>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+     * The simulation software suite used by the simulation application.
      */
     public readonly simulationSoftwareSuite!: pulumi.Output<outputs.robomaker.SimulationApplicationSimulationSoftwareSuite>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+     * The sources of the simulation application.
      */
     public readonly sources!: pulumi.Output<outputs.robomaker.SimulationApplicationSourceConfig[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<outputs.robomaker.SimulationApplicationTags | undefined>;
 
     /**
      * Create a SimulationApplication resource with the given unique name, arguments, and options.
@@ -115,31 +115,28 @@ export class SimulationApplication extends pulumi.CustomResource {
  */
 export interface SimulationApplicationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-currentrevisionid
+     * The current revision id.
      */
     currentRevisionId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-name
+     * The name of the simulation application.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-renderingengine
+     * The rendering engine for the simulation application.
      */
     renderingEngine: pulumi.Input<inputs.robomaker.SimulationApplicationRenderingEngineArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-robotsoftwaresuite
+     * The robot software suite (ROS distribution) used by the simulation application.
      */
     robotSoftwareSuite: pulumi.Input<inputs.robomaker.SimulationApplicationRobotSoftwareSuiteArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-simulationsoftwaresuite
+     * The simulation software suite used by the simulation application.
      */
     simulationSoftwareSuite: pulumi.Input<inputs.robomaker.SimulationApplicationSimulationSoftwareSuiteArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-sources
+     * The sources of the simulation application.
      */
     sources: pulumi.Input<pulumi.Input<inputs.robomaker.SimulationApplicationSourceConfigArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html#cfn-robomaker-simulationapplication-tags
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<inputs.robomaker.SimulationApplicationTagsArgs>;
 }

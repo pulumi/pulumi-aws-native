@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
+ * Resource schema for AWS::ImageBuilder::ImageRecipe
  */
 export class ImageRecipe extends pulumi.CustomResource {
     /**
@@ -36,37 +36,43 @@ export class ImageRecipe extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+     * Specify additional settings and launch scripts for your build instances.
      */
     public readonly additionalInstanceConfiguration!: pulumi.Output<outputs.imagebuilder.ImageRecipeAdditionalInstanceConfiguration | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the image recipe.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+     * The block device mappings to apply when creating images from this recipe.
      */
     public readonly blockDeviceMappings!: pulumi.Output<outputs.imagebuilder.ImageRecipeInstanceBlockDeviceMapping[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+     * The components of the image recipe.
      */
     public readonly components!: pulumi.Output<outputs.imagebuilder.ImageRecipeComponentConfiguration[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+     * The description of the image recipe.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the image recipe.
+     */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+     * The parent image of the image recipe.
      */
     public readonly parentImage!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+     * The tags of the image recipe.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tags!: pulumi.Output<any | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+     * The version of the image recipe.
      */
     public readonly version!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+     * The working directory to be used during build and test workflows.
      */
     public readonly workingDirectory!: pulumi.Output<string | undefined>;
 
@@ -127,39 +133,39 @@ export class ImageRecipe extends pulumi.CustomResource {
  */
 export interface ImageRecipeArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+     * Specify additional settings and launch scripts for your build instances.
      */
     additionalInstanceConfiguration?: pulumi.Input<inputs.imagebuilder.ImageRecipeAdditionalInstanceConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+     * The block device mappings to apply when creating images from this recipe.
      */
     blockDeviceMappings?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeInstanceBlockDeviceMappingArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+     * The components of the image recipe.
      */
     components: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageRecipeComponentConfigurationArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+     * The description of the image recipe.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+     * The name of the image recipe.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+     * The parent image of the image recipe.
      */
     parentImage: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+     * The tags of the image recipe.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+     * The version of the image recipe.
      */
     version: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+     * The working directory to be used during build and test workflows.
      */
     workingDirectory?: pulumi.Input<string>;
 }

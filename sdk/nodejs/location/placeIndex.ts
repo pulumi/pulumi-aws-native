@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+ * Definition of AWS::Location::PlaceIndex Resource Type
  */
 export class PlaceIndex extends pulumi.CustomResource {
     /**
@@ -37,26 +37,11 @@ export class PlaceIndex extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-     */
     public readonly dataSource!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-     */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.location.PlaceIndexDataSourceConfiguration | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-     */
     public readonly indexName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-     */
     public readonly pricingPlan!: pulumi.Output<string>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -111,24 +96,9 @@ export class PlaceIndex extends pulumi.CustomResource {
  * The set of arguments for constructing a PlaceIndex resource.
  */
 export interface PlaceIndexArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-     */
     dataSource: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-     */
     dataSourceConfiguration?: pulumi.Input<inputs.location.PlaceIndexDataSourceConfigurationArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-     */
     indexName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-     */
     pricingPlan: pulumi.Input<string>;
 }

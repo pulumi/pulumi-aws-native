@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html
+ * Creates a gateway task definition.
  */
 export class TaskDefinition extends pulumi.CustomResource {
     /**
@@ -35,30 +35,32 @@ export class TaskDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === TaskDefinition.__pulumiType;
     }
 
+    /**
+     * TaskDefinition arn. Returned after successful create.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+     * Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
      */
     public readonly autoCreateTasks!: pulumi.Output<boolean>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+     * The list of task definitions.
      */
     public readonly loRaWANUpdateGatewayTaskEntry!: pulumi.Output<outputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntry | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+     * The name of the new resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+     * A list of key-value pairs that contain metadata for the destination.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotwireless.TaskDefinitionTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+     * A filter to list only the wireless gateway task definitions that use this task definition type
      */
     public readonly taskDefinitionType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+     * Information about the gateways to update.
      */
     public readonly update!: pulumi.Output<outputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreate | undefined>;
 
@@ -83,11 +85,9 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["taskDefinitionType"] = args ? args.taskDefinitionType : undefined;
             inputs["update"] = args ? args.update : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["autoCreateTasks"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["loRaWANUpdateGatewayTaskEntry"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -106,27 +106,27 @@ export class TaskDefinition extends pulumi.CustomResource {
  */
 export interface TaskDefinitionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-autocreatetasks
+     * Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
      */
     autoCreateTasks: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry
+     * The list of task definitions.
      */
     loRaWANUpdateGatewayTaskEntry?: pulumi.Input<inputs.iotwireless.TaskDefinitionLoRaWANUpdateGatewayTaskEntryArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-name
+     * The name of the new resource.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-tags
+     * A list of key-value pairs that contain metadata for the destination.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.TaskDefinitionTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-taskdefinitiontype
+     * A filter to list only the wireless gateway task definitions that use this task definition type
      */
     taskDefinitionType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-taskdefinition.html#cfn-iotwireless-taskdefinition-update
+     * Information about the gateways to update.
      */
     update?: pulumi.Input<inputs.iotwireless.TaskDefinitionUpdateWirelessGatewayTaskCreateArgs>;
 }

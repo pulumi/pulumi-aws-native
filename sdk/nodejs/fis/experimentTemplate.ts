@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
+ * Resource schema for AWS::FIS::ExperimentTemplate
  */
 export class ExperimentTemplate extends pulumi.CustomResource {
     /**
@@ -35,31 +35,12 @@ export class ExperimentTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === ExperimentTemplate.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-     */
-    public readonly actions!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateExperimentTemplateAction} | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-     */
+    public readonly actions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateActionMap | undefined>;
     public readonly description!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-     */
     public readonly roleArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-     */
     public readonly stopConditions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateStopCondition[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-     */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-     */
-    public readonly targets!: pulumi.Output<{[key: string]: outputs.fis.ExperimentTemplateExperimentTemplateTarget}>;
+    public readonly tags!: pulumi.Output<any>;
+    public readonly targets!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentTemplateTargetMap>;
 
     /**
      * Create a ExperimentTemplate resource with the given unique name, arguments, and options.
@@ -93,11 +74,9 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             inputs["stopConditions"] = args ? args.stopConditions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["targets"] = args ? args.targets : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["actions"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["roleArn"] = undefined /*out*/;
             inputs["stopConditions"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -114,28 +93,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a ExperimentTemplate resource.
  */
 export interface ExperimentTemplateArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-     */
-    actions?: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateActionArgs>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-     */
+    actions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateActionMapArgs>;
     description: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-     */
     roleArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-     */
     stopConditions: pulumi.Input<pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateStopConditionArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-     */
-    tags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-     */
-    targets: pulumi.Input<{[key: string]: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateTargetArgs>}>;
+    tags: any;
+    targets: pulumi.Input<inputs.fis.ExperimentTemplateExperimentTemplateTargetMapArgs>;
 }

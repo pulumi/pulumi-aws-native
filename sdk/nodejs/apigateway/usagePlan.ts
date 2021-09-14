@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
+ * Resource Type definition for AWS::ApiGateway::UsagePlan
  */
 export class UsagePlan extends pulumi.CustomResource {
     /**
@@ -36,28 +36,27 @@ export class UsagePlan extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+     * The API stages to associate with this usage plan.
      */
     public readonly apiStages!: pulumi.Output<outputs.apigateway.UsagePlanApiStage[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+     * A description of the usage plan.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+     * Configures the number of requests that users can make within a given interval.
      */
     public readonly quota!: pulumi.Output<outputs.apigateway.UsagePlanQuotaSettings | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+     * An array of arbitrary tags (key-value pairs) to associate with the usage plan.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.apigateway.UsagePlanTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+     * Configures the overall request rate (average requests per second) and burst capacity.
      */
     public readonly throttle!: pulumi.Output<outputs.apigateway.UsagePlanThrottleSettings | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+     * A name for the usage plan.
      */
     public readonly usagePlanName!: pulumi.Output<string | undefined>;
 
@@ -78,11 +77,9 @@ export class UsagePlan extends pulumi.CustomResource {
             inputs["tags"] = args ? args.tags : undefined;
             inputs["throttle"] = args ? args.throttle : undefined;
             inputs["usagePlanName"] = args ? args.usagePlanName : undefined;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["apiStages"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["quota"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["throttle"] = undefined /*out*/;
@@ -100,27 +97,27 @@ export class UsagePlan extends pulumi.CustomResource {
  */
 export interface UsagePlanArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
+     * The API stages to associate with this usage plan.
      */
     apiStages?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
+     * A description of the usage plan.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
+     * Configures the number of requests that users can make within a given interval.
      */
     quota?: pulumi.Input<inputs.apigateway.UsagePlanQuotaSettingsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-tags
+     * An array of arbitrary tags (key-value pairs) to associate with the usage plan.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
+     * Configures the overall request rate (average requests per second) and burst capacity.
      */
     throttle?: pulumi.Input<inputs.apigateway.UsagePlanThrottleSettingsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
+     * A name for the usage plan.
      */
     usagePlanName?: pulumi.Input<string>;
 }

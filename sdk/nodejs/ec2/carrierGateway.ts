@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class CarrierGateway extends pulumi.CustomResource {
     /**
@@ -35,15 +35,24 @@ export class CarrierGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === CarrierGateway.__pulumiType;
     }
 
+    /**
+     * The ID of the carrier gateway.
+     */
     public /*out*/ readonly carrierGatewayId!: pulumi.Output<string>;
+    /**
+     * The ID of the owner.
+     */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * The state of the carrier gateway.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+     * The tags for the carrier gateway.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.CarrierGatewayTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+     * The ID of the VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
 
@@ -85,11 +94,11 @@ export class CarrierGateway extends pulumi.CustomResource {
  */
 export interface CarrierGatewayArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-tags
+     * The tags for the carrier gateway.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.CarrierGatewayTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-carriergateway.html#cfn-ec2-carriergateway-vpcid
+     * The ID of the VPC.
      */
     vpcId: pulumi.Input<string>;
 }

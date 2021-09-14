@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html
+ * Definition of the AWS::QuickSight::DataSource Resource Type.
  */
 export class DataSource extends pulumi.CustomResource {
     /**
@@ -36,56 +36,49 @@ export class DataSource extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+     * <p>A set of alternate data source parameters that you want to share for the credentials
+     *             stored with this data source. The credentials are applied in tandem with the data source
+     *             parameters when you copy a data source by using a create or update request. The API
+     *             operation compares the <code>DataSourceParameters</code> structure that's in the request
+     *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+     *             structures are an exact match, the request is allowed to use the credentials from this
+     *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+     *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+     *             are automatically allowed.</p>
      */
     public readonly alternateDataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters[] | undefined>;
+    /**
+     * <p>The Amazon Resource Name (ARN) of the data source.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-     */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * <p>The time that this data source was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-     */
     public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceDataSourceCredentials | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-     */
     public readonly dataSourceId!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-     */
     public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceDataSourceParameters | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-     */
     public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceDataSourceErrorInfo | undefined>;
+    /**
+     * <p>The last time that this data source was updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+     * <p>A display name for the data source.</p>
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+     * <p>A list of resource permissions on the data source.</p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-     */
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-     */
+    public readonly tags!: pulumi.Output<outputs.quicksight.DataSourceTag[] | undefined>;
     public readonly type!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-     */
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
     /**
@@ -145,51 +138,35 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-alternatedatasourceparameters
+     * <p>A set of alternate data source parameters that you want to share for the credentials
+     *             stored with this data source. The credentials are applied in tandem with the data source
+     *             parameters when you copy a data source by using a create or update request. The API
+     *             operation compares the <code>DataSourceParameters</code> structure that's in the request
+     *             with the structures in the <code>AlternateDataSourceParameters</code> allow list. If the
+     *             structures are an exact match, the request is allowed to use the credentials from this
+     *             existing data source. If the <code>AlternateDataSourceParameters</code> list is null,
+     *             the <code>Credentials</code> originally used with this <code>DataSourceParameters</code>
+     *             are automatically allowed.</p>
      */
     alternateDataSourceParameters?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-awsaccountid
-     */
     awsAccountId?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-credentials
-     */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceDataSourceCredentialsArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceid
-     */
     dataSourceId?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-datasourceparameters
-     */
     dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceDataSourceParametersArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-errorinfo
-     */
     errorInfo?: pulumi.Input<inputs.quicksight.DataSourceDataSourceErrorInfoArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-name
+     * <p>A display name for the data source.</p>
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-permissions
+     * <p>A list of resource permissions on the data source.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-sslproperties
-     */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the data source.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-type
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceTagArgs>[]>;
     type?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html#cfn-quicksight-datasource-vpcconnectionproperties
-     */
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

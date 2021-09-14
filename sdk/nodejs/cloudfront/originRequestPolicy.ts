@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html
+ * Resource Type definition for AWS::CloudFront::OriginRequestPolicy
  */
 export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
@@ -35,11 +35,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === OriginRequestPolicy.__pulumiType;
     }
 
-    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-     */
     public readonly originRequestPolicyConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfig>;
 
     /**
@@ -57,10 +53,8 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'originRequestPolicyConfig'");
             }
             inputs["originRequestPolicyConfig"] = args ? args.originRequestPolicyConfig : undefined;
-            inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
         } else {
-            inputs["id"] = undefined /*out*/;
             inputs["lastModifiedTime"] = undefined /*out*/;
             inputs["originRequestPolicyConfig"] = undefined /*out*/;
         }
@@ -75,8 +69,5 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a OriginRequestPolicy resource.
  */
 export interface OriginRequestPolicyArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originrequestpolicy.html#cfn-cloudfront-originrequestpolicy-originrequestpolicyconfig
-     */
     originRequestPolicyConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyOriginRequestPolicyConfigArgs>;
 }

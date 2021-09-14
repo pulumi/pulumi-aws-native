@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html
+ * Resource Type definition for AWS::CloudFront::RealtimeLogConfig
  */
 export class RealtimeLogConfig extends pulumi.CustomResource {
     /**
@@ -36,21 +36,9 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-     */
     public readonly endPoints!: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndPoint[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-     */
     public readonly fields!: pulumi.Output<string[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-     */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-     */
     public readonly samplingRate!: pulumi.Output<number>;
 
     /**
@@ -99,20 +87,8 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  * The set of arguments for constructing a RealtimeLogConfig resource.
  */
 export interface RealtimeLogConfigArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-endpoints
-     */
     endPoints: pulumi.Input<pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndPointArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-fields
-     */
     fields: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-name
-     */
     name: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-realtimelogconfig.html#cfn-cloudfront-realtimelogconfig-samplingrate
-     */
     samplingRate: pulumi.Input<number>;
 }

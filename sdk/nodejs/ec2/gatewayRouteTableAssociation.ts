@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html
+ * Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
  */
 export class GatewayRouteTableAssociation extends pulumi.CustomResource {
     /**
@@ -34,13 +34,16 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === GatewayRouteTableAssociation.__pulumiType;
     }
 
+    /**
+     * The route table association ID.
+     */
     public /*out*/ readonly associationId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+     * The ID of the gateway.
      */
     public readonly gatewayId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+     * The ID of the route table.
      */
     public readonly routeTableId!: pulumi.Output<string>;
 
@@ -81,11 +84,11 @@ export class GatewayRouteTableAssociation extends pulumi.CustomResource {
  */
 export interface GatewayRouteTableAssociationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-gatewayid
+     * The ID of the gateway.
      */
     gatewayId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-gatewayroutetableassociation.html#cfn-ec2-gatewayroutetableassociation-routetableid
+     * The ID of the route table.
      */
     routeTableId: pulumi.Input<string>;
 }

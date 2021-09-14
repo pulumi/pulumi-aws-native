@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html
+ * Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
  */
 export class RuleGroup extends pulumi.CustomResource {
     /**
@@ -36,41 +36,25 @@ export class RuleGroup extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Collection of Available Labels.
+     */
     public /*out*/ readonly availableLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-     */
     public readonly capacity!: pulumi.Output<number>;
+    /**
+     * Collection of Consumed Labels.
+     */
     public /*out*/ readonly consumedLabels!: pulumi.Output<outputs.wafv2.RuleGroupLabelSummary[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-     */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.RuleGroupCustomResponseBody} | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-     */
+    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBodies | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
+     * Collection of Rules.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.RuleGroupRule[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-     */
     public readonly scope!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-     */
+    public readonly tags!: pulumi.Output<outputs.wafv2.RuleGroupTag[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.RuleGroupVisibilityConfig>;
 
     /**
@@ -104,7 +88,6 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["availableLabels"] = undefined /*out*/;
             inputs["consumedLabels"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["labelNamespace"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
@@ -113,7 +96,6 @@ export class RuleGroup extends pulumi.CustomResource {
             inputs["consumedLabels"] = undefined /*out*/;
             inputs["customResponseBodies"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["labelNamespace"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["rules"] = undefined /*out*/;
@@ -132,36 +114,15 @@ export class RuleGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a RuleGroup resource.
  */
 export interface RuleGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-capacity
-     */
     capacity: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-customresponsebodies
-     */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodyArgs>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-description
-     */
+    customResponseBodies?: pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBodiesArgs>;
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-name
-     */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-rules
+     * Collection of Rules.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-scope
-     */
     scope: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-rulegroup.html#cfn-wafv2-rulegroup-visibilityconfig
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupTagArgs>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.RuleGroupVisibilityConfigArgs>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html
+ * Resource schema for AWS::ApplicationInsights::Application
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -35,43 +35,46 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The ARN of the ApplicationInsights application.
+     */
     public /*out*/ readonly applicationARN!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+     * If set to true, application will be configured with recommended monitoring configuration.
      */
     public readonly autoConfigurationEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
      */
     public readonly cWEMonitorEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+     * The monitoring settings of the components.
      */
     public readonly componentMonitoringSettings!: pulumi.Output<outputs.applicationinsights.ApplicationComponentMonitoringSetting[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+     * The custom grouped components.
      */
     public readonly customComponents!: pulumi.Output<outputs.applicationinsights.ApplicationCustomComponent[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+     * The log pattern sets.
      */
     public readonly logPatternSets!: pulumi.Output<outputs.applicationinsights.ApplicationLogPatternSet[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+     * When set to true, creates opsItems for any problems detected on an application.
      */
     public readonly opsCenterEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+     * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
     public readonly opsItemSNSTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+     * The name of the resource group.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+     * The tags of Application Insights application.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.applicationinsights.ApplicationTag[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -121,39 +124,39 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-autoconfigurationenabled
+     * If set to true, application will be configured with recommended monitoring configuration.
      */
     autoConfigurationEnabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-cwemonitorenabled
+     * Indicates whether Application Insights can listen to CloudWatch events for the application resources.
      */
     cWEMonitorEnabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-componentmonitoringsettings
+     * The monitoring settings of the components.
      */
     componentMonitoringSettings?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationComponentMonitoringSettingArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-customcomponents
+     * The custom grouped components.
      */
     customComponents?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationCustomComponentArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-logpatternsets
+     * The log pattern sets.
      */
     logPatternSets?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationLogPatternSetArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opscenterenabled
+     * When set to true, creates opsItems for any problems detected on an application.
      */
     opsCenterEnabled?: pulumi.Input<boolean>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-opsitemsnstopicarn
+     * The SNS topic provided to Application Insights that is associated to the created opsItem.
      */
     opsItemSNSTopicArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-resourcegroupname
+     * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationinsights-application.html#cfn-applicationinsights-application-tags
+     * The tags of Application Insights application.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.applicationinsights.ApplicationTagArgs>[]>;
 }

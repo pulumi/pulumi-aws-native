@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
+ * Resource schema for AWS::MediaConnect::FlowVpcInterface
  */
 export class FlowVpcInterface extends pulumi.CustomResource {
     /**
@@ -35,24 +35,27 @@ export class FlowVpcInterface extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+     * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     public readonly flowArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+     * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * IDs of the network interfaces created in customer's account by MediaConnect.
+     */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+     * Role Arn MediaConnect can assumes to create ENIs in customer's account.
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+     * Security Group IDs to be used on ENI.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+     * Subnet must be in the AZ of the Flow
      */
     public readonly subnetId!: pulumi.Output<string>;
 
@@ -108,23 +111,23 @@ export class FlowVpcInterface extends pulumi.CustomResource {
  */
 export interface FlowVpcInterfaceArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+     * The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
      */
     flowArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+     * Immutable and has to be a unique against other VpcInterfaces in this Flow.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+     * Role Arn MediaConnect can assumes to create ENIs in customer's account.
      */
     roleArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+     * Security Group IDs to be used on ENI.
      */
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+     * Subnet must be in the AZ of the Flow
      */
     subnetId: pulumi.Input<string>;
 }

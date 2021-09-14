@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+ * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  */
 export class CodeSigningConfig extends pulumi.CustomResource {
     /**
@@ -36,17 +36,23 @@ export class CodeSigningConfig extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+     * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
     public readonly allowedPublishers!: pulumi.Output<outputs.lambda.CodeSigningConfigAllowedPublishers>;
+    /**
+     * A unique Arn for CodeSigningConfig resource
+     */
     public /*out*/ readonly codeSigningConfigArn!: pulumi.Output<string>;
+    /**
+     * A unique identifier for CodeSigningConfig resource
+     */
     public /*out*/ readonly codeSigningConfigId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+     * Policies to control how to act if a signature is invalid
      */
     public readonly codeSigningPolicies!: pulumi.Output<outputs.lambda.CodeSigningConfigCodeSigningPolicies | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+     * A description of the CodeSigningConfig
      */
     public readonly description!: pulumi.Output<string | undefined>;
 
@@ -88,15 +94,15 @@ export class CodeSigningConfig extends pulumi.CustomResource {
  */
 export interface CodeSigningConfigArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+     * When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
      */
     allowedPublishers: pulumi.Input<inputs.lambda.CodeSigningConfigAllowedPublishersArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+     * Policies to control how to act if a signature is invalid
      */
     codeSigningPolicies?: pulumi.Input<inputs.lambda.CodeSigningConfigCodeSigningPoliciesArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+     * A description of the CodeSigningConfig
      */
     description?: pulumi.Input<string>;
 }

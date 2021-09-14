@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html
+ * Resource Type definition for AWS::IAM::VirtualMFADevice
  */
 export class VirtualMFADevice extends pulumi.CustomResource {
     /**
@@ -35,22 +35,10 @@ export class VirtualMFADevice extends pulumi.CustomResource {
         return obj['__pulumiType'] === VirtualMFADevice.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-     */
     public readonly path!: pulumi.Output<string | undefined>;
     public /*out*/ readonly serialNumber!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-     */
+    public readonly tags!: pulumi.Output<outputs.iam.VirtualMFADeviceTag[] | undefined>;
     public readonly users!: pulumi.Output<string[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-     */
     public readonly virtualMfaDeviceName!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,20 +78,8 @@ export class VirtualMFADevice extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualMFADevice resource.
  */
 export interface VirtualMFADeviceArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-path
-     */
     path?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-users
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.iam.VirtualMFADeviceTagArgs>[]>;
     users: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-virtualmfadevice.html#cfn-iam-virtualmfadevice-virtualmfadevicename
-     */
     virtualMfaDeviceName?: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html
+ * Resource schema for AWS::DataSync::LocationEFS.
  */
 export class LocationEFS extends pulumi.CustomResource {
     /**
@@ -35,24 +35,27 @@ export class LocationEFS extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationEFS.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
-     */
     public readonly ec2Config!: pulumi.Output<outputs.datasync.LocationEFSEc2Config>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
+     * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
     public readonly efsFilesystemArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon EFS file system location that is created.
+     */
     public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    /**
+     * The URL of the EFS location that was described.
+     */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+     * A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
      */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.LocationEFSTag[] | undefined>;
 
     /**
      * Create a LocationEFS resource with the given unique name, arguments, and options.
@@ -96,20 +99,17 @@ export class LocationEFS extends pulumi.CustomResource {
  * The set of arguments for constructing a LocationEFS resource.
  */
 export interface LocationEFSArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-ec2config
-     */
     ec2Config: pulumi.Input<inputs.datasync.LocationEFSEc2ConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-efsfilesystemarn
+     * The Amazon Resource Name (ARN) for the Amazon EFS file system.
      */
     efsFilesystemArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-subdirectory
+     * A subdirectory in the location's path. This subdirectory in the EFS file system is used to read data from the EFS source location or write data to the EFS destination.
      */
     subdirectory?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationefs.html#cfn-datasync-locationefs-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationEFSTagArgs>[]>;
 }

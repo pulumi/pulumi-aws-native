@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html
+ * Resource type definition for AWS::NetworkFirewall::FirewallPolicy
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**
@@ -35,24 +35,12 @@ export class FirewallPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === FirewallPolicy.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-     */
     public readonly firewallPolicy!: pulumi.Output<outputs.networkfirewall.FirewallPolicyFirewallPolicy>;
     public /*out*/ readonly firewallPolicyArn!: pulumi.Output<string>;
     public /*out*/ readonly firewallPolicyId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-     */
     public readonly firewallPolicyName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.networkfirewall.FirewallPolicyTag[] | undefined>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -96,20 +84,8 @@ export class FirewallPolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a FirewallPolicy resource.
  */
 export interface FirewallPolicyArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy
-     */
     firewallPolicy: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicyname
-     */
     firewallPolicyName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyTagArgs>[]>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html
+ * A resource schema for an EventType in Amazon Fraud Detector.
  */
 export class EventType extends pulumi.CustomResource {
     /**
@@ -35,33 +35,33 @@ export class EventType extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventType.__pulumiType;
     }
 
+    /**
+     * The ARN of the event type.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time when the event type was created.
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
+     * The description of the event type.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-     */
     public readonly entityTypes!: pulumi.Output<outputs.frauddetector.EventTypeEntityType[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-     */
     public readonly eventVariables!: pulumi.Output<outputs.frauddetector.EventTypeEventVariable[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-     */
     public readonly labels!: pulumi.Output<outputs.frauddetector.EventTypeLabel[]>;
+    /**
+     * The time when the event type was last updated.
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+     * The name for the event type
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+     * Tags associated with this event type.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.frauddetector.EventTypeTag[] | undefined>;
 
     /**
      * Create a EventType resource with the given unique name, arguments, and options.
@@ -118,27 +118,18 @@ export class EventType extends pulumi.CustomResource {
  */
 export interface EventTypeArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-description
+     * The description of the event type.
      */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-entitytypes
-     */
     entityTypes: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEntityTypeArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-eventvariables
-     */
     eventVariables: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeEventVariableArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-labels
-     */
     labels: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeLabelArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-name
+     * The name for the event type
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-eventtype.html#cfn-frauddetector-eventtype-tags
+     * Tags associated with this event type.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.frauddetector.EventTypeTagArgs>[]>;
 }

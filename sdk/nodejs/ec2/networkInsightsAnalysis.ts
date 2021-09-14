@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+ * Resource schema for AWS::EC2::NetworkInsightsAnalysis
  */
 export class NetworkInsightsAnalysis extends pulumi.CustomResource {
     /**
@@ -37,26 +37,17 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
 
     public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
     public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-     */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     public /*out*/ readonly networkInsightsAnalysisArn!: pulumi.Output<string>;
     public /*out*/ readonly networkInsightsAnalysisId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-     */
     public readonly networkInsightsPathId!: pulumi.Output<string>;
     public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     public /*out*/ readonly startDate!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisTag[] | undefined>;
 
     /**
      * Create a NetworkInsightsAnalysis resource with the given unique name, arguments, and options.
@@ -111,16 +102,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
  * The set of arguments for constructing a NetworkInsightsAnalysis resource.
  */
 export interface NetworkInsightsAnalysisArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-     */
     filterInArns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-     */
     networkInsightsPathId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAnalysisTagArgs>[]>;
 }

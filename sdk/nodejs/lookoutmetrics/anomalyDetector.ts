@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
+ * An Amazon Lookout for Metrics Detector
  */
 export class AnomalyDetector extends pulumi.CustomResource {
     /**
@@ -36,24 +36,24 @@ export class AnomalyDetector extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+     * Configuration options for the AnomalyDetector
      */
     public readonly anomalyDetectorConfig!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfig>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+     * A description for the AnomalyDetector.
      */
     public readonly anomalyDetectorDescription!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+     * Name for the Amazon Lookout for Metrics Anomaly Detector
      */
     public readonly anomalyDetectorName!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+     * KMS key used to encrypt the AnomalyDetector data
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+     * List of metric sets for anomaly detection
      */
     public readonly metricSetList!: pulumi.Output<outputs.lookoutmetrics.AnomalyDetectorMetricSet[]>;
 
@@ -100,23 +100,23 @@ export class AnomalyDetector extends pulumi.CustomResource {
  */
 export interface AnomalyDetectorArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+     * Configuration options for the AnomalyDetector
      */
     anomalyDetectorConfig: pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorAnomalyDetectorConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+     * A description for the AnomalyDetector.
      */
     anomalyDetectorDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+     * Name for the Amazon Lookout for Metrics Anomaly Detector
      */
     anomalyDetectorName?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+     * KMS key used to encrypt the AnomalyDetector data
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+     * List of metric sets for anomaly detection
      */
     metricSetList: pulumi.Input<pulumi.Input<inputs.lookoutmetrics.AnomalyDetectorMetricSetArgs>[]>;
 }

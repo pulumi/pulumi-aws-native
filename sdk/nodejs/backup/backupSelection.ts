@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html
+ * Resource Type definition for AWS::Backup::BackupSelection
  */
 export class BackupSelection extends pulumi.CustomResource {
     /**
@@ -35,12 +35,8 @@ export class BackupSelection extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupSelection.__pulumiType;
     }
 
-    public readonly backupPlanId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-     */
+    public /*out*/ readonly backupPlanId!: pulumi.Output<string>;
     public readonly backupSelection!: pulumi.Output<outputs.backup.BackupSelectionBackupSelectionResourceType>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly selectionId!: pulumi.Output<string>;
 
     /**
@@ -54,20 +50,15 @@ export class BackupSelection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupPlanId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'backupPlanId'");
-            }
             if ((!args || args.backupSelection === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupSelection'");
             }
-            inputs["backupPlanId"] = args ? args.backupPlanId : undefined;
             inputs["backupSelection"] = args ? args.backupSelection : undefined;
-            inputs["id"] = undefined /*out*/;
+            inputs["backupPlanId"] = undefined /*out*/;
             inputs["selectionId"] = undefined /*out*/;
         } else {
             inputs["backupPlanId"] = undefined /*out*/;
             inputs["backupSelection"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["selectionId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -81,12 +72,5 @@ export class BackupSelection extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupSelection resource.
  */
 export interface BackupSelectionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupplanid
-     */
-    backupPlanId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupselection.html#cfn-backup-backupselection-backupselection
-     */
     backupSelection: pulumi.Input<inputs.backup.BackupSelectionBackupSelectionResourceTypeArgs>;
 }

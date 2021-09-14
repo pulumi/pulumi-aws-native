@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html
+ * Resource Type definition for AWS::Backup::BackupVault
  */
 export class BackupVault extends pulumi.CustomResource {
     /**
@@ -35,23 +35,11 @@ export class BackupVault extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupVault.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-     */
-    public readonly accessPolicy!: pulumi.Output<any | string | undefined>;
+    public readonly accessPolicy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
-    public readonly backupVaultName!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-     */
-    public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-     */
+    public /*out*/ readonly backupVaultName!: pulumi.Output<string>;
+    public readonly backupVaultTags!: pulumi.Output<any | undefined>;
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-     */
     public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
 
     /**
@@ -61,19 +49,16 @@ export class BackupVault extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: BackupVaultArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.backupVaultName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'backupVaultName'");
-            }
             inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
             inputs["backupVaultTags"] = args ? args.backupVaultTags : undefined;
             inputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
             inputs["notifications"] = args ? args.notifications : undefined;
             inputs["backupVaultArn"] = undefined /*out*/;
+            inputs["backupVaultName"] = undefined /*out*/;
         } else {
             inputs["accessPolicy"] = undefined /*out*/;
             inputs["backupVaultArn"] = undefined /*out*/;
@@ -93,24 +78,8 @@ export class BackupVault extends pulumi.CustomResource {
  * The set of arguments for constructing a BackupVault resource.
  */
 export interface BackupVaultArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-accesspolicy
-     */
-    accessPolicy?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaultname
-     */
-    backupVaultName: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-backupvaulttags
-     */
-    backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-encryptionkeyarn
-     */
+    accessPolicy?: any;
+    backupVaultTags?: any;
     encryptionKeyArn?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupvault.html#cfn-backup-backupvault-notifications
-     */
     notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;
 }

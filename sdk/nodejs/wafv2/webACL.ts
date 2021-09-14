@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html
+ * Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
  */
 export class WebACL extends pulumi.CustomResource {
     /**
@@ -37,39 +37,17 @@ export class WebACL extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly capacity!: pulumi.Output<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-     */
-    public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebACLCustomResponseBody} | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-     */
+    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.WebACLCustomResponseBodies | undefined>;
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebACLDefaultAction>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     public /*out*/ readonly labelNamespace!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
+     * Collection of Rules.
      */
     public readonly rules!: pulumi.Output<outputs.wafv2.WebACLRule[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-     */
     public readonly scope!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-     */
+    public readonly tags!: pulumi.Output<outputs.wafv2.WebACLTag[] | undefined>;
     public readonly visibilityConfig!: pulumi.Output<outputs.wafv2.WebACLVisibilityConfig>;
 
     /**
@@ -102,7 +80,6 @@ export class WebACL extends pulumi.CustomResource {
             inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["capacity"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["labelNamespace"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
@@ -110,7 +87,6 @@ export class WebACL extends pulumi.CustomResource {
             inputs["customResponseBodies"] = undefined /*out*/;
             inputs["defaultAction"] = undefined /*out*/;
             inputs["description"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["labelNamespace"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["rules"] = undefined /*out*/;
@@ -129,36 +105,15 @@ export class WebACL extends pulumi.CustomResource {
  * The set of arguments for constructing a WebACL resource.
  */
 export interface WebACLArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-customresponsebodies
-     */
-    customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodyArgs>}>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-defaultaction
-     */
+    customResponseBodies?: pulumi.Input<inputs.wafv2.WebACLCustomResponseBodiesArgs>;
     defaultAction: pulumi.Input<inputs.wafv2.WebACLDefaultActionArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-name
-     */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-rules
+     * Collection of Rules.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLRuleArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-scope
-     */
     scope: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-webacl.html#cfn-wafv2-webacl-visibilityconfig
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.wafv2.WebACLTagArgs>[]>;
     visibilityConfig: pulumi.Input<inputs.wafv2.WebACLVisibilityConfigArgs>;
 }

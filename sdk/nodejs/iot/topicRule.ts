@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
+ * Resource Type definition for AWS::IoT::TopicRule
  */
 export class TopicRule extends pulumi.CustomResource {
     /**
@@ -36,17 +36,8 @@ export class TopicRule extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-     */
     public readonly ruleName!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-     */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-     */
+    public readonly tags!: pulumi.Output<outputs.iot.TopicRuleTag[] | undefined>;
     public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRuleTopicRulePayload>;
 
     /**
@@ -84,16 +75,7 @@ export class TopicRule extends pulumi.CustomResource {
  * The set of arguments for constructing a TopicRule resource.
  */
 export interface TopicRuleArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-rulename
-     */
     ruleName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html#cfn-iot-topicrule-topicrulepayload
-     */
+    tags?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTagArgs>[]>;
     topicRulePayload: pulumi.Input<inputs.iot.TopicRuleTopicRulePayloadArgs>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html
+ * Definition of the AWS::QuickSight::Dashboard Resource Type.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**
@@ -35,48 +35,54 @@ export class Dashboard extends pulumi.CustomResource {
         return obj['__pulumiType'] === Dashboard.__pulumiType;
     }
 
+    /**
+     * <p>The Amazon Resource Name (ARN) of the resource.</p>
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-     */
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * <p>The time that this dataset was created.</p>
+     */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-     */
     public readonly dashboardId!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-     */
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardDashboardPublishOptions | undefined>;
+    /**
+     * <p>The last time that this dataset was published.</p>
+     */
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
+    /**
+     * <p>The last time that this dataset was updated.</p>
+     */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
+     * <p>The display name of the dashboard.</p>
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-     */
     public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
+     * <p>A structure that contains the permissions of the dashboard. You can use this structure
+     *             for granting permissions by providing a list of IAM action information for each
+     *             principal ARN. </p>
+     *
+     *         <p>To specify no permissions, omit the permissions list.</p>
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-     */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.DashboardDashboardSourceEntity | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+     *             dashboard.</p>
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.quicksight.DashboardTag[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
+     * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+     *             you add a value for this field, it overrides the value that is used in the source
+     *             entity. The theme ARN must exist in the same AWS account where you create the
+     *             dashboard.</p>
      */
     public readonly themeArn!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.DashboardDashboardVersion>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+     * <p>A description for the first version of the dashboard being created.</p>
      */
     public readonly versionDescription!: pulumi.Output<string | undefined>;
 
@@ -111,6 +117,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["createdTime"] = undefined /*out*/;
             inputs["lastPublishedTime"] = undefined /*out*/;
             inputs["lastUpdatedTime"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
             inputs["awsAccountId"] = undefined /*out*/;
@@ -125,6 +132,7 @@ export class Dashboard extends pulumi.CustomResource {
             inputs["sourceEntity"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["themeArn"] = undefined /*out*/;
+            inputs["version"] = undefined /*out*/;
             inputs["versionDescription"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -138,44 +146,37 @@ export class Dashboard extends pulumi.CustomResource {
  * The set of arguments for constructing a Dashboard resource.
  */
 export interface DashboardArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-awsaccountid
-     */
     awsAccountId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardid
-     */
     dashboardId: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-dashboardpublishoptions
-     */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardDashboardPublishOptionsArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-name
+     * <p>The display name of the dashboard.</p>
      */
     name?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-parameters
-     */
     parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-permissions
+     * <p>A structure that contains the permissions of the dashboard. You can use this structure
+     *             for granting permissions by providing a list of IAM action information for each
+     *             principal ARN. </p>
+     *
+     *         <p>To specify no permissions, omit the permissions list.</p>
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-sourceentity
-     */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardDashboardSourceEntityArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-tags
+     * <p>Contains a map of the key-value pairs for the resource tag or tags assigned to the
+     *             dashboard.</p>
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardTagArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-themearn
+     * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
+     *             you add a value for this field, it overrides the value that is used in the source
+     *             entity. The theme ARN must exist in the same AWS account where you create the
+     *             dashboard.</p>
      */
     themeArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-dashboard.html#cfn-quicksight-dashboard-versiondescription
+     * <p>A description for the first version of the dashboard being created.</p>
      */
     versionDescription?: pulumi.Input<string>;
 }

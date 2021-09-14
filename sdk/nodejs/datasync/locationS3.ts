@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html
+ * Resource schema for AWS::DataSync::LocationS3
  */
 export class LocationS3 extends pulumi.CustomResource {
     /**
@@ -35,28 +35,31 @@ export class LocationS3 extends pulumi.CustomResource {
         return obj['__pulumiType'] === LocationS3.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon S3 bucket location.
+     */
     public /*out*/ readonly locationArn!: pulumi.Output<string>;
+    /**
+     * The URL of the S3 location that was described.
+     */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+     * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
     public readonly s3BucketArn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-     */
     public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3S3Config>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+     * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
     public readonly s3StorageClass!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+     * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */
     public readonly subdirectory!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.datasync.LocationS3Tag[] | undefined>;
 
     /**
      * Create a LocationS3 resource with the given unique name, arguments, and options.
@@ -103,23 +106,20 @@ export class LocationS3 extends pulumi.CustomResource {
  */
 export interface LocationS3Args {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3bucketarn
+     * The Amazon Resource Name (ARN) of the Amazon S3 bucket.
      */
     s3BucketArn: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3config
-     */
     s3Config: pulumi.Input<inputs.datasync.LocationS3S3ConfigArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-s3storageclass
+     * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
      */
     s3StorageClass?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-subdirectory
+     * A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read data from the S3 source location or write data to the S3 destination.
      */
     subdirectory?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locations3.html#cfn-datasync-locations3-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.datasync.LocationS3TagArgs>[]>;
 }

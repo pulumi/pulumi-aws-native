@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html
+ * Device Profile's resource schema demonstrating some basic constructs and validation rules.
  */
 export class DeviceProfile extends pulumi.CustomResource {
     /**
@@ -35,20 +35,22 @@ export class DeviceProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeviceProfile.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
-    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+     * Service profile Arn. Returned after successful create.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
     public readonly loRaWAN!: pulumi.Output<outputs.iotwireless.DeviceProfileLoRaWANDeviceProfile | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+     * Name of service profile
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+     * A list of key-value pairs that contain metadata for the device profile.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotwireless.DeviceProfileTag[] | undefined>;
 
     /**
      * Create a DeviceProfile resource with the given unique name, arguments, and options.
@@ -65,10 +67,8 @@ export class DeviceProfile extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
         } else {
             inputs["arn"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["loRaWAN"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
@@ -85,15 +85,15 @@ export class DeviceProfile extends pulumi.CustomResource {
  */
 export interface DeviceProfileArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-lorawan
+     * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
      */
     loRaWAN?: pulumi.Input<inputs.iotwireless.DeviceProfileLoRaWANDeviceProfileArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-name
+     * Name of service profile
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-deviceprofile.html#cfn-iotwireless-deviceprofile-tags
+     * A list of key-value pairs that contain metadata for the device profile.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotwireless.DeviceProfileTagArgs>[]>;
 }

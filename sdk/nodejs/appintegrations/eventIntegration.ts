@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+ * Resource Type definition for AWS::AppIntegrations::EventIntegration
  */
 export class EventIntegration extends pulumi.CustomResource {
     /**
@@ -35,28 +35,34 @@ export class EventIntegration extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventIntegration.__pulumiType;
     }
 
+    /**
+     * The associations with the event integration.
+     */
     public /*out*/ readonly associations!: pulumi.Output<outputs.appintegrations.EventIntegrationEventIntegrationAssociation[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+     * The event integration description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+     * The Amazon Eventbridge bus for the event integration.
      */
     public readonly eventBridgeBus!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+     * The EventFilter (source) associated with the event integration.
      */
     public readonly eventFilter!: pulumi.Output<outputs.appintegrations.EventIntegrationEventFilter>;
+    /**
+     * The Amazon Resource Name (ARN) of the event integration.
+     */
     public /*out*/ readonly eventIntegrationArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+     * The name of the event integration.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+     * The tags (keys and values) associated with the event integration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.appintegrations.EventIntegrationTag[] | undefined>;
 
     /**
      * Create a EventIntegration resource with the given unique name, arguments, and options.
@@ -106,23 +112,23 @@ export class EventIntegration extends pulumi.CustomResource {
  */
 export interface EventIntegrationArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+     * The event integration description.
      */
     description?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+     * The Amazon Eventbridge bus for the event integration.
      */
     eventBridgeBus: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+     * The EventFilter (source) associated with the event integration.
      */
     eventFilter: pulumi.Input<inputs.appintegrations.EventIntegrationEventFilterArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+     * The name of the event integration.
      */
     name: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+     * The tags (keys and values) associated with the event integration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.appintegrations.EventIntegrationTagArgs>[]>;
 }

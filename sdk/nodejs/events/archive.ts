@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+ * Resource Type definition for AWS::Events::Archive
  */
 export class Archive extends pulumi.CustomResource {
     /**
@@ -34,23 +34,11 @@ export class Archive extends pulumi.CustomResource {
         return obj['__pulumiType'] === Archive.__pulumiType;
     }
 
-    public readonly archiveName!: pulumi.Output<string>;
+    public /*out*/ readonly archiveName!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-     */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-     */
-    public readonly eventPattern!: pulumi.Output<any | string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-     */
+    public readonly eventPattern!: pulumi.Output<any | undefined>;
     public readonly retentionDays!: pulumi.Output<number | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-     */
     public readonly sourceArn!: pulumi.Output<string>;
 
     /**
@@ -67,11 +55,11 @@ export class Archive extends pulumi.CustomResource {
             if ((!args || args.sourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceArn'");
             }
-            inputs["archiveName"] = args ? args.archiveName : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["eventPattern"] = args ? args.eventPattern : undefined;
             inputs["retentionDays"] = args ? args.retentionDays : undefined;
             inputs["sourceArn"] = args ? args.sourceArn : undefined;
+            inputs["archiveName"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
         } else {
             inputs["archiveName"] = undefined /*out*/;
@@ -92,24 +80,8 @@ export class Archive extends pulumi.CustomResource {
  * The set of arguments for constructing a Archive resource.
  */
 export interface ArchiveArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
-     */
-    archiveName?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-     */
     description?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-     */
-    eventPattern?: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-     */
+    eventPattern?: any;
     retentionDays?: pulumi.Input<number>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-     */
     sourceArn: pulumi.Input<string>;
 }

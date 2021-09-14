@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+ * Resource Type definition for AWS::CloudFront::Function
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -35,27 +35,11 @@ export class Function extends pulumi.CustomResource {
         return obj['__pulumiType'] === Function.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-     */
     public readonly autoPublish!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly functionARN!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-     */
     public readonly functionCode!: pulumi.Output<string | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-     */
     public readonly functionConfig!: pulumi.Output<outputs.cloudfront.FunctionFunctionConfig | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-     */
     public readonly functionMetadata!: pulumi.Output<outputs.cloudfront.FunctionFunctionMetadata | undefined>;
-    public /*out*/ readonly functionMetadataFunctionARN!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-     */
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly stage!: pulumi.Output<string>;
 
@@ -79,7 +63,6 @@ export class Function extends pulumi.CustomResource {
             inputs["functionMetadata"] = args ? args.functionMetadata : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["functionARN"] = undefined /*out*/;
-            inputs["functionMetadataFunctionARN"] = undefined /*out*/;
             inputs["stage"] = undefined /*out*/;
         } else {
             inputs["autoPublish"] = undefined /*out*/;
@@ -87,7 +70,6 @@ export class Function extends pulumi.CustomResource {
             inputs["functionCode"] = undefined /*out*/;
             inputs["functionConfig"] = undefined /*out*/;
             inputs["functionMetadata"] = undefined /*out*/;
-            inputs["functionMetadataFunctionARN"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
             inputs["stage"] = undefined /*out*/;
         }
@@ -102,24 +84,9 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-     */
     autoPublish?: pulumi.Input<boolean>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-     */
     functionCode?: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-     */
     functionConfig?: pulumi.Input<inputs.cloudfront.FunctionFunctionConfigArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-     */
     functionMetadata?: pulumi.Input<inputs.cloudfront.FunctionFunctionMetadataArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-     */
     name: pulumi.Input<string>;
 }

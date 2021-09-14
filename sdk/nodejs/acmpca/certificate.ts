@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html
+ * A certificate issued via a private certificate authority
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -36,33 +36,39 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+     * These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
      */
     public readonly apiPassthrough!: pulumi.Output<outputs.acmpca.CertificateApiPassthrough | undefined>;
+    /**
+     * The ARN of the issued certificate.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The issued certificate in base 64 PEM-encoded format.
+     */
     public /*out*/ readonly certificate!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
+     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
      */
     public readonly certificateAuthorityArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
+     * The certificate signing request (CSR) for the Certificate.
      */
     public readonly certificateSigningRequest!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
+     * The name of the algorithm that will be used to sign the Certificate.
      */
     public readonly signingAlgorithm!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
      */
     public readonly templateArn!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+     * The time before which the Certificate will be valid.
      */
     public readonly validity!: pulumi.Output<outputs.acmpca.CertificateValidity>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+     * The time after which the Certificate will be valid.
      */
     public readonly validityNotBefore!: pulumi.Output<outputs.acmpca.CertificateValidity | undefined>;
 
@@ -121,31 +127,31 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-apipassthrough
+     * These are fields to be overridden in a certificate at the time of issuance. These requires an API_Passthrough template be used or they will be ignored.
      */
     apiPassthrough?: pulumi.Input<inputs.acmpca.CertificateApiPassthroughArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificateauthorityarn
+     * The Amazon Resource Name (ARN) for the private CA to issue the certificate.
      */
     certificateAuthorityArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-certificatesigningrequest
+     * The certificate signing request (CSR) for the Certificate.
      */
     certificateSigningRequest: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-signingalgorithm
+     * The name of the algorithm that will be used to sign the Certificate.
      */
     signingAlgorithm: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-templatearn
+     * Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, ACM Private CA defaults to the EndEntityCertificate/V1 template.
      */
     templateArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
+     * The time before which the Certificate will be valid.
      */
     validity: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validitynotbefore
+     * The time after which the Certificate will be valid.
      */
     validityNotBefore?: pulumi.Input<inputs.acmpca.CertificateValidityArgs>;
 }

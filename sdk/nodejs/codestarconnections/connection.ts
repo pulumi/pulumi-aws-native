@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html
+ * Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
  */
 export class Connection extends pulumi.CustomResource {
     /**
@@ -35,25 +35,34 @@ export class Connection extends pulumi.CustomResource {
         return obj['__pulumiType'] === Connection.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the  connection. The ARN is used as the connection reference when the connection is shared between AWS services.
+     */
     public /*out*/ readonly connectionArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
+     * The name of the connection. Connection names must be unique in an AWS user account.
      */
     public readonly connectionName!: pulumi.Output<string>;
+    /**
+     * The current status of the connection.
+     */
     public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+     * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
      */
     public readonly hostArn!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the external provider where your third-party code repository is configured. For Bitbucket, this is the account ID of the owner of the Bitbucket repository.
+     */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+     * The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
      */
     public readonly providerType!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
+     * Specifies the tags applied to a connection.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.codestarconnections.ConnectionTag[] | undefined>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -97,19 +106,19 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
+     * The name of the connection. Connection names must be unique in an AWS user account.
      */
     connectionName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-hostarn
+     * The host arn configured to represent the infrastructure where your third-party provider is installed. You must specify either a ProviderType or a HostArn.
      */
     hostArn?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
+     * The name of the external provider where your third-party code repository is configured. You must specify either a ProviderType or a HostArn.
      */
     providerType?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
+     * Specifies the tags applied to a connection.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.codestarconnections.ConnectionTagArgs>[]>;
 }

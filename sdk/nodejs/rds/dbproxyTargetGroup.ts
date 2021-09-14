@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html
+ * Resource schema for AWS::RDS::DBProxyTargetGroup
  */
 export class DBProxyTargetGroup extends pulumi.CustomResource {
     /**
@@ -35,25 +35,19 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === DBProxyTargetGroup.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-     */
     public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-     */
     public readonly dBClusterIdentifiers!: pulumi.Output<string[] | undefined>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-     */
     public readonly dBInstanceIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+     * The identifier for the proxy.
      */
     public readonly dBProxyName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) representing the target group.
+     */
     public /*out*/ readonly targetGroupArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+     * The identifier for the DBProxyTargetGroup
      */
     public readonly targetGroupName!: pulumi.Output<string>;
 
@@ -99,24 +93,15 @@ export class DBProxyTargetGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a DBProxyTargetGroup resource.
  */
 export interface DBProxyTargetGroupArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
-     */
     connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DBProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbclusteridentifiers
-     */
     dBClusterIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbinstanceidentifiers
-     */
     dBInstanceIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
+     * The identifier for the proxy.
      */
     dBProxyName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+     * The identifier for the DBProxyTargetGroup
      */
     targetGroupName: pulumi.Input<string>;
 }

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class SuiteDefinition extends pulumi.CustomResource {
     /**
@@ -35,17 +35,23 @@ export class SuiteDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === SuiteDefinition.__pulumiType;
     }
 
-    public /*out*/ readonly suiteDefinitionArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
+     * The Amazon Resource name for the suite definition.
      */
-    public readonly suiteDefinitionConfiguration!: pulumi.Output<any | string>;
+    public /*out*/ readonly suiteDefinitionArn!: pulumi.Output<string>;
+    public readonly suiteDefinitionConfiguration!: pulumi.Output<any>;
+    /**
+     * The unique identifier for the suite definition.
+     */
     public /*out*/ readonly suiteDefinitionId!: pulumi.Output<string>;
+    /**
+     * The suite definition version of a test suite.
+     */
     public /*out*/ readonly suiteDefinitionVersion!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+     * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotcoredeviceadvisor.SuiteDefinitionTag[] | undefined>;
 
     /**
      * Create a SuiteDefinition resource with the given unique name, arguments, and options.
@@ -84,12 +90,9 @@ export class SuiteDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a SuiteDefinition resource.
  */
 export interface SuiteDefinitionArgs {
+    suiteDefinitionConfiguration: any;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
+     * An array of key-value pairs to apply to this resource.
      */
-    suiteDefinitionConfiguration: pulumi.Input<any | string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
-     */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotcoredeviceadvisor.SuiteDefinitionTagArgs>[]>;
 }

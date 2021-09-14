@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html
+ * The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
  */
 export class StorageLens extends pulumi.CustomResource {
     /**
@@ -35,15 +35,11 @@ export class StorageLens extends pulumi.CustomResource {
         return obj['__pulumiType'] === StorageLens.__pulumiType;
     }
 
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-     */
     public readonly storageLensConfiguration!: pulumi.Output<outputs.s3.StorageLensStorageLensConfiguration>;
-    public /*out*/ readonly storageLensConfigurationStorageLensArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+     * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.s3.StorageLensTag[] | undefined>;
 
     /**
      * Create a StorageLens resource with the given unique name, arguments, and options.
@@ -61,10 +57,8 @@ export class StorageLens extends pulumi.CustomResource {
             }
             inputs["storageLensConfiguration"] = args ? args.storageLensConfiguration : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["storageLensConfigurationStorageLensArn"] = undefined /*out*/;
         } else {
             inputs["storageLensConfiguration"] = undefined /*out*/;
-            inputs["storageLensConfigurationStorageLensArn"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -78,12 +72,9 @@ export class StorageLens extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageLens resource.
  */
 export interface StorageLensArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-storagelensconfiguration
-     */
     storageLensConfiguration: pulumi.Input<inputs.s3.StorageLensStorageLensConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html#cfn-s3-storagelens-tags
+     * A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensTagArgs>[]>;
 }

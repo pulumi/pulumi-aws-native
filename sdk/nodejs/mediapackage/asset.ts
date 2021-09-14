@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+ * Resource schema for AWS::MediaPackage::Asset
  */
 export class Asset extends pulumi.CustomResource {
     /**
@@ -35,33 +35,38 @@ export class Asset extends pulumi.CustomResource {
         return obj['__pulumiType'] === Asset.__pulumiType;
     }
 
+    /**
+     * The ARN of the Asset.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The time the Asset was initially submitted for Ingest.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The list of egress endpoints available for the Asset.
+     */
     public /*out*/ readonly egressEndpoints!: pulumi.Output<outputs.mediapackage.AssetEgressEndpoint[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-     */
-    public readonly id!: pulumi.Output<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+     * The ID of the PackagingGroup for the Asset.
      */
     public readonly packagingGroupId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+     * The resource ID to include in SPEKE key requests.
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+     * ARN of the source object in S3.
      */
     public readonly sourceArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+     * The IAM role_arn used to access the source S3 bucket.
      */
     public readonly sourceRoleArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+     * A collection of tags associated with a resource
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.mediapackage.AssetTag[] | undefined>;
 
     /**
      * Create a Asset resource with the given unique name, arguments, and options.
@@ -74,9 +79,6 @@ export class Asset extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.id === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             if ((!args || args.packagingGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'packagingGroupId'");
             }
@@ -86,7 +88,6 @@ export class Asset extends pulumi.CustomResource {
             if ((!args || args.sourceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceRoleArn'");
             }
-            inputs["id"] = args ? args.id : undefined;
             inputs["packagingGroupId"] = args ? args.packagingGroupId : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["sourceArn"] = args ? args.sourceArn : undefined;
@@ -99,7 +100,6 @@ export class Asset extends pulumi.CustomResource {
             inputs["arn"] = undefined /*out*/;
             inputs["createdAt"] = undefined /*out*/;
             inputs["egressEndpoints"] = undefined /*out*/;
-            inputs["id"] = undefined /*out*/;
             inputs["packagingGroupId"] = undefined /*out*/;
             inputs["resourceId"] = undefined /*out*/;
             inputs["sourceArn"] = undefined /*out*/;
@@ -118,27 +118,23 @@ export class Asset extends pulumi.CustomResource {
  */
 export interface AssetArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-     */
-    id: pulumi.Input<string>;
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+     * The ID of the PackagingGroup for the Asset.
      */
     packagingGroupId: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+     * The resource ID to include in SPEKE key requests.
      */
     resourceId?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+     * ARN of the source object in S3.
      */
     sourceArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+     * The IAM role_arn used to access the source S3 bucket.
      */
     sourceRoleArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+     * A collection of tags associated with a resource
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.mediapackage.AssetTagArgs>[]>;
 }

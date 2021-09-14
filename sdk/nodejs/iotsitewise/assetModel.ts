@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html
+ * Resource schema for AWS::IoTSiteWise::AssetModel
  */
 export class AssetModel extends pulumi.CustomResource {
     /**
@@ -35,32 +35,38 @@ export class AssetModel extends pulumi.CustomResource {
         return obj['__pulumiType'] === AssetModel.__pulumiType;
     }
 
+    /**
+     * The ARN of the asset model, which has the following format.
+     */
     public /*out*/ readonly assetModelArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+     * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
     public readonly assetModelCompositeModels!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelCompositeModel[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
+     * A description for the asset model.
      */
     public readonly assetModelDescription!: pulumi.Output<string | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
+     * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
     public readonly assetModelHierarchies!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelHierarchy[] | undefined>;
+    /**
+     * The ID of the asset model.
+     */
     public /*out*/ readonly assetModelId!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
+     * A unique, friendly name for the asset model.
      */
     public readonly assetModelName!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
+     * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
     public readonly assetModelProperties!: pulumi.Output<outputs.iotsitewise.AssetModelAssetModelProperty[] | undefined>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.iotsitewise.AssetModelTag[] | undefined>;
 
     /**
      * Create a AssetModel resource with the given unique name, arguments, and options.
@@ -106,27 +112,27 @@ export class AssetModel extends pulumi.CustomResource {
  */
 export interface AssetModelArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodels
+     * The composite asset models that are part of this asset model. Composite asset models are asset models that contain specific properties.
      */
     assetModelCompositeModels?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelCompositeModelArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodeldescription
+     * A description for the asset model.
      */
     assetModelDescription?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelhierarchies
+     * The hierarchy definitions of the asset model. Each hierarchy specifies an asset model whose assets can be children of any other assets created from this asset model. You can specify up to 10 hierarchies per asset model.
      */
     assetModelHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelHierarchyArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelname
+     * A unique, friendly name for the asset model.
      */
     assetModelName: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-assetmodelproperties
+     * The property definitions of the asset model. You can specify up to 200 properties per asset model.
      */
     assetModelProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelAssetModelPropertyArgs>[]>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-assetmodel.html#cfn-iotsitewise-assetmodel-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetModelTagArgs>[]>;
 }

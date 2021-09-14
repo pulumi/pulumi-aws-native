@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+ * Resource Type definition for AWS::IVS::RecordingConfiguration
  */
 export class RecordingConfiguration extends pulumi.CustomResource {
     /**
@@ -35,20 +35,23 @@ export class RecordingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === RecordingConfiguration.__pulumiType;
     }
 
-    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
+     * Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
      */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+     * Recording Configuration Name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Recording Configuration State.
+     */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ivs.RecordingConfigurationTag[] | undefined>;
 
     /**
      * Create a RecordingConfiguration resource with the given unique name, arguments, and options.
@@ -87,16 +90,13 @@ export class RecordingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a RecordingConfiguration resource.
  */
 export interface RecordingConfigurationArgs {
-    /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-     */
     destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfigurationArgs>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+     * Recording Configuration Name.
      */
     name?: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ivs.RecordingConfigurationTagArgs>[]>;
 }

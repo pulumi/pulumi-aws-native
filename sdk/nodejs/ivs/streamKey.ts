@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html
+ * Resource Type definition for AWS::IVS::StreamKey
  */
 export class StreamKey extends pulumi.CustomResource {
     /**
@@ -35,15 +35,21 @@ export class StreamKey extends pulumi.CustomResource {
         return obj['__pulumiType'] === StreamKey.__pulumiType;
     }
 
+    /**
+     * Stream Key ARN is automatically generated on creation and assigned as the unique identifier.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+     * Channel ARN for the stream.
      */
     public readonly channelArn!: pulumi.Output<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.ivs.StreamKeyTag[] | undefined>;
+    /**
+     * Stream-key value.
+     */
     public /*out*/ readonly value!: pulumi.Output<string>;
 
     /**
@@ -82,11 +88,11 @@ export class StreamKey extends pulumi.CustomResource {
  */
 export interface StreamKeyArgs {
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-channelarn
+     * Channel ARN for the stream.
      */
     channelArn: pulumi.Input<string>;
     /**
-     * http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html#cfn-ivs-streamkey-tags
+     * A list of key-value pairs that contain metadata for the asset model.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ivs.StreamKeyTagArgs>[]>;
 }
