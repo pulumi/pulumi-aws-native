@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3Outposts.Outputs
+namespace Pulumi.AwsNative.S3outposts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html
+    /// The container for the network interface.
     /// </summary>
     [OutputType]
     public sealed class EndpointNetworkInterface
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-networkinterface.html#cfn-s3outposts-endpoint-networkinterface-networkinterfaceid
-        /// </summary>
         public readonly string NetworkInterfaceId;
 
         [OutputConstructor]

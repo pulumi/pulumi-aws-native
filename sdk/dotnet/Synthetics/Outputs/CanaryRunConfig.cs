@@ -10,26 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html
-    /// </summary>
     [OutputType]
     public sealed class CanaryRunConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-activetracing
+        /// Enable active tracing if set to true
         /// </summary>
         public readonly bool? ActiveTracing;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-environmentvariables
+        /// Environment variable key-value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
+        public readonly object? EnvironmentVariables;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+        /// Provide maximum memory available for canary in MB
         /// </summary>
         public readonly int? MemoryInMB;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
+        /// Provide maximum canary timeout per run in seconds
         /// </summary>
         public readonly int? TimeoutInSeconds;
 
@@ -37,7 +34,7 @@ namespace Pulumi.AwsNative.Synthetics.Outputs
         private CanaryRunConfig(
             bool? activeTracing,
 
-            ImmutableDictionary<string, string>? environmentVariables,
+            object? environmentVariables,
 
             int? memoryInMB,
 

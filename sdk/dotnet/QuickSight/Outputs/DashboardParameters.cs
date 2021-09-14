@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html
+    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-datetimeparameters
+        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDateTimeParameter> DateTimeParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-decimalparameters
+        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDecimalParameter> DecimalParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-integerparameters
+        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardIntegerParameter> IntegerParameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-parameters.html#cfn-quicksight-dashboard-parameters-stringparameters
+        /// &lt;p&gt;String parameters.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardStringParameter> StringParameters;
 

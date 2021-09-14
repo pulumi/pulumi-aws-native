@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Inputs
+namespace Pulumi.AwsNative.Applicationinsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+    /// A Windows Event to be monitored for the component.
     /// </summary>
     public sealed class ApplicationWindowsEventArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         private InputList<string>? _eventLevels;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+        /// The levels of event to log. 
         /// </summary>
         public InputList<string> EventLevels
         {
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.ApplicationInsights.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+        /// The type of Windows Events to log.
         /// </summary>
         [Input("eventName", required: true)]
         public Input<string> EventName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+        /// The CloudWatch log group name to be associated to the monitored log.
         /// </summary>
         [Input("logGroupName", required: true)]
         public Input<string> LogGroupName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+        /// The name of the log pattern set.
         /// </summary>
         [Input("patternSet")]
         public Input<string>? PatternSet { get; set; }

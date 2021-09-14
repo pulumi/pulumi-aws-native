@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html
+    /// The inputs for a monitoring job.
     /// </summary>
     public sealed class ModelBiasJobDefinitionModelBiasJobInputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-endpointinput
-        /// </summary>
         [Input("endpointInput", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs> EndpointInput { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput-groundtruths3input
-        /// </summary>
         [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;
 

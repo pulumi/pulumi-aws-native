@@ -7,19 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
+    /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:EgressOnlyInternetGateway")]
     public partial class EgressOnlyInternetGateway : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        /// The ID of the VPC for which to create the egress-only internet gateway.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -70,7 +67,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class EgressOnlyInternetGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html#cfn-ec2-egressonlyinternetgateway-vpcid
+        /// The ID of the VPC for which to create the egress-only internet gateway.
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

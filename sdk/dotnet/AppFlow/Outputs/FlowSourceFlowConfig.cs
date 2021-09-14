@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Outputs
+namespace Pulumi.AwsNative.Appflow.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html
+    /// Configurations of Source connector of the flow.
     /// </summary>
     [OutputType]
     public sealed class FlowSourceFlowConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectorprofilename
+        /// Name of source connector profile
         /// </summary>
         public readonly string? ConnectorProfileName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-connectortype
+        /// Type of source connector
         /// </summary>
         public readonly string ConnectorType;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-incrementalpullconfig
+        /// Configuration for scheduled incremental data pull
         /// </summary>
         public readonly Outputs.FlowIncrementalPullConfig? IncrementalPullConfig;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html#cfn-appflow-flow-sourceflowconfig-sourceconnectorproperties
+        /// Source connector details required to query a connector
         /// </summary>
         public readonly Outputs.FlowSourceConnectorProperties SourceConnectorProperties;
 

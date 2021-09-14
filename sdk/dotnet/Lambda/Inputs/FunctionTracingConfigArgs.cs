@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
+    /// The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set Mode to Active.
     /// </summary>
     public sealed class FunctionTracingConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+        /// The tracing mode.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

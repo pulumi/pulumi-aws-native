@@ -7,17 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Inputs
+namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html
-    /// </summary>
     public sealed class ServiceDeploymentControllerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcontroller.html#cfn-ecs-service-deploymentcontroller-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

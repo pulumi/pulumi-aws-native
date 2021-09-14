@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html
+    /// A key-value pair to associate dataset parameter name with its definition.
     /// </summary>
     public sealed class DatasetPathParameterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-datasetparameter
-        /// </summary>
         [Input("datasetParameter", required: true)]
         public Input<Inputs.DatasetDatasetParameterArgs> DatasetParameter { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathparameter.html#cfn-databrew-dataset-pathparameter-pathparametername
-        /// </summary>
         [Input("pathParameterName", required: true)]
         public Input<string> PathParameterName { get; set; } = null!;
 

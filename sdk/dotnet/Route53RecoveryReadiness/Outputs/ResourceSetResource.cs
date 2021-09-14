@@ -7,29 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
+namespace Pulumi.AwsNative.Route53recoveryreadiness.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html
+    /// The resource element of a ResourceSet
     /// </summary>
     [OutputType]
     public sealed class ResourceSetResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-componentid
+        /// The component identifier of the resource, generated when DNS target resource is used.
         /// </summary>
         public readonly string? ComponentId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-dnstargetresource
-        /// </summary>
         public readonly Outputs.ResourceSetDNSTargetResource? DnsTargetResource;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-readinessscopes
+        /// A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         /// </summary>
         public readonly ImmutableArray<string> ReadinessScopes;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-resource.html#cfn-route53recoveryreadiness-resourceset-resource-resourcearn
+        /// The Amazon Resource Name (ARN) of the AWS resource.
         /// </summary>
         public readonly string? ResourceArn;
 

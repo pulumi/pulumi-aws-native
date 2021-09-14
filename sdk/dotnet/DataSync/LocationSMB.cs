@@ -7,64 +7,67 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync
+namespace Pulumi.AwsNative.Datasync
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html
+    /// Resource schema for AWS::DataSync::LocationSMB.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:LocationSMB")]
     public partial class LocationSMB : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
+        /// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         /// </summary>
         [Output("agentArns")]
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
+        /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SMB location that is created.
+        /// </summary>
         [Output("locationArn")]
         public Output<string> LocationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL of the SMB location that was described.
+        /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        /// </summary>
         [Output("mountOptions")]
         public Output<Outputs.LocationSMBMountOptions?> MountOptions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
+        /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
+        /// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         /// </summary>
         [Output("serverHostname")]
         public Output<string> ServerHostname { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
+        /// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         /// </summary>
         [Output("subdirectory")]
         public Output<string> Subdirectory { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.LocationSMBTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
+        /// The user who can mount the share, has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Output("user")]
         public Output<string> User { get; private set; } = null!;
@@ -118,7 +121,7 @@ namespace Pulumi.AwsNative.DataSync
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-agentarns
+        /// The Amazon Resource Names (ARNs) of agents to use for a Simple Message Block (SMB) location.
         /// </summary>
         public InputList<string> AgentArns
         {
@@ -127,49 +130,46 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-domain
+        /// The name of the Windows domain that the SMB server belongs to.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-mountoptions
-        /// </summary>
         [Input("mountOptions")]
         public Input<Inputs.LocationSMBMountOptionsArgs>? MountOptions { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-password
+        /// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-serverhostname
+        /// The name of the SMB server. This value is the IP address or Domain Name Service (DNS) name of the SMB server.
         /// </summary>
         [Input("serverHostname", required: true)]
         public Input<string> ServerHostname { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-subdirectory
+        /// The subdirectory in the SMB file system that is used to read data from the SMB source location or write data to the SMB destination
         /// </summary>
         [Input("subdirectory", required: true)]
         public Input<string> Subdirectory { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.LocationSMBTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.LocationSMBTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.LocationSMBTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationsmb.html#cfn-datasync-locationsmb-user
+        /// The user who can mount the share, has the permissions to access files and folders in the SMB share.
         /// </summary>
         [Input("user", required: true)]
         public Input<string> User { get; set; } = null!;

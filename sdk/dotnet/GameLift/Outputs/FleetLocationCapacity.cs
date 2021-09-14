@@ -7,25 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift.Outputs
+namespace Pulumi.AwsNative.Gamelift.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html
+    /// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
     /// </summary>
     [OutputType]
     public sealed class FleetLocationCapacity
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-desiredec2instances
+        /// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
         /// </summary>
         public readonly int DesiredEC2Instances;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-maxsize
+        /// The maximum value that is allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         /// </summary>
         public readonly int MaxSize;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationcapacity.html#cfn-gamelift-fleet-locationcapacity-minsize
+        /// The minimum value allowed for the fleet's instance count for a location. When creating a new fleet, GameLift automatically sets this value to "0". After the fleet is active, you can change this value.
         /// </summary>
         public readonly int MinSize;
 

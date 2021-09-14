@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html
+    /// &lt;p&gt;Amazon Elasticsearch Service parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceAmazonElasticsearchParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-amazonelasticsearchparameters.html#cfn-quicksight-datasource-amazonelasticsearchparameters-domain
+        /// &lt;p&gt;The Amazon Elasticsearch Service domain.&lt;/p&gt;
         /// </summary>
         public readonly string Domain;
 

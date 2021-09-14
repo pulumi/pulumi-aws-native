@@ -7,38 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Outputs
+namespace Pulumi.AwsNative.Iot.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html
+    /// The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
     /// </summary>
     [OutputType]
     public sealed class MitigationActionActionParams
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-addthingstothinggroupparams
-        /// </summary>
         public readonly Outputs.MitigationActionAddThingsToThingGroupParams? AddThingsToThingGroupParams;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-enableiotloggingparams
-        /// </summary>
         public readonly Outputs.MitigationActionEnableIoTLoggingParams? EnableIoTLoggingParams;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-publishfindingtosnsparams
-        /// </summary>
         public readonly Outputs.MitigationActionPublishFindingToSnsParams? PublishFindingToSnsParams;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-replacedefaultpolicyversionparams
-        /// </summary>
         public readonly Outputs.MitigationActionReplaceDefaultPolicyVersionParams? ReplaceDefaultPolicyVersionParams;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatecacertificateparams
-        /// </summary>
         public readonly Outputs.MitigationActionUpdateCACertificateParams? UpdateCACertificateParams;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-actionparams.html#cfn-iot-mitigationaction-actionparams-updatedevicecertificateparams
-        /// </summary>
         public readonly Outputs.MitigationActionUpdateDeviceCertificateParams? UpdateDeviceCertificateParams;
 
         [OutputConstructor]

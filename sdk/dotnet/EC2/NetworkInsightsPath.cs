@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html
+    /// Resource schema for AWS::EC2::NetworkInsightsPath
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsPath")]
     public partial class NetworkInsightsPath : Pulumi.CustomResource
@@ -18,21 +18,12 @@ namespace Pulumi.AwsNative.EC2
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        /// </summary>
         [Output("destination")]
         public Output<string> Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        /// </summary>
         [Output("destinationIp")]
         public Output<string?> DestinationIp { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        /// </summary>
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
 
@@ -42,29 +33,17 @@ namespace Pulumi.AwsNative.EC2
         [Output("networkInsightsPathId")]
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        /// </summary>
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        /// </summary>
         [Output("sourceIp")]
         public Output<string?> SourceIp { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInsightsPathTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -111,51 +90,29 @@ namespace Pulumi.AwsNative.EC2
 
     public sealed class NetworkInsightsPathArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destination
-        /// </summary>
         [Input("destination", required: true)]
         public Input<string> Destination { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationip
-        /// </summary>
         [Input("destinationIp")]
         public Input<string>? DestinationIp { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-destinationport
-        /// </summary>
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-protocol
-        /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-source
-        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-sourceip
-        /// </summary>
         [Input("sourceIp")]
         public Input<string>? SourceIp { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html#cfn-ec2-networkinsightspath-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.NetworkInsightsPathTagArgs>? _tags;
+        public InputList<Inputs.NetworkInsightsPathTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.NetworkInsightsPathTagArgs>());
             set => _tags = value;
         }
 

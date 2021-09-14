@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Outputs
+namespace Pulumi.AwsNative.Applicationinsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
+    /// A Windows Event to be monitored for the component.
     /// </summary>
     [OutputType]
     public sealed class ApplicationWindowsEvent
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventlevels
+        /// The levels of event to log. 
         /// </summary>
         public readonly ImmutableArray<string> EventLevels;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-eventname
+        /// The type of Windows Events to log.
         /// </summary>
         public readonly string EventName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-loggroupname
+        /// The CloudWatch log group name to be associated to the monitored log.
         /// </summary>
         public readonly string LogGroupName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html#cfn-applicationinsights-application-windowsevent-patternset
+        /// The name of the log pattern set.
         /// </summary>
         public readonly string? PatternSet;
 

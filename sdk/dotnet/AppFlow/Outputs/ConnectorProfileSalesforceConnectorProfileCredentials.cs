@@ -7,29 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Outputs
+namespace Pulumi.AwsNative.Appflow.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
-    /// </summary>
     [OutputType]
     public sealed class ConnectorProfileSalesforceConnectorProfileCredentials
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+        /// The credentials used to access protected resources.
         /// </summary>
         public readonly string? AccessToken;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+        /// The client credentials to fetch access token and refresh token.
         /// </summary>
         public readonly string? ClientCredentialsArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+        /// The oauth needed to request security tokens from the connector endpoint.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+        /// The credentials used to acquire new access tokens.
         /// </summary>
         public readonly string? RefreshToken;
 

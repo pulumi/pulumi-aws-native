@@ -7,47 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Inputs
+namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html
-    /// </summary>
     public sealed class EC2FleetOnDemandOptionsRequestArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-allocationstrategy
-        /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-capacityreservationoptions
-        /// </summary>
         [Input("capacityReservationOptions")]
         public Input<Inputs.EC2FleetCapacityReservationOptionsRequestArgs>? CapacityReservationOptions { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-maxtotalprice
-        /// </summary>
         [Input("maxTotalPrice")]
         public Input<string>? MaxTotalPrice { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-mintargetcapacity
-        /// </summary>
         [Input("minTargetCapacity")]
         public Input<int>? MinTargetCapacity { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleavailabilityzone
-        /// </summary>
         [Input("singleAvailabilityZone")]
         public Input<bool>? SingleAvailabilityZone { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-ondemandoptionsrequest.html#cfn-ec2-ec2fleet-ondemandoptionsrequest-singleinstancetype
-        /// </summary>
         [Input("singleInstanceType")]
         public Input<bool>? SingleInstanceType { get; set; }
 

@@ -7,95 +7,53 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html
+    /// Source connector details required to query a connector
     /// </summary>
     public sealed class FlowSourceConnectorPropertiesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-amplitude
-        /// </summary>
         [Input("amplitude")]
         public Input<Inputs.FlowAmplitudeSourcePropertiesArgs>? Amplitude { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-datadog
-        /// </summary>
         [Input("datadog")]
         public Input<Inputs.FlowDatadogSourcePropertiesArgs>? Datadog { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-dynatrace
-        /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.FlowDynatraceSourcePropertiesArgs>? Dynatrace { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-googleanalytics
-        /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.FlowGoogleAnalyticsSourcePropertiesArgs>? GoogleAnalytics { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-infornexus
-        /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.FlowInforNexusSourcePropertiesArgs>? InforNexus { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-marketo
-        /// </summary>
         [Input("marketo")]
         public Input<Inputs.FlowMarketoSourcePropertiesArgs>? Marketo { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-s3
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowS3SourcePropertiesArgs>? S3 { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-salesforce
-        /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceSourcePropertiesArgs>? Salesforce { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-servicenow
-        /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.FlowServiceNowSourcePropertiesArgs>? ServiceNow { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-singular
-        /// </summary>
         [Input("singular")]
         public Input<Inputs.FlowSingularSourcePropertiesArgs>? Singular { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-slack
-        /// </summary>
         [Input("slack")]
         public Input<Inputs.FlowSlackSourcePropertiesArgs>? Slack { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-trendmicro
-        /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.FlowTrendmicroSourcePropertiesArgs>? Trendmicro { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-veeva
-        /// </summary>
         [Input("veeva")]
         public Input<Inputs.FlowVeevaSourcePropertiesArgs>? Veeva { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html#cfn-appflow-flow-sourceconnectorproperties-zendesk
-        /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowZendeskSourcePropertiesArgs>? Zendesk { get; set; }
 

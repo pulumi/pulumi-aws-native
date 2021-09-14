@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+    /// Connector specific configurations needed to create connector profile
     /// </summary>
     public sealed class ConnectorProfileConnectorProfileConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
-        /// </summary>
         [Input("connectorProfileCredentials", required: true)]
         public Input<Inputs.ConnectorProfileConnectorProfileCredentialsArgs> ConnectorProfileCredentials { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
-        /// </summary>
         [Input("connectorProfileProperties")]
         public Input<Inputs.ConnectorProfileConnectorProfilePropertiesArgs>? ConnectorProfileProperties { get; set; }
 

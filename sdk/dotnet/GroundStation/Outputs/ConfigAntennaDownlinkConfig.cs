@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GroundStation.Outputs
+namespace Pulumi.AwsNative.Groundstation.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html
-    /// </summary>
     [OutputType]
     public sealed class ConfigAntennaDownlinkConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-antennadownlinkconfig.html#cfn-groundstation-config-antennadownlinkconfig-spectrumconfig
-        /// </summary>
         public readonly Outputs.ConfigSpectrumConfig? SpectrumConfig;
 
         [OutputConstructor]

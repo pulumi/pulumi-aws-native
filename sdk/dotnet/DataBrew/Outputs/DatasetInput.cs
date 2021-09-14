@@ -7,26 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Outputs
+namespace Pulumi.AwsNative.Databrew.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html
+    /// Input
     /// </summary>
     [OutputType]
     public sealed class DatasetInput
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-datacataloginputdefinition
-        /// </summary>
         public readonly Outputs.DatasetDataCatalogInputDefinition? DataCatalogInputDefinition;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-databaseinputdefinition
-        /// </summary>
         public readonly Outputs.DatasetDatabaseInputDefinition? DatabaseInputDefinition;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html#cfn-databrew-dataset-input-s3inputdefinition
-        /// </summary>
         public readonly Outputs.DatasetS3Location? S3InputDefinition;
 
         [OutputConstructor]

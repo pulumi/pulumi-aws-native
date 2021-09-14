@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Inputs
+namespace Pulumi.AwsNative.Iotsitewise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html
+    /// Contains the ARN of AWS IoT Greengrass Group that the gateway runs on.
     /// </summary>
     public sealed class GatewayGreengrassArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html#cfn-iotsitewise-gateway-greengrass-grouparn
+        /// The ARN of the Greengrass group.
         /// </summary>
         [Input("groupArn", required: true)]
         public Input<string> GroupArn { get; set; } = null!;

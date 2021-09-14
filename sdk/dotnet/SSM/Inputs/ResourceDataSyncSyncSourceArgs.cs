@@ -7,41 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM.Inputs
+namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html
-    /// </summary>
     public sealed class ResourceDataSyncSyncSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-awsorganizationssource
-        /// </summary>
         [Input("awsOrganizationsSource")]
         public Input<Inputs.ResourceDataSyncAwsOrganizationsSourceArgs>? AwsOrganizationsSource { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-includefutureregions
-        /// </summary>
         [Input("includeFutureRegions")]
         public Input<bool>? IncludeFutureRegions { get; set; }
 
         [Input("sourceRegions", required: true)]
         private InputList<string>? _sourceRegions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourceregions
-        /// </summary>
         public InputList<string> SourceRegions
         {
             get => _sourceRegions ?? (_sourceRegions = new InputList<string>());
             set => _sourceRegions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-syncsource.html#cfn-ssm-resourcedatasync-syncsource-sourcetype
-        /// </summary>
         [Input("sourceType", required: true)]
         public Input<string> SourceType { get; set; } = null!;
 

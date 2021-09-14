@@ -7,43 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DynamoDB.Outputs
+namespace Pulumi.AwsNative.Dynamodb.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html
-    /// </summary>
     [OutputType]
     public sealed class GlobalTableReplicaSpecification
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-contributorinsightsspecification
-        /// </summary>
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-globalsecondaryindexes
-        /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-pointintimerecoveryspecification
-        /// </summary>
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-readprovisionedthroughputsettings
-        /// </summary>
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-region
-        /// </summary>
         public readonly string Region;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-ssespecification
-        /// </summary>
         public readonly Outputs.GlobalTableReplicaSSESpecification? SSESpecification;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-replicaspecification.html#cfn-dynamodb-globaltable-replicaspecification-tags
-        /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 
         [OutputConstructor]
         private GlobalTableReplicaSpecification(
@@ -59,7 +35,7 @@ namespace Pulumi.AwsNative.DynamoDB.Outputs
 
             Outputs.GlobalTableReplicaSSESpecification? sSESpecification,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Outputs.GlobalTableTag> tags)
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
             GlobalSecondaryIndexes = globalSecondaryIndexes;

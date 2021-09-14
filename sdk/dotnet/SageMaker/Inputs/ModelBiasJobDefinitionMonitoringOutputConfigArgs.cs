@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html
+    /// The output configuration for monitoring jobs.
     /// </summary>
     public sealed class ModelBiasJobDefinitionMonitoringOutputConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-kmskeyid
+        /// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs>? _monitoringOutputs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutputconfig.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutputconfig-monitoringoutputs
+        /// Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded.
         /// </summary>
         public InputList<Inputs.ModelBiasJobDefinitionMonitoringOutputArgs> MonitoringOutputs
         {

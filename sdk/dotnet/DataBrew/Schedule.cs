@@ -7,37 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew
+namespace Pulumi.AwsNative.Databrew
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html
+    /// Resource schema for AWS::DataBrew::Schedule.
     /// </summary>
     [AwsNativeResourceType("aws-native:databrew:Schedule")]
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
+        /// Schedule cron
         /// </summary>
         [Output("cronExpression")]
         public Output<string> CronExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-        /// </summary>
         [Output("jobNames")]
         public Output<ImmutableArray<string>> JobNames { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
+        /// Schedule Name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ScheduleTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,17 +79,13 @@ namespace Pulumi.AwsNative.DataBrew
     public sealed class ScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-cronexpression
+        /// Schedule cron
         /// </summary>
         [Input("cronExpression", required: true)]
         public Input<string> CronExpression { get; set; } = null!;
 
         [Input("jobNames")]
         private InputList<string>? _jobNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-jobnames
-        /// </summary>
         public InputList<string> JobNames
         {
             get => _jobNames ?? (_jobNames = new InputList<string>());
@@ -103,20 +93,16 @@ namespace Pulumi.AwsNative.DataBrew
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-name
+        /// Schedule Name
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-databrew-schedule.html#cfn-databrew-schedule-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.ScheduleTagArgs>? _tags;
+        public InputList<Inputs.ScheduleTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ScheduleTagArgs>());
             set => _tags = value;
         }
 

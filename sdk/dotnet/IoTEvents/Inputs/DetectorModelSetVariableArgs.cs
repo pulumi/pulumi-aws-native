@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html
+    /// Information about the variable and its new value.
     /// </summary>
     public sealed class DetectorModelSetVariableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-value
+        /// The new value of the variable.
         /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-setvariable.html#cfn-iotevents-detectormodel-setvariable-variablename
+        /// The name of the variable.
         /// </summary>
         [Input("variableName", required: true)]
         public Input<string> VariableName { get; set; } = null!;

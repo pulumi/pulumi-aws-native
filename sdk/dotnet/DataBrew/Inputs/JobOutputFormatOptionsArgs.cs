@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html
+    /// Format options for job Output
     /// </summary>
     public sealed class JobOutputFormatOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-outputformatoptions.html#cfn-databrew-job-outputformatoptions-csv
-        /// </summary>
         [Input("csv")]
         public Input<Inputs.JobCsvOutputOptionsArgs>? Csv { get; set; }
 

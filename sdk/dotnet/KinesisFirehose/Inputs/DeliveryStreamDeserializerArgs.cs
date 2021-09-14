@@ -7,23 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisFirehose.Inputs
+namespace Pulumi.AwsNative.Kinesisfirehose.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html
-    /// </summary>
     public sealed class DeliveryStreamDeserializerArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-hivejsonserde
-        /// </summary>
         [Input("hiveJsonSerDe")]
         public Input<Inputs.DeliveryStreamHiveJsonSerDeArgs>? HiveJsonSerDe { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deserializer.html#cfn-kinesisfirehose-deliverystream-deserializer-openxjsonserde
-        /// </summary>
         [Input("openXJsonSerDe")]
         public Input<Inputs.DeliveryStreamOpenXJsonSerDeArgs>? OpenXJsonSerDe { get; set; }
 

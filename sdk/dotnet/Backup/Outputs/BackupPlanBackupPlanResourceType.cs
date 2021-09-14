@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
-    /// </summary>
     [OutputType]
     public sealed class BackupPlanBackupPlanResourceType
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
-        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanAdvancedBackupSettingResourceType> AdvancedBackupSettings;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-        /// </summary>
         public readonly string BackupPlanName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-        /// </summary>
         public readonly ImmutableArray<Outputs.BackupPlanBackupRuleResourceType> BackupPlanRule;
 
         [OutputConstructor]

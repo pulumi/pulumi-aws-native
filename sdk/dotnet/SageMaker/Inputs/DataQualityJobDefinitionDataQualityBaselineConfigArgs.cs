@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html
+    /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     /// </summary>
     public sealed class DataQualityJobDefinitionDataQualityBaselineConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-baseliningjobname
-        /// </summary>
         [Input("baseliningJobName")]
         public Input<string>? BaseliningJobName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-constraintsresource
-        /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.DataQualityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html#cfn-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig-statisticsresource
-        /// </summary>
         [Input("statisticsResource")]
         public Input<Inputs.DataQualityJobDefinitionStatisticsResourceArgs>? StatisticsResource { get; set; }
 

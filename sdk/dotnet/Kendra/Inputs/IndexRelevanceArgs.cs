@@ -10,41 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html
-    /// </summary>
     public sealed class IndexRelevanceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-duration
-        /// </summary>
         [Input("duration")]
         public Input<string>? Duration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-freshness
-        /// </summary>
         [Input("freshness")]
         public Input<bool>? Freshness { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-importance
-        /// </summary>
         [Input("importance")]
         public Input<int>? Importance { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-rankorder
-        /// </summary>
         [Input("rankOrder")]
         public Input<string>? RankOrder { get; set; }
 
         [Input("valueImportanceItems")]
         private InputList<Inputs.IndexValueImportanceItemArgs>? _valueImportanceItems;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-relevance.html#cfn-kendra-index-relevance-valueimportanceitems
-        /// </summary>
         public InputList<Inputs.IndexValueImportanceItemArgs> ValueImportanceItems
         {
             get => _valueImportanceItems ?? (_valueImportanceItems = new InputList<Inputs.IndexValueImportanceItemArgs>());

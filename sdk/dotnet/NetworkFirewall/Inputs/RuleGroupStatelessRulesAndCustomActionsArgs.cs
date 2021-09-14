@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html
-    /// </summary>
     public sealed class RuleGroupStatelessRulesAndCustomActionsArgs : Pulumi.ResourceArgs
     {
         [Input("customActions")]
         private InputList<Inputs.RuleGroupCustomActionArgs>? _customActions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-customactions
-        /// </summary>
         public InputList<Inputs.RuleGroupCustomActionArgs> CustomActions
         {
             get => _customActions ?? (_customActions = new InputList<Inputs.RuleGroupCustomActionArgs>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessRules", required: true)]
         private InputList<Inputs.RuleGroupStatelessRuleArgs>? _statelessRules;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statelessrulesandcustomactions.html#cfn-networkfirewall-rulegroup-statelessrulesandcustomactions-statelessrules
-        /// </summary>
         public InputList<Inputs.RuleGroupStatelessRuleArgs> StatelessRules
         {
             get => _statelessRules ?? (_statelessRules = new InputList<Inputs.RuleGroupStatelessRuleArgs>());

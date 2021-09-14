@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics.Inputs
+namespace Pulumi.AwsNative.Lookoutmetrics.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html
+    /// Configuration options for a Lambda alert action.
     /// </summary>
     public sealed class AlertLambdaConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-lambdaarn
+        /// ARN of a Lambda to send alert notifications to.
         /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-lambdaconfiguration.html#cfn-lookoutmetrics-alert-lambdaconfiguration-rolearn
+        /// ARN of an IAM role that LookoutMetrics should assume to access the Lambda function.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

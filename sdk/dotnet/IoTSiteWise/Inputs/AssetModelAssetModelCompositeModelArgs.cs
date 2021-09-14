@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Inputs
+namespace Pulumi.AwsNative.Iotsitewise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+    /// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
     /// </summary>
     public sealed class AssetModelAssetModelCompositeModelArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         private InputList<Inputs.AssetModelAssetModelPropertyArgs>? _compositeModelProperties;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+        /// The property definitions of the asset model. You can specify up to 200 properties per asset model.
         /// </summary>
         public InputList<Inputs.AssetModelAssetModelPropertyArgs> CompositeModelProperties
         {
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.IoTSiteWise.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+        /// A description for the asset composite model.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+        /// A unique, friendly name for the asset composite model.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+        /// The type of the composite model. For alarm composite models, this type is AWS/ALARM
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

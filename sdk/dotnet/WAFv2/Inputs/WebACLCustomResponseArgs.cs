@@ -7,23 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html
+    /// Custom response.
     /// </summary>
     public sealed class WebACLCustomResponseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-customresponsebodykey
+        /// Custom response body key.
         /// </summary>
         [Input("customResponseBodyKey")]
         public Input<string>? CustomResponseBodyKey { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responsecode
-        /// </summary>
         [Input("responseCode", required: true)]
         public Input<int> ResponseCode { get; set; } = null!;
 
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         private InputList<Inputs.WebACLCustomHTTPHeaderArgs>? _responseHeaders;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html#cfn-wafv2-webacl-customresponse-responseheaders
+        /// Collection of HTTP headers.
         /// </summary>
         public InputList<Inputs.WebACLCustomHTTPHeaderArgs> ResponseHeaders
         {

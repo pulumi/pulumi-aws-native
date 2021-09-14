@@ -7,46 +7,46 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FinSpace.Inputs
+namespace Pulumi.AwsNative.Finspace.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html
+    /// Additional parameters to identify Federation mode
     /// </summary>
     public sealed class EnvironmentFederationParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-applicationcallbackurl
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         [Input("applicationCallBackURL")]
         public Input<string>? ApplicationCallBackURL { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-attributemap
+        /// Attribute map for SAML configuration
         /// </summary>
         [Input("attributeMap")]
-        public InputUnion<System.Text.Json.JsonElement, string>? AttributeMap { get; set; }
+        public Input<object>? AttributeMap { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationprovidername
+        /// Federation provider name to link with the Environment
         /// </summary>
         [Input("federationProviderName")]
         public Input<string>? FederationProviderName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-federationurn
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         [Input("federationURN")]
         public Input<string>? FederationURN { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadatadocument
+        /// SAML metadata document to link the federation provider to the Environment
         /// </summary>
         [Input("samlMetadataDocument")]
         public Input<string>? SamlMetadataDocument { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-finspace-environment-federationparameters.html#cfn-finspace-environment-federationparameters-samlmetadataurl
+        /// SAML metadata URL to link with the Environment
         /// </summary>
         [Input("samlMetadataURL")]
         public Input<string>? SamlMetadataURL { get; set; }

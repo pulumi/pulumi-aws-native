@@ -7,34 +7,37 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness
+namespace Pulumi.AwsNative.Route53recoveryreadiness
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html
+    /// AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:RecoveryGroup")]
     public partial class RecoveryGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+        /// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         /// </summary>
         [Output("cells")]
         public Output<ImmutableArray<string>> Cells { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of tags associated with a resource.
+        /// </summary>
         [Output("recoveryGroupArn")]
         public Output<string> RecoveryGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+        /// The name of the recovery group to create.
         /// </summary>
         [Output("recoveryGroupName")]
         public Output<string> RecoveryGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        /// A collection of tags associated with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecoveryGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,7 +88,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         private InputList<string>? _cells;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-cells
+        /// A list of the cell Amazon Resource Names (ARNs) in the recovery group.
         /// </summary>
         public InputList<string> Cells
         {
@@ -94,20 +97,20 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-recoverygroupname
+        /// The name of the recovery group to create.
         /// </summary>
         [Input("recoveryGroupName", required: true)]
         public Input<string> RecoveryGroupName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.RecoveryGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-recoverygroup.html#cfn-route53recoveryreadiness-recoverygroup-tags
+        /// A collection of tags associated with a resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.RecoveryGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RecoveryGroupTagArgs>());
             set => _tags = value;
         }
 

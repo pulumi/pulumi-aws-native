@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Outputs
+namespace Pulumi.AwsNative.Applicationinsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html
+    /// The configuration settings of the component.
     /// </summary>
     [OutputType]
     public sealed class ApplicationComponentConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-configurationdetails
+        /// The configuration settings
         /// </summary>
         public readonly Outputs.ApplicationConfigurationDetails? ConfigurationDetails;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-componentconfiguration.html#cfn-applicationinsights-application-componentconfiguration-subcomponenttypeconfigurations
+        /// Sub component configurations of the component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationSubComponentTypeConfiguration> SubComponentTypeConfigurations;
 

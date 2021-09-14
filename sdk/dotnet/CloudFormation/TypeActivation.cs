@@ -7,73 +7,78 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFormation
+namespace Pulumi.AwsNative.Cloudformation
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html
+    /// Enable a resource that has been published in the CloudFormation Registry.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudformation:TypeActivation")]
     public partial class TypeActivation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the extension.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+        /// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         /// </summary>
         [Output("autoUpdate")]
         public Output<bool?> AutoUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+        /// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         /// </summary>
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+        /// Specifies logging configuration information for a type.
         /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.TypeActivationLoggingConfig?> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
+        /// The Major Version of the type you want to enable
         /// </summary>
         [Output("majorVersion")]
         public Output<string?> MajorVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+        /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
         /// </summary>
         [Output("publicTypeArn")]
         public Output<string?> PublicTypeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+        /// The publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         [Output("publisherId")]
         public Output<string?> PublisherId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+        /// The kind of extension
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Output("typeName")]
         public Output<string?> TypeName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
+        /// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         /// </summary>
         [Output("typeNameAlias")]
         public Output<string?> TypeNameAlias { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         /// </summary>
         [Output("versionBump")]
         public Output<string?> VersionBump { get; private set; } = null!;
@@ -124,61 +129,63 @@ namespace Pulumi.AwsNative.CloudFormation
     public sealed class TypeActivationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-autoupdate
+        /// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         /// </summary>
         [Input("autoUpdate")]
         public Input<bool>? AutoUpdate { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-executionrolearn
+        /// The Amazon Resource Name (ARN) of the IAM execution role to use to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. CloudFormation then assumes that execution role to provide your resource type with the appropriate credentials.
         /// </summary>
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-loggingconfig
+        /// Specifies logging configuration information for a type.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.TypeActivationLoggingConfigArgs>? LoggingConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-majorversion
+        /// The Major Version of the type you want to enable
         /// </summary>
         [Input("majorVersion")]
         public Input<string>? MajorVersion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publictypearn
+        /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
         /// </summary>
         [Input("publicTypeArn")]
         public Input<string>? PublicTypeArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-publisherid
+        /// The publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
         [Input("publisherId")]
         public Input<string>? PublisherId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-type
+        /// The kind of extension
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typename
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
         [Input("typeName")]
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-typenamealias
+        /// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
         /// </summary>
         [Input("typeNameAlias")]
         public Input<string>? TypeNameAlias { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-typeactivation.html#cfn-cloudformation-typeactivation-versionbump
+        /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         /// </summary>
         [Input("versionBump")]
         public Input<string>? VersionBump { get; set; }

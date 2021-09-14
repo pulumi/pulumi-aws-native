@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html
+    /// The queue configuration. This is required only if QuickConnectType is QUEUE.
     /// </summary>
     public sealed class QuickConnectQueueQuickConnectConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-contactflowarn
-        /// </summary>
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html#cfn-connect-quickconnect-queuequickconnectconfig-queuearn
-        /// </summary>
         [Input("queueArn", required: true)]
         public Input<string> QueueArn { get; set; } = null!;
 

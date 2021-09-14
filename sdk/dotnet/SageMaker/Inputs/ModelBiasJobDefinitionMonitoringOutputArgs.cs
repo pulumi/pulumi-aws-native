@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html
+    /// The output object for a monitoring job.
     /// </summary>
     public sealed class ModelBiasJobDefinitionMonitoringOutputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-monitoringoutput.html#cfn-sagemaker-modelbiasjobdefinition-monitoringoutput-s3output
-        /// </summary>
         [Input("s3Output", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionS3OutputArgs> S3Output { get; set; } = null!;
 

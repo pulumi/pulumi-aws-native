@@ -7,17 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CustomerProfiles.Inputs
+namespace Pulumi.AwsNative.Customerprofiles.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html
-    /// </summary>
     public sealed class IntegrationMarketoSourcePropertiesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-marketosourceproperties.html#cfn-customerprofiles-integration-marketosourceproperties-object
-        /// </summary>
         [Input("object", required: true)]
         public Input<string> Object { get; set; } = null!;
 

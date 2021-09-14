@@ -7,35 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Inputs
+namespace Pulumi.AwsNative.Iotsitewise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html
+    /// Contains a property type, which can be one of attribute, measurement, metric, or transform.
     /// </summary>
     public sealed class AssetModelPropertyTypeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-attribute
-        /// </summary>
         [Input("attribute")]
         public Input<Inputs.AssetModelAttributeArgs>? Attribute { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-metric
-        /// </summary>
         [Input("metric")]
         public Input<Inputs.AssetModelMetricArgs>? Metric { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-transform
-        /// </summary>
         [Input("transform")]
         public Input<Inputs.AssetModelTransformArgs>? Transform { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html#cfn-iotsitewise-assetmodel-propertytype-typename
-        /// </summary>
         [Input("typeName", required: true)]
         public Input<string> TypeName { get; set; } = null!;
 

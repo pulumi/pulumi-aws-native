@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html
-    /// </summary>
     public sealed class RuleGroupTCPFlagFieldArgs : Pulumi.ResourceArgs
     {
         [Input("flags", required: true)]
         private InputList<string>? _flags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-flags
-        /// </summary>
         public InputList<string> Flags
         {
             get => _flags ?? (_flags = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("masks")]
         private InputList<string>? _masks;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-tcpflagfield.html#cfn-networkfirewall-rulegroup-tcpflagfield-masks
-        /// </summary>
         public InputList<string> Masks
         {
             get => _masks ?? (_masks = new InputList<string>());

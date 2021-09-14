@@ -7,50 +7,38 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics.Outputs
+namespace Pulumi.AwsNative.Lookoutmetrics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html
-    /// </summary>
     [OutputType]
     public sealed class AnomalyDetectorMetricSet
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-dimensionlist
+        /// Dimensions for this MetricSet.
         /// </summary>
         public readonly ImmutableArray<string> DimensionList;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metriclist
+        /// Metrics captured by this MetricSet.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnomalyDetectorMetric> MetricList;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetdescription
+        /// A description for the MetricSet.
         /// </summary>
         public readonly string? MetricSetDescription;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetfrequency
+        /// A frequency period to aggregate the data
         /// </summary>
         public readonly string? MetricSetFrequency;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsetname
+        /// The name of the MetricSet.
         /// </summary>
         public readonly string MetricSetName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-metricsource
-        /// </summary>
         public readonly Outputs.AnomalyDetectorMetricSource MetricSource;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-offset
+        /// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
         /// </summary>
         public readonly int? Offset;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timestampcolumn
-        /// </summary>
         public readonly Outputs.AnomalyDetectorTimestampColumn? TimestampColumn;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-metricset.html#cfn-lookoutmetrics-anomalydetector-metricset-timezone
-        /// </summary>
         public readonly string? Timezone;
 
         [OutputConstructor]

@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisFirehose.Inputs
+namespace Pulumi.AwsNative.Kinesisfirehose.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html
-    /// </summary>
     public sealed class DeliveryStreamHiveJsonSerDeArgs : Pulumi.ResourceArgs
     {
         [Input("timestampFormats")]
         private InputList<string>? _timestampFormats;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-hivejsonserde.html#cfn-kinesisfirehose-deliverystream-hivejsonserde-timestampformats
-        /// </summary>
         public InputList<string> TimestampFormats
         {
             get => _timestampFormats ?? (_timestampFormats = new InputList<string>());

@@ -7,35 +7,41 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html
+    /// Describes a route for a local gateway route table.
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:LocalGatewayRoute")]
     public partial class LocalGatewayRoute : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+        /// The CIDR block used for destination matches.
         /// </summary>
         [Output("destinationCidrBlock")]
         public Output<string> DestinationCidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+        /// The ID of the local gateway route table.
         /// </summary>
         [Output("localGatewayRouteTableId")]
         public Output<string> LocalGatewayRouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        /// The ID of the virtual interface group.
         /// </summary>
         [Output("localGatewayVirtualInterfaceGroupId")]
         public Output<string> LocalGatewayVirtualInterfaceGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the route.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
+        /// <summary>
+        /// The route type.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -85,19 +91,19 @@ namespace Pulumi.AwsNative.EC2
     public sealed class LocalGatewayRouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-destinationcidrblock
+        /// The CIDR block used for destination matches.
         /// </summary>
         [Input("destinationCidrBlock", required: true)]
         public Input<string> DestinationCidrBlock { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayroutetableid
+        /// The ID of the local gateway route table.
         /// </summary>
         [Input("localGatewayRouteTableId", required: true)]
         public Input<string> LocalGatewayRouteTableId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroute.html#cfn-ec2-localgatewayroute-localgatewayvirtualinterfacegroupid
+        /// The ID of the virtual interface group.
         /// </summary>
         [Input("localGatewayVirtualInterfaceGroupId", required: true)]
         public Input<string> LocalGatewayVirtualInterfaceGroupId { get; set; } = null!;

@@ -7,49 +7,49 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaConnect
+namespace Pulumi.AwsNative.Mediaconnect
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html
+    /// Resource schema for AWS::MediaConnect::Flow
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:Flow")]
     public partial class Flow : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+        /// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
+        /// </summary>
         [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.(ReadOnly)
+        /// </summary>
         [Output("flowAvailabilityZone")]
         public Output<string> FlowAvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+        /// The name of the flow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+        /// The source of the flow.
         /// </summary>
         [Output("source")]
         public Output<Outputs.FlowSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        /// The source failover config of the flow.
         /// </summary>
         [Output("sourceFailoverConfig")]
         public Output<Outputs.FlowFailoverConfig?> SourceFailoverConfig { get; private set; } = null!;
-
-        [Output("sourceIngestIp")]
-        public Output<string> SourceIngestIp { get; private set; } = null!;
-
-        [Output("sourceSourceArn")]
-        public Output<string> SourceSourceArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,25 +97,25 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class FlowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-availabilityzone
+        /// The Availability Zone that you want to create the flow in. These options are limited to the Availability Zones within the current AWS.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-name
+        /// The name of the flow.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-source
+        /// The source of the flow.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.FlowSourceArgs> Source { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html#cfn-mediaconnect-flow-sourcefailoverconfig
+        /// The source failover config of the flow.
         /// </summary>
         [Input("sourceFailoverConfig")]
         public Input<Inputs.FlowFailoverConfigArgs>? SourceFailoverConfig { get; set; }

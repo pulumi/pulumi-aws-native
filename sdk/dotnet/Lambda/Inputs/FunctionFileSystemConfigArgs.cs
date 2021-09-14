@@ -10,19 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html
-    /// </summary>
     public sealed class FunctionFileSystemConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-arn
+        /// The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html#cfn-lambda-function-filesystemconfig-localmountpath
+        /// The path where the function can access the file system, starting with /mnt/.
         /// </summary>
         [Input("localMountPath", required: true)]
         public Input<string> LocalMountPath { get; set; } = null!;

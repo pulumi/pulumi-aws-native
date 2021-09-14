@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html
-    /// </summary>
     [OutputType]
     public sealed class DataSourceOneDriveUsers
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveuserlist
-        /// </summary>
         public readonly ImmutableArray<string> OneDriveUserList;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-onedriveusers.html#cfn-kendra-datasource-onedriveusers-onedriveusers3path
-        /// </summary>
         public readonly Outputs.DataSourceS3Path? OneDriveUserS3Path;
 
         [OutputConstructor]

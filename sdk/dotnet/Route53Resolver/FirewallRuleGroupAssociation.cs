@@ -7,70 +7,88 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53Resolver
+namespace Pulumi.AwsNative.Route53resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html
+    /// Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:FirewallRuleGroupAssociation")]
     public partial class FirewallRuleGroupAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Arn
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the creator request.
+        /// </summary>
         [Output("creatorRequestId")]
         public Output<string> CreatorRequestId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+        /// FirewallRuleGroupId
         /// </summary>
         [Output("firewallRuleGroupId")]
         public Output<string> FirewallRuleGroupId { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         [Output("managedOwnerName")]
         public Output<string> ManagedOwnerName { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("modificationTime")]
         public Output<string> ModificationTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+        /// MutationProtectionStatus
         /// </summary>
         [Output("mutationProtection")]
         public Output<string?> MutationProtection { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+        /// FirewallRuleGroupAssociationName
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+        /// Priority
         /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// FirewallDomainListAssociationStatus
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
+        /// Tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleGroupAssociationTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+        /// VpcId
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -121,43 +139,43 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class FirewallRuleGroupAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-firewallrulegroupid
+        /// FirewallRuleGroupId
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-mutationprotection
+        /// MutationProtectionStatus
         /// </summary>
         [Input("mutationProtection")]
         public Input<string>? MutationProtection { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-name
+        /// FirewallRuleGroupAssociationName
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-priority
+        /// Priority
         /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FirewallRuleGroupAssociationTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-tags
+        /// Tags
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FirewallRuleGroupAssociationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FirewallRuleGroupAssociationTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroupassociation.html#cfn-route53resolver-firewallrulegroupassociation-vpcid
+        /// VpcId
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;

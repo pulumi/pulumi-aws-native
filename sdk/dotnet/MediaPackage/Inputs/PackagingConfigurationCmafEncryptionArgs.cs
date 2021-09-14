@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Inputs
+namespace Pulumi.AwsNative.Mediapackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html
+    /// A CMAF encryption configuration.
     /// </summary>
     public sealed class PackagingConfigurationCmafEncryptionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-cmafencryption.html#cfn-mediapackage-packagingconfiguration-cmafencryption-spekekeyprovider
-        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

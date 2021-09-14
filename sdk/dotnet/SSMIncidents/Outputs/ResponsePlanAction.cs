@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents.Outputs
+namespace Pulumi.AwsNative.Ssmincidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html
+    /// The automation configuration to launch.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanAction
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-action.html#cfn-ssmincidents-responseplan-action-ssmautomation
-        /// </summary>
         public readonly Outputs.ResponsePlanSsmAutomation? SsmAutomation;
 
         [OutputConstructor]

@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html
+    /// &lt;p&gt;Dashboard source template.&lt;/p&gt;
     /// </summary>
     public sealed class DashboardDashboardSourceTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-arn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardDataSetReferenceArgs>? _dataSetReferences;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardsourcetemplate.html#cfn-quicksight-dashboard-dashboardsourcetemplate-datasetreferences
+        /// &lt;p&gt;Dataset references.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DashboardDataSetReferenceArgs> DataSetReferences
         {

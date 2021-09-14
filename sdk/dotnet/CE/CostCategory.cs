@@ -7,19 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CE
+namespace Pulumi.AwsNative.Ce
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html
+    /// Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
     /// </summary>
     [AwsNativeResourceType("aws-native:ce:CostCategory")]
     public partial class CostCategory : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Cost category ARN
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+        /// The default value for the cost category
         /// </summary>
         [Output("defaultValue")]
         public Output<string?> DefaultValue { get; private set; } = null!;
@@ -27,26 +30,20 @@ namespace Pulumi.AwsNative.CE
         [Output("effectiveStart")]
         public Output<string> EffectiveStart { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        /// </summary>
         [Output("ruleVersion")]
         public Output<string> RuleVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+        /// JSON array format of Expression in Billing and Cost Management API
         /// </summary>
         [Output("rules")]
         public Output<string> Rules { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        /// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         /// </summary>
         [Output("splitChargeRules")]
         public Output<string?> SplitChargeRules { get; private set; } = null!;
@@ -97,31 +94,25 @@ namespace Pulumi.AwsNative.CE
     public sealed class CostCategoryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-defaultvalue
+        /// The default value for the cost category
         /// </summary>
         [Input("defaultValue")]
         public Input<string>? DefaultValue { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-ruleversion
-        /// </summary>
         [Input("ruleVersion", required: true)]
         public Input<string> RuleVersion { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-rules
+        /// JSON array format of Expression in Billing and Cost Management API
         /// </summary>
         [Input("rules", required: true)]
         public Input<string> Rules { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-costcategory.html#cfn-ce-costcategory-splitchargerules
+        /// Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
         /// </summary>
         [Input("splitChargeRules")]
         public Input<string>? SplitChargeRules { get; set; }

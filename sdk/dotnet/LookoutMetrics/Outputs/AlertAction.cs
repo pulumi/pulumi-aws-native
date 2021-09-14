@@ -7,22 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics.Outputs
+namespace Pulumi.AwsNative.Lookoutmetrics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html
-    /// </summary>
     [OutputType]
     public sealed class AlertAction
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-lambdaconfiguration
-        /// </summary>
         public readonly Outputs.AlertLambdaConfiguration? LambdaConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-alert-action.html#cfn-lookoutmetrics-alert-action-snsconfiguration
-        /// </summary>
         public readonly Outputs.AlertSNSConfiguration? SNSConfiguration;
 
         [OutputConstructor]

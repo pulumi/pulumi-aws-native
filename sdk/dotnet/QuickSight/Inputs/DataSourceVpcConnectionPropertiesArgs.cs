@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html
+    /// &lt;p&gt;VPC connection properties.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceVpcConnectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html#cfn-quicksight-datasource-vpcconnectionproperties-vpcconnectionarn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) for the VPC connection.&lt;/p&gt;
         /// </summary>
         [Input("vpcConnectionArn", required: true)]
         public Input<string> VpcConnectionArn { get; set; } = null!;

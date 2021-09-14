@@ -7,22 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Outputs
+namespace Pulumi.AwsNative.Iot.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html
+    /// The metric you want to retain. Dimensions are optional.
     /// </summary>
     [OutputType]
     public sealed class SecurityProfileMetricToRetain
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metric
+        /// What is measured by the behavior.
         /// </summary>
         public readonly string Metric;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metrictoretain.html#cfn-iot-securityprofile-metrictoretain-metricdimension
-        /// </summary>
         public readonly Outputs.SecurityProfileMetricDimension? MetricDimension;
 
         [OutputConstructor]

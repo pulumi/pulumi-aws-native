@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkManager.Inputs
+namespace Pulumi.AwsNative.Networkmanager.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html
+    /// The bandwidth for the link.
     /// </summary>
     public sealed class LinkBandwidthArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-downloadspeed
+        /// Download speed in Mbps.
         /// </summary>
         [Input("downloadSpeed")]
         public Input<int>? DownloadSpeed { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-link-bandwidth.html#cfn-networkmanager-link-bandwidth-uploadspeed
+        /// Upload speed in Mbps.
         /// </summary>
         [Input("uploadSpeed")]
         public Input<int>? UploadSpeed { get; set; }

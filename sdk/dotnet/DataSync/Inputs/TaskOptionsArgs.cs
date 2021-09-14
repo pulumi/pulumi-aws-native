@@ -7,94 +7,94 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Inputs
+namespace Pulumi.AwsNative.Datasync.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html
+    /// Represents the options that are available to control the behavior of a StartTaskExecution operation.
     /// </summary>
     public sealed class TaskOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-atime
+        /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
         /// </summary>
         [Input("atime")]
         public Input<string>? Atime { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-bytespersecond
+        /// A value that limits the bandwidth used by AWS DataSync.
         /// </summary>
         [Input("bytesPerSecond")]
         public Input<int>? BytesPerSecond { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-gid
+        /// The group ID (GID) of the file's owners.
         /// </summary>
         [Input("gid")]
         public Input<string>? Gid { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-loglevel
+        /// A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-mtime
+        /// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         /// </summary>
         [Input("mtime")]
         public Input<string>? Mtime { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-overwritemode
+        /// A value that determines whether files at the destination should be overwritten or preserved when copying files.
         /// </summary>
         [Input("overwriteMode")]
         public Input<string>? OverwriteMode { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-posixpermissions
+        /// A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
         /// </summary>
         [Input("posixPermissions")]
         public Input<string>? PosixPermissions { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedeletedfiles
+        /// A value that specifies whether files in the destination that don't exist in the source file system should be preserved.
         /// </summary>
         [Input("preserveDeletedFiles")]
         public Input<string>? PreserveDeletedFiles { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-preservedevices
+        /// A value that determines whether AWS DataSync should preserve the metadata of block and character devices in the source file system, and recreate the files with that device name and metadata on the destination.
         /// </summary>
         [Input("preserveDevices")]
         public Input<string>? PreserveDevices { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-securitydescriptorcopyflags
+        /// A value that determines which components of the SMB security descriptor are copied during transfer.
         /// </summary>
         [Input("securityDescriptorCopyFlags")]
         public Input<string>? SecurityDescriptorCopyFlags { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-taskqueueing
+        /// A value that determines whether tasks should be queued before executing the tasks.
         /// </summary>
         [Input("taskQueueing")]
         public Input<string>? TaskQueueing { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-transfermode
+        /// A value that determines whether DataSync transfers only the data and metadata that differ between the source and the destination location, or whether DataSync transfers all the content from the source, without comparing to the destination location.
         /// </summary>
         [Input("transferMode")]
         public Input<string>? TransferMode { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-uid
+        /// The user ID (UID) of the file's owner.
         /// </summary>
         [Input("uid")]
         public Input<string>? Uid { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html#cfn-datasync-task-options-verifymode
+        /// A value that determines whether a data integrity verification should be performed at the end of a task execution after all data and metadata have been transferred.
         /// </summary>
         [Input("verifyMode")]
         public Input<string>? VerifyMode { get; set; }

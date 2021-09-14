@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkManager.Inputs
+namespace Pulumi.AwsNative.Networkmanager.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html
+    /// The location of the site
     /// </summary>
     public sealed class SiteLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-address
+        /// The physical address.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-latitude
+        /// The latitude.
         /// </summary>
         [Input("latitude")]
         public Input<string>? Latitude { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html#cfn-networkmanager-site-location-longitude
+        /// The longitude.
         /// </summary>
         [Input("longitude")]
         public Input<string>? Longitude { get; set; }

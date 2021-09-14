@@ -10,56 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html
-    /// </summary>
     public sealed class DataSourceDataSourceConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-confluenceconfiguration
-        /// </summary>
         [Input("confluenceConfiguration")]
         public Input<Inputs.DataSourceConfluenceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-databaseconfiguration
-        /// </summary>
         [Input("databaseConfiguration")]
         public Input<Inputs.DataSourceDatabaseConfigurationArgs>? DatabaseConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-googledriveconfiguration
-        /// </summary>
         [Input("googleDriveConfiguration")]
         public Input<Inputs.DataSourceGoogleDriveConfigurationArgs>? GoogleDriveConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-onedriveconfiguration
-        /// </summary>
         [Input("oneDriveConfiguration")]
         public Input<Inputs.DataSourceOneDriveConfigurationArgs>? OneDriveConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-s3configuration
-        /// </summary>
         [Input("s3Configuration")]
         public Input<Inputs.DataSourceS3DataSourceConfigurationArgs>? S3Configuration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-salesforceconfiguration
-        /// </summary>
         [Input("salesforceConfiguration")]
         public Input<Inputs.DataSourceSalesforceConfigurationArgs>? SalesforceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-servicenowconfiguration
-        /// </summary>
         [Input("serviceNowConfiguration")]
         public Input<Inputs.DataSourceServiceNowConfigurationArgs>? ServiceNowConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-datasourceconfiguration.html#cfn-kendra-datasource-datasourceconfiguration-sharepointconfiguration
-        /// </summary>
         [Input("sharePointConfiguration")]
         public Input<Inputs.DataSourceSharePointConfigurationArgs>? SharePointConfiguration { get; set; }
 

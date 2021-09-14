@@ -7,34 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html
+    /// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference*.
     /// </summary>
     public sealed class DetectorModelAssetPropertyVariantArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-booleanvalue
+        /// The asset property value is a Boolean value that must be `TRUE` or `FALSE`. You can also specify an expression. If you use an expression, the evaluated result should be a Boolean value.
         /// </summary>
         [Input("booleanValue")]
         public Input<string>? BooleanValue { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-doublevalue
+        /// The asset property value is a double. You can also specify an expression. If you use an expression, the evaluated result should be a double.
         /// </summary>
         [Input("doubleValue")]
         public Input<string>? DoubleValue { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-integervalue
+        /// The asset property value is an integer. You can also specify an expression. If you use an expression, the evaluated result should be an integer.
         /// </summary>
         [Input("integerValue")]
         public Input<string>? IntegerValue { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertyvariant.html#cfn-iotevents-detectormodel-assetpropertyvariant-stringvalue
+        /// The asset property value is a string. You can also specify an expression. If you use an expression, the evaluated result should be a string.
         /// </summary>
         [Input("stringValue")]
         public Input<string>? StringValue { get; set; }

@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.Sagemaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html
+    /// Identifies the resources to deploy for a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelQualityJobDefinitionMonitoringResources
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringresources.html#cfn-sagemaker-modelqualityjobdefinition-monitoringresources-clusterconfig
-        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionClusterConfig ClusterConfig;
 
         [OutputConstructor]

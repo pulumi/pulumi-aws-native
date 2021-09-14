@@ -11,34 +11,21 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html
+    /// S3 data source configuration
     /// </summary>
     public sealed class DataSourceS3DataSourceConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-accesscontrollistconfiguration
-        /// </summary>
         [Input("accessControlListConfiguration")]
         public Input<Inputs.DataSourceAccessControlListConfigurationArgs>? AccessControlListConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-bucketname
-        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-documentsmetadataconfiguration
-        /// </summary>
         [Input("documentsMetadataConfiguration")]
         public Input<Inputs.DataSourceDocumentsMetadataConfigurationArgs>? DocumentsMetadataConfiguration { get; set; }
 
         [Input("exclusionPatterns")]
         private InputList<string>? _exclusionPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-exclusionpatterns
-        /// </summary>
         public InputList<string> ExclusionPatterns
         {
             get => _exclusionPatterns ?? (_exclusionPatterns = new InputList<string>());
@@ -47,10 +34,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("inclusionPatterns")]
         private InputList<string>? _inclusionPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionpatterns
-        /// </summary>
         public InputList<string> InclusionPatterns
         {
             get => _inclusionPatterns ?? (_inclusionPatterns = new InputList<string>());
@@ -59,10 +42,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("inclusionPrefixes")]
         private InputList<string>? _inclusionPrefixes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-s3datasourceconfiguration.html#cfn-kendra-datasource-s3datasourceconfiguration-inclusionprefixes
-        /// </summary>
         public InputList<string> InclusionPrefixes
         {
             get => _inclusionPrefixes ?? (_inclusionPrefixes = new InputList<string>());

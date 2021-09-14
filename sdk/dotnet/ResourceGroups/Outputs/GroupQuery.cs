@@ -7,26 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ResourceGroups.Outputs
+namespace Pulumi.AwsNative.Resourcegroups.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html
-    /// </summary>
     [OutputType]
     public sealed class GroupQuery
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-resourcetypefilters
-        /// </summary>
         public readonly ImmutableArray<string> ResourceTypeFilters;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-stackidentifier
-        /// </summary>
         public readonly string? StackIdentifier;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-query.html#cfn-resourcegroups-group-query-tagfilters
-        /// </summary>
         public readonly ImmutableArray<Outputs.GroupTagFilter> TagFilters;
 
         [OutputConstructor]

@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Outputs
+namespace Pulumi.AwsNative.Appflow.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html
+    /// Connector specific configurations needed to create connector profile
     /// </summary>
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofilecredentials
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileCredentials ConnectorProfileCredentials;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html#cfn-appflow-connectorprofile-connectorprofileconfig-connectorprofileproperties
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileProperties? ConnectorProfileProperties;
 
         [OutputConstructor]

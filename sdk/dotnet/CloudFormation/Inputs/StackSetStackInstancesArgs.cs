@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFormation.Inputs
+namespace Pulumi.AwsNative.Cloudformation.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html
+    /// Stack instances in some specific accounts and Regions.
     /// </summary>
     public sealed class StackSetStackInstancesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-deploymenttargets
-        /// </summary>
         [Input("deploymentTargets", required: true)]
         public Input<Inputs.StackSetDeploymentTargetsArgs> DeploymentTargets { get; set; } = null!;
 
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         private InputList<Inputs.StackSetParameterArgs>? _parameterOverrides;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-parameteroverrides
+        /// A list of stack set parameters whose values you want to override in the selected stack instances.
         /// </summary>
         public InputList<Inputs.StackSetParameterArgs> ParameterOverrides
         {
@@ -37,7 +34,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         private InputList<string>? _regions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-stackinstances.html#cfn-cloudformation-stackset-stackinstances-regions
+        /// The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         /// </summary>
         public InputList<string> Regions
         {

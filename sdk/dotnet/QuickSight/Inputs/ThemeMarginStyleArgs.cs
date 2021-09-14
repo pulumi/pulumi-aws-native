@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html
+    /// &lt;p&gt;The display options for margins around the outside edge of sheets.&lt;/p&gt;
     /// </summary>
     public sealed class ThemeMarginStyleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-marginstyle.html#cfn-quicksight-theme-marginstyle-show
+        /// &lt;p&gt;This Boolean value controls whether to display sheet margins.&lt;/p&gt;
         /// </summary>
         [Input("show")]
         public Input<bool>? Show { get; set; }

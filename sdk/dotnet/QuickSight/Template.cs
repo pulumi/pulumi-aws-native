@@ -7,61 +7,67 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight
+namespace Pulumi.AwsNative.Quicksight
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html
+    /// Definition of the AWS::QuickSight::Template Resource Type.
     /// </summary>
     [AwsNativeResourceType("aws-native:quicksight:Template")]
     public partial class Template : Pulumi.CustomResource
     {
+        /// <summary>
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the template.&lt;/p&gt;
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Time when this was created.&lt;/p&gt;
+        /// </summary>
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
+        /// <summary>
+        /// &lt;p&gt;Time when this was last updated.&lt;/p&gt;
+        /// </summary>
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+        /// &lt;p&gt;A display name for the template.&lt;/p&gt;
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+        /// &lt;p&gt;A list of resource permissions to be set on the template. &lt;/p&gt;
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.TemplateTemplateSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TemplateTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        /// </summary>
         [Output("templateId")]
         public Output<string> TemplateId { get; private set; } = null!;
 
+        [Output("version")]
+        public Output<Outputs.TemplateTemplateVersion> Version { get; private set; } = null!;
+
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        /// &lt;p&gt;A description of the current template version being created. This API operation creates the
+        /// 			first version of the template. Every time &lt;code&gt;UpdateTemplate&lt;/code&gt; is called, a new
+        /// 			version is created. Each version of the template maintains a description of the version
+        /// 			in the &lt;code&gt;VersionDescription&lt;/code&gt; field.&lt;/p&gt;
         /// </summary>
         [Output("versionDescription")]
         public Output<string?> VersionDescription { get; private set; } = null!;
@@ -111,14 +117,11 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class TemplateArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-awsaccountid
-        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-name
+        /// &lt;p&gt;A display name for the template.&lt;/p&gt;
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -127,7 +130,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.TemplateResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-permissions
+        /// &lt;p&gt;A list of resource permissions to be set on the template. &lt;/p&gt;
         /// </summary>
         public InputList<Inputs.TemplateResourcePermissionArgs> Permissions
         {
@@ -135,32 +138,29 @@ namespace Pulumi.AwsNative.QuickSight
             set => _permissions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-sourceentity
-        /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateTemplateSourceEntityArgs>? SourceEntity { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.TemplateTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-tags
+        /// &lt;p&gt;Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.&lt;/p&gt;
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.TemplateTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.TemplateTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-templateid
-        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-template.html#cfn-quicksight-template-versiondescription
+        /// &lt;p&gt;A description of the current template version being created. This API operation creates the
+        /// 			first version of the template. Every time &lt;code&gt;UpdateTemplate&lt;/code&gt; is called, a new
+        /// 			version is created. Each version of the template maintains a description of the version
+        /// 			in the &lt;code&gt;VersionDescription&lt;/code&gt; field.&lt;/p&gt;
         /// </summary>
         [Input("versionDescription")]
         public Input<string>? VersionDescription { get; set; }

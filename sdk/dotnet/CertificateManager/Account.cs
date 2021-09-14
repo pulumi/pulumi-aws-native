@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CertificateManager
+namespace Pulumi.AwsNative.Certificatemanager
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html
+    /// Resource schema for AWS::CertificateManager::Account.
     /// </summary>
     [AwsNativeResourceType("aws-native:certificatemanager:Account")]
     public partial class Account : Pulumi.CustomResource
@@ -18,9 +18,6 @@ namespace Pulumi.AwsNative.CertificateManager
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-        /// </summary>
         [Output("expiryEventsConfiguration")]
         public Output<Outputs.AccountExpiryEventsConfiguration> ExpiryEventsConfiguration { get; private set; } = null!;
 
@@ -69,9 +66,6 @@ namespace Pulumi.AwsNative.CertificateManager
 
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-account.html#cfn-certificatemanager-account-expiryeventsconfiguration
-        /// </summary>
         [Input("expiryEventsConfiguration", required: true)]
         public Input<Inputs.AccountExpiryEventsConfigurationArgs> ExpiryEventsConfiguration { get; set; } = null!;
 

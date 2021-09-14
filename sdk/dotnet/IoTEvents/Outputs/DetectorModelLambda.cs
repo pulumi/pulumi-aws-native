@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Outputs
+namespace Pulumi.AwsNative.Iotevents.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html
-    /// </summary>
     [OutputType]
     public sealed class DetectorModelLambda
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-functionarn
+        /// The ARN of the Lambda function that is executed.
         /// </summary>
         public readonly string FunctionArn;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-lambda.html#cfn-iotevents-detectormodel-lambda-payload
-        /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 
         [OutputConstructor]

@@ -7,21 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Outputs
+namespace Pulumi.AwsNative.Iotsitewise.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html
-    /// </summary>
     [OutputType]
     public sealed class AssetModelExpressionVariable
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-name
+        /// The friendly name of the variable to be used in the expression.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html#cfn-iotsitewise-assetmodel-expressionvariable-value
+        /// The variable that identifies an asset property from which to use values.
         /// </summary>
         public readonly Outputs.AssetModelVariableValue Value;
 

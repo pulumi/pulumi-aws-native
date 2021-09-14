@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html
+    /// &lt;p&gt;MySQL parameters.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceMySqlParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-host
+        /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mysqlparameters.html#cfn-quicksight-datasource-mysqlparameters-port
+        /// &lt;p&gt;Port.&lt;/p&gt;
         /// </summary>
         [Input("port", required: true)]
         public Input<double> Port { get; set; } = null!;

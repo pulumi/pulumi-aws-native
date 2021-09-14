@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Outputs
+namespace Pulumi.AwsNative.Applicationinsights.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html
+    /// The log pattern set.
     /// </summary>
     [OutputType]
     public sealed class ApplicationLogPatternSet
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-logpatterns
+        /// The log patterns of a set.
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationLogPattern> LogPatterns;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-logpatternset.html#cfn-applicationinsights-application-logpatternset-patternsetname
+        /// The name of the log pattern set.
         /// </summary>
         public readonly string PatternSetName;
 

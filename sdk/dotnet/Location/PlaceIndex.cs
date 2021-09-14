@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html
+    /// Definition of AWS::Location::PlaceIndex Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:PlaceIndex")]
     public partial class PlaceIndex : Pulumi.CustomResource
@@ -21,36 +21,21 @@ namespace Pulumi.AwsNative.Location
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.PlaceIndexDataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("indexArn")]
         public Output<string> IndexArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        /// </summary>
         [Output("indexName")]
         public Output<string> IndexName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-        /// </summary>
         [Output("pricingPlan")]
         public Output<string> PricingPlan { get; private set; } = null!;
 
@@ -102,33 +87,18 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class PlaceIndexArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasource
-        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-datasourceconfiguration
-        /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.PlaceIndexDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-indexname
-        /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-placeindex.html#cfn-location-placeindex-pricingplan
-        /// </summary>
         [Input("pricingPlan", required: true)]
         public Input<string> PricingPlan { get; set; } = null!;
 

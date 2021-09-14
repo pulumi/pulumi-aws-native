@@ -7,25 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents
+namespace Pulumi.AwsNative.Ssmincidents
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html
+    /// Resource type definition for AWS::SSMIncidents::ReplicationSet
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmincidents:ReplicationSet")]
     public partial class ReplicationSet : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the ReplicationSet.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-        /// </summary>
         [Output("deletionProtected")]
         public Output<bool?> DeletionProtected { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+        /// The ReplicationSet configuration.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<Outputs.ReplicationSetReplicationRegion>> Regions { get; private set; } = null!;
@@ -75,9 +75,6 @@ namespace Pulumi.AwsNative.SSMIncidents
 
     public sealed class ReplicationSetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-deletionprotected
-        /// </summary>
         [Input("deletionProtected")]
         public Input<bool>? DeletionProtected { get; set; }
 
@@ -85,7 +82,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         private InputList<Inputs.ReplicationSetReplicationRegionArgs>? _regions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-replicationset.html#cfn-ssmincidents-replicationset-regions
+        /// The ReplicationSet configuration.
         /// </summary>
         public InputList<Inputs.ReplicationSetReplicationRegionArgs> Regions
         {

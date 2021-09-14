@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ACMPCA.Outputs
+namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html
+    /// Structure that contains X.509 ExtendedKeyUsage information.
     /// </summary>
     [OutputType]
     public sealed class CertificateExtendedKeyUsage
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusageobjectidentifier
-        /// </summary>
         public readonly string? ExtendedKeyUsageObjectIdentifier;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html#cfn-acmpca-certificate-extendedkeyusage-extendedkeyusagetype
-        /// </summary>
         public readonly string? ExtendedKeyUsageType;
 
         [OutputConstructor]

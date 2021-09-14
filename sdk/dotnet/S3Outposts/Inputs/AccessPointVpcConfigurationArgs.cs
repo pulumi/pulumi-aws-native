@@ -7,16 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3Outposts.Inputs
+namespace Pulumi.AwsNative.S3outposts.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html
-    /// </summary>
     public sealed class AccessPointVpcConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-accesspoint-vpcconfiguration.html#cfn-s3outposts-accesspoint-vpcconfiguration-vpcid
+        /// Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

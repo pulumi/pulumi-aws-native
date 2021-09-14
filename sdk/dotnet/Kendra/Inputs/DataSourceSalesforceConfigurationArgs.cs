@@ -10,29 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html
-    /// </summary>
     public sealed class DataSourceSalesforceConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-chatterfeedconfiguration
-        /// </summary>
         [Input("chatterFeedConfiguration")]
         public Input<Inputs.DataSourceSalesforceChatterFeedConfigurationArgs>? ChatterFeedConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-crawlattachments
-        /// </summary>
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
         [Input("excludeAttachmentFilePatterns")]
         private InputList<string>? _excludeAttachmentFilePatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-excludeattachmentfilepatterns
-        /// </summary>
         public InputList<string> ExcludeAttachmentFilePatterns
         {
             get => _excludeAttachmentFilePatterns ?? (_excludeAttachmentFilePatterns = new InputList<string>());
@@ -41,46 +28,26 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includeAttachmentFilePatterns")]
         private InputList<string>? _includeAttachmentFilePatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-includeattachmentfilepatterns
-        /// </summary>
         public InputList<string> IncludeAttachmentFilePatterns
         {
             get => _includeAttachmentFilePatterns ?? (_includeAttachmentFilePatterns = new InputList<string>());
             set => _includeAttachmentFilePatterns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-knowledgearticleconfiguration
-        /// </summary>
         [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceSalesforceKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-secretarn
-        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-serverurl
-        /// </summary>
         [Input("serverUrl", required: true)]
         public Input<string> ServerUrl { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectattachmentconfiguration
-        /// </summary>
         [Input("standardObjectAttachmentConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>? StandardObjectAttachmentConfiguration { get; set; }
 
         [Input("standardObjectConfigurations")]
         private InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>? _standardObjectConfigurations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceconfiguration.html#cfn-kendra-datasource-salesforceconfiguration-standardobjectconfigurations
-        /// </summary>
         public InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs> StandardObjectConfigurations
         {
             get => _standardObjectConfigurations ?? (_standardObjectConfigurations = new InputList<Inputs.DataSourceSalesforceStandardObjectConfigurationArgs>());

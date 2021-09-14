@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECR.Inputs
+namespace Pulumi.AwsNative.Ecr.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+    /// An array of objects representing the details of a replication destination.
     /// </summary>
     public sealed class ReplicationConfigurationReplicationRuleArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.ECR.Inputs
         private InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs>? _destinations;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        /// An array of objects representing the details of a replication destination.
         /// </summary>
         public InputList<Inputs.ReplicationConfigurationReplicationDestinationArgs> Destinations
         {

@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFormation.Outputs
+namespace Pulumi.AwsNative.Cloudformation.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+    ///  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
     /// </summary>
     [OutputType]
     public sealed class StackSetDeploymentTargets
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+        /// AWS accounts that you want to create stack instances in the specified Region(s) for.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationalUnitIds;
 

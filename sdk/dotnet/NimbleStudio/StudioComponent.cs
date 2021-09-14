@@ -7,74 +7,44 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NimbleStudio
+namespace Pulumi.AwsNative.Nimblestudio
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html
+    /// Resource schema for AWS::NimbleStudio::StudioComponent.
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StudioComponent")]
     public partial class StudioComponent : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
-        /// </summary>
         [Output("configuration")]
         public Output<Outputs.StudioComponentStudioComponentConfiguration?> Configuration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
-        /// </summary>
         [Output("ec2SecurityGroupIds")]
         public Output<ImmutableArray<string>> Ec2SecurityGroupIds { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
-        /// </summary>
         [Output("initializationScripts")]
         public Output<ImmutableArray<Outputs.StudioComponentStudioComponentInitializationScript>> InitializationScripts { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
-        /// </summary>
         [Output("scriptParameters")]
         public Output<ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue>> ScriptParameters { get; private set; } = null!;
 
         [Output("studioComponentId")]
         public Output<string> StudioComponentId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
-        /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
-        /// </summary>
         [Output("subtype")]
         public Output<string?> Subtype { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
-        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
@@ -123,24 +93,14 @@ namespace Pulumi.AwsNative.NimbleStudio
 
     public sealed class StudioComponentArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-configuration
-        /// </summary>
         [Input("configuration")]
         public Input<Inputs.StudioComponentStudioComponentConfigurationArgs>? Configuration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("ec2SecurityGroupIds")]
         private InputList<string>? _ec2SecurityGroupIds;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-ec2securitygroupids
-        /// </summary>
         public InputList<string> Ec2SecurityGroupIds
         {
             get => _ec2SecurityGroupIds ?? (_ec2SecurityGroupIds = new InputList<string>());
@@ -149,61 +109,32 @@ namespace Pulumi.AwsNative.NimbleStudio
 
         [Input("initializationScripts")]
         private InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs>? _initializationScripts;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-initializationscripts
-        /// </summary>
         public InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs> InitializationScripts
         {
             get => _initializationScripts ?? (_initializationScripts = new InputList<Inputs.StudioComponentStudioComponentInitializationScriptArgs>());
             set => _initializationScripts = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("scriptParameters")]
         private InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>? _scriptParameters;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-scriptparameters
-        /// </summary>
         public InputList<Inputs.StudioComponentScriptParameterKeyValueArgs> ScriptParameters
         {
             get => _scriptParameters ?? (_scriptParameters = new InputList<Inputs.StudioComponentScriptParameterKeyValueArgs>());
             set => _scriptParameters = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-studioid
-        /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-subtype
-        /// </summary>
         [Input("subtype")]
         public Input<string>? Subtype { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
+        public Input<object>? Tags { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-nimblestudio-studiocomponent.html#cfn-nimblestudio-studiocomponent-type
-        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

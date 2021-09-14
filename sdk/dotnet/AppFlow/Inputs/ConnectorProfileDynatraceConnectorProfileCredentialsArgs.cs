@@ -7,16 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html
-    /// </summary>
     public sealed class ConnectorProfileDynatraceConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-dynatraceconnectorprofilecredentials-apitoken
+        /// The API tokens used by Dynatrace API to authenticate various API calls.
         /// </summary>
         [Input("apiToken", required: true)]
         public Input<string> ApiToken { get; set; } = null!;

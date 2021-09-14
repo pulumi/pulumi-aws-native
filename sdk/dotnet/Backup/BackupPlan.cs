@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html
+    /// Resource Type definition for AWS::Backup::BackupPlan
     /// </summary>
     [AwsNativeResourceType("aws-native:backup:BackupPlan")]
     public partial class BackupPlan : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        /// </summary>
         [Output("backupPlan")]
         public Output<Outputs.BackupPlanBackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
 
@@ -27,11 +24,8 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupPlanId")]
         public Output<string> BackupPlanId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        /// </summary>
         [Output("backupPlanTags")]
-        public Output<ImmutableDictionary<string, string>?> BackupPlanTags { get; private set; } = null!;
+        public Output<object?> BackupPlanTags { get; private set; } = null!;
 
         [Output("versionId")]
         public Output<string> VersionId { get; private set; } = null!;
@@ -81,23 +75,11 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class BackupPlanArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplan
-        /// </summary>
         [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanBackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;
 
         [Input("backupPlanTags")]
-        private InputMap<string>? _backupPlanTags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-backupplan.html#cfn-backup-backupplan-backupplantags
-        /// </summary>
-        public InputMap<string> BackupPlanTags
-        {
-            get => _backupPlanTags ?? (_backupPlanTags = new InputMap<string>());
-            set => _backupPlanTags = value;
-        }
+        public Input<object>? BackupPlanTags { get; set; }
 
         public BackupPlanArgs()
         {

@@ -7,34 +7,37 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker
+namespace Pulumi.AwsNative.Sagemaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html
+    /// Resource Type definition for AWS::SageMaker::AppImageConfig
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:AppImageConfig")]
     public partial class AppImageConfig : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AppImageConfig.
+        /// </summary>
         [Output("appImageConfigArn")]
         public Output<string> AppImageConfigArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+        /// The Name of the AppImageConfig.
         /// </summary>
         [Output("appImageConfigName")]
         public Output<string> AppImageConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+        /// The KernelGatewayImageConfig.
         /// </summary>
         [Output("kernelGatewayImageConfig")]
         public Output<Outputs.AppImageConfigKernelGatewayImageConfig?> KernelGatewayImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        /// A list of tags to apply to the AppImageConfig.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AppImageConfigTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,26 +85,26 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class AppImageConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-appimageconfigname
+        /// The Name of the AppImageConfig.
         /// </summary>
         [Input("appImageConfigName", required: true)]
         public Input<string> AppImageConfigName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-kernelgatewayimageconfig
+        /// The KernelGatewayImageConfig.
         /// </summary>
         [Input("kernelGatewayImageConfig")]
         public Input<Inputs.AppImageConfigKernelGatewayImageConfigArgs>? KernelGatewayImageConfig { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AppImageConfigTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html#cfn-sagemaker-appimageconfig-tags
+        /// A list of tags to apply to the AppImageConfig.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AppImageConfigTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AppImageConfigTagArgs>());
             set => _tags = value;
         }
 

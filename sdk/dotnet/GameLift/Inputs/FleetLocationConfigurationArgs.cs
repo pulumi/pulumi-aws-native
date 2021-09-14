@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift.Inputs
+namespace Pulumi.AwsNative.Gamelift.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html
+    /// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
     /// </summary>
     public sealed class FleetLocationConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-location
-        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html#cfn-gamelift-fleet-locationconfiguration-locationcapacity
-        /// </summary>
         [Input("locationCapacity")]
         public Input<Inputs.FleetLocationCapacityArgs>? LocationCapacity { get; set; }
 

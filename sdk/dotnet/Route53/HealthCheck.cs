@@ -10,22 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
+    /// Resource schema for AWS::Route53::HealthCheck.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:HealthCheck")]
     public partial class HealthCheck : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+        /// A complex type that contains information about the health check.
         /// </summary>
         [Output("healthCheckConfig")]
-        public Output<Union<System.Text.Json.JsonElement, string>> HealthCheckConfig { get; private set; } = null!;
+        public Output<object> HealthCheckConfig { get; private set; } = null!;
 
         [Output("healthCheckId")]
         public Output<string> HealthCheckId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("healthCheckTags")]
         public Output<ImmutableArray<Outputs.HealthCheckHealthCheckTag>> HealthCheckTags { get; private set; } = null!;
@@ -76,16 +76,16 @@ namespace Pulumi.AwsNative.Route53
     public sealed class HealthCheckArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthcheckconfig
+        /// A complex type that contains information about the health check.
         /// </summary>
         [Input("healthCheckConfig", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> HealthCheckConfig { get; set; } = null!;
+        public Input<object> HealthCheckConfig { get; set; } = null!;
 
         [Input("healthCheckTags")]
         private InputList<Inputs.HealthCheckHealthCheckTagArgs>? _healthCheckTags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html#cfn-route53-healthcheck-healthchecktags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public InputList<Inputs.HealthCheckHealthCheckTagArgs> HealthCheckTags
         {

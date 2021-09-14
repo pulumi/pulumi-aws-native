@@ -7,47 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html
-    /// </summary>
     public sealed class TopicRuleKafkaActionArgs : Pulumi.ResourceArgs
     {
         [Input("clientProperties", required: true)]
-        private InputMap<string>? _clientProperties;
+        public Input<object> ClientProperties { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-clientproperties
-        /// </summary>
-        public InputMap<string> ClientProperties
-        {
-            get => _clientProperties ?? (_clientProperties = new InputMap<string>());
-            set => _clientProperties = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-destinationarn
-        /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-key
-        /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-partition
-        /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html#cfn-iot-topicrule-kafkaaction-topic
-        /// </summary>
         [Input("topic", required: true)]
         public Input<string> Topic { get; set; } = null!;
 

@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMContacts.Outputs
+namespace Pulumi.AwsNative.Ssmcontacts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html
+    /// A set amount of time that an escalation plan or engagement plan engages the specified contacts or contact methods.
     /// </summary>
     [OutputType]
     public sealed class ContactStage
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-durationinminutes
+        /// The time to wait until beginning the next stage.
         /// </summary>
         public readonly int DurationInMinutes;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-stage.html#cfn-ssmcontacts-contact-stage-targets
+        /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactTargets> Targets;
 

@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.StepFunctions.Outputs
+namespace Pulumi.AwsNative.Stepfunctions.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
-    /// </summary>
     [OutputType]
     public sealed class StateMachineCloudWatchLogsLogGroup
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
-        /// </summary>
         public readonly string? LogGroupArn;
 
         [OutputConstructor]

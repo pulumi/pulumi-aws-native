@@ -7,29 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GroundStation.Inputs
+namespace Pulumi.AwsNative.Groundstation.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html
-    /// </summary>
     public sealed class ConfigSpectrumConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-bandwidth
-        /// </summary>
         [Input("bandwidth")]
         public Input<Inputs.ConfigFrequencyBandwidthArgs>? Bandwidth { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-centerfrequency
-        /// </summary>
         [Input("centerFrequency")]
         public Input<Inputs.ConfigFrequencyArgs>? CenterFrequency { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-spectrumconfig.html#cfn-groundstation-config-spectrumconfig-polarization
-        /// </summary>
         [Input("polarization")]
         public Input<string>? Polarization { get; set; }
 

@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents.Outputs
+namespace Pulumi.AwsNative.Ssmincidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html
+    /// The ReplicationSet regional configuration.
     /// </summary>
     [OutputType]
     public sealed class ReplicationSetRegionConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-replicationset-regionconfiguration.html#cfn-ssmincidents-replicationset-regionconfiguration-ssekmskeyid
-        /// </summary>
         public readonly string SseKmsKeyId;
 
         [OutputConstructor]

@@ -7,23 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LicenseManager.Inputs
+namespace Pulumi.AwsNative.Licensemanager.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html
-    /// </summary>
     public sealed class LicenseBorrowConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-allowearlycheckin
-        /// </summary>
         [Input("allowEarlyCheckIn", required: true)]
         public Input<bool> AllowEarlyCheckIn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-licensemanager-license-borrowconfiguration.html#cfn-licensemanager-license-borrowconfiguration-maxtimetoliveinminutes
-        /// </summary>
         [Input("maxTimeToLiveInMinutes", required: true)]
         public Input<int> MaxTimeToLiveInMinutes { get; set; } = null!;
 

@@ -7,33 +7,30 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppIntegrations.Outputs
+namespace Pulumi.AwsNative.Appintegrations.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html
-    /// </summary>
     [OutputType]
     public sealed class EventIntegrationEventIntegrationAssociation
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientassociationmetadata
+        /// The metadata associated with the client.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventIntegrationMetadata> ClientAssociationMetadata;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-clientid
+        /// The identifier for the client that is associated with the event integration.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventbridgerulename
+        /// The name of the Eventbridge rule.
         /// </summary>
         public readonly string? EventBridgeRuleName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationarn
+        /// The Amazon Resource Name (ARN) for the event integration association.
         /// </summary>
         public readonly string? EventIntegrationAssociationArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventintegrationassociation.html#cfn-appintegrations-eventintegration-eventintegrationassociation-eventintegrationassociationid
+        /// The identifier for the event integration association.
         /// </summary>
         public readonly string? EventIntegrationAssociationId;
 

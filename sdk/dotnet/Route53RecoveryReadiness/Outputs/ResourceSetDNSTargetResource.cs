@@ -7,34 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
+namespace Pulumi.AwsNative.Route53recoveryreadiness.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html
+    /// A component for DNS/routing control readiness checks.
     /// </summary>
     [OutputType]
     public sealed class ResourceSetDNSTargetResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-domainname
+        /// The domain name that acts as an ingress point to a portion of the customer application.
         /// </summary>
         public readonly string? DomainName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-hostedzonearn
+        /// The hosted zone Amazon Resource Name (ARN) that contains the DNS record with the provided name of the target resource.
         /// </summary>
         public readonly string? HostedZoneArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordsetid
+        /// The Route 53 record set ID that will uniquely identify a DNS record, given a name and a type.
         /// </summary>
         public readonly string? RecordSetId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-recordtype
+        /// The type of DNS record of the target resource.
         /// </summary>
         public readonly string? RecordType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-dnstargetresource.html#cfn-route53recoveryreadiness-resourceset-dnstargetresource-targetresource
-        /// </summary>
         public readonly Outputs.ResourceSetTargetResource? TargetResource;
 
         [OutputConstructor]

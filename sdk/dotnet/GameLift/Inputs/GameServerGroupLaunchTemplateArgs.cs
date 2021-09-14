@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift.Inputs
+namespace Pulumi.AwsNative.Gamelift.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html
+    /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
     /// </summary>
     public sealed class GameServerGroupLaunchTemplateArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplateid
-        /// </summary>
         [Input("launchTemplateId")]
         public Input<string>? LaunchTemplateId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-launchtemplatename
-        /// </summary>
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-launchtemplate.html#cfn-gamelift-gameservergroup-launchtemplate-version
-        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

@@ -7,21 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM.Outputs
+namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html
-    /// </summary>
     [OutputType]
     public sealed class DocumentDocumentRequires
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-name
+        /// The name of the required SSM document. The name can be an Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-documentrequires.html#cfn-ssm-document-documentrequires-version
+        /// The document version required by the current document.
         /// </summary>
         public readonly string? Version;
 

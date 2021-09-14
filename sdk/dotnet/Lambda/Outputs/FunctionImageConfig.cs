@@ -10,22 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
-    /// </summary>
     [OutputType]
     public sealed class FunctionImageConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+        /// Command.
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+        /// EntryPoint.
         /// </summary>
         public readonly ImmutableArray<string> EntryPoint;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+        /// WorkingDirectory.
         /// </summary>
         public readonly string? WorkingDirectory;
 

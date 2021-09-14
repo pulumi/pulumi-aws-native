@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.RoboMaker
+namespace Pulumi.AwsNative.Robomaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
+    /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker fleet.
     /// </summary>
     [AwsNativeResourceType("aws-native:robomaker:Robot")]
     public partial class Robot : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+        /// The target architecture of the robot.
         /// </summary>
         [Output("architecture")]
         public Output<string> Architecture { get; private set; } = null!;
@@ -25,28 +25,25 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+        /// The Amazon Resource Name (ARN) of the fleet.
         /// </summary>
         [Output("fleet")]
         public Output<string?> Fleet { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+        /// The Greengrass group id.
         /// </summary>
         [Output("greengrassGroupId")]
         public Output<string> GreengrassGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+        /// The name for the robot.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<Outputs.RobotTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -94,40 +91,31 @@ namespace Pulumi.AwsNative.RoboMaker
     public sealed class RobotArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-architecture
+        /// The target architecture of the robot.
         /// </summary>
         [Input("architecture", required: true)]
         public Input<string> Architecture { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-fleet
+        /// The Amazon Resource Name (ARN) of the fleet.
         /// </summary>
         [Input("fleet")]
         public Input<string>? Fleet { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-greengrassgroupid
+        /// The Greengrass group id.
         /// </summary>
         [Input("greengrassGroupId", required: true)]
         public Input<string> GreengrassGroupId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-name
+        /// The name for the robot.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html#cfn-robomaker-robot-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        public Input<Inputs.RobotTagsArgs>? Tags { get; set; }
 
         public RobotArgs()
         {

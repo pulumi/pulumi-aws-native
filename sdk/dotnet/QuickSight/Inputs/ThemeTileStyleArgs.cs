@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html
+    /// &lt;p&gt;Display options related to tiles on a sheet.&lt;/p&gt;
     /// </summary>
     public sealed class ThemeTileStyleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilestyle.html#cfn-quicksight-theme-tilestyle-border
-        /// </summary>
         [Input("border")]
         public Input<Inputs.ThemeBorderStyleArgs>? Border { get; set; }
 

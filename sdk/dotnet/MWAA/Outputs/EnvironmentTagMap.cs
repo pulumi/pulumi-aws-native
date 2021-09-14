@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Outputs
+namespace Pulumi.AwsNative.Mwaa.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-tagmap.html
+    /// A map of tags for the environment.
     /// </summary>
     [OutputType]
     public sealed class EnvironmentTagMap

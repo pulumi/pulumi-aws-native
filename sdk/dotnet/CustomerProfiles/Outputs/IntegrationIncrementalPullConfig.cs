@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CustomerProfiles.Outputs
+namespace Pulumi.AwsNative.Customerprofiles.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html
-    /// </summary>
     [OutputType]
     public sealed class IntegrationIncrementalPullConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html#cfn-customerprofiles-integration-incrementalpullconfig-datetimetypefieldname
-        /// </summary>
         public readonly string? DatetimeTypeFieldName;
 
         [OutputConstructor]

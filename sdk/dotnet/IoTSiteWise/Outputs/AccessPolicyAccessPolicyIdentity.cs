@@ -7,26 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Outputs
+namespace Pulumi.AwsNative.Iotsitewise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html
+    /// The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
     /// </summary>
     [OutputType]
     public sealed class AccessPolicyAccessPolicyIdentity
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamrole
-        /// </summary>
         public readonly Outputs.AccessPolicyIamRole? IamRole;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-iamuser
-        /// </summary>
         public readonly Outputs.AccessPolicyIamUser? IamUser;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html#cfn-iotsitewise-accesspolicy-accesspolicyidentity-user
-        /// </summary>
         public readonly Outputs.AccessPolicyUser? User;
 
         [OutputConstructor]

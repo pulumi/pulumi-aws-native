@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html
-    /// </summary>
     public sealed class DataSourceConfluencePageConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("pageFieldMappings")]
         private InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>? _pageFieldMappings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencepageconfiguration.html#cfn-kendra-datasource-confluencepageconfiguration-pagefieldmappings
-        /// </summary>
         public InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs> PageFieldMappings
         {
             get => _pageFieldMappings ?? (_pageFieldMappings = new InputList<Inputs.DataSourceConfluencePageToIndexFieldMappingArgs>());

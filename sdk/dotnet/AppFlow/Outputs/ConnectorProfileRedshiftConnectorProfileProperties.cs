@@ -7,29 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Outputs
+namespace Pulumi.AwsNative.Appflow.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html
-    /// </summary>
     [OutputType]
     public sealed class ConnectorProfileRedshiftConnectorProfileProperties
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketname
+        /// The name of the Amazon S3 bucket associated with Redshift.
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-bucketprefix
+        /// The object key for the destination bucket in which Amazon AppFlow will place the ﬁles.
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-databaseurl
+        /// The JDBC URL of the Amazon Redshift cluster.
         /// </summary>
         public readonly string DatabaseUrl;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html#cfn-appflow-connectorprofile-redshiftconnectorprofileproperties-rolearn
+        /// The Amazon Resource Name (ARN) of the IAM role.
         /// </summary>
         public readonly string RoleArn;
 

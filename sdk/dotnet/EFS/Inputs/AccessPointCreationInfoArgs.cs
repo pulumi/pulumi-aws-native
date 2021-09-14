@@ -7,28 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EFS.Inputs
+namespace Pulumi.AwsNative.Efs.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html
-    /// </summary>
     public sealed class AccessPointCreationInfoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-ownergid
+        /// Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
         /// </summary>
         [Input("ownerGid", required: true)]
         public Input<string> OwnerGid { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-owneruid
+        /// Specifies the POSIX user ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
         /// </summary>
         [Input("ownerUid", required: true)]
         public Input<string> OwnerUid { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-creationinfo.html#cfn-efs-accesspoint-creationinfo-permissions
+        /// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
         /// </summary>
         [Input("permissions", required: true)]
         public Input<string> Permissions { get; set; } = null!;

@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html
+    /// Information that defines how a detector operates.
     /// </summary>
     public sealed class DetectorModelDetectorModelDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-initialstatename
+        /// The state that is entered at the creation of each detector (instance).
         /// </summary>
         [Input("initialStateName", required: true)]
         public Input<string> InitialStateName { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelStateArgs>? _states;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-detectormodeldefinition.html#cfn-iotevents-detectormodel-detectormodeldefinition-states
+        /// Information about the states of the detector.
         /// </summary>
         public InputList<Inputs.DetectorModelStateArgs> States
         {

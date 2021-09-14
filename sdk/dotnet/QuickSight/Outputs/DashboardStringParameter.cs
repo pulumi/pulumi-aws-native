@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html
+    /// &lt;p&gt;A string parameter.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardStringParameter
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-name
+        /// &lt;p&gt;A display name for a string parameter.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-stringparameter.html#cfn-quicksight-dashboard-stringparameter-values
+        /// &lt;p&gt;The values of a string parameter.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

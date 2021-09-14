@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Cassandra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html
-    /// </summary>
     [OutputType]
     public sealed class TableColumn
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columnname
-        /// </summary>
         public readonly string ColumnName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-column.html#cfn-cassandra-table-column-columntype
-        /// </summary>
         public readonly string ColumnType;
 
         [OutputConstructor]

@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Outputs
+namespace Pulumi.AwsNative.Imagebuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html
+    /// The container repository where the output container image is stored.
     /// </summary>
     [OutputType]
     public sealed class ContainerRecipeTargetContainerRepository
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-repositoryname
+        /// The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
         /// </summary>
         public readonly string? RepositoryName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html#cfn-imagebuilder-containerrecipe-targetcontainerrepository-service
+        /// Specifies the service in which this image was registered.
         /// </summary>
         public readonly string? Service;
 

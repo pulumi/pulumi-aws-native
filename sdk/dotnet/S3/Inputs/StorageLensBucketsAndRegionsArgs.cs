@@ -11,16 +11,12 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html
+    /// S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
     /// </summary>
     public sealed class StorageLensBucketsAndRegionsArgs : Pulumi.ResourceArgs
     {
         [Input("buckets")]
         private InputList<string>? _buckets;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-buckets
-        /// </summary>
         public InputList<string> Buckets
         {
             get => _buckets ?? (_buckets = new InputList<string>());
@@ -29,10 +25,6 @@ namespace Pulumi.AwsNative.S3.Inputs
 
         [Input("regions")]
         private InputList<string>? _regions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html#cfn-s3-storagelens-bucketsandregions-regions
-        /// </summary>
         public InputList<string> Regions
         {
             get => _regions ?? (_regions = new InputList<string>());

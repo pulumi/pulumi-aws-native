@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DynamoDB.Outputs
+namespace Pulumi.AwsNative.Dynamodb.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html
-    /// </summary>
     [OutputType]
     public sealed class GlobalTableContributorInsightsSpecification
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-contributorinsightsspecification.html#cfn-dynamodb-globaltable-contributorinsightsspecification-enabled
-        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

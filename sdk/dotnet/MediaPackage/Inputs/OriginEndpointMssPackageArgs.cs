@@ -7,35 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Inputs
+namespace Pulumi.AwsNative.Mediapackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html
+    /// A Microsoft Smooth Streaming (MSS) packaging configuration.
     /// </summary>
     public sealed class OriginEndpointMssPackageArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-encryption
-        /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointMssEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-manifestwindowseconds
+        /// The time window (in seconds) contained in each manifest.
         /// </summary>
         [Input("manifestWindowSeconds")]
         public Input<int>? ManifestWindowSeconds { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-segmentdurationseconds
+        /// The duration (in seconds) of each segment.
         /// </summary>
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-msspackage.html#cfn-mediapackage-originendpoint-msspackage-streamselection
-        /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.OriginEndpointStreamSelectionArgs>? StreamSelection { get; set; }
 

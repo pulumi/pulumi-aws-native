@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html
-    /// </summary>
     public sealed class JobStatisticsConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("includedStatistics")]
         private InputList<string>? _includedStatistics;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-includedstatistics
-        /// </summary>
         public InputList<string> IncludedStatistics
         {
             get => _includedStatistics ?? (_includedStatistics = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
 
         [Input("overrides")]
         private InputList<Inputs.JobStatisticOverrideArgs>? _overrides;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-statisticsconfiguration.html#cfn-databrew-job-statisticsconfiguration-overrides
-        /// </summary>
         public InputList<Inputs.JobStatisticOverrideArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.JobStatisticOverrideArgs>());

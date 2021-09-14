@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift.Outputs
+namespace Pulumi.AwsNative.Gamelift.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html
+    /// Settings for a target-based scaling policy applied to Auto Scaling group.
     /// </summary>
     [OutputType]
     public sealed class GameServerGroupTargetTrackingConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gameservergroup-targettrackingconfiguration.html#cfn-gamelift-gameservergroup-targettrackingconfiguration-targetvalue
-        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

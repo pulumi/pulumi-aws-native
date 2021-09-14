@@ -7,73 +7,64 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS
+namespace Pulumi.AwsNative.Ecs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html
+    /// Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:TaskSet")]
     public partial class TaskSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        /// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         /// </summary>
         [Output("externalId")]
         public Output<string?> ExternalId { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
+        /// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         /// </summary>
         [Output("launchType")]
         public Output<string?> LaunchType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        /// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         /// </summary>
         [Output("platformVersion")]
         public Output<string?> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         /// </summary>
         [Output("scale")]
         public Output<Outputs.TaskSetScale?> Scale { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        /// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         /// </summary>
         [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        /// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         /// </summary>
         [Output("taskDefinition")]
         public Output<string> TaskDefinition { get; private set; } = null!;
@@ -124,55 +115,48 @@ namespace Pulumi.AwsNative.ECS
     public sealed class TaskSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-cluster
+        /// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         /// </summary>
         [Input("cluster", required: true)]
         public Input<string> Cluster { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-externalid
+        /// An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-launchtype
+        /// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
         private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-loadbalancers
-        /// </summary>
         public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
         {
             get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.TaskSetLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-networkconfiguration
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-platformversion
+        /// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
         /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-scale
+        /// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.TaskSetScaleArgs>? Scale { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-service
+        /// The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;
@@ -181,7 +165,7 @@ namespace Pulumi.AwsNative.ECS
         private InputList<Inputs.TaskSetServiceRegistryArgs>? _serviceRegistries;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-serviceregistries
+        /// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
         /// </summary>
         public InputList<Inputs.TaskSetServiceRegistryArgs> ServiceRegistries
         {
@@ -190,7 +174,7 @@ namespace Pulumi.AwsNative.ECS
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskset.html#cfn-ecs-taskset-taskdefinition
+        /// The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
         /// </summary>
         [Input("taskDefinition", required: true)]
         public Input<string> TaskDefinition { get; set; } = null!;

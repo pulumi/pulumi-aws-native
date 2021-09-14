@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.Sagemaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html
+    /// The baseline statistics resource for a monitoring job.
     /// </summary>
     [OutputType]
     public sealed class MonitoringScheduleStatisticsResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html#cfn-sagemaker-monitoringschedule-statisticsresource-s3uri
+        /// The Amazon S3 URI for the baseline statistics file in Amazon S3 that the current monitoring job should be validated against.
         /// </summary>
         public readonly string? S3Uri;
 

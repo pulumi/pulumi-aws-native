@@ -11,13 +11,10 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html
+    /// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
     /// </summary>
     public sealed class QuickConnectPhoneNumberQuickConnectConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html#cfn-connect-quickconnect-phonenumberquickconnectconfig-phonenumber
-        /// </summary>
         [Input("phoneNumber", required: true)]
         public Input<string> PhoneNumber { get; set; } = null!;
 

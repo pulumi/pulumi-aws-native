@@ -7,34 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html
+    /// Information that defines a state of a detector.
     /// </summary>
     public sealed class DetectorModelStateArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onenter
-        /// </summary>
         [Input("onEnter")]
         public Input<Inputs.DetectorModelOnEnterArgs>? OnEnter { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-onexit
-        /// </summary>
         [Input("onExit")]
         public Input<Inputs.DetectorModelOnExitArgs>? OnExit { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-oninput
-        /// </summary>
         [Input("onInput")]
         public Input<Inputs.DetectorModelOnInputArgs>? OnInput { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-state.html#cfn-iotevents-detectormodel-state-statename
+        /// The name of the state.
         /// </summary>
         [Input("stateName", required: true)]
         public Input<string> StateName { get; set; } = null!;

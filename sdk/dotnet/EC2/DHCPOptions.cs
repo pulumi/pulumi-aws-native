@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html
+    /// Resource Type definition for AWS::EC2::DHCPOptions
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:DHCPOptions")]
     public partial class DHCPOptions : Pulumi.CustomResource
@@ -19,40 +19,40 @@ namespace Pulumi.AwsNative.EC2
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        /// This value is used to complete unqualified DNS hostnames.
         /// </summary>
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        /// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         /// </summary>
         [Output("domainNameServers")]
         public Output<ImmutableArray<string>> DomainNameServers { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+        /// The IPv4 addresses of up to four NetBIOS name servers.
         /// </summary>
         [Output("netbiosNameServers")]
         public Output<ImmutableArray<string>> NetbiosNameServers { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        /// The NetBIOS node type (1, 2, 4, or 8).
         /// </summary>
         [Output("netbiosNodeType")]
         public Output<int?> NetbiosNodeType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+        /// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         /// </summary>
         [Output("ntpServers")]
         public Output<ImmutableArray<string>> NtpServers { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        /// Any tags assigned to the DHCP options set.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DHCPOptionsTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.EC2
     public sealed class DHCPOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainname
+        /// This value is used to complete unqualified DNS hostnames.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.EC2
         private InputList<string>? _domainNameServers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-domainnameservers
+        /// The IPv4 addresses of up to four domain name servers, or AmazonProvidedDNS.
         /// </summary>
         public InputList<string> DomainNameServers
         {
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.EC2
         private InputList<string>? _netbiosNameServers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnameservers
+        /// The IPv4 addresses of up to four NetBIOS name servers.
         /// </summary>
         public InputList<string> NetbiosNameServers
         {
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.EC2
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-netbiosnodetype
+        /// The NetBIOS node type (1, 2, 4, or 8).
         /// </summary>
         [Input("netbiosNodeType")]
         public Input<int>? NetbiosNodeType { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.EC2
         private InputList<string>? _ntpServers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-ntpservers
+        /// The IPv4 addresses of up to four Network Time Protocol (NTP) servers.
         /// </summary>
         public InputList<string> NtpServers
         {
@@ -148,14 +148,14 @@ namespace Pulumi.AwsNative.EC2
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DHCPOptionsTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcpoptions.html#cfn-ec2-dhcpoptions-tags
+        /// Any tags assigned to the DHCP options set.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DHCPOptionsTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DHCPOptionsTagArgs>());
             set => _tags = value;
         }
 

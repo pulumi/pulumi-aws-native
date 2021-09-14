@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DevOpsGuru.Outputs
+namespace Pulumi.AwsNative.Devopsguru.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html
+    /// Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
     /// </summary>
     [OutputType]
     public sealed class ResourceCollectionResourceCollectionFilter
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter-cloudformation
-        /// </summary>
         public readonly Outputs.ResourceCollectionCloudFormationCollectionFilter? CloudFormation;
 
         [OutputConstructor]

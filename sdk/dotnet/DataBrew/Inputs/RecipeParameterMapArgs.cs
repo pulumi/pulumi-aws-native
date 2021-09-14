@@ -7,12 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-parametermap.html
-    /// </summary>
     public sealed class RecipeParameterMapArgs : Pulumi.ResourceArgs
     {
         public RecipeParameterMapArgs()

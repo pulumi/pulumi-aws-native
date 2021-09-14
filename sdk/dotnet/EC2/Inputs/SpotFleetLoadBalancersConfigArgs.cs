@@ -7,23 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Inputs
+namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html
-    /// </summary>
     public sealed class SpotFleetLoadBalancersConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-classicloadbalancersconfig
-        /// </summary>
         [Input("classicLoadBalancersConfig")]
         public Input<Inputs.SpotFleetClassicLoadBalancersConfigArgs>? ClassicLoadBalancersConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-loadbalancersconfig.html#cfn-ec2-spotfleet-loadbalancersconfig-targetgroupsconfig
-        /// </summary>
         [Input("targetGroupsConfig")]
         public Input<Inputs.SpotFleetTargetGroupsConfigArgs>? TargetGroupsConfig { get; set; }
 

@@ -7,22 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaConnect.Outputs
+namespace Pulumi.AwsNative.Mediaconnect.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html
+    /// The settings for source failover
     /// </summary>
     [OutputType]
     public sealed class FlowFailoverConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-recoverywindow
+        /// Search window time to look for dash-7 packets
         /// </summary>
         public readonly int? RecoveryWindow;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html#cfn-mediaconnect-flow-failoverconfig-state
-        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

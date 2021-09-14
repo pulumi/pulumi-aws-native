@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudTrail.Outputs
+namespace Pulumi.AwsNative.Cloudtrail.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html
+    /// CloudTrail supports data event logging for Amazon S3 objects and AWS Lambda functions. You can specify up to 250 resources for an individual event selector, but the total number of data resources cannot exceed 250 across all event selectors in a trail. This limit does not apply if you configure resource logging for all data events.
     /// </summary>
     [OutputType]
     public sealed class TrailDataResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type
+        /// The resource type in which you want to log data events. You can specify AWS::S3::Object or AWS::Lambda::Function resources.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values
+        /// An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

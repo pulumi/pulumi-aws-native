@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
-    /// </summary>
     [OutputType]
     public sealed class CanaryVisualReference
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+        /// Canary run id to be used as base reference for visual testing
         /// </summary>
         public readonly string BaseCanaryRunId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        /// List of screenshots used as base reference for visual testing
         /// </summary>
         public readonly ImmutableArray<Outputs.CanaryBaseScreenshot> BaseScreenshots;
 

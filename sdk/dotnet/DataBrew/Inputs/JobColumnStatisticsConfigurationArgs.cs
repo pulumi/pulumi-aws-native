@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html
-    /// </summary>
     public sealed class JobColumnStatisticsConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("selectors")]
         private InputList<Inputs.JobColumnSelectorArgs>? _selectors;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-selectors
-        /// </summary>
         public InputList<Inputs.JobColumnSelectorArgs> Selectors
         {
             get => _selectors ?? (_selectors = new InputList<Inputs.JobColumnSelectorArgs>());
             set => _selectors = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-columnstatisticsconfiguration.html#cfn-databrew-job-columnstatisticsconfiguration-statistics
-        /// </summary>
         [Input("statistics", required: true)]
         public Input<Inputs.JobStatisticsConfigurationArgs> Statistics { get; set; } = null!;
 

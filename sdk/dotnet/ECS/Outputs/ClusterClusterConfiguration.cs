@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Outputs
+namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html
+    /// The configurations to be set at cluster level.
     /// </summary>
     [OutputType]
     public sealed class ClusterClusterConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html#cfn-ecs-cluster-clusterconfiguration-executecommandconfiguration
-        /// </summary>
         public readonly Outputs.ClusterExecuteCommandConfiguration? ExecuteCommandConfiguration;
 
         [OutputConstructor]

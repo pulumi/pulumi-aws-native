@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html
+    /// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
     /// </summary>
     public sealed class MitigationActionUpdateDeviceCertificateParamsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-updatedevicecertificateparams.html#cfn-iot-mitigationaction-updatedevicecertificateparams-action
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 

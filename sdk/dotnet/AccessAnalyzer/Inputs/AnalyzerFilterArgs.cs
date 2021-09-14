@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
+namespace Pulumi.AwsNative.Accessanalyzer.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html
-    /// </summary>
     public sealed class AnalyzerFilterArgs : Pulumi.ResourceArgs
     {
         [Input("contains")]
         private InputList<string>? _contains;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-contains
-        /// </summary>
         public InputList<string> Contains
         {
             get => _contains ?? (_contains = new InputList<string>());
@@ -29,37 +22,23 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
 
         [Input("eq")]
         private InputList<string>? _eq;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-eq
-        /// </summary>
         public InputList<string> Eq
         {
             get => _eq ?? (_eq = new InputList<string>());
             set => _eq = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-exists
-        /// </summary>
         [Input("exists")]
         public Input<bool>? Exists { get; set; }
 
         [Input("neq")]
         private InputList<string>? _neq;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-neq
-        /// </summary>
         public InputList<string> Neq
         {
             get => _neq ?? (_neq = new InputList<string>());
             set => _neq = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html#cfn-accessanalyzer-analyzer-filter-property
-        /// </summary>
         [Input("property", required: true)]
         public Input<string> Property { get; set; } = null!;
 

@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html
+    /// &lt;p&gt;The display options for the layout of tiles on a sheet.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class ThemeTileLayoutStyle
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-gutter
-        /// </summary>
         public readonly Outputs.ThemeGutterStyle? Gutter;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-tilelayoutstyle.html#cfn-quicksight-theme-tilelayoutstyle-margin
-        /// </summary>
         public readonly Outputs.ThemeMarginStyle? Margin;
 
         [OutputConstructor]

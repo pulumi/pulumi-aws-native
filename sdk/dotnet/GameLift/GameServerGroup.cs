@@ -7,88 +7,94 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift
+namespace Pulumi.AwsNative.Gamelift
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html
+    /// The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:gamelift:GameServerGroup")]
     public partial class GameServerGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.
+        /// </summary>
         [Output("autoScalingGroupArn")]
         public Output<string> AutoScalingGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         /// </summary>
         [Output("autoScalingPolicy")]
         public Output<Outputs.GameServerGroupAutoScalingPolicy?> AutoScalingPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        /// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         /// </summary>
         [Output("balancingStrategy")]
         public Output<string?> BalancingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        /// The type of delete to perform.
         /// </summary>
         [Output("deleteOption")]
         public Output<string?> DeleteOption { get; private set; } = null!;
 
+        /// <summary>
+        /// A generated unique ID for the game server group.
+        /// </summary>
         [Output("gameServerGroupArn")]
         public Output<string> GameServerGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        /// An identifier for the new game server group.
         /// </summary>
         [Output("gameServerGroupName")]
         public Output<string> GameServerGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        /// A flag that indicates whether instances in the game server group are protected from early termination.
         /// </summary>
         [Output("gameServerProtectionPolicy")]
         public Output<string?> GameServerProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        /// A set of EC2 instance types to use when creating instances in the group.
         /// </summary>
         [Output("instanceDefinitions")]
         public Output<ImmutableArray<Outputs.GameServerGroupInstanceDefinition>> InstanceDefinitions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         /// </summary>
         [Output("launchTemplate")]
         public Output<Outputs.GameServerGroupLaunchTemplate> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// </summary>
         [Output("maxSize")]
         public Output<double?> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// </summary>
         [Output("minSize")]
         public Output<double?> MinSize { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        /// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        /// A list of labels to assign to the new game server group resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.GameServerGroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         /// </summary>
         [Output("vpcSubnets")]
         public Output<ImmutableArray<string>> VpcSubnets { get; private set; } = null!;
@@ -139,31 +145,31 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class GameServerGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-autoscalingpolicy
+        /// Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
         /// </summary>
         [Input("autoScalingPolicy")]
         public Input<Inputs.GameServerGroupAutoScalingPolicyArgs>? AutoScalingPolicy { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-balancingstrategy
+        /// The fallback balancing method to use for the game server group when Spot Instances in a Region become unavailable or are not viable for game hosting.
         /// </summary>
         [Input("balancingStrategy")]
         public Input<string>? BalancingStrategy { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-deleteoption
+        /// The type of delete to perform.
         /// </summary>
         [Input("deleteOption")]
         public Input<string>? DeleteOption { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameservergroupname
+        /// An identifier for the new game server group.
         /// </summary>
         [Input("gameServerGroupName", required: true)]
         public Input<string> GameServerGroupName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-gameserverprotectionpolicy
+        /// A flag that indicates whether instances in the game server group are protected from early termination.
         /// </summary>
         [Input("gameServerProtectionPolicy")]
         public Input<string>? GameServerProtectionPolicy { get; set; }
@@ -172,7 +178,7 @@ namespace Pulumi.AwsNative.GameLift
         private InputList<Inputs.GameServerGroupInstanceDefinitionArgs>? _instanceDefinitions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-instancedefinitions
+        /// A set of EC2 instance types to use when creating instances in the group.
         /// </summary>
         public InputList<Inputs.GameServerGroupInstanceDefinitionArgs> InstanceDefinitions
         {
@@ -181,38 +187,38 @@ namespace Pulumi.AwsNative.GameLift
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-launchtemplate
+        /// The EC2 launch template that contains configuration settings and game server code to be deployed to all instances in the game server group.
         /// </summary>
         [Input("launchTemplate", required: true)]
         public Input<Inputs.GameServerGroupLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-maxsize
+        /// The maximum number of instances allowed in the EC2 Auto Scaling group.
         /// </summary>
         [Input("maxSize")]
         public Input<double>? MaxSize { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-minsize
+        /// The minimum number of instances allowed in the EC2 Auto Scaling group.
         /// </summary>
         [Input("minSize")]
         public Input<double>? MinSize { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-rolearn
+        /// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.GameServerGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-tags
+        /// A list of labels to assign to the new game server group resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.GameServerGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.GameServerGroupTagArgs>());
             set => _tags = value;
         }
 
@@ -220,7 +226,7 @@ namespace Pulumi.AwsNative.GameLift
         private InputList<string>? _vpcSubnets;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-gameservergroup.html#cfn-gamelift-gameservergroup-vpcsubnets
+        /// A list of virtual private cloud (VPC) subnets to use with instances in the game server group.
         /// </summary>
         public InputList<string> VpcSubnets
         {

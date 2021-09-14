@@ -7,58 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FraudDetector.Outputs
+namespace Pulumi.AwsNative.Frauddetector.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html
-    /// </summary>
     [OutputType]
     public sealed class DetectorEventVariable
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-arn
-        /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-createdtime
+        /// The time when the event variable was created.
         /// </summary>
         public readonly string? CreatedTime;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datasource
-        /// </summary>
         public readonly string? DataSource;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-datatype
-        /// </summary>
         public readonly string? DataType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-defaultvalue
-        /// </summary>
         public readonly string? DefaultValue;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-description
+        /// The description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-inline
-        /// </summary>
         public readonly bool? Inline;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-lastupdatedtime
+        /// The time when the event variable was last updated.
         /// </summary>
         public readonly string? LastUpdatedTime;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-name
-        /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-tags
+        /// Tags associated with this event variable.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventvariable.html#cfn-frauddetector-detector-eventvariable-variabletype
-        /// </summary>
+        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
         public readonly string? VariableType;
 
         [OutputConstructor]
@@ -81,7 +57,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             string? name,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+            ImmutableArray<Outputs.DetectorTag> tags,
 
             string? variableType)
         {

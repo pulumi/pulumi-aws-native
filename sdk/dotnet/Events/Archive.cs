@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Events
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html
+    /// Resource Type definition for AWS::Events::Archive
     /// </summary>
     [AwsNativeResourceType("aws-native:events:Archive")]
     public partial class Archive : Pulumi.CustomResource
@@ -21,27 +21,15 @@ namespace Pulumi.AwsNative.Events
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-        /// </summary>
         [Output("eventPattern")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> EventPattern { get; private set; } = null!;
+        public Output<object?> EventPattern { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-        /// </summary>
         [Output("retentionDays")]
         public Output<int?> RetentionDays { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
@@ -90,33 +78,15 @@ namespace Pulumi.AwsNative.Events
 
     public sealed class ArchiveArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-archivename
-        /// </summary>
-        [Input("archiveName")]
-        public Input<string>? ArchiveName { get; set; }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-eventpattern
-        /// </summary>
         [Input("eventPattern")]
-        public InputUnion<System.Text.Json.JsonElement, string>? EventPattern { get; set; }
+        public Input<object>? EventPattern { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-retentiondays
-        /// </summary>
         [Input("retentionDays")]
         public Input<int>? RetentionDays { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-archive.html#cfn-events-archive-sourcearn
-        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 

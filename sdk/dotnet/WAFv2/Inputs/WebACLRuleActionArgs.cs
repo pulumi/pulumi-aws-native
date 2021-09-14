@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html
+    /// Action taken when Rule matches its condition.
     /// </summary>
     public sealed class WebACLRuleActionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-allow
-        /// </summary>
         [Input("allow")]
         public Input<Inputs.WebACLAllowActionArgs>? Allow { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-block
-        /// </summary>
         [Input("block")]
         public Input<Inputs.WebACLBlockActionArgs>? Block { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html#cfn-wafv2-webacl-ruleaction-count
-        /// </summary>
         [Input("count")]
         public Input<Inputs.WebACLCountActionArgs>? Count { get; set; }
 

@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.Sagemaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html
+    /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
     /// </summary>
     [OutputType]
     public sealed class ModelQualityJobDefinitionModelQualityBaselineConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-baseliningjobname
-        /// </summary>
         public readonly string? BaseliningJobName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html#cfn-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig-constraintsresource
-        /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionConstraintsResource? ConstraintsResource;
 
         [OutputConstructor]

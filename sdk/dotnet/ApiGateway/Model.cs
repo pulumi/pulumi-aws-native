@@ -7,43 +7,43 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway
+namespace Pulumi.AwsNative.Apigateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
+    /// Resource Type definition for AWS::ApiGateway::Model
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Model")]
     public partial class Model : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+        /// The content type for the model.
         /// </summary>
         [Output("contentType")]
         public Output<string?> ContentType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+        /// A description that identifies this model.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+        /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+        /// The ID of a REST API with which to associate this model.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        /// The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         /// </summary>
         [Output("schema")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Schema { get; private set; } = null!;
+        public Output<object?> Schema { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,34 +91,34 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class ModelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+        /// The content type for the model.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+        /// A description that identifies this model.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+        /// A name for the model. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the model name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+        /// The ID of a REST API with which to associate this model.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+        /// The schema to use to transform data to one or more output formats. Specify null ({}) if you don't want to specify a schema.
         /// </summary>
         [Input("schema")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Schema { get; set; }
+        public Input<object>? Schema { get; set; }
 
         public ModelArgs()
         {

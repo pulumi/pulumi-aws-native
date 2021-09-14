@@ -7,32 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html
-    /// </summary>
     public sealed class RuleGroupStatefulRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-action
-        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-header
-        /// </summary>
         [Input("header", required: true)]
         public Input<Inputs.RuleGroupHeaderArgs> Header { get; set; } = null!;
 
         [Input("ruleOptions", required: true)]
         private InputList<Inputs.RuleGroupRuleOptionArgs>? _ruleOptions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-statefulrule.html#cfn-networkfirewall-rulegroup-statefulrule-ruleoptions
-        /// </summary>
         public InputList<Inputs.RuleGroupRuleOptionArgs> RuleOptions
         {
             get => _ruleOptions ?? (_ruleOptions = new InputList<Inputs.RuleGroupRuleOptionArgs>());

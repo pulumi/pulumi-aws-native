@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.Glue.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
+    /// Identifier for the schema where the schema version will be created.
     /// </summary>
     [OutputType]
     public sealed class SchemaVersionSchema
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+        /// Name of the registry to identify where the Schema is located.
         /// </summary>
         public readonly string? RegistryName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+        /// Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
         /// </summary>
         public readonly string? SchemaArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+        /// Name of the schema. This parameter requires RegistryName to be provided.
         /// </summary>
         public readonly string? SchemaName;
 

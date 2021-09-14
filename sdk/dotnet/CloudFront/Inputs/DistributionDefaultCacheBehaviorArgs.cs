@@ -7,74 +7,44 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront.Inputs
+namespace Pulumi.AwsNative.Cloudfront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
-    /// </summary>
     public sealed class DistributionDefaultCacheBehaviorArgs : Pulumi.ResourceArgs
     {
         [Input("allowedMethods")]
         private InputList<string>? _allowedMethods;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
-        /// </summary>
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
             set => _allowedMethods = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachepolicyid
-        /// </summary>
         [Input("cachePolicyId")]
         public Input<string>? CachePolicyId { get; set; }
 
         [Input("cachedMethods")]
         private InputList<string>? _cachedMethods;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
-        /// </summary>
         public InputList<string> CachedMethods
         {
             get => _cachedMethods ?? (_cachedMethods = new InputList<string>());
             set => _cachedMethods = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
-        /// </summary>
         [Input("compress")]
         public Input<bool>? Compress { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
-        /// </summary>
         [Input("defaultTTL")]
         public Input<double>? DefaultTTL { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-fieldlevelencryptionid
-        /// </summary>
         [Input("fieldLevelEncryptionId")]
         public Input<string>? FieldLevelEncryptionId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
-        /// </summary>
         [Input("forwardedValues")]
         public Input<Inputs.DistributionForwardedValuesArgs>? ForwardedValues { get; set; }
 
         [Input("functionAssociations")]
         private InputList<Inputs.DistributionFunctionAssociationArgs>? _functionAssociations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-functionassociations
-        /// </summary>
         public InputList<Inputs.DistributionFunctionAssociationArgs> FunctionAssociations
         {
             get => _functionAssociations ?? (_functionAssociations = new InputList<Inputs.DistributionFunctionAssociationArgs>());
@@ -83,58 +53,32 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionLambdaFunctionAssociationArgs>? _lambdaFunctionAssociations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
-        /// </summary>
         public InputList<Inputs.DistributionLambdaFunctionAssociationArgs> LambdaFunctionAssociations
         {
             get => _lambdaFunctionAssociations ?? (_lambdaFunctionAssociations = new InputList<Inputs.DistributionLambdaFunctionAssociationArgs>());
             set => _lambdaFunctionAssociations = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
-        /// </summary>
         [Input("maxTTL")]
         public Input<double>? MaxTTL { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
-        /// </summary>
         [Input("minTTL")]
         public Input<double>? MinTTL { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
-        /// </summary>
         [Input("originRequestPolicyId")]
         public Input<string>? OriginRequestPolicyId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
-        /// </summary>
         [Input("realtimeLogConfigArn")]
         public Input<string>? RealtimeLogConfigArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
-        /// </summary>
         [Input("smoothStreaming")]
         public Input<bool>? SmoothStreaming { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
-        /// </summary>
         [Input("targetOriginId", required: true)]
         public Input<string> TargetOriginId { get; set; } = null!;
 
         [Input("trustedKeyGroups")]
         private InputList<string>? _trustedKeyGroups;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedkeygroups
-        /// </summary>
         public InputList<string> TrustedKeyGroups
         {
             get => _trustedKeyGroups ?? (_trustedKeyGroups = new InputList<string>());
@@ -143,19 +87,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("trustedSigners")]
         private InputList<string>? _trustedSigners;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
-        /// </summary>
         public InputList<string> TrustedSigners
         {
             get => _trustedSigners ?? (_trustedSigners = new InputList<string>());
             set => _trustedSigners = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
-        /// </summary>
         [Input("viewerProtocolPolicy", required: true)]
         public Input<string> ViewerProtocolPolicy { get; set; } = null!;
 

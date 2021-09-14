@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html
+    /// Resource schema for AWS::EC2::NetworkInsightsAnalysis
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkInsightsAnalysis")]
     public partial class NetworkInsightsAnalysis : Pulumi.CustomResource
@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("explanations")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation>> Explanations { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-        /// </summary>
         [Output("filterInArns")]
         public Output<ImmutableArray<string>> FilterInArns { get; private set; } = null!;
 
@@ -36,9 +33,6 @@ namespace Pulumi.AwsNative.EC2
         [Output("networkInsightsAnalysisId")]
         public Output<string> NetworkInsightsAnalysisId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-        /// </summary>
         [Output("networkInsightsPathId")]
         public Output<string> NetworkInsightsPathId { get; private set; } = null!;
 
@@ -57,11 +51,8 @@ namespace Pulumi.AwsNative.EC2
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -110,31 +101,20 @@ namespace Pulumi.AwsNative.EC2
     {
         [Input("filterInArns")]
         private InputList<string>? _filterInArns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-filterinarns
-        /// </summary>
         public InputList<string> FilterInArns
         {
             get => _filterInArns ?? (_filterInArns = new InputList<string>());
             set => _filterInArns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-networkinsightspathid
-        /// </summary>
         [Input("networkInsightsPathId", required: true)]
         public Input<string> NetworkInsightsPathId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightsanalysis.html#cfn-ec2-networkinsightsanalysis-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.NetworkInsightsAnalysisTagArgs>? _tags;
+        public InputList<Inputs.NetworkInsightsAnalysisTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.NetworkInsightsAnalysisTagArgs>());
             set => _tags = value;
         }
 

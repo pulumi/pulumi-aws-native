@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html
-    /// </summary>
     public sealed class RuleGroupPublishMetricActionArgs : Pulumi.ResourceArgs
     {
         [Input("dimensions", required: true)]
         private InputList<Inputs.RuleGroupDimensionArgs>? _dimensions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-publishmetricaction.html#cfn-networkfirewall-rulegroup-publishmetricaction-dimensions
-        /// </summary>
         public InputList<Inputs.RuleGroupDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.RuleGroupDimensionArgs>());

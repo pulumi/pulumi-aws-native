@@ -7,35 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NimbleStudio.Inputs
+namespace Pulumi.AwsNative.Nimblestudio.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html
-    /// </summary>
     public sealed class StudioComponentStudioComponentConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-activedirectoryconfiguration
-        /// </summary>
         [Input("activeDirectoryConfiguration")]
         public Input<Inputs.StudioComponentActiveDirectoryConfigurationArgs>? ActiveDirectoryConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-computefarmconfiguration
-        /// </summary>
         [Input("computeFarmConfiguration")]
         public Input<Inputs.StudioComponentComputeFarmConfigurationArgs>? ComputeFarmConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-licenseserviceconfiguration
-        /// </summary>
         [Input("licenseServiceConfiguration")]
         public Input<Inputs.StudioComponentLicenseServiceConfigurationArgs>? LicenseServiceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-studiocomponentconfiguration.html#cfn-nimblestudio-studiocomponent-studiocomponentconfiguration-sharedfilesystemconfiguration
-        /// </summary>
         [Input("sharedFileSystemConfiguration")]
         public Input<Inputs.StudioComponentSharedFileSystemConfigurationArgs>? SharedFileSystemConfiguration { get; set; }
 

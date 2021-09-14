@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html
+    /// Definition of AWS::Location::RouteCalculator Resource Type
     /// </summary>
     [AwsNativeResourceType("aws-native:location:RouteCalculator")]
     public partial class RouteCalculator : Pulumi.CustomResource
@@ -21,30 +21,18 @@ namespace Pulumi.AwsNative.Location
         [Output("calculatorArn")]
         public Output<string> CalculatorArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        /// </summary>
         [Output("calculatorName")]
         public Output<string> CalculatorName { get; private set; } = null!;
 
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        /// </summary>
         [Output("dataSource")]
         public Output<string> DataSource { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-        /// </summary>
         [Output("pricingPlan")]
         public Output<string> PricingPlan { get; private set; } = null!;
 
@@ -96,27 +84,15 @@ namespace Pulumi.AwsNative.Location
 
     public sealed class RouteCalculatorArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-calculatorname
-        /// </summary>
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-datasource
-        /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-location-routecalculator.html#cfn-location-routecalculator-pricingplan
-        /// </summary>
         [Input("pricingPlan", required: true)]
         public Input<string> PricingPlan { get; set; } = null!;
 

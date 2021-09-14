@@ -7,47 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront
+namespace Pulumi.AwsNative.Cloudfront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html
+    /// Resource Type definition for AWS::CloudFront::Function
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:Function")]
     public partial class Function : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        /// </summary>
         [Output("autoPublish")]
         public Output<bool?> AutoPublish { get; private set; } = null!;
 
         [Output("functionARN")]
         public Output<string> FunctionARN { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        /// </summary>
         [Output("functionCode")]
         public Output<string?> FunctionCode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        /// </summary>
         [Output("functionConfig")]
         public Output<Outputs.FunctionFunctionConfig?> FunctionConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-        /// </summary>
         [Output("functionMetadata")]
         public Output<Outputs.FunctionFunctionMetadata?> FunctionMetadata { get; private set; } = null!;
 
-        [Output("functionMetadataFunctionARN")]
-        public Output<string> FunctionMetadataFunctionARN { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -99,33 +81,18 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-autopublish
-        /// </summary>
         [Input("autoPublish")]
         public Input<bool>? AutoPublish { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functioncode
-        /// </summary>
         [Input("functionCode")]
         public Input<string>? FunctionCode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionconfig
-        /// </summary>
         [Input("functionConfig")]
         public Input<Inputs.FunctionFunctionConfigArgs>? FunctionConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-functionmetadata
-        /// </summary>
         [Input("functionMetadata")]
         public Input<Inputs.FunctionFunctionMetadataArgs>? FunctionMetadata { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-function.html#cfn-cloudfront-function-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

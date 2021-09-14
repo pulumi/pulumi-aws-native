@@ -7,22 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
+namespace Pulumi.AwsNative.Elasticloadbalancingv2.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html
-    /// </summary>
     [OutputType]
     public sealed class ListenerForwardConfig
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroupstickinessconfig
-        /// </summary>
         public readonly Outputs.ListenerTargetGroupStickinessConfig? TargetGroupStickinessConfig;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-forwardconfig.html#cfn-elasticloadbalancingv2-listener-forwardconfig-targetgroups
-        /// </summary>
         public readonly ImmutableArray<Outputs.ListenerTargetGroupTuple> TargetGroups;
 
         [OutputConstructor]

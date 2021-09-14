@@ -10,19 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class IndexCapacityUnitsConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-querycapacityunits
-        /// </summary>
         public readonly int QueryCapacityUnits;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-index-capacityunitsconfiguration.html#cfn-kendra-index-capacityunitsconfiguration-storagecapacityunits
-        /// </summary>
         public readonly int StorageCapacityUnits;
 
         [OutputConstructor]

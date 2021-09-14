@@ -7,55 +7,58 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaConnect
+namespace Pulumi.AwsNative.Mediaconnect
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html
+    /// Resource schema for AWS::MediaConnect::FlowEntitlement
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowEntitlement")]
     public partial class FlowEntitlement : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
+        /// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         /// </summary>
         [Output("dataTransferSubscriberFeePercent")]
         public Output<int?> DataTransferSubscriberFeePercent { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
+        /// A description of the entitlement.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
+        /// The type of encryption that will be used on the output that is associated with this entitlement.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.FlowEntitlementEncryption?> Encryption { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the entitlement.
+        /// </summary>
         [Output("entitlementArn")]
         public Output<string> EntitlementArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
+        ///  An indication of whether the entitlement is enabled.
         /// </summary>
         [Output("entitlementStatus")]
         public Output<string?> EntitlementStatus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
+        /// The ARN of the flow.
         /// </summary>
         [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
+        /// The name of the entitlement.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
+        /// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<string>> Subscribers { get; private set; } = null!;
@@ -106,37 +109,37 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class FlowEntitlementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-datatransfersubscriberfeepercent
+        /// Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         /// </summary>
         [Input("dataTransferSubscriberFeePercent")]
         public Input<int>? DataTransferSubscriberFeePercent { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-description
+        /// A description of the entitlement.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-encryption
+        /// The type of encryption that will be used on the output that is associated with this entitlement.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.FlowEntitlementEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-entitlementstatus
+        ///  An indication of whether the entitlement is enabled.
         /// </summary>
         [Input("entitlementStatus")]
         public Input<string>? EntitlementStatus { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-flowarn
+        /// The ARN of the flow.
         /// </summary>
         [Input("flowArn", required: true)]
         public Input<string> FlowArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-name
+        /// The name of the entitlement.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -145,7 +148,7 @@ namespace Pulumi.AwsNative.MediaConnect
         private InputList<string>? _subscribers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowentitlement.html#cfn-mediaconnect-flowentitlement-subscribers
+        /// The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
         /// </summary>
         public InputList<string> Subscribers
         {

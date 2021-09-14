@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway
+namespace Pulumi.AwsNative.Apigateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
+    /// A snapshot of the documentation of an API.
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:DocumentationVersion")]
     public partial class DocumentationVersion : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+        /// The description of the API documentation snapshot.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+        /// The version identifier of the API documentation snapshot.
         /// </summary>
         [Output("documentationVersion")]
         public Output<string> DocumentationVersionValue { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+        /// The identifier of the API.
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
@@ -79,19 +79,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class DocumentationVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-description
+        /// The description of the API documentation snapshot.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-documentationversion
+        /// The version identifier of the API documentation snapshot.
         /// </summary>
         [Input("documentationVersion", required: true)]
         public Input<string> DocumentationVersionValue { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html#cfn-apigateway-documentationversion-restapiid
+        /// The identifier of the API.
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html
+    /// When exiting this state, perform these `actions` if the specified `condition` is `TRUE`.
     /// </summary>
     public sealed class DetectorModelOnExitArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelEventArgs>? _events;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-onexit.html#cfn-iotevents-detectormodel-onexit-events
+        /// Specifies the `actions` that are performed when the state is exited and the `condition` is `TRUE`.
         /// </summary>
         public InputList<Inputs.DetectorModelEventArgs> Events
         {

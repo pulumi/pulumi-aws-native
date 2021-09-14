@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisFirehose
+namespace Pulumi.AwsNative.Kinesisfirehose
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
+    /// Resource Type definition for AWS::KinesisFirehose::DeliveryStream
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesisfirehose:DeliveryStream")]
     public partial class DeliveryStream : Pulumi.CustomResource
@@ -18,71 +18,38 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
-        /// </summary>
         [Output("deliveryStreamEncryptionConfigurationInput")]
         public Output<Outputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInput?> DeliveryStreamEncryptionConfigurationInput { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-        /// </summary>
         [Output("deliveryStreamName")]
         public Output<string?> DeliveryStreamName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-        /// </summary>
         [Output("deliveryStreamType")]
         public Output<string?> DeliveryStreamType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-        /// </summary>
         [Output("elasticsearchDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamElasticsearchDestinationConfiguration?> ElasticsearchDestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-        /// </summary>
         [Output("extendedS3DestinationConfiguration")]
         public Output<Outputs.DeliveryStreamExtendedS3DestinationConfiguration?> ExtendedS3DestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-        /// </summary>
         [Output("httpEndpointDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamHttpEndpointDestinationConfiguration?> HttpEndpointDestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-        /// </summary>
         [Output("kinesisStreamSourceConfiguration")]
         public Output<Outputs.DeliveryStreamKinesisStreamSourceConfiguration?> KinesisStreamSourceConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-        /// </summary>
         [Output("redshiftDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamRedshiftDestinationConfiguration?> RedshiftDestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-        /// </summary>
         [Output("s3DestinationConfiguration")]
         public Output<Outputs.DeliveryStreamS3DestinationConfiguration?> S3DestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-        /// </summary>
         [Output("splunkDestinationConfiguration")]
         public Output<Outputs.DeliveryStreamSplunkDestinationConfiguration?> SplunkDestinationConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeliveryStreamTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,75 +96,41 @@ namespace Pulumi.AwsNative.KinesisFirehose
 
     public sealed class DeliveryStreamArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput
-        /// </summary>
         [Input("deliveryStreamEncryptionConfigurationInput")]
         public Input<Inputs.DeliveryStreamDeliveryStreamEncryptionConfigurationInputArgs>? DeliveryStreamEncryptionConfigurationInput { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
-        /// </summary>
         [Input("deliveryStreamName")]
         public Input<string>? DeliveryStreamName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
-        /// </summary>
         [Input("deliveryStreamType")]
         public Input<string>? DeliveryStreamType { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
-        /// </summary>
         [Input("elasticsearchDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamElasticsearchDestinationConfigurationArgs>? ElasticsearchDestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
-        /// </summary>
         [Input("extendedS3DestinationConfiguration")]
         public Input<Inputs.DeliveryStreamExtendedS3DestinationConfigurationArgs>? ExtendedS3DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
-        /// </summary>
         [Input("httpEndpointDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamHttpEndpointDestinationConfigurationArgs>? HttpEndpointDestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
-        /// </summary>
         [Input("kinesisStreamSourceConfiguration")]
         public Input<Inputs.DeliveryStreamKinesisStreamSourceConfigurationArgs>? KinesisStreamSourceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
-        /// </summary>
         [Input("redshiftDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamRedshiftDestinationConfigurationArgs>? RedshiftDestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
-        /// </summary>
         [Input("s3DestinationConfiguration")]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3DestinationConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
-        /// </summary>
         [Input("splunkDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamSplunkDestinationConfigurationArgs>? SplunkDestinationConfiguration { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.DeliveryStreamTagArgs>? _tags;
+        public InputList<Inputs.DeliveryStreamTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DeliveryStreamTagArgs>());
             set => _tags = value;
         }
 

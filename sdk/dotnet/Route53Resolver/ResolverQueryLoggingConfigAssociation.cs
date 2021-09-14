@@ -7,38 +7,47 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53Resolver
+namespace Pulumi.AwsNative.Route53resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html
+    /// Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverQueryLoggingConfigAssociation")]
     public partial class ResolverQueryLoggingConfigAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverQueryLogConfigAssociationError
+        /// </summary>
         [Output("error")]
         public Output<string> Error { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverQueryLogConfigAssociationErrorMessage
+        /// </summary>
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        /// ResolverQueryLogConfigId
         /// </summary>
         [Output("resolverQueryLogConfigId")]
         public Output<string?> ResolverQueryLogConfigId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        /// ResourceId
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverQueryLogConfigAssociationStatus
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -88,13 +97,13 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class ResolverQueryLoggingConfigAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resolverquerylogconfigid
+        /// ResolverQueryLogConfigId
         /// </summary>
         [Input("resolverQueryLogConfigId")]
         public Input<string>? ResolverQueryLogConfigId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverqueryloggingconfigassociation.html#cfn-route53resolver-resolverqueryloggingconfigassociation-resourceid
+        /// ResourceId
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

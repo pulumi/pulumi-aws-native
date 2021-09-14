@@ -7,30 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ACMPCA.Outputs
+namespace Pulumi.AwsNative.Acmpca.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+    /// Structure that contains X.500 extensions for a Certificate.
     /// </summary>
     [OutputType]
     public sealed class CertificateExtensions
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
-        /// </summary>
         public readonly ImmutableArray<Outputs.CertificatePolicyInformation> CertificatePolicies;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
-        /// </summary>
         public readonly ImmutableArray<Outputs.CertificateExtendedKeyUsage> ExtendedKeyUsage;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
-        /// </summary>
         public readonly Outputs.CertificateKeyUsage? KeyUsage;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
-        /// </summary>
         public readonly ImmutableArray<Outputs.CertificateGeneralName> SubjectAlternativeNames;
 
         [OutputConstructor]

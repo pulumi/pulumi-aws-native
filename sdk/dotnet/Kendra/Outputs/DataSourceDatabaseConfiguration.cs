@@ -10,35 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class DataSourceDatabaseConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-aclconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceAclConfiguration? AclConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-columnconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceColumnConfiguration ColumnConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-connectionconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceConnectionConfiguration ConnectionConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-databaseenginetype
-        /// </summary>
         public readonly string DatabaseEngineType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-sqlconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceSqlConfiguration? SqlConfiguration;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-databaseconfiguration.html#cfn-kendra-datasource-databaseconfiguration-vpcconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceDataSourceVpcConfiguration? VpcConfiguration;
 
         [OutputConstructor]

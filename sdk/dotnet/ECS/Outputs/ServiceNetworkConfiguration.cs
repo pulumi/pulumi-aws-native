@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Outputs
+namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class ServiceNetworkConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
-        /// </summary>
         public readonly Outputs.ServiceAwsVpcConfiguration? AwsvpcConfiguration;
 
         [OutputConstructor]

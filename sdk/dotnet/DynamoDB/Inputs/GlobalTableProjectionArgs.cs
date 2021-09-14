@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DynamoDB.Inputs
+namespace Pulumi.AwsNative.Dynamodb.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html
-    /// </summary>
     public sealed class GlobalTableProjectionArgs : Pulumi.ResourceArgs
     {
         [Input("nonKeyAttributes")]
         private InputList<string>? _nonKeyAttributes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-nonkeyattributes
-        /// </summary>
         public InputList<string> NonKeyAttributes
         {
             get => _nonKeyAttributes ?? (_nonKeyAttributes = new InputList<string>());
             set => _nonKeyAttributes = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-projection.html#cfn-dynamodb-globaltable-projection-projectiontype
-        /// </summary>
         [Input("projectionType")]
         public Input<string>? ProjectionType { get; set; }
 

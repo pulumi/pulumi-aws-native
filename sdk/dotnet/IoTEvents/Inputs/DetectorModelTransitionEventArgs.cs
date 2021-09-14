@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html
+    /// Specifies the `actions `performed and the next `state` entered when a `condition` evaluates to `TRUE`.
     /// </summary>
     public sealed class DetectorModelTransitionEventArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         private InputList<Inputs.DetectorModelActionArgs>? _actions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-actions
+        /// The actions to be performed.
         /// </summary>
         public InputList<Inputs.DetectorModelActionArgs> Actions
         {
@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-condition
+        /// A Boolean expression that when `TRUE` causes the `actions` to be performed and the `nextState` to be entered.
         /// </summary>
         [Input("condition", required: true)]
         public Input<string> Condition { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-eventname
+        /// The name of the event.
         /// </summary>
         [Input("eventName", required: true)]
         public Input<string> EventName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-transitionevent.html#cfn-iotevents-detectormodel-transitionevent-nextstate
+        /// The next state to enter.
         /// </summary>
         [Input("nextState", required: true)]
         public Input<string> NextState { get; set; } = null!;

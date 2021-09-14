@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3Outposts
+namespace Pulumi.AwsNative.S3outposts
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html
+    /// Resource Type Definition for AWS::S3Outposts::AccessPoint
     /// </summary>
     [AwsNativeResourceType("aws-native:s3outposts:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the specified AccessPoint.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+        /// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+        /// A name for the AccessPoint.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        /// The access point policy associated with this access point.
         /// </summary>
         [Output("policy")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Policy { get; private set; } = null!;
+        public Output<object?> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+        /// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.AccessPointVpcConfiguration> VpcConfiguration { get; private set; } = null!;
@@ -88,25 +91,25 @@ namespace Pulumi.AwsNative.S3Outposts
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-bucket
+        /// The Amazon Resource Name (ARN) of the bucket you want to associate this AccessPoint with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-name
+        /// A name for the AccessPoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-policy
+        /// The access point policy associated with this access point.
         /// </summary>
         [Input("policy")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Policy { get; set; }
+        public Input<object>? Policy { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-accesspoint.html#cfn-s3outposts-accesspoint-vpcconfiguration
+        /// Virtual Private Cloud (VPC) from which requests can be made to the AccessPoint.
         /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.AccessPointVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;

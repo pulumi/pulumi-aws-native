@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html
-    /// </summary>
     public sealed class CanaryVisualReferenceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basecanaryrunid
+        /// Canary run id to be used as base reference for visual testing
         /// </summary>
         [Input("baseCanaryRunId", required: true)]
         public Input<string> BaseCanaryRunId { get; set; } = null!;
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         private InputList<Inputs.CanaryBaseScreenshotArgs>? _baseScreenshots;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-visualreference.html#cfn-synthetics-canary-visualreference-basescreenshots
+        /// List of screenshots used as base reference for visual testing
         /// </summary>
         public InputList<Inputs.CanaryBaseScreenshotArgs> BaseScreenshots
         {

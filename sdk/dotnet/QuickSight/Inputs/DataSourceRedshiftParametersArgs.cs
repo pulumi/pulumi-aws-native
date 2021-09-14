@@ -7,34 +7,37 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html
+    /// &lt;p&gt;Amazon Redshift parameters. The &lt;code&gt;ClusterId&lt;/code&gt; field can be blank if
+    ///             &lt;code&gt;Host&lt;/code&gt; and &lt;code&gt;Port&lt;/code&gt; are both set. The &lt;code&gt;Host&lt;/code&gt; and
+    ///             &lt;code&gt;Port&lt;/code&gt; fields can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; field is set.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceRedshiftParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-clusterid
+        /// &lt;p&gt;Cluster ID. This field can be blank if the &lt;code&gt;Host&lt;/code&gt; and &lt;code&gt;Port&lt;/code&gt; are
+        ///             provided.&lt;/p&gt;
         /// </summary>
         [Input("clusterId")]
         public Input<string>? ClusterId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-host
+        /// &lt;p&gt;Host. This field can be blank if &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html#cfn-quicksight-datasource-redshiftparameters-port
+        /// &lt;p&gt;Port. This field can be blank if the &lt;code&gt;ClusterId&lt;/code&gt; is provided.&lt;/p&gt;
         /// </summary>
         [Input("port")]
         public Input<double>? Port { get; set; }

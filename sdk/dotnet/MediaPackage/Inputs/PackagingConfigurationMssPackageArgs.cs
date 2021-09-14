@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Inputs
+namespace Pulumi.AwsNative.Mediapackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html
+    /// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
     /// </summary>
     public sealed class PackagingConfigurationMssPackageArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-encryption
-        /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationMssEncryptionArgs>? Encryption { get; set; }
 
@@ -25,7 +22,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         private InputList<Inputs.PackagingConfigurationMssManifestArgs>? _mssManifests;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-mssmanifests
+        /// A list of MSS manifest configurations.
         /// </summary>
         public InputList<Inputs.PackagingConfigurationMssManifestArgs> MssManifests
         {
@@ -33,9 +30,6 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
             set => _mssManifests = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-msspackage.html#cfn-mediapackage-packagingconfiguration-msspackage-segmentdurationseconds
-        /// </summary>
         [Input("segmentDurationSeconds")]
         public Input<int>? SegmentDurationSeconds { get; set; }
 

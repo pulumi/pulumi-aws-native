@@ -10,31 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html
+    /// Resource Type definition for AWS::Lambda::CodeSigningConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:CodeSigningConfig")]
     public partial class CodeSigningConfig : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+        /// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         /// </summary>
         [Output("allowedPublishers")]
         public Output<Outputs.CodeSigningConfigAllowedPublishers> AllowedPublishers { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique Arn for CodeSigningConfig resource
+        /// </summary>
         [Output("codeSigningConfigArn")]
         public Output<string> CodeSigningConfigArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for CodeSigningConfig resource
+        /// </summary>
         [Output("codeSigningConfigId")]
         public Output<string> CodeSigningConfigId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+        /// Policies to control how to act if a signature is invalid
         /// </summary>
         [Output("codeSigningPolicies")]
         public Output<Outputs.CodeSigningConfigCodeSigningPolicies?> CodeSigningPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        /// A description of the CodeSigningConfig
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -85,19 +91,19 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class CodeSigningConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-allowedpublishers
+        /// When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
         /// </summary>
         [Input("allowedPublishers", required: true)]
         public Input<Inputs.CodeSigningConfigAllowedPublishersArgs> AllowedPublishers { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-codesigningpolicies
+        /// Policies to control how to act if a signature is invalid
         /// </summary>
         [Input("codeSigningPolicies")]
         public Input<Inputs.CodeSigningConfigCodeSigningPoliciesArgs>? CodeSigningPolicies { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-codesigningconfig.html#cfn-lambda-codesigningconfig-description
+        /// A description of the CodeSigningConfig
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:budgets:BudgetsAction")]
     public partial class BudgetsAction : Pulumi.CustomResource
@@ -18,51 +18,27 @@ namespace Pulumi.AwsNative.Budgets
         [Output("actionId")]
         public Output<string> ActionId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        /// </summary>
         [Output("actionThreshold")]
         public Output<Outputs.BudgetsActionActionThreshold> ActionThreshold { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        /// </summary>
         [Output("actionType")]
         public Output<string> ActionType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        /// </summary>
         [Output("approvalModel")]
         public Output<string?> ApprovalModel { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        /// </summary>
         [Output("budgetName")]
         public Output<string> BudgetName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.BudgetsActionDefinition> Definition { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        /// </summary>
         [Output("executionRoleArn")]
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        /// </summary>
         [Output("notificationType")]
         public Output<string> NotificationType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-        /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetsActionSubscriber>> Subscribers { get; private set; } = null!;
 
@@ -111,54 +87,29 @@ namespace Pulumi.AwsNative.Budgets
 
     public sealed class BudgetsActionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actionthreshold
-        /// </summary>
         [Input("actionThreshold", required: true)]
         public Input<Inputs.BudgetsActionActionThresholdArgs> ActionThreshold { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-actiontype
-        /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-approvalmodel
-        /// </summary>
         [Input("approvalModel")]
         public Input<string>? ApprovalModel { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-budgetname
-        /// </summary>
         [Input("budgetName", required: true)]
         public Input<string> BudgetName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-definition
-        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.BudgetsActionDefinitionArgs> Definition { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-executionrolearn
-        /// </summary>
         [Input("executionRoleArn", required: true)]
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-notificationtype
-        /// </summary>
         [Input("notificationType", required: true)]
         public Input<string> NotificationType { get; set; } = null!;
 
         [Input("subscribers")]
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budgetsaction.html#cfn-budgets-budgetsaction-subscribers
-        /// </summary>
         public InputList<Inputs.BudgetsActionSubscriberArgs> Subscribers
         {
             get => _subscribers ?? (_subscribers = new InputList<Inputs.BudgetsActionSubscriberArgs>());

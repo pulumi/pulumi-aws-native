@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html
+    /// Allow traffic towards application.
     /// </summary>
     public sealed class WebACLCountActionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html#cfn-wafv2-webacl-countaction-customrequesthandling
-        /// </summary>
         [Input("customRequestHandling")]
         public Input<Inputs.WebACLCustomRequestHandlingArgs>? CustomRequestHandling { get; set; }
 

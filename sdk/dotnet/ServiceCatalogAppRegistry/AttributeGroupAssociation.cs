@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
+namespace Pulumi.AwsNative.Servicecatalogappregistry
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html
+    /// Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:AttributeGroupAssociation")]
     public partial class AttributeGroupAssociation : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+        /// The name or the Id of the Application.
         /// </summary>
         [Output("application")]
         public Output<string> Application { get; private set; } = null!;
@@ -25,16 +25,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         public Output<string> ApplicationArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        /// The name or the Id of the AttributeGroup.
         /// </summary>
         [Output("attributeGroup")]
         public Output<string> AttributeGroup { get; private set; } = null!;
 
         [Output("attributeGroupArn")]
         public Output<string> AttributeGroupArn { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,13 +79,13 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     public sealed class AttributeGroupAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-application
+        /// The name or the Id of the Application.
         /// </summary>
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalogappregistry-attributegroupassociation.html#cfn-servicecatalogappregistry-attributegroupassociation-attributegroup
+        /// The name or the Id of the AttributeGroup.
         /// </summary>
         [Input("attributeGroup", required: true)]
         public Input<string> AttributeGroup { get; set; } = null!;

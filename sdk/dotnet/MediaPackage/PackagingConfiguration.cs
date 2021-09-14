@@ -7,58 +7,55 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage
+namespace Pulumi.AwsNative.Mediapackage
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html
+    /// Resource schema for AWS::MediaPackage::PackagingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:PackagingConfiguration")]
     public partial class PackagingConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the PackagingConfiguration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+        /// A CMAF packaging configuration.
         /// </summary>
         [Output("cmafPackage")]
         public Output<Outputs.PackagingConfigurationCmafPackage?> CmafPackage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+        /// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         /// </summary>
         [Output("dashPackage")]
         public Output<Outputs.PackagingConfigurationDashPackage?> DashPackage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+        /// An HTTP Live Streaming (HLS) packaging configuration.
         /// </summary>
         [Output("hlsPackage")]
         public Output<Outputs.PackagingConfigurationHlsPackage?> HlsPackage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-        /// </summary>
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+        /// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         /// </summary>
         [Output("mssPackage")]
         public Output<Outputs.PackagingConfigurationMssPackage?> MssPackage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+        /// The ID of a PackagingGroup.
         /// </summary>
         [Output("packagingGroupId")]
         public Output<string> PackagingGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+        /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PackagingConfigurationTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,50 +103,44 @@ namespace Pulumi.AwsNative.MediaPackage
     public sealed class PackagingConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-cmafpackage
+        /// A CMAF packaging configuration.
         /// </summary>
         [Input("cmafPackage")]
         public Input<Inputs.PackagingConfigurationCmafPackageArgs>? CmafPackage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-dashpackage
+        /// A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         /// </summary>
         [Input("dashPackage")]
         public Input<Inputs.PackagingConfigurationDashPackageArgs>? DashPackage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-hlspackage
+        /// An HTTP Live Streaming (HLS) packaging configuration.
         /// </summary>
         [Input("hlsPackage")]
         public Input<Inputs.PackagingConfigurationHlsPackageArgs>? HlsPackage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-id
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-msspackage
+        /// A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         /// </summary>
         [Input("mssPackage")]
         public Input<Inputs.PackagingConfigurationMssPackageArgs>? MssPackage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-packaginggroupid
+        /// The ID of a PackagingGroup.
         /// </summary>
         [Input("packagingGroupId", required: true)]
         public Input<string> PackagingGroupId { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.PackagingConfigurationTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packagingconfiguration.html#cfn-mediapackage-packagingconfiguration-tags
+        /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.PackagingConfigurationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.PackagingConfigurationTagArgs>());
             set => _tags = value;
         }
 

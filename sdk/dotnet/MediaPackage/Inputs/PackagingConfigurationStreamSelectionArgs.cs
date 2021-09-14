@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Inputs
+namespace Pulumi.AwsNative.Mediapackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html
+    /// A StreamSelection configuration.
     /// </summary>
     public sealed class PackagingConfigurationStreamSelectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-maxvideobitspersecond
+        /// The maximum video bitrate (bps) to include in output.
         /// </summary>
         [Input("maxVideoBitsPerSecond")]
         public Input<int>? MaxVideoBitsPerSecond { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-minvideobitspersecond
+        /// The minimum video bitrate (bps) to include in output.
         /// </summary>
         [Input("minVideoBitsPerSecond")]
         public Input<int>? MinVideoBitsPerSecond { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-streamselection.html#cfn-mediapackage-packagingconfiguration-streamselection-streamorder
+        /// A directive that determines the order of streams in the output.
         /// </summary>
         [Input("streamOrder")]
         public Input<string>? StreamOrder { get; set; }

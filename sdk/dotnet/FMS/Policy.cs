@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FMS
+namespace Pulumi.AwsNative.Fms
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html
+    /// Creates an AWS Firewall Manager policy.
     /// </summary>
     [AwsNativeResourceType("aws-native:fms:Policy")]
     public partial class Policy : Pulumi.CustomResource
@@ -18,72 +18,36 @@ namespace Pulumi.AwsNative.FMS
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-        /// </summary>
         [Output("deleteAllPolicyResources")]
         public Output<bool?> DeleteAllPolicyResources { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-        /// </summary>
         [Output("excludeMap")]
         public Output<Outputs.PolicyIEMap?> ExcludeMap { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-        /// </summary>
         [Output("excludeResourceTags")]
         public Output<bool> ExcludeResourceTags { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-        /// </summary>
         [Output("includeMap")]
         public Output<Outputs.PolicyIEMap?> IncludeMap { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-        /// </summary>
         [Output("remediationEnabled")]
         public Output<bool> RemediationEnabled { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Outputs.PolicyResourceTag>> ResourceTags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-        /// </summary>
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-        /// </summary>
         [Output("resourceTypeList")]
         public Output<ImmutableArray<string>> ResourceTypeList { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-        /// </summary>
         [Output("securityServicePolicyData")]
-        public Output<Union<System.Text.Json.JsonElement, string>> SecurityServicePolicyData { get; private set; } = null!;
+        public Output<object> SecurityServicePolicyData { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PolicyPolicyTag>> Tags { get; private set; } = null!;
 
@@ -132,84 +96,48 @@ namespace Pulumi.AwsNative.FMS
 
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-deleteallpolicyresources
-        /// </summary>
         [Input("deleteAllPolicyResources")]
         public Input<bool>? DeleteAllPolicyResources { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excludemap
-        /// </summary>
         [Input("excludeMap")]
         public Input<Inputs.PolicyIEMapArgs>? ExcludeMap { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-excluderesourcetags
-        /// </summary>
         [Input("excludeResourceTags", required: true)]
         public Input<bool> ExcludeResourceTags { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-includemap
-        /// </summary>
         [Input("includeMap")]
         public Input<Inputs.PolicyIEMapArgs>? IncludeMap { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-policyname
-        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-remediationenabled
-        /// </summary>
         [Input("remediationEnabled", required: true)]
         public Input<bool> RemediationEnabled { get; set; } = null!;
 
         [Input("resourceTags")]
         private InputList<Inputs.PolicyResourceTagArgs>? _resourceTags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetags
-        /// </summary>
         public InputList<Inputs.PolicyResourceTagArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Inputs.PolicyResourceTagArgs>());
             set => _resourceTags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetype
-        /// </summary>
         [Input("resourceType", required: true)]
         public Input<string> ResourceType { get; set; } = null!;
 
         [Input("resourceTypeList")]
         private InputList<string>? _resourceTypeList;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-resourcetypelist
-        /// </summary>
         public InputList<string> ResourceTypeList
         {
             get => _resourceTypeList ?? (_resourceTypeList = new InputList<string>());
             set => _resourceTypeList = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-securityservicepolicydata
-        /// </summary>
         [Input("securityServicePolicyData", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> SecurityServicePolicyData { get; set; } = null!;
+        public Input<object> SecurityServicePolicyData { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.PolicyPolicyTagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html#cfn-fms-policy-tags
-        /// </summary>
         public InputList<Inputs.PolicyPolicyTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.PolicyPolicyTagArgs>());

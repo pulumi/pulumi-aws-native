@@ -7,31 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker
+namespace Pulumi.AwsNative.Sagemaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html
+    /// Resource schema for AWS::SageMaker::Device
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        /// The Edge Device you want to register against a device fleet
         /// </summary>
         [Output("device")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> DeviceValue { get; private set; } = null!;
+        public Output<Outputs.DeviceDevice?> DeviceValue { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        /// The name of the edge device fleet
         /// </summary>
         [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        /// Associate tags with the resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeviceTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,26 +79,26 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class DeviceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-device
+        /// The Edge Device you want to register against a device fleet
         /// </summary>
         [Input("device")]
-        public InputUnion<System.Text.Json.JsonElement, string>? DeviceValue { get; set; }
+        public Input<Inputs.DeviceDeviceArgs>? DeviceValue { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-devicefleetname
+        /// The name of the edge device fleet
         /// </summary>
         [Input("deviceFleetName", required: true)]
         public Input<string> DeviceFleetName { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DeviceTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html#cfn-sagemaker-device-tags
+        /// Associate tags with the resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DeviceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DeviceTagArgs>());
             set => _tags = value;
         }
 

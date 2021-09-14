@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Outputs
+namespace Pulumi.AwsNative.Iotevents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html
+    /// When an input is received and the `condition` is `TRUE`, perform the specified `actions`.
     /// </summary>
     [OutputType]
     public sealed class DetectorModelOnInput
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-events
+        /// Specifies the `actions` performed when the `condition` evaluates to `TRUE`.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelEvent> Events;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-oninput.html#cfn-iotevents-detectormodel-oninput-transitionevents
+        /// Specifies the `actions` performed, and the next `state` entered, when a `condition` evaluates to `TRUE`.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorModelTransitionEvent> TransitionEvents;
 

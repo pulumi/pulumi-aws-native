@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall
+namespace Pulumi.AwsNative.Networkfirewall
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html
+    /// Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:networkfirewall:LoggingConfiguration")]
     public partial class LoggingConfiguration : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        /// </summary>
         [Output("firewallName")]
         public Output<string?> FirewallName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.LoggingConfigurationLoggingConfiguration> LoggingConfigurationValue { get; private set; } = null!;
 
@@ -78,21 +69,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
     public sealed class LoggingConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallarn
-        /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-firewallname
-        /// </summary>
         [Input("firewallName")]
         public Input<string>? FirewallName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration
-        /// </summary>
         [Input("loggingConfiguration", required: true)]
         public Input<Inputs.LoggingConfigurationLoggingConfigurationArgs> LoggingConfigurationValue { get; set; } = null!;
 

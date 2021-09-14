@@ -7,34 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElastiCache
+namespace Pulumi.AwsNative.Elasticache
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html
+    /// Resource Type definition for AWS::ElastiCache::UserGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticache:UserGroup")]
     public partial class UserGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the user account.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        /// Must be redis.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        /// The ID of the user group.
         /// </summary>
         [Output("userGroupId")]
         public Output<string> UserGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        /// List of users associated to this user group.
         /// </summary>
         [Output("userIds")]
         public Output<ImmutableArray<string>> UserIds { get; private set; } = null!;
@@ -85,13 +91,13 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class UserGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-engine
+        /// Must be redis.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-usergroupid
+        /// The ID of the user group.
         /// </summary>
         [Input("userGroupId", required: true)]
         public Input<string> UserGroupId { get; set; } = null!;
@@ -100,7 +106,7 @@ namespace Pulumi.AwsNative.ElastiCache
         private InputList<string>? _userIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-usergroup.html#cfn-elasticache-usergroup-userids
+        /// List of users associated to this user group.
         /// </summary>
         public InputList<string> UserIds
         {

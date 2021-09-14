@@ -11,41 +11,23 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html
+    /// Specifies the details of Amazon S3 Storage Lens configuration.
     /// </summary>
     [OutputType]
     public sealed class StorageLensStorageLensConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-accountlevel
-        /// </summary>
         public readonly Outputs.StorageLensAccountLevel AccountLevel;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-awsorg
-        /// </summary>
         public readonly Outputs.StorageLensAwsOrg? AwsOrg;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-dataexport
-        /// </summary>
         public readonly Outputs.StorageLensDataExport? DataExport;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-exclude
-        /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Exclude;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-id
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-include
-        /// </summary>
         public readonly Outputs.StorageLensBucketsAndRegions? Include;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-isenabled
+        /// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
         /// </summary>
         public readonly bool IsEnabled;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html#cfn-s3-storagelens-storagelensconfiguration-storagelensarn
+        /// The ARN for the Amazon S3 Storage Lens configuration.
         /// </summary>
         public readonly string? StorageLensArn;
 

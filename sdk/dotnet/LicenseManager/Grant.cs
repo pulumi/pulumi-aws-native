@@ -7,53 +7,50 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LicenseManager
+namespace Pulumi.AwsNative.Licensemanager
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:licensemanager:Grant")]
     public partial class Grant : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        /// </summary>
         [Output("allowedOperations")]
         public Output<ImmutableArray<string>> AllowedOperations { get; private set; } = null!;
 
+        /// <summary>
+        /// Arn of the grant.
+        /// </summary>
         [Output("grantArn")]
         public Output<string> GrantArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        /// Name for the created Grant.
         /// </summary>
         [Output("grantName")]
         public Output<string?> GrantName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        /// Home region for the created grant.
         /// </summary>
         [Output("homeRegion")]
         public Output<string?> HomeRegion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        /// License Arn for the grant.
         /// </summary>
         [Output("licenseArn")]
         public Output<string?> LicenseArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<string>> Principals { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the grant.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -104,10 +101,6 @@ namespace Pulumi.AwsNative.LicenseManager
     {
         [Input("allowedOperations")]
         private InputList<string>? _allowedOperations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-allowedoperations
-        /// </summary>
         public InputList<string> AllowedOperations
         {
             get => _allowedOperations ?? (_allowedOperations = new InputList<string>());
@@ -115,38 +108,31 @@ namespace Pulumi.AwsNative.LicenseManager
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-grantname
+        /// Name for the created Grant.
         /// </summary>
         [Input("grantName")]
         public Input<string>? GrantName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-homeregion
+        /// Home region for the created grant.
         /// </summary>
         [Input("homeRegion")]
         public Input<string>? HomeRegion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-licensearn
+        /// License Arn for the grant.
         /// </summary>
         [Input("licenseArn")]
         public Input<string>? LicenseArn { get; set; }
 
         [Input("principals")]
         private InputList<string>? _principals;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-principals
-        /// </summary>
         public InputList<string> Principals
         {
             get => _principals ?? (_principals = new InputList<string>());
             set => _principals = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-grant.html#cfn-licensemanager-grant-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Outputs
+namespace Pulumi.AwsNative.Datasync.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html
+    /// Specifies the schedule you want your task to use for repeated executions.
     /// </summary>
     [OutputType]
     public sealed class TaskTaskSchedule
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html#cfn-datasync-task-taskschedule-scheduleexpression
+        /// A cron expression that specifies when AWS DataSync initiates a scheduled transfer from a source to a destination location
         /// </summary>
         public readonly string ScheduleExpression;
 

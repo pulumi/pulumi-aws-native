@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class DataSourceSalesforceKnowledgeArticleConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-        /// </summary>
         public readonly ImmutableArray<Outputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfiguration> CustomKnowledgeArticleTypeConfigurations;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-        /// </summary>
         public readonly ImmutableArray<string> IncludedStates;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
-        /// </summary>
         public readonly Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? StandardKnowledgeArticleTypeConfiguration;
 
         [OutputConstructor]

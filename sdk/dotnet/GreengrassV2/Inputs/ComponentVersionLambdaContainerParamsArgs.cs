@@ -7,44 +7,27 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GreengrassV2.Inputs
+namespace Pulumi.AwsNative.Greengrassv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html
-    /// </summary>
     public sealed class ComponentVersionLambdaContainerParamsArgs : Pulumi.ResourceArgs
     {
         [Input("devices")]
         private InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>? _devices;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-devices
-        /// </summary>
         public InputList<Inputs.ComponentVersionLambdaDeviceMountArgs> Devices
         {
             get => _devices ?? (_devices = new InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>());
             set => _devices = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-memorysizeinkb
-        /// </summary>
         [Input("memorySizeInKB")]
         public Input<int>? MemorySizeInKB { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-mountrosysfs
-        /// </summary>
         [Input("mountROSysfs")]
         public Input<bool>? MountROSysfs { get; set; }
 
         [Input("volumes")]
         private InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>? _volumes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-componentversion-lambdacontainerparams.html#cfn-greengrassv2-componentversion-lambdacontainerparams-volumes
-        /// </summary>
         public InputList<Inputs.ComponentVersionLambdaVolumeMountArgs> Volumes
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>());

@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.Glue.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html
+    /// Identifier for the schema where the schema version will be created.
     /// </summary>
     public sealed class SchemaVersionSchemaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-registryname
+        /// Name of the registry to identify where the Schema is located.
         /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaarn
+        /// Amazon Resource Name for the Schema. This attribute can be used to uniquely represent the Schema.
         /// </summary>
         [Input("schemaArn")]
         public Input<string>? SchemaArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schemaversion-schema.html#cfn-glue-schemaversion-schema-schemaname
+        /// Name of the schema. This parameter requires RegistryName to be provided.
         /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }

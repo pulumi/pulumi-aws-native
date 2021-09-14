@@ -7,16 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html
+    /// &lt;p&gt;Secure Socket Layer (SSL) properties that apply when QuickSight connects to your
+    ///             underlying data source.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceSslPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-sslproperties.html#cfn-quicksight-datasource-sslproperties-disablessl
+        /// &lt;p&gt;A Boolean option to control whether SSL should be disabled.&lt;/p&gt;
         /// </summary>
         [Input("disableSsl")]
         public Input<bool>? DisableSsl { get; set; }

@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Inputs
+namespace Pulumi.AwsNative.Iotsitewise.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html
+    /// The AWS IoT SiteWise Monitor resource for this access policy. Choose either portal or project but not both.
     /// </summary>
     public sealed class AccessPolicyAccessPolicyResourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-portal
-        /// </summary>
         [Input("portal")]
         public Input<Inputs.AccessPolicyPortalArgs>? Portal { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html#cfn-iotsitewise-accesspolicy-accesspolicyresource-project
-        /// </summary>
         [Input("project")]
         public Input<Inputs.AccessPolicyProjectArgs>? Project { get; set; }
 

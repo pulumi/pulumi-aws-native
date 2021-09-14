@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html
+    /// &lt;p&gt;Dataset reference.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DashboardDataSetReference
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetarn
+        /// &lt;p&gt;Dataset Amazon Resource Name (ARN).&lt;/p&gt;
         /// </summary>
         public readonly string DataSetArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datasetreference.html#cfn-quicksight-dashboard-datasetreference-datasetplaceholder
+        /// &lt;p&gt;Dataset placeholder.&lt;/p&gt;
         /// </summary>
         public readonly string DataSetPlaceholder;
 

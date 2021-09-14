@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html
+    /// A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
     /// </summary>
     public sealed class UserProfileUserSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-executionrole
+        /// The user profile Amazon Resource Name (ARN).
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-jupyterserverappsettings
+        /// The Jupyter server's app settings.
         /// </summary>
         [Input("jupyterServerAppSettings")]
         public Input<Inputs.UserProfileJupyterServerAppSettingsArgs>? JupyterServerAppSettings { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-kernelgatewayappsettings
+        /// The kernel gateway app settings.
         /// </summary>
         [Input("kernelGatewayAppSettings")]
         public Input<Inputs.UserProfileKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-securitygroups
+        /// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html#cfn-sagemaker-userprofile-usersettings-sharingsettings
+        /// The sharing settings.
         /// </summary>
         [Input("sharingSettings")]
         public Input<Inputs.UserProfileSharingSettingsArgs>? SharingSettings { get; set; }

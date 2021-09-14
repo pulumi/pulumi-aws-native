@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html
-    /// </summary>
     public sealed class WebACLOrStatementArgs : Pulumi.ResourceArgs
     {
         [Input("statements", required: true)]
         private InputList<Inputs.WebACLStatementArgs>? _statements;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html#cfn-wafv2-webacl-orstatement-statements
-        /// </summary>
         public InputList<Inputs.WebACLStatementArgs> Statements
         {
             get => _statements ?? (_statements = new InputList<Inputs.WebACLStatementArgs>());

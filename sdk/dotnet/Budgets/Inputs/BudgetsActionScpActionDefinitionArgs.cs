@@ -10,23 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Budgets.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html
-    /// </summary>
     public sealed class BudgetsActionScpActionDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-policyid
-        /// </summary>
         [Input("policyId", required: true)]
         public Input<string> PolicyId { get; set; } = null!;
 
         [Input("targetIds", required: true)]
         private InputList<string>? _targetIds;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budgetsaction-scpactiondefinition.html#cfn-budgets-budgetsaction-scpactiondefinition-targetids
-        /// </summary>
         public InputList<string> TargetIds
         {
             get => _targetIds ?? (_targetIds = new InputList<string>());

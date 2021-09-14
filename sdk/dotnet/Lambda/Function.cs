@@ -10,130 +10,133 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
+    /// Resource Type definition for AWS::Lambda::Function
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:Function")]
     public partial class Function : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Unique identifier for function resources
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
+        /// The code for the function.
         /// </summary>
         [Output("code")]
         public Output<Outputs.FunctionCode> Code { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        /// A unique Arn for CodeSigningConfig resource
         /// </summary>
         [Output("codeSigningConfigArn")]
         public Output<string?> CodeSigningConfigArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+        /// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         /// </summary>
         [Output("deadLetterConfig")]
         public Output<Outputs.FunctionDeadLetterConfig?> DeadLetterConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+        /// A description of the function.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
+        /// Environment variables that are accessible from function code during execution.
         /// </summary>
         [Output("environment")]
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        /// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         /// </summary>
         [Output("fileSystemConfigs")]
         public Output<ImmutableArray<Outputs.FunctionFileSystemConfig>> FileSystemConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+        /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         /// </summary>
         [Output("functionName")]
         public Output<string?> FunctionName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
+        /// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
         /// </summary>
         [Output("handler")]
         public Output<string?> Handler { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        /// ImageConfig
         /// </summary>
         [Output("imageConfig")]
         public Output<Outputs.FunctionImageConfig?> ImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+        /// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         /// </summary>
         [Output("layers")]
         public Output<ImmutableArray<string>> Layers { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
+        /// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         [Output("memorySize")]
         public Output<int?> MemorySize { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        /// PackageType.
         /// </summary>
         [Output("packageType")]
         public Output<string?> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+        /// The number of simultaneous executions to reserve for the function.
         /// </summary>
         [Output("reservedConcurrentExecutions")]
         public Output<int?> ReservedConcurrentExecutions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
+        /// The Amazon Resource Name (ARN) of the function's execution role.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+        /// The identifier of the function's runtime.
         /// </summary>
         [Output("runtime")]
         public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+        /// A list of tags to apply to the function.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FunctionTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
+        /// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         /// </summary>
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+        /// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         /// </summary>
         [Output("tracingConfig")]
         public Output<Outputs.FunctionTracingConfig?> TracingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        /// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.FunctionVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -184,31 +187,31 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
+        /// The code for the function.
         /// </summary>
         [Input("code", required: true)]
         public Input<Inputs.FunctionCodeArgs> Code { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-codesigningconfigarn
+        /// A unique Arn for CodeSigningConfig resource
         /// </summary>
         [Input("codeSigningConfigArn")]
         public Input<string>? CodeSigningConfigArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+        /// A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.FunctionDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+        /// A description of the function.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
+        /// Environment variables that are accessible from function code during execution.
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
@@ -217,7 +220,7 @@ namespace Pulumi.AwsNative.Lambda
         private InputList<Inputs.FunctionFileSystemConfigArgs>? _fileSystemConfigs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+        /// Connection settings for an Amazon EFS file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an AWS::EFS::MountTarget resource, you must also specify a DependsOn attribute to ensure that the mount target is created or updated before the function.
         /// </summary>
         public InputList<Inputs.FunctionFileSystemConfigArgs> FileSystemConfigs
         {
@@ -226,25 +229,25 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+        /// The name of the Lambda function, up to 64 characters in length. If you don't specify a name, AWS CloudFormation generates one.
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
+        /// The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-imageconfig
+        /// ImageConfig
         /// </summary>
         [Input("imageConfig")]
         public Input<Inputs.FunctionImageConfigArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -253,7 +256,7 @@ namespace Pulumi.AwsNative.Lambda
         private InputList<string>? _layers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+        /// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         /// </summary>
         public InputList<string> Layers
         {
@@ -262,61 +265,61 @@ namespace Pulumi.AwsNative.Lambda
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
+        /// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-packagetype
+        /// PackageType.
         /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+        /// The number of simultaneous executions to reserve for the function.
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
+        /// The Amazon Resource Name (ARN) of the function's execution role.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+        /// The identifier of the function's runtime.
         /// </summary>
         [Input("runtime")]
         public Input<string>? Runtime { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FunctionTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+        /// A list of tags to apply to the function.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FunctionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FunctionTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
+        /// The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+        /// Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.
         /// </summary>
         [Input("tracingConfig")]
         public Input<Inputs.FunctionTracingConfigArgs>? TracingConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+        /// For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FunctionVpcConfigArgs>? VpcConfig { get; set; }

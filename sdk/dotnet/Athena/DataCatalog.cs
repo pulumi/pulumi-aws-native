@@ -10,37 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Athena
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html
+    /// Resource schema for AWS::Athena::DataCatalog
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:DataCatalog")]
     public partial class DataCatalog : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+        /// A description of the data catalog to be created. 
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+        /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataCatalogTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -91,43 +91,37 @@ namespace Pulumi.AwsNative.Athena
     public sealed class DataCatalogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-description
+        /// A description of the data catalog to be created. 
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-name
+        /// The name of the data catalog to create. The catalog name must be unique for the AWS account and can use a maximum of 128 alphanumeric, underscore, at sign, or hyphen characters. 
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("parameters")]
-        private InputMap<string>? _parameters;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-parameters
+        /// Specifies the Lambda function or functions to use for creating the data catalog. This is a mapping whose values depend on the catalog type. 
         /// </summary>
-        public InputMap<string> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<string>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DataCatalogTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-tags
+        /// A list of comma separated tags to add to the data catalog that is created. 
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DataCatalogTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DataCatalogTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html#cfn-athena-datacatalog-type
+        /// The type of data catalog to create: LAMBDA for a federated catalog, GLUE for AWS Glue Catalog, or HIVE for an external hive metastore. 
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

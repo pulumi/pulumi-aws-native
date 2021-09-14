@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FraudDetector.Outputs
+namespace Pulumi.AwsNative.Frauddetector.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html
+    /// A model to associate with a detector.
     /// </summary>
     [OutputType]
     public sealed class DetectorModel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-model.html#cfn-frauddetector-detector-model-arn
-        /// </summary>
         public readonly string? Arn;
 
         [OutputConstructor]

@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
+namespace Pulumi.AwsNative.Elasticloadbalancingv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html
-    /// </summary>
     public sealed class ListenerRuleQueryStringConfigArgs : Pulumi.ResourceArgs
     {
         [Input("values")]
         private InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>? _values;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-querystringconfig.html#cfn-elasticloadbalancingv2-listenerrule-querystringconfig-values
-        /// </summary>
         public InputList<Inputs.ListenerRuleQueryStringKeyValueArgs> Values
         {
             get => _values ?? (_values = new InputList<Inputs.ListenerRuleQueryStringKeyValueArgs>());

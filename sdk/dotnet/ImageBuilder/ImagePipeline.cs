@@ -7,79 +7,85 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder
+namespace Pulumi.AwsNative.Imagebuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html
+    /// Resource schema for AWS::ImageBuilder::ImagePipeline
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:ImagePipeline")]
     public partial class ImagePipeline : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image pipeline.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         /// </summary>
         [Output("containerRecipeArn")]
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
+        /// The description of the image pipeline.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
+        /// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
         /// </summary>
         [Output("distributionConfigurationArn")]
         public Output<string?> DistributionConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+        /// Collects additional information about the image being created, including the operating system (OS) version and package list.
         /// </summary>
         [Output("enhancedImageMetadataEnabled")]
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+        /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Output("imageRecipeArn")]
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+        /// The image tests configuration of the image pipeline.
         /// </summary>
         [Output("imageTestsConfiguration")]
         public Output<Outputs.ImagePipelineImageTestsConfiguration?> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+        /// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         /// </summary>
         [Output("infrastructureConfigurationArn")]
-        public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
-
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> InfrastructureConfigurationArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+        /// The name of the image pipeline.
+        /// </summary>
+        [Output("name")]
+        public Output<string?> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The schedule of the image pipeline.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.ImagePipelineSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+        /// The status of the image pipeline.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        /// The tags of this image pipeline.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -89,7 +95,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ImagePipeline(string name, ImagePipelineArgs args, CustomResourceOptions? options = null)
+        public ImagePipeline(string name, ImagePipelineArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:imagebuilder:ImagePipeline", name, args ?? new ImagePipelineArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -127,76 +133,70 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class ImagePipelineArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-containerrecipearn
+        /// The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-description
+        /// The description of the image pipeline.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
+        /// The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.
         /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+        /// Collects additional information about the image being created, including the operating system (OS) version and package list.
         /// </summary>
         [Input("enhancedImageMetadataEnabled")]
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
+        /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagetestsconfiguration
+        /// The image tests configuration of the image pipeline.
         /// </summary>
         [Input("imageTestsConfiguration")]
         public Input<Inputs.ImagePipelineImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-infrastructureconfigurationarn
+        /// The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.
         /// </summary>
-        [Input("infrastructureConfigurationArn", required: true)]
-        public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
+        [Input("infrastructureConfigurationArn")]
+        public Input<string>? InfrastructureConfigurationArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-name
+        /// The name of the image pipeline.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-schedule
+        /// The schedule of the image pipeline.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.ImagePipelineScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-status
+        /// The status of the image pipeline.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-tags
+        /// The tags of this image pipeline.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         public ImagePipelineArgs()
         {

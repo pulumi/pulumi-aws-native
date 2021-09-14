@@ -7,49 +7,55 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppIntegrations
+namespace Pulumi.AwsNative.Appintegrations
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html
+    /// Resource Type definition for AWS::AppIntegrations::EventIntegration
     /// </summary>
     [AwsNativeResourceType("aws-native:appintegrations:EventIntegration")]
     public partial class EventIntegration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The associations with the event integration.
+        /// </summary>
         [Output("associations")]
         public Output<ImmutableArray<Outputs.EventIntegrationEventIntegrationAssociation>> Associations { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+        /// The event integration description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+        /// The Amazon Eventbridge bus for the event integration.
         /// </summary>
         [Output("eventBridgeBus")]
         public Output<string> EventBridgeBus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+        /// The EventFilter (source) associated with the event integration.
         /// </summary>
         [Output("eventFilter")]
         public Output<Outputs.EventIntegrationEventFilter> EventFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the event integration.
+        /// </summary>
         [Output("eventIntegrationArn")]
         public Output<string> EventIntegrationArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+        /// The name of the event integration.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        /// The tags (keys and values) associated with the event integration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EventIntegrationTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -97,38 +103,38 @@ namespace Pulumi.AwsNative.AppIntegrations
     public sealed class EventIntegrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-description
+        /// The event integration description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventbridgebus
+        /// The Amazon Eventbridge bus for the event integration.
         /// </summary>
         [Input("eventBridgeBus", required: true)]
         public Input<string> EventBridgeBus { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-eventfilter
+        /// The EventFilter (source) associated with the event integration.
         /// </summary>
         [Input("eventFilter", required: true)]
         public Input<Inputs.EventIntegrationEventFilterArgs> EventFilter { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-name
+        /// The name of the event integration.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.EventIntegrationTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-eventintegration.html#cfn-appintegrations-eventintegration-tags
+        /// The tags (keys and values) associated with the event integration.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.EventIntegrationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.EventIntegrationTagArgs>());
             set => _tags = value;
         }
 

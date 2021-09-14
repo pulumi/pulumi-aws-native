@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT
+namespace Pulumi.AwsNative.Iot
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html
+    /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:Dimension")]
     public partial class Dimension : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN (Amazon resource name) of the created dimension.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+        /// A unique identifier for the dimension.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+        /// Specifies the value or list of values for the dimension.
         /// </summary>
         [Output("stringValues")]
         public Output<ImmutableArray<string>> StringValues { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+        /// Metadata that can be used to manage the dimension.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DimensionTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+        /// Specifies the type of the dimension.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -88,7 +91,7 @@ namespace Pulumi.AwsNative.IoT
     public sealed class DimensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-name
+        /// A unique identifier for the dimension.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -97,7 +100,7 @@ namespace Pulumi.AwsNative.IoT
         private InputList<string>? _stringValues;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-stringvalues
+        /// Specifies the value or list of values for the dimension.
         /// </summary>
         public InputList<string> StringValues
         {
@@ -106,19 +109,19 @@ namespace Pulumi.AwsNative.IoT
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DimensionTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-tags
+        /// Metadata that can be used to manage the dimension.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DimensionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DimensionTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-dimension.html#cfn-iot-dimension-type
+        /// Specifies the type of the dimension.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

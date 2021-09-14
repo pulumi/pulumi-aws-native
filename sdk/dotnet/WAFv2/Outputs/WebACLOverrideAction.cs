@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Outputs
+namespace Pulumi.AwsNative.Wafv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html
+    /// Override a RuleGroup or ManagedRuleGroup behavior. This can only be applied to Rule that has RuleGroupReferenceStatement or ManagedRuleGroupReferenceStatement.
     /// </summary>
     [OutputType]
     public sealed class WebACLOverrideAction
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-count
+        /// Count traffic towards application.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? Count;
+        public readonly object? Count;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html#cfn-wafv2-webacl-overrideaction-none
+        /// Keep the RuleGroup or ManagedRuleGroup behavior as is.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? None;
+        public readonly object? None;
 
         [OutputConstructor]
         private WebACLOverrideAction(
-            Union<System.Text.Json.JsonElement, string>? count,
+            object? count,
 
-            Union<System.Text.Json.JsonElement, string>? none)
+            object? none)
         {
             Count = count;
             None = none;

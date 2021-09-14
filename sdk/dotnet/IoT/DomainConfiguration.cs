@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT
+namespace Pulumi.AwsNative.Iot
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html
+    /// Create and manage a Domain Configuration
     /// </summary>
     [AwsNativeResourceType("aws-native:iot:DomainConfiguration")]
     public partial class DomainConfiguration : Pulumi.CustomResource
@@ -18,57 +18,33 @@ namespace Pulumi.AwsNative.IoT
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-        /// </summary>
         [Output("authorizerConfig")]
         public Output<Outputs.DomainConfigurationAuthorizerConfig?> AuthorizerConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
-        /// </summary>
         [Output("domainConfigurationName")]
         public Output<string?> DomainConfigurationName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
-        /// </summary>
         [Output("domainConfigurationStatus")]
         public Output<string?> DomainConfigurationStatus { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
-        /// </summary>
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
         [Output("domainType")]
         public Output<string> DomainType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-        /// </summary>
         [Output("serverCertificateArns")]
         public Output<ImmutableArray<string>> ServerCertificateArns { get; private set; } = null!;
 
         [Output("serverCertificates")]
         public Output<ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary>> ServerCertificates { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-        /// </summary>
         [Output("serviceType")]
         public Output<string?> ServiceType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DomainConfigurationTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-        /// </summary>
         [Output("validationCertificateArn")]
         public Output<string?> ValidationCertificateArn { get; private set; } = null!;
 
@@ -117,63 +93,37 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class DomainConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-authorizerconfig
-        /// </summary>
         [Input("authorizerConfig")]
         public Input<Inputs.DomainConfigurationAuthorizerConfigArgs>? AuthorizerConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationname
-        /// </summary>
         [Input("domainConfigurationName")]
         public Input<string>? DomainConfigurationName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainconfigurationstatus
-        /// </summary>
         [Input("domainConfigurationStatus")]
         public Input<string>? DomainConfigurationStatus { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-domainname
-        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         [Input("serverCertificateArns")]
         private InputList<string>? _serverCertificateArns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servercertificatearns
-        /// </summary>
         public InputList<string> ServerCertificateArns
         {
             get => _serverCertificateArns ?? (_serverCertificateArns = new InputList<string>());
             set => _serverCertificateArns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-servicetype
-        /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.DomainConfigurationTagArgs>? _tags;
+        public InputList<Inputs.DomainConfigurationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DomainConfigurationTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html#cfn-iot-domainconfiguration-validationcertificatearn
-        /// </summary>
         [Input("validationCertificateArn")]
         public Input<string>? ValidationCertificateArn { get; set; }
 

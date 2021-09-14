@@ -7,22 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTWireless.Outputs
+namespace Pulumi.AwsNative.Iotwireless.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html
-    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionLoRaWANUpdateGatewayTaskEntry
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-currentversion
-        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWANGatewayVersion? CurrentVersion;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-taskdefinition-lorawanupdategatewaytaskentry.html#cfn-iotwireless-taskdefinition-lorawanupdategatewaytaskentry-updateversion
-        /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWANGatewayVersion? UpdateVersion;
 
         [OutputConstructor]

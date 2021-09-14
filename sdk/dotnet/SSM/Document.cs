@@ -7,64 +7,64 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM
+namespace Pulumi.AwsNative.Ssm
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
+    /// The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:Document")]
     public partial class Document : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        /// A list of key and value pairs that describe attachments to a version of a document.
         /// </summary>
         [Output("attachments")]
         public Output<ImmutableArray<Outputs.DocumentAttachmentsSource>> Attachments { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        /// The content for the Systems Manager document in JSON, YAML or String format.
         /// </summary>
         [Output("content")]
-        public Output<Union<System.Text.Json.JsonElement, string>> Content { get; private set; } = null!;
+        public Output<object> Content { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Output("documentFormat")]
         public Output<string?> DocumentFormat { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
+        /// The type of document to create.
         /// </summary>
         [Output("documentType")]
         public Output<string?> DocumentType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        /// A name for the Systems Manager document.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        /// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         /// </summary>
         [Output("requires")]
         public Output<ImmutableArray<Outputs.DocumentDocumentRequires>> Requires { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DocumentTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        /// Specify a target type to define the kinds of resources the document can run on.
         /// </summary>
         [Output("targetType")]
         public Output<string?> TargetType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        /// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         /// </summary>
         [Output("versionName")]
         public Output<string?> VersionName { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.SSM
         private InputList<Inputs.DocumentAttachmentsSourceArgs>? _attachments;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-attachments
+        /// A list of key and value pairs that describe attachments to a version of a document.
         /// </summary>
         public InputList<Inputs.DocumentAttachmentsSourceArgs> Attachments
         {
@@ -127,25 +127,25 @@ namespace Pulumi.AwsNative.SSM
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+        /// The content for the Systems Manager document in JSON, YAML or String format.
         /// </summary>
         [Input("content", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> Content { get; set; } = null!;
+        public Input<object> Content { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documentformat
+        /// Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         /// </summary>
         [Input("documentFormat")]
         public Input<string>? DocumentFormat { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
+        /// The type of document to create.
         /// </summary>
         [Input("documentType")]
         public Input<string>? DocumentType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+        /// A name for the Systems Manager document.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.SSM
         private InputList<Inputs.DocumentDocumentRequiresArgs>? _requires;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-requires
+        /// A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
         /// </summary>
         public InputList<Inputs.DocumentDocumentRequiresArgs> Requires
         {
@@ -163,25 +163,25 @@ namespace Pulumi.AwsNative.SSM
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.DocumentTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+        /// Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.DocumentTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.DocumentTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-targettype
+        /// Specify a target type to define the kinds of resources the document can run on.
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-versionname
+        /// An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
         /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }

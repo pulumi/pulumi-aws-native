@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html
-    /// </summary>
     public sealed class ThemeTypographyArgs : Pulumi.ResourceArgs
     {
         [Input("fontFamilies")]
         private InputList<Inputs.ThemeFontArgs>? _fontFamilies;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-typography.html#cfn-quicksight-theme-typography-fontfamilies
-        /// </summary>
         public InputList<Inputs.ThemeFontArgs> FontFamilies
         {
             get => _fontFamilies ?? (_fontFamilies = new InputList<Inputs.ThemeFontArgs>());

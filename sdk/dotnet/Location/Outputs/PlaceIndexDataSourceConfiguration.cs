@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class PlaceIndexDataSourceConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-placeindex-datasourceconfiguration.html#cfn-location-placeindex-datasourceconfiguration-intendeduse
-        /// </summary>
         public readonly string? IntendedUse;
 
         [OutputConstructor]

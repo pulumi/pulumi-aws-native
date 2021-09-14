@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway.Inputs
+namespace Pulumi.AwsNative.Apigateway.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html
-    /// </summary>
     public sealed class DomainNameEndpointConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("types")]
         private InputList<string>? _types;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-domainname-endpointconfiguration.html#cfn-apigateway-domainname-endpointconfiguration-types
-        /// </summary>
         public InputList<string> Types
         {
             get => _types ?? (_types = new InputList<string>());

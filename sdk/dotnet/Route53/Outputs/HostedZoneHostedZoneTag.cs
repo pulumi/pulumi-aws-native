@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Route53.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html
+    /// A complex type that contains information about a tag that you want to add or edit for the specified health check or hosted zone.
     /// </summary>
     [OutputType]
     public sealed class HostedZoneHostedZoneTag
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-key
+        /// The key name of the tag.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetag.html#cfn-route53-hostedzone-hostedzonetag-value
+        /// The value for the tag.
         /// </summary>
         public readonly string Value;
 

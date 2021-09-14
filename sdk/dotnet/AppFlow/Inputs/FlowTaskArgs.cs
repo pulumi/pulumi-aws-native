@@ -7,22 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html
-    /// </summary>
     public sealed class FlowTaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-connectoroperator
+        /// Operation to be performed on provided source fields
         /// </summary>
         [Input("connectorOperator")]
         public Input<Inputs.FlowConnectorOperatorArgs>? ConnectorOperator { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-destinationfield
+        /// A field value on which source field should be validated
         /// </summary>
         [Input("destinationField")]
         public Input<string>? DestinationField { get; set; }
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         private InputList<string>? _sourceFields;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-sourcefields
+        /// Source fields on which particular task will be applied
         /// </summary>
         public InputList<string> SourceFields
         {
@@ -43,7 +40,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         private InputList<Inputs.FlowTaskPropertiesObjectArgs>? _taskProperties;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-taskproperties
+        /// A Map used to store task related info
         /// </summary>
         public InputList<Inputs.FlowTaskPropertiesObjectArgs> TaskProperties
         {
@@ -52,7 +49,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html#cfn-appflow-flow-task-tasktype
+        /// Type of task
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

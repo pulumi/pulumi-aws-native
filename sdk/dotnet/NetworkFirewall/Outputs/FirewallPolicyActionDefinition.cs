@@ -7,18 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Outputs
+namespace Pulumi.AwsNative.Networkfirewall.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html
-    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyActionDefinition
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-actiondefinition.html#cfn-networkfirewall-firewallpolicy-actiondefinition-publishmetricaction
-        /// </summary>
         public readonly Outputs.FirewallPolicyPublishMetricAction? PublishMetricAction;
 
         [OutputConstructor]

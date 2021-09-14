@@ -7,26 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ACMPCA.Inputs
+namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html
+    /// Structure that contains X.509 Policy information.
     /// </summary>
     public sealed class CertificatePolicyInformationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-certpolicyid
-        /// </summary>
         [Input("certPolicyId", required: true)]
         public Input<string> CertPolicyId { get; set; } = null!;
 
         [Input("policyQualifiers")]
         private InputList<Inputs.CertificatePolicyQualifierInfoArgs>? _policyQualifiers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html#cfn-acmpca-certificate-policyinformation-policyqualifiers
-        /// </summary>
         public InputList<Inputs.CertificatePolicyQualifierInfoArgs> PolicyQualifiers
         {
             get => _policyQualifiers ?? (_policyQualifiers = new InputList<Inputs.CertificatePolicyQualifierInfoArgs>());

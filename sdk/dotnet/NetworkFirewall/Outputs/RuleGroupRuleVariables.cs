@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Outputs
+namespace Pulumi.AwsNative.Networkfirewall.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html
-    /// </summary>
     [OutputType]
     public sealed class RuleGroupRuleVariables
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-ipsets
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.RuleGroupIPSet>? IPSets;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-rulevariables.html#cfn-networkfirewall-rulegroup-rulevariables-portsets
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.RuleGroupPortSet>? PortSets;
+        public readonly object? IPSets;
+        public readonly object? PortSets;
 
         [OutputConstructor]
         private RuleGroupRuleVariables(
-            ImmutableDictionary<string, Outputs.RuleGroupIPSet>? iPSets,
+            object? iPSets,
 
-            ImmutableDictionary<string, Outputs.RuleGroupPortSet>? portSets)
+            object? portSets)
         {
             IPSets = iPSets;
             PortSets = portSets;

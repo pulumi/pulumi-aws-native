@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Inputs
+namespace Pulumi.AwsNative.Imagebuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html
+    /// Contains a key/value pair that sets the named component parameter.
     /// </summary>
     public sealed class ImageRecipeComponentParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-name
+        /// The name of the component parameter to set.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         private InputList<string>? _value;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html#cfn-imagebuilder-imagerecipe-componentparameter-value
+        /// Sets the value for the named component parameter.
         /// </summary>
         public InputList<string> Value
         {

@@ -7,34 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Outputs
+namespace Pulumi.AwsNative.Mwaa.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html
+    /// Logging configuration for the environment.
     /// </summary>
     [OutputType]
     public sealed class EnvironmentLoggingConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-dagprocessinglogs
-        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? DagProcessingLogs;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-schedulerlogs
-        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? SchedulerLogs;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-tasklogs
-        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? TaskLogs;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-webserverlogs
-        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WebserverLogs;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-loggingconfiguration.html#cfn-mwaa-environment-loggingconfiguration-workerlogs
-        /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WorkerLogs;
 
         [OutputConstructor]

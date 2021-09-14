@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WorkSpaces
+namespace Pulumi.AwsNative.Workspaces
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html
+    /// Resource Type definition for AWS::WorkSpaces::ConnectionAlias
     /// </summary>
     [AwsNativeResourceType("aws-native:workspaces:ConnectionAlias")]
     public partial class ConnectionAlias : Pulumi.CustomResource
@@ -24,17 +24,11 @@ namespace Pulumi.AwsNative.WorkSpaces
         [Output("connectionAliasState")]
         public Output<string> ConnectionAliasState { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-        /// </summary>
         [Output("connectionString")]
         public Output<string> ConnectionString { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ConnectionAliasTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,21 +75,14 @@ namespace Pulumi.AwsNative.WorkSpaces
 
     public sealed class ConnectionAliasArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-connectionstring
-        /// </summary>
         [Input("connectionString", required: true)]
         public Input<string> ConnectionString { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-connectionalias.html#cfn-workspaces-connectionalias-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.ConnectionAliasTagArgs>? _tags;
+        public InputList<Inputs.ConnectionAliasTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ConnectionAliasTagArgs>());
             set => _tags = value;
         }
 

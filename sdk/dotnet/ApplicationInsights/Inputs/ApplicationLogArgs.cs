@@ -7,40 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Inputs
+namespace Pulumi.AwsNative.Applicationinsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html
+    /// A log to be monitored for the component.
     /// </summary>
     public sealed class ApplicationLogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-encoding
+        /// The type of encoding of the logs to be monitored.
         /// </summary>
         [Input("encoding")]
         public Input<string>? Encoding { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-loggroupname
+        /// The CloudWatch log group name to be associated to the monitored log.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logpath
+        /// The path of the logs to be monitored.
         /// </summary>
         [Input("logPath")]
         public Input<string>? LogPath { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-logtype
+        /// The log type decides the log patterns against which Application Insights analyzes the log.
         /// </summary>
         [Input("logType", required: true)]
         public Input<string> LogType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-log.html#cfn-applicationinsights-application-log-patternset
+        /// The name of the log pattern set.
         /// </summary>
         [Input("patternSet")]
         public Input<string>? PatternSet { get; set; }

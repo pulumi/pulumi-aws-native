@@ -7,20 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ACMPCA.Inputs
+namespace Pulumi.AwsNative.Acmpca.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html
+    /// Structure that contains X.500 extensions for a Certificate.
     /// </summary>
     public sealed class CertificateExtensionsArgs : Pulumi.ResourceArgs
     {
         [Input("certificatePolicies")]
         private InputList<Inputs.CertificatePolicyInformationArgs>? _certificatePolicies;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-certificatepolicies
-        /// </summary>
         public InputList<Inputs.CertificatePolicyInformationArgs> CertificatePolicies
         {
             get => _certificatePolicies ?? (_certificatePolicies = new InputList<Inputs.CertificatePolicyInformationArgs>());
@@ -29,28 +25,17 @@ namespace Pulumi.AwsNative.ACMPCA.Inputs
 
         [Input("extendedKeyUsage")]
         private InputList<Inputs.CertificateExtendedKeyUsageArgs>? _extendedKeyUsage;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-extendedkeyusage
-        /// </summary>
         public InputList<Inputs.CertificateExtendedKeyUsageArgs> ExtendedKeyUsage
         {
             get => _extendedKeyUsage ?? (_extendedKeyUsage = new InputList<Inputs.CertificateExtendedKeyUsageArgs>());
             set => _extendedKeyUsage = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-keyusage
-        /// </summary>
         [Input("keyUsage")]
         public Input<Inputs.CertificateKeyUsageArgs>? KeyUsage { get; set; }
 
         [Input("subjectAlternativeNames")]
         private InputList<Inputs.CertificateGeneralNameArgs>? _subjectAlternativeNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html#cfn-acmpca-certificate-extensions-subjectalternativenames
-        /// </summary>
         public InputList<Inputs.CertificateGeneralNameArgs> SubjectAlternativeNames
         {
             get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<Inputs.CertificateGeneralNameArgs>());

@@ -7,26 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
+namespace Pulumi.AwsNative.Elasticloadbalancingv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html
-    /// </summary>
     public sealed class ListenerRuleForwardConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroupstickinessconfig
-        /// </summary>
         [Input("targetGroupStickinessConfig")]
         public Input<Inputs.ListenerRuleTargetGroupStickinessConfigArgs>? TargetGroupStickinessConfig { get; set; }
 
         [Input("targetGroups")]
         private InputList<Inputs.ListenerRuleTargetGroupTupleArgs>? _targetGroups;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html#cfn-elasticloadbalancingv2-listenerrule-forwardconfig-targetgroups
-        /// </summary>
         public InputList<Inputs.ListenerRuleTargetGroupTupleArgs> TargetGroups
         {
             get => _targetGroups ?? (_targetGroups = new InputList<Inputs.ListenerRuleTargetGroupTupleArgs>());

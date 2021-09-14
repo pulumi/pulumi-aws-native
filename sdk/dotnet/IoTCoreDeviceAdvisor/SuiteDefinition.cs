@@ -7,34 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
+namespace Pulumi.AwsNative.Iotcoredeviceadvisor
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:iotcoredeviceadvisor:SuiteDefinition")]
     public partial class SuiteDefinition : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource name for the suite definition.
+        /// </summary>
         [Output("suiteDefinitionArn")]
         public Output<string> SuiteDefinitionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        /// </summary>
         [Output("suiteDefinitionConfiguration")]
-        public Output<Union<System.Text.Json.JsonElement, string>> SuiteDefinitionConfiguration { get; private set; } = null!;
+        public Output<object> SuiteDefinitionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier for the suite definition.
+        /// </summary>
         [Output("suiteDefinitionId")]
         public Output<string> SuiteDefinitionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The suite definition version of a test suite.
+        /// </summary>
         [Output("suiteDefinitionVersion")]
         public Output<string> SuiteDefinitionVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SuiteDefinitionTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -81,21 +87,18 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
 
     public sealed class SuiteDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-suitedefinitionconfiguration
-        /// </summary>
         [Input("suiteDefinitionConfiguration", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> SuiteDefinitionConfiguration { get; set; } = null!;
+        public Input<object> SuiteDefinitionConfiguration { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.SuiteDefinitionTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotcoredeviceadvisor-suitedefinition.html#cfn-iotcoredeviceadvisor-suitedefinition-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.SuiteDefinitionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.SuiteDefinitionTagArgs>());
             set => _tags = value;
         }
 

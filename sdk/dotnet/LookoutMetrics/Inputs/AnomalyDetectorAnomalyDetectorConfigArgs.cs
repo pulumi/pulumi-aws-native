@@ -7,16 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics.Inputs
+namespace Pulumi.AwsNative.Lookoutmetrics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html
-    /// </summary>
     public sealed class AnomalyDetectorAnomalyDetectorConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lookoutmetrics-anomalydetector-anomalydetectorconfig.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig-anomalydetectorfrequency
+        /// Frequency of anomaly detection
         /// </summary>
         [Input("anomalyDetectorFrequency", required: true)]
         public Input<string> AnomalyDetectorFrequency { get; set; } = null!;

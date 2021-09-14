@@ -7,46 +7,52 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow
+namespace Pulumi.AwsNative.Appflow
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html
+    /// Resource Type definition for AWS::AppFlow::ConnectorProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:appflow:ConnectorProfile")]
     public partial class ConnectorProfile : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         /// </summary>
         [Output("connectionMode")]
         public Output<string> ConnectionMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier for connector profile resources
+        /// </summary>
         [Output("connectorProfileArn")]
         public Output<string> ConnectorProfileArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        /// Connector specific configurations needed to create connector profile
         /// </summary>
         [Output("connectorProfileConfig")]
         public Output<Outputs.ConnectorProfileConnectorProfileConfig?> ConnectorProfileConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        /// The maximum number of items to retrieve in a single batch.
         /// </summary>
         [Output("connectorProfileName")]
         public Output<string> ConnectorProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        /// List of Saas providers that need connector profile to be created
         /// </summary>
         [Output("connectorType")]
         public Output<string> ConnectorType { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique Arn for Connector-Profile resource
+        /// </summary>
         [Output("credentialsArn")]
         public Output<string> CredentialsArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Output("kMSArn")]
         public Output<string?> KMSArn { get; private set; } = null!;
@@ -97,31 +103,31 @@ namespace Pulumi.AwsNative.AppFlow
     public sealed class ConnectorProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectionmode
+        /// Mode in which data transfer should be enabled. Private connection mode is currently enabled for Salesforce, Snowflake, Trendmicro and Singular
         /// </summary>
         [Input("connectionMode", required: true)]
         public Input<string> ConnectionMode { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofileconfig
+        /// Connector specific configurations needed to create connector profile
         /// </summary>
         [Input("connectorProfileConfig")]
         public Input<Inputs.ConnectorProfileConnectorProfileConfigArgs>? ConnectorProfileConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectorprofilename
+        /// The maximum number of items to retrieve in a single batch.
         /// </summary>
         [Input("connectorProfileName", required: true)]
         public Input<string> ConnectorProfileName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-connectortype
+        /// List of Saas providers that need connector profile to be created
         /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html#cfn-appflow-connectorprofile-kmsarn
+        /// The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         /// </summary>
         [Input("kMSArn")]
         public Input<string>? KMSArn { get; set; }

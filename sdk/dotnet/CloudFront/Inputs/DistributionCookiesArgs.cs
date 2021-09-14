@@ -7,26 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront.Inputs
+namespace Pulumi.AwsNative.Cloudfront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
-    /// </summary>
     public sealed class DistributionCookiesArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
-        /// </summary>
         [Input("forward", required: true)]
         public Input<string> Forward { get; set; } = null!;
 
         [Input("whitelistedNames")]
         private InputList<string>? _whitelistedNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
-        /// </summary>
         public InputList<string> WhitelistedNames
         {
             get => _whitelistedNames ?? (_whitelistedNames = new InputList<string>());

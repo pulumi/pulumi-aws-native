@@ -7,22 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSO
+namespace Pulumi.AwsNative.Sso
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html
+    /// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:sso:InstanceAccessControlAttributeConfiguration")]
     public partial class InstanceAccessControlAttributeConfiguration : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-        /// </summary>
         [Output("accessControlAttributes")]
         public Output<ImmutableArray<Outputs.InstanceAccessControlAttributeConfigurationAccessControlAttribute>> AccessControlAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+        /// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        /// </summary>
+        [Output("instanceAccessControlAttributeConfiguration")]
+        public Output<object?> InstanceAccessControlAttributeConfigurationValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the AWS SSO instance under which the operation will be executed.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
@@ -74,10 +77,6 @@ namespace Pulumi.AwsNative.SSO
     {
         [Input("accessControlAttributes")]
         private InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>? _accessControlAttributes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-accesscontrolattributes
-        /// </summary>
         public InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs> AccessControlAttributes
         {
             get => _accessControlAttributes ?? (_accessControlAttributes = new InputList<Inputs.InstanceAccessControlAttributeConfigurationAccessControlAttributeArgs>());
@@ -85,7 +84,13 @@ namespace Pulumi.AwsNative.SSO
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instanceaccesscontrolattributeconfiguration.html#cfn-sso-instanceaccesscontrolattributeconfiguration-instancearn
+        /// The InstanceAccessControlAttributeConfiguration property has been deprecated but is still supported for backwards compatibility purposes. We recomend that you use  AccessControlAttributes property instead.
+        /// </summary>
+        [Input("instanceAccessControlAttributeConfiguration")]
+        public Input<object>? InstanceAccessControlAttributeConfigurationValue { get; set; }
+
+        /// <summary>
+        /// The ARN of the AWS SSO instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;

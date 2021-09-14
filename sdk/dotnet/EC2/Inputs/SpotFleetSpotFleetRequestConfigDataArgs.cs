@@ -7,56 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Inputs
+namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
-    /// </summary>
     public sealed class SpotFleetSpotFleetRequestConfigDataArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-allocationstrategy
-        /// </summary>
         [Input("allocationStrategy")]
         public Input<string>? AllocationStrategy { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-context
-        /// </summary>
         [Input("context")]
         public Input<string>? Context { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-excesscapacityterminationpolicy
-        /// </summary>
         [Input("excessCapacityTerminationPolicy")]
         public Input<string>? ExcessCapacityTerminationPolicy { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
-        /// </summary>
         [Input("iamFleetRole", required: true)]
         public Input<string> IamFleetRole { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
-        /// </summary>
         [Input("instanceInterruptionBehavior")]
         public Input<string>? InstanceInterruptionBehavior { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instancepoolstousecount
-        /// </summary>
         [Input("instancePoolsToUseCount")]
         public Input<int>? InstancePoolsToUseCount { get; set; }
 
         [Input("launchSpecifications")]
         private InputList<Inputs.SpotFleetSpotFleetLaunchSpecificationArgs>? _launchSpecifications;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
-        /// </summary>
         public InputList<Inputs.SpotFleetSpotFleetLaunchSpecificationArgs> LaunchSpecifications
         {
             get => _launchSpecifications ?? (_launchSpecifications = new InputList<Inputs.SpotFleetSpotFleetLaunchSpecificationArgs>());
@@ -65,91 +40,48 @@ namespace Pulumi.AwsNative.EC2.Inputs
 
         [Input("launchTemplateConfigs")]
         private InputList<Inputs.SpotFleetLaunchTemplateConfigArgs>? _launchTemplateConfigs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
-        /// </summary>
         public InputList<Inputs.SpotFleetLaunchTemplateConfigArgs> LaunchTemplateConfigs
         {
             get => _launchTemplateConfigs ?? (_launchTemplateConfigs = new InputList<Inputs.SpotFleetLaunchTemplateConfigArgs>());
             set => _launchTemplateConfigs = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
-        /// </summary>
         [Input("loadBalancersConfig")]
         public Input<Inputs.SpotFleetLoadBalancersConfigArgs>? LoadBalancersConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandallocationstrategy
-        /// </summary>
         [Input("onDemandAllocationStrategy")]
         public Input<string>? OnDemandAllocationStrategy { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandmaxtotalprice
-        /// </summary>
         [Input("onDemandMaxTotalPrice")]
         public Input<string>? OnDemandMaxTotalPrice { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-ondemandtargetcapacity
-        /// </summary>
         [Input("onDemandTargetCapacity")]
         public Input<int>? OnDemandTargetCapacity { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
-        /// </summary>
         [Input("replaceUnhealthyInstances")]
         public Input<bool>? ReplaceUnhealthyInstances { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaintenancestrategies
-        /// </summary>
         [Input("spotMaintenanceStrategies")]
         public Input<Inputs.SpotFleetSpotMaintenanceStrategiesArgs>? SpotMaintenanceStrategies { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotmaxtotalprice
-        /// </summary>
         [Input("spotMaxTotalPrice")]
         public Input<string>? SpotMaxTotalPrice { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
-        /// </summary>
         [Input("spotPrice")]
         public Input<string>? SpotPrice { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity
-        /// </summary>
         [Input("targetCapacity", required: true)]
         public Input<int> TargetCapacity { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-terminateinstanceswithexpiration
-        /// </summary>
         [Input("terminateInstancesWithExpiration")]
         public Input<bool>? TerminateInstancesWithExpiration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-validfrom
-        /// </summary>
         [Input("validFrom")]
         public Input<string>? ValidFrom { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-validuntil
-        /// </summary>
         [Input("validUntil")]
         public Input<string>? ValidUntil { get; set; }
 

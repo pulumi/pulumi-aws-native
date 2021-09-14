@@ -7,20 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront
+namespace Pulumi.AwsNative.Cloudfront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html
+    /// Resource Type definition for AWS::CloudFront::KeyGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:KeyGroup")]
     public partial class KeyGroup : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        /// </summary>
         [Output("keyGroupConfig")]
         public Output<Outputs.KeyGroupKeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
 
@@ -72,9 +66,6 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class KeyGroupArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keygroup.html#cfn-cloudfront-keygroup-keygroupconfig
-        /// </summary>
         [Input("keyGroupConfig", required: true)]
         public Input<Inputs.KeyGroupKeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;
 

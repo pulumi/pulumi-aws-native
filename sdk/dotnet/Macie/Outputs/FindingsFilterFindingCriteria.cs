@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Macie.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html
-    /// </summary>
     [OutputType]
     public sealed class FindingsFilterFindingCriteria
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html#cfn-macie-findingsfilter-findingcriteria-criterion
-        /// </summary>
         public readonly Outputs.FindingsFilterCriterion? Criterion;
 
         [OutputConstructor]

@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html
-    /// </summary>
     public sealed class LoggingConfigurationLoggingConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("logDestinationConfigs", required: true)]
         private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-loggingconfiguration-loggingconfiguration.html#cfn-networkfirewall-loggingconfiguration-loggingconfiguration-logdestinationconfigs
-        /// </summary>
         public InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs> LogDestinationConfigs
         {
             get => _logDestinationConfigs ?? (_logDestinationConfigs = new InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>());

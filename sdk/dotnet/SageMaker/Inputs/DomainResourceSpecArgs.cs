@@ -7,28 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html
-    /// </summary>
     public sealed class DomainResourceSpecArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-instancetype
+        /// The instance type that the image version runs on.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimagearn
+        /// The ARN of the SageMaker image that the image version belongs to.
         /// </summary>
         [Input("sageMakerImageArn")]
         public Input<string>? SageMakerImageArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-resourcespec.html#cfn-sagemaker-domain-resourcespec-sagemakerimageversionarn
+        /// The ARN of the image version created on the instance.
         /// </summary>
         [Input("sageMakerImageVersionArn")]
         public Input<string>? SageMakerImageVersionArn { get; set; }

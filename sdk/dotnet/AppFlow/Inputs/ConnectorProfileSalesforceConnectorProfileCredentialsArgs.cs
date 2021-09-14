@@ -7,34 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html
-    /// </summary>
     public sealed class ConnectorProfileSalesforceConnectorProfileCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-accesstoken
+        /// The credentials used to access protected resources.
         /// </summary>
         [Input("accessToken")]
         public Input<string>? AccessToken { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-clientcredentialsarn
+        /// The client credentials to fetch access token and refresh token.
         /// </summary>
         [Input("clientCredentialsArn")]
         public Input<string>? ClientCredentialsArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-connectoroauthrequest
+        /// The oauth needed to request security tokens from the connector endpoint.
         /// </summary>
         [Input("connectorOAuthRequest")]
         public Input<Inputs.ConnectorProfileConnectorOAuthRequestArgs>? ConnectorOAuthRequest { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html#cfn-appflow-connectorprofile-salesforceconnectorprofilecredentials-refreshtoken
+        /// The credentials used to acquire new access tokens.
         /// </summary>
         [Input("refreshToken")]
         public Input<string>? RefreshToken { get; set; }

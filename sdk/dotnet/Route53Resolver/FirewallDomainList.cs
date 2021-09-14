@@ -7,64 +7,82 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53Resolver
+namespace Pulumi.AwsNative.Route53resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html
+    /// Resource schema for AWS::Route53Resolver::FirewallDomainList.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:FirewallDomainList")]
     public partial class FirewallDomainList : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Arn
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the creator request.
+        /// </summary>
         [Output("creatorRequestId")]
         public Output<string> CreatorRequestId { get; private set; } = null!;
 
+        /// <summary>
+        /// Count
+        /// </summary>
         [Output("domainCount")]
         public Output<int> DomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+        /// S3 URL to import domains from.
         /// </summary>
         [Output("domainFileUrl")]
         public Output<string?> DomainFileUrl { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        /// </summary>
         [Output("domains")]
         public Output<ImmutableArray<string>> Domains { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
+        /// <summary>
+        /// ServicePrincipal
+        /// </summary>
         [Output("managedOwnerName")]
         public Output<string> ManagedOwnerName { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("modificationTime")]
         public Output<string> ModificationTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+        /// FirewallDomainListName
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverFirewallDomainList, possible values are COMPLETE, DELETING, UPDATING, COMPLETE_IMPORT_FAILED, IMPORTING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// FirewallDomainListAssociationStatus
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        /// Tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallDomainListTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,17 +130,13 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class FirewallDomainListArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domainfileurl
+        /// S3 URL to import domains from.
         /// </summary>
         [Input("domainFileUrl")]
         public Input<string>? DomainFileUrl { get; set; }
 
         [Input("domains")]
         private InputList<string>? _domains;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-domains
-        /// </summary>
         public InputList<string> Domains
         {
             get => _domains ?? (_domains = new InputList<string>());
@@ -130,20 +144,20 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-name
+        /// FirewallDomainListName
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FirewallDomainListTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewalldomainlist.html#cfn-route53resolver-firewalldomainlist-tags
+        /// Tags
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FirewallDomainListTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FirewallDomainListTagArgs>());
             set => _tags = value;
         }
 

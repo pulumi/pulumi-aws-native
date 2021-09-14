@@ -7,53 +7,44 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html
+    /// The criteria by which the behavior is determined to be normal.
     /// </summary>
     public sealed class SecurityProfileBehaviorCriteriaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-comparisonoperator
+        /// The operator that relates the thing measured (metric) to the criteria (containing a value or statisticalThreshold).
         /// </summary>
         [Input("comparisonOperator")]
         public Input<string>? ComparisonOperator { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoalarm
+        /// If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         /// </summary>
         [Input("consecutiveDatapointsToAlarm")]
         public Input<int>? ConsecutiveDatapointsToAlarm { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-consecutivedatapointstoclear
+        /// If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         /// </summary>
         [Input("consecutiveDatapointsToClear")]
         public Input<int>? ConsecutiveDatapointsToClear { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-durationseconds
+        /// Use this to specify the time duration over which the behavior is evaluated.
         /// </summary>
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-mldetectionconfig
-        /// </summary>
         [Input("mlDetectionConfig")]
         public Input<Inputs.SecurityProfileMachineLearningDetectionConfigArgs>? MlDetectionConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-statisticalthreshold
-        /// </summary>
         [Input("statisticalThreshold")]
         public Input<Inputs.SecurityProfileStatisticalThresholdArgs>? StatisticalThreshold { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-behaviorcriteria.html#cfn-iot-securityprofile-behaviorcriteria-value
-        /// </summary>
         [Input("value")]
         public Input<Inputs.SecurityProfileMetricValueArgs>? Value { get; set; }
 

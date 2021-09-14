@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ResourceGroups.Inputs
+namespace Pulumi.AwsNative.Resourcegroups.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html
-    /// </summary>
     public sealed class GroupConfigurationItemArgs : Pulumi.ResourceArgs
     {
         [Input("parameters")]
         private InputList<Inputs.GroupConfigurationParameterArgs>? _parameters;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-parameters
-        /// </summary>
         public InputList<Inputs.GroupConfigurationParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.GroupConfigurationParameterArgs>());
             set => _parameters = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourcegroups-group-configurationitem.html#cfn-resourcegroups-group-configurationitem-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

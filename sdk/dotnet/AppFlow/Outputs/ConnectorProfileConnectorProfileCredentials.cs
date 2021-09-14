@@ -7,74 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Outputs
+namespace Pulumi.AwsNative.Appflow.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html
+    /// Connector specific configuration needed to create connector profile based on Authentication mechanism
     /// </summary>
     [OutputType]
     public sealed class ConnectorProfileConnectorProfileCredentials
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-amplitude
-        /// </summary>
         public readonly Outputs.ConnectorProfileAmplitudeConnectorProfileCredentials? Amplitude;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-datadog
-        /// </summary>
         public readonly Outputs.ConnectorProfileDatadogConnectorProfileCredentials? Datadog;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-dynatrace
-        /// </summary>
         public readonly Outputs.ConnectorProfileDynatraceConnectorProfileCredentials? Dynatrace;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-googleanalytics
-        /// </summary>
         public readonly Outputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentials? GoogleAnalytics;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-infornexus
-        /// </summary>
         public readonly Outputs.ConnectorProfileInforNexusConnectorProfileCredentials? InforNexus;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-marketo
-        /// </summary>
         public readonly Outputs.ConnectorProfileMarketoConnectorProfileCredentials? Marketo;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-redshift
-        /// </summary>
         public readonly Outputs.ConnectorProfileRedshiftConnectorProfileCredentials? Redshift;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-salesforce
-        /// </summary>
         public readonly Outputs.ConnectorProfileSalesforceConnectorProfileCredentials? Salesforce;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-servicenow
-        /// </summary>
         public readonly Outputs.ConnectorProfileServiceNowConnectorProfileCredentials? ServiceNow;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-singular
-        /// </summary>
         public readonly Outputs.ConnectorProfileSingularConnectorProfileCredentials? Singular;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-slack
-        /// </summary>
         public readonly Outputs.ConnectorProfileSlackConnectorProfileCredentials? Slack;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-snowflake
-        /// </summary>
         public readonly Outputs.ConnectorProfileSnowflakeConnectorProfileCredentials? Snowflake;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-trendmicro
-        /// </summary>
         public readonly Outputs.ConnectorProfileTrendmicroConnectorProfileCredentials? Trendmicro;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-veeva
-        /// </summary>
         public readonly Outputs.ConnectorProfileVeevaConnectorProfileCredentials? Veeva;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html#cfn-appflow-connectorprofile-connectorprofilecredentials-zendesk
-        /// </summary>
         public readonly Outputs.ConnectorProfileZendeskConnectorProfileCredentials? Zendesk;
 
         [OutputConstructor]

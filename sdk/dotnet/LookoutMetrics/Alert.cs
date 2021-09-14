@@ -7,44 +7,47 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics
+namespace Pulumi.AwsNative.Lookoutmetrics
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html
+    /// Resource Type definition for AWS::LookoutMetrics::Alert
     /// </summary>
     [AwsNativeResourceType("aws-native:lookoutmetrics:Alert")]
     public partial class Alert : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+        /// The action to be taken by the alert when an anomaly is detected.
         /// </summary>
         [Output("action")]
         public Output<Outputs.AlertAction> Action { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+        /// A description for the alert.
         /// </summary>
         [Output("alertDescription")]
         public Output<string?> AlertDescription { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+        /// The name of the alert. If not provided, a name is generated automatically.
         /// </summary>
         [Output("alertName")]
         public Output<string?> AlertName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+        /// A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
         /// </summary>
         [Output("alertSensitivityThreshold")]
         public Output<int> AlertSensitivityThreshold { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+        /// The Amazon resource name (ARN) of the Anomaly Detector to alert.
         /// </summary>
         [Output("anomalyDetectorArn")]
         public Output<string> AnomalyDetectorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// ARN assigned to the alert.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -94,31 +97,31 @@ namespace Pulumi.AwsNative.LookoutMetrics
     public sealed class AlertArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-action
+        /// The action to be taken by the alert when an anomaly is detected.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.AlertActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertdescription
+        /// A description for the alert.
         /// </summary>
         [Input("alertDescription")]
         public Input<string>? AlertDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertname
+        /// The name of the alert. If not provided, a name is generated automatically.
         /// </summary>
         [Input("alertName")]
         public Input<string>? AlertName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-alertsensitivitythreshold
+        /// A number between 0 and 100 (inclusive) that tunes the sensitivity of the alert.
         /// </summary>
         [Input("alertSensitivityThreshold", required: true)]
         public Input<int> AlertSensitivityThreshold { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-alert.html#cfn-lookoutmetrics-alert-anomalydetectorarn
+        /// The Amazon resource name (ARN) of the Anomaly Detector to alert.
         /// </summary>
         [Input("anomalyDetectorArn", required: true)]
         public Input<string> AnomalyDetectorArn { get; set; } = null!;

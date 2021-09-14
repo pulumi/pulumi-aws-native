@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DevOpsGuru.Inputs
+namespace Pulumi.AwsNative.Devopsguru.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html
+    /// Information about notification channels you have configured with DevOps Guru.
     /// </summary>
     public sealed class NotificationChannelNotificationChannelConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationchannelconfig.html#cfn-devopsguru-notificationchannel-notificationchannelconfig-sns
-        /// </summary>
         [Input("sns")]
         public Input<Inputs.NotificationChannelSnsChannelConfigArgs>? Sns { get; set; }
 

@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront
+namespace Pulumi.AwsNative.Cloudfront
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
+    /// Resource Type definition for AWS::CloudFront::CloudFrontOriginAccessIdentity
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:CloudFrontOriginAccessIdentity")]
     public partial class CloudFrontOriginAccessIdentity : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        /// </summary>
         [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
-
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
 
         [Output("s3CanonicalUserId")]
         public Output<string> S3CanonicalUserId { get; private set; } = null!;
@@ -72,9 +66,6 @@ namespace Pulumi.AwsNative.CloudFront
 
     public sealed class CloudFrontOriginAccessIdentityArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
-        /// </summary>
         [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
         public Input<Inputs.CloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;
 

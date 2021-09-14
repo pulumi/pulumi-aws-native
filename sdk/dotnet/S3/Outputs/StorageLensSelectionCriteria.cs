@@ -11,21 +11,21 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html
+    /// Selection criteria for prefix-level metrics.
     /// </summary>
     [OutputType]
     public sealed class StorageLensSelectionCriteria
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-delimiter
+        /// Delimiter to divide S3 key into hierarchy of prefixes.
         /// </summary>
         public readonly string? Delimiter;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-maxdepth
+        /// Max depth of prefixes of S3 key that Amazon S3 Storage Lens will analyze.
         /// </summary>
         public readonly int? MaxDepth;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html#cfn-s3-storagelens-selectioncriteria-minstoragebytespercentage
+        /// The minimum storage bytes threshold for the prefixes to be included in the analysis.
         /// </summary>
         public readonly double? MinStorageBytesPercentage;
 

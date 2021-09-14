@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.RoboMaker.Inputs
+namespace Pulumi.AwsNative.Robomaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html
+    /// Information about a source configuration.
     /// </summary>
     public sealed class SimulationApplicationSourceConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-architecture
+        /// The target processor architecture for the application.
         /// </summary>
         [Input("architecture", required: true)]
         public Input<string> Architecture { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3bucket
+        /// The Amazon S3 bucket name.
         /// </summary>
         [Input("s3Bucket", required: true)]
         public Input<string> S3Bucket { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-sourceconfig.html#cfn-robomaker-simulationapplication-sourceconfig-s3key
+        /// The s3 object key.
         /// </summary>
         [Input("s3Key", required: true)]
         public Input<string> S3Key { get; set; } = null!;

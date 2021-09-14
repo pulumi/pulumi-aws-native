@@ -7,38 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html
-    /// </summary>
     public sealed class JobProfileConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("columnStatisticsConfigurations")]
         private InputList<Inputs.JobColumnStatisticsConfigurationArgs>? _columnStatisticsConfigurations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-columnstatisticsconfigurations
-        /// </summary>
         public InputList<Inputs.JobColumnStatisticsConfigurationArgs> ColumnStatisticsConfigurations
         {
             get => _columnStatisticsConfigurations ?? (_columnStatisticsConfigurations = new InputList<Inputs.JobColumnStatisticsConfigurationArgs>());
             set => _columnStatisticsConfigurations = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-datasetstatisticsconfiguration
-        /// </summary>
         [Input("datasetStatisticsConfiguration")]
         public Input<Inputs.JobStatisticsConfigurationArgs>? DatasetStatisticsConfiguration { get; set; }
 
         [Input("profileColumns")]
         private InputList<Inputs.JobColumnSelectorArgs>? _profileColumns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-profileconfiguration.html#cfn-databrew-job-profileconfiguration-profilecolumns
-        /// </summary>
         public InputList<Inputs.JobColumnSelectorArgs> ProfileColumns
         {
             get => _profileColumns ?? (_profileColumns = new InputList<Inputs.JobColumnSelectorArgs>());

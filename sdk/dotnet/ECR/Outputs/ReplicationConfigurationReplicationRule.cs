@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECR.Outputs
+namespace Pulumi.AwsNative.Ecr.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html
+    /// An array of objects representing the details of a replication destination.
     /// </summary>
     [OutputType]
     public sealed class ReplicationConfigurationReplicationRule
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html#cfn-ecr-replicationconfiguration-replicationrule-destinations
+        /// An array of objects representing the details of a replication destination.
         /// </summary>
         public readonly ImmutableArray<Outputs.ReplicationConfigurationReplicationDestination> Destinations;
 

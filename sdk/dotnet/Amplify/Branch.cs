@@ -10,82 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html
+    /// The AWS::Amplify::Branch resource creates a new branch within an app.
     /// </summary>
     [AwsNativeResourceType("aws-native:amplify:Branch")]
     public partial class Branch : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        /// </summary>
         [Output("basicAuthConfig")]
         public Output<Outputs.BranchBasicAuthConfig?> BasicAuthConfig { get; private set; } = null!;
 
         [Output("branchName")]
         public Output<string> BranchName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        /// </summary>
         [Output("buildSpec")]
         public Output<string?> BuildSpec { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        /// </summary>
         [Output("enableAutoBuild")]
         public Output<bool?> EnableAutoBuild { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        /// </summary>
         [Output("enablePerformanceMode")]
         public Output<bool?> EnablePerformanceMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        /// </summary>
         [Output("enablePullRequestPreview")]
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.BranchEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        /// </summary>
         [Output("pullRequestEnvironmentName")]
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        /// </summary>
         [Output("stage")]
         public Output<string?> Stage { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.BranchTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -132,87 +99,49 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class BranchArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-appid
-        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-basicauthconfig
-        /// </summary>
         [Input("basicAuthConfig")]
         public Input<Inputs.BranchBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-branchname
-        /// </summary>
         [Input("branchName", required: true)]
         public Input<string> BranchName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-buildspec
-        /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
-        /// </summary>
         [Input("enableAutoBuild")]
         public Input<bool>? EnableAutoBuild { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableperformancemode
-        /// </summary>
         [Input("enablePerformanceMode")]
         public Input<bool>? EnablePerformanceMode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
-        /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.BranchEnvironmentVariableArgs>? _environmentVariables;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
-        /// </summary>
         public InputList<Inputs.BranchEnvironmentVariableArgs> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.BranchEnvironmentVariableArgs>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
-        /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
-        /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.BranchTagArgs>? _tags;
+        public InputList<Inputs.BranchTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.BranchTagArgs>());
             set => _tags = value;
         }
 

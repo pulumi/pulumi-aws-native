@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html
-    /// </summary>
     public sealed class RuleGroupMatchAttributesArgs : Pulumi.ResourceArgs
     {
         [Input("destinationPorts")]
         private InputList<Inputs.RuleGroupPortRangeArgs>? _destinationPorts;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinationports
-        /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> DestinationPorts
         {
             get => _destinationPorts ?? (_destinationPorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("destinations")]
         private InputList<Inputs.RuleGroupAddressArgs>? _destinations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-destinations
-        /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.RuleGroupAddressArgs>());
@@ -41,10 +30,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("protocols")]
         private InputList<int>? _protocols;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-protocols
-        /// </summary>
         public InputList<int> Protocols
         {
             get => _protocols ?? (_protocols = new InputList<int>());
@@ -53,10 +38,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("sourcePorts")]
         private InputList<Inputs.RuleGroupPortRangeArgs>? _sourcePorts;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sourceports
-        /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> SourcePorts
         {
             get => _sourcePorts ?? (_sourcePorts = new InputList<Inputs.RuleGroupPortRangeArgs>());
@@ -65,10 +46,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("sources")]
         private InputList<Inputs.RuleGroupAddressArgs>? _sources;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-sources
-        /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Sources
         {
             get => _sources ?? (_sources = new InputList<Inputs.RuleGroupAddressArgs>());
@@ -77,10 +54,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("tCPFlags")]
         private InputList<Inputs.RuleGroupTCPFlagFieldArgs>? _tCPFlags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html#cfn-networkfirewall-rulegroup-matchattributes-tcpflags
-        /// </summary>
         public InputList<Inputs.RuleGroupTCPFlagFieldArgs> TCPFlags
         {
             get => _tCPFlags ?? (_tCPFlags = new InputList<Inputs.RuleGroupTCPFlagFieldArgs>());

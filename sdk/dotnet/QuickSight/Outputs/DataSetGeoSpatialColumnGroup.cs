@@ -7,25 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html
+    /// &lt;p&gt;Geospatial column group that denotes a hierarchy.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSetGeoSpatialColumnGroup
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-columns
+        /// &lt;p&gt;Columns in this hierarchy.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<string> Columns;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-countrycode
-        /// </summary>
         public readonly string? CountryCode;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-geospatialcolumngroup.html#cfn-quicksight-dataset-geospatialcolumngroup-name
+        /// &lt;p&gt;A display name for the hierarchy.&lt;/p&gt;
         /// </summary>
         public readonly string Name;
 

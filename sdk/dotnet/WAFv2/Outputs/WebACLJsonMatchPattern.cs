@@ -7,27 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Outputs
+namespace Pulumi.AwsNative.Wafv2.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html
+    /// The pattern to look for in the JSON body.
     /// </summary>
     [OutputType]
     public sealed class WebACLJsonMatchPattern
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-all
+        /// Inspect all parts of the web request's JSON body.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? All;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html#cfn-wafv2-webacl-jsonmatchpattern-includedpaths
-        /// </summary>
+        public readonly object? All;
         public readonly ImmutableArray<string> IncludedPaths;
 
         [OutputConstructor]
         private WebACLJsonMatchPattern(
-            Union<System.Text.Json.JsonElement, string>? all,
+            object? all,
 
             ImmutableArray<string> includedPaths)
         {

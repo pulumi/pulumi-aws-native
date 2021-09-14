@@ -7,33 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Outputs
+namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionLogConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
-        /// </summary>
         public readonly string LogDriver;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Options;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
-        /// </summary>
+        public readonly object? Options;
         public readonly ImmutableArray<Outputs.TaskDefinitionSecret> SecretOptions;
 
         [OutputConstructor]
         private TaskDefinitionLogConfiguration(
             string logDriver,
 
-            ImmutableDictionary<string, string>? options,
+            object? options,
 
             ImmutableArray<Outputs.TaskDefinitionSecret> secretOptions)
         {

@@ -10,47 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html
-    /// </summary>
     public sealed class DataSourceColumnConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("changeDetectingColumns", required: true)]
         private InputList<string>? _changeDetectingColumns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-changedetectingcolumns
-        /// </summary>
         public InputList<string> ChangeDetectingColumns
         {
             get => _changeDetectingColumns ?? (_changeDetectingColumns = new InputList<string>());
             set => _changeDetectingColumns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentdatacolumnname
-        /// </summary>
         [Input("documentDataColumnName", required: true)]
         public Input<string> DocumentDataColumnName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documentidcolumnname
-        /// </summary>
         [Input("documentIdColumnName", required: true)]
         public Input<string> DocumentIdColumnName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-documenttitlecolumnname
-        /// </summary>
         [Input("documentTitleColumnName")]
         public Input<string>? DocumentTitleColumnName { get; set; }
 
         [Input("fieldMappings")]
         private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-columnconfiguration.html#cfn-kendra-datasource-columnconfiguration-fieldmappings
-        /// </summary>
         public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
         {
             get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());

@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html
+    /// &lt;p&gt;Amazon RDS parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceRdsParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-rdsparameters.html#cfn-quicksight-datasource-rdsparameters-instanceid
+        /// &lt;p&gt;Instance ID.&lt;/p&gt;
         /// </summary>
         public readonly string InstanceId;
 

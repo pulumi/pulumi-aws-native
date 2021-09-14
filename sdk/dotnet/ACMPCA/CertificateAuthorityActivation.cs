@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ACMPCA
+namespace Pulumi.AwsNative.Acmpca
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html
+    /// Used to install the certificate authority certificate and update the certificate authority status.
     /// </summary>
     [AwsNativeResourceType("aws-native:acmpca:CertificateAuthorityActivation")]
     public partial class CertificateAuthorityActivation : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+        /// Certificate Authority certificate that will be installed in the Certificate Authority.
         /// </summary>
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+        /// Arn of the Certificate Authority.
         /// </summary>
         [Output("certificateAuthorityArn")]
         public Output<string> CertificateAuthorityArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+        /// Certificate chain for the Certificate Authority certificate.
         /// </summary>
         [Output("certificateChain")]
         public Output<string?> CertificateChain { get; private set; } = null!;
 
+        /// <summary>
+        /// The complete certificate chain, including the Certificate Authority certificate.
+        /// </summary>
         [Output("completeCertificateChain")]
         public Output<string> CompleteCertificateChain { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        /// The status of the Certificate Authority.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -88,25 +91,25 @@ namespace Pulumi.AwsNative.ACMPCA
     public sealed class CertificateAuthorityActivationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificate
+        /// Certificate Authority certificate that will be installed in the Certificate Authority.
         /// </summary>
         [Input("certificate", required: true)]
         public Input<string> Certificate { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificateauthorityarn
+        /// Arn of the Certificate Authority.
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-certificatechain
+        /// Certificate chain for the Certificate Authority certificate.
         /// </summary>
         [Input("certificateChain")]
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html#cfn-acmpca-certificateauthorityactivation-status
+        /// The status of the Certificate Authority.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

@@ -7,26 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html
-    /// </summary>
     public sealed class DatasetFilterExpressionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-expression
+        /// Filtering expression for a parameter
         /// </summary>
         [Input("expression", required: true)]
         public Input<string> Expression { get; set; } = null!;
 
         [Input("valuesMap", required: true)]
         private InputList<Inputs.DatasetFilterValueArgs>? _valuesMap;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-filterexpression.html#cfn-databrew-dataset-filterexpression-valuesmap
-        /// </summary>
         public InputList<Inputs.DatasetFilterValueArgs> ValuesMap
         {
             get => _valuesMap ?? (_valuesMap = new InputList<Inputs.DatasetFilterValueArgs>());

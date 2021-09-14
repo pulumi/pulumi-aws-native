@@ -10,14 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html
+    /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
     /// </summary>
     [AwsNativeResourceType("aws-native:amplify:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        /// </summary>
         [Output("appId")]
         public Output<string> AppId { get; private set; } = null!;
 
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<ImmutableArray<string>> AutoSubDomainCreationPatterns { get; private set; } = null!;
 
         [Output("autoSubDomainIAMRole")]
-        public Output<string> AutoSubDomainIAMRole { get; private set; } = null!;
+        public Output<string?> AutoSubDomainIAMRole { get; private set; } = null!;
 
         [Output("certificateRecord")]
         public Output<string> CertificateRecord { get; private set; } = null!;
@@ -40,14 +37,11 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string> DomainStatus { get; private set; } = null!;
 
         [Output("enableAutoSubDomain")]
-        public Output<bool> EnableAutoSubDomain { get; private set; } = null!;
+        public Output<bool?> EnableAutoSubDomain { get; private set; } = null!;
 
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        /// </summary>
         [Output("subDomainSettings")]
         public Output<ImmutableArray<Outputs.DomainSubDomainSetting>> SubDomainSettings { get; private set; } = null!;
 
@@ -96,48 +90,28 @@ namespace Pulumi.AwsNative.Amplify
 
     public sealed class DomainArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-appid
-        /// </summary>
         [Input("appId", required: true)]
         public Input<string> AppId { get; set; } = null!;
 
         [Input("autoSubDomainCreationPatterns")]
         private InputList<string>? _autoSubDomainCreationPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomaincreationpatterns
-        /// </summary>
         public InputList<string> AutoSubDomainCreationPatterns
         {
             get => _autoSubDomainCreationPatterns ?? (_autoSubDomainCreationPatterns = new InputList<string>());
             set => _autoSubDomainCreationPatterns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-autosubdomainiamrole
-        /// </summary>
         [Input("autoSubDomainIAMRole")]
         public Input<string>? AutoSubDomainIAMRole { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-domainname
-        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-enableautosubdomain
-        /// </summary>
         [Input("enableAutoSubDomain")]
         public Input<bool>? EnableAutoSubDomain { get; set; }
 
         [Input("subDomainSettings", required: true)]
         private InputList<Inputs.DomainSubDomainSettingArgs>? _subDomainSettings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-domain.html#cfn-amplify-domain-subdomainsettings
-        /// </summary>
         public InputList<Inputs.DomainSubDomainSettingArgs> SubDomainSettings
         {
             get => _subDomainSettings ?? (_subDomainSettings = new InputList<Inputs.DomainSubDomainSettingArgs>());

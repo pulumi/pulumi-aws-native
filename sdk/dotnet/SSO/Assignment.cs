@@ -7,46 +7,46 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSO
+namespace Pulumi.AwsNative.Sso
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html
+    /// Resource Type definition for SSO assignmet
     /// </summary>
     [AwsNativeResourceType("aws-native:sso:Assignment")]
     public partial class Assignment : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        /// The sso instance that the permission set is owned.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        /// The permission set that the assignemt will be assigned
         /// </summary>
         [Output("permissionSetArn")]
         public Output<string> PermissionSetArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        /// The assignee's identifier, user id/group id
         /// </summary>
         [Output("principalId")]
         public Output<string> PrincipalId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        /// The assignee's type, user/group
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        /// The account id to be provisioned.
         /// </summary>
         [Output("targetId")]
         public Output<string> TargetId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        /// The type of resource to be provsioned to, only aws account now
         /// </summary>
         [Output("targetType")]
         public Output<string> TargetType { get; private set; } = null!;
@@ -97,37 +97,37 @@ namespace Pulumi.AwsNative.SSO
     public sealed class AssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-instancearn
+        /// The sso instance that the permission set is owned.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-permissionsetarn
+        /// The permission set that the assignemt will be assigned
         /// </summary>
         [Input("permissionSetArn", required: true)]
         public Input<string> PermissionSetArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principalid
+        /// The assignee's identifier, user id/group id
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-principaltype
+        /// The assignee's type, user/group
         /// </summary>
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targetid
+        /// The account id to be provisioned.
         /// </summary>
         [Input("targetId", required: true)]
         public Input<string> TargetId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html#cfn-sso-assignment-targettype
+        /// The type of resource to be provsioned to, only aws account now
         /// </summary>
         [Input("targetType", required: true)]
         public Input<string> TargetType { get; set; } = null!;

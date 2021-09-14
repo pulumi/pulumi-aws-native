@@ -7,26 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html
+    /// Xss Match Statement.
     /// </summary>
     public sealed class WebACLXssMatchStatementArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-fieldtomatch
-        /// </summary>
         [Input("fieldToMatch", required: true)]
         public Input<Inputs.WebACLFieldToMatchArgs> FieldToMatch { get; set; } = null!;
 
         [Input("textTransformations", required: true)]
         private InputList<Inputs.WebACLTextTransformationArgs>? _textTransformations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html#cfn-wafv2-webacl-xssmatchstatement-texttransformations
-        /// </summary>
         public InputList<Inputs.WebACLTextTransformationArgs> TextTransformations
         {
             get => _textTransformations ?? (_textTransformations = new InputList<Inputs.WebACLTextTransformationArgs>());

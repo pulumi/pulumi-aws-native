@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Inputs
+namespace Pulumi.AwsNative.Mwaa.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+    /// Configures the network resources of the environment.
     /// </summary>
     public sealed class EnvironmentNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        /// A list of security groups to use for the environment.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.MWAA.Inputs
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        /// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         /// </summary>
         public InputList<string> SubnetIds
         {

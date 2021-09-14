@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DevOpsGuru.Outputs
+namespace Pulumi.AwsNative.Devopsguru.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html
+    /// CloudFormation resource for DevOps Guru to monitor
     /// </summary>
     [OutputType]
     public sealed class ResourceCollectionCloudFormationCollectionFilter
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-cloudformationcollectionfilter.html#cfn-devopsguru-resourcecollection-cloudformationcollectionfilter-stacknames
+        /// An array of CloudFormation stack names.
         /// </summary>
         public readonly ImmutableArray<string> StackNames;
 

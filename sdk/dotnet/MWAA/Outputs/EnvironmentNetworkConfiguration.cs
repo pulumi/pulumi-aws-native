@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MWAA.Outputs
+namespace Pulumi.AwsNative.Mwaa.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html
+    /// Configures the network resources of the environment.
     /// </summary>
     [OutputType]
     public sealed class EnvironmentNetworkConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-securitygroupids
+        /// A list of security groups to use for the environment.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mwaa-environment-networkconfiguration.html#cfn-mwaa-environment-networkconfiguration-subnetids
+        /// A list of subnets to use for the environment. These must be private subnets, in the same VPC, in two different availability zones.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
 

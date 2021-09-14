@@ -10,20 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Redshift.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html
-    /// </summary>
     public sealed class ClusterEndpointArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-address
-        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html#cfn-redshift-cluster-endpoint-port
-        /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 

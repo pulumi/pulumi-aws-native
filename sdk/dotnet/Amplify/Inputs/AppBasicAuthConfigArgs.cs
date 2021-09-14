@@ -10,26 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html
-    /// </summary>
     public sealed class AppBasicAuthConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-enablebasicauth
-        /// </summary>
         [Input("enableBasicAuth")]
         public Input<bool>? EnableBasicAuth { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-password
-        /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-basicauthconfig.html#cfn-amplify-app-basicauthconfig-username
-        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

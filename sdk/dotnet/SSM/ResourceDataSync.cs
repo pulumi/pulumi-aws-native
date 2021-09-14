@@ -7,62 +7,38 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM
+namespace Pulumi.AwsNative.Ssm
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
+    /// Resource Type definition for AWS::SSM::ResourceDataSync
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:ResourceDataSync")]
     public partial class ResourceDataSync : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        /// </summary>
         [Output("bucketPrefix")]
         public Output<string?> BucketPrefix { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        /// </summary>
         [Output("bucketRegion")]
         public Output<string?> BucketRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        /// </summary>
         [Output("kMSKeyArn")]
         public Output<string?> KMSKeyArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        /// </summary>
         [Output("s3Destination")]
         public Output<Outputs.ResourceDataSyncS3Destination?> S3Destination { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        /// </summary>
         [Output("syncFormat")]
         public Output<string?> SyncFormat { get; private set; } = null!;
 
         [Output("syncName")]
         public Output<string> SyncName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        /// </summary>
         [Output("syncSource")]
         public Output<Outputs.ResourceDataSyncSyncSource?> SyncSource { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-        /// </summary>
         [Output("syncType")]
         public Output<string?> SyncType { get; private set; } = null!;
 
@@ -74,7 +50,7 @@ namespace Pulumi.AwsNative.SSM
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ResourceDataSync(string name, ResourceDataSyncArgs args, CustomResourceOptions? options = null)
+        public ResourceDataSync(string name, ResourceDataSyncArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ssm:ResourceDataSync", name, args ?? new ResourceDataSyncArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,57 +87,27 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class ResourceDataSyncArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketname
-        /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketprefix
-        /// </summary>
         [Input("bucketPrefix")]
         public Input<string>? BucketPrefix { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-bucketregion
-        /// </summary>
         [Input("bucketRegion")]
         public Input<string>? BucketRegion { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-kmskeyarn
-        /// </summary>
         [Input("kMSKeyArn")]
         public Input<string>? KMSKeyArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-s3destination
-        /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ResourceDataSyncS3DestinationArgs>? S3Destination { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncformat
-        /// </summary>
         [Input("syncFormat")]
         public Input<string>? SyncFormat { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncname
-        /// </summary>
-        [Input("syncName", required: true)]
-        public Input<string> SyncName { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-syncsource
-        /// </summary>
         [Input("syncSource")]
         public Input<Inputs.ResourceDataSyncSyncSourceArgs>? SyncSource { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html#cfn-ssm-resourcedatasync-synctype
-        /// </summary>
         [Input("syncType")]
         public Input<string>? SyncType { get; set; }
 

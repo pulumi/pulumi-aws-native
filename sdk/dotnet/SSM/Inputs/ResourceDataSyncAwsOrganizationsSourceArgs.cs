@@ -7,26 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM.Inputs
+namespace Pulumi.AwsNative.Ssm.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html
-    /// </summary>
     public sealed class ResourceDataSyncAwsOrganizationsSourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationsourcetype
-        /// </summary>
         [Input("organizationSourceType", required: true)]
         public Input<string> OrganizationSourceType { get; set; } = null!;
 
         [Input("organizationalUnits")]
         private InputList<string>? _organizationalUnits;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-resourcedatasync-awsorganizationssource.html#cfn-ssm-resourcedatasync-awsorganizationssource-organizationalunits
-        /// </summary>
         public InputList<string> OrganizationalUnits
         {
             get => _organizationalUnits ?? (_organizationalUnits = new InputList<string>());

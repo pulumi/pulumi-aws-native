@@ -7,20 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
+namespace Pulumi.AwsNative.Accessanalyzer.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html
+    /// An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
     /// </summary>
     public sealed class AnalyzerArchiveRuleArgs : Pulumi.ResourceArgs
     {
         [Input("filter", required: true)]
         private InputList<Inputs.AnalyzerFilterArgs>? _filter;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-filter
-        /// </summary>
         public InputList<Inputs.AnalyzerFilterArgs> Filter
         {
             get => _filter ?? (_filter = new InputList<Inputs.AnalyzerFilterArgs>());
@@ -28,7 +24,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html#cfn-accessanalyzer-analyzer-archiverule-rulename
+        /// The archive rule name
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;

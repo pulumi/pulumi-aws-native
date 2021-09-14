@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IVS.Outputs
+namespace Pulumi.AwsNative.Ivs.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html
+    /// Recording Destination Configuration.
     /// </summary>
     [OutputType]
     public sealed class RecordingConfigurationDestinationConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-destinationconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration-s3
-        /// </summary>
         public readonly Outputs.RecordingConfigurationS3DestinationConfiguration S3;
 
         [OutputConstructor]

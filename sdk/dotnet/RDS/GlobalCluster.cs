@@ -7,46 +7,48 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.RDS
+namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html
+    /// Resource Type definition for AWS::RDS::GlobalCluster
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:GlobalCluster")]
     public partial class GlobalCluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+        /// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+        /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Output("engine")]
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+        /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+        /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+        /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         /// </summary>
         [Output("sourceDBClusterIdentifier")]
         public Output<string?> SourceDBClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        ///  The storage encryption setting for the new global database cluster.
+        /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
@@ -97,37 +99,39 @@ namespace Pulumi.AwsNative.RDS
     public sealed class GlobalClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-deletionprotection
+        /// The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engine
+        /// The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora).
+        /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-engineversion
+        /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-globalclusteridentifier
+        /// The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-sourcedbclusteridentifier
+        /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         /// </summary>
         [Input("sourceDBClusterIdentifier")]
         public Input<string>? SourceDBClusterIdentifier { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html#cfn-rds-globalcluster-storageencrypted
+        ///  The storage encryption setting for the new global database cluster.
+        /// If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }

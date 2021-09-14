@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html
-    /// </summary>
     public sealed class TopicRuleIotSiteWiseActionArgs : Pulumi.ResourceArgs
     {
         [Input("putAssetPropertyValueEntries", required: true)]
         private InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs>? _putAssetPropertyValueEntries;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-putassetpropertyvalueentries
-        /// </summary>
         public InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs> PutAssetPropertyValueEntries
         {
             get => _putAssetPropertyValueEntries ?? (_putAssetPropertyValueEntries = new InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs>());
             set => _putAssetPropertyValueEntries = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-iotsitewiseaction.html#cfn-iot-topicrule-iotsitewiseaction-rolearn
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 

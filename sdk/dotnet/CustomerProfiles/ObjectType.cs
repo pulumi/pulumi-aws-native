@@ -7,76 +7,82 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CustomerProfiles
+namespace Pulumi.AwsNative.Customerprofiles
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html
+    /// An ObjectType resource of Amazon Connect Customer Profiles
     /// </summary>
     [AwsNativeResourceType("aws-native:customerprofiles:ObjectType")]
     public partial class ObjectType : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+        /// Indicates whether a profile should be created when data is received.
         /// </summary>
         [Output("allowProfileCreation")]
         public Output<bool?> AllowProfileCreation { get; private set; } = null!;
 
+        /// <summary>
+        /// The time of this integration got created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+        /// Description of the profile object type.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+        /// The unique name of the domain.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+        /// The default encryption key
         /// </summary>
         [Output("encryptionKey")]
         public Output<string?> EncryptionKey { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+        /// The default number of days until the data within the domain expires.
         /// </summary>
         [Output("expirationDays")]
         public Output<int?> ExpirationDays { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+        /// A list of the name and ObjectType field.
         /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<Outputs.ObjectTypeFieldMap>> Fields { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+        /// A list of unique keys that can be used to map data to the profile.
         /// </summary>
         [Output("keys")]
         public Output<ImmutableArray<Outputs.ObjectTypeKeyMap>> Keys { get; private set; } = null!;
 
+        /// <summary>
+        /// The time of this integration got last updated at.
+        /// </summary>
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+        /// The name of the profile object type.
         /// </summary>
         [Output("objectTypeName")]
         public Output<string?> ObjectTypeName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
+        /// The tags (keys and values) associated with the integration.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ObjectTypeTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        /// A unique identifier for the object template.
         /// </summary>
         [Output("templateId")]
         public Output<string?> TemplateId { get; private set; } = null!;
@@ -127,31 +133,31 @@ namespace Pulumi.AwsNative.CustomerProfiles
     public sealed class ObjectTypeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-allowprofilecreation
+        /// Indicates whether a profile should be created when data is received.
         /// </summary>
         [Input("allowProfileCreation")]
         public Input<bool>? AllowProfileCreation { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-description
+        /// Description of the profile object type.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-domainname
+        /// The unique name of the domain.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-encryptionkey
+        /// The default encryption key
         /// </summary>
         [Input("encryptionKey")]
         public Input<string>? EncryptionKey { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-expirationdays
+        /// The default number of days until the data within the domain expires.
         /// </summary>
         [Input("expirationDays")]
         public Input<int>? ExpirationDays { get; set; }
@@ -160,7 +166,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         private InputList<Inputs.ObjectTypeFieldMapArgs>? _fields;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-fields
+        /// A list of the name and ObjectType field.
         /// </summary>
         public InputList<Inputs.ObjectTypeFieldMapArgs> Fields
         {
@@ -172,7 +178,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
         private InputList<Inputs.ObjectTypeKeyMapArgs>? _keys;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-keys
+        /// A list of unique keys that can be used to map data to the profile.
         /// </summary>
         public InputList<Inputs.ObjectTypeKeyMapArgs> Keys
         {
@@ -181,25 +187,25 @@ namespace Pulumi.AwsNative.CustomerProfiles
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-objecttypename
+        /// The name of the profile object type.
         /// </summary>
         [Input("objectTypeName")]
         public Input<string>? ObjectTypeName { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ObjectTypeTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-tags
+        /// The tags (keys and values) associated with the integration.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ObjectTypeTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ObjectTypeTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-objecttype.html#cfn-customerprofiles-objecttype-templateid
+        /// A unique identifier for the object template.
         /// </summary>
         [Input("templateId")]
         public Input<string>? TemplateId { get; set; }

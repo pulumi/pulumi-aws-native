@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppFlow.Inputs
+namespace Pulumi.AwsNative.Appflow.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html
+    /// Configurations of destination connector.
     /// </summary>
     public sealed class FlowDestinationFlowConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectorprofilename
+        /// Name of destination connector profile
         /// </summary>
         [Input("connectorProfileName")]
         public Input<string>? ConnectorProfileName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-connectortype
+        /// Destination connector type
         /// </summary>
         [Input("connectorType", required: true)]
         public Input<string> ConnectorType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html#cfn-appflow-flow-destinationflowconfig-destinationconnectorproperties
+        /// Destination connector details
         /// </summary>
         [Input("destinationConnectorProperties", required: true)]
         public Input<Inputs.FlowDestinationConnectorPropertiesArgs> DestinationConnectorProperties { get; set; } = null!;

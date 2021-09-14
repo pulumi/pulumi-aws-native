@@ -7,41 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html
-    /// </summary>
     public sealed class TopicRuleHttpActionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-auth
-        /// </summary>
         [Input("auth")]
         public Input<Inputs.TopicRuleHttpAuthorizationArgs>? Auth { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-confirmationurl
-        /// </summary>
         [Input("confirmationUrl")]
         public Input<string>? ConfirmationUrl { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.TopicRuleHttpActionHeaderArgs>? _headers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-headers
-        /// </summary>
         public InputList<Inputs.TopicRuleHttpActionHeaderArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.TopicRuleHttpActionHeaderArgs>());
             set => _headers = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-httpaction.html#cfn-iot-topicrule-httpaction-url
-        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

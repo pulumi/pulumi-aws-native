@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html
+    /// The kernel gateway app settings.
     /// </summary>
     public sealed class DomainKernelGatewayAppSettingsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.DomainCustomImageArgs>? _customImages;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-customimages
+        /// A list of custom SageMaker images that are configured to run as a KernelGateway app.
         /// </summary>
         public InputList<Inputs.DomainCustomImageArgs> CustomImages
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-kernelgatewayappsettings.html#cfn-sagemaker-domain-kernelgatewayappsettings-defaultresourcespec
+        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the KernelGateway app.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.DomainResourceSpecArgs>? DefaultResourceSpec { get; set; }

@@ -7,52 +7,58 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync
+namespace Pulumi.AwsNative.Datasync
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html
+    /// Resource schema for AWS::DataSync::Agent.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:Agent")]
     public partial class Agent : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+        /// Activation key of the Agent.
         /// </summary>
         [Output("activationKey")]
         public Output<string> ActivationKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The DataSync Agent ARN.
+        /// </summary>
         [Output("agentArn")]
         public Output<string> AgentArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+        /// The name configured for the agent. Text reference used to identify the agent in the console.
         /// </summary>
         [Output("agentName")]
         public Output<string?> AgentName { get; private set; } = null!;
 
+        /// <summary>
+        /// The service endpoints that the agent will connect to.
+        /// </summary>
         [Output("endpointType")]
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+        /// The ARNs of the security group used to protect your data transfer task subnets.
         /// </summary>
         [Output("securityGroupArns")]
         public Output<ImmutableArray<string>> SecurityGroupArns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+        /// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         [Output("subnetArns")]
         public Output<ImmutableArray<string>> SubnetArns { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AgentTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        /// The ID of the VPC endpoint that the agent has access to.
         /// </summary>
         [Output("vpcEndpointId")]
         public Output<string?> VpcEndpointId { get; private set; } = null!;
@@ -103,13 +109,13 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class AgentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-activationkey
+        /// Activation key of the Agent.
         /// </summary>
         [Input("activationKey", required: true)]
         public Input<string> ActivationKey { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-agentname
+        /// The name configured for the agent. Text reference used to identify the agent in the console.
         /// </summary>
         [Input("agentName")]
         public Input<string>? AgentName { get; set; }
@@ -118,7 +124,7 @@ namespace Pulumi.AwsNative.DataSync
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-securitygrouparns
+        /// The ARNs of the security group used to protect your data transfer task subnets.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {
@@ -130,7 +136,7 @@ namespace Pulumi.AwsNative.DataSync
         private InputList<string>? _subnetArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-subnetarns
+        /// The ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         public InputList<string> SubnetArns
         {
@@ -139,19 +145,19 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AgentTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AgentTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AgentTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-agent.html#cfn-datasync-agent-vpcendpointid
+        /// The ID of the VPC endpoint that the agent has access to.
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }

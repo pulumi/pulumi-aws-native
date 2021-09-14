@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html
+    /// Represents the settings used to enable server-side encryption
     /// </summary>
     public sealed class TableEncryptionSpecificationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-encryptiontype
-        /// </summary>
         [Input("encryptionType", required: true)]
         public Input<string> EncryptionType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-encryptionspecification.html#cfn-cassandra-table-encryptionspecification-kmskeyidentifier
-        /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 

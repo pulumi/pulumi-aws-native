@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECR
+namespace Pulumi.AwsNative.Ecr
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
+    /// The AWS::ECR::Repository resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html
     /// </summary>
     [AwsNativeResourceType("aws-native:ecr:Repository")]
     public partial class Repository : Pulumi.CustomResource
@@ -18,50 +18,41 @@ namespace Pulumi.AwsNative.ECR
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.RepositoryEncryptionConfiguration?> EncryptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-        /// </summary>
         [Output("imageScanningConfiguration")]
         public Output<Outputs.RepositoryImageScanningConfiguration?> ImageScanningConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+        /// The image tag mutability setting for the repository.
         /// </summary>
         [Output("imageTagMutability")]
         public Output<string?> ImageTagMutability { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-        /// </summary>
         [Output("lifecyclePolicy")]
         public Output<Outputs.RepositoryLifecyclePolicy?> LifecyclePolicy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+        /// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
         /// </summary>
         [Output("repositoryName")]
         public Output<string?> RepositoryName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+        /// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         /// </summary>
         [Output("repositoryPolicyText")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> RepositoryPolicyText { get; private set; } = null!;
+        public Output<object?> RepositoryPolicyText { get; private set; } = null!;
 
         [Output("repositoryUri")]
         public Output<string> RepositoryUri { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RepositoryTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -108,51 +99,42 @@ namespace Pulumi.AwsNative.ECR
 
     public sealed class RepositoryArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-encryptionconfiguration
-        /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.RepositoryEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagescanningconfiguration
-        /// </summary>
         [Input("imageScanningConfiguration")]
         public Input<Inputs.RepositoryImageScanningConfigurationArgs>? ImageScanningConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-imagetagmutability
+        /// The image tag mutability setting for the repository.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-        /// </summary>
         [Input("lifecyclePolicy")]
         public Input<Inputs.RepositoryLifecyclePolicyArgs>? LifecyclePolicy { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+        /// The name to use for the repository. The repository name may be specified on its own (such as nginx-web-app) or it can be prepended with a namespace to group the repository into a category (such as project-a/nginx-web-app). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the repository name. For more information, see https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html.
         /// </summary>
         [Input("repositoryName")]
         public Input<string>? RepositoryName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+        /// The JSON repository policy text to apply to the repository. For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html in the Amazon Elastic Container Registry User Guide. 
         /// </summary>
         [Input("repositoryPolicyText")]
-        public InputUnion<System.Text.Json.JsonElement, string>? RepositoryPolicyText { get; set; }
+        public Input<object>? RepositoryPolicyText { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.RepositoryTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.RepositoryTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RepositoryTagArgs>());
             set => _tags = value;
         }
 

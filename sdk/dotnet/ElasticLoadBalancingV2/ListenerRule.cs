@@ -7,38 +7,26 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancingV2
+namespace Pulumi.AwsNative.Elasticloadbalancingv2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
+    /// Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:ListenerRule")]
     public partial class ListenerRule : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ListenerRuleAction>> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-        /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.ListenerRuleRuleCondition>> Conditions { get; private set; } = null!;
 
         [Output("isDefault")]
         public Output<bool> IsDefault { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-        /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-        /// </summary>
         [Output("priority")]
         public Output<int> Priority { get; private set; } = null!;
 
@@ -92,10 +80,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     {
         [Input("actions", required: true)]
         private InputList<Inputs.ListenerRuleActionArgs>? _actions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
-        /// </summary>
         public InputList<Inputs.ListenerRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.ListenerRuleActionArgs>());
@@ -104,25 +88,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("conditions", required: true)]
         private InputList<Inputs.ListenerRuleRuleConditionArgs>? _conditions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
-        /// </summary>
         public InputList<Inputs.ListenerRuleRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.ListenerRuleRuleConditionArgs>());
             set => _conditions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
-        /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 

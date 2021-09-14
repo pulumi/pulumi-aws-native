@@ -7,55 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FraudDetector.Outputs
+namespace Pulumi.AwsNative.Frauddetector.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html
-    /// </summary>
     [OutputType]
     public sealed class DetectorEventType
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-arn
+        /// The ARN of the event type.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-createdtime
+        /// The time when the event type was created.
         /// </summary>
         public readonly string? CreatedTime;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-description
+        /// The description of the event type.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-entitytypes
-        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEntityType> EntityTypes;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-eventvariables
-        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEventVariable> EventVariables;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-inline
-        /// </summary>
         public readonly bool? Inline;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-labels
-        /// </summary>
         public readonly ImmutableArray<Outputs.DetectorLabel> Labels;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-lastupdatedtime
+        /// The time when the event type was last updated.
         /// </summary>
         public readonly string? LastUpdatedTime;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-name
+        /// The name for the event type
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-eventtype.html#cfn-frauddetector-detector-eventtype-tags
+        /// Tags associated with this event type.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
 
         [OutputConstructor]
         private DetectorEventType(
@@ -77,7 +62,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             string? name,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Outputs.DetectorTag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

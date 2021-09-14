@@ -7,31 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Inputs
+namespace Pulumi.AwsNative.Imagebuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+    /// The distributions of the distribution configuration.
     /// </summary>
     public sealed class DistributionConfigurationDistributionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+        /// The specific AMI settings (for example, launch permissions, AMI tags).
         /// </summary>
         [Input("amiDistributionConfiguration")]
-        public InputUnion<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration { get; set; }
+        public Input<object>? AmiDistributionConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
         /// </summary>
         [Input("containerDistributionConfiguration")]
-        public InputUnion<System.Text.Json.JsonElement, string>? ContainerDistributionConfiguration { get; set; }
+        public Input<object>? ContainerDistributionConfiguration { get; set; }
 
         [Input("launchTemplateConfigurations")]
         private InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs>? _launchTemplateConfigurations;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        /// A group of launchTemplateConfiguration settings that apply to image distribution.
         /// </summary>
         public InputList<Inputs.DistributionConfigurationLaunchTemplateConfigurationArgs> LaunchTemplateConfigurations
         {
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         private InputList<string>? _licenseConfigurationArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+        /// The License Manager Configuration to associate with the AMI in the specified Region.
         /// </summary>
         public InputList<string> LicenseConfigurationArns
         {
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+        /// region
         /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;

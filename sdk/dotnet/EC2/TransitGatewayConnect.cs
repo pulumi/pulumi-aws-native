@@ -7,40 +7,52 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html
+    /// The AWS::EC2::TransitGatewayConnect type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayConnect")]
     public partial class TransitGatewayConnect : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The creation time.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+        /// The Connect attachment options.
         /// </summary>
         [Output("options")]
         public Output<Outputs.TransitGatewayConnectTransitGatewayConnectOptions> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the attachment.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+        /// The tags for the attachment.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TransitGatewayConnectTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the Connect attachment.
+        /// </summary>
         [Output("transitGatewayAttachmentId")]
         public Output<string> TransitGatewayAttachmentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway.
+        /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+        /// The ID of the attachment from which the Connect attachment was created.
         /// </summary>
         [Output("transportTransitGatewayAttachmentId")]
         public Output<string> TransportTransitGatewayAttachmentId { get; private set; } = null!;
@@ -91,25 +103,25 @@ namespace Pulumi.AwsNative.EC2
     public sealed class TransitGatewayConnectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-options
+        /// The Connect attachment options.
         /// </summary>
         [Input("options", required: true)]
         public Input<Inputs.TransitGatewayConnectTransitGatewayConnectOptionsArgs> Options { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.TransitGatewayConnectTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-tags
+        /// The tags for the attachment.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.TransitGatewayConnectTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayConnectTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayconnect.html#cfn-ec2-transitgatewayconnect-transporttransitgatewayattachmentid
+        /// The ID of the attachment from which the Connect attachment was created.
         /// </summary>
         [Input("transportTransitGatewayAttachmentId", required: true)]
         public Input<string> TransportTransitGatewayAttachmentId { get; set; } = null!;

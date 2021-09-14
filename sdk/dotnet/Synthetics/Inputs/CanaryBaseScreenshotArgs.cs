@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
-    /// </summary>
     public sealed class CanaryBaseScreenshotArgs : Pulumi.ResourceArgs
     {
         [Input("ignoreCoordinates")]
         private InputList<string>? _ignoreCoordinates;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        /// List of coordinates of rectangles to be ignored during visual testing
         /// </summary>
         public InputList<string> IgnoreCoordinates
         {
@@ -28,7 +25,7 @@ namespace Pulumi.AwsNative.Synthetics.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+        /// Name of the screenshot to be used as base reference for visual testing
         /// </summary>
         [Input("screenshotName", required: true)]
         public Input<string> ScreenshotName { get; set; } = null!;

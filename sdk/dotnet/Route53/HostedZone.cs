@@ -10,28 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
+    /// Resource schema for AWS::Route53::HostedZone.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:HostedZone")]
     public partial class HostedZone : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        /// </summary>
         [Output("hostedZoneConfig")]
         public Output<Outputs.HostedZoneHostedZoneConfig?> HostedZoneConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+        /// Adds, edits, or deletes tags for a health check or a hosted zone.
+        /// 
+        /// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         /// </summary>
         [Output("hostedZoneTags")]
         public Output<ImmutableArray<Outputs.HostedZoneHostedZoneTag>> HostedZoneTags { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+        /// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+        /// 
+        /// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -39,14 +37,11 @@ namespace Pulumi.AwsNative.Route53
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        /// </summary>
         [Output("queryLoggingConfig")]
         public Output<Outputs.HostedZoneQueryLoggingConfig?> QueryLoggingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        /// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         /// </summary>
         [Output("vPCs")]
         public Output<ImmutableArray<Outputs.HostedZoneVPC>> VPCs { get; private set; } = null!;
@@ -96,9 +91,6 @@ namespace Pulumi.AwsNative.Route53
 
     public sealed class HostedZoneArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzoneconfig
-        /// </summary>
         [Input("hostedZoneConfig")]
         public Input<Inputs.HostedZoneHostedZoneConfigArgs>? HostedZoneConfig { get; set; }
 
@@ -106,7 +98,9 @@ namespace Pulumi.AwsNative.Route53
         private InputList<Inputs.HostedZoneHostedZoneTagArgs>? _hostedZoneTags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-hostedzonetags
+        /// Adds, edits, or deletes tags for a health check or a hosted zone.
+        /// 
+        /// For information about using tags for cost allocation, see Using Cost Allocation Tags in the AWS Billing and Cost Management User Guide.
         /// </summary>
         public InputList<Inputs.HostedZoneHostedZoneTagArgs> HostedZoneTags
         {
@@ -115,14 +109,13 @@ namespace Pulumi.AwsNative.Route53
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-name
+        /// The name of the domain. Specify a fully qualified domain name, for example, www.example.com. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats www.example.com (without a trailing dot) and www.example.com. (with a trailing dot) as identical.
+        /// 
+        /// If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of NameServers that are returned by the Fn::GetAtt intrinsic function.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-queryloggingconfig
-        /// </summary>
         [Input("queryLoggingConfig")]
         public Input<Inputs.HostedZoneQueryLoggingConfigArgs>? QueryLoggingConfig { get; set; }
 
@@ -130,7 +123,7 @@ namespace Pulumi.AwsNative.Route53
         private InputList<Inputs.HostedZoneVPCArgs>? _vPCs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html#cfn-route53-hostedzone-vpcs
+        /// A complex type that contains information about the VPCs that are associated with the specified hosted zone.
         /// </summary>
         public InputList<Inputs.HostedZoneVPCArgs> VPCs
         {

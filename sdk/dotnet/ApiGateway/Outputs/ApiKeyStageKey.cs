@@ -7,21 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway.Outputs
+namespace Pulumi.AwsNative.Apigateway.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
-    /// </summary>
     [OutputType]
     public sealed class ApiKeyStageKey
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+        /// The ID of a RestApi resource that includes the stage with which you want to associate the API key.
         /// </summary>
         public readonly string? RestApiId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+        /// The name of the stage with which to associate the API key. The stage must be included in the RestApi resource that you specified in the RestApiId property. 
         /// </summary>
         public readonly string? StageName;
 

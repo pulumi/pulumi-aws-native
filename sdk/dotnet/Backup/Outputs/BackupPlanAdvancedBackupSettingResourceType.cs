@@ -10,24 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html
-    /// </summary>
     [OutputType]
     public sealed class BackupPlanAdvancedBackupSettingResourceType
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-backupoptions
-        /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string> BackupOptions;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-advancedbackupsettingresourcetype.html#cfn-backup-backupplan-advancedbackupsettingresourcetype-resourcetype
-        /// </summary>
+        public readonly object BackupOptions;
         public readonly string ResourceType;
 
         [OutputConstructor]
         private BackupPlanAdvancedBackupSettingResourceType(
-            Union<System.Text.Json.JsonElement, string> backupOptions,
+            object backupOptions,
 
             string resourceType)
         {

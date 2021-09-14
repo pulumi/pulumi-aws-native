@@ -7,25 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html
+    /// &lt;p&gt;Presto parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourcePrestoParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-catalog
+        /// &lt;p&gt;Catalog.&lt;/p&gt;
         /// </summary>
         public readonly string Catalog;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-host
+        /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-prestoparameters.html#cfn-quicksight-datasource-prestoparameters-port
+        /// &lt;p&gt;Port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

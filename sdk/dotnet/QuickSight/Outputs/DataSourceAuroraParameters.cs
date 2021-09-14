@@ -7,25 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html
+    /// &lt;p&gt;Amazon Aurora parameters.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class DataSourceAuroraParameters
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-database
+        /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-host
+        /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-auroraparameters.html#cfn-quicksight-datasource-auroraparameters-port
+        /// &lt;p&gt;Port.&lt;/p&gt;
         /// </summary>
         public readonly double Port;
 

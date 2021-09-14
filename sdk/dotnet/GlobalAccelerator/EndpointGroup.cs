@@ -7,73 +7,70 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GlobalAccelerator
+namespace Pulumi.AwsNative.Globalaccelerator
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html
+    /// Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:globalaccelerator:EndpointGroup")]
     public partial class EndpointGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        /// The list of endpoint objects.
         /// </summary>
         [Output("endpointConfigurations")]
         public Output<ImmutableArray<Outputs.EndpointGroupEndpointConfiguration>> EndpointConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the endpoint group
+        /// </summary>
         [Output("endpointGroupArn")]
         public Output<string> EndpointGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        /// The name of the AWS Region where the endpoint group is located
         /// </summary>
         [Output("endpointGroupRegion")]
         public Output<string> EndpointGroupRegion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        /// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         /// </summary>
         [Output("healthCheckIntervalSeconds")]
         public Output<int?> HealthCheckIntervalSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        /// </summary>
         [Output("healthCheckPath")]
         public Output<string?> HealthCheckPath { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        /// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Output("healthCheckPort")]
         public Output<int?> HealthCheckPort { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        /// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Output("healthCheckProtocol")]
         public Output<string?> HealthCheckProtocol { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        /// The Amazon Resource Name (ARN) of the listener
         /// </summary>
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        /// </summary>
         [Output("portOverrides")]
         public Output<ImmutableArray<Outputs.EndpointGroupPortOverride>> PortOverrides { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        /// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         /// </summary>
         [Output("thresholdCount")]
         public Output<int?> ThresholdCount { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        /// The percentage of traffic to sent to an AWS Region
         /// </summary>
         [Output("trafficDialPercentage")]
         public Output<double?> TrafficDialPercentage { get; private set; } = null!;
@@ -127,7 +124,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         private InputList<Inputs.EndpointGroupEndpointConfigurationArgs>? _endpointConfigurations;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointconfigurations
+        /// The list of endpoint objects.
         /// </summary>
         public InputList<Inputs.EndpointGroupEndpointConfigurationArgs> EndpointConfigurations
         {
@@ -136,47 +133,40 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-endpointgroupregion
+        /// The name of the AWS Region where the endpoint group is located
         /// </summary>
         [Input("endpointGroupRegion", required: true)]
         public Input<string> EndpointGroupRegion { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckintervalseconds
+        /// The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         /// </summary>
         [Input("healthCheckIntervalSeconds")]
         public Input<int>? HealthCheckIntervalSeconds { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckpath
-        /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckport
+        /// The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Input("healthCheckPort")]
         public Input<int>? HealthCheckPort { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-healthcheckprotocol
+        /// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         /// </summary>
         [Input("healthCheckProtocol")]
         public Input<string>? HealthCheckProtocol { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-listenerarn
+        /// The Amazon Resource Name (ARN) of the listener
         /// </summary>
         [Input("listenerArn", required: true)]
         public Input<string> ListenerArn { get; set; } = null!;
 
         [Input("portOverrides")]
         private InputList<Inputs.EndpointGroupPortOverrideArgs>? _portOverrides;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-portoverrides
-        /// </summary>
         public InputList<Inputs.EndpointGroupPortOverrideArgs> PortOverrides
         {
             get => _portOverrides ?? (_portOverrides = new InputList<Inputs.EndpointGroupPortOverrideArgs>());
@@ -184,13 +174,13 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-thresholdcount
+        /// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         /// </summary>
         [Input("thresholdCount")]
         public Input<int>? ThresholdCount { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-globalaccelerator-endpointgroup.html#cfn-globalaccelerator-endpointgroup-trafficdialpercentage
+        /// The percentage of traffic to sent to an AWS Region
         /// </summary>
         [Input("trafficDialPercentage")]
         public Input<double>? TrafficDialPercentage { get; set; }

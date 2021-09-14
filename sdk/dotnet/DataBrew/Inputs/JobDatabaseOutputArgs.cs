@@ -7,28 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html
-    /// </summary>
     public sealed class JobDatabaseOutputArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoptions
-        /// </summary>
         [Input("databaseOptions", required: true)]
         public Input<Inputs.JobDatabaseTableOutputOptionsArgs> DatabaseOptions { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-databaseoutputmode
+        /// Database table name
         /// </summary>
         [Input("databaseOutputMode")]
         public Input<string>? DatabaseOutputMode { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-databaseoutput.html#cfn-databrew-job-databaseoutput-glueconnectionname
+        /// Glue connection name
         /// </summary>
         [Input("glueConnectionName", required: true)]
         public Input<string> GlueConnectionName { get; set; } = null!;

@@ -7,56 +7,38 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Inputs
+namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
+    /// List of container definitions that are passed to the Docker daemon on a container instance
     /// </summary>
     public sealed class TaskDefinitionContainerDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-        /// </summary>
         public InputList<string> Command
         {
             get => _command ?? (_command = new InputList<string>());
             set => _command = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-        /// </summary>
         [Input("cpu")]
         public Input<int>? Cpu { get; set; }
 
         [Input("dependsOn")]
         private InputList<Inputs.TaskDefinitionContainerDependencyArgs>? _dependsOn;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
-        /// </summary>
         public InputList<Inputs.TaskDefinitionContainerDependencyArgs> DependsOn
         {
             get => _dependsOn ?? (_dependsOn = new InputList<Inputs.TaskDefinitionContainerDependencyArgs>());
             set => _dependsOn = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
-        /// </summary>
         [Input("disableNetworking")]
         public Input<bool>? DisableNetworking { get; set; }
 
         [Input("dnsSearchDomains")]
         private InputList<string>? _dnsSearchDomains;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-        /// </summary>
         public InputList<string> DnsSearchDomains
         {
             get => _dnsSearchDomains ?? (_dnsSearchDomains = new InputList<string>());
@@ -65,10 +47,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-        /// </summary>
         public InputList<string> DnsServers
         {
             get => _dnsServers ?? (_dnsServers = new InputList<string>());
@@ -76,23 +54,10 @@ namespace Pulumi.AwsNative.ECS.Inputs
         }
 
         [Input("dockerLabels")]
-        private InputMap<string>? _dockerLabels;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
-        /// </summary>
-        public InputMap<string> DockerLabels
-        {
-            get => _dockerLabels ?? (_dockerLabels = new InputMap<string>());
-            set => _dockerLabels = value;
-        }
+        public Input<object>? DockerLabels { get; set; }
 
         [Input("dockerSecurityOptions")]
         private InputList<string>? _dockerSecurityOptions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-        /// </summary>
         public InputList<string> DockerSecurityOptions
         {
             get => _dockerSecurityOptions ?? (_dockerSecurityOptions = new InputList<string>());
@@ -101,10 +66,6 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
         [Input("entryPoint")]
         private InputList<string>? _entryPoint;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-        /// </summary>
         public InputList<string> EntryPoint
         {
             get => _entryPoint ?? (_entryPoint = new InputList<string>());
@@ -115,7 +76,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _environment;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
+        /// The environment variables to pass to a container
         /// </summary>
         public InputList<Inputs.TaskDefinitionKeyValuePairArgs> Environment
         {
@@ -127,7 +88,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         private InputList<Inputs.TaskDefinitionEnvironmentFileArgs>? _environmentFiles;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+        /// The list of one or more files that contain the environment variables to pass to a container
         /// </summary>
         public InputList<Inputs.TaskDefinitionEnvironmentFileArgs> EnvironmentFiles
         {
@@ -135,96 +96,60 @@ namespace Pulumi.AwsNative.ECS.Inputs
             set => _environmentFiles = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-        /// </summary>
         [Input("essential")]
         public Input<bool>? Essential { get; set; }
 
         [Input("extraHosts")]
         private InputList<Inputs.TaskDefinitionHostEntryArgs>? _extraHosts;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
-        /// </summary>
         public InputList<Inputs.TaskDefinitionHostEntryArgs> ExtraHosts
         {
             get => _extraHosts ?? (_extraHosts = new InputList<Inputs.TaskDefinitionHostEntryArgs>());
             set => _extraHosts = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
-        /// </summary>
         [Input("firelensConfiguration")]
         public Input<Inputs.TaskDefinitionFirelensConfigurationArgs>? FirelensConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
-        /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TaskDefinitionHealthCheckArgs>? HealthCheck { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
-        /// </summary>
         [Input("hostname")]
         public Input<string>? Hostname { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
+        /// The image used to start a container. This string is passed directly to the Docker daemon.
         /// </summary>
         [Input("image")]
         public Input<string>? Image { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
-        /// </summary>
         [Input("interactive")]
         public Input<bool>? Interactive { get; set; }
 
         [Input("links")]
         private InputList<string>? _links;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-        /// </summary>
         public InputList<string> Links
         {
             get => _links ?? (_links = new InputList<string>());
             set => _links = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
-        /// </summary>
         [Input("linuxParameters")]
         public Input<Inputs.TaskDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
-        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.TaskDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
+        /// The amount (in MiB) of memory to present to the container. If your container attempts to exceed the memory specified here, the container is killed.
         /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-        /// </summary>
         [Input("memoryReservation")]
         public Input<int>? MemoryReservation { get; set; }
 
         [Input("mountPoints")]
         private InputList<Inputs.TaskDefinitionMountPointArgs>? _mountPoints;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
-        /// </summary>
         public InputList<Inputs.TaskDefinitionMountPointArgs> MountPoints
         {
             get => _mountPoints ?? (_mountPoints = new InputList<Inputs.TaskDefinitionMountPointArgs>());
@@ -232,7 +157,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
+        /// The name of a container. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -241,7 +166,7 @@ namespace Pulumi.AwsNative.ECS.Inputs
         private InputList<Inputs.TaskDefinitionPortMappingArgs>? _portMappings;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings
+        /// Port mappings allow containers to access ports on the host container instance to send or receive traffic.
         /// </summary>
         public InputList<Inputs.TaskDefinitionPortMappingArgs> PortMappings
         {
@@ -249,36 +174,20 @@ namespace Pulumi.AwsNative.ECS.Inputs
             set => _portMappings = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
-        /// </summary>
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
-        /// </summary>
         [Input("pseudoTerminal")]
         public Input<bool>? PseudoTerminal { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-        /// </summary>
         [Input("readonlyRootFilesystem")]
         public Input<bool>? ReadonlyRootFilesystem { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
-        /// </summary>
         [Input("repositoryCredentials")]
         public Input<Inputs.TaskDefinitionRepositoryCredentialsArgs>? RepositoryCredentials { get; set; }
 
         [Input("resourceRequirements")]
         private InputList<Inputs.TaskDefinitionResourceRequirementArgs>? _resourceRequirements;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
-        /// </summary>
         public InputList<Inputs.TaskDefinitionResourceRequirementArgs> ResourceRequirements
         {
             get => _resourceRequirements ?? (_resourceRequirements = new InputList<Inputs.TaskDefinitionResourceRequirementArgs>());
@@ -287,34 +196,20 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
         [Input("secrets")]
         private InputList<Inputs.TaskDefinitionSecretArgs>? _secrets;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
-        /// </summary>
         public InputList<Inputs.TaskDefinitionSecretArgs> Secrets
         {
             get => _secrets ?? (_secrets = new InputList<Inputs.TaskDefinitionSecretArgs>());
             set => _secrets = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
-        /// </summary>
         [Input("startTimeout")]
         public Input<int>? StartTimeout { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
-        /// </summary>
         [Input("stopTimeout")]
         public Input<int>? StopTimeout { get; set; }
 
         [Input("systemControls")]
         private InputList<Inputs.TaskDefinitionSystemControlArgs>? _systemControls;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-        /// </summary>
         public InputList<Inputs.TaskDefinitionSystemControlArgs> SystemControls
         {
             get => _systemControls ?? (_systemControls = new InputList<Inputs.TaskDefinitionSystemControlArgs>());
@@ -323,37 +218,23 @@ namespace Pulumi.AwsNative.ECS.Inputs
 
         [Input("ulimits")]
         private InputList<Inputs.TaskDefinitionUlimitArgs>? _ulimits;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
-        /// </summary>
         public InputList<Inputs.TaskDefinitionUlimitArgs> Ulimits
         {
             get => _ulimits ?? (_ulimits = new InputList<Inputs.TaskDefinitionUlimitArgs>());
             set => _ulimits = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-user
-        /// </summary>
         [Input("user")]
         public Input<string>? User { get; set; }
 
         [Input("volumesFrom")]
         private InputList<Inputs.TaskDefinitionVolumeFromArgs>? _volumesFrom;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom
-        /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeFromArgs> VolumesFrom
         {
             get => _volumesFrom ?? (_volumesFrom = new InputList<Inputs.TaskDefinitionVolumeFromArgs>());
             set => _volumesFrom = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-workingdirectory
-        /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }
 

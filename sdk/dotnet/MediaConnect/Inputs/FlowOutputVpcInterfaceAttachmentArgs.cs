@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaConnect.Inputs
+namespace Pulumi.AwsNative.Mediaconnect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html
+    /// The settings for attaching a VPC interface to an output.
     /// </summary>
     public sealed class FlowOutputVpcInterfaceAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html#cfn-mediaconnect-flowoutput-vpcinterfaceattachment-vpcinterfacename
+        /// The name of the VPC interface to use for this output.
         /// </summary>
         [Input("vpcInterfaceName")]
         public Input<string>? VpcInterfaceName { get; set; }

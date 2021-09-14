@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Route53.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
+    /// A key-value pair to associate with a resource.
     /// </summary>
     [OutputType]
     public sealed class HealthCheckHealthCheckTag
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
+        /// The key name of the tag.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
+        /// The value for the tag.
         /// </summary>
         public readonly string Value;
 

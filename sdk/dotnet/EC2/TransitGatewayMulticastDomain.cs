@@ -7,41 +7,53 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2
+namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html
+    /// The AWS::EC2::TransitGatewayMulticastDomain type
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:TransitGatewayMulticastDomain")]
     public partial class TransitGatewayMulticastDomain : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time the transit gateway multicast domain was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+        /// The options for the transit gateway multicast domain.
         /// </summary>
         [Output("options")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Options { get; private set; } = null!;
+        public Output<object?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// The state of the transit gateway multicast domain.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
+        /// The tags for the transit gateway multicast domain.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TransitGatewayMulticastDomainTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+        /// The ID of the transit gateway.
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string> TransitGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the transit gateway multicast domain.
+        /// </summary>
         [Output("transitGatewayMulticastDomainArn")]
         public Output<string> TransitGatewayMulticastDomainArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the transit gateway multicast domain.
+        /// </summary>
         [Output("transitGatewayMulticastDomainId")]
         public Output<string> TransitGatewayMulticastDomainId { get; private set; } = null!;
 
@@ -91,25 +103,25 @@ namespace Pulumi.AwsNative.EC2
     public sealed class TransitGatewayMulticastDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-options
+        /// The options for the transit gateway multicast domain.
         /// </summary>
         [Input("options")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Options { get; set; }
+        public Input<object>? Options { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.TransitGatewayMulticastDomainTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-tags
+        /// The tags for the transit gateway multicast domain.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.TransitGatewayMulticastDomainTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.TransitGatewayMulticastDomainTagArgs>());
             set => _tags = value;
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html#cfn-ec2-transitgatewaymulticastdomain-transitgatewayid
+        /// The ID of the transit gateway.
         /// </summary>
         [Input("transitGatewayId", required: true)]
         public Input<string> TransitGatewayId { get; set; } = null!;

@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ServiceCatalog
+namespace Pulumi.AwsNative.Servicecatalog
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html
+    /// Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
     /// </summary>
     [AwsNativeResourceType("aws-native:servicecatalog:ServiceActionAssociation")]
     public partial class ServiceActionAssociation : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        /// </summary>
         [Output("productId")]
         public Output<string> ProductId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        /// </summary>
         [Output("provisioningArtifactId")]
         public Output<string> ProvisioningArtifactId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-        /// </summary>
         [Output("serviceActionId")]
         public Output<string> ServiceActionId { get; private set; } = null!;
 
@@ -78,21 +69,12 @@ namespace Pulumi.AwsNative.ServiceCatalog
 
     public sealed class ServiceActionAssociationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-productid
-        /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-provisioningartifactid
-        /// </summary>
         [Input("provisioningArtifactId", required: true)]
         public Input<string> ProvisioningArtifactId { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-serviceactionassociation.html#cfn-servicecatalog-serviceactionassociation-serviceactionid
-        /// </summary>
         [Input("serviceActionId", required: true)]
         public Input<string> ServiceActionId { get; set; } = null!;
 

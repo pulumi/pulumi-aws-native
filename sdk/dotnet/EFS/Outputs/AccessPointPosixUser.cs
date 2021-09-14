@@ -7,25 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EFS.Outputs
+namespace Pulumi.AwsNative.Efs.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html
-    /// </summary>
     [OutputType]
     public sealed class AccessPointPosixUser
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-gid
+        /// The POSIX group ID used for all file system operations using this access point.
         /// </summary>
         public readonly string Gid;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-secondarygids
+        /// Secondary POSIX group IDs used for all file system operations using this access point.
         /// </summary>
         public readonly ImmutableArray<string> SecondaryGids;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-accesspoint-posixuser.html#cfn-efs-accesspoint-posixuser-uid
+        /// The POSIX user ID used for all file system operations using this access point.
         /// </summary>
         public readonly string Uid;
 

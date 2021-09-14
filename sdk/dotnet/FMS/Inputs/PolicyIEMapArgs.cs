@@ -7,20 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FMS.Inputs
+namespace Pulumi.AwsNative.Fms.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html
+    /// An FMS includeMap or excludeMap.
     /// </summary>
     public sealed class PolicyIEMapArgs : Pulumi.ResourceArgs
     {
         [Input("aCCOUNT")]
         private InputList<string>? _aCCOUNT;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-account
-        /// </summary>
         public InputList<string> ACCOUNT
         {
             get => _aCCOUNT ?? (_aCCOUNT = new InputList<string>());
@@ -29,10 +25,6 @@ namespace Pulumi.AwsNative.FMS.Inputs
 
         [Input("oRGUNIT")]
         private InputList<string>? _oRGUNIT;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-iemap.html#cfn-fms-policy-iemap-orgunit
-        /// </summary>
         public InputList<string> ORGUNIT
         {
             get => _oRGUNIT ?? (_oRGUNIT = new InputList<string>());

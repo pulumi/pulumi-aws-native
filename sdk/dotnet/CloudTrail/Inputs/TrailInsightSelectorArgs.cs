@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudTrail.Inputs
+namespace Pulumi.AwsNative.Cloudtrail.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html
+    /// A string that contains insight types that are logged on a trail.
     /// </summary>
     public sealed class TrailInsightSelectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-insightselector.html#cfn-cloudtrail-trail-insightselector-insighttype
+        /// The type of insight to log on a trail.
         /// </summary>
         [Input("insightType")]
         public Input<string>? InsightType { get; set; }

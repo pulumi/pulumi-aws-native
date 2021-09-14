@@ -7,21 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html
+    /// &lt;p&gt;The source analysis of the template.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class TemplateTemplateSourceAnalysis
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-arn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the resource.&lt;/p&gt;
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html#cfn-quicksight-template-templatesourceanalysis-datasetreferences
+        /// &lt;p&gt;A structure containing information about the dataset references used as placeholders
+        ///             in the template.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataSetReference> DataSetReferences;
 

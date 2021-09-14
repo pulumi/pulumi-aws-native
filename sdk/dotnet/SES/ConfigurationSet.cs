@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SES
+namespace Pulumi.AwsNative.Ses
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
+    /// Resource schema for AWS::SES::ConfigurationSet.
     /// </summary>
     [AwsNativeResourceType("aws-native:ses:ConfigurationSet")]
     public partial class ConfigurationSet : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        /// The name of the configuration set.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SES
     public sealed class ConfigurationSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html#cfn-ses-configurationset-name
+        /// The name of the configuration set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

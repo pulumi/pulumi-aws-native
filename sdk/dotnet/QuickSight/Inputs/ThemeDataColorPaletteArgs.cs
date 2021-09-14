@@ -7,11 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html
+    /// &lt;p&gt;The theme colors that are used for data colors in charts. The colors description is a
+    ///             hexadecimal color code that consists of six alphanumerical characters, prefixed with
+    ///                 &lt;code&gt;#&lt;/code&gt;, for example #37BFF5. &lt;/p&gt;
     /// </summary>
     public sealed class ThemeDataColorPaletteArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +21,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _colors;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-colors
+        /// &lt;p&gt;The hexadecimal codes for the colors.&lt;/p&gt;
         /// </summary>
         public InputList<string> Colors
         {
@@ -28,7 +30,8 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-emptyfillcolor
+        /// &lt;p&gt;The hexadecimal code of a color that applies to charts where a lack of data is
+        ///             highlighted.&lt;/p&gt;
         /// </summary>
         [Input("emptyFillColor")]
         public Input<string>? EmptyFillColor { get; set; }
@@ -37,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _minMaxGradient;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-datacolorpalette.html#cfn-quicksight-theme-datacolorpalette-minmaxgradient
+        /// &lt;p&gt;The minimum and maximum hexadecimal codes that describe a color gradient. &lt;/p&gt;
         /// </summary>
         public InputList<string> MinMaxGradient
         {

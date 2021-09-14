@@ -7,77 +7,49 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html
+    /// Defines the monitoring job.
     /// </summary>
     public sealed class MonitoringScheduleMonitoringJobDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-baselineconfig
-        /// </summary>
         [Input("baselineConfig")]
         public Input<Inputs.MonitoringScheduleBaselineConfigArgs>? BaselineConfig { get; set; }
 
+        /// <summary>
+        /// Sets the environment variables in the Docker container
+        /// </summary>
         [Input("environment")]
-        private InputMap<string>? _environment;
+        public Input<object>? Environment { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-environment
-        /// </summary>
-        public InputMap<string> Environment
-        {
-            get => _environment ?? (_environment = new InputMap<string>());
-            set => _environment = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringappspecification
-        /// </summary>
         [Input("monitoringAppSpecification", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringAppSpecificationArgs> MonitoringAppSpecification { get; set; } = null!;
 
         [Input("monitoringInputs", required: true)]
         private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringinputs
-        /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
         {
             get => _monitoringInputs ?? (_monitoringInputs = new InputList<Inputs.MonitoringScheduleMonitoringInputArgs>());
             set => _monitoringInputs = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringoutputconfig
-        /// </summary>
         [Input("monitoringOutputConfig", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringOutputConfigArgs> MonitoringOutputConfig { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-monitoringresources
-        /// </summary>
         [Input("monitoringResources", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringResourcesArgs> MonitoringResources { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-networkconfig
-        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.MonitoringScheduleNetworkConfigArgs>? NetworkConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-rolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html#cfn-sagemaker-monitoringschedule-monitoringjobdefinition-stoppingcondition
-        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.MonitoringScheduleStoppingConditionArgs>? StoppingCondition { get; set; }
 

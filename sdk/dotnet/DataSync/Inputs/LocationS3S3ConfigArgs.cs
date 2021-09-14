@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Inputs
+namespace Pulumi.AwsNative.Datasync.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html
+    /// The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
     /// </summary>
     public sealed class LocationS3S3ConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locations3-s3config.html#cfn-datasync-locations3-s3config-bucketaccessrolearn
+        /// The ARN of the IAM role of the Amazon S3 bucket.
         /// </summary>
         [Input("bucketAccessRoleArn", required: true)]
         public Input<string> BucketAccessRoleArn { get; set; } = null!;

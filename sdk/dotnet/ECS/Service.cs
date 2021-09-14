@@ -7,143 +7,80 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS
+namespace Pulumi.AwsNative.Ecs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
+    /// Resource Type definition for AWS::ECS::Service
     /// </summary>
     [AwsNativeResourceType("aws-native:ecs:Service")]
     public partial class Service : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-        /// </summary>
         [Output("capacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem>> CapacityProviderStrategy { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-        /// </summary>
         [Output("cluster")]
         public Output<string?> Cluster { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-        /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.ServiceDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-        /// </summary>
         [Output("deploymentController")]
         public Output<Outputs.ServiceDeploymentController?> DeploymentController { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-        /// </summary>
         [Output("desiredCount")]
         public Output<int?> DesiredCount { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-        /// </summary>
         [Output("enableECSManagedTags")]
         public Output<bool?> EnableECSManagedTags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-        /// </summary>
         [Output("enableExecuteCommand")]
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-        /// </summary>
         [Output("healthCheckGracePeriodSeconds")]
         public Output<int?> HealthCheckGracePeriodSeconds { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-        /// </summary>
         [Output("launchType")]
         public Output<string?> LaunchType { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-        /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-        /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-        /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-        /// </summary>
         [Output("placementStrategies")]
         public Output<ImmutableArray<Outputs.ServicePlacementStrategy>> PlacementStrategies { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-        /// </summary>
         [Output("platformVersion")]
         public Output<string?> PlatformVersion { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-        /// </summary>
         [Output("propagateTags")]
         public Output<string?> PropagateTags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-        /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-        /// </summary>
         [Output("schedulingStrategy")]
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
 
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-        /// </summary>
         [Output("serviceName")]
         public Output<string?> ServiceName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-        /// </summary>
         [Output("serviceRegistries")]
         public Output<ImmutableArray<Outputs.ServiceServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ServiceTag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-        /// </summary>
         [Output("taskDefinition")]
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
@@ -194,88 +131,49 @@ namespace Pulumi.AwsNative.ECS
     {
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
-        /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyItemArgs> CapacityProviderStrategy
         {
             get => _capacityProviderStrategy ?? (_capacityProviderStrategy = new InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>());
             set => _capacityProviderStrategy = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
-        /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
-        /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.ServiceDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
-        /// </summary>
         [Input("deploymentController")]
         public Input<Inputs.ServiceDeploymentControllerArgs>? DeploymentController { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-        /// </summary>
         [Input("desiredCount")]
         public Input<int>? DesiredCount { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableecsmanagedtags
-        /// </summary>
         [Input("enableECSManagedTags")]
         public Input<bool>? EnableECSManagedTags { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-enableexecutecommand
-        /// </summary>
         [Input("enableExecuteCommand")]
         public Input<bool>? EnableExecuteCommand { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
-        /// </summary>
         [Input("healthCheckGracePeriodSeconds")]
         public Input<int>? HealthCheckGracePeriodSeconds { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
-        /// </summary>
         [Input("launchType")]
         public Input<string>? LaunchType { get; set; }
 
         [Input("loadBalancers")]
         private InputList<Inputs.ServiceLoadBalancerArgs>? _loadBalancers;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers
-        /// </summary>
         public InputList<Inputs.ServiceLoadBalancerArgs> LoadBalancers
         {
             get => _loadBalancers ?? (_loadBalancers = new InputList<Inputs.ServiceLoadBalancerArgs>());
             set => _loadBalancers = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-networkconfiguration
-        /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         [Input("placementConstraints")]
         private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementconstraints
-        /// </summary>
         public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
             get => _placementConstraints ?? (_placementConstraints = new InputList<Inputs.ServicePlacementConstraintArgs>());
@@ -284,52 +182,29 @@ namespace Pulumi.AwsNative.ECS
 
         [Input("placementStrategies")]
         private InputList<Inputs.ServicePlacementStrategyArgs>? _placementStrategies;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-placementstrategies
-        /// </summary>
         public InputList<Inputs.ServicePlacementStrategyArgs> PlacementStrategies
         {
             get => _placementStrategies ?? (_placementStrategies = new InputList<Inputs.ServicePlacementStrategyArgs>());
             set => _placementStrategies = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-platformversion
-        /// </summary>
         [Input("platformVersion")]
         public Input<string>? PlatformVersion { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-propagatetags
-        /// </summary>
         [Input("propagateTags")]
         public Input<string>? PropagateTags { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
-        /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
-        /// </summary>
         [Input("schedulingStrategy")]
         public Input<string>? SchedulingStrategy { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         [Input("serviceRegistries")]
         private InputList<Inputs.ServiceServiceRegistryArgs>? _serviceRegistries;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
-        /// </summary>
         public InputList<Inputs.ServiceServiceRegistryArgs> ServiceRegistries
         {
             get => _serviceRegistries ?? (_serviceRegistries = new InputList<Inputs.ServiceServiceRegistryArgs>());
@@ -337,20 +212,13 @@ namespace Pulumi.AwsNative.ECS
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
-        /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        private InputList<Inputs.ServiceTagArgs>? _tags;
+        public InputList<Inputs.ServiceTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ServiceTagArgs>());
             set => _tags = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-        /// </summary>
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
 

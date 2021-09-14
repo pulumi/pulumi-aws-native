@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMContacts
+namespace Pulumi.AwsNative.Ssmcontacts
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html
+    /// Resource Type definition for AWS::SSMContacts::Contact
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmcontacts:Contact")]
     public partial class Contact : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
+        /// Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the contact.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
+        /// Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
+        /// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         /// </summary>
         [Output("plan")]
         public Output<ImmutableArray<Outputs.ContactStage>> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -88,13 +91,13 @@ namespace Pulumi.AwsNative.SSMContacts
     public sealed class ContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-alias
+        /// Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         /// </summary>
         [Input("alias", required: true)]
         public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-displayname
+        /// Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -103,7 +106,7 @@ namespace Pulumi.AwsNative.SSMContacts
         private InputList<Inputs.ContactStageArgs>? _plan;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-plan
+        /// The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         /// </summary>
         public InputList<Inputs.ContactStageArgs> Plan
         {
@@ -112,7 +115,7 @@ namespace Pulumi.AwsNative.SSMContacts
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmcontacts-contact.html#cfn-ssmcontacts-contact-type
+        /// Contact type, which specify type of contact. Currently supported values: “PERSONAL”, “SHARED”, “OTHER“.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

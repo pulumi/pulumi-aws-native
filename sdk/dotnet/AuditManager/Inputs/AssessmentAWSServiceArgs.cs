@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AuditManager.Inputs
+namespace Pulumi.AwsNative.Auditmanager.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html
+    /// An AWS service such as Amazon S3, AWS CloudTrail, and so on.
     /// </summary>
     public sealed class AssessmentAWSServiceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-awsservice.html#cfn-auditmanager-assessment-awsservice-servicename
-        /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 

@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMContacts.Inputs
+namespace Pulumi.AwsNative.Ssmcontacts.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html
+    /// The contacts or contact methods that the escalation plan or engagement plan is engaging.
     /// </summary>
     public sealed class ContactTargetsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-channeltargetinfo
-        /// </summary>
         [Input("channelTargetInfo")]
         public Input<Inputs.ContactChannelTargetInfoArgs>? ChannelTargetInfo { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-targets.html#cfn-ssmcontacts-contact-targets-contacttargetinfo
-        /// </summary>
         [Input("contactTargetInfo")]
         public Input<Inputs.ContactContactTargetInfoArgs>? ContactTargetInfo { get; set; }
 

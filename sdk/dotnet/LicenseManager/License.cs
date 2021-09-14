@@ -7,83 +7,71 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LicenseManager
+namespace Pulumi.AwsNative.Licensemanager
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html
+    /// Resource Type definition for AWS::LicenseManager::License
     /// </summary>
     [AwsNativeResourceType("aws-native:licensemanager:License")]
     public partial class License : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+        /// Beneficiary of the license.
         /// </summary>
         [Output("beneficiary")]
         public Output<string?> Beneficiary { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        /// </summary>
         [Output("consumptionConfiguration")]
         public Output<Outputs.LicenseConsumptionConfiguration> ConsumptionConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        /// </summary>
         [Output("entitlements")]
         public Output<ImmutableArray<Outputs.LicenseEntitlement>> Entitlements { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        /// Home region for the created license.
         /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        /// </summary>
         [Output("issuer")]
         public Output<Outputs.LicenseIssuerData> Issuer { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name is a unique name for each resource.
+        /// </summary>
         [Output("licenseArn")]
         public Output<string> LicenseArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        /// </summary>
         [Output("licenseMetadata")]
         public Output<ImmutableArray<Outputs.LicenseMetadata>> LicenseMetadata { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        /// Name for the created license.
         /// </summary>
         [Output("licenseName")]
         public Output<string> LicenseName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        /// Product name for the created license.
         /// </summary>
         [Output("productName")]
         public Output<string> ProductName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        /// ProductSKU of the license.
         /// </summary>
         [Output("productSKU")]
         public Output<string?> ProductSKU { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-        /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-        /// </summary>
         [Output("validity")]
         public Output<Outputs.LicenseValidityDateFormat> Validity { get; private set; } = null!;
 
+        /// <summary>
+        /// The version of the license.
+        /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
@@ -133,23 +121,16 @@ namespace Pulumi.AwsNative.LicenseManager
     public sealed class LicenseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-beneficiary
+        /// Beneficiary of the license.
         /// </summary>
         [Input("beneficiary")]
         public Input<string>? Beneficiary { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-consumptionconfiguration
-        /// </summary>
         [Input("consumptionConfiguration", required: true)]
         public Input<Inputs.LicenseConsumptionConfigurationArgs> ConsumptionConfiguration { get; set; } = null!;
 
         [Input("entitlements", required: true)]
         private InputList<Inputs.LicenseEntitlementArgs>? _entitlements;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-entitlements
-        /// </summary>
         public InputList<Inputs.LicenseEntitlementArgs> Entitlements
         {
             get => _entitlements ?? (_entitlements = new InputList<Inputs.LicenseEntitlementArgs>());
@@ -157,23 +138,16 @@ namespace Pulumi.AwsNative.LicenseManager
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-homeregion
+        /// Home region for the created license.
         /// </summary>
         [Input("homeRegion", required: true)]
         public Input<string> HomeRegion { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-issuer
-        /// </summary>
         [Input("issuer", required: true)]
         public Input<Inputs.LicenseIssuerDataArgs> Issuer { get; set; } = null!;
 
         [Input("licenseMetadata")]
         private InputList<Inputs.LicenseMetadataArgs>? _licenseMetadata;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensemetadata
-        /// </summary>
         public InputList<Inputs.LicenseMetadataArgs> LicenseMetadata
         {
             get => _licenseMetadata ?? (_licenseMetadata = new InputList<Inputs.LicenseMetadataArgs>());
@@ -181,32 +155,26 @@ namespace Pulumi.AwsNative.LicenseManager
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-licensename
+        /// Name for the created license.
         /// </summary>
         [Input("licenseName", required: true)]
         public Input<string> LicenseName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productname
+        /// Product name for the created license.
         /// </summary>
         [Input("productName", required: true)]
         public Input<string> ProductName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-productsku
+        /// ProductSKU of the license.
         /// </summary>
         [Input("productSKU")]
         public Input<string>? ProductSKU { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-status
-        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-licensemanager-license.html#cfn-licensemanager-license-validity
-        /// </summary>
         [Input("validity", required: true)]
         public Input<Inputs.LicenseValidityDateFormatArgs> Validity { get; set; } = null!;
 

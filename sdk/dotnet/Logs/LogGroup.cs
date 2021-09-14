@@ -10,28 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
+    /// Resource schema for AWS::Logs::LogGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:LogGroup")]
     public partial class LogGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The CloudWatch log group ARN.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+        /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
+        /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         /// </summary>
         [Output("logGroupName")]
         public Output<string?> LogGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
+        /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
@@ -82,19 +85,19 @@ namespace Pulumi.AwsNative.Logs
     public sealed class LogGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-kmskeyid
+        /// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-loggroupname
+        /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         /// </summary>
         [Input("logGroupName")]
         public Input<string>? LogGroupName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-logs-loggroup-retentionindays
+        /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }

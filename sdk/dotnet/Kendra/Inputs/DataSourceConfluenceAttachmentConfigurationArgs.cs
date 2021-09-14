@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html
-    /// </summary>
     public sealed class DataSourceConfluenceAttachmentConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("attachmentFieldMappings")]
         private InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>? _attachmentFieldMappings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-attachmentfieldmappings
-        /// </summary>
         public InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs> AttachmentFieldMappings
         {
             get => _attachmentFieldMappings ?? (_attachmentFieldMappings = new InputList<Inputs.DataSourceConfluenceAttachmentToIndexFieldMappingArgs>());
             set => _attachmentFieldMappings = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmentconfiguration.html#cfn-kendra-datasource-confluenceattachmentconfiguration-crawlattachments
-        /// </summary>
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 

@@ -7,29 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise.Outputs
+namespace Pulumi.AwsNative.Iotsitewise.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html
+    /// Contains a composite model definition in an asset model. This composite model definition is applied to all assets created from the asset model.
     /// </summary>
     [OutputType]
     public sealed class AssetModelAssetModelCompositeModel
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-compositemodelproperties
+        /// The property definitions of the asset model. You can specify up to 200 properties per asset model.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssetModelAssetModelProperty> CompositeModelProperties;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-description
+        /// A description for the asset composite model.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-name
+        /// A unique, friendly name for the asset composite model.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html#cfn-iotsitewise-assetmodel-assetmodelcompositemodel-type
+        /// The type of the composite model. For alarm composite models, this type is AWS/ALARM
         /// </summary>
         public readonly string Type;
 

@@ -7,26 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53Resolver
+namespace Pulumi.AwsNative.Route53resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html
+    /// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:ResolverDNSSECConfig")]
     public partial class ResolverDNSSECConfig : Pulumi.CustomResource
     {
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
+        /// <summary>
+        /// AccountId
+        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        /// ResourceId
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverDNSSECValidationStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.
+        /// </summary>
         [Output("validationStatus")]
         public Output<string> ValidationStatus { get; private set; } = null!;
 
@@ -76,7 +79,7 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class ResolverDNSSECConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverdnssecconfig.html#cfn-route53resolver-resolverdnssecconfig-resourceid
+        /// ResourceId
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

@@ -7,25 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM.Outputs
+namespace Pulumi.AwsNative.Ssm.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html
-    /// </summary>
     [OutputType]
     public sealed class DocumentAttachmentsSource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-key
+        /// The key of a key-value pair that identifies the location of an attachment to a document.
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-name
+        /// The name of the document attachment file.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-document-attachmentssource.html#cfn-ssm-document-attachmentssource-values
+        /// The value of a key-value pair that identifies the location of an attachment to a document. The format for Value depends on the type of key you specify.
         /// </summary>
         public readonly ImmutableArray<string> Values;
 

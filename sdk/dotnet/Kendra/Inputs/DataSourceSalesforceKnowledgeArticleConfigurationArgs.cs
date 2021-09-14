@@ -10,17 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html
-    /// </summary>
     public sealed class DataSourceSalesforceKnowledgeArticleConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("customKnowledgeArticleTypeConfigurations")]
         private InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>? _customKnowledgeArticleTypeConfigurations;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-customknowledgearticletypeconfigurations
-        /// </summary>
         public InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs> CustomKnowledgeArticleTypeConfigurations
         {
             get => _customKnowledgeArticleTypeConfigurations ?? (_customKnowledgeArticleTypeConfigurations = new InputList<Inputs.DataSourceSalesforceCustomKnowledgeArticleTypeConfigurationArgs>());
@@ -29,19 +22,12 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includedStates", required: true)]
         private InputList<string>? _includedStates;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-includedstates
-        /// </summary>
         public InputList<string> IncludedStates
         {
             get => _includedStates ?? (_includedStates = new InputList<string>());
             set => _includedStates = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-salesforceknowledgearticleconfiguration.html#cfn-kendra-datasource-salesforceknowledgearticleconfiguration-standardknowledgearticletypeconfiguration
-        /// </summary>
         [Input("standardKnowledgeArticleTypeConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>? StandardKnowledgeArticleTypeConfiguration { get; set; }
 

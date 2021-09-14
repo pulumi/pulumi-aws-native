@@ -10,23 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html
-    /// </summary>
     [OutputType]
     public sealed class ConfigurationAggregatorAccountAggregationSource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-accountids
-        /// </summary>
         public readonly ImmutableArray<string> AccountIds;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-allawsregions
-        /// </summary>
         public readonly bool? AllAwsRegions;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-accountaggregationsource.html#cfn-config-configurationaggregator-accountaggregationsource-awsregions
-        /// </summary>
         public readonly ImmutableArray<string> AwsRegions;
 
         [OutputConstructor]

@@ -7,35 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AutoScaling
+namespace Pulumi.AwsNative.Autoscaling
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html
+    /// Resource schema for AWS::AutoScaling::WarmPool.
     /// </summary>
     [AwsNativeResourceType("aws-native:autoscaling:WarmPool")]
     public partial class WarmPool : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        /// </summary>
         [Output("autoScalingGroupName")]
         public Output<string> AutoScalingGroupName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        /// </summary>
         [Output("maxGroupPreparedCapacity")]
         public Output<int?> MaxGroupPreparedCapacity { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        /// </summary>
         [Output("minSize")]
         public Output<int?> MinSize { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-        /// </summary>
         [Output("poolState")]
         public Output<string?> PoolState { get; private set; } = null!;
 
@@ -84,27 +72,15 @@ namespace Pulumi.AwsNative.AutoScaling
 
     public sealed class WarmPoolArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-autoscalinggroupname
-        /// </summary>
         [Input("autoScalingGroupName", required: true)]
         public Input<string> AutoScalingGroupName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-maxgrouppreparedcapacity
-        /// </summary>
         [Input("maxGroupPreparedCapacity")]
         public Input<int>? MaxGroupPreparedCapacity { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-minsize
-        /// </summary>
         [Input("minSize")]
         public Input<int>? MinSize { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html#cfn-autoscaling-warmpool-poolstate
-        /// </summary>
         [Input("poolState")]
         public Input<string>? PoolState { get; set; }
 

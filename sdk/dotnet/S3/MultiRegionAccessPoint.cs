@@ -10,31 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html
+    /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:MultiRegionAccessPoint")]
     public partial class MultiRegionAccessPoint : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The alias is a unique identifier to, and is part of the public DNS name for this Multi Region Access Point
+        /// </summary>
         [Output("alias")]
         public Output<string> Alias { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp of the when the Multi Region Access Point is created
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+        /// The name you want to assign to this Multi Region Access Point.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+        /// The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
         [Output("publicAccessBlockConfiguration")]
         public Output<Outputs.MultiRegionAccessPointPublicAccessBlockConfiguration?> PublicAccessBlockConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+        /// The list of buckets that you want to associate this Multi Region Access Point with.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<Outputs.MultiRegionAccessPointRegion>> Regions { get; private set; } = null!;
@@ -85,13 +91,13 @@ namespace Pulumi.AwsNative.S3
     public sealed class MultiRegionAccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-name
+        /// The name you want to assign to this Multi Region Access Point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-publicaccessblockconfiguration
+        /// The PublicAccessBlock configuration that you want to apply to this Multi Region Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
         /// </summary>
         [Input("publicAccessBlockConfiguration")]
         public Input<Inputs.MultiRegionAccessPointPublicAccessBlockConfigurationArgs>? PublicAccessBlockConfiguration { get; set; }
@@ -100,7 +106,7 @@ namespace Pulumi.AwsNative.S3
         private InputList<Inputs.MultiRegionAccessPointRegionArgs>? _regions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html#cfn-s3-multiregionaccesspoint-regions
+        /// The list of buckets that you want to associate this Multi Region Access Point with.
         /// </summary>
         public InputList<Inputs.MultiRegionAccessPointRegionArgs> Regions
         {

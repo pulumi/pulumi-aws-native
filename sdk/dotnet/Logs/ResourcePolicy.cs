@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html
+    /// The resource schema for AWSLogs ResourcePolicy
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:ResourcePolicy")]
     public partial class ResourcePolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+        /// The policy document
         /// </summary>
         [Output("policyDocument")]
         public Output<string> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        /// A name for resource policy
         /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.AwsNative.Logs
     public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policydocument
+        /// The policy document
         /// </summary>
         [Input("policyDocument", required: true)]
         public Input<string> PolicyDocument { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-resourcepolicy.html#cfn-logs-resourcepolicy-policyname
+        /// A name for resource policy
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;

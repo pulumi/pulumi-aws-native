@@ -7,25 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GameLift.Outputs
+namespace Pulumi.AwsNative.Gamelift.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
-    /// </summary>
     [OutputType]
     public sealed class AliasRoutingStrategy
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+        /// A unique identifier for a fleet that the alias points to. If you specify SIMPLE for the Type property, you must specify this property.
         /// </summary>
         public readonly string? FleetId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+        /// The message text to be used with a terminal routing strategy. If you specify TERMINAL for the Type property, you must specify this property.
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+        /// Simple routing strategy. The alias resolves to one specific fleet. Use this type when routing to active fleets.
         /// </summary>
         public readonly string Type;
 

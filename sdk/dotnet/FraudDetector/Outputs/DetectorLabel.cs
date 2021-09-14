@@ -7,43 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FraudDetector.Outputs
+namespace Pulumi.AwsNative.Frauddetector.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html
-    /// </summary>
     [OutputType]
     public sealed class DetectorLabel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-arn
-        /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-createdtime
+        /// The time when the label was created.
         /// </summary>
         public readonly string? CreatedTime;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-description
+        /// The description.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-inline
-        /// </summary>
         public readonly bool? Inline;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-lastupdatedtime
+        /// The time when the label was last updated.
         /// </summary>
         public readonly string? LastUpdatedTime;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-name
-        /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-frauddetector-detector-label.html#cfn-frauddetector-detector-label-tags
+        /// Tags associated with this label.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Outputs.DetectorTag> Tags;
 
         [OutputConstructor]
         private DetectorLabel(
@@ -59,7 +47,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
 
             string? name,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Outputs.DetectorTag> tags)
         {
             Arn = arn;
             CreatedTime = createdTime;

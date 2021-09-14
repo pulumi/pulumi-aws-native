@@ -7,100 +7,106 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder
+namespace Pulumi.AwsNative.Imagebuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html
+    /// Resource schema for AWS::ImageBuilder::ContainerRecipe
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:ContainerRecipe")]
     public partial class ContainerRecipe : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the container recipe.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+        /// Components for build and test that are included in the container recipe.
         /// </summary>
         [Output("components")]
         public Output<ImmutableArray<Outputs.ContainerRecipeComponentConfiguration>> Components { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+        /// Specifies the type of container, such as Docker.
         /// </summary>
         [Output("containerType")]
-        public Output<string> ContainerType { get; private set; } = null!;
+        public Output<string?> ContainerType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+        /// The description of the container recipe.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+        /// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         /// </summary>
         [Output("dockerfileTemplateData")]
         public Output<string?> DockerfileTemplateData { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+        /// The S3 URI for the Dockerfile that will be used to build your container image.
         /// </summary>
         [Output("dockerfileTemplateUri")]
         public Output<string?> DockerfileTemplateUri { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+        /// Specifies the operating system version for the source image.
         /// </summary>
         [Output("imageOsVersionOverride")]
         public Output<string?> ImageOsVersionOverride { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+        /// A group of options that can be used to configure an instance for building and testing container images.
         /// </summary>
         [Output("instanceConfiguration")]
         public Output<Outputs.ContainerRecipeInstanceConfiguration?> InstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+        /// Identifies which KMS key is used to encrypt the container image.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the container recipe.
+        /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
+        /// The source image for the container recipe.
         /// </summary>
         [Output("parentImage")]
-        public Output<string> ParentImage { get; private set; } = null!;
+        public Output<string?> ParentImage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+        /// Specifies the operating system platform when you use a custom source image.
         /// </summary>
         [Output("platformOverride")]
         public Output<string?> PlatformOverride { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+        /// Tags that are attached to the container recipe.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
+        /// The destination repository for the container image.
         /// </summary>
         [Output("targetRepository")]
-        public Output<Outputs.ContainerRecipeTargetContainerRepository> TargetRepository { get; private set; } = null!;
+        public Output<Outputs.ContainerRecipeTargetContainerRepository?> TargetRepository { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
+        /// The semantic version of the container recipe (&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;).
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        /// The working directory to be used during build and test workflows.
         /// </summary>
         [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
@@ -113,7 +119,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ContainerRecipe(string name, ContainerRecipeArgs args, CustomResourceOptions? options = null)
+        public ContainerRecipe(string name, ContainerRecipeArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:imagebuilder:ContainerRecipe", name, args ?? new ContainerRecipeArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -150,11 +156,11 @@ namespace Pulumi.AwsNative.ImageBuilder
 
     public sealed class ContainerRecipeArgs : Pulumi.ResourceArgs
     {
-        [Input("components", required: true)]
+        [Input("components")]
         private InputList<Inputs.ContainerRecipeComponentConfigurationArgs>? _components;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-components
+        /// Components for build and test that are included in the container recipe.
         /// </summary>
         public InputList<Inputs.ContainerRecipeComponentConfigurationArgs> Components
         {
@@ -163,91 +169,85 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-containertype
+        /// Specifies the type of container, such as Docker.
         /// </summary>
-        [Input("containerType", required: true)]
-        public Input<string> ContainerType { get; set; } = null!;
+        [Input("containerType")]
+        public Input<string>? ContainerType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-description
+        /// The description of the container recipe.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplatedata
+        /// Dockerfiles are text documents that are used to build Docker containers, and ensure that they contain all of the elements required by the application running inside. The template data consists of contextual variables where Image Builder places build information or scripts, based on your container image recipe.
         /// </summary>
         [Input("dockerfileTemplateData")]
         public Input<string>? DockerfileTemplateData { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-dockerfiletemplateuri
+        /// The S3 URI for the Dockerfile that will be used to build your container image.
         /// </summary>
         [Input("dockerfileTemplateUri")]
         public Input<string>? DockerfileTemplateUri { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-imageosversionoverride
+        /// Specifies the operating system version for the source image.
         /// </summary>
         [Input("imageOsVersionOverride")]
         public Input<string>? ImageOsVersionOverride { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-instanceconfiguration
+        /// A group of options that can be used to configure an instance for building and testing container images.
         /// </summary>
         [Input("instanceConfiguration")]
         public Input<Inputs.ContainerRecipeInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-kmskeyid
+        /// Identifies which KMS key is used to encrypt the container image.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-name
+        /// The name of the container recipe.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-parentimage
+        /// The source image for the container recipe.
         /// </summary>
-        [Input("parentImage", required: true)]
-        public Input<string> ParentImage { get; set; } = null!;
+        [Input("parentImage")]
+        public Input<string>? ParentImage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-platformoverride
+        /// Specifies the operating system platform when you use a custom source image.
         /// </summary>
         [Input("platformOverride")]
         public Input<string>? PlatformOverride { get; set; }
 
+        /// <summary>
+        /// Tags that are attached to the container recipe.
+        /// </summary>
         [Input("tags")]
-        private InputMap<string>? _tags;
+        public Input<object>? Tags { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-tags
+        /// The destination repository for the container image.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("targetRepository")]
+        public Input<Inputs.ContainerRecipeTargetContainerRepositoryArgs>? TargetRepository { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-targetrepository
+        /// The semantic version of the container recipe (&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;).
         /// </summary>
-        [Input("targetRepository", required: true)]
-        public Input<Inputs.ContainerRecipeTargetContainerRepositoryArgs> TargetRepository { get; set; } = null!;
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-version
-        /// </summary>
-        [Input("version", required: true)]
-        public Input<string> Version { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-containerrecipe.html#cfn-imagebuilder-containerrecipe-workingdirectory
+        /// The working directory to be used during build and test workflows.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

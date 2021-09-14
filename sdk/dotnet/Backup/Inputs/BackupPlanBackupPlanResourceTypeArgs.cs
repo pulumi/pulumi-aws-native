@@ -10,35 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html
-    /// </summary>
     public sealed class BackupPlanBackupPlanResourceTypeArgs : Pulumi.ResourceArgs
     {
         [Input("advancedBackupSettings")]
         private InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>? _advancedBackupSettings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-advancedbackupsettings
-        /// </summary>
         public InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs> AdvancedBackupSettings
         {
             get => _advancedBackupSettings ?? (_advancedBackupSettings = new InputList<Inputs.BackupPlanAdvancedBackupSettingResourceTypeArgs>());
             set => _advancedBackupSettings = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanname
-        /// </summary>
         [Input("backupPlanName", required: true)]
         public Input<string> BackupPlanName { get; set; } = null!;
 
         [Input("backupPlanRule", required: true)]
         private InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>? _backupPlanRule;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupplanresourcetype.html#cfn-backup-backupplan-backupplanresourcetype-backupplanrule
-        /// </summary>
         public InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs> BackupPlanRule
         {
             get => _backupPlanRule ?? (_backupPlanRule = new InputList<Inputs.BackupPlanBackupRuleResourceTypeArgs>());

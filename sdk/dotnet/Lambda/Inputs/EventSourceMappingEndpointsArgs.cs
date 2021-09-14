@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html
+    /// The endpoints used by AWS Lambda to access a self-managed event source.
     /// </summary>
     public sealed class EventSourceMappingEndpointsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _kafkaBootstrapServers;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html#cfn-lambda-eventsourcemapping-endpoints-kafkabootstrapservers
+        /// A list of Kafka server endpoints.
         /// </summary>
         public InputList<string> KafkaBootstrapServers
         {

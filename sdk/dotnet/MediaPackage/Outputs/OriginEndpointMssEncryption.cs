@@ -7,18 +7,15 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Outputs
+namespace Pulumi.AwsNative.Mediapackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html
+    /// A Microsoft Smooth Streaming (MSS) encryption configuration.
     /// </summary>
     [OutputType]
     public sealed class OriginEndpointMssEncryption
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-mssencryption.html#cfn-mediapackage-originendpoint-mssencryption-spekekeyprovider
-        /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

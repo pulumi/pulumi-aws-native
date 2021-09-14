@@ -10,26 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html
-    /// </summary>
     public sealed class BackupVaultNotificationObjectTypeArgs : Pulumi.ResourceArgs
     {
         [Input("backupVaultEvents", required: true)]
         private InputList<string>? _backupVaultEvents;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-backupvaultevents
-        /// </summary>
         public InputList<string> BackupVaultEvents
         {
             get => _backupVaultEvents ?? (_backupVaultEvents = new InputList<string>());
             set => _backupVaultEvents = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html#cfn-backup-backupvault-notificationobjecttype-snstopicarn
-        /// </summary>
         [Input("sNSTopicArn", required: true)]
         public Input<string> SNSTopicArn { get; set; } = null!;
 

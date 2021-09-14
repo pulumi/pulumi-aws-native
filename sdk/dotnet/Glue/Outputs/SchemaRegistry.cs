@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Glue.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html
+    /// Identifier for the registry which the schema is part of.
     /// </summary>
     [OutputType]
     public sealed class SchemaRegistry
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-arn
+        /// Amazon Resource Name for the Registry.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-schema-registry.html#cfn-glue-schema-registry-name
+        /// Name of the registry in which the schema will be created.
         /// </summary>
         public readonly string? Name;
 

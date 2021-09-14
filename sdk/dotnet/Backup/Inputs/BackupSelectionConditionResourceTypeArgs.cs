@@ -10,26 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Backup.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html
-    /// </summary>
     public sealed class BackupSelectionConditionResourceTypeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionkey
-        /// </summary>
         [Input("conditionKey", required: true)]
         public Input<string> ConditionKey { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditiontype
-        /// </summary>
         [Input("conditionType", required: true)]
         public Input<string> ConditionType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionresourcetype.html#cfn-backup-backupselection-conditionresourcetype-conditionvalue
-        /// </summary>
         [Input("conditionValue", required: true)]
         public Input<string> ConditionValue { get; set; } = null!;
 

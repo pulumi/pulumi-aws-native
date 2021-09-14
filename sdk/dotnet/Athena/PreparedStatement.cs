@@ -10,31 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Athena
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html
+    /// Resource schema for AWS::Athena::PreparedStatement
     /// </summary>
     [AwsNativeResourceType("aws-native:athena:PreparedStatement")]
     public partial class PreparedStatement : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+        /// The description of the prepared statement.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+        /// The query string for the prepared statement.
         /// </summary>
         [Output("queryStatement")]
         public Output<string> QueryStatement { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+        /// The name of the prepared statement.
         /// </summary>
         [Output("statementName")]
         public Output<string> StatementName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+        /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Output("workGroup")]
         public Output<string> WorkGroup { get; private set; } = null!;
@@ -85,25 +85,25 @@ namespace Pulumi.AwsNative.Athena
     public sealed class PreparedStatementArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-description
+        /// The description of the prepared statement.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-querystatement
+        /// The query string for the prepared statement.
         /// </summary>
         [Input("queryStatement", required: true)]
         public Input<string> QueryStatement { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-statementname
+        /// The name of the prepared statement.
         /// </summary>
         [Input("statementName", required: true)]
         public Input<string> StatementName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-preparedstatement.html#cfn-athena-preparedstatement-workgroup
+        /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Input("workGroup", required: true)]
         public Input<string> WorkGroup { get; set; } = null!;

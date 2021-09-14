@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Route53.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html
+    /// A complex type that contains information about a configuration for DNS query logging.
     /// </summary>
     public sealed class HostedZoneQueryLoggingConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-queryloggingconfig.html#cfn-route53-hostedzone-queryloggingconfig-cloudwatchlogsloggrouparn
+        /// The Amazon Resource Name (ARN) of the CloudWatch Logs log group that Amazon Route 53 is publishing logs to.
         /// </summary>
         [Input("cloudWatchLogsLogGroupArn", required: true)]
         public Input<string> CloudWatchLogsLogGroupArn { get; set; } = null!;

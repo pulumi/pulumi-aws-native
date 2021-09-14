@@ -7,44 +7,27 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NimbleStudio.Inputs
+namespace Pulumi.AwsNative.Nimblestudio.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html
-    /// </summary>
     public sealed class LaunchProfileStreamConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-clipboardmode
-        /// </summary>
         [Input("clipboardMode", required: true)]
         public Input<string> ClipboardMode { get; set; } = null!;
 
         [Input("ec2InstanceTypes", required: true)]
         private InputList<string>? _ec2InstanceTypes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-ec2instancetypes
-        /// </summary>
         public InputList<string> Ec2InstanceTypes
         {
             get => _ec2InstanceTypes ?? (_ec2InstanceTypes = new InputList<string>());
             set => _ec2InstanceTypes = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-maxsessionlengthinminutes
-        /// </summary>
         [Input("maxSessionLengthInMinutes")]
         public Input<double>? MaxSessionLengthInMinutes { get; set; }
 
         [Input("streamingImageIds", required: true)]
         private InputList<string>? _streamingImageIds;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html#cfn-nimblestudio-launchprofile-streamconfiguration-streamingimageids
-        /// </summary>
         public InputList<string> StreamingImageIds
         {
             get => _streamingImageIds ?? (_streamingImageIds = new InputList<string>());

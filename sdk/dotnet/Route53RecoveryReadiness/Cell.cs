@@ -7,37 +7,43 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness
+namespace Pulumi.AwsNative.Route53recoveryreadiness
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html
+    /// The API Schema for AWS Route53 Recovery Readiness Cells.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:Cell")]
     public partial class Cell : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cell.
+        /// </summary>
         [Output("cellArn")]
         public Output<string> CellArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+        /// The name of the cell to create.
         /// </summary>
         [Output("cellName")]
         public Output<string> CellName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+        /// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         /// </summary>
         [Output("cells")]
         public Output<ImmutableArray<string>> Cells { get; private set; } = null!;
 
+        /// <summary>
+        /// The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.
+        /// </summary>
         [Output("parentReadinessScopes")]
         public Output<ImmutableArray<string>> ParentReadinessScopes { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.CellTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -85,7 +91,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     public sealed class CellArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cellname
+        /// The name of the cell to create.
         /// </summary>
         [Input("cellName", required: true)]
         public Input<string> CellName { get; set; } = null!;
@@ -94,7 +100,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         private InputList<string>? _cells;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-cells
+        /// A list of cell Amazon Resource Names (ARNs) contained within this cell, for use in nested cells. For example, Availability Zones within specific Regions.
         /// </summary>
         public InputList<string> Cells
         {
@@ -103,14 +109,14 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.CellTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-cell.html#cfn-route53recoveryreadiness-cell-tags
+        /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.CellTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.CellTagArgs>());
             set => _tags = value;
         }
 

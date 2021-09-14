@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront.Inputs
+namespace Pulumi.AwsNative.Cloudfront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html
-    /// </summary>
     public sealed class DistributionStatusCodesArgs : Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<int>? _items;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-items
-        /// </summary>
         public InputList<int> Items
         {
             get => _items ?? (_items = new InputList<int>());
             set => _items = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-statuscodes.html#cfn-cloudfront-distribution-statuscodes-quantity
-        /// </summary>
         [Input("quantity", required: true)]
         public Input<int> Quantity { get; set; } = null!;
 

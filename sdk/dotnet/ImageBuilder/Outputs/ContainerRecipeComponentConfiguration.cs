@@ -7,17 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Outputs
+namespace Pulumi.AwsNative.Imagebuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html
+    /// Configuration details of the component.
     /// </summary>
     [OutputType]
     public sealed class ContainerRecipeComponentConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html#cfn-imagebuilder-containerrecipe-componentconfiguration-componentarn
+        /// The Amazon Resource Name (ARN) of the component.
         /// </summary>
         public readonly string? ComponentArn;
 

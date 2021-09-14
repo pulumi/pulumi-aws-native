@@ -10,29 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html
-    /// </summary>
     public sealed class DataSourceConfluenceConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-attachmentconfiguration
-        /// </summary>
         [Input("attachmentConfiguration")]
         public Input<Inputs.DataSourceConfluenceAttachmentConfigurationArgs>? AttachmentConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-blogconfiguration
-        /// </summary>
         [Input("blogConfiguration")]
         public Input<Inputs.DataSourceConfluenceBlogConfigurationArgs>? BlogConfiguration { get; set; }
 
         [Input("exclusionPatterns")]
         private InputList<string>? _exclusionPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-exclusionpatterns
-        /// </summary>
         public InputList<string> ExclusionPatterns
         {
             get => _exclusionPatterns ?? (_exclusionPatterns = new InputList<string>());
@@ -41,49 +28,27 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("inclusionPatterns")]
         private InputList<string>? _inclusionPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-inclusionpatterns
-        /// </summary>
         public InputList<string> InclusionPatterns
         {
             get => _inclusionPatterns ?? (_inclusionPatterns = new InputList<string>());
             set => _inclusionPatterns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-pageconfiguration
-        /// </summary>
         [Input("pageConfiguration")]
         public Input<Inputs.DataSourceConfluencePageConfigurationArgs>? PageConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-secretarn
-        /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-serverurl
-        /// </summary>
         [Input("serverUrl", required: true)]
         public Input<string> ServerUrl { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-spaceconfiguration
-        /// </summary>
         [Input("spaceConfiguration")]
         public Input<Inputs.DataSourceConfluenceSpaceConfigurationArgs>? SpaceConfiguration { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-version
-        /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceconfiguration.html#cfn-kendra-datasource-confluenceconfiguration-vpcconfiguration
-        /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceDataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }
 

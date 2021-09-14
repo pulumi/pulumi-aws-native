@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Inputs
+namespace Pulumi.AwsNative.Applicationinsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html
+    /// A CloudWatch alarm to be monitored for the component.
     /// </summary>
     public sealed class ApplicationAlarmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-alarmname
+        /// The name of the CloudWatch alarm to be monitored for the component.
         /// </summary>
         [Input("alarmName", required: true)]
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-alarm.html#cfn-applicationinsights-application-alarm-severity
+        /// Indicates the degree of outage when the alarm goes off.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }

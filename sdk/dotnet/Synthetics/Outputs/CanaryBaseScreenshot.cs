@@ -10,18 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Synthetics.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html
-    /// </summary>
     [OutputType]
     public sealed class CanaryBaseScreenshot
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-ignorecoordinates
+        /// List of coordinates of rectangles to be ignored during visual testing
         /// </summary>
         public readonly ImmutableArray<string> IgnoreCoordinates;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-basescreenshot.html#cfn-synthetics-canary-basescreenshot-screenshotname
+        /// Name of the screenshot to be used as base reference for visual testing
         /// </summary>
         public readonly string ScreenshotName;
 

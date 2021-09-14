@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Outputs
+namespace Pulumi.AwsNative.Imagebuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html
+    /// Specify additional settings and launch scripts for your build instances.
     /// </summary>
     [OutputType]
     public sealed class ImageRecipeAdditionalInstanceConfiguration
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-systemsmanageragent
+        /// Contains settings for the SSM agent on your build instance.
         /// </summary>
         public readonly Outputs.ImageRecipeSystemsManagerAgent? SystemsManagerAgent;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-additionalinstanceconfiguration.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration-userdataoverride
+        /// Use this property to provide commands or a command script to run when you launch your build instance.
         /// </summary>
         public readonly string UserDataOverride;
 

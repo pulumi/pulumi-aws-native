@@ -10,28 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html
+    /// The resource schema for AWSLogs QueryDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:QueryDefinition")]
     public partial class QueryDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+        /// Optionally define specific log groups as part of your query definition
         /// </summary>
         [Output("logGroupNames")]
         public Output<ImmutableArray<string>> LogGroupNames { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+        /// A name for the saved query definition
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of a query definition
+        /// </summary>
         [Output("queryDefinitionId")]
         public Output<string> QueryDefinitionId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+        /// The query string to use for this definition
         /// </summary>
         [Output("queryString")]
         public Output<string> QueryString { get; private set; } = null!;
@@ -85,7 +88,7 @@ namespace Pulumi.AwsNative.Logs
         private InputList<string>? _logGroupNames;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-loggroupnames
+        /// Optionally define specific log groups as part of your query definition
         /// </summary>
         public InputList<string> LogGroupNames
         {
@@ -94,13 +97,13 @@ namespace Pulumi.AwsNative.Logs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-name
+        /// A name for the saved query definition
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-querydefinition.html#cfn-logs-querydefinition-querystring
+        /// The query string to use for this definition
         /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;

@@ -7,33 +7,33 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents.Outputs
+namespace Pulumi.AwsNative.Ssmincidents.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html
+    /// The configuration to use when starting the SSM automation document.
     /// </summary>
     [OutputType]
     public sealed class ResponsePlanSsmAutomation
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentname
+        /// The document name to use when starting the SSM automation document.
         /// </summary>
         public readonly string DocumentName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-documentversion
+        /// The version of the document to use when starting the SSM automation document.
         /// </summary>
         public readonly string? DocumentVersion;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-parameters
+        /// The parameters to set when starting the SSM automation document.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponsePlanSsmParameter> Parameters;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-rolearn
+        /// The role ARN to use when starting the SSM automation document.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmautomation.html#cfn-ssmincidents-responseplan-ssmautomation-targetaccount
+        /// The account type to use when starting the SSM automation document.
         /// </summary>
         public readonly string? TargetAccount;
 

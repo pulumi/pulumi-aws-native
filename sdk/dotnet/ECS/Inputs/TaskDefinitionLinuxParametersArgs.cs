@@ -7,62 +7,36 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Inputs
+namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html
-    /// </summary>
     public sealed class TaskDefinitionLinuxParametersArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-capabilities
-        /// </summary>
         [Input("capabilities")]
         public Input<Inputs.TaskDefinitionKernelCapabilitiesArgs>? Capabilities { get; set; }
 
         [Input("devices")]
         private InputList<Inputs.TaskDefinitionDeviceArgs>? _devices;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-devices
-        /// </summary>
         public InputList<Inputs.TaskDefinitionDeviceArgs> Devices
         {
             get => _devices ?? (_devices = new InputList<Inputs.TaskDefinitionDeviceArgs>());
             set => _devices = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-initprocessenabled
-        /// </summary>
         [Input("initProcessEnabled")]
         public Input<bool>? InitProcessEnabled { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
-        /// </summary>
         [Input("maxSwap")]
         public Input<int>? MaxSwap { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
-        /// </summary>
         [Input("sharedMemorySize")]
         public Input<int>? SharedMemorySize { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
-        /// </summary>
         [Input("swappiness")]
         public Input<int>? Swappiness { get; set; }
 
         [Input("tmpfs")]
         private InputList<Inputs.TaskDefinitionTmpfsArgs>? _tmpfs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
-        /// </summary>
         public InputList<Inputs.TaskDefinitionTmpfsArgs> Tmpfs
         {
             get => _tmpfs ?? (_tmpfs = new InputList<Inputs.TaskDefinitionTmpfsArgs>());

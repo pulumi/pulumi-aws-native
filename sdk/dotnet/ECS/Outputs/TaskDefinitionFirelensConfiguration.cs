@@ -7,27 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Outputs
+namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html
-    /// </summary>
     [OutputType]
     public sealed class TaskDefinitionFirelensConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-options
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Options;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-firelensconfiguration.html#cfn-ecs-taskdefinition-firelensconfiguration-type
-        /// </summary>
+        public readonly object? Options;
         public readonly string? Type;
 
         [OutputConstructor]
         private TaskDefinitionFirelensConfiguration(
-            ImmutableDictionary<string, string>? options,
+            object? options,
 
             string? type)
         {

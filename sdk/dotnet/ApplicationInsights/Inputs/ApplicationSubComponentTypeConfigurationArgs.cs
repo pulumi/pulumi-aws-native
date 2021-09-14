@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApplicationInsights.Inputs
+namespace Pulumi.AwsNative.Applicationinsights.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html
+    /// One type sub component configurations for the component.
     /// </summary>
     public sealed class ApplicationSubComponentTypeConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponentconfigurationdetails
+        /// The configuration settings of sub components.
         /// </summary>
         [Input("subComponentConfigurationDetails", required: true)]
         public Input<Inputs.ApplicationSubComponentConfigurationDetailsArgs> SubComponentConfigurationDetails { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-subcomponenttypeconfiguration.html#cfn-applicationinsights-application-subcomponenttypeconfiguration-subcomponenttype
+        /// The sub component type.
         /// </summary>
         [Input("subComponentType", required: true)]
         public Input<string> SubComponentType { get; set; } = null!;

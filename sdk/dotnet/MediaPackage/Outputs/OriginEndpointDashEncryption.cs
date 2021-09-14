@@ -7,22 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Outputs
+namespace Pulumi.AwsNative.Mediapackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html
+    /// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
     /// </summary>
     [OutputType]
     public sealed class OriginEndpointDashEncryption
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-keyrotationintervalseconds
+        /// Time (in seconds) between each encryption key rotation.
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-dashencryption.html#cfn-mediapackage-originendpoint-dashencryption-spekekeyprovider
-        /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

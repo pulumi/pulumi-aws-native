@@ -7,32 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html
+    /// Path options for dataset
     /// </summary>
     public sealed class DatasetPathOptionsArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-fileslimit
-        /// </summary>
         [Input("filesLimit")]
         public Input<Inputs.DatasetFilesLimitArgs>? FilesLimit { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-lastmodifieddatecondition
-        /// </summary>
         [Input("lastModifiedDateCondition")]
         public Input<Inputs.DatasetFilterExpressionArgs>? LastModifiedDateCondition { get; set; }
 
         [Input("parameters")]
         private InputList<Inputs.DatasetPathParameterArgs>? _parameters;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-pathoptions.html#cfn-databrew-dataset-pathoptions-parameters
-        /// </summary>
         public InputList<Inputs.DatasetPathParameterArgs> Parameters
         {
             get => _parameters ?? (_parameters = new InputList<Inputs.DatasetPathParameterArgs>());

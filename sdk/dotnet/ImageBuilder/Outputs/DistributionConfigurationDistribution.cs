@@ -7,41 +7,41 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Outputs
+namespace Pulumi.AwsNative.Imagebuilder.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html
+    /// The distributions of the distribution configuration.
     /// </summary>
     [OutputType]
     public sealed class DistributionConfigurationDistribution
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
+        /// The specific AMI settings (for example, launch permissions, AMI tags).
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? AmiDistributionConfiguration;
+        public readonly object? AmiDistributionConfiguration;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-containerdistributionconfiguration
+        /// Container distribution settings for encryption, licensing, and sharing in a specific Region.
         /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? ContainerDistributionConfiguration;
+        public readonly object? ContainerDistributionConfiguration;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-launchtemplateconfigurations
+        /// A group of launchTemplateConfiguration settings that apply to image distribution.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionConfigurationLaunchTemplateConfiguration> LaunchTemplateConfigurations;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-licenseconfigurationarns
+        /// The License Manager Configuration to associate with the AMI in the specified Region.
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
+        /// region
         /// </summary>
         public readonly string Region;
 
         [OutputConstructor]
         private DistributionConfigurationDistribution(
-            Union<System.Text.Json.JsonElement, string>? amiDistributionConfiguration,
+            object? amiDistributionConfiguration,
 
-            Union<System.Text.Json.JsonElement, string>? containerDistributionConfiguration,
+            object? containerDistributionConfiguration,
 
             ImmutableArray<Outputs.DistributionConfigurationLaunchTemplateConfiguration> launchTemplateConfigurations,
 

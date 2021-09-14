@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html
+    /// Rule of RuleGroup that contains condition and action.
     /// </summary>
     public sealed class RuleGroupRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-action
-        /// </summary>
         [Input("action")]
         public Input<Inputs.RuleGroupRuleActionArgs>? Action { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-name
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-priority
-        /// </summary>
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
@@ -37,7 +28,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         private InputList<Inputs.RuleGroupLabelArgs>? _ruleLabels;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-rulelabels
+        /// Collection of Rule Labels.
         /// </summary>
         public InputList<Inputs.RuleGroupLabelArgs> RuleLabels
         {
@@ -45,15 +36,9 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
             set => _ruleLabels = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-statement
-        /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupStatementArgs> Statement { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html#cfn-wafv2-rulegroup-rule-visibilityconfig
-        /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;
 

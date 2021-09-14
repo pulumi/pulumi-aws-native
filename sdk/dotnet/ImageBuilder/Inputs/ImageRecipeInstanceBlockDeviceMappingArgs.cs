@@ -7,34 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder.Inputs
+namespace Pulumi.AwsNative.Imagebuilder.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html
+    /// Defines block device mappings for the instance used to configure your image. 
     /// </summary>
     public sealed class ImageRecipeInstanceBlockDeviceMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-devicename
+        /// The device to which these mappings apply.
         /// </summary>
         [Input("deviceName")]
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-ebs
+        /// Use to manage Amazon EBS-specific configuration for this mapping.
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.ImageRecipeEbsInstanceBlockDeviceSpecificationArgs>? Ebs { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-nodevice
+        /// Use to remove a mapping from the parent image.
         /// </summary>
         [Input("noDevice")]
         public Input<string>? NoDevice { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-instanceblockdevicemapping.html#cfn-imagebuilder-imagerecipe-instanceblockdevicemapping-virtualname
+        /// Use to manage instance ephemeral devices.
         /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

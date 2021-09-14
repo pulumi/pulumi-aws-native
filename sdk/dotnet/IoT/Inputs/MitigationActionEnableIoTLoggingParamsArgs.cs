@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html
+    /// Parameters to define a mitigation action that enables AWS IoT logging at a specified level of detail.
     /// </summary>
     public sealed class MitigationActionEnableIoTLoggingParamsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-loglevel
+        ///  Specifies which types of information are logged.
         /// </summary>
         [Input("logLevel", required: true)]
         public Input<string> LogLevel { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-enableiotloggingparams.html#cfn-iot-mitigationaction-enableiotloggingparams-rolearnforlogging
+        ///  The ARN of the IAM role used for logging.
         /// </summary>
         [Input("roleArnForLogging", required: true)]
         public Input<string> RoleArnForLogging { get; set; } = null!;

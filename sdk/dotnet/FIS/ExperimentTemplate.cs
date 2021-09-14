@@ -7,52 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FIS
+namespace Pulumi.AwsNative.Fis
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html
+    /// Resource schema for AWS::FIS::ExperimentTemplate
     /// </summary>
     [AwsNativeResourceType("aws-native:fis:ExperimentTemplate")]
     public partial class ExperimentTemplate : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-        /// </summary>
         [Output("actions")]
-        public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateExperimentTemplateAction>?> Actions { get; private set; } = null!;
+        public Output<Outputs.ExperimentTemplateExperimentTemplateActionMap?> Actions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        /// </summary>
         [Output("stopConditions")]
         public Output<ImmutableArray<Outputs.ExperimentTemplateExperimentTemplateStopCondition>> StopConditions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
+        public Output<object> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        /// </summary>
         [Output("targets")]
-        public Output<ImmutableDictionary<string, Outputs.ExperimentTemplateExperimentTemplateTarget>> Targets { get; private set; } = null!;
+        public Output<Outputs.ExperimentTemplateExperimentTemplateTargetMap> Targets { get; private set; } = null!;
 
 
         /// <summary>
@@ -100,35 +79,16 @@ namespace Pulumi.AwsNative.FIS
     public sealed class ExperimentTemplateArgs : Pulumi.ResourceArgs
     {
         [Input("actions")]
-        private InputMap<Inputs.ExperimentTemplateExperimentTemplateActionArgs>? _actions;
+        public Input<Inputs.ExperimentTemplateExperimentTemplateActionMapArgs>? Actions { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-actions
-        /// </summary>
-        public InputMap<Inputs.ExperimentTemplateExperimentTemplateActionArgs> Actions
-        {
-            get => _actions ?? (_actions = new InputMap<Inputs.ExperimentTemplateExperimentTemplateActionArgs>());
-            set => _actions = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-description
-        /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-rolearn
-        /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("stopConditions", required: true)]
         private InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs>? _stopConditions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-stopconditions
-        /// </summary>
         public InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs> StopConditions
         {
             get => _stopConditions ?? (_stopConditions = new InputList<Inputs.ExperimentTemplateExperimentTemplateStopConditionArgs>());
@@ -136,28 +96,10 @@ namespace Pulumi.AwsNative.FIS
         }
 
         [Input("tags", required: true)]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        public Input<object> Tags { get; set; } = null!;
 
         [Input("targets", required: true)]
-        private InputMap<Inputs.ExperimentTemplateExperimentTemplateTargetArgs>? _targets;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-experimenttemplate.html#cfn-fis-experimenttemplate-targets
-        /// </summary>
-        public InputMap<Inputs.ExperimentTemplateExperimentTemplateTargetArgs> Targets
-        {
-            get => _targets ?? (_targets = new InputMap<Inputs.ExperimentTemplateExperimentTemplateTargetArgs>());
-            set => _targets = value;
-        }
+        public Input<Inputs.ExperimentTemplateExperimentTemplateTargetMapArgs> Targets { get; set; } = null!;
 
         public ExperimentTemplateArgs()
         {

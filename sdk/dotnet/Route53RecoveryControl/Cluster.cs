@@ -7,26 +7,35 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryControl
+namespace Pulumi.AwsNative.Route53recoverycontrol
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html
+    /// AWS Route53 Recovery Control Cluster resource schema
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster.
+        /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Endpoints for the cluster.
+        /// </summary>
         [Output("clusterEndpoints")]
         public Output<ImmutableArray<Outputs.ClusterClusterEndpoint>> ClusterEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        /// Name of a Cluster. You can use any non-white space character in the name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -76,7 +85,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html#cfn-route53recoverycontrol-cluster-name
+        /// Name of a Cluster. You can use any non-white space character in the name
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

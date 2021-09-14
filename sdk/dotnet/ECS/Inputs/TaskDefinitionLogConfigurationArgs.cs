@@ -7,38 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Inputs
+namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
-    /// </summary>
     public sealed class TaskDefinitionLogConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-logdriver
-        /// </summary>
         [Input("logDriver", required: true)]
         public Input<string> LogDriver { get; set; } = null!;
 
         [Input("options")]
-        private InputMap<string>? _options;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration-options
-        /// </summary>
-        public InputMap<string> Options
-        {
-            get => _options ?? (_options = new InputMap<string>());
-            set => _options = value;
-        }
+        public Input<object>? Options { get; set; }
 
         [Input("secretOptions")]
         private InputList<Inputs.TaskDefinitionSecretArgs>? _secretOptions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html#cfn-ecs-taskdefinition-logconfiguration-secretoptions
-        /// </summary>
         public InputList<Inputs.TaskDefinitionSecretArgs> SecretOptions
         {
             get => _secretOptions ?? (_secretOptions = new InputList<Inputs.TaskDefinitionSecretArgs>());

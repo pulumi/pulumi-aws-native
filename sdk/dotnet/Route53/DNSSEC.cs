@@ -10,13 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Route53
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html
+    /// Resource used to control (enable/disable) DNSSEC in a specific hosted zone.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53:DNSSEC")]
     public partial class DNSSEC : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
         [Output("hostedZoneId")]
         public Output<string> HostedZoneId { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Route53
     public sealed class DNSSECArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html#cfn-route53-dnssec-hostedzoneid
+        /// The unique string (ID) used to identify a hosted zone.
         /// </summary>
         [Input("hostedZoneId", required: true)]
         public Input<string> HostedZoneId { get; set; } = null!;

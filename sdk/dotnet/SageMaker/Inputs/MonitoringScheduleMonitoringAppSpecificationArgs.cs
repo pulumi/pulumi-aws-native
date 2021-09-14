@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html
+    /// Container image configuration object for the monitoring job.
     /// </summary>
     public sealed class MonitoringScheduleMonitoringAppSpecificationArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<string>? _containerArguments;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerarguments
+        /// An array of arguments for the container used to run the monitoring job.
         /// </summary>
         public InputList<string> ContainerArguments
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<string>? _containerEntrypoint;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-containerentrypoint
+        /// Specifies the entrypoint for a container used to run the monitoring job.
         /// </summary>
         public InputList<string> ContainerEntrypoint
         {
@@ -40,19 +40,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-imageuri
+        /// The container image to be run by the monitoring job.
         /// </summary>
         [Input("imageUri", required: true)]
         public Input<string> ImageUri { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-postanalyticsprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called after analysis has been performed. Applicable only for the built-in (first party) containers.
         /// </summary>
         [Input("postAnalyticsProcessorSourceUri")]
         public Input<string>? PostAnalyticsProcessorSourceUri { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html#cfn-sagemaker-monitoringschedule-monitoringappspecification-recordpreprocessorsourceuri
+        /// An Amazon S3 URI to a script that is called per row prior to running analysis. It can base64 decode the payload and convert it into a flatted json so that the built-in container can use the converted data. Applicable only for the built-in (first party) containers
         /// </summary>
         [Input("recordPreprocessorSourceUri")]
         public Input<string>? RecordPreprocessorSourceUri { get; set; }

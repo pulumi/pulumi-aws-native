@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.Configuration.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html
+    /// Input parameters in the form of key-value pairs for the conformance pack.
     /// </summary>
     [OutputType]
     public sealed class ConformancePackConformancePackInputParameter
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametername
-        /// </summary>
         public readonly string ParameterName;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-conformancepackinputparameter.html#cfn-config-conformancepack-conformancepackinputparameter-parametervalue
-        /// </summary>
         public readonly string ParameterValue;
 
         [OutputConstructor]

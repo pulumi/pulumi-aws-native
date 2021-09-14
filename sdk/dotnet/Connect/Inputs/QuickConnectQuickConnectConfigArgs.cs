@@ -11,31 +11,19 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html
+    /// Configuration settings for the quick connect.
     /// </summary>
     public sealed class QuickConnectQuickConnectConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-phoneconfig
-        /// </summary>
         [Input("phoneConfig")]
         public Input<Inputs.QuickConnectPhoneNumberQuickConnectConfigArgs>? PhoneConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-queueconfig
-        /// </summary>
         [Input("queueConfig")]
         public Input<Inputs.QuickConnectQueueQuickConnectConfigArgs>? QueueConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-quickconnecttype
-        /// </summary>
         [Input("quickConnectType", required: true)]
         public Input<string> QuickConnectType { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html#cfn-connect-quickconnect-quickconnectconfig-userconfig
-        /// </summary>
         [Input("userConfig")]
         public Input<Inputs.QuickConnectUserQuickConnectConfigArgs>? UserConfig { get; set; }
 

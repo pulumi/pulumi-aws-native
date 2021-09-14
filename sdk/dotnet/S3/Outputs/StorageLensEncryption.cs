@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html
+    /// Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
     /// </summary>
     [OutputType]
     public sealed class StorageLensEncryption

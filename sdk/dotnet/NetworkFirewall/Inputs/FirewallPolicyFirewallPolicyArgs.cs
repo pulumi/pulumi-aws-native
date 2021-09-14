@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkFirewall.Inputs
+namespace Pulumi.AwsNative.Networkfirewall.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html
-    /// </summary>
     public sealed class FirewallPolicyFirewallPolicyArgs : Pulumi.ResourceArgs
     {
         [Input("statefulRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>? _statefulRuleGroupReferences;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statefulrulegroupreferences
-        /// </summary>
         public InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs> StatefulRuleGroupReferences
         {
             get => _statefulRuleGroupReferences ?? (_statefulRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatefulRuleGroupReferenceArgs>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessCustomActions")]
         private InputList<Inputs.FirewallPolicyCustomActionArgs>? _statelessCustomActions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelesscustomactions
-        /// </summary>
         public InputList<Inputs.FirewallPolicyCustomActionArgs> StatelessCustomActions
         {
             get => _statelessCustomActions ?? (_statelessCustomActions = new InputList<Inputs.FirewallPolicyCustomActionArgs>());
@@ -41,10 +30,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessDefaultActions", required: true)]
         private InputList<string>? _statelessDefaultActions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessdefaultactions
-        /// </summary>
         public InputList<string> StatelessDefaultActions
         {
             get => _statelessDefaultActions ?? (_statelessDefaultActions = new InputList<string>());
@@ -53,10 +38,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessFragmentDefaultActions", required: true)]
         private InputList<string>? _statelessFragmentDefaultActions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessfragmentdefaultactions
-        /// </summary>
         public InputList<string> StatelessFragmentDefaultActions
         {
             get => _statelessFragmentDefaultActions ?? (_statelessFragmentDefaultActions = new InputList<string>());
@@ -65,10 +46,6 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
         [Input("statelessRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>? _statelessRuleGroupReferences;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-firewallpolicy.html#cfn-networkfirewall-firewallpolicy-firewallpolicy-statelessrulegroupreferences
-        /// </summary>
         public InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs> StatelessRuleGroupReferences
         {
             get => _statelessRuleGroupReferences ?? (_statelessRuleGroupReferences = new InputList<Inputs.FirewallPolicyStatelessRuleGroupReferenceArgs>());

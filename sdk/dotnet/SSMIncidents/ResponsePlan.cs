@@ -7,58 +7,55 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents
+namespace Pulumi.AwsNative.Ssmincidents
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html
+    /// Resource type definition for AWS::SSMIncidents::ResponsePlan
     /// </summary>
     [AwsNativeResourceType("aws-native:ssmincidents:ResponsePlan")]
     public partial class ResponsePlan : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+        /// The list of actions.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.ResponsePlanAction>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the response plan.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        /// </summary>
         [Output("chatChannel")]
         public Output<Outputs.ResponsePlanChatChannel?> ChatChannel { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+        /// The display name of the response plan.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
+        /// The list of engagements to use.
         /// </summary>
         [Output("engagements")]
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        /// </summary>
         [Output("incidentTemplate")]
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+        /// The name of the response plan.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        /// The tags to apply to the response plan.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResponsePlanTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,7 +106,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         private InputList<Inputs.ResponsePlanActionArgs>? _actions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-actions
+        /// The list of actions.
         /// </summary>
         public InputList<Inputs.ResponsePlanActionArgs> Actions
         {
@@ -117,14 +114,11 @@ namespace Pulumi.AwsNative.SSMIncidents
             set => _actions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-chatchannel
-        /// </summary>
         [Input("chatChannel")]
         public Input<Inputs.ResponsePlanChatChannelArgs>? ChatChannel { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-displayname
+        /// The display name of the response plan.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -133,7 +127,7 @@ namespace Pulumi.AwsNative.SSMIncidents
         private InputList<string>? _engagements;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-engagements
+        /// The list of engagements to use.
         /// </summary>
         public InputList<string> Engagements
         {
@@ -141,27 +135,24 @@ namespace Pulumi.AwsNative.SSMIncidents
             set => _engagements = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-incidenttemplate
-        /// </summary>
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-name
+        /// The name of the response plan.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ResponsePlanTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html#cfn-ssmincidents-responseplan-tags
+        /// The tags to apply to the response plan.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ResponsePlanTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ResponsePlanTagArgs>());
             set => _tags = value;
         }
 

@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IVS
+namespace Pulumi.AwsNative.Ivs
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html
+    /// Resource Type definition for AWS::IVS::RecordingConfiguration
     /// </summary>
     [AwsNativeResourceType("aws-native:ivs:RecordingConfiguration")]
     public partial class RecordingConfiguration : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.RecordingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+        /// Recording Configuration Name.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Recording Configuration State.
+        /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.RecordingConfigurationTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,27 +87,24 @@ namespace Pulumi.AwsNative.IVS
 
     public sealed class RecordingConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-destinationconfiguration
-        /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.RecordingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-name
+        /// Recording Configuration Name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.RecordingConfigurationTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html#cfn-ivs-recordingconfiguration-tags
+        /// A list of key-value pairs that contain metadata for the asset model.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.RecordingConfigurationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.RecordingConfigurationTagArgs>());
             set => _tags = value;
         }
 

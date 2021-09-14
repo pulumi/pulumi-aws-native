@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Inputs
+namespace Pulumi.AwsNative.Sagemaker.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html
+    /// Specifies a time limit for how long the monitoring job is allowed to run.
     /// </summary>
     public sealed class MonitoringScheduleStoppingConditionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html#cfn-sagemaker-monitoringschedule-stoppingcondition-maxruntimeinseconds
+        /// The maximum runtime allowed in seconds.
         /// </summary>
         [Input("maxRuntimeInSeconds", required: true)]
         public Input<int> MaxRuntimeInSeconds { get; set; } = null!;

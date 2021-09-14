@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DynamoDB
+namespace Pulumi.AwsNative.Dynamodb
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html
+    /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
     /// </summary>
     [AwsNativeResourceType("aws-native:dynamodb:GlobalTable")]
     public partial class GlobalTable : Pulumi.CustomResource
@@ -18,75 +18,42 @@ namespace Pulumi.AwsNative.DynamoDB
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        /// </summary>
         [Output("attributeDefinitions")]
         public Output<ImmutableArray<Outputs.GlobalTableAttributeDefinition>> AttributeDefinitions { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        /// </summary>
         [Output("billingMode")]
         public Output<string?> BillingMode { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        /// </summary>
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        /// </summary>
         [Output("keySchema")]
         public Output<ImmutableArray<Outputs.GlobalTableKeySchema>> KeySchema { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        /// </summary>
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.GlobalTableReplicaSpecification>> Replicas { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        /// </summary>
         [Output("sSESpecification")]
         public Output<Outputs.GlobalTableSSESpecification?> SSESpecification { get; private set; } = null!;
 
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        /// </summary>
         [Output("streamSpecification")]
         public Output<Outputs.GlobalTableStreamSpecification?> StreamSpecification { get; private set; } = null!;
 
         [Output("tableId")]
         public Output<string> TableId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        /// </summary>
         [Output("tableName")]
         public Output<string?> TableName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        /// </summary>
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        /// </summary>
         [Output("writeProvisionedThroughputSettings")]
         public Output<Outputs.GlobalTableWriteProvisionedThroughputSettings?> WriteProvisionedThroughputSettings { get; private set; } = null!;
 
@@ -137,28 +104,17 @@ namespace Pulumi.AwsNative.DynamoDB
     {
         [Input("attributeDefinitions", required: true)]
         private InputList<Inputs.GlobalTableAttributeDefinitionArgs>? _attributeDefinitions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-attributedefinitions
-        /// </summary>
         public InputList<Inputs.GlobalTableAttributeDefinitionArgs> AttributeDefinitions
         {
             get => _attributeDefinitions ?? (_attributeDefinitions = new InputList<Inputs.GlobalTableAttributeDefinitionArgs>());
             set => _attributeDefinitions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-billingmode
-        /// </summary>
         [Input("billingMode")]
         public Input<string>? BillingMode { get; set; }
 
         [Input("globalSecondaryIndexes")]
         private InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs>? _globalSecondaryIndexes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-globalsecondaryindexes
-        /// </summary>
         public InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs> GlobalSecondaryIndexes
         {
             get => _globalSecondaryIndexes ?? (_globalSecondaryIndexes = new InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs>());
@@ -167,10 +123,6 @@ namespace Pulumi.AwsNative.DynamoDB
 
         [Input("keySchema", required: true)]
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-keyschema
-        /// </summary>
         public InputList<Inputs.GlobalTableKeySchemaArgs> KeySchema
         {
             get => _keySchema ?? (_keySchema = new InputList<Inputs.GlobalTableKeySchemaArgs>());
@@ -179,10 +131,6 @@ namespace Pulumi.AwsNative.DynamoDB
 
         [Input("localSecondaryIndexes")]
         private InputList<Inputs.GlobalTableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-localsecondaryindexes
-        /// </summary>
         public InputList<Inputs.GlobalTableLocalSecondaryIndexArgs> LocalSecondaryIndexes
         {
             get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.GlobalTableLocalSecondaryIndexArgs>());
@@ -191,43 +139,24 @@ namespace Pulumi.AwsNative.DynamoDB
 
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaSpecificationArgs>? _replicas;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
-        /// </summary>
         public InputList<Inputs.GlobalTableReplicaSpecificationArgs> Replicas
         {
             get => _replicas ?? (_replicas = new InputList<Inputs.GlobalTableReplicaSpecificationArgs>());
             set => _replicas = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-ssespecification
-        /// </summary>
         [Input("sSESpecification")]
         public Input<Inputs.GlobalTableSSESpecificationArgs>? SSESpecification { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-streamspecification
-        /// </summary>
         [Input("streamSpecification")]
         public Input<Inputs.GlobalTableStreamSpecificationArgs>? StreamSpecification { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-tablename
-        /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-timetolivespecification
-        /// </summary>
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-writeprovisionedthroughputsettings
-        /// </summary>
         [Input("writeProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableWriteProvisionedThroughputSettingsArgs>? WriteProvisionedThroughputSettings { get; set; }
 

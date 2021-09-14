@@ -7,22 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CodeGuruProfiler.Outputs
+namespace Pulumi.AwsNative.Codeguruprofiler.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html
+    /// Notification medium for users to get alerted for events that occur in application profile. We support SNS topic as a notification channel.
     /// </summary>
     [OutputType]
     public sealed class ProfilingGroupChannel
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channelid
-        /// </summary>
         public readonly string? ChannelId;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html#cfn-codeguruprofiler-profilinggroup-channel-channeluri
-        /// </summary>
         public readonly string ChannelUri;
 
         [OutputConstructor]

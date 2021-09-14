@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html
+    /// The user configuration. This is required only if QuickConnectType is USER.
     /// </summary>
     public sealed class QuickConnectUserQuickConnectConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-contactflowarn
-        /// </summary>
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html#cfn-connect-quickconnect-userquickconnectconfig-userarn
-        /// </summary>
         [Input("userArn", required: true)]
         public Input<string> UserArn { get; set; } = null!;
 

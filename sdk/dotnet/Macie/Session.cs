@@ -10,25 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Macie
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html
+    /// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
     /// </summary>
     [AwsNativeResourceType("aws-native:macie:Session")]
     public partial class Session : Pulumi.CustomResource
     {
+        /// <summary>
+        /// AWS account ID of customer
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+        /// A enumeration value that specifies how frequently finding updates are published.
         /// </summary>
         [Output("findingPublishingFrequency")]
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
+        /// <summary>
+        /// Service role used by Macie
+        /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        /// A enumeration value that specifies the status of the Macie Session.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -79,13 +85,13 @@ namespace Pulumi.AwsNative.Macie
     public sealed class SessionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-findingpublishingfrequency
+        /// A enumeration value that specifies how frequently finding updates are published.
         /// </summary>
         [Input("findingPublishingFrequency")]
         public Input<string>? FindingPublishingFrequency { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-session.html#cfn-macie-session-status
+        /// A enumeration value that specifies the status of the Macie Session.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

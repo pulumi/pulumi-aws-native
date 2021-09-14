@@ -7,41 +7,38 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTEvents.Inputs
+namespace Pulumi.AwsNative.Iotevents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html
+    /// Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
     /// </summary>
     public sealed class DetectorModelIotSiteWiseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-assetid
+        /// The ID of the asset that has the specified property. You can specify an expression.
         /// </summary>
         [Input("assetId")]
         public Input<string>? AssetId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-entryid
+        /// A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
         /// </summary>
         [Input("entryId")]
         public Input<string>? EntryId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyalias
+        /// The alias of the asset property. You can also specify an expression.
         /// </summary>
         [Input("propertyAlias")]
         public Input<string>? PropertyAlias { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyid
+        /// The ID of the asset property. You can specify an expression.
         /// </summary>
         [Input("propertyId")]
         public Input<string>? PropertyId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-iotsitewise.html#cfn-iotevents-detectormodel-iotsitewise-propertyvalue
-        /// </summary>
         [Input("propertyValue", required: true)]
         public Input<Inputs.DetectorModelAssetPropertyValueArgs> PropertyValue { get; set; } = null!;
 

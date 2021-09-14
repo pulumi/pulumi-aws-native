@@ -7,61 +7,55 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html
+    /// Field of the request to match.
     /// </summary>
     public sealed class WebACLFieldToMatchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-allqueryarguments
+        /// All query arguments of a web request.
         /// </summary>
         [Input("allQueryArguments")]
-        public InputUnion<System.Text.Json.JsonElement, string>? AllQueryArguments { get; set; }
+        public Input<object>? AllQueryArguments { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-body
+        /// The body of a web request. This immediately follows the request headers.
         /// </summary>
         [Input("body")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Body { get; set; }
+        public Input<object>? Body { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-jsonbody
-        /// </summary>
         [Input("jsonBody")]
         public Input<Inputs.WebACLJsonBodyArgs>? JsonBody { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-method
+        /// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
         /// </summary>
         [Input("method")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Method { get; set; }
+        public Input<object>? Method { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-querystring
+        /// The query string of a web request. This is the part of a URL that appears after a ? character, if any.
         /// </summary>
         [Input("queryString")]
-        public InputUnion<System.Text.Json.JsonElement, string>? QueryString { get; set; }
+        public Input<object>? QueryString { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singleheader
-        /// </summary>
         [Input("singleHeader")]
-        public InputUnion<System.Text.Json.JsonElement, string>? SingleHeader { get; set; }
+        public Input<object>? SingleHeader { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-singlequeryargument
+        /// One query argument in a web request, identified by name, for example UserName or SalesRegion. The name can be up to 30 characters long and isn't case sensitive.
         /// </summary>
         [Input("singleQueryArgument")]
-        public InputUnion<System.Text.Json.JsonElement, string>? SingleQueryArgument { get; set; }
+        public Input<object>? SingleQueryArgument { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html#cfn-wafv2-webacl-fieldtomatch-uripath
+        /// The path component of the URI of a web request. This is the part of a web request that identifies a resource, for example, /images/daily-ad.jpg.
         /// </summary>
         [Input("uriPath")]
-        public InputUnion<System.Text.Json.JsonElement, string>? UriPath { get; set; }
+        public Input<object>? UriPath { get; set; }
 
         public WebACLFieldToMatchArgs()
         {

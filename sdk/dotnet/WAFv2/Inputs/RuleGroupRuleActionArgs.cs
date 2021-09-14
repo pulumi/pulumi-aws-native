@@ -7,31 +7,31 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html
+    /// Action taken when Rule matches its condition.
     /// </summary>
     public sealed class RuleGroupRuleActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-allow
+        /// Allow traffic towards application.
         /// </summary>
         [Input("allow")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Allow { get; set; }
+        public Input<object>? Allow { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-block
+        /// Block traffic towards application.
         /// </summary>
         [Input("block")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Block { get; set; }
+        public Input<object>? Block { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-ruleaction.html#cfn-wafv2-rulegroup-ruleaction-count
+        /// Count traffic towards application.
         /// </summary>
         [Input("count")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Count { get; set; }
+        public Input<object>? Count { get; set; }
 
         public RuleGroupRuleActionArgs()
         {

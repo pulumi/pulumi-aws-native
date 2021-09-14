@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3ObjectLambda
+namespace Pulumi.AwsNative.S3objectlambda
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html
+    /// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
     /// </summary>
     [AwsNativeResourceType("aws-native:s3objectlambda:AccessPoint")]
     public partial class AccessPoint : Pulumi.CustomResource
@@ -18,20 +18,32 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when the Object lambda Access Point was created.
+        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+        /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         /// </summary>
         [Output("objectLambdaConfiguration")]
         public Output<Outputs.AccessPointObjectLambdaConfiguration?> ObjectLambdaConfiguration { get; private set; } = null!;
+
+        [Output("policyStatus")]
+        public Output<object> PolicyStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The PublicAccessBlock configuration that you want to apply to this Access Point. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status 'The Meaning of Public' in the Amazon Simple Storage Service Developer Guide.
+        /// </summary>
+        [Output("publicAccessBlockConfiguration")]
+        public Output<Outputs.AccessPointPublicAccessBlockConfiguration> PublicAccessBlockConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -79,13 +91,13 @@ namespace Pulumi.AwsNative.S3ObjectLambda
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-name
+        /// The name you want to assign to this Object lambda Access Point.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3objectlambda-accesspoint.html#cfn-s3objectlambda-accesspoint-objectlambdaconfiguration
+        /// The Object lambda Access Point Configuration that configures transformations to be applied on the objects on specified S3 Actions
         /// </summary>
         [Input("objectLambdaConfiguration")]
         public Input<Inputs.AccessPointObjectLambdaConfigurationArgs>? ObjectLambdaConfiguration { get; set; }

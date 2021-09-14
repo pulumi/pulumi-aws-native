@@ -7,10 +7,10 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KMS
+namespace Pulumi.AwsNative.Kms
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
+    /// The AWS::KMS::Key resource specifies a customer master key (CMK) in AWS Key Management Service (AWS KMS). Authorized users can use the CMK to encrypt and decrypt small amounts of data (up to 4096 bytes), but they are more commonly used to generate data keys. You can also use CMKs to encrypt data stored in AWS services that are integrated with AWS KMS or within their applications.
     /// </summary>
     [AwsNativeResourceType("aws-native:kms:Key")]
     public partial class Key : Pulumi.CustomResource
@@ -19,19 +19,19 @@ namespace Pulumi.AwsNative.KMS
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
+        /// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
+        /// Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         /// </summary>
         [Output("enableKeyRotation")]
         public Output<bool?> EnableKeyRotation { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
+        /// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -40,40 +40,40 @@ namespace Pulumi.AwsNative.KMS
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        /// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         /// </summary>
         [Output("keyPolicy")]
-        public Output<Union<System.Text.Json.JsonElement, string>> KeyPolicy { get; private set; } = null!;
+        public Output<object> KeyPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         /// </summary>
         [Output("keySpec")]
         public Output<string?> KeySpec { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         /// </summary>
         [Output("keyUsage")]
         public Output<string?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        /// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         /// </summary>
         [Output("multiRegion")]
         public Output<bool?> MultiRegion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+        /// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         /// </summary>
         [Output("pendingWindowInDays")]
         public Output<int?> PendingWindowInDays { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.KeyTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,62 +121,62 @@ namespace Pulumi.AwsNative.KMS
     public sealed class KeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
+        /// A description of the CMK. Use a description that helps you to distinguish this CMK from others in the account, such as its intended use.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
+        /// Enables automatic rotation of the key material for the specified customer master key (CMK). By default, automation key rotation is not enabled.
         /// </summary>
         [Input("enableKeyRotation")]
         public Input<bool>? EnableKeyRotation { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
+        /// Specifies whether the customer master key (CMK) is enabled. Disabled CMKs cannot be used in cryptographic operations.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+        /// The key policy that authorizes use of the CMK. The key policy must observe the following rules.
         /// </summary>
         [Input("keyPolicy", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> KeyPolicy { get; set; } = null!;
+        public Input<object> KeyPolicy { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyspec
+        /// Specifies the type of CMK to create. The default value is SYMMETRIC_DEFAULT. This property is required only for asymmetric CMKs. You can't change the KeySpec value after the CMK is created.
         /// </summary>
         [Input("keySpec")]
         public Input<string>? KeySpec { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+        /// Determines the cryptographic operations for which you can use the CMK. The default value is ENCRYPT_DECRYPT. This property is required only for asymmetric CMKs. You can't change the KeyUsage value after the CMK is created.
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-multiregion
+        /// Specifies whether the CMK should be Multi-Region. You can't change the MultiRegion value after the CMK is created.
         /// </summary>
         [Input("multiRegion")]
         public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+        /// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.
         /// </summary>
         [Input("pendingWindowInDays")]
         public Input<int>? PendingWindowInDays { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.KeyTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.KeyTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.KeyTagArgs>());
             set => _tags = value;
         }
 

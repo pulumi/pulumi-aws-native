@@ -7,34 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SES
+namespace Pulumi.AwsNative.Ses
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html
+    /// Resource schema for AWS::SES::ContactList.
     /// </summary>
     [AwsNativeResourceType("aws-native:ses:ContactList")]
     public partial class ContactList : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+        /// The name of the contact list.
         /// </summary>
         [Output("contactListName")]
         public Output<string?> ContactListName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+        /// The description of the contact list.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
+        /// The tags (keys and values) associated with the contact list.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContactListTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+        /// The topics associated with the contact list.
         /// </summary>
         [Output("topics")]
         public Output<ImmutableArray<Outputs.ContactListTopic>> Topics { get; private set; } = null!;
@@ -85,26 +85,26 @@ namespace Pulumi.AwsNative.SES
     public sealed class ContactListArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-contactlistname
+        /// The name of the contact list.
         /// </summary>
         [Input("contactListName")]
         public Input<string>? ContactListName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-description
+        /// The description of the contact list.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ContactListTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-tags
+        /// The tags (keys and values) associated with the contact list.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ContactListTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ContactListTagArgs>());
             set => _tags = value;
         }
 
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.SES
         private InputList<Inputs.ContactListTopicArgs>? _topics;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-contactlist.html#cfn-ses-contactlist-topics
+        /// The topics associated with the contact list.
         /// </summary>
         public InputList<Inputs.ContactListTopicArgs> Topics
         {

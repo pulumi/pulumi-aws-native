@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html
+    /// &lt;p&gt;A list of QuickSight parameters and the list's override values.&lt;/p&gt;
     /// </summary>
     public sealed class AnalysisParametersArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisDateTimeParameterArgs>? _dateTimeParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-datetimeparameters
+        /// &lt;p&gt;Date-time parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisDateTimeParameterArgs> DateTimeParameters
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisDecimalParameterArgs>? _decimalParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-decimalparameters
+        /// &lt;p&gt;Decimal parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisDecimalParameterArgs> DecimalParameters
         {
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisIntegerParameterArgs>? _integerParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-integerparameters
+        /// &lt;p&gt;Integer parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisIntegerParameterArgs> IntegerParameters
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisStringParameterArgs>? _stringParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-parameters.html#cfn-quicksight-analysis-parameters-stringparameters
+        /// &lt;p&gt;String parameters.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.AnalysisStringParameterArgs> StringParameters
         {

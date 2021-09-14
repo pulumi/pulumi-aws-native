@@ -7,29 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Outputs
+namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html
-    /// </summary>
     [OutputType]
     public sealed class SpotFleetSpotFleetTagSpecification
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-resourcetype
-        /// </summary>
         public readonly string? ResourceType;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleettagspecification.html#cfn-ec2-spotfleet-spotfleettagspecification-tags
-        /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        public readonly ImmutableArray<Outputs.SpotFleetTag> Tags;
 
         [OutputConstructor]
         private SpotFleetSpotFleetTagSpecification(
             string? resourceType,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Outputs.SpotFleetTag> tags)
         {
             ResourceType = resourceType;
             Tags = tags;

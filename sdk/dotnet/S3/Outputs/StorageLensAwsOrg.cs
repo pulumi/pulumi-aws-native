@@ -11,14 +11,11 @@ namespace Pulumi.AwsNative.S3.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html
+    /// The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
     /// </summary>
     [OutputType]
     public sealed class StorageLensAwsOrg
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html#cfn-s3-storagelens-awsorg-arn
-        /// </summary>
         public readonly string Arn;
 
         [OutputConstructor]

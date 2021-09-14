@@ -7,64 +7,64 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker
+namespace Pulumi.AwsNative.Sagemaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html
+    /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:MonitoringSchedule")]
     public partial class MonitoringSchedule : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time at which the schedule was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        /// </summary>
         [Output("endpointName")]
         public Output<string?> EndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+        /// Contains the reason a monitoring job failed, if it failed.
         /// </summary>
         [Output("failureReason")]
         public Output<string?> FailureReason { get; private set; } = null!;
 
+        /// <summary>
+        /// A timestamp that indicates the last time the monitoring job was modified.
+        /// </summary>
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+        /// Describes metadata on the last execution to run, if there was one.
         /// </summary>
         [Output("lastMonitoringExecutionSummary")]
         public Output<Outputs.MonitoringScheduleMonitoringExecutionSummary?> LastMonitoringExecutionSummary { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the monitoring schedule.
+        /// </summary>
         [Output("monitoringScheduleArn")]
         public Output<string> MonitoringScheduleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        /// </summary>
         [Output("monitoringScheduleConfig")]
         public Output<Outputs.MonitoringScheduleMonitoringScheduleConfig> MonitoringScheduleConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        /// </summary>
         [Output("monitoringScheduleName")]
         public Output<string> MonitoringScheduleName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+        /// The status of a schedule job.
         /// </summary>
         [Output("monitoringScheduleStatus")]
         public Output<string?> MonitoringScheduleStatus { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.MonitoringScheduleTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -111,51 +111,42 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class MonitoringScheduleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-endpointname
-        /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-failurereason
+        /// Contains the reason a monitoring job failed, if it failed.
         /// </summary>
         [Input("failureReason")]
         public Input<string>? FailureReason { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-lastmonitoringexecutionsummary
+        /// Describes metadata on the last execution to run, if there was one.
         /// </summary>
         [Input("lastMonitoringExecutionSummary")]
         public Input<Inputs.MonitoringScheduleMonitoringExecutionSummaryArgs>? LastMonitoringExecutionSummary { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringscheduleconfig
-        /// </summary>
         [Input("monitoringScheduleConfig", required: true)]
         public Input<Inputs.MonitoringScheduleMonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulename
-        /// </summary>
         [Input("monitoringScheduleName", required: true)]
         public Input<string> MonitoringScheduleName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-monitoringschedulestatus
+        /// The status of a schedule job.
         /// </summary>
         [Input("monitoringScheduleStatus")]
         public Input<string>? MonitoringScheduleStatus { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.MonitoringScheduleTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html#cfn-sagemaker-monitoringschedule-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.MonitoringScheduleTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.MonitoringScheduleTagArgs>());
             set => _tags = value;
         }
 

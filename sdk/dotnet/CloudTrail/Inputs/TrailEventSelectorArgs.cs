@@ -7,20 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudTrail.Inputs
+namespace Pulumi.AwsNative.Cloudtrail.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html
+    /// The type of email sending events to publish to the event destination.
     /// </summary>
     public sealed class TrailEventSelectorArgs : Pulumi.ResourceArgs
     {
         [Input("dataResources")]
         private InputList<Inputs.TrailDataResourceArgs>? _dataResources;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources
-        /// </summary>
         public InputList<Inputs.TrailDataResourceArgs> DataResources
         {
             get => _dataResources ?? (_dataResources = new InputList<Inputs.TrailDataResourceArgs>());
@@ -31,7 +27,7 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
         private InputList<string>? _excludeManagementEventSources;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-excludemanagementeventsources
+        /// An optional list of service event sources from which you do not want management events to be logged on your trail. In this release, the list can be empty (disables the filter), or it can filter out AWS Key Management Service events by containing "kms.amazonaws.com". By default, ExcludeManagementEventSources is empty, and AWS KMS events are included in events that are logged to your trail.
         /// </summary>
         public InputList<string> ExcludeManagementEventSources
         {
@@ -40,13 +36,13 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents
+        /// Specify if you want your event selector to include management events for your trail.
         /// </summary>
         [Input("includeManagementEvents")]
         public Input<bool>? IncludeManagementEvents { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype
+        /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
         /// </summary>
         [Input("readWriteType")]
         public Input<string>? ReadWriteType { get; set; }

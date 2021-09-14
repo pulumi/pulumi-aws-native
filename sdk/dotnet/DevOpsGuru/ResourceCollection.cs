@@ -7,20 +7,20 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DevOpsGuru
+namespace Pulumi.AwsNative.Devopsguru
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html
+    /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
     /// </summary>
     [AwsNativeResourceType("aws-native:devopsguru:ResourceCollection")]
     public partial class ResourceCollection : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        /// </summary>
         [Output("resourceCollectionFilter")]
         public Output<Outputs.ResourceCollectionResourceCollectionFilter> ResourceCollectionFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of ResourceCollection
+        /// </summary>
         [Output("resourceCollectionType")]
         public Output<string> ResourceCollectionType { get; private set; } = null!;
 
@@ -69,9 +69,6 @@ namespace Pulumi.AwsNative.DevOpsGuru
 
     public sealed class ResourceCollectionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-resourcecollection.html#cfn-devopsguru-resourcecollection-resourcecollectionfilter
-        /// </summary>
         [Input("resourceCollectionFilter", required: true)]
         public Input<Inputs.ResourceCollectionResourceCollectionFilterArgs> ResourceCollectionFilter { get; set; } = null!;
 

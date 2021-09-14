@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html
+    /// &lt;p&gt;Amazon Athena parameters.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceAthenaParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-athenaparameters.html#cfn-quicksight-datasource-athenaparameters-workgroup
+        /// &lt;p&gt;The workgroup that Amazon Athena uses.&lt;/p&gt;
         /// </summary>
         [Input("workGroup")]
         public Input<string>? WorkGroup { get; set; }

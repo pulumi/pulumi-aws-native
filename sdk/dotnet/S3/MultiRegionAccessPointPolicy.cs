@@ -10,22 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.S3
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html
+    /// The policy to be attached to a Multi Region Access Point
     /// </summary>
     [AwsNativeResourceType("aws-native:s3:MultiRegionAccessPointPolicy")]
     public partial class MultiRegionAccessPointPolicy : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+        /// The name of the Multi Region Access Point to apply policy
         /// </summary>
         [Output("mrapName")]
         public Output<string> MrapName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        /// Policy document to apply to a Multi Region Access Point
         /// </summary>
         [Output("policy")]
-        public Output<Union<System.Text.Json.JsonElement, string>> Policy { get; private set; } = null!;
+        public Output<object> Policy { get; private set; } = null!;
+
+        /// <summary>
+        /// The Policy Status associated with this Multi Region Access Point
+        /// </summary>
+        [Output("policyStatus")]
+        public Output<object> PolicyStatus { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,16 +79,16 @@ namespace Pulumi.AwsNative.S3
     public sealed class MultiRegionAccessPointPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-mrapname
+        /// The name of the Multi Region Access Point to apply policy
         /// </summary>
         [Input("mrapName", required: true)]
         public Input<string> MrapName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html#cfn-s3-multiregionaccesspointpolicy-policy
+        /// Policy document to apply to a Multi Region Access Point
         /// </summary>
         [Input("policy", required: true)]
-        public InputUnion<System.Text.Json.JsonElement, string> Policy { get; set; } = null!;
+        public Input<object> Policy { get; set; } = null!;
 
         public MultiRegionAccessPointPolicyArgs()
         {

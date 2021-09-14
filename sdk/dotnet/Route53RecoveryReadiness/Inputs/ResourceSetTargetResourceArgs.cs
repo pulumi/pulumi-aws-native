@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
+namespace Pulumi.AwsNative.Route53recoveryreadiness.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html
+    /// The target resource that the Route 53 record points to.
     /// </summary>
     public sealed class ResourceSetTargetResourceArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-nlbresource
-        /// </summary>
         [Input("nLBResource")]
         public Input<Inputs.ResourceSetNLBResourceArgs>? NLBResource { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoveryreadiness-resourceset-targetresource.html#cfn-route53recoveryreadiness-resourceset-targetresource-r53resource
-        /// </summary>
         [Input("r53Resource")]
         public Input<Inputs.ResourceSetR53ResourceRecordArgs>? R53Resource { get; set; }
 

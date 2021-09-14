@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NetworkManager
+namespace Pulumi.AwsNative.Networkmanager
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html
+    /// The AWS::NetworkManager::TransitGatewayRegistration type registers a transit gateway in your global network. The transit gateway can be in any AWS Region, but it must be owned by the same AWS account that owns the global network. You cannot register a transit gateway in more than one global network.
     /// </summary>
     [AwsNativeResourceType("aws-native:networkmanager:TransitGatewayRegistration")]
     public partial class TransitGatewayRegistration : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+        /// The ID of the global network.
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        /// The Amazon Resource Name (ARN) of the transit gateway.
         /// </summary>
         [Output("transitGatewayArn")]
         public Output<string> TransitGatewayArn { get; private set; } = null!;
@@ -73,13 +73,13 @@ namespace Pulumi.AwsNative.NetworkManager
     public sealed class TransitGatewayRegistrationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-globalnetworkid
+        /// The ID of the global network.
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html#cfn-networkmanager-transitgatewayregistration-transitgatewayarn
+        /// The Amazon Resource Name (ARN) of the transit gateway.
         /// </summary>
         [Input("transitGatewayArn", required: true)]
         public Input<string> TransitGatewayArn { get; set; } = null!;

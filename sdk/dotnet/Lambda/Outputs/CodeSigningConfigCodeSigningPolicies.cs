@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html
+    /// Policies to control how to act if a signature is invalid
     /// </summary>
     [OutputType]
     public sealed class CodeSigningConfigCodeSigningPolicies
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-codesigningconfig-codesigningpolicies.html#cfn-lambda-codesigningconfig-codesigningpolicies-untrustedartifactondeployment
+        /// Indicates how Lambda operations involve updating the code artifact will operate. Default to Warn if not provided
         /// </summary>
         public readonly string UntrustedArtifactOnDeployment;
 

@@ -7,40 +7,45 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness
+namespace Pulumi.AwsNative.Route53recoveryreadiness
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html
+    /// Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:ResourceSet")]
     public partial class ResourceSet : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource set.
+        /// </summary>
         [Output("resourceSetArn")]
         public Output<string> ResourceSetArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resourcesetname
+        /// The name of the resource set to create.
         /// </summary>
         [Output("resourceSetName")]
         public Output<string> ResourceSetName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resourcesettype
+        /// The resource type of the resources in the resource set. Enter one of the following values for resource type: 
+        /// 
+        /// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
         /// </summary>
         [Output("resourceSetType")]
         public Output<string> ResourceSetType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resources
+        /// A list of resource objects in the resource set.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<Outputs.ResourceSetResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-tags
+        /// A tag to associate with the parameters for a resource set.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceSetTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -88,13 +93,15 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     public sealed class ResourceSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resourcesetname
+        /// The name of the resource set to create.
         /// </summary>
         [Input("resourceSetName", required: true)]
         public Input<string> ResourceSetName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resourcesettype
+        /// The resource type of the resources in the resource set. Enter one of the following values for resource type: 
+        /// 
+        /// AWS: :AutoScaling: :AutoScalingGroup, AWS: :CloudWatch: :Alarm, AWS: :EC2: :CustomerGateway, AWS: :DynamoDB: :Table, AWS: :EC2: :Volume, AWS: :ElasticLoadBalancing: :LoadBalancer, AWS: :ElasticLoadBalancingV2: :LoadBalancer, AWS: :MSK: :Cluster, AWS: :RDS: :DBCluster, AWS: :Route53: :HealthCheck, AWS: :SQS: :Queue, AWS: :SNS: :Topic, AWS: :SNS: :Subscription, AWS: :EC2: :VPC, AWS: :EC2: :VPNConnection, AWS: :EC2: :VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource
         /// </summary>
         [Input("resourceSetType", required: true)]
         public Input<string> ResourceSetType { get; set; } = null!;
@@ -103,7 +110,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         private InputList<Inputs.ResourceSetResourceArgs>? _resources;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-resources
+        /// A list of resource objects in the resource set.
         /// </summary>
         public InputList<Inputs.ResourceSetResourceArgs> Resources
         {
@@ -112,14 +119,14 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ResourceSetTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-resourceset.html#cfn-route53recoveryreadiness-resourceset-tags
+        /// A tag to associate with the parameters for a resource set.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ResourceSetTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ResourceSetTagArgs>());
             set => _tags = value;
         }
 

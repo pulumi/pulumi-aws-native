@@ -7,34 +7,37 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryReadiness
+namespace Pulumi.AwsNative.Route53recoveryreadiness
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html
+    /// Aws Route53 Recovery Readiness Check Schema and API specification.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoveryreadiness:ReadinessCheck")]
     public partial class ReadinessCheck : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the readiness check.
+        /// </summary>
         [Output("readinessCheckArn")]
         public Output<string> ReadinessCheckArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+        /// Name of the ReadinessCheck to create.
         /// </summary>
         [Output("readinessCheckName")]
         public Output<string> ReadinessCheckName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+        /// The name of the resource set to check.
         /// </summary>
         [Output("resourceSetName")]
         public Output<string?> ResourceSetName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
+        /// A collection of tags associated with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ReadinessCheckTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -82,26 +85,26 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
     public sealed class ReadinessCheckArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-readinesscheckname
+        /// Name of the ReadinessCheck to create.
         /// </summary>
         [Input("readinessCheckName", required: true)]
         public Input<string> ReadinessCheckName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-resourcesetname
+        /// The name of the resource set to check.
         /// </summary>
         [Input("resourceSetName")]
         public Input<string>? ResourceSetName { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ReadinessCheckTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoveryreadiness-readinesscheck.html#cfn-route53recoveryreadiness-readinesscheck-tags
+        /// A collection of tags associated with a resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ReadinessCheckTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ReadinessCheckTagArgs>());
             set => _tags = value;
         }
 

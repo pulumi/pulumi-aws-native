@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html
+    /// &lt;p&gt;A date-time parameter.&lt;/p&gt;
     /// </summary>
     public sealed class DashboardDateTimeParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-name
+        /// &lt;p&gt;A display name for the date-time parameter.&lt;/p&gt;
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<string>? _values;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-datetimeparameter.html#cfn-quicksight-dashboard-datetimeparameter-values
+        /// &lt;p&gt;The values for the date-time parameter.&lt;/p&gt;
         /// </summary>
         public InputList<string> Values
         {

@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AuditManager.Inputs
+namespace Pulumi.AwsNative.Auditmanager.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html
+    /// The wrapper that contains AWS Audit Manager role information, such as the role type and IAM ARN.
     /// </summary>
     public sealed class AssessmentRoleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-rolearn
-        /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-role.html#cfn-auditmanager-assessment-role-roletype
-        /// </summary>
         [Input("roleType")]
         public Input<string>? RoleType { get; set; }
 

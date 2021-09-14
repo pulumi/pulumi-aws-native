@@ -7,56 +7,35 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ElasticLoadBalancingV2
+namespace Pulumi.AwsNative.Elasticloadbalancingv2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
+    /// Resource Type definition for AWS::ElasticLoadBalancingV2::Listener
     /// </summary>
     [AwsNativeResourceType("aws-native:elasticloadbalancingv2:Listener")]
     public partial class Listener : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-        /// </summary>
         [Output("alpnPolicy")]
         public Output<ImmutableArray<string>> AlpnPolicy { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-        /// </summary>
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.ListenerCertificate>> Certificates { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-        /// </summary>
         [Output("defaultActions")]
         public Output<ImmutableArray<Outputs.ListenerAction>> DefaultActions { get; private set; } = null!;
 
         [Output("listenerArn")]
         public Output<string> ListenerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-        /// </summary>
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-        /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-        /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-        /// </summary>
         [Output("sslPolicy")]
         public Output<string?> SslPolicy { get; private set; } = null!;
 
@@ -107,10 +86,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
     {
         [Input("alpnPolicy")]
         private InputList<string>? _alpnPolicy;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
-        /// </summary>
         public InputList<string> AlpnPolicy
         {
             get => _alpnPolicy ?? (_alpnPolicy = new InputList<string>());
@@ -119,10 +94,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("certificates")]
         private InputList<Inputs.ListenerCertificateArgs>? _certificates;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
-        /// </summary>
         public InputList<Inputs.ListenerCertificateArgs> Certificates
         {
             get => _certificates ?? (_certificates = new InputList<Inputs.ListenerCertificateArgs>());
@@ -131,37 +102,21 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("defaultActions", required: true)]
         private InputList<Inputs.ListenerActionArgs>? _defaultActions;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
-        /// </summary>
         public InputList<Inputs.ListenerActionArgs> DefaultActions
         {
             get => _defaultActions ?? (_defaultActions = new InputList<Inputs.ListenerActionArgs>());
             set => _defaultActions = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
-        /// </summary>
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-        /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
-        /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
-        /// </summary>
         [Input("sslPolicy")]
         public Input<string>? SslPolicy { get; set; }
 

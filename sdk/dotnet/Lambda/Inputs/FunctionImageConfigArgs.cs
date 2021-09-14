@@ -10,16 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html
-    /// </summary>
     public sealed class FunctionImageConfigArgs : Pulumi.ResourceArgs
     {
         [Input("command")]
         private InputList<string>? _command;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-command
+        /// Command.
         /// </summary>
         public InputList<string> Command
         {
@@ -31,7 +28,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         private InputList<string>? _entryPoint;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-entrypoint
+        /// EntryPoint.
         /// </summary>
         public InputList<string> EntryPoint
         {
@@ -40,7 +37,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-imageconfig.html#cfn-lambda-function-imageconfig-workingdirectory
+        /// WorkingDirectory.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

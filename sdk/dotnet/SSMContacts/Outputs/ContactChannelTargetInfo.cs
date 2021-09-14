@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMContacts.Outputs
+namespace Pulumi.AwsNative.Ssmcontacts.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html
+    /// Information about the contact channel that SSM Incident Manager uses to engage the contact.
     /// </summary>
     [OutputType]
     public sealed class ContactChannelTargetInfo
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-channelid
+        /// The Amazon Resource Name (ARN) of the contact channel.
         /// </summary>
         public readonly string ChannelId;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmcontacts-contact-channeltargetinfo.html#cfn-ssmcontacts-contact-channeltargetinfo-retryintervalinminutes
+        /// The number of minutes to wait to retry sending engagement in the case the engagement initially fails.
         /// </summary>
         public readonly int RetryIntervalInMinutes;
 

@@ -7,33 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisFirehose.Outputs
+namespace Pulumi.AwsNative.Kinesisfirehose.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html
-    /// </summary>
     [OutputType]
     public sealed class DeliveryStreamOpenXJsonSerDe
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
-        /// </summary>
         public readonly bool? CaseInsensitive;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? ColumnToJsonKeyMappings;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores
-        /// </summary>
+        public readonly object? ColumnToJsonKeyMappings;
         public readonly bool? ConvertDotsInJsonKeysToUnderscores;
 
         [OutputConstructor]
         private DeliveryStreamOpenXJsonSerDe(
             bool? caseInsensitive,
 
-            ImmutableDictionary<string, string>? columnToJsonKeyMappings,
+            object? columnToJsonKeyMappings,
 
             bool? convertDotsInJsonKeysToUnderscores)
         {

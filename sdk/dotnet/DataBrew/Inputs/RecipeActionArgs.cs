@@ -7,25 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataBrew.Inputs
+namespace Pulumi.AwsNative.Databrew.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html
-    /// </summary>
     public sealed class RecipeActionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-operation
+        /// Step action operation
         /// </summary>
         [Input("operation", required: true)]
         public Input<string> Operation { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-action.html#cfn-databrew-recipe-action-parameters
-        /// </summary>
         [Input("parameters")]
-        public Input<Inputs.RecipeParameterMapArgs>? Parameters { get; set; }
+        public InputUnion<Inputs.RecipeRecipeParametersArgs, Inputs.RecipeParameterMapArgs>? Parameters { get; set; }
 
         public RecipeActionArgs()
         {

@@ -7,20 +7,13 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFront.Inputs
+namespace Pulumi.AwsNative.Cloudfront.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html
-    /// </summary>
     public sealed class DistributionDistributionConfigArgs : Pulumi.ResourceArgs
     {
         [Input("aliases")]
         private InputList<string>? _aliases;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
-        /// </summary>
         public InputList<string> Aliases
         {
             get => _aliases ?? (_aliases = new InputList<string>());
@@ -29,10 +22,6 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("cNAMEs")]
         private InputList<string>? _cNAMEs;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
-        /// </summary>
         public InputList<string> CNAMEs
         {
             get => _cNAMEs ?? (_cNAMEs = new InputList<string>());
@@ -41,121 +30,67 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
 
         [Input("cacheBehaviors")]
         private InputList<Inputs.DistributionCacheBehaviorArgs>? _cacheBehaviors;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
-        /// </summary>
         public InputList<Inputs.DistributionCacheBehaviorArgs> CacheBehaviors
         {
             get => _cacheBehaviors ?? (_cacheBehaviors = new InputList<Inputs.DistributionCacheBehaviorArgs>());
             set => _cacheBehaviors = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
-        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         [Input("customErrorResponses")]
         private InputList<Inputs.DistributionCustomErrorResponseArgs>? _customErrorResponses;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
-        /// </summary>
         public InputList<Inputs.DistributionCustomErrorResponseArgs> CustomErrorResponses
         {
             get => _customErrorResponses ?? (_customErrorResponses = new InputList<Inputs.DistributionCustomErrorResponseArgs>());
             set => _customErrorResponses = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
-        /// </summary>
         [Input("customOrigin")]
         public Input<Inputs.DistributionLegacyCustomOriginArgs>? CustomOrigin { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
-        /// </summary>
         [Input("defaultCacheBehavior")]
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs>? DefaultCacheBehavior { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
-        /// </summary>
         [Input("defaultRootObject")]
         public Input<string>? DefaultRootObject { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
-        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
-        /// </summary>
         [Input("httpVersion")]
         public Input<string>? HttpVersion { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
-        /// </summary>
         [Input("iPV6Enabled")]
         public Input<bool>? IPV6Enabled { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
-        /// </summary>
         [Input("logging")]
         public Input<Inputs.DistributionLoggingArgs>? Logging { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
-        /// </summary>
         [Input("originGroups")]
         public Input<Inputs.DistributionOriginGroupsArgs>? OriginGroups { get; set; }
 
         [Input("origins")]
         private InputList<Inputs.DistributionOriginArgs>? _origins;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
-        /// </summary>
         public InputList<Inputs.DistributionOriginArgs> Origins
         {
             get => _origins ?? (_origins = new InputList<Inputs.DistributionOriginArgs>());
             set => _origins = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
-        /// </summary>
         [Input("priceClass")]
         public Input<string>? PriceClass { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
-        /// </summary>
         [Input("restrictions")]
         public Input<Inputs.DistributionRestrictionsArgs>? Restrictions { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
-        /// </summary>
         [Input("s3Origin")]
         public Input<Inputs.DistributionLegacyS3OriginArgs>? S3Origin { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
-        /// </summary>
         [Input("viewerCertificate")]
         public Input<Inputs.DistributionViewerCertificateArgs>? ViewerCertificate { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
-        /// </summary>
         [Input("webACLId")]
         public Input<string>? WebACLId { get; set; }
 

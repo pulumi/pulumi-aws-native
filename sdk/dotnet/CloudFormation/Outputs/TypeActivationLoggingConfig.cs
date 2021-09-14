@@ -7,21 +7,18 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFormation.Outputs
+namespace Pulumi.AwsNative.Cloudformation.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html
-    /// </summary>
     [OutputType]
     public sealed class TypeActivationLoggingConfig
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-loggroupname
+        /// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
         /// </summary>
         public readonly string? LogGroupName;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html#cfn-cloudformation-typeactivation-loggingconfig-logrolearn
+        /// The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         /// </summary>
         public readonly string? LogRoleArn;
 

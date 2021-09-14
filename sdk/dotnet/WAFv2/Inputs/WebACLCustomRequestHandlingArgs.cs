@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html
+    /// Custom request handling.
     /// </summary>
     public sealed class WebACLCustomRequestHandlingArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.WAFv2.Inputs
         private InputList<Inputs.WebACLCustomHTTPHeaderArgs>? _insertHeaders;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html#cfn-wafv2-webacl-customrequesthandling-insertheaders
+        /// Collection of HTTP headers.
         /// </summary>
         public InputList<Inputs.WebACLCustomHTTPHeaderArgs> InsertHeaders
         {

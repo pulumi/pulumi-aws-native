@@ -10,43 +10,46 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kinesis
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
+    /// Resource Type definition for AWS::Kinesis::Stream
     /// </summary>
     [AwsNativeResourceType("aws-native:kinesis:Stream")]
     public partial class Stream : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon resource name (ARN) of the Kinesis stream
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+        /// The name of the Kinesis stream.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+        /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         [Output("retentionPeriodHours")]
         public Output<int?> RetentionPeriodHours { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+        /// The number of shards that the stream uses.
         /// </summary>
         [Output("shardCount")]
         public Output<int> ShardCount { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+        /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Output("streamEncryption")]
         public Output<Outputs.StreamStreamEncryption?> StreamEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.StreamTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -94,38 +97,38 @@ namespace Pulumi.AwsNative.Kinesis
     public sealed class StreamArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+        /// The name of the Kinesis stream.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+        /// The number of hours for the data records that are stored in shards to remain accessible.
         /// </summary>
         [Input("retentionPeriodHours")]
         public Input<int>? RetentionPeriodHours { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+        /// The number of shards that the stream uses.
         /// </summary>
         [Input("shardCount", required: true)]
         public Input<int> ShardCount { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+        /// When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream.
         /// </summary>
         [Input("streamEncryption")]
         public Input<Inputs.StreamStreamEncryptionArgs>? StreamEncryption { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.StreamTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+        /// An arbitrary set of tags (key–value pairs) to associate with the Kinesis stream.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.StreamTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.StreamTagArgs>());
             set => _tags = value;
         }
 

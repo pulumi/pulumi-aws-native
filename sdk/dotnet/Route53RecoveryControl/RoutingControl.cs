@@ -7,35 +7,41 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryControl
+namespace Pulumi.AwsNative.Route53recoverycontrol
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html
+    /// AWS Route53 Recovery Control Routing Control resource schema .
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:RoutingControl")]
     public partial class RoutingControl : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+        /// Arn associated with Control Panel
         /// </summary>
         [Output("clusterArn")]
         public Output<string?> ClusterArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+        /// The Amazon Resource Name (ARN) of the control panel.
         /// </summary>
         [Output("controlPanelArn")]
         public Output<string?> ControlPanelArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+        /// The name of the routing control. You can use any non-white space character in the name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the routing control.
+        /// </summary>
         [Output("routingControlArn")]
         public Output<string> RoutingControlArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -85,19 +91,19 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
     public sealed class RoutingControlArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-clusterarn
+        /// Arn associated with Control Panel
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-controlpanelarn
+        /// The Amazon Resource Name (ARN) of the control panel.
         /// </summary>
         [Input("controlPanelArn")]
         public Input<string>? ControlPanelArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-routingcontrol.html#cfn-route53recoverycontrol-routingcontrol-name
+        /// The name of the routing control. You can use any non-white space character in the name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

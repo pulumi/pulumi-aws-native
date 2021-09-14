@@ -7,21 +7,21 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Outputs
+namespace Pulumi.AwsNative.Quicksight.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html
+    /// &lt;p&gt;The source template of an analysis.&lt;/p&gt;
     /// </summary>
     [OutputType]
     public sealed class AnalysisAnalysisSourceTemplate
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-arn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of the source template of an analysis.&lt;/p&gt;
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysissourcetemplate.html#cfn-quicksight-analysis-analysissourcetemplate-datasetreferences
+        /// &lt;p&gt;The dataset references of the source template of an analysis.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataSetReference> DataSetReferences;
 

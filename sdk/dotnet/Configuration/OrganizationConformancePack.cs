@@ -10,49 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Configuration
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html
+    /// Resource schema for AWS::Config::OrganizationConformancePack.
     /// </summary>
     [AwsNativeResourceType("aws-native:configuration:OrganizationConformancePack")]
     public partial class OrganizationConformancePack : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
+        /// A list of ConformancePackInputParameter objects.
         /// </summary>
         [Output("conformancePackInputParameters")]
         public Output<ImmutableArray<Outputs.OrganizationConformancePackConformancePackInputParameter>> ConformancePackInputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
+        /// AWS Config stores intermediate files while processing conformance pack template.
         /// </summary>
         [Output("deliveryS3Bucket")]
         public Output<string?> DeliveryS3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
+        /// The prefix for the delivery S3 bucket.
         /// </summary>
         [Output("deliveryS3KeyPrefix")]
         public Output<string?> DeliveryS3KeyPrefix { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
+        /// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         /// </summary>
         [Output("excludedAccounts")]
         public Output<ImmutableArray<string>> ExcludedAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        /// The name of the organization conformance pack.
         /// </summary>
         [Output("organizationConformancePackName")]
         public Output<string> OrganizationConformancePackName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        /// A string containing full conformance pack template body.
         /// </summary>
         [Output("templateBody")]
         public Output<string?> TemplateBody { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        /// Location of file containing the template body.
         /// </summary>
         [Output("templateS3Uri")]
         public Output<string?> TemplateS3Uri { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Configuration
         private InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs>? _conformancePackInputParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-conformancepackinputparameters
+        /// A list of ConformancePackInputParameter objects.
         /// </summary>
         public InputList<Inputs.OrganizationConformancePackConformancePackInputParameterArgs> ConformancePackInputParameters
         {
@@ -115,13 +115,13 @@ namespace Pulumi.AwsNative.Configuration
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3bucket
+        /// AWS Config stores intermediate files while processing conformance pack template.
         /// </summary>
         [Input("deliveryS3Bucket")]
         public Input<string>? DeliveryS3Bucket { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-deliverys3keyprefix
+        /// The prefix for the delivery S3 bucket.
         /// </summary>
         [Input("deliveryS3KeyPrefix")]
         public Input<string>? DeliveryS3KeyPrefix { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Configuration
         private InputList<string>? _excludedAccounts;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-excludedaccounts
+        /// A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
         /// </summary>
         public InputList<string> ExcludedAccounts
         {
@@ -139,19 +139,19 @@ namespace Pulumi.AwsNative.Configuration
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-organizationconformancepackname
+        /// The name of the organization conformance pack.
         /// </summary>
         [Input("organizationConformancePackName", required: true)]
         public Input<string> OrganizationConformancePackName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templatebody
+        /// A string containing full conformance pack template body.
         /// </summary>
         [Input("templateBody")]
         public Input<string>? TemplateBody { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconformancepack.html#cfn-config-organizationconformancepack-templates3uri
+        /// Location of file containing the template body.
         /// </summary>
         [Input("templateS3Uri")]
         public Input<string>? TemplateS3Uri { get; set; }

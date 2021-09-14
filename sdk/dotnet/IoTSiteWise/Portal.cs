@@ -7,73 +7,85 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTSiteWise
+namespace Pulumi.AwsNative.Iotsitewise
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html
+    /// Resource schema for AWS::IoTSiteWise::Portal
     /// </summary>
     [AwsNativeResourceType("aws-native:iotsitewise:Portal")]
     public partial class Portal : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         /// </summary>
         [Output("alarms")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> Alarms { get; private set; } = null!;
+        public Output<object?> Alarms { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        /// The email address that sends alarm notifications.
         /// </summary>
         [Output("notificationSenderEmail")]
         public Output<string?> NotificationSenderEmail { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the portal, which has the following format.
+        /// </summary>
         [Output("portalArn")]
         public Output<string> PortalArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        /// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         /// </summary>
         [Output("portalAuthMode")]
         public Output<string?> PortalAuthMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS SSO application generated client ID (used with AWS SSO APIs).
+        /// </summary>
         [Output("portalClientId")]
         public Output<string> PortalClientId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        /// The AWS administrator's contact email address.
         /// </summary>
         [Output("portalContactEmail")]
         public Output<string> PortalContactEmail { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        /// A description for the portal.
         /// </summary>
         [Output("portalDescription")]
         public Output<string?> PortalDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the portal.
+        /// </summary>
         [Output("portalId")]
         public Output<string> PortalId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        /// A friendly name for the portal.
         /// </summary>
         [Output("portalName")]
         public Output<string> PortalName { get; private set; } = null!;
 
+        /// <summary>
+        /// The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
+        /// </summary>
         [Output("portalStartUrl")]
         public Output<string> PortalStartUrl { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        /// A list of key-value pairs that contain metadata for the portal.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PortalTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,56 +133,56 @@ namespace Pulumi.AwsNative.IoTSiteWise
     public sealed class PortalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-alarms
+        /// Contains the configuration information of an alarm created in an AWS IoT SiteWise Monitor portal. You can use the alarm to monitor an asset property and get notified when the asset property value is outside a specified range.
         /// </summary>
         [Input("alarms")]
-        public InputUnion<System.Text.Json.JsonElement, string>? Alarms { get; set; }
+        public Input<object>? Alarms { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-notificationsenderemail
+        /// The email address that sends alarm notifications.
         /// </summary>
         [Input("notificationSenderEmail")]
         public Input<string>? NotificationSenderEmail { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalauthmode
+        /// The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         /// </summary>
         [Input("portalAuthMode")]
         public Input<string>? PortalAuthMode { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalcontactemail
+        /// The AWS administrator's contact email address.
         /// </summary>
         [Input("portalContactEmail", required: true)]
         public Input<string> PortalContactEmail { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portaldescription
+        /// A description for the portal.
         /// </summary>
         [Input("portalDescription")]
         public Input<string>? PortalDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-portalname
+        /// A friendly name for the portal.
         /// </summary>
         [Input("portalName", required: true)]
         public Input<string> PortalName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-rolearn
+        /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.PortalTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html#cfn-iotsitewise-portal-tags
+        /// A list of key-value pairs that contain metadata for the portal.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.PortalTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.PortalTagArgs>());
             set => _tags = value;
         }
 

@@ -10,29 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html
-    /// </summary>
     public sealed class DataSourceConfluenceSpaceConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlarchivedspaces
-        /// </summary>
         [Input("crawlArchivedSpaces")]
         public Input<bool>? CrawlArchivedSpaces { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-crawlpersonalspaces
-        /// </summary>
         [Input("crawlPersonalSpaces")]
         public Input<bool>? CrawlPersonalSpaces { get; set; }
 
         [Input("excludeSpaces")]
         private InputList<string>? _excludeSpaces;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-excludespaces
-        /// </summary>
         public InputList<string> ExcludeSpaces
         {
             get => _excludeSpaces ?? (_excludeSpaces = new InputList<string>());
@@ -41,10 +28,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includeSpaces")]
         private InputList<string>? _includeSpaces;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-includespaces
-        /// </summary>
         public InputList<string> IncludeSpaces
         {
             get => _includeSpaces ?? (_includeSpaces = new InputList<string>());
@@ -53,10 +36,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("spaceFieldMappings")]
         private InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>? _spaceFieldMappings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluencespaceconfiguration.html#cfn-kendra-datasource-confluencespaceconfiguration-spacefieldmappings
-        /// </summary>
         public InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs> SpaceFieldMappings
         {
             get => _spaceFieldMappings ?? (_spaceFieldMappings = new InputList<Inputs.DataSourceConfluenceSpaceToIndexFieldMappingArgs>());

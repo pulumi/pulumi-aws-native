@@ -7,12 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.StepFunctions.Outputs
+namespace Pulumi.AwsNative.Stepfunctions.Outputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-definition.html
-    /// </summary>
     [OutputType]
     public sealed class StateMachineDefinition
     {

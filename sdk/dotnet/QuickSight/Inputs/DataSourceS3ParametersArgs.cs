@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html
+    /// &lt;p&gt;S3 parameters.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceS3ParametersArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-s3parameters.html#cfn-quicksight-datasource-s3parameters-manifestfilelocation
-        /// </summary>
         [Input("manifestFileLocation", required: true)]
         public Input<Inputs.DataSourceManifestFileLocationArgs> ManifestFileLocation { get; set; } = null!;
 

@@ -7,43 +7,46 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaConnect
+namespace Pulumi.AwsNative.Mediaconnect
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html
+    /// Resource schema for AWS::MediaConnect::FlowVpcInterface
     /// </summary>
     [AwsNativeResourceType("aws-native:mediaconnect:FlowVpcInterface")]
     public partial class FlowVpcInterface : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+        /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         [Output("flowArn")]
         public Output<string> FlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+        /// Immutable and has to be a unique against other VpcInterfaces in this Flow.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// IDs of the network interfaces created in customer's account by MediaConnect.
+        /// </summary>
         [Output("networkInterfaceIds")]
         public Output<ImmutableArray<string>> NetworkInterfaceIds { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+        /// Role Arn MediaConnect can assumes to create ENIs in customer's account.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+        /// Security Group IDs to be used on ENI.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        /// Subnet must be in the AZ of the Flow
         /// </summary>
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
@@ -94,19 +97,19 @@ namespace Pulumi.AwsNative.MediaConnect
     public sealed class FlowVpcInterfaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-flowarn
+        /// The Amazon Resource Name (ARN), a unique identifier for any AWS resource, of the flow.
         /// </summary>
         [Input("flowArn", required: true)]
         public Input<string> FlowArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-name
+        /// Immutable and has to be a unique against other VpcInterfaces in this Flow.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-rolearn
+        /// Role Arn MediaConnect can assumes to create ENIs in customer's account.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -115,7 +118,7 @@ namespace Pulumi.AwsNative.MediaConnect
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-securitygroupids
+        /// Security Group IDs to be used on ENI.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -124,7 +127,7 @@ namespace Pulumi.AwsNative.MediaConnect
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowvpcinterface.html#cfn-mediaconnect-flowvpcinterface-subnetid
+        /// Subnet must be in the AZ of the Flow
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

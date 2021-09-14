@@ -7,58 +7,61 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage
+namespace Pulumi.AwsNative.Mediapackage
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html
+    /// Resource schema for AWS::MediaPackage::Asset
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:Asset")]
     public partial class Asset : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the Asset.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The time the Asset was initially submitted for Ingest.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of egress endpoints available for the Asset.
+        /// </summary>
         [Output("egressEndpoints")]
         public Output<ImmutableArray<Outputs.AssetEgressEndpoint>> EgressEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        /// </summary>
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+        /// The ID of the PackagingGroup for the Asset.
         /// </summary>
         [Output("packagingGroupId")]
         public Output<string> PackagingGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+        /// The resource ID to include in SPEKE key requests.
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+        /// ARN of the source object in S3.
         /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+        /// The IAM role_arn used to access the source S3 bucket.
         /// </summary>
         [Output("sourceRoleArn")]
         public Output<string> SourceRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.AssetTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,44 +109,38 @@ namespace Pulumi.AwsNative.MediaPackage
     public sealed class AssetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-id
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-packaginggroupid
+        /// The ID of the PackagingGroup for the Asset.
         /// </summary>
         [Input("packagingGroupId", required: true)]
         public Input<string> PackagingGroupId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-resourceid
+        /// The resource ID to include in SPEKE key requests.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcearn
+        /// ARN of the source object in S3.
         /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-sourcerolearn
+        /// The IAM role_arn used to access the source S3 bucket.
         /// </summary>
         [Input("sourceRoleArn", required: true)]
         public Input<string> SourceRoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.AssetTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html#cfn-mediapackage-asset-tags
+        /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.AssetTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.AssetTagArgs>());
             set => _tags = value;
         }
 

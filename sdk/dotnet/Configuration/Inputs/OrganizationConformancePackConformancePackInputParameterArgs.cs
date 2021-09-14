@@ -11,19 +11,13 @@ namespace Pulumi.AwsNative.Configuration.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html
+    /// Input parameters in the form of key-value pairs for the conformance pack.
     /// </summary>
     public sealed class OrganizationConformancePackConformancePackInputParameterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametername
-        /// </summary>
         [Input("parameterName", required: true)]
         public Input<string> ParameterName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconformancepack-conformancepackinputparameter.html#cfn-config-organizationconformancepack-conformancepackinputparameter-parametervalue
-        /// </summary>
         [Input("parameterValue", required: true)]
         public Input<string> ParameterValue { get; set; } = null!;
 

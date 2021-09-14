@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html
+    /// &lt;p&gt;The combination of user name and password that are used as credentials.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceCredentialPairArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DataSourceDataSourceParametersArgs>? _alternateDataSourceParameters;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-alternatedatasourceparameters
+        /// &lt;p&gt;A set of alternate data source parameters that you want to share for these
+        ///             credentials. The credentials are applied in tandem with the data source parameters when
+        ///             you copy a data source by using a create or update request. The API operation compares
+        ///             the &lt;code&gt;DataSourceParameters&lt;/code&gt; structure that's in the request with the
+        ///             structures in the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; allow list. If the
+        ///             structures are an exact match, the request is allowed to use the new data source with
+        ///             the existing credentials. If the &lt;code&gt;AlternateDataSourceParameters&lt;/code&gt; list is
+        ///             null, the &lt;code&gt;DataSourceParameters&lt;/code&gt; originally used with these
+        ///                 &lt;code&gt;Credentials&lt;/code&gt; is automatically allowed.&lt;/p&gt;
         /// </summary>
         public InputList<Inputs.DataSourceDataSourceParametersArgs> AlternateDataSourceParameters
         {
@@ -28,13 +36,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-password
+        /// &lt;p&gt;Password.&lt;/p&gt;
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-credentialpair.html#cfn-quicksight-datasource-credentialpair-username
+        /// &lt;p&gt;User name.&lt;/p&gt;
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

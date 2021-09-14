@@ -7,47 +7,41 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53RecoveryControl
+namespace Pulumi.AwsNative.Route53recoverycontrol
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html
+    /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53recoverycontrol:SafetyRule")]
     public partial class SafetyRule : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        /// </summary>
         [Output("assertionRule")]
         public Output<Outputs.SafetyRuleAssertionRule?> AssertionRule { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
+        /// The Amazon Resource Name (ARN) of the control panel.
         /// </summary>
         [Output("controlPanelArn")]
-        public Output<string> ControlPanelArn { get; private set; } = null!;
+        public Output<string?> ControlPanelArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-        /// </summary>
         [Output("gatingRule")]
         public Output<Outputs.SafetyRuleGatingRule?> GatingRule { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
+
+        [Output("ruleConfig")]
+        public Output<Outputs.SafetyRuleRuleConfig?> RuleConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
+        /// The Amazon Resource Name (ARN) of the safety rule.
         /// </summary>
-        [Output("ruleConfig")]
-        public Output<Outputs.SafetyRuleRuleConfig> RuleConfig { get; private set; } = null!;
-
         [Output("safetyRuleArn")]
         public Output<string> SafetyRuleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -59,7 +53,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SafetyRule(string name, SafetyRuleArgs args, CustomResourceOptions? options = null)
+        public SafetyRule(string name, SafetyRuleArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:route53recoverycontrol:SafetyRule", name, args ?? new SafetyRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -96,35 +90,23 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
 
     public sealed class SafetyRuleArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-assertionrule
-        /// </summary>
         [Input("assertionRule")]
         public Input<Inputs.SafetyRuleAssertionRuleArgs>? AssertionRule { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-controlpanelarn
+        /// The Amazon Resource Name (ARN) of the control panel.
         /// </summary>
-        [Input("controlPanelArn", required: true)]
-        public Input<string> ControlPanelArn { get; set; } = null!;
+        [Input("controlPanelArn")]
+        public Input<string>? ControlPanelArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-gatingrule
-        /// </summary>
         [Input("gatingRule")]
         public Input<Inputs.SafetyRuleGatingRuleArgs>? GatingRule { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-name
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-safetyrule.html#cfn-route53recoverycontrol-safetyrule-ruleconfig
-        /// </summary>
-        [Input("ruleConfig", required: true)]
-        public Input<Inputs.SafetyRuleRuleConfigArgs> RuleConfig { get; set; } = null!;
+        [Input("ruleConfig")]
+        public Input<Inputs.SafetyRuleRuleConfigArgs>? RuleConfig { get; set; }
 
         public SafetyRuleArgs()
         {

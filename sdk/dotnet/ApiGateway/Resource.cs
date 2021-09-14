@@ -7,31 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway
+namespace Pulumi.AwsNative.Apigateway
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
+    /// Resource Type definition for AWS::ApiGateway::Resource
     /// </summary>
     [AwsNativeResourceType("aws-native:apigateway:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+        /// The parent resource's identifier.
         /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+        /// The last path segment for this resource.
         /// </summary>
         [Output("pathPart")]
         public Output<string> PathPart { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique primary identifier for a Resource
+        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        /// The ID of the RestApi resource in which you want to create this resource..
         /// </summary>
         [Output("restApiId")]
         public Output<string> RestApiId { get; private set; } = null!;
@@ -82,19 +85,19 @@ namespace Pulumi.AwsNative.ApiGateway
     public sealed class ResourceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
+        /// The parent resource's identifier.
         /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
+        /// The last path segment for this resource.
         /// </summary>
         [Input("pathPart", required: true)]
         public Input<string> PathPart { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
+        /// The ID of the RestApi resource in which you want to create this resource..
         /// </summary>
         [Input("restApiId", required: true)]
         public Input<string> RestApiId { get; set; } = null!;

@@ -7,110 +7,86 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSM
+namespace Pulumi.AwsNative.Ssm
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
+    /// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
     /// </summary>
     [AwsNativeResourceType("aws-native:ssm:Association")]
     public partial class Association : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        /// </summary>
         [Output("applyOnlyAtCronInterval")]
         public Output<bool?> ApplyOnlyAtCronInterval { get; private set; } = null!;
 
+        /// <summary>
+        /// Unique identifier of the association.
+        /// </summary>
         [Output("associationId")]
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+        /// The name of the association.
         /// </summary>
         [Output("associationName")]
         public Output<string?> AssociationName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        /// </summary>
         [Output("automationTargetParameterName")]
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        /// </summary>
         [Output("calendarNames")]
         public Output<ImmutableArray<string>> CalendarNames { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        /// </summary>
         [Output("complianceSeverity")]
         public Output<string?> ComplianceSeverity { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+        /// The version of the SSM document to associate with the target.
         /// </summary>
         [Output("documentVersion")]
         public Output<string?> DocumentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        /// The ID of the instance that the SSM document is associated with.
         /// </summary>
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        /// </summary>
         [Output("maxConcurrency")]
         public Output<string?> MaxConcurrency { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        /// </summary>
         [Output("maxErrors")]
         public Output<string?> MaxErrors { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        /// The name of the SSM document.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        /// </summary>
         [Output("outputLocation")]
         public Output<Outputs.AssociationInstanceAssociationOutputLocation?> OutputLocation { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        /// Parameter values that the SSM document uses at runtime.
         /// </summary>
         [Output("parameters")]
-        public Output<ImmutableDictionary<string, Union<System.Text.Json.JsonElement, string>>?> Parameters { get; private set; } = null!;
+        public Output<object?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        /// A Cron or Rate expression that specifies when the association is applied to the target.
         /// </summary>
         [Output("scheduleExpression")]
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        /// </summary>
         [Output("syncCompliance")]
         public Output<string?> SyncCompliance { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        /// The targets that the SSM document sends commands to.
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.AssociationTarget>> Targets { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-        /// </summary>
         [Output("waitForSuccessTimeoutSeconds")]
         public Output<int?> WaitForSuccessTimeoutSeconds { get; private set; } = null!;
 
@@ -159,99 +135,68 @@ namespace Pulumi.AwsNative.SSM
 
     public sealed class AssociationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
-        /// </summary>
         [Input("applyOnlyAtCronInterval")]
         public Input<bool>? ApplyOnlyAtCronInterval { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+        /// The name of the association.
         /// </summary>
         [Input("associationName")]
         public Input<string>? AssociationName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
-        /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
 
         [Input("calendarNames")]
         private InputList<string>? _calendarNames;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-calendarnames
-        /// </summary>
         public InputList<string> CalendarNames
         {
             get => _calendarNames ?? (_calendarNames = new InputList<string>());
             set => _calendarNames = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
-        /// </summary>
         [Input("complianceSeverity")]
         public Input<string>? ComplianceSeverity { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+        /// The version of the SSM document to associate with the target.
         /// </summary>
         [Input("documentVersion")]
         public Input<string>? DocumentVersion { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+        /// The ID of the instance that the SSM document is associated with.
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
-        /// </summary>
         [Input("maxConcurrency")]
         public Input<string>? MaxConcurrency { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
-        /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+        /// The name of the SSM document.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
-        /// </summary>
         [Input("outputLocation")]
         public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }
 
-        [Input("parameters")]
-        private InputMap<Union<System.Text.Json.JsonElement, string>>? _parameters;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+        /// Parameter values that the SSM document uses at runtime.
         /// </summary>
-        public InputMap<Union<System.Text.Json.JsonElement, string>> Parameters
-        {
-            get => _parameters ?? (_parameters = new InputMap<Union<System.Text.Json.JsonElement, string>>());
-            set => _parameters = value;
-        }
+        [Input("parameters")]
+        public Input<object>? Parameters { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+        /// A Cron or Rate expression that specifies when the association is applied to the target.
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
-        /// </summary>
         [Input("syncCompliance")]
         public Input<string>? SyncCompliance { get; set; }
 
@@ -259,7 +204,7 @@ namespace Pulumi.AwsNative.SSM
         private InputList<Inputs.AssociationTargetArgs>? _targets;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+        /// The targets that the SSM document sends commands to.
         /// </summary>
         public InputList<Inputs.AssociationTargetArgs> Targets
         {
@@ -267,9 +212,6 @@ namespace Pulumi.AwsNative.SSM
             set => _targets = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
-        /// </summary>
         [Input("waitForSuccessTimeoutSeconds")]
         public Input<int>? WaitForSuccessTimeoutSeconds { get; set; }
 

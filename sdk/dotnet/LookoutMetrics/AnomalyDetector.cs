@@ -7,28 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.LookoutMetrics
+namespace Pulumi.AwsNative.Lookoutmetrics
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html
+    /// An Amazon Lookout for Metrics Detector
     /// </summary>
     [AwsNativeResourceType("aws-native:lookoutmetrics:AnomalyDetector")]
     public partial class AnomalyDetector : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+        /// Configuration options for the AnomalyDetector
         /// </summary>
         [Output("anomalyDetectorConfig")]
         public Output<Outputs.AnomalyDetectorAnomalyDetectorConfig> AnomalyDetectorConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+        /// A description for the AnomalyDetector.
         /// </summary>
         [Output("anomalyDetectorDescription")]
         public Output<string?> AnomalyDetectorDescription { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+        /// Name for the Amazon Lookout for Metrics Anomaly Detector
         /// </summary>
         [Output("anomalyDetectorName")]
         public Output<string?> AnomalyDetectorName { get; private set; } = null!;
@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.LookoutMetrics
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+        /// KMS key used to encrypt the AnomalyDetector data
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+        /// List of metric sets for anomaly detection
         /// </summary>
         [Output("metricSetList")]
         public Output<ImmutableArray<Outputs.AnomalyDetectorMetricSet>> MetricSetList { get; private set; } = null!;
@@ -94,25 +94,25 @@ namespace Pulumi.AwsNative.LookoutMetrics
     public sealed class AnomalyDetectorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorconfig
+        /// Configuration options for the AnomalyDetector
         /// </summary>
         [Input("anomalyDetectorConfig", required: true)]
         public Input<Inputs.AnomalyDetectorAnomalyDetectorConfigArgs> AnomalyDetectorConfig { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectordescription
+        /// A description for the AnomalyDetector.
         /// </summary>
         [Input("anomalyDetectorDescription")]
         public Input<string>? AnomalyDetectorDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-anomalydetectorname
+        /// Name for the Amazon Lookout for Metrics Anomaly Detector
         /// </summary>
         [Input("anomalyDetectorName")]
         public Input<string>? AnomalyDetectorName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-kmskeyarn
+        /// KMS key used to encrypt the AnomalyDetector data
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.LookoutMetrics
         private InputList<Inputs.AnomalyDetectorMetricSetArgs>? _metricSetList;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lookoutmetrics-anomalydetector.html#cfn-lookoutmetrics-anomalydetector-metricsetlist
+        /// List of metric sets for anomaly detection
         /// </summary>
         public InputList<Inputs.AnomalyDetectorMetricSetArgs> MetricSetList
         {

@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Inputs
+namespace Pulumi.AwsNative.Datasync.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html
+    /// Contains a list of Amazon Resource Names (ARNs) of agents that are used to connect an NFS server.
     /// </summary>
     public sealed class LocationNFSOnPremConfigArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         private InputList<string>? _agentArns;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationnfs-onpremconfig.html#cfn-datasync-locationnfs-onpremconfig-agentarns
+        /// ARN(s) of the agent(s) to use for an NFS location.
         /// </summary>
         public InputList<string> AgentArns
         {

@@ -7,53 +7,29 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.GroundStation.Inputs
+namespace Pulumi.AwsNative.Groundstation.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html
-    /// </summary>
     public sealed class ConfigConfigDataArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkconfig
-        /// </summary>
         [Input("antennaDownlinkConfig")]
         public Input<Inputs.ConfigAntennaDownlinkConfigArgs>? AntennaDownlinkConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennadownlinkdemoddecodeconfig
-        /// </summary>
         [Input("antennaDownlinkDemodDecodeConfig")]
         public Input<Inputs.ConfigAntennaDownlinkDemodDecodeConfigArgs>? AntennaDownlinkDemodDecodeConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-antennauplinkconfig
-        /// </summary>
         [Input("antennaUplinkConfig")]
         public Input<Inputs.ConfigAntennaUplinkConfigArgs>? AntennaUplinkConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-dataflowendpointconfig
-        /// </summary>
         [Input("dataflowEndpointConfig")]
         public Input<Inputs.ConfigDataflowEndpointConfigArgs>? DataflowEndpointConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-s3recordingconfig
-        /// </summary>
         [Input("s3RecordingConfig")]
         public Input<Inputs.ConfigS3RecordingConfigArgs>? S3RecordingConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-trackingconfig
-        /// </summary>
         [Input("trackingConfig")]
         public Input<Inputs.ConfigTrackingConfigArgs>? TrackingConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-config-configdata.html#cfn-groundstation-config-configdata-uplinkechoconfig
-        /// </summary>
         [Input("uplinkEchoConfig")]
         public Input<Inputs.ConfigUplinkEchoConfigArgs>? UplinkEchoConfig { get; set; }
 

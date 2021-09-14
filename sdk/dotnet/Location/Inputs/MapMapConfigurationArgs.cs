@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Location.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html
-    /// </summary>
     public sealed class MapMapConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-location-map-mapconfiguration.html#cfn-location-map-mapconfiguration-style
-        /// </summary>
         [Input("style", required: true)]
         public Input<string> Style { get; set; } = null!;
 

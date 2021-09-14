@@ -10,35 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Kendra.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html
-    /// </summary>
     public sealed class DataSourceServiceNowKnowledgeArticleConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-crawlattachments
-        /// </summary>
         [Input("crawlAttachments")]
         public Input<bool>? CrawlAttachments { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documentdatafieldname
-        /// </summary>
         [Input("documentDataFieldName", required: true)]
         public Input<string> DocumentDataFieldName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-documenttitlefieldname
-        /// </summary>
         [Input("documentTitleFieldName")]
         public Input<string>? DocumentTitleFieldName { get; set; }
 
         [Input("excludeAttachmentFilePatterns")]
         private InputList<string>? _excludeAttachmentFilePatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-excludeattachmentfilepatterns
-        /// </summary>
         public InputList<string> ExcludeAttachmentFilePatterns
         {
             get => _excludeAttachmentFilePatterns ?? (_excludeAttachmentFilePatterns = new InputList<string>());
@@ -47,10 +31,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("fieldMappings")]
         private InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>? _fieldMappings;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-fieldmappings
-        /// </summary>
         public InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs> FieldMappings
         {
             get => _fieldMappings ?? (_fieldMappings = new InputList<Inputs.DataSourceDataSourceToIndexFieldMappingArgs>());
@@ -59,10 +39,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         [Input("includeAttachmentFilePatterns")]
         private InputList<string>? _includeAttachmentFilePatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-servicenowknowledgearticleconfiguration.html#cfn-kendra-datasource-servicenowknowledgearticleconfiguration-includeattachmentfilepatterns
-        /// </summary>
         public InputList<string> IncludeAttachmentFilePatterns
         {
             get => _includeAttachmentFilePatterns ?? (_includeAttachmentFilePatterns = new InputList<string>());

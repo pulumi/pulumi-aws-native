@@ -10,80 +10,45 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Amplify.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html
-    /// </summary>
     public sealed class AppAutoBranchCreationConfigArgs : Pulumi.ResourceArgs
     {
         [Input("autoBranchCreationPatterns")]
         private InputList<string>? _autoBranchCreationPatterns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-autobranchcreationpatterns
-        /// </summary>
         public InputList<string> AutoBranchCreationPatterns
         {
             get => _autoBranchCreationPatterns ?? (_autoBranchCreationPatterns = new InputList<string>());
             set => _autoBranchCreationPatterns = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-basicauthconfig
-        /// </summary>
         [Input("basicAuthConfig")]
         public Input<Inputs.AppBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-buildspec
-        /// </summary>
         [Input("buildSpec")]
         public Input<string>? BuildSpec { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobranchcreation
-        /// </summary>
         [Input("enableAutoBranchCreation")]
         public Input<bool>? EnableAutoBranchCreation { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableautobuild
-        /// </summary>
         [Input("enableAutoBuild")]
         public Input<bool>? EnableAutoBuild { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enableperformancemode
-        /// </summary>
         [Input("enablePerformanceMode")]
         public Input<bool>? EnablePerformanceMode { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
-        /// </summary>
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.AppEnvironmentVariableArgs>? _environmentVariables;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
-        /// </summary>
         public InputList<Inputs.AppEnvironmentVariableArgs> EnvironmentVariables
         {
             get => _environmentVariables ?? (_environmentVariables = new InputList<Inputs.AppEnvironmentVariableArgs>());
             set => _environmentVariables = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
-        /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
-        /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 

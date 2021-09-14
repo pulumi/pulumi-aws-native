@@ -7,64 +7,70 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ImageBuilder
+namespace Pulumi.AwsNative.Imagebuilder
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html
+    /// Resource schema for AWS::ImageBuilder::ImageRecipe
     /// </summary>
     [AwsNativeResourceType("aws-native:imagebuilder:ImageRecipe")]
     public partial class ImageRecipe : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        /// Specify additional settings and launch scripts for your build instances.
         /// </summary>
         [Output("additionalInstanceConfiguration")]
         public Output<Outputs.ImageRecipeAdditionalInstanceConfiguration?> AdditionalInstanceConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the image recipe.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+        /// The block device mappings to apply when creating images from this recipe.
         /// </summary>
         [Output("blockDeviceMappings")]
         public Output<ImmutableArray<Outputs.ImageRecipeInstanceBlockDeviceMapping>> BlockDeviceMappings { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+        /// The components of the image recipe.
         /// </summary>
         [Output("components")]
         public Output<ImmutableArray<Outputs.ImageRecipeComponentConfiguration>> Components { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+        /// The description of the image recipe.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the image recipe.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        /// The parent image of the image recipe.
         /// </summary>
         [Output("parentImage")]
         public Output<string> ParentImage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        /// The tags of the image recipe.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        public Output<object?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        /// The version of the image recipe.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// The working directory to be used during build and test workflows.
         /// </summary>
         [Output("workingDirectory")]
         public Output<string?> WorkingDirectory { get; private set; } = null!;
@@ -115,7 +121,7 @@ namespace Pulumi.AwsNative.ImageBuilder
     public sealed class ImageRecipeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-additionalinstanceconfiguration
+        /// Specify additional settings and launch scripts for your build instances.
         /// </summary>
         [Input("additionalInstanceConfiguration")]
         public Input<Inputs.ImageRecipeAdditionalInstanceConfigurationArgs>? AdditionalInstanceConfiguration { get; set; }
@@ -124,7 +130,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         private InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs>? _blockDeviceMappings;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
+        /// The block device mappings to apply when creating images from this recipe.
         /// </summary>
         public InputList<Inputs.ImageRecipeInstanceBlockDeviceMappingArgs> BlockDeviceMappings
         {
@@ -136,7 +142,7 @@ namespace Pulumi.AwsNative.ImageBuilder
         private InputList<Inputs.ImageRecipeComponentConfigurationArgs>? _components;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-components
+        /// The components of the image recipe.
         /// </summary>
         public InputList<Inputs.ImageRecipeComponentConfigurationArgs> Components
         {
@@ -145,43 +151,37 @@ namespace Pulumi.AwsNative.ImageBuilder
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-description
+        /// The description of the image recipe.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-name
+        /// The name of the image recipe.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-parentimage
+        /// The parent image of the image recipe.
         /// </summary>
         [Input("parentImage", required: true)]
         public Input<string> ParentImage { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-tags
+        /// The tags of the image recipe.
         /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
+        [Input("tags")]
+        public Input<object>? Tags { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
+        /// The version of the image recipe.
         /// </summary>
         [Input("version", required: true)]
         public Input<string> Version { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+        /// The working directory to be used during build and test workflows.
         /// </summary>
         [Input("workingDirectory")]
         public Input<string>? WorkingDirectory { get; set; }

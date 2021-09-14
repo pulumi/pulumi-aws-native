@@ -7,23 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.FMS
+namespace Pulumi.AwsNative.Fms
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html
+    /// Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
     /// </summary>
     [AwsNativeResourceType("aws-native:fms:NotificationChannel")]
     public partial class NotificationChannel : Pulumi.CustomResource
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        /// </summary>
         [Output("snsRoleName")]
         public Output<string> SnsRoleName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-        /// </summary>
         [Output("snsTopicArn")]
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
@@ -72,15 +66,9 @@ namespace Pulumi.AwsNative.FMS
 
     public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snsrolename
-        /// </summary>
         [Input("snsRoleName", required: true)]
         public Input<string> SnsRoleName { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-notificationchannel.html#cfn-fms-notificationchannel-snstopicarn
-        /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 

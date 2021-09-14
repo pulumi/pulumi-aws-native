@@ -7,35 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ECS.Inputs
+namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html
-    /// </summary>
     public sealed class TaskDefinitionProxyConfigurationArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-containername
-        /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         [Input("proxyConfigurationProperties")]
         private InputList<Inputs.TaskDefinitionKeyValuePairArgs>? _proxyConfigurationProperties;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-proxyconfigurationproperties
-        /// </summary>
         public InputList<Inputs.TaskDefinitionKeyValuePairArgs> ProxyConfigurationProperties
         {
             get => _proxyConfigurationProperties ?? (_proxyConfigurationProperties = new InputList<Inputs.TaskDefinitionKeyValuePairArgs>());
             set => _proxyConfigurationProperties = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-proxyconfiguration.html#cfn-ecs-taskdefinition-proxyconfiguration-type
-        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

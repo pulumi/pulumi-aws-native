@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync.Inputs
+namespace Pulumi.AwsNative.Datasync.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html
+    /// The mount options used by DataSync to access the SMB server.
     /// </summary>
     public sealed class LocationSMBMountOptionsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html#cfn-datasync-locationsmb-mountoptions-version
+        /// The specific SMB version that you want DataSync to use to mount your SMB share.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

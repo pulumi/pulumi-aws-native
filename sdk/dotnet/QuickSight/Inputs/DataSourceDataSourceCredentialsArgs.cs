@@ -7,23 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.QuickSight.Inputs
+namespace Pulumi.AwsNative.Quicksight.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html
+    /// &lt;p&gt;Data source credentials. This is a variant type structure. For this structure to be
+    ///             valid, only one of the attributes can be non-null.&lt;/p&gt;
     /// </summary>
     public sealed class DataSourceDataSourceCredentialsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-copysourcearn
+        /// &lt;p&gt;The Amazon Resource Name (ARN) of a data source that has the credential pair that you
+        ///             want to use. When &lt;code&gt;CopySourceArn&lt;/code&gt; is not null, the credential pair from the
+        ///             data source in the ARN is used as the credentials for the
+        ///             &lt;code&gt;DataSourceCredentials&lt;/code&gt; structure.&lt;/p&gt;
         /// </summary>
         [Input("copySourceArn")]
         public Input<string>? CopySourceArn { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-datasourcecredentials.html#cfn-quicksight-datasource-datasourcecredentials-credentialpair
-        /// </summary>
         [Input("credentialPair")]
         public Input<Inputs.DataSourceCredentialPairArgs>? CredentialPair { get; set; }
 

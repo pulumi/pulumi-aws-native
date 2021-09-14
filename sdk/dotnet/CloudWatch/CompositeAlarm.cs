@@ -7,55 +7,58 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudWatch
+namespace Pulumi.AwsNative.Cloudwatch
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html
+    /// The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudwatch:CompositeAlarm")]
     public partial class CompositeAlarm : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
         [Output("actionsEnabled")]
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         /// </summary>
         [Output("alarmActions")]
         public Output<ImmutableArray<string>> AlarmActions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        /// The description of the alarm
         /// </summary>
         [Output("alarmDescription")]
         public Output<string?> AlarmDescription { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        /// The name of the Composite Alarm
         /// </summary>
         [Output("alarmName")]
         public Output<string> AlarmName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        /// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         /// </summary>
         [Output("alarmRule")]
         public Output<string> AlarmRule { get; private set; } = null!;
 
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the alarm
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        /// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
         [Output("insufficientDataActions")]
         public Output<ImmutableArray<string>> InsufficientDataActions { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        /// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
         [Output("oKActions")]
         public Output<ImmutableArray<string>> OKActions { get; private set; } = null!;
@@ -106,7 +109,7 @@ namespace Pulumi.AwsNative.CloudWatch
     public sealed class CompositeAlarmArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-actionsenabled
+        /// Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.
         /// </summary>
         [Input("actionsEnabled")]
         public Input<bool>? ActionsEnabled { get; set; }
@@ -115,7 +118,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<string>? _alarmActions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmactions
+        /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Specify each action as an Amazon Resource Name (ARN).
         /// </summary>
         public InputList<string> AlarmActions
         {
@@ -124,19 +127,19 @@ namespace Pulumi.AwsNative.CloudWatch
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmdescription
+        /// The description of the alarm
         /// </summary>
         [Input("alarmDescription")]
         public Input<string>? AlarmDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmname
+        /// The name of the Composite Alarm
         /// </summary>
         [Input("alarmName", required: true)]
         public Input<string> AlarmName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-alarmrule
+        /// Expression which aggregates the state of other Alarms (Metric or Composite Alarms)
         /// </summary>
         [Input("alarmRule", required: true)]
         public Input<string> AlarmRule { get; set; } = null!;
@@ -145,7 +148,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<string>? _insufficientDataActions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-insufficientdataactions
+        /// The actions to execute when this alarm transitions to the INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
         public InputList<string> InsufficientDataActions
         {
@@ -157,7 +160,7 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<string>? _oKActions;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-compositealarm.html#cfn-cloudwatch-compositealarm-okactions
+        /// The actions to execute when this alarm transitions to the OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         /// </summary>
         public InputList<string> OKActions
         {

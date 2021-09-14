@@ -7,43 +7,43 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage
+namespace Pulumi.AwsNative.Mediapackage
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html
+    /// Resource schema for AWS::MediaPackage::PackagingGroup
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackage:PackagingGroup")]
     public partial class PackagingGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the PackagingGroup.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+        /// CDN Authorization
         /// </summary>
         [Output("authorization")]
         public Output<Outputs.PackagingGroupAuthorization?> Authorization { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully qualified domain name for Assets in the PackagingGroup.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Output("egressAccessLogs")]
         public Output<Outputs.PackagingGroupLogConfiguration?> EgressAccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        /// </summary>
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        /// A collection of tags associated with a resource
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.PackagingGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public PackagingGroup(string name, PackagingGroupArgs args, CustomResourceOptions? options = null)
+        public PackagingGroup(string name, PackagingGroupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:mediapackage:PackagingGroup", name, args ?? new PackagingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -91,32 +91,26 @@ namespace Pulumi.AwsNative.MediaPackage
     public sealed class PackagingGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-authorization
+        /// CDN Authorization
         /// </summary>
         [Input("authorization")]
         public Input<Inputs.PackagingGroupAuthorizationArgs>? Authorization { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-egressaccesslogs
+        /// The configuration parameters for egress access logging.
         /// </summary>
         [Input("egressAccessLogs")]
         public Input<Inputs.PackagingGroupLogConfigurationArgs>? EgressAccessLogs { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-id
-        /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
-
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.PackagingGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-packaginggroup.html#cfn-mediapackage-packaginggroup-tags
+        /// A collection of tags associated with a resource
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.PackagingGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.PackagingGroupTagArgs>());
             set => _tags = value;
         }
 

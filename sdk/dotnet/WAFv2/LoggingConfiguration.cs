@@ -7,37 +7,40 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2
+namespace Pulumi.AwsNative.Wafv2
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html
+    /// A WAFv2 Logging Configuration Resource Provider
     /// </summary>
     [AwsNativeResourceType("aws-native:wafv2:LoggingConfiguration")]
     public partial class LoggingConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
+        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
         /// </summary>
         [Output("logDestinationConfigs")]
         public Output<ImmutableArray<string>> LogDestinationConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
+        /// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         /// </summary>
         [Output("loggingFilter")]
-        public Output<Union<System.Text.Json.JsonElement, string>?> LoggingFilter { get; private set; } = null!;
+        public Output<object?> LoggingFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// Indicates whether the logging configuration was created by AWS Firewall Manager, as part of an AWS WAF policy configuration. If true, only Firewall Manager can modify or delete the configuration.
+        /// </summary>
         [Output("managedByFirewallManager")]
         public Output<bool> ManagedByFirewallManager { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+        /// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         /// </summary>
         [Output("redactedFields")]
         public Output<ImmutableArray<Outputs.LoggingConfigurationFieldToMatch>> RedactedFields { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+        /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -91,7 +94,7 @@ namespace Pulumi.AwsNative.WAFv2
         private InputList<string>? _logDestinationConfigs;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-logdestinationconfigs
+        /// The Amazon Kinesis Data Firehose Amazon Resource Name (ARNs) that you want to associate with the web ACL.
         /// </summary>
         public InputList<string> LogDestinationConfigs
         {
@@ -100,16 +103,16 @@ namespace Pulumi.AwsNative.WAFv2
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-loggingfilter
+        /// Filtering that specifies which web requests are kept in the logs and which are dropped. You can filter on the rule action and on the web request labels that were applied by matching rules during web ACL evaluation.
         /// </summary>
         [Input("loggingFilter")]
-        public InputUnion<System.Text.Json.JsonElement, string>? LoggingFilter { get; set; }
+        public Input<object>? LoggingFilter { get; set; }
 
         [Input("redactedFields")]
         private InputList<Inputs.LoggingConfigurationFieldToMatchArgs>? _redactedFields;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-redactedfields
+        /// The parts of the request that you want to keep out of the logs. For example, if you redact the HEADER field, the HEADER field in the firehose will be xxx.
         /// </summary>
         public InputList<Inputs.LoggingConfigurationFieldToMatchArgs> RedactedFields
         {
@@ -118,7 +121,7 @@ namespace Pulumi.AwsNative.WAFv2
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafv2-loggingconfiguration.html#cfn-wafv2-loggingconfiguration-resourcearn
+        /// The Amazon Resource Name (ARN) of the web ACL that you want to associate with LogDestinationConfigs.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;

@@ -7,35 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.NimbleStudio.Inputs
+namespace Pulumi.AwsNative.Nimblestudio.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html
-    /// </summary>
     public sealed class StudioComponentActiveDirectoryConfigurationArgs : Pulumi.ResourceArgs
     {
         [Input("computerAttributes")]
         private InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs>? _computerAttributes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-computerattributes
-        /// </summary>
         public InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs> ComputerAttributes
         {
             get => _computerAttributes ?? (_computerAttributes = new InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs>());
             set => _computerAttributes = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-directoryid
-        /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-studiocomponent-activedirectoryconfiguration.html#cfn-nimblestudio-studiocomponent-activedirectoryconfiguration-organizationalunitdistinguishedname
-        /// </summary>
         [Input("organizationalUnitDistinguishedName")]
         public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
 

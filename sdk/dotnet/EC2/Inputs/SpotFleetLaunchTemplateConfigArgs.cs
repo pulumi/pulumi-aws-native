@@ -7,26 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EC2.Inputs
+namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html
-    /// </summary>
     public sealed class SpotFleetLaunchTemplateConfigArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-launchtemplatespecification
-        /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.SpotFleetFleetLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
 
         [Input("overrides")]
         private InputList<Inputs.SpotFleetLaunchTemplateOverridesArgs>? _overrides;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html#cfn-ec2-spotfleet-launchtemplateconfig-overrides
-        /// </summary>
         public InputList<Inputs.SpotFleetLaunchTemplateOverridesArgs> Overrides
         {
             get => _overrides ?? (_overrides = new InputList<Inputs.SpotFleetLaunchTemplateOverridesArgs>());

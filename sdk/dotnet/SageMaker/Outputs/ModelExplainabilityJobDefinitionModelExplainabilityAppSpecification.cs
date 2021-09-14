@@ -7,25 +7,25 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker.Outputs
+namespace Pulumi.AwsNative.Sagemaker.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html
+    /// Container image configuration object for the monitoring job.
     /// </summary>
     [OutputType]
     public sealed class ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-configuri
+        /// The S3 URI to an analysis configuration file
         /// </summary>
         public readonly string ConfigUri;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-environment
+        /// Sets the environment variables in the Docker container
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Environment;
+        public readonly object? Environment;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html#cfn-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification-imageuri
+        /// The container image to be run by the monitoring job.
         /// </summary>
         public readonly string ImageUri;
 
@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification(
             string configUri,
 
-            ImmutableDictionary<string, string>? environment,
+            object? environment,
 
             string imageUri)
         {

@@ -7,88 +7,73 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.XRay.Inputs
+namespace Pulumi.AwsNative.Xray.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html
-    /// </summary>
     public sealed class SamplingRuleSamplingRuleUpdateArgs : Pulumi.ResourceArgs
     {
-        [Input("attributes")]
-        private InputMap<string>? _attributes;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-attributes
+        /// Matches attributes derived from the request.
         /// </summary>
-        public InputMap<string> Attributes
-        {
-            get => _attributes ?? (_attributes = new InputMap<string>());
-            set => _attributes = value;
-        }
+        [Input("attributes")]
+        public Input<object>? Attributes { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-fixedrate
+        /// The percentage of matching requests to instrument, after the reservoir is exhausted.
         /// </summary>
         [Input("fixedRate")]
         public Input<double>? FixedRate { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-httpmethod
+        /// Matches the HTTP method from a request URL.
         /// </summary>
         [Input("hTTPMethod")]
         public Input<string>? HTTPMethod { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-host
+        /// Matches the hostname from a request URL.
         /// </summary>
         [Input("host")]
         public Input<string>? Host { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-priority
+        /// The priority of the sampling rule.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-reservoirsize
+        /// A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
         /// </summary>
         [Input("reservoirSize")]
         public Input<int>? ReservoirSize { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-resourcearn
+        /// Matches the ARN of the AWS resource on which the service runs.
         /// </summary>
         [Input("resourceARN")]
         public Input<string>? ResourceARN { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulearn
-        /// </summary>
         [Input("ruleARN")]
         public Input<string>? RuleARN { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-rulename
-        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicename
+        /// Matches the name that the service uses to identify itself in segments.
         /// </summary>
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-servicetype
+        /// Matches the origin that the service uses to identify its type in segments.
         /// </summary>
         [Input("serviceType")]
         public Input<string>? ServiceType { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingruleupdate.html#cfn-xray-samplingrule-samplingruleupdate-urlpath
+        /// Matches the path from a request URL.
         /// </summary>
         [Input("uRLPath")]
         public Input<string>? URLPath { get; set; }

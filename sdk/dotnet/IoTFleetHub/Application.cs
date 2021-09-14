@@ -7,61 +7,85 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoTFleetHub
+namespace Pulumi.AwsNative.Iotfleethub
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html
+    /// Resource schema for AWS::IoTFleetHub::Application
     /// </summary>
     [AwsNativeResourceType("aws-native:iotfleethub:Application")]
     public partial class Application : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// When the Application was created
+        /// </summary>
         [Output("applicationCreationDate")]
         public Output<int> ApplicationCreationDate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+        /// Application Description, should be between 1 and 2048 characters.
         /// </summary>
         [Output("applicationDescription")]
         public Output<string?> ApplicationDescription { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// When the Application was last updated
+        /// </summary>
         [Output("applicationLastUpdateDate")]
         public Output<int> ApplicationLastUpdateDate { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+        /// Application Name, should be between 1 and 256 characters.
         /// </summary>
         [Output("applicationName")]
         public Output<string> ApplicationName { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the application.
+        /// </summary>
         [Output("applicationState")]
         public Output<string> ApplicationState { get; private set; } = null!;
 
+        /// <summary>
+        /// The URL of the application.
+        /// </summary>
         [Output("applicationUrl")]
         public Output<string> ApplicationUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// A message indicating why Create or Delete Application failed.
+        /// </summary>
         [Output("errorMessage")]
         public Output<string> ErrorMessage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+        /// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS SSO application generated client ID (used with AWS SSO APIs).
+        /// </summary>
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        /// A list of key-value pairs that contain metadata for the application.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ApplicationTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,32 +133,32 @@ namespace Pulumi.AwsNative.IoTFleetHub
     public sealed class ApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationdescription
+        /// Application Description, should be between 1 and 2048 characters.
         /// </summary>
         [Input("applicationDescription")]
         public Input<string>? ApplicationDescription { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-applicationname
+        /// Application Name, should be between 1 and 256 characters.
         /// </summary>
         [Input("applicationName", required: true)]
         public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-rolearn
+        /// The ARN of the role that the web application assumes when it interacts with AWS IoT Core. For more info on configuring this attribute, see https://docs.aws.amazon.com/iot/latest/apireference/API_iotfleethub_CreateApplication.html#API_iotfleethub_CreateApplication_RequestSyntax
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ApplicationTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleethub-application.html#cfn-iotfleethub-application-tags
+        /// A list of key-value pairs that contain metadata for the application.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ApplicationTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ApplicationTagArgs>());
             set => _tags = value;
         }
 

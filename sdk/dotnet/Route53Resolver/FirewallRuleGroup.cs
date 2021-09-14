@@ -7,61 +7,85 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.Route53Resolver
+namespace Pulumi.AwsNative.Route53resolver
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html
+    /// Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
     /// </summary>
     [AwsNativeResourceType("aws-native:route53resolver:FirewallRuleGroup")]
     public partial class FirewallRuleGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Arn
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The id of the creator request.
+        /// </summary>
         [Output("creatorRequestId")]
         public Output<string> CreatorRequestId { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+        /// FirewallRules
         /// </summary>
         [Output("firewallRules")]
         public Output<ImmutableArray<Outputs.FirewallRuleGroupFirewallRule>> FirewallRules { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
+        /// <summary>
+        /// Rfc3339TimeString
+        /// </summary>
         [Output("modificationTime")]
         public Output<string> ModificationTime { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+        /// FirewallRuleGroupName
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// AccountId
+        /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        /// <summary>
+        /// Count
+        /// </summary>
         [Output("ruleCount")]
         public Output<int> RuleCount { get; private set; } = null!;
 
+        /// <summary>
+        /// ShareStatus, possible values are NOT_SHARED, SHARED_WITH_ME, SHARED_BY_ME.
+        /// </summary>
         [Output("shareStatus")]
         public Output<string> ShareStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// ResolverFirewallRuleGroupAssociation, possible values are COMPLETE, DELETING, UPDATING, and INACTIVE_OWNER_ACCOUNT_CLOSED.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// FirewallRuleGroupStatus
+        /// </summary>
         [Output("statusMessage")]
         public Output<string> StatusMessage { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        /// Tags
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.FirewallRuleGroupTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -112,7 +136,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         private InputList<Inputs.FirewallRuleGroupFirewallRuleArgs>? _firewallRules;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-firewallrules
+        /// FirewallRules
         /// </summary>
         public InputList<Inputs.FirewallRuleGroupFirewallRuleArgs> FirewallRules
         {
@@ -121,20 +145,20 @@ namespace Pulumi.AwsNative.Route53Resolver
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-name
+        /// FirewallRuleGroupName
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.FirewallRuleGroupTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-firewallrulegroup.html#cfn-route53resolver-firewallrulegroup-tags
+        /// Tags
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.FirewallRuleGroupTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.FirewallRuleGroupTagArgs>());
             set => _tags = value;
         }
 

@@ -7,37 +7,28 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.ApiGateway.Inputs
+namespace Pulumi.AwsNative.Apigateway.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
-    /// </summary>
     public sealed class UsagePlanApiStageArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
+        /// The ID of an API that is in the specified Stage property that you want to associate with the usage plan.
         /// </summary>
         [Input("apiId")]
         public Input<string>? ApiId { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
+        /// The name of the stage to associate with the usage plan.
         /// </summary>
         [Input("stage")]
         public Input<string>? Stage { get; set; }
 
-        [Input("throttle")]
-        private InputMap<Inputs.UsagePlanThrottleSettingsArgs>? _throttle;
-
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-throttle
+        /// Map containing method-level throttling information for an API stage in a usage plan. The key for the map is the path and method for which to configure custom throttling, for example, '/pets/GET'. Duplicates are not allowed.
         /// </summary>
-        public InputMap<Inputs.UsagePlanThrottleSettingsArgs> Throttle
-        {
-            get => _throttle ?? (_throttle = new InputMap<Inputs.UsagePlanThrottleSettingsArgs>());
-            set => _throttle = value;
-        }
+        [Input("throttle")]
+        public Input<object>? Throttle { get; set; }
 
         public UsagePlanApiStageArgs()
         {

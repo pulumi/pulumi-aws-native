@@ -11,18 +11,12 @@ namespace Pulumi.AwsNative.Macie.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html
+    /// Returned by ListHandler representing filter name and ID.
     /// </summary>
     [OutputType]
     public sealed class FindingsFilterFindingsFilterListItem
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-id
-        /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingsfilterlistitem.html#cfn-macie-findingsfilter-findingsfilterlistitem-name
-        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

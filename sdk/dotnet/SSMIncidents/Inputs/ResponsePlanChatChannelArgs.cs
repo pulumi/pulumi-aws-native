@@ -7,20 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SSMIncidents.Inputs
+namespace Pulumi.AwsNative.Ssmincidents.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html
+    /// The chat channel configuration.
     /// </summary>
     public sealed class ResponsePlanChatChannelArgs : Pulumi.ResourceArgs
     {
         [Input("chatbotSns")]
         private InputList<string>? _chatbotSns;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-chatchannel.html#cfn-ssmincidents-responseplan-chatchannel-chatbotsns
-        /// </summary>
         public InputList<string> ChatbotSns
         {
             get => _chatbotSns ?? (_chatbotSns = new InputList<string>());

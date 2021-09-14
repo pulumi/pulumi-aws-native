@@ -7,22 +7,22 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.DataSync
+namespace Pulumi.AwsNative.Datasync
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html
+    /// Resource schema for AWS::DataSync::Task.
     /// </summary>
     [AwsNativeResourceType("aws-native:datasync:Task")]
     public partial class Task : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+        /// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         /// </summary>
         [Output("cloudWatchLogGroupArn")]
         public Output<string?> CloudWatchLogGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+        /// The ARN of an AWS storage resource's location.
         /// </summary>
         [Output("destinationLocationArn")]
         public Output<string> DestinationLocationArn { get; private set; } = null!;
@@ -30,44 +30,38 @@ namespace Pulumi.AwsNative.DataSync
         [Output("destinationNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> DestinationNetworkInterfaceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Errors that AWS DataSync encountered during execution of the task. You can use this error code to help troubleshoot issues.
+        /// </summary>
         [Output("errorCode")]
         public Output<string> ErrorCode { get; private set; } = null!;
 
+        /// <summary>
+        /// Detailed description of an error that was encountered during the task execution.
+        /// </summary>
         [Output("errorDetail")]
         public Output<string> ErrorDetail { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        /// </summary>
         [Output("excludes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        /// </summary>
         [Output("includes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+        /// The name of a task. This value is a text reference that is used to identify the task in the console.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        /// </summary>
         [Output("options")]
         public Output<Outputs.TaskOptions?> Options { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        /// </summary>
         [Output("schedule")]
         public Output<Outputs.TaskTaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+        /// The ARN of the source location for the task.
         /// </summary>
         [Output("sourceLocationArn")]
         public Output<string> SourceLocationArn { get; private set; } = null!;
@@ -75,15 +69,21 @@ namespace Pulumi.AwsNative.DataSync
         [Output("sourceNetworkInterfaceArns")]
         public Output<ImmutableArray<string>> SourceNetworkInterfaceArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the task that was described.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.TaskTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the task.
+        /// </summary>
         [Output("taskArn")]
         public Output<string> TaskArn { get; private set; } = null!;
 
@@ -133,23 +133,19 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class TaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-cloudwatchloggrouparn
+        /// The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         /// </summary>
         [Input("cloudWatchLogGroupArn")]
         public Input<string>? CloudWatchLogGroupArn { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-destinationlocationarn
+        /// The ARN of an AWS storage resource's location.
         /// </summary>
         [Input("destinationLocationArn", required: true)]
         public Input<string> DestinationLocationArn { get; set; } = null!;
 
         [Input("excludes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _excludes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-excludes
-        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Excludes
         {
             get => _excludes ?? (_excludes = new InputList<Inputs.TaskFilterRuleArgs>());
@@ -158,10 +154,6 @@ namespace Pulumi.AwsNative.DataSync
 
         [Input("includes")]
         private InputList<Inputs.TaskFilterRuleArgs>? _includes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-includes
-        /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Includes
         {
             get => _includes ?? (_includes = new InputList<Inputs.TaskFilterRuleArgs>());
@@ -169,38 +161,32 @@ namespace Pulumi.AwsNative.DataSync
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-name
+        /// The name of a task. This value is a text reference that is used to identify the task in the console.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-options
-        /// </summary>
         [Input("options")]
         public Input<Inputs.TaskOptionsArgs>? Options { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-schedule
-        /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskTaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-sourcelocationarn
+        /// The ARN of the source location for the task.
         /// </summary>
         [Input("sourceLocationArn", required: true)]
         public Input<string> SourceLocationArn { get; set; } = null!;
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.TaskTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-task.html#cfn-datasync-task-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.TaskTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.TaskTagArgs>());
             set => _tags = value;
         }
 

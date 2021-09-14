@@ -7,35 +7,17 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.KinesisFirehose.Inputs
+namespace Pulumi.AwsNative.Kinesisfirehose.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html
-    /// </summary>
     public sealed class DeliveryStreamOpenXJsonSerDeArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-caseinsensitive
-        /// </summary>
         [Input("caseInsensitive")]
         public Input<bool>? CaseInsensitive { get; set; }
 
         [Input("columnToJsonKeyMappings")]
-        private InputMap<string>? _columnToJsonKeyMappings;
+        public Input<object>? ColumnToJsonKeyMappings { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-columntojsonkeymappings
-        /// </summary>
-        public InputMap<string> ColumnToJsonKeyMappings
-        {
-            get => _columnToJsonKeyMappings ?? (_columnToJsonKeyMappings = new InputMap<string>());
-            set => _columnToJsonKeyMappings = value;
-        }
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-openxjsonserde.html#cfn-kinesisfirehose-deliverystream-openxjsonserde-convertdotsinjsonkeystounderscores
-        /// </summary>
         [Input("convertDotsInJsonKeysToUnderscores")]
         public Input<bool>? ConvertDotsInJsonKeysToUnderscores { get; set; }
 

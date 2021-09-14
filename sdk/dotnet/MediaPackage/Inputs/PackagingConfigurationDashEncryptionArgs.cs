@@ -7,17 +7,14 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Inputs
+namespace Pulumi.AwsNative.Mediapackage.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html
+    /// A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
     /// </summary>
     public sealed class PackagingConfigurationDashEncryptionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-dashencryption.html#cfn-mediapackage-packagingconfiguration-dashencryption-spekekeyprovider
-        /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.PackagingConfigurationSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;
 

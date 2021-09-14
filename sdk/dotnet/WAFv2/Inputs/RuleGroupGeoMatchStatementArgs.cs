@@ -7,29 +7,19 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.WAFv2.Inputs
+namespace Pulumi.AwsNative.Wafv2.Inputs
 {
 
-    /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html
-    /// </summary>
     public sealed class RuleGroupGeoMatchStatementArgs : Pulumi.ResourceArgs
     {
         [Input("countryCodes")]
         private InputList<string>? _countryCodes;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-countrycodes
-        /// </summary>
         public InputList<string> CountryCodes
         {
             get => _countryCodes ?? (_countryCodes = new InputList<string>());
             set => _countryCodes = value;
         }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-geomatchstatement.html#cfn-wafv2-rulegroup-geomatchstatement-forwardedipconfig
-        /// </summary>
         [Input("forwardedIPConfig")]
         public Input<Inputs.RuleGroupForwardedIPConfigurationArgs>? ForwardedIPConfig { get; set; }
 

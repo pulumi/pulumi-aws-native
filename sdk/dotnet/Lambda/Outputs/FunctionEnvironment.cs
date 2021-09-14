@@ -11,18 +11,18 @@ namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
+    /// A function's environment variable settings.
     /// </summary>
     [OutputType]
     public sealed class FunctionEnvironment
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+        /// Environment variable key-value pairs.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Variables;
+        public readonly object? Variables;
 
         [OutputConstructor]
-        private FunctionEnvironment(ImmutableDictionary<string, string>? variables)
+        private FunctionEnvironment(object? variables)
         {
             Variables = variables;
         }

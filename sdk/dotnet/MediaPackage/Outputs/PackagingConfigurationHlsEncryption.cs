@@ -7,26 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.MediaPackage.Outputs
+namespace Pulumi.AwsNative.Mediapackage.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html
+    /// An HTTP Live Streaming (HLS) encryption configuration.
     /// </summary>
     [OutputType]
     public sealed class PackagingConfigurationHlsEncryption
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-constantinitializationvector
+        /// An HTTP Live Streaming (HLS) encryption configuration.
         /// </summary>
         public readonly string? ConstantInitializationVector;
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-encryptionmethod
+        /// The encryption method to use.
         /// </summary>
         public readonly string? EncryptionMethod;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-hlsencryption.html#cfn-mediapackage-packagingconfiguration-hlsencryption-spekekeyprovider
-        /// </summary>
         public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 
         [OutputConstructor]

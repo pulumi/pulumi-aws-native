@@ -7,16 +7,16 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.IoT.Inputs
+namespace Pulumi.AwsNative.Iot.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html
+    /// Parameters to define a mitigation action that moves devices associated with a certificate to one or more specified thing groups, typically for quarantine.
     /// </summary>
     public sealed class MitigationActionAddThingsToThingGroupParamsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-overridedynamicgroups
+        /// Specifies if this mitigation action can move the things that triggered the mitigation action out of one or more dynamic thing groups.
         /// </summary>
         [Input("overrideDynamicGroups")]
         public Input<bool>? OverrideDynamicGroups { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<string>? _thingGroupNames;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-mitigationaction-addthingstothinggroupparams.html#cfn-iot-mitigationaction-addthingstothinggroupparams-thinggroupnames
+        /// The list of groups to which you want to add the things that triggered the mitigation action.
         /// </summary>
         public InputList<string> ThingGroupNames
         {

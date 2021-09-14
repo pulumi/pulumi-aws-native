@@ -7,38 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.AppRunner.Inputs
+namespace Pulumi.AwsNative.Apprunner.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html
+    /// Code Configuration Values
     /// </summary>
     public sealed class ServiceCodeConfigurationValuesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-buildcommand
+        /// Build Command
         /// </summary>
         [Input("buildCommand")]
         public Input<string>? BuildCommand { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-port
+        /// Port
         /// </summary>
         [Input("port")]
         public Input<string>? Port { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtime
+        /// Runtime
         /// </summary>
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
 
         [Input("runtimeEnvironmentVariables")]
         private InputList<Inputs.ServiceKeyValuePairArgs>? _runtimeEnvironmentVariables;
-
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-runtimeenvironmentvariables
-        /// </summary>
         public InputList<Inputs.ServiceKeyValuePairArgs> RuntimeEnvironmentVariables
         {
             get => _runtimeEnvironmentVariables ?? (_runtimeEnvironmentVariables = new InputList<Inputs.ServiceKeyValuePairArgs>());
@@ -46,7 +42,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfigurationvalues.html#cfn-apprunner-service-codeconfigurationvalues-startcommand
+        /// Start Command
         /// </summary>
         [Input("startCommand")]
         public Input<string>? StartCommand { get; set; }

@@ -7,29 +7,23 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
+namespace Pulumi.AwsNative.S3objectlambda.Outputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html
+    /// Configuration to define what content transformation will be applied on which S3 Action.
     /// </summary>
     [OutputType]
     public sealed class AccessPointTransformationConfiguration
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-actions
-        /// </summary>
         public readonly ImmutableArray<string> Actions;
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html#cfn-s3objectlambda-accesspoint-transformationconfiguration-contenttransformation
-        /// </summary>
-        public readonly Union<System.Text.Json.JsonElement, string>? ContentTransformation;
+        public readonly object? ContentTransformation;
 
         [OutputConstructor]
         private AccessPointTransformationConfiguration(
             ImmutableArray<string> actions,
 
-            Union<System.Text.Json.JsonElement, string>? contentTransformation)
+            object? contentTransformation)
         {
             Actions = actions;
             ContentTransformation = contentTransformation;

@@ -7,79 +7,61 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.SageMaker
+namespace Pulumi.AwsNative.Sagemaker
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html
+    /// Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:ModelBiasJobDefinition")]
     public partial class ModelBiasJobDefinition : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time at which the job definition was created.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of job definition.
+        /// </summary>
         [Output("jobDefinitionArn")]
         public Output<string> JobDefinitionArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-        /// </summary>
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-        /// </summary>
         [Output("jobResources")]
         public Output<Outputs.ModelBiasJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-        /// </summary>
         [Output("modelBiasAppSpecification")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasAppSpecification> ModelBiasAppSpecification { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-        /// </summary>
         [Output("modelBiasBaselineConfig")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasBaselineConfig?> ModelBiasBaselineConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
-        /// </summary>
         [Output("modelBiasJobInput")]
         public Output<Outputs.ModelBiasJobDefinitionModelBiasJobInput> ModelBiasJobInput { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
-        /// </summary>
         [Output("modelBiasJobOutputConfig")]
         public Output<Outputs.ModelBiasJobDefinitionMonitoringOutputConfig> ModelBiasJobOutputConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-        /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.ModelBiasJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
-        /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.ModelBiasJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
-        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ModelBiasJobDefinitionTag>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -126,69 +108,45 @@ namespace Pulumi.AwsNative.SageMaker
 
     public sealed class ModelBiasJobDefinitionArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobdefinitionname
-        /// </summary>
         [Input("jobDefinitionName")]
         public Input<string>? JobDefinitionName { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-jobresources
-        /// </summary>
         [Input("jobResources", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasappspecification
-        /// </summary>
         [Input("modelBiasAppSpecification", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasAppSpecificationArgs> ModelBiasAppSpecification { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig
-        /// </summary>
         [Input("modelBiasBaselineConfig")]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasBaselineConfigArgs>? ModelBiasBaselineConfig { get; set; }
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjobinput
-        /// </summary>
         [Input("modelBiasJobInput", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionModelBiasJobInputArgs> ModelBiasJobInput { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-modelbiasjoboutputconfig
-        /// </summary>
         [Input("modelBiasJobOutputConfig", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringOutputConfigArgs> ModelBiasJobOutputConfig { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-networkconfig
-        /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.ModelBiasJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-rolearn
+        /// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
-        /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-stoppingcondition
-        /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.ModelBiasJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }
 
         [Input("tags")]
-        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        private InputList<Inputs.ModelBiasJobDefinitionTagArgs>? _tags;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html#cfn-sagemaker-modelbiasjobdefinition-tags
+        /// An array of key-value pairs to apply to this resource.
         /// </summary>
-        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        public InputList<Inputs.ModelBiasJobDefinitionTagArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ModelBiasJobDefinitionTagArgs>());
             set => _tags = value;
         }
 

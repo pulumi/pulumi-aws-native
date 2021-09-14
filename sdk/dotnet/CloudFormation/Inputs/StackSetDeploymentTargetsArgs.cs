@@ -7,11 +7,11 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.CloudFormation.Inputs
+namespace Pulumi.AwsNative.Cloudformation.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html
+    ///  The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
     /// </summary>
     public sealed class StackSetDeploymentTargetsArgs : Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-accounts
+        /// AWS accounts that you want to create stack instances in the specified Region(s) for.
         /// </summary>
         public InputList<string> Accounts
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.CloudFormation.Inputs
         private InputList<string>? _organizationalUnitIds;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-deploymenttargets.html#cfn-cloudformation-stackset-deploymenttargets-organizationalunitids
+        /// The organization root ID or organizational unit (OU) IDs to which StackSets deploys.
         /// </summary>
         public InputList<string> OrganizationalUnitIds
         {

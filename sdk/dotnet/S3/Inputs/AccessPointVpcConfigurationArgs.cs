@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.S3.Inputs
 {
 
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html
+    /// The Virtual Private Cloud (VPC) configuration for a bucket access point.
     /// </summary>
     public sealed class AccessPointVpcConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html#cfn-s3-accesspoint-vpcconfiguration-vpcid
+        /// If this field is specified, this access point will only allow connections from the specified VPC ID.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

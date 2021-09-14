@@ -7,34 +7,34 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AwsNative.EMR
+namespace Pulumi.AwsNative.Emr
 {
     /// <summary>
-    /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
     [AwsNativeResourceType("aws-native:emr:StudioSessionMapping")]
     public partial class StudioSessionMapping : Pulumi.CustomResource
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
+        /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         /// </summary>
         [Output("identityName")]
         public Output<string> IdentityName { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
+        /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
+        /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         /// </summary>
         [Output("sessionPolicyArn")]
         public Output<string> SessionPolicyArn { get; private set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -85,25 +85,25 @@ namespace Pulumi.AwsNative.EMR
     public sealed class StudioSessionMappingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identityname
+        /// The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.
         /// </summary>
         [Input("identityName", required: true)]
         public Input<string> IdentityName { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-identitytype
+        /// Specifies whether the identity to map to the Studio is a user or a group.
         /// </summary>
         [Input("identityType", required: true)]
         public Input<string> IdentityType { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-sessionpolicyarn
+        /// The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. Session policies refine Studio user permissions without the need to use multiple IAM user roles.
         /// </summary>
         [Input("sessionPolicyArn", required: true)]
         public Input<string> SessionPolicyArn { get; set; } = null!;
 
         /// <summary>
-        /// http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-studiosessionmapping.html#cfn-emr-studiosessionmapping-studioid
+        /// The ID of the Amazon EMR Studio to which the user or group will be mapped.
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;
